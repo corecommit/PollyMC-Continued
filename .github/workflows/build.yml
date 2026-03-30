@@ -15,6 +15,9 @@ jobs:
   build-windows:
     name: Windows (MinGW)
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -44,19 +47,19 @@ jobs:
             mingw-w64-x86_64-openssl
             mingw-w64-x86_64-libpng
             mingw-w64-x86_64-lz4
-            mingw-w64-x86_64-lzma
+            mingw-w64-x86_64-xz
             mingw-w64-x86_64-bzip2
             mingw-w64-x86_64-zstd
             mingw-w64-x86_64-brotli
             mingw-w64-x86_64-nghttp2
             mingw-w64-x86_64-libssh2
             mingw-w64-x86_64-expat
-            mingw-w64-x86_64-iconv
+            mingw-w64-x86_64-libiconv
             mingw-w64-x86_64-libb2
             mingw-w64-x86_64-libidn2
+            mingw-w64-x86_64-sqlite3
 
       - name: Configure
-        shell: msys2 {0}
         run: |
           cmake -G Ninja \
             -DCMAKE_BUILD_TYPE=Release \
@@ -66,42 +69,30 @@ jobs:
             -S . -B build
 
       - name: Build
-        shell: msys2 {0}
         run: cmake --build build -j$(nproc)
 
-      - name: Deploy Qt DLLs
-        shell: msys2 {0}
+      - name: Deploy
         run: |
           cd build
           windeployqt6 pollymc.exe
-
-      - name: Copy MinGW DLLs
-        shell: msys2 {0}
-        run: |
-          for dll in $(ldd build/pollymc.exe | grep "/mingw64/bin/" | awk '{print $1}'); do
-            cp /mingw64/bin/$dll build/ 2>/dev/null || true
+          for dll in $(ldd pollymc.exe | grep "/mingw64/bin/" | awk '{print $1}'); do
+            cp /mingw64/bin/$dll . 2>/dev/null || true
           done
-          for f in build/platforms/*.dll build/tls/*.dll; do
+          for f in platforms/*.dll tls/*.dll; do
             for dll in $(ldd "$f" 2>/dev/null | grep "/mingw64/bin/" | awk '{print $1}'); do
-              cp /mingw64/bin/$dll build/ 2>/dev/null || true
+              cp /mingw64/bin/$dll . 2>/dev/null || true
             done
           done
 
-      - name: Package
-        shell: msys2 {0}
-        run: |
-          mkdir -p dist
-          cp -r build/pollymc.exe build/pollymc_filelink.exe build/*.dll build/jars build/platforms build/tls build/styles build/generic build/iconengines build/imageformats build/networkinformation build/libraries build/translations dist/
-
-      - name: Upload Windows Artifact
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Windows
-          path: dist/
+          path: build/
 
   build-linux:
     name: Linux
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
@@ -111,13 +102,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            build-essential cmake ninja-build \
+            build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
+            qt6-base-dev-tools libgl-dev \
             extra-cmake-modules \
-            libqt6opengl6-dev libqt6dbus6-dev \
             libtomlplusplus-dev libcmark-dev libqrencode-dev \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
             libcurl4-openssl-dev libssl-dev libpng-dev \
+            liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
             openjdk-21-jdk
 
       - name: Configure
@@ -134,53 +126,20 @@ jobs:
 
       - name: Package
         run: |
-          cd build
-          make install DESTDIR=$GITHUB_WORKSPACE/appdir
-          mkdir -p $GITHUB_WORKSPACE/appdir/usr/share/applications
-          mkdir -p $GITHUB_WORKSPACE/appdir/usr/share/icons/hicolor/256x256/apps
+          cd build && make install DESTDIR=$GITHUB_WORKSPACE/appdir
+          mkdir -p $GITHUB_WORKSPACE/appdir/usr/share/{applications,icons/hicolor/256x256/apps}
           cp ../program_info/org.pollymc.PollyMC.desktop.in $GITHUB_WORKSPACE/appdir/usr/share/applications/org.pollymc.PollyMC.desktop
           cp ../program_info/org.pollymc.PollyMC_256.png $GITHUB_WORKSPACE/appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
 
-      - name: Upload Linux Artifact
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Linux
           path: appdir/
 
-  build-macos:
-    name: macOS
-    runs-on: macos-14
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Install Dependencies
-        run: |
-          brew install qt@6 cmake ninja extra-cmake-modules
-          brew install tomlplusplus cmark quazip libarchive
-
-      - name: Configure
-        run: |
-          cmake -G Ninja \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_PREFIX_PATH="$(brew --prefix qt@6)" \
-            -DCMAKE_CXX_FLAGS="-Wno-error" \
-            -DCMAKE_C_FLAGS="-Wno-error" \
-            -S . -B build
-
-      - name: Build
-        run: cmake --build build -j$(sysctl -n hw.logicalcpu)
-
-      - name: Upload macOS Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: PollyMC-Continued-macOS
-          path: build/pollymc.app/
-
   release:
     name: Create Release
-    needs: [build-windows, build-linux, build-macos]
+    needs: [build-windows, build-linux]
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     permissions:
@@ -192,7 +151,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            PollyMC-Continued-Windows/*
-            PollyMC-Continued-Linux/*
-            PollyMC-Continued-macOS/*
+            PollyMC-Continued-Windows/**
           generate_release_notes: true
