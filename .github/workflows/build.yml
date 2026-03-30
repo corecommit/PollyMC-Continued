@@ -1,0 +1,198 @@
+name: Build PollyMC-Continued
+
+on:
+  push:
+    branches: [main, develop]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+env:
+  CMAKE_BUILD_TYPE: Release
+  CMAKE_GENERATOR: Ninja
+
+jobs:
+  build-windows:
+    name: Windows (MinGW)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-cmake
+            mingw-w64-x86_64-ninja
+            mingw-w64-x86_64-qt6-base
+            mingw-w64-x86_64-qt6-svg
+            mingw-w64-x86_64-qt6-5compat
+            mingw-w64-x86_64-qt6-networkauth
+            mingw-w64-x86_64-extra-cmake-modules
+            mingw-w64-x86_64-tomlplusplus
+            mingw-w64-x86_64-cmark
+            mingw-w64-x86_64-qrencode
+            mingw-w64-x86_64-quazip-qt6
+            mingw-w64-x86_64-libarchive
+            mingw-w64-x86_64-zlib
+            mingw-w64-x86_64-curl
+            mingw-w64-x86_64-openssl
+            mingw-w64-x86_64-libpng
+            mingw-w64-x86_64-lz4
+            mingw-w64-x86_64-lzma
+            mingw-w64-x86_64-bzip2
+            mingw-w64-x86_64-zstd
+            mingw-w64-x86_64-brotli
+            mingw-w64-x86_64-nghttp2
+            mingw-w64-x86_64-libssh2
+            mingw-w64-x86_64-expat
+            mingw-w64-x86_64-iconv
+            mingw-w64-x86_64-libb2
+            mingw-w64-x86_64-libidn2
+
+      - name: Configure
+        shell: msys2 {0}
+        run: |
+          cmake -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=install \
+            -DCMAKE_CXX_FLAGS="-Wno-error" \
+            -DCMAKE_C_FLAGS="-Wno-error" \
+            -S . -B build
+
+      - name: Build
+        shell: msys2 {0}
+        run: cmake --build build -j$(nproc)
+
+      - name: Deploy Qt DLLs
+        shell: msys2 {0}
+        run: |
+          cd build
+          windeployqt6 pollymc.exe
+
+      - name: Copy MinGW DLLs
+        shell: msys2 {0}
+        run: |
+          for dll in $(ldd build/pollymc.exe | grep "/mingw64/bin/" | awk '{print $1}'); do
+            cp /mingw64/bin/$dll build/ 2>/dev/null || true
+          done
+          for f in build/platforms/*.dll build/tls/*.dll; do
+            for dll in $(ldd "$f" 2>/dev/null | grep "/mingw64/bin/" | awk '{print $1}'); do
+              cp /mingw64/bin/$dll build/ 2>/dev/null || true
+            done
+          done
+
+      - name: Package
+        shell: msys2 {0}
+        run: |
+          mkdir -p dist
+          cp -r build/pollymc.exe build/pollymc_filelink.exe build/*.dll build/jars build/platforms build/tls build/styles build/generic build/iconengines build/imageformats build/networkinformation build/libraries build/translations dist/
+
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PollyMC-Continued-Windows
+          path: dist/
+
+  build-linux:
+    name: Linux
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential cmake ninja-build \
+            qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
+            extra-cmake-modules \
+            libqt6opengl6-dev libqt6dbus6-dev \
+            libtomlplusplus-dev libcmark-dev libqrencode-dev \
+            libquazip1-qt6-dev libarchive-dev zlib1g-dev \
+            libcurl4-openssl-dev libssl-dev libpng-dev \
+            openjdk-21-jdk
+
+      - name: Configure
+        run: |
+          cmake -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DCMAKE_CXX_FLAGS="-Wno-error" \
+            -DCMAKE_C_FLAGS="-Wno-error" \
+            -S . -B build
+
+      - name: Build
+        run: cmake --build build -j$(nproc)
+
+      - name: Package
+        run: |
+          cd build
+          make install DESTDIR=$GITHUB_WORKSPACE/appdir
+          mkdir -p $GITHUB_WORKSPACE/appdir/usr/share/applications
+          mkdir -p $GITHUB_WORKSPACE/appdir/usr/share/icons/hicolor/256x256/apps
+          cp ../program_info/org.pollymc.PollyMC.desktop.in $GITHUB_WORKSPACE/appdir/usr/share/applications/org.pollymc.PollyMC.desktop
+          cp ../program_info/org.pollymc.PollyMC_256.png $GITHUB_WORKSPACE/appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
+
+      - name: Upload Linux Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PollyMC-Continued-Linux
+          path: appdir/
+
+  build-macos:
+    name: macOS
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Dependencies
+        run: |
+          brew install qt@6 cmake ninja extra-cmake-modules
+          brew install tomlplusplus cmark quazip libarchive
+
+      - name: Configure
+        run: |
+          cmake -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_PREFIX_PATH="$(brew --prefix qt@6)" \
+            -DCMAKE_CXX_FLAGS="-Wno-error" \
+            -DCMAKE_C_FLAGS="-Wno-error" \
+            -S . -B build
+
+      - name: Build
+        run: cmake --build build -j$(sysctl -n hw.logicalcpu)
+
+      - name: Upload macOS Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PollyMC-Continued-macOS
+          path: build/pollymc.app/
+
+  release:
+    name: Create Release
+    needs: [build-windows, build-linux, build-macos]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            PollyMC-Continued-Windows/*
+            PollyMC-Continued-Linux/*
+            PollyMC-Continued-macOS/*
+          generate_release_notes: true
