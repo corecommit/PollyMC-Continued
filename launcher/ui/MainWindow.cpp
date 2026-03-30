@@ -102,6 +102,7 @@
 #include "ui/dialogs/ExportPackDialog.h"
 #include "ui/dialogs/IconPickerDialog.h"
 #include "ui/dialogs/ImportResourceDialog.h"
+#include "ui/dialogs/PerformancePresetsDialog.h"
 #include "ui/dialogs/NewInstanceDialog.h"
 #include "ui/dialogs/NewsDialog.h"
 #include "ui/dialogs/ProgressDialog.h"
@@ -1471,6 +1472,12 @@ void MainWindow::onCatChanged(int)
 void MainWindow::on_actionAbout_triggered()
 {
     AboutDialog dialog(this);
+    dialog.exec();
+}
+
+void MainWindow::on_actionPerformancePresets_triggered()
+{
+    PerformancePresetsDialog dialog(this);
     dialog.exec();
 }
 

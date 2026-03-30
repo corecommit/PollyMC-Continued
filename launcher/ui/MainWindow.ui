@@ -53,6 +53,7 @@
    <addaction name="separator"/>
    <addaction name="actionFoldersButton"/>
    <addaction name="actionSettings"/>
+   <addaction name="actionPerformancePresets"/>
    <addaction name="actionHelpButton"/>
    <addaction name="actionCheckUpdate"/>
    <addaction name="separator"/>
@@ -323,8 +324,19 @@
    <property name="menuRole">
     <enum>QAction::PreferencesRole</enum>
    </property>
-  </action>
-  <action name="actionManageAccounts">
+   </action>
+   <action name="actionPerformancePresets">
+    <property name="icon">
+     <iconset theme="speedometer"/>
+    </property>
+    <property name="text">
+     <string>&amp;Performance Presets</string>
+    </property>
+    <property name="toolTip">
+     <string>Quick memory presets for low-end PCs.</string>
+    </property>
+   </action>
+   <action name="actionManageAccounts">
    <property name="icon">
     <iconset theme="accounts"/>
    </property>
