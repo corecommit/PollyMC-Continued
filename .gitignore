@@ -63,6 +63,9 @@ flatbuild
 # Snap
 *.snap
 
+# Submodules
+vcpkg/
+
 # Setup installers
 *.exe
 *.dmg

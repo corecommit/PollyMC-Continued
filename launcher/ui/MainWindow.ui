@@ -115,6 +115,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionLaunchInstance"/>
+   <addaction name="actionQuickLaunch"/>
    <addaction name="actionKillInstance"/>
    <addaction name="separator"/>
    <addaction name="actionEditInstance"/>
@@ -143,8 +144,9 @@
     </property>
     <addaction name="actionAddInstance"/>
     <addaction name="separator"/>
-    <addaction name="actionLaunchInstance"/>
-    <addaction name="actionKillInstance"/>
+     <addaction name="actionLaunchInstance"/>
+     <addaction name="actionQuickLaunch"/>
+     <addaction name="actionKillInstance"/>
     <addaction name="separator"/>
     <addaction name="actionEditInstance"/>
     <addaction name="actionChangeInstGroup"/>
@@ -340,8 +342,19 @@
    <property name="toolTip">
     <string>Launch the selected instance.</string>
    </property>
-  </action>
-  <action name="actionKillInstance">
+   </action>
+   <action name="actionQuickLaunch">
+    <property name="icon">
+     <iconset theme="media-playback-start"/>
+    </property>
+    <property name="text">
+     <string>&amp;Quick Launch</string>
+    </property>
+    <property name="toolTip">
+     <string>Launch the last played instance.</string>
+    </property>
+   </action>
+   <action name="actionKillInstance">
    <property name="icon">
     <iconset theme="status-bad"/>
    </property>

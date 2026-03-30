@@ -1602,8 +1602,28 @@ void MainWindow::instanceActivated(QModelIndex index)
 void MainWindow::on_actionLaunchInstance_triggered()
 {
     if (m_selectedInstance && !m_selectedInstance->isRunning()) {
+        APPLICATION->settings()->set("LastLaunchedInstance", m_selectedInstance->id());
         APPLICATION->launch(m_selectedInstance);
     }
+}
+
+void MainWindow::on_actionQuickLaunch_triggered()
+{
+    QString lastId = APPLICATION->settings()->get("LastLaunchedInstance").toString();
+    if (lastId.isEmpty()) {
+        CustomMessageBox::selectable(this, tr("Quick Launch"), tr("No instance has been launched yet."), QMessageBox::Information)->exec();
+        return;
+    }
+    auto inst = APPLICATION->instances()->getInstanceById(lastId);
+    if (!inst) {
+        CustomMessageBox::selectable(this, tr("Quick Launch"), tr("Last launched instance no longer exists."), QMessageBox::Warning)->exec();
+        return;
+    }
+    if (inst->isRunning()) {
+        CustomMessageBox::selectable(this, tr("Quick Launch"), tr("Instance is already running."), QMessageBox::Information)->exec();
+        return;
+    }
+    APPLICATION->launch(inst.get());
 }
 
 void MainWindow::activateInstance(BaseInstance* instance)

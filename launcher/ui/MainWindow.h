@@ -148,6 +148,8 @@ class MainWindow : public QMainWindow {
 
     void on_actionLaunchInstance_triggered();
 
+    void on_actionQuickLaunch_triggered();
+
     void on_actionKillInstance_triggered();
 
     void on_actionDeleteInstance_triggered();

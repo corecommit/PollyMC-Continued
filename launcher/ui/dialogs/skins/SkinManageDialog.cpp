@@ -331,6 +331,11 @@ void SkinManageDialog::accept()
         meta["uuid"] = uuid;
         Json::write(meta, FS::PathCombine(skinsDir, "skin.json"));
 
+        // Note: offline skins only work in singleplayer, not multiplayer
+        CustomMessageBox::selectable(this, tr("Skin Saved"),
+            tr("Skin saved for singleplayer. Note: other players in multiplayer will not see your skin unless the server has CustomSkinLoader installed."),
+            QMessageBox::Information)->exec();
+
         QDialog::accept();
         return;
     }

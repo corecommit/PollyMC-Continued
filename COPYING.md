@@ -15,10 +15,10 @@
      You should have received a copy of the GNU General Public License
      along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-## Prism Launcher
+## PolyMC
 
-     Prism Launcher - Minecraft Launcher
-     Copyright (C) 2022-2026 Prism Launcher Contributors
+     PolyMC - Minecraft Launcher
+     Copyright (C) 2021-2022 PolyMC Contributors
 
      This program is free software: you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by
