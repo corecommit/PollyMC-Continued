@@ -1630,7 +1630,7 @@ void MainWindow::on_actionQuickLaunch_triggered()
         CustomMessageBox::selectable(this, tr("Quick Launch"), tr("Instance is already running."), QMessageBox::Information)->exec();
         return;
     }
-    APPLICATION->launch(inst.get());
+    APPLICATION->launch(inst);
 }
 
 void MainWindow::activateInstance(BaseInstance* instance)
