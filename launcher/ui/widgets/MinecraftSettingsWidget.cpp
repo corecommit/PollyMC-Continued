@@ -53,6 +53,25 @@ MinecraftSettingsWidget::MinecraftSettingsWidget(MinecraftInstance* instance, QW
 {
     m_ui->setupUi(this);
 
+    // Add resolution presets
+    m_resolutionPresets = new QComboBox(this);
+    m_resolutionPresets->addItem(tr("Custom"));
+    m_resolutionPresets->addItem("1280x720 (HD)");
+    m_resolutionPresets->addItem("1920x1080 (Full HD)");
+    m_resolutionPresets->addItem("2560x1440 (2K)");
+    m_resolutionPresets->addItem("3840x2160 (4K)");
+    m_resolutionPresets->addItem("854x480 (Default)");
+    m_resolutionPresets->setToolTip(tr("Quick resolution presets"));
+    m_ui->windowSizeGroupBox->layout()->addWidget(m_resolutionPresets);
+
+    connect(m_resolutionPresets, &QComboBox::currentTextChanged, this, [this](const QString& text) {
+        if (text.contains("1280")) { m_ui->windowWidthSpinBox->setValue(1280); m_ui->windowHeightSpinBox->setValue(720); }
+        else if (text.contains("1920")) { m_ui->windowWidthSpinBox->setValue(1920); m_ui->windowHeightSpinBox->setValue(1080); }
+        else if (text.contains("2560")) { m_ui->windowWidthSpinBox->setValue(2560); m_ui->windowHeightSpinBox->setValue(1440); }
+        else if (text.contains("3840")) { m_ui->windowWidthSpinBox->setValue(3840); m_ui->windowHeightSpinBox->setValue(2160); }
+        else if (text.contains("854")) { m_ui->windowWidthSpinBox->setValue(854); m_ui->windowHeightSpinBox->setValue(480); }
+    });
+
     if (m_instance == nullptr) {
         m_ui->settingsTabs->removeTab(1);
 

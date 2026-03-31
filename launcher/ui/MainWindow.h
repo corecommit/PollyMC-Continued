@@ -152,6 +152,12 @@ class MainWindow : public QMainWindow {
 
     void on_actionPerformancePresets_triggered();
 
+    void on_actionBackupInstance_triggered();
+
+    void on_actionViewCrashReports_triggered();
+
+    void forceClose();
+
     void on_actionKillInstance_triggered();
 
     void on_actionDeleteInstance_triggered();
@@ -242,6 +248,9 @@ class MainWindow : public QMainWindow {
     QToolButton* newsLabel = nullptr;
     QLabel* m_statusLeft = nullptr;
     QLabel* m_statusCenter = nullptr;
+    QLabel* m_statusMemory = nullptr;
+    QTimer* m_memoryTimer = nullptr;
+    bool m_forceClose = false;
     LabeledToolButton* changeIconButton = nullptr;
     LabeledToolButton* renameButton = nullptr;
     QToolButton* helpMenuButton = nullptr;

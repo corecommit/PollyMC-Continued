@@ -123,6 +123,8 @@
    <addaction name="actionChangeInstGroup"/>
    <addaction name="actionViewSelectedInstFolder"/>
    <addaction name="actionExportInstance"/>
+   <addaction name="actionBackupInstance"/>
+   <addaction name="actionViewCrashReports"/>
    <addaction name="actionCopyInstance"/>
    <addaction name="actionDeleteInstance"/>
    <addaction name="actionCreateInstanceShortcut"/>
@@ -357,7 +359,7 @@
    </action>
    <action name="actionQuickLaunch">
     <property name="icon">
-     <iconset theme="media-playback-start"/>
+      <iconset theme="quicklaunch"/>
     </property>
     <property name="text">
      <string>&amp;Quick Launch</string>
@@ -389,9 +391,31 @@
    </property>
    <property name="toolTip">
     <string>Rename the selected instance.</string>
-   </property>
-  </action>
-  <action name="actionChangeInstGroup">
+    </property>
+   </action>
+   <action name="actionBackupInstance">
+    <property name="icon">
+     <iconset theme="export"/>
+    </property>
+    <property name="text">
+     <string>&amp;Backup Instance</string>
+    </property>
+    <property name="toolTip">
+     <string>Backup the selected instance as a zip file.</string>
+    </property>
+   </action>
+   <action name="actionViewCrashReports">
+    <property name="icon">
+     <iconset theme="bug"/>
+    </property>
+    <property name="text">
+     <string>&amp;Crash Reports</string>
+    </property>
+    <property name="toolTip">
+     <string>Open the crash reports folder for the selected instance.</string>
+    </property>
+   </action>
+   <action name="actionChangeInstGroup">
    <property name="icon">
     <iconset theme="tag"/>
    </property>

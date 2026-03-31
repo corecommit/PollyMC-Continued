@@ -380,8 +380,20 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     m_statusLeft = new QLabel(tr("No instance selected"), this);
     m_statusCenter = new QLabel(tr("Total playtime: 0s"), this);
+    m_statusMemory = new QLabel(this);
+    m_statusMemory->setStyleSheet("color: #888888; font-size: 11px;");
     statusBar()->addPermanentWidget(m_statusLeft, 1);
     statusBar()->addPermanentWidget(m_statusCenter, 0);
+    statusBar()->addPermanentWidget(m_statusMemory, 0);
+
+    // Memory monitor timer
+    m_memoryTimer = new QTimer(this);
+    connect(m_memoryTimer, &QTimer::timeout, this, [this]() {
+        auto mem = QProcess();
+        m_statusMemory->setText(QString("RAM: %1 MB").arg(
+            QString::number(HardwareInfo::totalRamMiB())));
+    });
+    m_memoryTimer->start(5000);
 
     // Add "manage accounts" button, right align
     QWidget* spacer = new QWidget();
@@ -1481,6 +1493,35 @@ void MainWindow::on_actionPerformancePresets_triggered()
     dialog.exec();
 }
 
+void MainWindow::on_actionBackupInstance_triggered()
+{
+    if (!m_selectedInstance) return;
+    auto name = FS::RemoveInvalidFilenameChars(m_selectedInstance->name());
+    auto timestamp = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
+    auto defaultName = QString("%1_backup_%2.zip").arg(name, timestamp);
+    auto output = QFileDialog::getSaveFileName(this, tr("Backup Instance"),
+        FS::PathCombine(QDir::homePath(), defaultName), "Zip (*.zip)");
+    if (output.isEmpty()) return;
+
+    auto files = QFileInfoList();
+    MMCZip::collectFileListRecursively(m_selectedInstance->instanceRoot(), nullptr, &files);
+    auto task = makeShared<MMCZip::ExportToZipTask>(output, m_selectedInstance->instanceRoot(), files, "", true);
+    ProgressDialog progress(this);
+    progress.setSkipButton(true, tr("Abort"));
+    progress.execWithTask(task.get());
+}
+
+void MainWindow::on_actionViewCrashReports_triggered()
+{
+    if (!m_selectedInstance) return;
+    auto crashDir = FS::PathCombine(m_selectedInstance->gameRoot(), "crash-reports");
+    if (!QDir(crashDir).exists()) {
+        CustomMessageBox::selectable(this, tr("Crash Reports"), tr("No crash reports found."), QMessageBox::Information)->exec();
+        return;
+    }
+    DesktopServices::openDirectory(crashDir);
+}
+
 void MainWindow::on_actionDeleteInstance_triggered()
 {
     if (!m_selectedInstance) {
@@ -1582,8 +1623,22 @@ void MainWindow::closeEvent(QCloseEvent* event)
     APPLICATION->settings()->set("MainWindowState", QString::fromUtf8(saveState().toBase64()));
     APPLICATION->settings()->set("MainWindowGeometry", QString::fromUtf8(saveGeometry().toBase64()));
     instanceToolbarSetting->set(QString::fromUtf8(ui->instanceToolBar->getVisibilityState().toBase64()));
+
+    // Minimize to tray instead of closing
+    if (APPLICATION->settings()->get("MinimizeToTray").toBool() && !m_forceClose) {
+        hide();
+        event->ignore();
+        return;
+    }
+
     event->accept();
     emit isClosing();
+}
+
+void MainWindow::forceClose()
+{
+    m_forceClose = true;
+    close();
 }
 
 void MainWindow::changeEvent(QEvent* event)

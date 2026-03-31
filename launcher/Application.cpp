@@ -767,6 +767,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         // Quick Launch
         m_settings->registerSetting("LastLaunchedInstance", "");
         m_settings->registerSetting("AutoLaunchLastInstance", false);
+        m_settings->registerSetting("MinimizeToTray", false);
         m_settings->registerSetting("EnableMangoHud", false);
         m_settings->registerSetting("UseDiscreteGpu", false);
         m_settings->registerSetting("UseZink", false);
