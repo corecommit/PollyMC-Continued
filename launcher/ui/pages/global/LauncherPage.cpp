@@ -199,6 +199,8 @@ void LauncherPage::applySettings()
         APPLICATION->updater()->setUpdateCheckInterval(ui->updateIntervalSpinBox->value() * 3600);
     }
 
+    s->set("AutoLaunchLastInstance", ui->autoLaunchCheckBox->isChecked());
+
     s->set("MenuBarInsteadOfToolBar", ui->preferMenuBarCheckBox->isChecked());
 
     s->set("NumberOfConcurrentTasks", ui->numberOfConcurrentTasksSpinBox->value());
@@ -255,6 +257,8 @@ void LauncherPage::loadSettings()
         ui->autoUpdateCheckBox->setChecked(APPLICATION->updater()->getAutomaticallyChecksForUpdates());
         ui->updateIntervalSpinBox->setValue(APPLICATION->updater()->getUpdateCheckInterval() / 3600);
     }
+
+    ui->autoLaunchCheckBox->setChecked(s->get("AutoLaunchLastInstance").toBool());
 
     ui->preferMenuBarCheckBox->setChecked(s->get("MenuBarInsteadOfToolBar").toBool());
 

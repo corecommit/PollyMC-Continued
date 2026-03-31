@@ -763,6 +763,10 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
         // Performance related options
         m_settings->registerSetting("EnableFeralGamemode", false);
+
+        // Quick Launch
+        m_settings->registerSetting("LastLaunchedInstance", "");
+        m_settings->registerSetting("AutoLaunchLastInstance", false);
         m_settings->registerSetting("EnableMangoHud", false);
         m_settings->registerSetting("UseDiscreteGpu", false);
         m_settings->registerSetting("UseZink", false);
@@ -1680,6 +1684,17 @@ MainWindow* Application::showMainWindow(bool minimized)
         connect(this, &Application::updateAllowedChanged, m_mainWindow, &MainWindow::updatesAllowedChanged);
         connect(m_mainWindow, &MainWindow::isClosing, this, &Application::on_windowClose);
         m_openWindows++;
+
+        // Auto-launch last instance if enabled
+        if (!minimized && settings()->get("AutoLaunchLastInstance").toBool()) {
+            QString lastId = settings()->get("LastLaunchedInstance").toString();
+            if (!lastId.isEmpty()) {
+                auto inst = instances()->getInstanceById(lastId);
+                if (inst && !inst->isRunning()) {
+                    QTimer::singleShot(500, this, [this, inst]() { launch(inst); });
+                }
+            }
+        }
     }
     return m_mainWindow;
 }

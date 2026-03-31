@@ -244,6 +244,9 @@
       </layout>
      </widget>
      <widget class="QWidget" name="creditsTab">
+      <property name="visible">
+       <bool>false</bool>
+      </property>
       <attribute name="title">
        <string>Credits</string>
       </attribute>

@@ -327,7 +327,7 @@
    </action>
    <action name="actionPerformancePresets">
     <property name="icon">
-     <iconset theme="speedometer"/>
+      <iconset theme="performance"/>
     </property>
     <property name="text">
      <string>&amp;Performance Presets</string>

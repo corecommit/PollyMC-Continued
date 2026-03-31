@@ -79,7 +79,7 @@ AboutDialog::AboutDialog(QWidget* parent) : QDialog(parent), ui(new Ui::AboutDia
 
     QString launcherName = BuildConfig.LAUNCHER_DISPLAYNAME;
 
-    setWindowTitle(tr("About %1").arg(launcherName));
+    setWindowTitle(tr("About"));
 
     QString chtml = getCreditsHtml();
     ui->creditsText->setHtml(StringUtils::htmlListPatch(chtml));
@@ -92,7 +92,7 @@ AboutDialog::AboutDialog(QWidget* parent) : QDialog(parent), ui(new Ui::AboutDia
     ui->icon->setPixmap(APPLICATION->logo().pixmap(64));
     ui->title->setText(launcherName);
 
-    ui->versionLabel->setText(BuildConfig.printableVersionString());
+    ui->versionLabel->setText(QString());
 
     if (!BuildConfig.BUILD_PLATFORM.isEmpty())
         ui->platformLabel->setText(tr("Platform") + ": " + BuildConfig.BUILD_PLATFORM);

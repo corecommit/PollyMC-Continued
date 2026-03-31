@@ -91,6 +91,6 @@ class ThemeManager {
     NSObject* m_windowTitlebarObserver = nullptr;
 #endif
 
-    const QStringList builtinIcons{"pe_colored", "pe_light", "pe_dark", "pe_blue",    "breeze_light", "breeze_dark",
-                                   "OSX",        "iOS",      "flat",    "flat_white", "multimc"};
+    const QStringList builtinIcons{"pe_colored", "pe_light", "pe_dark", "pe_blue"};
+    // Disabled themes: "breeze_light", "breeze_dark", "OSX", "iOS", "flat", "flat_white", "multimc"
 };

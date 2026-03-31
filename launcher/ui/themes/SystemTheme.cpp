@@ -119,7 +119,10 @@ QPalette SystemTheme::colorScheme()
 
 QString SystemTheme::appStyleSheet()
 {
-    return QString();
+    return "QToolTip { border-radius: 6px; padding: 6px 10px; font-size: 12px; }"
+           "QMenu { border-radius: 6px; padding: 4px; }"
+           "QMenu::item { padding: 6px 24px 6px 12px; border-radius: 4px; }"
+           "QMenu::separator { height: 1px; margin: 4px 8px; }";
 }
 
 double SystemTheme::fadeAmount()
