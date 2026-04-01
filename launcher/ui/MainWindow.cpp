@@ -150,6 +150,10 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
+    // Hide news toolbar (disabled)
+    ui->newsToolBar->hide();
+    ui->actionMoreNews->setVisible(false);
+
     setWindowIcon(APPLICATION->logo());
     setWindowTitle(APPLICATION->applicationDisplayName());
 #ifndef QT_NO_ACCESSIBILITY

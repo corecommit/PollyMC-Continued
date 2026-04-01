@@ -12,7 +12,7 @@ set(Launcher_CommonName "PollyMC")
 set(Launcher_DisplayName "PollyMC-Continued")
 set(Launcher_AppID "org.pollymc.PollyMC")
 set(Launcher_Domain "pollymc.org")
-set(Launcher_Git "https://github.com/PollyMC-Continued/PollyMC")
+set(Launcher_Git "https://github.com/corecommit/PollyMC-Continued")
 
 set(Launcher_Name "${Launcher_CommonName}" PARENT_SCOPE)
 set(Launcher_DisplayName "${Launcher_DisplayName}" PARENT_SCOPE)

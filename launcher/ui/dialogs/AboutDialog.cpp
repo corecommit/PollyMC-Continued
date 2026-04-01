@@ -77,6 +77,12 @@ AboutDialog::AboutDialog(QWidget* parent) : QDialog(parent), ui(new Ui::AboutDia
 {
     ui->setupUi(this);
 
+    // Hide credits tab
+    int creditsIdx = ui->tabWidget->indexOf(ui->creditsTab);
+    if (creditsIdx >= 0) {
+        ui->tabWidget->removeTab(creditsIdx);
+    }
+
     QString launcherName = BuildConfig.LAUNCHER_DISPLAYNAME;
 
     setWindowTitle(tr("About"));
