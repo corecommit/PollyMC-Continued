@@ -129,12 +129,10 @@ class Task : public QObject, public QRunnable {
 
     // Copies the other task's status, details, progress, and step progress to this task; and sets up connections for future propagation
     void propagateFromOther(Task* other);
+    QString describe();
 
    protected:
     void logWarning(const QString& line);
-
-   private:
-    QString describe();
 
    signals:
     void started();

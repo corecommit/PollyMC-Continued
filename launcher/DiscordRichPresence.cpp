@@ -9,7 +9,7 @@
 #include <windows.h>
 #endif
 
-enum DiscordOpcode {
+enum DiscordOpcode : uint32_t {
     HANDSHAKE = 0,
     FRAME = 1,
     CLOSE = 2,
@@ -19,7 +19,14 @@ enum DiscordOpcode {
 
 DiscordRichPresence* DiscordRichPresence::instance()
 {
-    static DiscordRichPresence* inst = new DiscordRichPresence();
+    static DiscordRichPresence* inst = nullptr;
+    if (!inst) {
+        try {
+            inst = new DiscordRichPresence();
+        } catch (...) {
+            // DRP not available
+        }
+    }
     return inst;
 }
 
@@ -38,7 +45,7 @@ DiscordRichPresence::DiscordRichPresence(QObject* parent) : QObject(parent)
         QJsonObject payload;
         payload["nonce"] = QString::number(QDateTime::currentMSecsSinceEpoch());
         data["args"] = payload;
-        sendPresence(data);
+        sendPayload(data);
     });
 
     connect(m_socket, &QLocalSocket::readyRead, this, &DiscordRichPresence::readResponse);
@@ -65,7 +72,7 @@ void DiscordRichPresence::shutdown()
         QJsonObject data;
         data["cmd"] = "DISPATCH";
         data["evt"] = "CLOSE";
-        sendPresence(data);
+        sendPayload(data);
         m_socket->disconnectFromServer();
     }
     m_connected = false;
@@ -82,9 +89,13 @@ void DiscordRichPresence::connectToDiscord()
     for (int i = 0; i < 10; i++) {
         QString pipeName;
 #ifdef Q_OS_WIN
-        pipeName = QString("\\\\?\\pipe\\discord-ipc-%1").arg(i);
+        pipeName = QString("\\\\.\\pipe\\discord-ipc-%1").arg(i);
 #else
-        pipeName = QDir::tempPath() + QString("/discord-ipc-%1").arg(i);
+        // Discord may place its socket in XDG_RUNTIME_DIR, TMPDIR, or /tmp
+        QString runtimeDir = qEnvironmentVariable("XDG_RUNTIME_DIR");
+        if (runtimeDir.isEmpty())
+            runtimeDir = QDir::tempPath();
+        pipeName = runtimeDir + QString("/discord-ipc-%1").arg(i);
 #endif
         m_socket->connectToServer(pipeName);
         if (m_socket->waitForConnected(500)) {
@@ -98,48 +109,43 @@ void DiscordRichPresence::connectToDiscord()
     m_connected = false;
 }
 
+static QByteArray buildFrame(uint32_t opcode, const QByteArray& data)
+{
+    QByteArray frame;
+    frame.reserve(8 + data.size());
+    // Both fields are 4-byte little-endian as per Discord IPC spec
+    frame.append(reinterpret_cast<const char*>(&opcode), sizeof(opcode));
+    uint32_t len = static_cast<uint32_t>(data.size());
+    frame.append(reinterpret_cast<const char*>(&len), sizeof(len));
+    frame.append(data);
+    return frame;
+}
+
 void DiscordRichPresence::sendHandshake()
 {
     QJsonObject handshake;
     handshake["v"] = 1;
     handshake["client_id"] = APP_ID;
 
-    QJsonDocument doc(handshake);
-    QByteArray data = doc.toJson(QJsonDocument::Compact);
-
-    // Discord IPC frame: opcode (4 bytes LE) + length (4 bytes LE) + data
-    QByteArray frame;
-    int op = HANDSHAKE;
-    frame.append(reinterpret_cast<const char*>(&op), 4);
-    uint32_t len = data.size();
-    frame.append(reinterpret_cast<const char*>(&len), 4);
-    frame.append(data);
-
-    m_socket->write(frame);
+    QByteArray data = QJsonDocument(handshake).toJson(QJsonDocument::Compact);
+    m_socket->write(buildFrame(HANDSHAKE, data));
     m_socket->flush();
 }
 
-void DiscordRichPresence::sendPresence(const QJsonObject& presence)
+void DiscordRichPresence::sendPayload(const QJsonObject& presence)
 {
-    QJsonDocument doc(presence);
-    QByteArray data = doc.toJson(QJsonDocument::Compact);
+    if (m_socket->state() != QLocalSocket::ConnectedState)
+        return;
 
-    QByteArray frame;
-    int op = FRAME;
-    frame.append(reinterpret_cast<const char*>(&op), 4);
-    uint32_t len = data.size();
-    frame.append(reinterpret_cast<const char*>(&len), 4);
-    frame.append(data);
-
-    if (m_socket->state() == QLocalSocket::ConnectedState) {
-        m_socket->write(frame);
-        m_socket->flush();
-    }
+    QByteArray data = QJsonDocument(presence).toJson(QJsonDocument::Compact);
+    m_socket->write(buildFrame(FRAME, data));
+    m_socket->flush();
 }
 
 void DiscordRichPresence::updatePresence(const QString& details, const QString& state,
                                           const QString& largeImageKey, const QString& largeImageText,
-                                          const QString& smallImageKey, const QString& smallImageText)
+                                          const QString& smallImageKey, const QString& smallImageText,
+                                          qint64 startTimeSecs)
 {
     if (!m_connected) return;
 
@@ -156,15 +162,23 @@ void DiscordRichPresence::updatePresence(const QString& details, const QString& 
     activity["state"] = state;
     activity["assets"] = assets;
 
+    if (startTimeSecs > 0) {
+        QJsonObject timestamps;
+        timestamps["start"] = startTimeSecs;
+        activity["timestamps"] = timestamps;
+    }
+
     QJsonObject args;
     args["activity"] = activity;
+    // pid is required by Discord so it can clean up presence on crash
+    args["pid"] = static_cast<int>(QCoreApplication::applicationPid());
 
     QJsonObject cmd;
     cmd["cmd"] = "SET_ACTIVITY";
     cmd["args"] = args;
     cmd["nonce"] = QString::number(QDateTime::currentMSecsSinceEpoch());
 
-    sendPresence(cmd);
+    sendPayload(cmd);
 }
 
 void DiscordRichPresence::updatePlayingMinecraft(const QString& instanceName, const QString& mcVersion, qint64 startTime)
@@ -173,7 +187,8 @@ void DiscordRichPresence::updatePlayingMinecraft(const QString& instanceName, co
         QString("Playing %1").arg(instanceName),
         QString("Minecraft %1").arg(mcVersion),
         "pollymc", "PollyMC-Continued",
-        "minecraft", "Minecraft"
+        "minecraft", "Minecraft",
+        startTime  // now forwarded correctly
     );
 }
 
@@ -189,28 +204,52 @@ void DiscordRichPresence::updateBrowsing()
 
 void DiscordRichPresence::readResponse()
 {
+    // Loop only while we have a complete header AND the full payload in the buffer.
+    // Previously the header was consumed before checking if the payload had arrived,
+    // which permanently lost those 8 bytes and corrupted the stream on the next read.
     while (m_socket->bytesAvailable() >= 8) {
-        QByteArray header = m_socket->read(8);
-        if (header.size() < 8) return;
+        // Peek at the header without removing it from the buffer
+        QByteArray header = m_socket->peek(8);
+        if (header.size() < 8)
+            return;
 
-        int opcode = *reinterpret_cast<const int*>(header.constData());
-        uint32_t len = *reinterpret_cast<const uint32_t*>(header.constData() + 4);
+        uint32_t opcode = *reinterpret_cast<const uint32_t*>(header.constData());
+        uint32_t len    = *reinterpret_cast<const uint32_t*>(header.constData() + 4);
 
-        if (len > 0 && m_socket->bytesAvailable() >= len) {
-            QByteArray payload = m_socket->read(len);
-            QJsonDocument doc = QJsonDocument::fromJson(payload);
-            QJsonObject obj = doc.object();
+        // Guard against absurdly large frames to prevent OOM
+        if (len > 1024 * 1024) {
+            m_socket->disconnectFromServer();
+            return;
+        }
 
-            if (opcode == FRAME) {
-                QString cmd = obj["cmd"].toString();
-                if (cmd == "DISPATCH") {
-                    QString evt = obj["evt"].toString();
-                    if (evt == "READY") {
-                        m_connected = true;
-                        updateIdle();
-                    }
+        // Only consume the header once we know the full payload is available
+        if (m_socket->bytesAvailable() < static_cast<qint64>(8 + len))
+            return;
+
+        m_socket->read(8);  // discard header now that we're committed
+
+        QByteArray payload;
+        if (len > 0)
+            payload = m_socket->read(len);
+
+        QJsonDocument doc = QJsonDocument::fromJson(payload);
+        if (doc.isNull())
+            continue;
+
+        QJsonObject obj = doc.object();
+
+        if (opcode == FRAME) {
+            QString cmd = obj["cmd"].toString();
+            if (cmd == "DISPATCH") {
+                QString evt = obj["evt"].toString();
+                if (evt == "READY") {
+                    m_connected = true;
+                    updateIdle();
                 }
             }
+        } else if (opcode == CLOSE) {
+            m_socket->disconnectFromServer();
+            return;
         }
     }
 }

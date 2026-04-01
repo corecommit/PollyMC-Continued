@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0-only
 #pragma once
 
-#include <QObject>
-#include <QTimer>
+#include <QCoreApplication>
 #include <QJsonObject>
 #include <QLocalSocket>
+#include <QObject>
+#include <QTimer>
 
 class DiscordRichPresence : public QObject {
     Q_OBJECT
@@ -14,9 +15,14 @@ class DiscordRichPresence : public QObject {
 
     void init();
     void shutdown();
-    void updatePresence(const QString& details, const QString& state, const QString& largeImageKey = "pollymc",
-                        const QString& largeImageText = "PollyMC-Continued", const QString& smallImageKey = "",
-                        const QString& smallImageText = "");
+
+    // startTimeSecs: Unix timestamp (seconds) for the "elapsed" timer; pass 0 to omit.
+    void updatePresence(const QString& details, const QString& state,
+                        const QString& largeImageKey = "pollymc",
+                        const QString& largeImageText = "PollyMC-Continued",
+                        const QString& smallImageKey = "",
+                        const QString& smallImageText = "",
+                        qint64 startTimeSecs = 0);
 
     void updatePlayingMinecraft(const QString& instanceName, const QString& mcVersion, qint64 startTime);
     void updateIdle();
@@ -30,7 +36,7 @@ class DiscordRichPresence : public QObject {
 
     void connectToDiscord();
     void sendHandshake();
-    void sendPresence(const QJsonObject& presence);
+    void sendPayload(const QJsonObject& presence);  // renamed from sendPresence to avoid confusion
     void readResponse();
     void onDisconnected();
 

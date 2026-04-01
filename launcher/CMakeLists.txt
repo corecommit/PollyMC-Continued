@@ -793,8 +793,6 @@ SET(LAUNCHER_SOURCES
     # Application base
     Application.h
     Application.cpp
-    DiscordRichPresence.h
-    DiscordRichPresence.cpp
     DataMigrationTask.h
     DataMigrationTask.cpp
     ApplicationMessage.h
