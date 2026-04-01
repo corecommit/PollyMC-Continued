@@ -279,19 +279,10 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
         connect(secretEventFilter, &KonamiCode::triggered, this, &MainWindow::konamiTriggered);
     }
 
-    // Add the news label to the news toolbar.
+    // Add the news label to the news toolbar (hidden - disabled)
     {
-        m_newsChecker.reset(new NewsChecker(APPLICATION->network(), BuildConfig.NEWS_RSS_URL));
-        newsLabel = new QToolButton();
-        newsLabel->setIcon(QIcon::fromTheme("news"));
-        newsLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        newsLabel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        newsLabel->setFocusPolicy(Qt::NoFocus);
-        ui->newsToolBar->insertWidget(ui->actionMoreNews, newsLabel);
-
-        connect(newsLabel, &QAbstractButton::clicked, this, &MainWindow::newsButtonClicked);
-        connect(m_newsChecker.get(), &NewsChecker::newsLoaded, this, &MainWindow::updateNewsLabel);
-        updateNewsLabel();
+        ui->newsToolBar->hide();
+        ui->actionMoreNews->setVisible(false);
     }
 
     // Create the instance list widget
@@ -969,7 +960,7 @@ void MainWindow::processURLs(QList<QUrl> urls)
                 // format of url curseforge://install?addonId=IDHERE&fileId=IDHERE
                 // format of url binaryname://install?platform=curseforge&addonId=IDHERE&fileId=IDHERE
                 QUrlQuery query(url);
-                
+
                 // check if this is a binaryname:// url
                 if (url.scheme() == BuildConfig.LAUNCHER_APP_BINARY_NAME) {
                     // check this is an curseforge platform request
