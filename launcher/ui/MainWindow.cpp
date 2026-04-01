@@ -1496,19 +1496,7 @@ void MainWindow::on_actionPerformancePresets_triggered()
 void MainWindow::on_actionBackupInstance_triggered()
 {
     if (!m_selectedInstance) return;
-    auto name = FS::RemoveInvalidFilenameChars(m_selectedInstance->name());
-    auto timestamp = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
-    auto defaultName = QString("%1_backup_%2.zip").arg(name, timestamp);
-    auto output = QFileDialog::getSaveFileName(this, tr("Backup Instance"),
-        FS::PathCombine(QDir::homePath(), defaultName), "Zip (*.zip)");
-    if (output.isEmpty()) return;
-
-    auto files = QFileInfoList();
-    MMCZip::collectFileListRecursively(m_selectedInstance->instanceRoot(), nullptr, &files);
-    auto task = makeShared<MMCZip::ExportToZipTask>(output, m_selectedInstance->instanceRoot(), files, "", true);
-    ProgressDialog progress(this);
-    progress.setSkipButton(true, tr("Abort"));
-    progress.execWithTask(task.get());
+    on_actionExportInstanceZip_triggered();
 }
 
 void MainWindow::on_actionViewCrashReports_triggered()
@@ -1519,7 +1507,7 @@ void MainWindow::on_actionViewCrashReports_triggered()
         CustomMessageBox::selectable(this, tr("Crash Reports"), tr("No crash reports found."), QMessageBox::Information)->exec();
         return;
     }
-    DesktopServices::openDirectory(crashDir);
+    DesktopServices::openPath(QFileInfo(crashDir));
 }
 
 void MainWindow::on_actionDeleteInstance_triggered()

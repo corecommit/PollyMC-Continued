@@ -37,10 +37,6 @@
 
 #include "Application.h"
 
-#include <QPixmap>
-#include <QSplashScreen>
-#include <QTimer>
-
 #if defined Q_OS_WIN32
 #include "console/WindowsConsole.h"
 #endif
@@ -54,17 +50,6 @@ int main(int argc, char* argv[])
 
     // initialize Qt
     Application app(argc, argv);
-
-    // Show splash screen
-    QPixmap splashPixmap(":/pollymc_icon.png");
-    if (splashPixmap.isNull()) {
-        splashPixmap = QPixmap(400, 300);
-        splashPixmap.fill(QColor("#1a1a2e"));
-    }
-    QSplashScreen splash(splashPixmap);
-    splash.showMessage("Loading PollyMC-Continued...", Qt::AlignBottom | Qt::AlignHCenter, Qt::white);
-    splash.show();
-    app.processEvents();
 
     switch (app.status()) {
         case Application::StartingUp:

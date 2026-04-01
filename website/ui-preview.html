@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PollyMC-Continued UI Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        .section {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        h2 { color: #fff; font-family: sans-serif; margin-bottom: 1rem; }
+        
+        /* DARK THEME - exact values from DarkTheme.cpp */
+        .dark { background: #1e1e2e; }
+        
+        .dark .tooltip {
+            color: #ffffff;
+            background-color: #3c3f41;
+            border: 1px solid #4a4a6a;
+            border-radius: 3px;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-family: sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            display: inline-block;
+        }
+        
+        .dark .menu {
+            background-color: #3c3f41;
+            border: 1px solid #4a4a6a;
+            border-radius: 3px;
+            padding: 4px;
+            font-family: sans-serif;
+            min-width: 180px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            display: inline-block;
+        }
+        
+        .dark .menu-item {
+            padding: 6px 24px 6px 12px;
+            border-radius: 4px;
+            color: #e0e0e0;
+            cursor: default;
+        }
+        
+        .dark .menu-item:hover {
+            background-color: #4a6ea8;
+        }
+        
+        .dark .menu-separator {
+            height: 1px;
+            background: #4a4a6a;
+            margin: 4px 8px;
+        }
+        
+        /* LIGHT THEME - exact values from BrightTheme.cpp */
+        .light { background: #f0f0f0; }
+        
+        .light .tooltip {
+            color: #1a1a2e;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 12px;
+            font-family: sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: inline-block;
+        }
+        
+        .light .menu {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            padding: 4px;
+            font-family: sans-serif;
+            min-width: 180px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            display: inline-block;
+        }
+        
+        .light .menu-item {
+            padding: 6px 24px 6px 12px;
+            border-radius: 4px;
+            color: #333;
+            cursor: default;
+        }
+        
+        .light .menu-item:hover {
+            background-color: #2a82da;
+            color: #ffffff;
+        }
+        
+        .light .menu-separator {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 4px 8px;
+        }
+        
+        /* SYSTEM THEME - exact values from SystemTheme.cpp */
+        .system { background: #2b2b2b; }
+        
+        .system .tooltip {
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 12px;
+            font-family: sans-serif;
+            background-color: #3c3f41;
+            color: #ddd;
+            display: inline-block;
+        }
+        
+        .system .menu {
+            border-radius: 6px;
+            padding: 4px;
+            font-family: sans-serif;
+            background-color: #3c3f41;
+            min-width: 180px;
+            display: inline-block;
+        }
+        
+        .system .menu-item {
+            padding: 6px 24px 6px 12px;
+            border-radius: 4px;
+            color: #ddd;
+            cursor: default;
+        }
+        
+        .system .menu-item:hover {
+            background-color: #4a6ea8;
+        }
+        
+        .system .menu-separator {
+            height: 1px;
+            margin: 4px 8px;
+            background: #555;
+        }
+        
+        .preview-row {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .preview-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .preview-label {
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="section dark">
+    <h2>Dark Theme</h2>
+    <div class="preview-row">
+        <div class="preview-box">
+            <div class="tooltip">Launch the last played instance</div>
+            <span class="preview-label">Tooltip</span>
+        </div>
+        <div class="preview-box">
+            <div class="menu">
+                <div class="menu-item">Launch</div>
+                <div class="menu-item">Edit Instance</div>
+                <div class="menu-item">Backup Instance</div>
+                <div class="menu-item">Crash Reports</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item">Copy Instance</div>
+                <div class="menu-item">Delete Instance</div>
+            </div>
+            <span class="preview-label">Context Menu</span>
+        </div>
+        <div class="preview-box">
+            <div class="menu">
+                <div class="menu-item">File</div>
+                <div class="menu-item">Edit</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item" style="background-color: #4a6ea8;">Settings</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item">Help</div>
+                <div class="menu-item">About</div>
+            </div>
+            <span class="preview-label">Menu Bar</span>
+        </div>
+    </div>
+</div>
+
+<div class="section light">
+    <h2>Light Theme</h2>
+    <div class="preview-row">
+        <div class="preview-box">
+            <div class="tooltip">Launch the last played instance</div>
+            <span class="preview-label">Tooltip</span>
+        </div>
+        <div class="preview-box">
+            <div class="menu">
+                <div class="menu-item">Launch</div>
+                <div class="menu-item">Edit Instance</div>
+                <div class="menu-item">Backup Instance</div>
+                <div class="menu-item">Crash Reports</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item">Copy Instance</div>
+                <div class="menu-item">Delete Instance</div>
+            </div>
+            <span class="preview-label">Context Menu</span>
+        </div>
+        <div class="preview-box">
+            <div class="menu">
+                <div class="menu-item">File</div>
+                <div class="menu-item">Edit</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item" style="background-color: #2a82da; color: #ffffff;">Settings</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item">Help</div>
+                <div class="menu-item">About</div>
+            </div>
+            <span class="preview-label">Menu Bar</span>
+        </div>
+    </div>
+</div>
+
+<div class="section system">
+    <h2>System Theme</h2>
+    <div class="preview-row">
+        <div class="preview-box">
+            <div class="tooltip">Launch the last played instance</div>
+            <span class="preview-label">Tooltip</span>
+        </div>
+        <div class="preview-box">
+            <div class="menu">
+                <div class="menu-item">Launch</div>
+                <div class="menu-item">Edit Instance</div>
+                <div class="menu-item">Backup Instance</div>
+                <div class="menu-item">Crash Reports</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item">Copy Instance</div>
+                <div class="menu-item">Delete Instance</div>
+            </div>
+            <span class="preview-label">Context Menu</span>
+        </div>
+        <div class="preview-box">
+            <div class="menu">
+                <div class="menu-item">File</div>
+                <div class="menu-item">Edit</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item" style="background-color: #4a6ea8;">Settings</div>
+                <div class="menu-separator"></div>
+                <div class="menu-item">Help</div>
+                <div class="menu-item">About</div>
+            </div>
+            <span class="preview-label">Menu Bar</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

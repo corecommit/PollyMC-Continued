@@ -84,11 +84,7 @@ bool DarkTheme::hasStyleSheet()
 
 QString DarkTheme::appStyleSheet()
 {
-    return "QToolTip { color: #ffffff; background-color: #1a1a2e; border: 1px solid #4a4a6a; border-radius: 6px; padding: 6px 10px; font-size: 12px; }"
-           "QMenu { background-color: #1a1a2e; border: 1px solid #4a4a6a; border-radius: 6px; padding: 4px; }"
-           "QMenu::item { padding: 6px 24px 6px 12px; border-radius: 4px; }"
-           "QMenu::item:selected { background-color: #2a82da; }"
-           "QMenu::separator { height: 1px; background: #4a4a6a; margin: 4px 8px; }";
+    return "QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }";
 }
 
 QString DarkTheme::tooltip()

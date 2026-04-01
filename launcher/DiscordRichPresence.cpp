@@ -109,7 +109,8 @@ void DiscordRichPresence::sendHandshake()
 
     // Discord IPC frame: opcode (4 bytes LE) + length (4 bytes LE) + data
     QByteArray frame;
-    frame.append(reinterpret_cast<const char*>(&HANDSHAKE), 4);
+    int op = HANDSHAKE;
+    frame.append(reinterpret_cast<const char*>(&op), 4);
     uint32_t len = data.size();
     frame.append(reinterpret_cast<const char*>(&len), 4);
     frame.append(data);
@@ -124,7 +125,8 @@ void DiscordRichPresence::sendPresence(const QJsonObject& presence)
     QByteArray data = doc.toJson(QJsonDocument::Compact);
 
     QByteArray frame;
-    frame.append(reinterpret_cast<const char*>(&FRAME), 4);
+    int op = FRAME;
+    frame.append(reinterpret_cast<const char*>(&op), 4);
     uint32_t len = data.size();
     frame.append(reinterpret_cast<const char*>(&len), 4);
     frame.append(data);

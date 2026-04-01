@@ -77,16 +77,12 @@ QColor BrightTheme::fadeColor()
 
 bool BrightTheme::hasStyleSheet()
 {
-    return false;
+    return true;  // was false — stylesheet was never being applied!
 }
 
 QString BrightTheme::appStyleSheet()
 {
-    return "QToolTip { color: #1a1a2e; background-color: #ffffff; border: 1px solid #cccccc; border-radius: 6px; padding: 6px 10px; font-size: 12px; }"
-           "QMenu { background-color: #ffffff; border: 1px solid #cccccc; border-radius: 6px; padding: 4px; }"
-           "QMenu::item { padding: 6px 24px 6px 12px; border-radius: 4px; }"
-           "QMenu::item:selected { background-color: #2a82da; color: #ffffff; }"
-           "QMenu::separator { height: 1px; background: #e0e0e0; margin: 4px 8px; }";
+    return QString();
 }
 QString BrightTheme::tooltip()
 {
