@@ -127,10 +127,11 @@ jobs:
 
       - name: Package
         run: |
-          cd build && make install DESTDIR=$GITHUB_WORKSPACE/appdir
-          mkdir -p $GITHUB_WORKSPACE/appdir/usr/share/{applications,icons/hicolor/256x256/apps}
-          cp ../program_info/org.pollymc.PollyMC.desktop.in $GITHUB_WORKSPACE/appdir/usr/share/applications/org.pollymc.PollyMC.desktop
-          cp ../program_info/org.pollymc.PollyMC_256.png $GITHUB_WORKSPACE/appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
+          cmake --install build --prefix /tmp/pollymc
+          mkdir -p appdir/usr/share/{applications,icons/hicolor/256x256/apps}
+          cp -r /tmp/pollymc/* appdir/
+          cp program_info/org.pollymc.PollyMC.desktop.in appdir/usr/share/applications/org.pollymc.PollyMC.desktop
+          cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
 
       - name: Create AppImage
         run: |
