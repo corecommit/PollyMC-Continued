@@ -102,6 +102,7 @@
 #include "ui/dialogs/ExportPackDialog.h"
 #include "ui/dialogs/IconPickerDialog.h"
 #include "ui/dialogs/ImportResourceDialog.h"
+#include "ui/dialogs/PerformancePresetsDialog.h"
 #include "ui/dialogs/NewInstanceDialog.h"
 #include "ui/dialogs/NewsDialog.h"
 #include "ui/dialogs/ProgressDialog.h"
@@ -149,7 +150,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
-    // Hide news toolbar
+    // Hide news toolbar (disabled)
     ui->newsToolBar->hide();
     ui->actionMoreNews->setVisible(false);
 
@@ -278,19 +279,10 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
         connect(secretEventFilter, &KonamiCode::triggered, this, &MainWindow::konamiTriggered);
     }
 
-    // Add the news label to the news toolbar.
+    // Add the news label to the news toolbar (hidden - disabled)
     {
-        m_newsChecker.reset(new NewsChecker(APPLICATION->network(), BuildConfig.NEWS_RSS_URL));
-        newsLabel = new QToolButton();
-        newsLabel->setIcon(QIcon::fromTheme("news"));
-        newsLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        newsLabel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        newsLabel->setFocusPolicy(Qt::NoFocus);
-        ui->newsToolBar->insertWidget(ui->actionMoreNews, newsLabel);
-
-        connect(newsLabel, &QAbstractButton::clicked, this, &MainWindow::newsButtonClicked);
-        connect(m_newsChecker.get(), &NewsChecker::newsLoaded, this, &MainWindow::updateNewsLabel);
-        updateNewsLabel();
+        ui->newsToolBar->hide();
+        ui->actionMoreNews->setVisible(false);
     }
 
     // Create the instance list widget
@@ -389,6 +381,15 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     statusBar()->addPermanentWidget(m_statusCenter, 0);
     statusBar()->addPermanentWidget(m_statusMemory, 0);
 
+    // Memory monitor timer
+    m_memoryTimer = new QTimer(this);
+    connect(m_memoryTimer, &QTimer::timeout, this, [this]() {
+        auto mem = QProcess();
+        m_statusMemory->setText(QString("RAM: %1 MB").arg(
+            QString::number(HardwareInfo::totalRamMiB())));
+    });
+    m_memoryTimer->start(5000);
+
     // Add "manage accounts" button, right align
     QWidget* spacer = new QWidget();
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -413,7 +414,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     // load the news
     {
-        m_newsChecker->reloadNews();
+        if (m_newsChecker) {
+            m_newsChecker->reloadNews();
+        }
         updateNewsLabel();
     }
 
@@ -807,6 +810,8 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* ev)
 
 void MainWindow::updateNewsLabel()
 {
+    if (!newsLabel || !m_newsChecker) return;
+
     if (m_newsChecker->isLoadingNews()) {
         newsLabel->setText(tr("Loading news..."));
         newsLabel->setEnabled(false);
@@ -959,7 +964,7 @@ void MainWindow::processURLs(QList<QUrl> urls)
                 // format of url curseforge://install?addonId=IDHERE&fileId=IDHERE
                 // format of url binaryname://install?platform=curseforge&addonId=IDHERE&fileId=IDHERE
                 QUrlQuery query(url);
-                
+
                 // check if this is a binaryname:// url
                 if (url.scheme() == BuildConfig.LAUNCHER_APP_BINARY_NAME) {
                     // check this is an curseforge platform request
@@ -1457,6 +1462,7 @@ void MainWindow::on_actionOpenWiki_triggered()
 
 void MainWindow::on_actionMoreNews_triggered()
 {
+    if (!m_newsChecker) return;
     auto entries = m_newsChecker->getNewsEntries();
     NewsDialog news_dialog(entries, this);
     news_dialog.exec();
@@ -1464,6 +1470,7 @@ void MainWindow::on_actionMoreNews_triggered()
 
 void MainWindow::newsButtonClicked()
 {
+    if (!m_newsChecker) return;
     auto entries = m_newsChecker->getNewsEntries();
     NewsDialog news_dialog(entries, this);
     news_dialog.toggleArticleList();
@@ -1479,6 +1486,29 @@ void MainWindow::on_actionAbout_triggered()
 {
     AboutDialog dialog(this);
     dialog.exec();
+}
+
+void MainWindow::on_actionPerformancePresets_triggered()
+{
+    PerformancePresetsDialog dialog(this);
+    dialog.exec();
+}
+
+void MainWindow::on_actionBackupInstance_triggered()
+{
+    if (!m_selectedInstance) return;
+    on_actionExportInstanceZip_triggered();
+}
+
+void MainWindow::on_actionViewCrashReports_triggered()
+{
+    if (!m_selectedInstance) return;
+    auto crashDir = FS::PathCombine(m_selectedInstance->gameRoot(), "crash-reports");
+    if (!QDir(crashDir).exists()) {
+        CustomMessageBox::selectable(this, tr("Crash Reports"), tr("No crash reports found."), QMessageBox::Information)->exec();
+        return;
+    }
+    DesktopServices::openPath(QFileInfo(crashDir));
 }
 
 void MainWindow::on_actionDeleteInstance_triggered()
@@ -1582,8 +1612,22 @@ void MainWindow::closeEvent(QCloseEvent* event)
     APPLICATION->settings()->set("MainWindowState", QString::fromUtf8(saveState().toBase64()));
     APPLICATION->settings()->set("MainWindowGeometry", QString::fromUtf8(saveGeometry().toBase64()));
     instanceToolbarSetting->set(QString::fromUtf8(ui->instanceToolBar->getVisibilityState().toBase64()));
+
+    // Minimize to tray instead of closing
+    if (APPLICATION->settings()->get("MinimizeToTray").toBool() && !m_forceClose) {
+        hide();
+        event->ignore();
+        return;
+    }
+
     event->accept();
     emit isClosing();
+}
+
+void MainWindow::forceClose()
+{
+    m_forceClose = true;
+    close();
 }
 
 void MainWindow::changeEvent(QEvent* event)
@@ -1612,6 +1656,25 @@ void MainWindow::on_actionLaunchInstance_triggered()
         APPLICATION->settings()->set("LastLaunchedInstance", m_selectedInstance->id());
         APPLICATION->launch(m_selectedInstance);
     }
+}
+
+void MainWindow::on_actionQuickLaunch_triggered()
+{
+    QString lastId = APPLICATION->settings()->get("LastLaunchedInstance").toString();
+    if (lastId.isEmpty()) {
+        CustomMessageBox::selectable(this, tr("Quick Launch"), tr("No instance has been launched yet."), QMessageBox::Information)->exec();
+        return;
+    }
+    auto inst = APPLICATION->instances()->getInstanceById(lastId);
+    if (!inst) {
+        CustomMessageBox::selectable(this, tr("Quick Launch"), tr("Last launched instance no longer exists."), QMessageBox::Warning)->exec();
+        return;
+    }
+    if (inst->isRunning()) {
+        CustomMessageBox::selectable(this, tr("Quick Launch"), tr("Instance is already running."), QMessageBox::Information)->exec();
+        return;
+    }
+    APPLICATION->launch(inst);
 }
 
 void MainWindow::activateInstance(BaseInstance* instance)

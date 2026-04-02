@@ -53,6 +53,7 @@
    <addaction name="separator"/>
    <addaction name="actionFoldersButton"/>
    <addaction name="actionSettings"/>
+   <addaction name="actionPerformancePresets"/>
    <addaction name="actionHelpButton"/>
    <addaction name="actionCheckUpdate"/>
    <addaction name="separator"/>
@@ -115,12 +116,15 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionLaunchInstance"/>
+   <addaction name="actionQuickLaunch"/>
    <addaction name="actionKillInstance"/>
    <addaction name="separator"/>
    <addaction name="actionEditInstance"/>
    <addaction name="actionChangeInstGroup"/>
    <addaction name="actionViewSelectedInstFolder"/>
    <addaction name="actionExportInstance"/>
+   <addaction name="actionBackupInstance"/>
+   <addaction name="actionViewCrashReports"/>
    <addaction name="actionCopyInstance"/>
    <addaction name="actionDeleteInstance"/>
    <addaction name="actionCreateInstanceShortcut"/>
@@ -143,8 +147,9 @@
     </property>
     <addaction name="actionAddInstance"/>
     <addaction name="separator"/>
-    <addaction name="actionLaunchInstance"/>
-    <addaction name="actionKillInstance"/>
+     <addaction name="actionLaunchInstance"/>
+     <addaction name="actionQuickLaunch"/>
+     <addaction name="actionKillInstance"/>
     <addaction name="separator"/>
     <addaction name="actionEditInstance"/>
     <addaction name="actionChangeInstGroup"/>
@@ -321,8 +326,19 @@
    <property name="menuRole">
     <enum>QAction::PreferencesRole</enum>
    </property>
-  </action>
-  <action name="actionManageAccounts">
+   </action>
+   <action name="actionPerformancePresets">
+    <property name="icon">
+      <iconset theme="performance"/>
+    </property>
+    <property name="text">
+     <string>&amp;Performance Presets</string>
+    </property>
+    <property name="toolTip">
+     <string>Quick memory presets for low-end PCs.</string>
+    </property>
+   </action>
+   <action name="actionManageAccounts">
    <property name="icon">
     <iconset theme="accounts"/>
    </property>
@@ -340,8 +356,19 @@
    <property name="toolTip">
     <string>Launch the selected instance.</string>
    </property>
-  </action>
-  <action name="actionKillInstance">
+   </action>
+   <action name="actionQuickLaunch">
+    <property name="icon">
+      <iconset theme="quicklaunch"/>
+    </property>
+    <property name="text">
+     <string>&amp;Quick Launch</string>
+    </property>
+    <property name="toolTip">
+     <string>Launch the last played instance.</string>
+    </property>
+   </action>
+   <action name="actionKillInstance">
    <property name="icon">
     <iconset theme="status-bad"/>
    </property>
@@ -364,9 +391,31 @@
    </property>
    <property name="toolTip">
     <string>Rename the selected instance.</string>
-   </property>
-  </action>
-  <action name="actionChangeInstGroup">
+    </property>
+   </action>
+   <action name="actionBackupInstance">
+    <property name="icon">
+     <iconset theme="export"/>
+    </property>
+    <property name="text">
+     <string>&amp;Backup Instance</string>
+    </property>
+    <property name="toolTip">
+     <string>Backup the selected instance as a zip file.</string>
+    </property>
+   </action>
+   <action name="actionViewCrashReports">
+    <property name="icon">
+     <iconset theme="bug"/>
+    </property>
+    <property name="text">
+     <string>&amp;Crash Reports</string>
+    </property>
+    <property name="toolTip">
+     <string>Open the crash reports folder for the selected instance.</string>
+    </property>
+   </action>
+   <action name="actionChangeInstGroup">
    <property name="icon">
     <iconset theme="tag"/>
    </property>
