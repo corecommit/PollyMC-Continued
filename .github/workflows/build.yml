@@ -106,6 +106,7 @@ jobs:
             qt6-base-dev-tools libgl-dev \
             extra-cmake-modules \
             libtomlplusplus-dev libcmark-dev libqrencode-dev \
+            cmark \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
             libcurl4-openssl-dev libssl-dev libpng-dev \
             liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
