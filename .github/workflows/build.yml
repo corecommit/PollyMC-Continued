@@ -15,6 +15,8 @@ jobs:
   build-windows:
     name: Windows (MinGW)
     runs-on: windows-latest
+    permissions:
+      contents: write
     defaults:
       run:
         shell: msys2 {0}
@@ -75,15 +77,12 @@ jobs:
       - name: Deploy Qt
         run: |
           cd build
-          # windeployqt6 bundles all Qt plugins and DLLs needed at runtime
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
 
-          # Copy any remaining MinGW runtime DLLs that ldd finds but windeployqt6 missed
           for dll in $(ldd pollymc.exe | grep "/mingw64/bin/" | awk '{print $3}'); do
             cp -n "$dll" . 2>/dev/null || true
           done
 
-          # Do the same for Qt plugin DLLs so they pull in their own deps
           for f in platforms/*.dll tls/*.dll imageformats/*.dll; do
             [ -f "$f" ] || continue
             for dll in $(ldd "$f" 2>/dev/null | grep "/mingw64/bin/" | awk '{print $3}'); do
@@ -93,7 +92,6 @@ jobs:
 
       - name: Get version
         id: version
-        # On a tag push this will be e.g. "v9.0.1"; on a branch it falls back to the short SHA
         shell: bash
         run: |
           if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
@@ -105,11 +103,9 @@ jobs:
 
       - name: Build NSIS installer
         run: |
-          # Convert the MSYS2 path to a Windows path that makensis understands
           BUILD_DIR_WIN="$(cygpath -w "$(pwd)/build")"
           VERSION="${{ steps.version.outputs.version }}"
 
-          # Patch the version string in the NSI file and run makensis
           sed "s/PollyMC-Continued-9\.0\.0-Setup/PollyMC-Continued-${VERSION}-Setup/" \
             pollymc_installer.nsi > /tmp/pollymc_installer_versioned.nsi
 
@@ -118,26 +114,36 @@ jobs:
             /tmp/pollymc_installer_versioned.nsi
 
       - name: Zip portable build
+        shell: bash
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           cd build
-          7z a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
+          "/c/Program Files/7-Zip/7z.exe" a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
 
-      - name: Upload portable build
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: PollyMC-Continued-Windows-portable
-          path: PollyMC-Continued-*-Windows-portable.zip
+          name: PollyMC-Continued-Windows
+          path: |
+            PollyMC-Continued-*-Setup.exe
+            PollyMC-Continued-*-Windows-portable.zip
 
-      - name: Upload installer
-        uses: actions/upload-artifact@v4
+      - name: Publish to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
         with:
-          name: PollyMC-Continued-Windows-installer
-          path: PollyMC-Continued-*-Setup.exe
+          files: |
+            PollyMC-Continued-*-Setup.exe
+            PollyMC-Continued-*-Windows-portable.zip
+          generate_release_notes: true
 
   build-linux:
     name: Linux
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      APPIMAGE_EXTRACT_AND_RUN: "1"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -183,20 +189,14 @@ jobs:
           cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
 
       - name: Create AppImage
-        env:
-          # Required: GitHub Actions runners don't have FUSE, so AppImages must
-          # self-extract instead of mounting. Without this flag linuxdeploy hangs.
-          APPIMAGE_EXTRACT_AND_RUN: "1"
         run: |
           wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
 
-          # Icon and desktop file must be at the root of appdir for linuxdeploy
           cp program_info/org.pollymc.PollyMC_256.png appdir/pollymc.png
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/pollymc.desktop
 
-          # --plugin qt bundles all Qt libraries and plugins into the AppImage
           ./linuxdeploy-x86_64.AppImage \
             --appdir appdir \
             --plugin qt \
@@ -204,36 +204,21 @@ jobs:
 
       - name: Rename AppImage
         run: |
-          # linuxdeploy names the file from the desktop Name= field; normalise it
-          # to a predictable filename for the release step.
-          mv PollyMC*.AppImage PollyMC-Continued-Linux-x86_64.AppImage
+          FILE=$(ls PollyMC*.AppImage 2>/dev/null | head -n1)
+          if [ -z "$FILE" ]; then
+            echo "ERROR: No AppImage found. Listing directory:"; ls -la; exit 1
+          fi
+          mv "$FILE" PollyMC-Continued-Linux-x86_64.AppImage
 
-      - name: Upload AppImage
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Linux-AppImage
           path: PollyMC-Continued-Linux-x86_64.AppImage
 
-  release:
-    name: Create Release
-    needs: [build-windows, build-linux]
-    if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      # Download all artifacts into a single flat directory so the glob in
-      # softprops/action-gh-release can find them without recursive patterns.
-      - uses: actions/download-artifact@v4
-        with:
-          path: release-assets
-          merge-multiple: true
-
-      - name: Create Release
+      - name: Publish to release
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            release-assets/PollyMC-Continued-*-Setup.exe
-            release-assets/PollyMC-Continued-*-Windows-portable.zip
-            release-assets/PollyMC-Continued-Linux-x86_64.AppImage
+          files: PollyMC-Continued-Linux-x86_64.AppImage
           generate_release_notes: true
