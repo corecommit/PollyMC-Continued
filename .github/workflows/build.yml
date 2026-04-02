@@ -110,6 +110,7 @@ jobs:
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
             libcurl4-openssl-dev libssl-dev libpng-dev \
             liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
+            libgamemode-dev libgamemodeauto-dev \
             openjdk-21-jdk
 
       - name: Configure
