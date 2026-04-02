@@ -130,7 +130,7 @@ jobs:
           cmake --install build --prefix /tmp/pollymc
           mkdir -p appdir/usr/share/{applications,icons/hicolor/256x256/apps}
           cp -r /tmp/pollymc/* appdir/
-          cp program_info/org.pollymc.PollyMC.desktop.in appdir/usr/share/applications/org.pollymc.PollyMC.desktop
+          cp build/program_info/org.pollymc.PollyMC.desktop appdir/usr/share/applications/org.pollymc.PollyMC.desktop
           cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
 
       - name: Create AppImage
