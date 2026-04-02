@@ -3,7 +3,7 @@ name: Build PollyMC-Continued
 on:
   push:
     branches: [main, develop]
-    tags: ['v*']
+    tags: ["v*"]
   pull_request:
     branches: [main]
 
@@ -117,11 +117,17 @@ jobs:
             "/DBUILD_DIR=${BUILD_DIR_WIN}" \
             /tmp/pollymc_installer_versioned.nsi
 
+      - name: Zip portable build
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          cd build
+          7z a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
+
       - name: Upload portable build
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Windows-portable
-          path: build/
+          path: PollyMC-Continued-*-Windows-portable.zip
 
       - name: Upload installer
         uses: actions/upload-artifact@v4
@@ -216,12 +222,18 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Download all artifacts into a single flat directory so the glob in
+      # softprops/action-gh-release can find them without recursive patterns.
       - uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            PollyMC-Continued-Windows-installer/PollyMC-Continued-*-Setup.exe
-            PollyMC-Continued-Linux-AppImage/PollyMC-Continued-Linux-x86_64.AppImage
+            release-assets/PollyMC-Continued-*-Setup.exe
+            release-assets/PollyMC-Continued-*-Windows-portable.zip
+            release-assets/PollyMC-Continued-Linux-x86_64.AppImage
           generate_release_notes: true
