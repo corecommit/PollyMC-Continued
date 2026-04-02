@@ -110,6 +110,7 @@
 #include "net/HttpMetaCache.h"
 
 #include "updater/ExternalUpdater.h"
+#include "DiscordRichPresence.h"
 
 #include "tools/JProfiler.h"
 #include "tools/JVisualVM.h"
@@ -1555,7 +1556,11 @@ bool Application::launch(BaseInstance* instance,
         addRunningInstance();
         QMetaObject::invokeMethod(controller.get(), &Task::start, Qt::QueuedConnection);
 
-        // Discord Rich Presence removed
+        // Update Discord Rich Presence
+        QTimer::singleShot(2000, this, [instance]() {
+            DiscordRichPresence::instance()->updatePlayingMinecraft(
+                instance->name(), "Loading...", QDateTime::currentSecsSinceEpoch());
+        });
 
         return true;
     } else if (instance->isRunning()) {
@@ -1638,7 +1643,8 @@ void Application::controllerFinished()
 
     const bool wasSuccessful = controller->wasSuccessful();
 
-    // Discord Rich Presence removed
+    // Update Discord Rich Presence back to idle
+    DiscordRichPresence::instance()->updateIdle();
 
     // on success, do...
     if (wasSuccessful && controller->instance()->settings()->get("AutoCloseConsole").toBool()) {
@@ -1703,7 +1709,8 @@ MainWindow* Application::showMainWindow(bool minimized)
             }
         }
 
-        // Discord Rich Presence removed
+        // Discord Rich Presence
+        DiscordRichPresence::instance()->init();
     }
     return m_mainWindow;
 }
