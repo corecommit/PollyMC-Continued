@@ -190,7 +190,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
         ui->instanceToolBar->setVisibilityState(QByteArray::fromBase64(instanceToolbarSetting->get().toString().toUtf8()));
 
-        ui->instanceToolBar->addContextMenuAction(ui->newsToolBar->toggleViewAction());
         ui->instanceToolBar->addContextMenuAction(ui->instanceToolBar->toggleViewAction());
         ui->instanceToolBar->addContextMenuAction(ui->actionToggleStatusBar);
         ui->instanceToolBar->addContextMenuAction(ui->actionLockToolbars);
@@ -251,7 +250,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     // add the toolbar toggles to the view menu
     ui->viewMenu->addAction(ui->instanceToolBar->toggleViewAction());
-    ui->viewMenu->addAction(ui->newsToolBar->toggleViewAction());
 
     updateThemeMenu();
     updateMainToolBar();

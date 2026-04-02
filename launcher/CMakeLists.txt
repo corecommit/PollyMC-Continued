@@ -1374,6 +1374,7 @@ target_link_libraries(Launcher_logic
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::NetworkAuth
     Qt${QT_VERSION_MAJOR}::OpenGL
+    Qt${QT_VERSION_MAJOR}::WebSockets
     ${Launcher_QT_DBUS}
     ${Launcher_QT_LIBS}
 )
