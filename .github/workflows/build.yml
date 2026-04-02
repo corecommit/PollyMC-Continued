@@ -36,6 +36,7 @@ jobs:
             mingw-w64-x86_64-qt6-svg
             mingw-w64-x86_64-qt6-5compat
             mingw-w64-x86_64-qt6-networkauth
+            mingw-w64-x86_64-qt6-websockets
             mingw-w64-x86_64-extra-cmake-modules
             mingw-w64-x86_64-tomlplusplus
             mingw-w64-x86_64-cmark
@@ -57,6 +58,7 @@ jobs:
             mingw-w64-x86_64-libb2
             mingw-w64-x86_64-libidn2
             mingw-w64-x86_64-sqlite3
+            mingw-w64-x86_64-nsis
 
       - name: Configure
         run: |
@@ -70,24 +72,62 @@ jobs:
       - name: Build
         run: cmake --build build -j$(nproc)
 
-      - name: Deploy
+      - name: Deploy Qt
         run: |
           cd build
-          windeployqt6 pollymc.exe
-          for dll in $(ldd pollymc.exe | grep "/mingw64/bin/" | awk '{print $1}'); do
-            cp /mingw64/bin/$dll . 2>/dev/null || true
+          # windeployqt6 bundles all Qt plugins and DLLs needed at runtime
+          /mingw64/bin/windeployqt6.exe --release pollymc.exe
+
+          # Copy any remaining MinGW runtime DLLs that ldd finds but windeployqt6 missed
+          for dll in $(ldd pollymc.exe | grep "/mingw64/bin/" | awk '{print $3}'); do
+            cp -n "$dll" . 2>/dev/null || true
           done
-          for f in platforms/*.dll tls/*.dll; do
-            for dll in $(ldd "$f" 2>/dev/null | grep "/mingw64/bin/" | awk '{print $1}'); do
-              cp /mingw64/bin/$dll . 2>/dev/null || true
+
+          # Do the same for Qt plugin DLLs so they pull in their own deps
+          for f in platforms/*.dll tls/*.dll imageformats/*.dll; do
+            [ -f "$f" ] || continue
+            for dll in $(ldd "$f" 2>/dev/null | grep "/mingw64/bin/" | awk '{print $3}'); do
+              cp -n "$dll" . 2>/dev/null || true
             done
           done
 
-      - name: Upload
+      - name: Get version
+        id: version
+        # On a tag push this will be e.g. "v9.0.1"; on a branch it falls back to the short SHA
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            VERSION="${GITHUB_REF#refs/tags/v}"
+          else
+            VERSION="$(git rev-parse --short HEAD)"
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Build NSIS installer
+        run: |
+          # Convert the MSYS2 path to a Windows path that makensis understands
+          BUILD_DIR_WIN="$(cygpath -w "$(pwd)/build")"
+          VERSION="${{ steps.version.outputs.version }}"
+
+          # Patch the version string in the NSI file and run makensis
+          sed "s/PollyMC-Continued-9\.0\.0-Setup/PollyMC-Continued-${VERSION}-Setup/" \
+            pollymc_installer.nsi > /tmp/pollymc_installer_versioned.nsi
+
+          makensis \
+            "/DBUILD_DIR=${BUILD_DIR_WIN}" \
+            /tmp/pollymc_installer_versioned.nsi
+
+      - name: Upload portable build
         uses: actions/upload-artifact@v4
         with:
-          name: PollyMC-Continued-Windows
+          name: PollyMC-Continued-Windows-portable
           path: build/
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: PollyMC-Continued-Windows-installer
+          path: PollyMC-Continued-*-Setup.exe
 
   build-linux:
     name: Linux
@@ -103,6 +143,7 @@ jobs:
           sudo apt-get install -y \
             build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
+            qt6-websockets-dev \
             qt6-base-dev-tools libgl-dev \
             extra-cmake-modules \
             libtomlplusplus-dev libcmark-dev libqrencode-dev \
@@ -136,18 +177,36 @@ jobs:
           cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
 
       - name: Create AppImage
+        env:
+          # Required: GitHub Actions runners don't have FUSE, so AppImages must
+          # self-extract instead of mounting. Without this flag linuxdeploy hangs.
+          APPIMAGE_EXTRACT_AND_RUN: "1"
         run: |
           wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
-          chmod +x linuxdeploy-x86_64.AppImage
+          wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
+
+          # Icon and desktop file must be at the root of appdir for linuxdeploy
           cp program_info/org.pollymc.PollyMC_256.png appdir/pollymc.png
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/pollymc.desktop
-          ./linuxdeploy-x86_64.AppImage --appdir appdir --output appimage
+
+          # --plugin qt bundles all Qt libraries and plugins into the AppImage
+          ./linuxdeploy-x86_64.AppImage \
+            --appdir appdir \
+            --plugin qt \
+            --output appimage
+
+      - name: Rename AppImage
+        run: |
+          # linuxdeploy names the file from the desktop Name= field; normalise it
+          # to a predictable filename for the release step.
+          mv PollyMC*.AppImage PollyMC-Continued-Linux-x86_64.AppImage
 
       - name: Upload AppImage
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Linux-AppImage
-          path: PollyMC_Continued*.AppImage
+          path: PollyMC-Continued-Linux-x86_64.AppImage
 
   release:
     name: Create Release
@@ -163,5 +222,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            PollyMC-Continued-Windows/**
+            PollyMC-Continued-Windows-installer/PollyMC-Continued-*-Setup.exe
+            PollyMC-Continued-Linux-AppImage/PollyMC-Continued-Linux-x86_64.AppImage
           generate_release_notes: true
