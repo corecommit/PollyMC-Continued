@@ -118,11 +118,19 @@ jobs:
 
       - name: Build NSIS installer
         run: |
+          set -e  # Fail fast
           BUILD_DIR_WIN="$(cygpath -w "$(pwd)/build")"
           VERSION="${{ steps.version.outputs.version }}"
 
+          echo "=== Build directory: $BUILD_DIR_WIN ==="
+          echo "=== Version: $VERSION ==="
+
+          # Modify NSIS script with version
           sed "s/PollyMC-Continued-9\.0\.0-Setup/PollyMC-Continued-${VERSION}-Setup/" \
             pollymc_installer.nsi > /tmp/pollymc_installer_versioned.nsi
+
+          echo "=== Running makensis ==="
+          which makensis || echo "WARNING: makensis not found in PATH"
 
           makensis \
             "/DBUILD_DIR=${BUILD_DIR_WIN}" \
@@ -130,18 +138,21 @@ jobs:
 
           # Verify installer was created
           echo "=== Checking for installer ==="
-          ls -la PollyMC-Continued-*-Setup.exe 2>/dev/null || echo "ERROR: Installer not found!"
+          ls -la PollyMC-Continued-*-Setup.exe || (echo "ERROR: Installer not found!" && exit 1)
 
       - name: Zip portable build
         shell: bash
         run: |
+          set -e  # Fail fast
           VERSION="${{ steps.version.outputs.version }}"
+          echo "=== Creating portable zip ==="
           cd build
+          ls -la pollymc.exe || (echo "ERROR: pollymc.exe not found in build!" && exit 1)
           "/c/Program Files/7-Zip/7z.exe" a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
           cd ..
           # Verify zip was created
           echo "=== Checking for zip ==="
-          ls -la PollyMC-Continued-*-Windows-portable.zip 2>/dev/null || echo "ERROR: Zip not found!"
+          ls -la PollyMC-Continued-*-Windows-portable.zip || (echo "ERROR: Zip not found!" && exit 1)
 
       - name: Verify release files exist
         shell: bash
