@@ -128,12 +128,32 @@ jobs:
             "/DBUILD_DIR=${BUILD_DIR_WIN}" \
             /tmp/pollymc_installer_versioned.nsi
 
+          # Verify installer was created
+          echo "=== Checking for installer ==="
+          ls -la PollyMC-Continued-*-Setup.exe 2>/dev/null || echo "ERROR: Installer not found!"
+
       - name: Zip portable build
         shell: bash
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           cd build
           "/c/Program Files/7-Zip/7z.exe" a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
+          cd ..
+          # Verify zip was created
+          echo "=== Checking for zip ==="
+          ls -la PollyMC-Continued-*-Windows-portable.zip 2>/dev/null || echo "ERROR: Zip not found!"
+
+      - name: Verify release files exist
+        shell: bash
+        run: |
+          echo "=== Current directory ==="
+          pwd
+          echo "=== Listing all files ==="
+          ls -la PollyMC-Continued-* 2>/dev/null || echo "No PollyMC files found!"
+          echo "=== Checking for installer ==="
+          ls -la *.exe 2>/dev/null || echo "No .exe files found!"
+          echo "=== Checking for zip ==="
+          ls -la *.zip 2>/dev/null || echo "No .zip files found!"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
