@@ -143,7 +143,7 @@ jobs:
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
 
-      - name: Publish to release
+      - name: Publish to release (create with changelog)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
@@ -151,6 +151,11 @@ jobs:
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
           generate_release_notes: true
+          body: |
+            ## Changelog
+            Automated release based on commits since last tag.
+            
+            See commit history for detailed changes.
 
   build-linux:
     name: Linux
@@ -231,9 +236,10 @@ jobs:
           name: PollyMC-Continued-Linux-AppImage
           path: PollyMC-Continued-Linux-x86_64.AppImage
 
-      - name: Publish to release
+      - name: Upload to release (Linux AppImage)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: PollyMC-Continued-Linux-x86_64.AppImage
-          generate_release_notes: true
+          generate_release_notes: false
+          append_file: true
