@@ -163,6 +163,17 @@ jobs:
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
 
+      - name: Verify files before release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          echo "=== All files in workspace ==="
+          ls -la
+          echo "=== Checking for installer ==="
+          find . -name "PollyMC-Continued-*-Setup.exe" -type f 2>/dev/null || echo "Installer not found!"
+          echo "=== Checking for zip ==="
+          find . -name "PollyMC-Continued-*-Windows-portable.zip" -type f 2>/dev/null || echo "Zip not found!"
+
       - name: Publish to release (create with changelog)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
