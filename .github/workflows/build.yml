@@ -68,6 +68,7 @@ jobs:
           cmake -G Ninja \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=install \
+            -DCMAKE_SYSTEM_LIBRARY_PATH=/mingw64/bin \
             -DCMAKE_CXX_FLAGS="-Wno-error" \
             -DCMAKE_C_FLAGS="-Wno-error" \
             -S . -B build
@@ -80,16 +81,29 @@ jobs:
           cd build
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
 
-          for dll in $(ldd pollymc.exe | grep "/mingw64/bin/" | awk '{print $3}'); do
-            cp -n "$dll" . 2>/dev/null || true
+          # Copy MinGW runtime DLLs explicitly
+          for dll in libgcc_s_seh-1.dll libstdc++-6.dll libwinpthread-1.dll; do
+            if [ -f "/mingw64/bin/$dll" ]; then
+              cp -f "/mingw64/bin/$dll" .
+              echo "Copied $dll"
+            else
+              echo "WARNING: $dll not found in /mingw64/bin/"
+            fi
           done
 
-          for f in platforms/*.dll tls/*.dll imageformats/*.dll; do
+          # Also copy any other MinGW DLLs needed by Qt plugins
+          for f in platforms/*.dll tls/*.dll imageformats/*.dll networkinformation/*.dll; do
             [ -f "$f" ] || continue
-            for dll in $(ldd "$f" 2>/dev/null | grep "/mingw64/bin/" | awk '{print $3}'); do
-              cp -n "$dll" . 2>/dev/null || true
+            for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
+              if [ -f "/mingw64/bin/$dll" ]; then
+                cp -n "/mingw64/bin/$dll" . 2>/dev/null || true
+              fi
             done
           done
+
+          # List all DLLs to verify
+          echo "=== DLLs in build directory ==="
+          ls -la *.dll
 
       - name: Get version
         id: version

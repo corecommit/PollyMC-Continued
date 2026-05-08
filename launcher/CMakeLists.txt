@@ -1597,7 +1597,6 @@ if(WIN32 OR (UNIX AND APPLE))
             PLUGINS_DIR ${PLUGIN_DEST_DIR}
             NO_OVERWRITE
             NO_TRANSLATIONS
-            NO_COMPILER_RUNTIME
             DEPLOY_TOOL_OPTIONS ${QT_DEPLOY_TOOL_OPTIONS}
         )"
     )
@@ -1667,6 +1666,23 @@ if(WIN32 OR (UNIX AND APPLE))
                 )
             endforeach()
         ]]
+        COMPONENT bundle)
+    endif()
+
+    # Copy MinGW runtime DLLs explicitly (libgcc_s_seh-1.dll, libstdc++-6.dll, libwinpthread-1.dll)
+    if(MINGW)
+        install(CODE "
+            set(_mingw_path \"${CMAKE_SYSTEM_LIBRARY_PATH}\")
+            foreach(_dll IN ITEMS libgcc_s_seh-1.dll libstdc++-6.dll libwinpthread-1.dll)
+                file(GLOB _dll_path \"${_mingw_path}/${_dll}\")
+                if(_dll_path)
+                    file(COPY \${_dll_path} DESTINATION \${CMAKE_INSTALL_PREFIX})
+                    message(STATUS \"Copied \${_dll} to install directory\")
+                else()
+                    message(WARNING \"Could not find \${_dll} in ${CMAKE_SYSTEM_LIBRARY_PATH}\")
+                endif()
+            endforeach()
+        "
         COMPONENT bundle)
     endif()
 

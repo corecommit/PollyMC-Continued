@@ -30,17 +30,23 @@ Grab the latest release from the [Releases](https://github.com/SharathGames1/Pol
 
 ### Build Steps
 ```bash
-# Configure
-cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/c/msys64/mingw64 -DCMAKE_CXX_FLAGS="-Wno-error" -DCMAKE_C_FLAGS="-Wno-error" .
+# Configure with MinGW runtime paths
+cmake -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_PREFIX_PATH=/c/msys64/mingw64 \
+  -DCMAKE_SYSTEM_LIBRARY_PATH=/c/msys64/mingw64/bin \
+  -DCMAKE_CXX_FLAGS="-Wno-error" \
+  -DCMAKE_C_FLAGS="-Wno-error" \
+  .
 
 # Build
-cmake --build build -j4 --target PollyMC
+cmake --build . -j4 --target PollyMC
 
-# Deploy Qt DLLs
-cd build && windeployqt6 pollymc.exe
+# Install to build directory (deploys Qt + MinGW runtime DLLs)
+cmake --install . --prefix C:/pollymc_build
 
 # Create setup installer
-/c/Program\ Files\ \(x86\)/NSIS/makensis.exe pollymc_installer.nsi
+"/c/Program Files (x86)/NSIS/makensis.exe" pollymc_installer.nsi
 ```
 
 ## Credits
