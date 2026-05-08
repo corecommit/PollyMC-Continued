@@ -151,11 +151,6 @@ jobs:
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
           generate_release_notes: true
-          body: |
-            ## Changelog
-            Automated release based on commits since last tag.
-            
-            See commit history for detailed changes.
 
   build-linux:
     name: Linux
