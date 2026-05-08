@@ -124,21 +124,23 @@ jobs:
 
           echo "=== Build directory: $BUILD_DIR_WIN ==="
           echo "=== Version: $VERSION ==="
+          echo "=== Current directory: $(pwd) ==="
 
-          # Modify NSIS script with version
+          # Modify NSIS script with version - OUTPUT TO WORKSPACE (not /tmp/)
           sed "s/PollyMC-Continued-9\.0\.0-Setup/PollyMC-Continued-${VERSION}-Setup/" \
-            pollymc_installer.nsi > /tmp/pollymc_installer_versioned.nsi
+            pollymc_installer.nsi > pollymc_installer_versioned.nsi
 
           echo "=== Running makensis ==="
           which makensis || echo "WARNING: makensis not found in PATH"
 
+          # Run makensis from workspace dir - output will be in workspace
           makensis \
             "/DBUILD_DIR=${BUILD_DIR_WIN}" \
-            /tmp/pollymc_installer_versioned.nsi
+            "pollymc_installer_versioned.nsi"
 
-          # Verify installer was created
+          # Verify installer was created in workspace
           echo "=== Checking for installer ==="
-          ls -la PollyMC-Continued-*-Setup.exe || (echo "ERROR: Installer not found!" && exit 1)
+          ls -la *.exe || (echo "ERROR: Installer not found!" && exit 1)
 
       - name: Zip portable build
         shell: bash
