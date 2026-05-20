@@ -81,29 +81,35 @@ jobs:
           cd build
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
 
-          # Copy MinGW runtime DLLs explicitly to build/ (BUILD_DIR)
-          for dll in libgcc_s_seh-1.dll libstdc++-6.dll libwinpthread-1.dll; do
-            if [ -f "/mingw64/bin/$dll" ]; then
-              cp -f "/mingw64/bin/$dll" .
-              echo "Copied $dll"
-            else
-              echo "WARNING: $dll not found in /mingw64/bin/"
-            fi
-          done
-
-          # Also copy any other MinGW DLLs needed by Qt plugins
-          for f in platforms/*.dll tls/*.dll imageformats/*.dll networkinformation/*.dll; do
+          # Resolve all DLL dependencies for every PE file in build/
+          # This catches compiler runtime DLLs (libgcc_s_seh-1, libstdc++-6, libwinpthread-1, etc.)
+          # and any other transitive dependencies that windeployqt6 might miss.
+          NEED_FIX=0
+          for f in *.exe *.dll; do
             [ -f "$f" ] || continue
             for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
-              if [ -f "/mingw64/bin/$dll" ]; then
-                cp -n "/mingw64/bin/$dll" . 2>/dev/null || true
+              if [ -f "/mingw64/bin/$dll" ] && [ ! -f "$dll" ]; then
+                cp -f "/mingw64/bin/$dll" .
+                echo "Deployed missing dependency: $dll (needed by $f)"
+                NEED_FIX=1
               fi
             done
           done
 
-          # List all DLLs to verify - they should be in build/
+          # List all DLLs to verify
           echo "=== DLLs in build/ directory ==="
           ls -la *.dll
+
+          # Fail if any MinGW DLLs were still missed (new dependencies in newer toolchains)
+          # This makes the CI catch dependency drift early.
+          for f in *.exe; do
+            [ -f "$f" ] || continue
+            for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
+              if [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
+                echo "WARNING: Cannot resolve dependency $dll for $f"
+              fi
+            done
+          done
 
       - name: Get version
         id: version
@@ -240,12 +246,15 @@ jobs:
       - name: Package
         run: |
           cmake --install build --prefix /tmp/pollymc
-          mkdir -p appdir/usr/bin appdir/usr/share/{applications,icons/hicolor/256x256/apps}
+          mkdir -p appdir/usr/bin appdir/usr/lib appdir/usr/share/{applications,icons/hicolor/256x256/apps}
           cp /tmp/pollymc/bin/pollymc appdir/usr/bin/
           cp /tmp/pollymc/bin/pollymc_filelink appdir/usr/bin/ 2>/dev/null || true
           cp -r /tmp/pollymc/share/* appdir/usr/share/ 2>/dev/null || true
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/usr/share/applications/org.pollymc.PollyMC.desktop
           cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
+          # Copy OpenSSL shared libraries needed by Qt's TLS backend (resolve symlinks)
+          cp -L /usr/lib/x86_64-linux-gnu/libssl.so.* appdir/usr/lib/ 2>/dev/null || true
+          cp -L /usr/lib/x86_64-linux-gnu/libcrypto.so.* appdir/usr/lib/ 2>/dev/null || true
 
       - name: Create AppImage
         run: |
@@ -256,8 +265,17 @@ jobs:
           cp program_info/org.pollymc.PollyMC_256.png appdir/pollymc.png
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/pollymc.desktop
 
+          # Resolve exact filenames for OpenSSL libraries
+          SSL_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libssl.so.* 2>/dev/null | head -1)
+          CRYPTO_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libcrypto.so.* 2>/dev/null | head -1)
+
+          LINUXDEPLOY_LIBRARY_ARGS=""
+          [ -n "$SSL_LIBS" ] && LINUXDEPLOY_LIBRARY_ARGS="$LINUXDEPLOY_LIBRARY_ARGS --library $SSL_LIBS"
+          [ -n "$CRYPTO_LIBS" ] && LINUXDEPLOY_LIBRARY_ARGS="$LINUXDEPLOY_LIBRARY_ARGS --library $CRYPTO_LIBS"
+
           ./linuxdeploy-x86_64.AppImage \
             --appdir appdir \
+            $LINUXDEPLOY_LIBRARY_ARGS \
             --plugin qt \
             --output appimage
 
