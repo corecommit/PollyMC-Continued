@@ -8,10 +8,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  CMAKE_BUILD_TYPE: Release
-  CMAKE_GENERATOR: Ninja
-
 jobs:
   build-windows:
     name: Windows (MinGW)
@@ -23,8 +19,13 @@ jobs:
         shell: msys2 {0}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Cache MSYS2 packages
+        uses: actions/cache@v4
         with:
-          submodules: false
+          path: C:\msys64\var\cache\pacman\pkg
+          key: msys2-${{ hashFiles('.github/workflows/build.yml') }}
+          restore-keys: msys2-
 
       - name: Setup MSYS2
         uses: msys2/setup-msys2@v2
@@ -74,50 +75,34 @@ jobs:
             -S . -B build
 
       - name: Build
-        run: cmake --build build -j2
+        run: cmake --build build -j$(nproc)
 
       - name: Deploy Qt
         run: |
           cd build
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
 
-          # Resolve all DLL dependencies for every PE file in build/
-          # This catches compiler runtime DLLs (libgcc_s_seh-1, libstdc++-6, libwinpthread-1, etc.)
-          # and any other transitive dependencies that windeployqt6 might miss.
+          # Copy any DLLs that windeployqt6 missed (compiler runtimes, transitive deps)
+          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
+
           NEED_FIX=0
           for f in *.exe *.dll; do
             [ -f "$f" ] || continue
             for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
+              if echo "$dll" | grep -qE "$SYSTEM_DLLS"; then continue; fi
+              if echo "$dll" | grep -qiE "^(api-ms-win-|ext-ms-win-)"; then continue; fi
               if [ -f "/mingw64/bin/$dll" ] && [ ! -f "$dll" ]; then
                 cp -f "/mingw64/bin/$dll" .
                 echo "Deployed missing dependency: $dll (needed by $f)"
-                NEED_FIX=1
-              fi
-            done
-          done
-
-          # List all DLLs to verify
-          echo "=== DLLs in build/ directory ==="
-          ls -la *.dll
-
-          # Recursively verify ALL dependencies for every PE file (EXEs + DLLs)
-          # This catches transitive dependencies that windeployqt6 may have missed
-          # and makes the CI fail early when dependency drift occurs.
-          # Skip well-known Windows OS DLLs and API sets that are always present.
-          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
-          NEED_FIX=0
-          for f in *.exe *.dll; do
-            [ -f "$f" ] || continue
-            for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
-              # Skip Windows system DLLs and API sets (api-ms-win-*, ext-ms-win-*)
-              if echo "$dll" | grep -qE "$SYSTEM_DLLS"; then continue; fi
-              if echo "$dll" | grep -qiE "^(api-ms-win-|ext-ms-win-)"; then continue; fi
-              if [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
+              elif [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
                 echo "::error file=$f::$f is missing dependency: $dll"
                 NEED_FIX=1
               fi
             done
           done
+
+          echo "=== DLLs in build/ ==="
+          ls -la *.dll
           [ "$NEED_FIX" -eq 0 ] || exit 1
 
       - name: Get version
@@ -133,29 +118,19 @@ jobs:
 
       - name: Build NSIS installer
         run: |
-          set -e  # Fail fast
+          set -e
           BUILD_DIR_WIN="$(cygpath -w "$(pwd)/build")"
           VERSION="${{ steps.version.outputs.version }}"
 
-          echo "=== Build directory: $BUILD_DIR_WIN ==="
-          echo "=== Version: $VERSION ==="
-          echo "=== Current directory: $(pwd) ==="
-
-          # Modify NSIS script with version - OUTPUT TO WORKSPACE (not /tmp/)
-          sed "s/PollyMC-Continued-9\.0\.0-Setup/PollyMC-Continued-${VERSION}-Setup/" \
+          sed "s/PollyMC-Continued-[0-9.]*-Setup/PollyMC-Continued-${VERSION}-Setup/" \
             pollymc_installer.nsi > pollymc_installer_versioned.nsi
 
-          echo "=== Running makensis ==="
-          which makensis || echo "WARNING: makensis not found in PATH"
-
-          # Run makensis from workspace dir - output will be in workspace
           makensis \
             "/DBUILD_DIR=${BUILD_DIR_WIN}" \
+            "/DVERSION=${VERSION}" \
             "pollymc_installer_versioned.nsi"
 
-          # Verify installer was created in workspace
-          echo "=== Checking for installer ==="
-          ls -la *.exe || (echo "ERROR: Installer not found!" && exit 1)
+          ls -la PollyMC-Continued-*-Setup.exe || (echo "ERROR: Installer not found!" && exit 1)
 
       - name: Test installed binary for missing DLLs
         shell: powershell
@@ -166,7 +141,7 @@ jobs:
           $installDir = Join-Path $env:RUNNER_TEMP "PollyMC-Test"
           Write-Host "Silently installing $($installer.Name) to $installDir ..."
           $proc = Start-Process -FilePath $installer.FullName -ArgumentList "/S", "/D=$installDir" -Wait -PassThru -NoNewWindow
-          Write-Host "Installer exit code: $($proc.ExitCode) (non-zero is normal if registry write fails)"
+          Write-Host "Installer exit code: $($proc.ExitCode)"
 
           $exePath = Join-Path $installDir "pollymc.exe"
           if (-not (Test-Path $exePath)) {
@@ -179,14 +154,13 @@ jobs:
           $exited = $process.WaitForExit(10000)
 
           if (-not $exited) {
-            # Process still running after 10s — kill it, check event log for errors
             $process.Kill()
             $process.WaitForExit()
             $events = Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=(Get-Date).AddMinutes(-2)} -MaxEvents 10 -ErrorAction SilentlyContinue
             $hasError = $false
             foreach ($event in $events) {
               if ($event.Message -match "pollymc") {
-                Write-Host "::error::Application Error detected — check event details below"
+                Write-Host "::error::Application Error detected"
                 Write-Host "Event: $($event.TimeCreated) — $($event.Message)"
                 if ($event.Message -match "([a-zA-Z0-9_\-]+\.dll)") {
                   Write-Host "::error::Missing or faulty module: $($matches[1])"
@@ -195,7 +169,7 @@ jobs:
               }
             }
             if (-not $hasError) {
-              Write-Host "pollymc.exe started and ran for 10s — no DLL errors detected"
+              Write-Host "pollymc.exe ran for 10s with no DLL errors"
             } else {
               throw "Missing DLLs detected in pollymc.exe"
             }
@@ -225,28 +199,13 @@ jobs:
       - name: Zip portable build
         shell: bash
         run: |
-          set -e  # Fail fast
+          set -e
           VERSION="${{ steps.version.outputs.version }}"
-          echo "=== Creating portable zip ==="
           cd build
           ls -la pollymc.exe || (echo "ERROR: pollymc.exe not found in build!" && exit 1)
-          "/c/Program Files/7-Zip/7z.exe" a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
+          7z a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
           cd ..
-          # Verify zip was created
-          echo "=== Checking for zip ==="
           ls -la PollyMC-Continued-*-Windows-portable.zip || (echo "ERROR: Zip not found!" && exit 1)
-
-      - name: Verify release files exist
-        shell: bash
-        run: |
-          echo "=== Current directory ==="
-          pwd
-          echo "=== Listing all files ==="
-          ls -la PollyMC-Continued-* 2>/dev/null || echo "No PollyMC files found!"
-          echo "=== Checking for installer ==="
-          ls -la *.exe 2>/dev/null || echo "No .exe files found!"
-          echo "=== Checking for zip ==="
-          ls -la *.zip 2>/dev/null || echo "No .zip files found!"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -255,26 +214,6 @@ jobs:
           path: |
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
-
-      - name: Verify files before release
-        if: startsWith(github.ref, 'refs/tags/v')
-        shell: bash
-        run: |
-          echo "=== All files in workspace ==="
-          ls -la
-          echo "=== Checking for installer ==="
-          find . -name "PollyMC-Continued-*-Setup.exe" -type f 2>/dev/null || echo "Installer not found!"
-          echo "=== Checking for zip ==="
-          find . -name "PollyMC-Continued-*-Windows-portable.zip" -type f 2>/dev/null || echo "Zip not found!"
-
-      - name: Publish to release (create with changelog)
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            PollyMC-Continued-*-Setup.exe
-            PollyMC-Continued-*-Windows-portable.zip
-          generate_release_notes: true
 
   build-linux:
     name: Linux
@@ -285,8 +224,6 @@ jobs:
       APPIMAGE_EXTRACT_AND_RUN: "1"
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: false
 
       - name: Install Dependencies
         run: |
@@ -294,16 +231,13 @@ jobs:
           sudo apt-get install -y \
             build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
-            qt6-websockets-dev \
-            qt6-base-dev-tools libgl-dev \
+            qt6-websockets-dev qt6-base-dev-tools libgl-dev \
             extra-cmake-modules \
-            libtomlplusplus-dev libcmark-dev libqrencode-dev \
-            cmark \
+            libtomlplusplus-dev libcmark-dev libqrencode-dev cmark \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
             libcurl4-openssl-dev libssl-dev libpng-dev \
             liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
-            gamemode-dev \
-            openjdk-21-jdk
+            gamemode-dev
 
       - name: Configure
         run: |
@@ -326,20 +260,30 @@ jobs:
           cp -r /tmp/pollymc/share/* appdir/usr/share/ 2>/dev/null || true
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/usr/share/applications/org.pollymc.PollyMC.desktop
           cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
-          # Copy OpenSSL shared libraries needed by Qt's TLS backend (resolve symlinks)
           cp -L /usr/lib/x86_64-linux-gnu/libssl.so.* appdir/usr/lib/ 2>/dev/null || true
           cp -L /usr/lib/x86_64-linux-gnu/libcrypto.so.* appdir/usr/lib/ 2>/dev/null || true
 
+      - name: Cache linuxdeploy
+        uses: actions/cache@v4
+        with:
+          path: |
+            linuxdeploy-x86_64.AppImage
+            linuxdeploy-plugin-qt-x86_64.AppImage
+          key: linuxdeploy-${{ runner.os }}-20250101
+
       - name: Create AppImage
         run: |
-          wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
-          wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          if [ ! -f linuxdeploy-x86_64.AppImage ]; then
+            wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20250213-1/linuxdeploy-x86_64.AppImage
+          fi
+          if [ ! -f linuxdeploy-plugin-qt-x86_64.AppImage ]; then
+            wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          fi
           chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
 
           cp program_info/org.pollymc.PollyMC_256.png appdir/pollymc.png
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/pollymc.desktop
 
-          # Resolve exact filenames for OpenSSL libraries
           SSL_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libssl.so.* 2>/dev/null | head -1)
           CRYPTO_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libcrypto.so.* 2>/dev/null | head -1)
 
@@ -367,10 +311,27 @@ jobs:
           name: PollyMC-Continued-Linux-AppImage
           path: PollyMC-Continued-Linux-x86_64.AppImage
 
-      - name: Upload to release (Linux AppImage)
-        if: startsWith(github.ref, 'refs/tags/v')
+  release:
+    name: Publish Release
+    needs: [build-windows, build-linux]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+
+      - name: List release files
+        run: ls -la PollyMC-Continued-*
+
+      - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
-          files: PollyMC-Continued-Linux-x86_64.AppImage
-          generate_release_notes: false
-          append_file: true
+          generate_release_notes: true
+          files: |
+            PollyMC-Continued-*-Setup.exe
+            PollyMC-Continued-*-Windows-portable.zip
+            PollyMC-Continued-Linux-x86_64.AppImage
