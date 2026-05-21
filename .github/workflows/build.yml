@@ -104,7 +104,7 @@ jobs:
           # This catches transitive dependencies that windeployqt6 may have missed
           # and makes the CI fail early when dependency drift occurs.
           # Skip well-known Windows OS DLLs and API sets that are always present.
-          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
+          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
           NEED_FIX=0
           for f in *.exe *.dll; do
             [ -f "$f" ] || continue
