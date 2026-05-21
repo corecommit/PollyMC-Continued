@@ -100,16 +100,20 @@ jobs:
           echo "=== DLLs in build/ directory ==="
           ls -la *.dll
 
-          # Fail if any MinGW DLLs were still missed (new dependencies in newer toolchains)
-          # This makes the CI catch dependency drift early.
-          for f in *.exe; do
+          # Recursively verify ALL dependencies for every PE file (EXEs + DLLs)
+          # This catches transitive dependencies that windeployqt6 may have missed
+          # and makes the CI fail early when dependency drift occurs.
+          NEED_FIX=0
+          for f in *.exe *.dll; do
             [ -f "$f" ] || continue
             for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
               if [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
-                echo "WARNING: Cannot resolve dependency $dll for $f"
+                echo "::error file=$f::$f is missing dependency: $dll"
+                NEED_FIX=1
               fi
             done
           done
+          [ "$NEED_FIX" -eq 0 ] || exit 1
 
       - name: Get version
         id: version
@@ -147,6 +151,71 @@ jobs:
           # Verify installer was created in workspace
           echo "=== Checking for installer ==="
           ls -la *.exe || (echo "ERROR: Installer not found!" && exit 1)
+
+      - name: Test installed binary for missing DLLs
+        shell: powershell
+        run: |
+          $installer = Get-ChildItem -Path "$env:GITHUB_WORKSPACE" -Filter "PollyMC-Continued-*-Setup.exe" | Select-Object -First 1
+          if (-not $installer) { throw "No installer found at $env:GITHUB_WORKSPACE" }
+
+          $installDir = Join-Path $env:RUNNER_TEMP "PollyMC-Test"
+          Write-Host "Silently installing $($installer.Name) to $installDir ..."
+          $proc = Start-Process -FilePath $installer.FullName -ArgumentList "/S", "/D=$installDir" -Wait -PassThru -NoNewWindow
+          Write-Host "Installer exit code: $($proc.ExitCode) (non-zero is normal if registry write fails)"
+
+          $exePath = Join-Path $installDir "pollymc.exe"
+          if (-not (Test-Path $exePath)) {
+            $exePath = Join-Path $installDir "PollyMC-Continued" "pollymc.exe"
+          }
+          if (-not (Test-Path $exePath)) { throw "pollymc.exe not found after installation" }
+
+          Write-Host "Running pollymc.exe to detect missing DLLs ..."
+          $process = Start-Process -FilePath $exePath -PassThru -RedirectStandardError "$env:RUNNER_TEMP\pollymc_stderr.txt"
+          $exited = $process.WaitForExit(10000)
+
+          if (-not $exited) {
+            # Process still running after 10s — kill it, check event log for errors
+            $process.Kill()
+            $process.WaitForExit()
+            $events = Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=(Get-Date).AddMinutes(-2)} -MaxEvents 10 -ErrorAction SilentlyContinue
+            $hasError = $false
+            foreach ($event in $events) {
+              if ($event.Message -match "pollymc") {
+                Write-Host "::error::Application Error detected — check event details below"
+                Write-Host "Event: $($event.TimeCreated) — $($event.Message)"
+                if ($event.Message -match "([a-zA-Z0-9_\-]+\.dll)") {
+                  Write-Host "::error::Missing or faulty module: $($matches[1])"
+                }
+                $hasError = $true
+              }
+            }
+            if (-not $hasError) {
+              Write-Host "pollymc.exe started and ran for 10s — no DLL errors detected"
+            } else {
+              throw "Missing DLLs detected in pollymc.exe"
+            }
+          } elseif ($process.ExitCode -eq -1073741515) {
+            Write-Host "::error::STATUS_DLL_NOT_FOUND (0xC0000135) — a required DLL is missing"
+            $events = Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=(Get-Date).AddMinutes(-2)} -MaxEvents 10 -ErrorAction SilentlyContinue
+            foreach ($event in $events) {
+              if ($event.Message -match "pollymc|$([regex]::Escape($exePath))") {
+                Write-Host $event.Message
+                if ($event.Message -match "(?i)([a-zA-Z0-9_\-]+\.dll)") {
+                  Write-Host "::error::Missing DLL: $($matches[1])"
+                }
+              }
+            }
+            throw "pollymc.exe failed — missing DLL (STATUS_DLL_NOT_FOUND)"
+          } elseif ($process.ExitCode -ne 0) {
+            throw "pollymc.exe exited with code $($process.ExitCode)"
+          } else {
+            Write-Host "pollymc.exe started and exited cleanly (exit code 0)"
+          }
+
+          if (Test-Path "$env:RUNNER_TEMP\pollymc_stderr.txt") {
+            $stderr = Get-Content "$env:RUNNER_TEMP\pollymc_stderr.txt"
+            if ($stderr) { Write-Host "=== stderr ===`n$stderr" }
+          }
 
       - name: Zip portable build
         shell: bash
