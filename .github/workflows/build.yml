@@ -103,10 +103,15 @@ jobs:
           # Recursively verify ALL dependencies for every PE file (EXEs + DLLs)
           # This catches transitive dependencies that windeployqt6 may have missed
           # and makes the CI fail early when dependency drift occurs.
+          # Skip well-known Windows OS DLLs and API sets that are always present.
+          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
           NEED_FIX=0
           for f in *.exe *.dll; do
             [ -f "$f" ] || continue
             for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
+              # Skip Windows system DLLs and API sets (api-ms-win-*, ext-ms-win-*)
+              if echo "$dll" | grep -qE "$SYSTEM_DLLS"; then continue; fi
+              if echo "$dll" | grep -qiE "^(api-ms-win-|ext-ms-win-)"; then continue; fi
               if [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
                 echo "::error file=$f::$f is missing dependency: $dll"
                 NEED_FIX=1
