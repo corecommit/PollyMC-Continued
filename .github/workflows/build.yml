@@ -160,8 +160,8 @@ jobs:
             foreach ($event in $events) {
               if ($event.Message -match "pollymc") {
                 Write-Host "::error::Application Error detected"
-                Write-Host "Event: $($event.TimeCreated) — $($event.Message)"
-                if ($event.Message -match "([a-zA-Z0-9_\-]+\.dll)") {
+                Write-Host "Event: $($event.TimeCreated) -- $($event.Message)"
+                if ($event.Message -match "([a-zA-Z0-9_-]+\.dll)") {
                   Write-Host "::error::Missing or faulty module: $($matches[1])"
                 }
                 $hasError = $true
@@ -173,17 +173,17 @@ jobs:
               throw "Missing DLLs detected in pollymc.exe"
             }
           } elseif ($process.ExitCode -eq -1073741515) {
-            Write-Host "::error::STATUS_DLL_NOT_FOUND (0xC0000135) — a required DLL is missing"
+            Write-Host "::error::STATUS_DLL_NOT_FOUND (0xC0000135) -- a required DLL is missing"
             $events = Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=(Get-Date).AddMinutes(-2)} -MaxEvents 10 -ErrorAction SilentlyContinue
             foreach ($event in $events) {
               if ($event.Message -match "pollymc|$([regex]::Escape($exePath))") {
                 Write-Host $event.Message
-                if ($event.Message -match "(?i)([a-zA-Z0-9_\-]+\.dll)") {
+                if ($event.Message -match "(?i)([a-zA-Z0-9_-]+\.dll)") {
                   Write-Host "::error::Missing DLL: $($matches[1])"
                 }
               }
             }
-            throw "pollymc.exe failed — missing DLL (STATUS_DLL_NOT_FOUND)"
+            throw "pollymc.exe failed -- missing DLL (STATUS_DLL_NOT_FOUND)"
           } elseif ($process.ExitCode -ne 0) {
             throw "pollymc.exe exited with code $($process.ExitCode)"
           } else {
