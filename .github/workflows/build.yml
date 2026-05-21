@@ -13,7 +13,7 @@ jobs:
     name: Windows (MinGW)
     runs-on: windows-latest
     permissions:
-      contents: write
+      contents: read
     defaults:
       run:
         shell: msys2 {0}
@@ -82,7 +82,6 @@ jobs:
           cd build
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
 
-          # Copy any DLLs that windeployqt6 missed (compiler runtimes, transitive deps)
           SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
 
           NEED_FIX=0
@@ -109,12 +108,12 @@ jobs:
         id: version
         shell: bash
         run: |
-          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
-            VERSION="${GITHUB_REF#refs/tags/v}"
+          REF="${{ github.ref }}"
+          if [[ "$REF" == refs/tags/v* ]]; then
+            echo "version=${REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
           else
-            VERSION="$(git rev-parse --short HEAD)"
+            echo "version=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
           fi
-          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Build NSIS installer
         run: |
@@ -126,8 +125,8 @@ jobs:
             pollymc_installer.nsi > pollymc_installer_versioned.nsi
 
           makensis \
-            "/DBUILD_DIR=${BUILD_DIR_WIN}" \
-            "/DVERSION=${VERSION}" \
+            "-DBUILD_DIR=${BUILD_DIR_WIN}" \
+            "-DVERSION=${VERSION}" \
             "pollymc_installer_versioned.nsi"
 
           ls -la PollyMC-Continued-*-Setup.exe || (echo "ERROR: Installer not found!" && exit 1)
@@ -203,7 +202,8 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
           cd build
           ls -la pollymc.exe || (echo "ERROR: pollymc.exe not found in build!" && exit 1)
-          7z a "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
+          "/c/Program Files/7-Zip/7z.exe" a \
+            "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
           cd ..
           ls -la PollyMC-Continued-*-Windows-portable.zip || (echo "ERROR: Zip not found!" && exit 1)
 
@@ -219,7 +219,7 @@ jobs:
     name: Linux
     runs-on: ubuntu-24.04
     permissions:
-      contents: write
+      contents: read
     env:
       APPIMAGE_EXTRACT_AND_RUN: "1"
     steps:
@@ -269,7 +269,7 @@ jobs:
           path: |
             linuxdeploy-x86_64.AppImage
             linuxdeploy-plugin-qt-x86_64.AppImage
-          key: linuxdeploy-${{ runner.os }}-20250101
+          key: linuxdeploy-${{ runner.os }}-20250116
 
       - name: Create AppImage
         run: |
@@ -277,7 +277,7 @@ jobs:
             wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20250213-1/linuxdeploy-x86_64.AppImage
           fi
           if [ ! -f linuxdeploy-plugin-qt-x86_64.AppImage ]; then
-            wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+            wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/1-alpha-20250116-1/linuxdeploy-plugin-qt-x86_64.AppImage
           fi
           chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
 
@@ -287,13 +287,15 @@ jobs:
           SSL_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libssl.so.* 2>/dev/null | head -1)
           CRYPTO_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libcrypto.so.* 2>/dev/null | head -1)
 
-          LINUXDEPLOY_LIBRARY_ARGS=""
-          [ -n "$SSL_LIBS" ] && LINUXDEPLOY_LIBRARY_ARGS="$LINUXDEPLOY_LIBRARY_ARGS --library $SSL_LIBS"
-          [ -n "$CRYPTO_LIBS" ] && LINUXDEPLOY_LIBRARY_ARGS="$LINUXDEPLOY_LIBRARY_ARGS --library $CRYPTO_LIBS"
+          EXTRA_LIBS=""
+          [ -n "$SSL_LIBS" ] && EXTRA_LIBS="$EXTRA_LIBS --library $SSL_LIBS"
+          [ -n "$CRYPTO_LIBS" ] && EXTRA_LIBS="$EXTRA_LIBS --library $CRYPTO_LIBS"
 
-          ./linuxdeploy-x86_64.AppImage \
+          QMAKE=$(which qmake6 || which qmake)
+
+          QMAKE="$QMAKE" ./linuxdeploy-x86_64.AppImage \
             --appdir appdir \
-            $LINUXDEPLOY_LIBRARY_ARGS \
+            $EXTRA_LIBS \
             --plugin qt \
             --output appimage
 
@@ -330,6 +332,7 @@ jobs:
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
+          name: "PollyMC Continued ${{ github.ref_name }}"
           generate_release_notes: true
           files: |
             PollyMC-Continued-*-Setup.exe
