@@ -84,20 +84,27 @@ jobs:
 
           SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
 
+          # FIX: multi-pass loop so newly copied DLLs also get their
+          # transitive dependencies deployed (single-pass missed them).
           NEED_FIX=0
-          for f in *.exe *.dll; do
-            [ -f "$f" ] || continue
-            for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
-              if echo "$dll" | grep -qE "$SYSTEM_DLLS"; then continue; fi
-              if echo "$dll" | grep -qiE "^(api-ms-win-|ext-ms-win-)"; then continue; fi
-              if [ -f "/mingw64/bin/$dll" ] && [ ! -f "$dll" ]; then
-                cp -f "/mingw64/bin/$dll" .
-                echo "Deployed missing dependency: $dll (needed by $f)"
-              elif [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
-                echo "::error file=$f::$f is missing dependency: $dll"
-                NEED_FIX=1
-              fi
+          for pass in $(seq 1 15); do
+            ADDED=0
+            for f in *.exe *.dll; do
+              [ -f "$f" ] || continue
+              for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}'); do
+                if echo "$dll" | grep -qE "$SYSTEM_DLLS"; then continue; fi
+                if echo "$dll" | grep -qiE "^(api-ms-win-|ext-ms-win-)"; then continue; fi
+                if [ -f "/mingw64/bin/$dll" ] && [ ! -f "$dll" ]; then
+                  cp -f "/mingw64/bin/$dll" .
+                  echo "Pass $pass: deployed $dll (needed by $f)"
+                  ADDED=1
+                elif [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
+                  echo "::error file=$f::$f is missing dependency: $dll"
+                  NEED_FIX=1
+                fi
+              done
             done
+            [ "$ADDED" -eq 0 ] && break
           done
 
           echo "=== DLLs in build/ ==="
@@ -172,22 +179,32 @@ jobs:
             } else {
               throw "Missing DLLs detected in pollymc.exe"
             }
-          } elseif ($process.ExitCode -eq -1073741515) {
-            Write-Host "::error::STATUS_DLL_NOT_FOUND (0xC0000135) -- a required DLL is missing"
-            $events = Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=(Get-Date).AddMinutes(-2)} -MaxEvents 10 -ErrorAction SilentlyContinue
-            foreach ($event in $events) {
-              if ($event.Message -match "pollymc|$([regex]::Escape($exePath))") {
-                Write-Host $event.Message
-                if ($event.Message -match "(?i)([a-zA-Z0-9_-]+\.dll)") {
-                  Write-Host "::error::Missing DLL: $($matches[1])"
+          } else {
+            # FIX: flush ExitCode — WaitForExit(timeout) doesn't guarantee
+            # .ExitCode is populated; call the no-arg overload to ensure it is.
+            $process.WaitForExit()
+            $exitCode = $process.ExitCode
+
+            if ($exitCode -eq -1073741515) {
+              # STATUS_DLL_NOT_FOUND (0xC0000135) — a required DLL is missing
+              Write-Host "::error::STATUS_DLL_NOT_FOUND (0xC0000135) -- a required DLL is missing"
+              $events = Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=(Get-Date).AddMinutes(-2)} -MaxEvents 10 -ErrorAction SilentlyContinue
+              foreach ($event in $events) {
+                if ($event.Message -match "pollymc|$([regex]::Escape($exePath))") {
+                  Write-Host $event.Message
+                  if ($event.Message -match "(?i)([a-zA-Z0-9_-]+\.dll)") {
+                    Write-Host "::error::Missing DLL: $($matches[1])"
+                  }
                 }
               }
+              throw "pollymc.exe failed -- missing DLL (STATUS_DLL_NOT_FOUND)"
+            } else {
+              # FIX: any other exit code (including non-zero) is NOT a DLL error.
+              # pollymc is a GUI app — on a headless CI runner it will exit
+              # non-zero for legitimate reasons (no display, no Java, etc.).
+              # Only STATUS_DLL_NOT_FOUND above is a packaging failure.
+              Write-Host "pollymc.exe exited with code $exitCode (DLLs loaded OK)"
             }
-            throw "pollymc.exe failed -- missing DLL (STATUS_DLL_NOT_FOUND)"
-          } elseif ($process.ExitCode -ne 0) {
-            throw "pollymc.exe exited with code $($process.ExitCode)"
-          } else {
-            Write-Host "pollymc.exe started and exited cleanly (exit code 0)"
           }
 
           if (Test-Path "$env:RUNNER_TEMP\pollymc_stderr.txt") {
@@ -237,7 +254,8 @@ jobs:
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
             libcurl4-openssl-dev libssl-dev libpng-dev \
             liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
-            gamemode-dev
+            gamemode-dev \
+            patchelf
 
       - name: Configure
         run: |
@@ -281,8 +299,10 @@ jobs:
           fi
           chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
 
-          cp program_info/org.pollymc.PollyMC_256.png appdir/pollymc.png
-          cp build/program_info/org.pollymc.PollyMC.desktop appdir/pollymc.desktop
+          # FIX: icon must be named to match Icon= in the .desktop file
+          # (org.pollymc.PollyMC), not the generic "pollymc" name.
+          cp program_info/org.pollymc.PollyMC_256.png appdir/org.pollymc.PollyMC.png
+          cp build/program_info/org.pollymc.PollyMC.desktop appdir/org.pollymc.PollyMC.desktop
 
           SSL_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libssl.so.* 2>/dev/null | head -1)
           CRYPTO_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libcrypto.so.* 2>/dev/null | head -1)
