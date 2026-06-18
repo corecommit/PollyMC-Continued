@@ -244,6 +244,7 @@ jobs:
             build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
             qt6-websockets-dev qt6-base-dev-tools libgl-dev \
+            qt6-websockets-dev qt6-base-dev-tools qt6-tools-dev libgl-dev \
             extra-cmake-modules \
             libtomlplusplus-dev libcmark-dev libqrencode-dev cmark \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
@@ -259,7 +260,22 @@ jobs:
             -DCMAKE_INSTALL_PREFIX=/usr \
             -DCMAKE_CXX_FLAGS="-Wno-error" \
             -DCMAKE_C_FLAGS="-Wno-error" \
+            --debug-output \
             -S . -B build
+          cat build/CMakeFiles/CMakeOutput.log || true
+          cat build/CMakeFiles/CMakeError.log || true
+
+      - name: Show CMake errors
+        if: failure()
+        run: |
+          if [ -f build/CMakeFiles/CMakeError.log ]; then
+            echo "=== CMakeError.log ===" 
+            cat build/CMakeFiles/CMakeError.log
+          fi
+          if [ -f build/CMakeOutput.log ]; then
+            echo "=== CMakeOutput.log ===" 
+            tail -n 100 build/CMakeOutput.log
+          fi
 
       - name: Build
         run: cmake --build build -j$(nproc)
