@@ -83,9 +83,9 @@ jobs:
         run: |
           cd install
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
-
-          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10[...]
-
+      
+          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|COMCTL32|COMDLG32|IMAPI2|MAPI32|netapi32|PSAPI|Secur32|WINTRUST|CRYPT32|IMAGEHLP|DBGHELP|PDHINST|WTSAPI32|WININET|MSWSOCK|IPHLPAPI|WS2HELP)\.dll$"
+      
           # FIX: multi-pass loop so newly copied DLLs also get their
           # transitive dependencies deployed (single-pass missed them).
           NEED_FIX=0
@@ -108,7 +108,7 @@ jobs:
             done
             [ "$ADDED" -eq 0 ] && break
           done
-
+      
           echo "=== DLLs in install/ ==="
           ls -la *.dll
           [ "$NEED_FIX" -eq 0 ] || exit 1
@@ -304,6 +304,8 @@ jobs:
 
       - name: Create AppImage
         run: |
+          set -ex  # Enable debug output
+          
           if [ ! -f linuxdeploy-x86_64.AppImage ]; then
             wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20250213-1/linuxdeploy-x86_64.AppImage
           fi
@@ -311,21 +313,23 @@ jobs:
             wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/1-alpha-20250116-1/linuxdeploy-plugin-qt-x86_64.AppImage
           fi
           chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
-
-          # FIX: icon must be named to match Icon= in the .desktop file
-          # (org.pollymc.PollyMC), not the generic "pollymc" name.
+      
           cp program_info/org.pollymc.PollyMC_256.png appdir/org.pollymc.PollyMC.png
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/org.pollymc.PollyMC.desktop
-
+      
           SSL_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libssl.so.* 2>/dev/null | head -1)
           CRYPTO_LIBS=$(ls /usr/lib/x86_64-linux-gnu/libcrypto.so.* 2>/dev/null | head -1)
-
+      
           EXTRA_LIBS=""
           [ -n "$SSL_LIBS" ] && EXTRA_LIBS="$EXTRA_LIBS --library $SSL_LIBS"
           [ -n "$CRYPTO_LIBS" ] && EXTRA_LIBS="$EXTRA_LIBS --library $CRYPTO_LIBS"
-
+      
           QMAKE=$(which qmake6 || which qmake)
-
+          
+          echo "DEBUG: QMAKE=$QMAKE"
+          echo "DEBUG: EXTRA_LIBS=$EXTRA_LIBS"
+          echo "DEBUG: APPIMAGE_EXTRACT_AND_RUN=$APPIMAGE_EXTRACT_AND_RUN"
+          
           QMAKE="$QMAKE" ./linuxdeploy-x86_64.AppImage \
             --appdir appdir \
             $EXTRA_LIBS \
