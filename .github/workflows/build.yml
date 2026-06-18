@@ -84,7 +84,7 @@ jobs:
           cd install
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
 
-          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|USERENV|RPCRT4|CRYPT32|bcrypt|Secur32|WINHTTP|DNSAPI|IPHLPAPI|MPR|NETAPI32|AUTHZ)\.(dll|DLL)$"
+          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10[...]
 
           # FIX: multi-pass loop so newly copied DLLs also get their
           # transitive dependencies deployed (single-pass missed them).
@@ -282,7 +282,9 @@ jobs:
           path: |
             linuxdeploy-x86_64.AppImage
             linuxdeploy-plugin-qt-x86_64.AppImage
-          key: linuxdeploy-${{ runner.os }}-20250116
+          key: linuxdeploy-linux-20250116
+          restore-keys: |
+            linuxdeploy-linux-
 
       - name: Create AppImage
         run: |
