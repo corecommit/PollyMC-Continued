@@ -84,9 +84,10 @@ jobs:
           cd install
           /mingw64/bin/windeployqt6.exe --release pollymc.exe
       
-          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|COMCTL32|COMDLG32|IMAPI2|MAPI32|netapi32|PSAPI|Secur32|WINTRUST|CRYPT32|IMAGEHLP|DBGHELP|PDHINST|WTSAPI32|WININET|MSWSOCK|IPHLPAPI|WS2HELP)\.dll$"
+          # FIX: Expanded system DLL list and added dynamic check for C:\Windows\System32
+          SYSTEM_DLLS="^(KERNEL32|KERNELBASE|USER32|GDI32|gdi32full|ADVAPI32|SHELL32|ole32|OLEAUT32|msvcrt|msvcp_win|ntdll|WS2_32|SHLWAPI|WINMM|VERSION|d3d11|d3d12|dxgi|dwmapi|DWrite|UxTheme|USP10|COMCTL32|COMDLG32|IMAPI2|MAPI32|netapi32|PSAPI|Secur32|WINTRUST|CRYPT32|IMAGEHLP|DBGHELP|PDHINST|WTSAPI32|WININET|MSWSOCK|IPHLPAPI|WS2HELP|bcrypt|RPCRT4|AUTHZ|MPR|USERENV|DNSAPI|WINHTTP)\.dll$"
       
-          # FIX: multi-pass loop so newly copied DLLs also get their
+          # multi-pass loop so newly copied DLLs also get their
           # transitive dependencies deployed (single-pass missed them).
           NEED_FIX=0
           for pass in $(seq 1 15); do
@@ -94,13 +95,21 @@ jobs:
             for f in *.exe *.dll; do
               [ -f "$f" ] || continue
               for dll in $(objdump -p "$f" 2>/dev/null | grep "DLL Name:" | awk '{print $3}' | tr -d '\r'); do
-                if echo "$dll" | grep -qE "$SYSTEM_DLLS"; then continue; fi
+                # Skip API-set / extension stubs
                 if echo "$dll" | grep -qiE "^(api-ms-win-|ext-ms-win-)"; then continue; fi
-                if [ -f "/mingw64/bin/$dll" ] && [ ! -f "$dll" ]; then
+                # Skip if already present
+                if [ -f "$dll" ]; then continue; fi
+                # Skip explicitly-listed system DLLs (case-insensitive)
+                if echo "$dll" | grep -iqE "$SYSTEM_DLLS"; then continue; fi
+                # Skip anything that lives in C:\Windows\System32
+                if [ -f "/c/Windows/System32/$dll" ]; then continue; fi
+
+                # Otherwise: try to deploy from mingw64
+                if [ -f "/mingw64/bin/$dll" ]; then
                   cp -f "/mingw64/bin/$dll" .
                   echo "Pass $pass: deployed $dll (needed by $f)"
                   ADDED=1
-                elif [ ! -f "$dll" ] && [ ! -f "/mingw64/bin/$dll" ]; then
+                else
                   echo "::error file=$f::$f is missing dependency: $dll"
                   NEED_FIX=1
                 fi
@@ -272,9 +281,9 @@ jobs:
             echo "=== CMakeError.log ===" 
             cat build/CMakeFiles/CMakeError.log
           fi
-          if [ -f build/CMakeOutput.log ]; then
+          if [ -f build/CMakeFiles/CMakeOutput.log ]; then
             echo "=== CMakeOutput.log ===" 
-            tail -n 100 build/CMakeOutput.log
+            tail -n 100 build/CMakeFiles/CMakeOutput.log
           fi
 
       - name: Build
@@ -298,19 +307,20 @@ jobs:
           path: |
             linuxdeploy-x86_64.AppImage
             linuxdeploy-plugin-qt-x86_64.AppImage
-          key: linuxdeploy-linux-20250116
+          key: linuxdeploy-continuous-${{ runner.os }}
           restore-keys: |
-            linuxdeploy-linux-
+            linuxdeploy-continuous-
 
       - name: Create AppImage
         run: |
           set -ex  # Enable debug output
           
+          # FIX: Use 'continuous' tag to prevent 404 errors on non-existent dated releases
           if [ ! -f linuxdeploy-x86_64.AppImage ]; then
-            wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20250213-1/linuxdeploy-x86_64.AppImage
+            wget -v "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy-x86_64.AppImage
           fi
           if [ ! -f linuxdeploy-plugin-qt-x86_64.AppImage ]; then
-            wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/1-alpha-20250116-1/linuxdeploy-plugin-qt-x86_64.AppImage
+            wget -v "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage" -O linuxdeploy-plugin-qt-x86_64.AppImage
           fi
           chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
       
