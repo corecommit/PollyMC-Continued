@@ -126,11 +126,22 @@ jobs:
         id: version
         shell: bash
         run: |
-          REF="${{ github.ref }}"
-          if [[ "$REF" == refs/tags/v* ]]; then
-            echo "version=${REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            VERSION="${{ github.ref }}"
+            VERSION="${VERSION#refs/tags/v}"
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           else
-            echo "version=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+            git fetch --tags --force
+            # Find the latest strict version tag
+            LATEST_TAG=$(git tag --list "v*" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
+            if [ -z "$LATEST_TAG" ]; then
+              LATEST_TAG="v9.0.7"
+            fi
+            VERSION=${LATEST_TAG#v}
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+            PATCH=$((PATCH + 1))
+            NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+            echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build NSIS installer
@@ -368,11 +379,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      # We must checkout the code to read Git tags
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Important: fetches all history and tags
+          fetch-depth: 0 # Fetch all history and tags for version calculation
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
