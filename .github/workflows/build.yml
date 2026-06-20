@@ -364,11 +364,16 @@ jobs:
     name: Publish Release
     needs: [build-windows, build-linux]
     runs-on: ubuntu-latest
-    # Trigger on main branch pushes, manual dispatch, or actual version tags
     if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
     steps:
+      # We must checkout the code to read Git tags
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Important: fetches all history and tags
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
@@ -380,15 +385,25 @@ jobs:
       - name: Prepare release metadata
         id: prep
         run: |
-          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
-            # If it's a real tag push (e.g. v1.0.0), use that name
-            echo "tag_name=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-            echo "release_name=PollyMC Continued ${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          else
-            # Otherwise, auto-generate a unique tag based on the run number
-            echo "tag_name=v0.0.0-ci.${{ github.run_number }}" >> $GITHUB_OUTPUT
-            echo "release_name=PollyMC Continued CI Build #${{ github.run_number }}" >> $GITHUB_OUTPUT
-          fi
+          # Find the latest tag that starts with 'v' (e.g., v9.0.7)
+          LATEST_TAG=$(git describe --tags --match "v*" --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "Latest tag found: $LATEST_TAG"
+          
+          # Strip the 'v' prefix (9.0.7)
+          VERSION=${LATEST_TAG#v}
+          
+          # Split into major, minor, patch
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          
+          # Increment the patch version by 1 (9.0.8)
+          PATCH=$((PATCH + 1))
+          
+          # Combine into the new tag name (e.g., v9.0.8)
+          NEW_TAG="v${MAJOR}.${MINOR}.${PATCH}"
+          
+          echo "New tag will be: $NEW_TAG"
+          echo "tag_name=${NEW_TAG}" >> $GITHUB_OUTPUT
+          echo "release_name=PollyMC Continued ${NEW_TAG}" >> $GITHUB_OUTPUT
 
       - name: Publish release
         uses: softprops/action-gh-release@v2
@@ -396,8 +411,7 @@ jobs:
           tag_name: ${{ steps.prep.outputs.tag_name }}
           name: "${{ steps.prep.outputs.release_name }}"
           generate_release_notes: true
-          # Optional: mark automatic pushes as prerelease (remove if you want them as full releases)
-          prerelease: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+          prerelease: false # Set to false so it is a full, official release
           files: |
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
