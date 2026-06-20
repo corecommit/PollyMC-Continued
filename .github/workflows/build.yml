@@ -364,7 +364,8 @@ jobs:
     name: Publish Release
     needs: [build-windows, build-linux]
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    # Trigger on main branch pushes, manual dispatch, or actual version tags
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
     steps:
@@ -376,11 +377,27 @@ jobs:
       - name: List release files
         run: ls -la PollyMC-Continued-*
 
+      - name: Prepare release metadata
+        id: prep
+        run: |
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            # If it's a real tag push (e.g. v1.0.0), use that name
+            echo "tag_name=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+            echo "release_name=PollyMC Continued ${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            # Otherwise, auto-generate a unique tag based on the run number
+            echo "tag_name=v0.0.0-ci.${{ github.run_number }}" >> $GITHUB_OUTPUT
+            echo "release_name=PollyMC Continued CI Build #${{ github.run_number }}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
-          name: "PollyMC Continued ${{ github.ref_name }}"
+          tag_name: ${{ steps.prep.outputs.tag_name }}
+          name: "${{ steps.prep.outputs.release_name }}"
           generate_release_notes: true
+          # Optional: mark automatic pushes as prerelease (remove if you want them as full releases)
+          prerelease: ${{ !startsWith(github.ref, 'refs/tags/v') }}
           files: |
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
