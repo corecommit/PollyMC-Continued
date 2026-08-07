@@ -25,6 +25,7 @@
 
 QString stripVariableEntries(QString name, QString target, QString remove);
 QProcessEnvironment CleanEnviroment();
+QStringList envToStringList(const QProcessEnvironment& env);
 QStringList getMinecraftJavaBundle();
 QStringList getPrismJavaBundle();
 

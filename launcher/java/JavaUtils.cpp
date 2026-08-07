@@ -35,6 +35,8 @@
 
 #include <QDir>
 #include <QFileInfo>
+#include <QProcessEnvironment>
+#include <QRegularExpression>
 #include <QString>
 #include <QStringList>
 
@@ -68,6 +70,26 @@ QString stripVariableEntries(QString name, QString target, QString remove)
     return targetItems.join(delimiter);
 }
 
+bool isSensitiveEnvKey(const QString& key)
+{
+    static const QRegularExpression re(QStringLiteral("TOKEN|KEY|SECRET|PASSWORD|AUTH"), QRegularExpression::CaseInsensitiveOption);
+    return re.match(key).hasMatch();
+}
+
+QStringList envToStringList(const QProcessEnvironment& env)
+{
+    QStringList out;
+    auto keys = env.keys();
+    keys.sort();
+    for (const auto& key : keys) {
+        QString value = env.value(key);
+        if (isSensitiveEnvKey(key))
+            value = QStringLiteral("<redacted>");
+        out << key + QLatin1Char('=') + value;
+    }
+    return out;
+}
+
 QProcessEnvironment CleanEnviroment()
 {
     // prepare the process environment
@@ -85,9 +107,12 @@ QProcessEnvironment CleanEnviroment()
     };
     for (auto key : rawenv.keys()) {
         auto value = rawenv.value(key);
+        // redact secret-looking values in debug output (the keys below can
+        // carry credentials, e.g. JAVA_TOOL_OPTIONS)
+        const QString logValue = isSensitiveEnvKey(key) ? QStringLiteral("<redacted>") : value;
         // filter out dangerous java crap
         if (ignored.contains(key)) {
-            qDebug() << "Env: ignoring" << key << value;
+            qDebug() << "Env: ignoring" << key << logValue;
             continue;
         }
 
@@ -95,13 +120,13 @@ QProcessEnvironment CleanEnviroment()
         // If there is "LD_LIBRARY_PATH" and "LAUNCHER_LD_LIBRARY_PATH", we want to
         // remove all values in "LAUNCHER_LD_LIBRARY_PATH" from "LD_LIBRARY_PATH"
         if (key.startsWith("LAUNCHER_")) {
-            qDebug() << "Env: ignoring" << key << value;
+            qDebug() << "Env: ignoring" << key << logValue;
             continue;
         }
         if (stripped.contains(key)) {
             QString newValue = stripVariableEntries(key, value, rawenv.value("LAUNCHER_" + key));
 
-            qDebug() << "Env: stripped" << key << value << "to" << newValue;
+            qDebug() << "Env: stripped" << key << logValue << "to" << newValue;
 
             value = newValue;
         }

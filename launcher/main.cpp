@@ -33,6 +33,9 @@
  *      limitations under the License.
  */
 
+#include <QDebug>
+#include <QScreen>
+
 #include <iostream>
 
 #include "Application.h"
@@ -47,6 +50,13 @@ int main(int argc, char* argv[])
     // used on Windows to attach the standard IO streams
     console::WindowsConsoleGuard _consoleGuard;
 #endif
+
+    // Qt6 enables high-DPI scaling automatically, but the default rounding
+    // policy (PassThrough) produces muddled fractional scaling under KDE
+    // Plasma. Round sanely unless the user (or Plasma) already set a policy
+    // via QT_SCALE_FACTOR_ROUNDING_POLICY.
+    if (qEnvironmentVariableIsEmpty("QT_SCALE_FACTOR_ROUNDING_POLICY"))
+        QApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor);
 
     // initialize Qt
     Application app(argc, argv);
@@ -71,6 +81,10 @@ int main(int argc, char* argv[])
             Q_INIT_RESOURCE(flat_white);
 
             Q_INIT_RESOURCE(shaders);
+            for (auto* screen : app.screens()) {
+                qDebug() << "HiDPI screen:" << screen->name() << "DPR:" << screen->devicePixelRatio()
+                         << "geometry:" << screen->geometry() << "logical DPI:" << screen->logicalDotsPerInch();
+            }
             return app.exec();
         }
         case Application::Failed:

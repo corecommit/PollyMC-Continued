@@ -15,7 +15,7 @@ jobs:
       skip: ${{ steps.check.outputs.skip }}
       version: ${{ steps.check.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - id: check
@@ -87,7 +87,7 @@ jobs:
     if: needs.skip-check.outputs.skip != 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -108,7 +108,10 @@ jobs:
           fi
 
           echo "Looking for '## ${EXPECTED_TAG}' in CHANGELOG.md ..."
-          if ! sed 's/\r$//' CHANGELOG.md | grep -qxF "## ${EXPECTED_TAG}"; then
+          # Use a counted grep, not `grep -q`: -q exits on the first match and
+          # closes the pipe, sed then dies with SIGPIPE and pipefail turns the
+          # whole pipeline into a failure even though the section exists.
+          if [ "$(sed 's/\r$//' CHANGELOG.md | grep -Fxc "## ${EXPECTED_TAG}" || true)" -eq 0 ]; then
             echo "::error::CHANGELOG.md has no '## ${EXPECTED_TAG}' section, but the computed release version is ${EXPECTED_TAG}."
             echo "::error::Add a '## ${EXPECTED_TAG}' section (Added/Changed/Fixed/Removed) to CHANGELOG.md, or add '[skip changelog]' to the commit message if this change doesn't need a release note."
             exit 1
@@ -132,12 +135,12 @@ jobs:
       run:
         shell: msys2 {0}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Cache MSYS2 packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: C:\msys64\var\cache\pacman\pkg
           # NOTE: hashFiles assumes this workflow file is saved as build.yml.
@@ -186,7 +189,7 @@ jobs:
             mingw-w64-x86_64-ccache
 
       - name: Cache ccache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .ccache
           # Unique per run so a fresh save always succeeds (actions/cache
@@ -290,7 +293,7 @@ jobs:
             exit 1
           fi
 
-          sed "s/PollyMC-Continued-[^ ]*-Setup/PollyMC-Continued-${VERSION}-Setup/" \
+          sed "s/PollyMC-Continued-[^ ]*-Setup/PollyMC-Continued-${VERSION}-Windows-Setup/" \
             pollymc_installer.nsi > pollymc_installer_versioned.nsi
 
           makensis \
@@ -374,6 +377,9 @@ jobs:
           VERSION="${{ needs.skip-check.outputs.version }}"
           cd install
           ls -la pollymc.exe || (echo "ERROR: pollymc.exe not found in install!" && exit 1)
+          # portable.txt marks a portable install (data dir + updater asset matching depend on it),
+          # so the portable zip must contain it next to pollymc.exe
+          cp "$GITHUB_WORKSPACE/program_info/portable.txt" portable.txt
           "/c/Program Files/7-Zip/7z.exe" a \
             "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
           cd ..
@@ -403,7 +409,7 @@ jobs:
       # location as of ccache 4.0 (now ~/.cache/ccache on Linux).
       CCACHE_DIR: ${{ github.workspace }}/.ccache
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -422,10 +428,11 @@ jobs:
             liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
             gamemode-dev \
             patchelf \
-            ccache
+            ccache \
+            breeze
 
       - name: Cache ccache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.CCACHE_DIR }}
           # Unique per run so a fresh save always succeeds (actions/cache
@@ -494,7 +501,7 @@ jobs:
           rm -rf appdir/usr/bin/bot-server/node_modules/.cache 2>/dev/null || true
 
       - name: Cache linuxdeploy
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             linuxdeploy-x86_64.AppImage
@@ -518,6 +525,23 @@ jobs:
           cp program_info/org.pollymc.PollyMC_256.png appdir/org.pollymc.PollyMC.png
           cp build/program_info/org.pollymc.PollyMC.desktop appdir/org.pollymc.PollyMC.desktop
 
+          # Bundle the KDE Breeze widget style (a kstyle plugin, not shipped by
+          # Qt itself). Placing it in appdir/usr/plugins/qt/styles BEFORE
+          # linuxdeploy runs lets linuxdeploy-plugin-qt pick it up and bundle
+          # its dependencies. Ubuntu 24.04 package: "breeze". The Qt6 plugin is
+          # usually named breeze6.so (or breeze.so on older releases).
+          BREEZE_STYLE=""
+          for p in /usr/lib/x86_64-linux-gnu/qt6/plugins/styles/breeze*.so /usr/lib/qt6/plugins/styles/breeze*.so; do
+            if [ -f "$p" ]; then BREEZE_STYLE="$p"; break; fi
+          done
+          if [ -n "$BREEZE_STYLE" ]; then
+            mkdir -p appdir/usr/plugins/qt/styles
+            cp -L "$BREEZE_STYLE" appdir/usr/plugins/qt/styles/
+            echo "DEBUG: bundled Breeze style plugin: $BREEZE_STYLE"
+          else
+            echo "::warning::Breeze Qt6 style plugin not found on runner; only stock Qt styles will be available"
+          fi
+
           QMAKE=$(command -v qmake6 || command -v qmake)
           if [ -z "$QMAKE" ]; then
             echo "::error::qmake not found in PATH"
@@ -538,13 +562,13 @@ jobs:
           if [ -z "$FILE" ]; then
             echo "ERROR: No AppImage found. Listing directory:"; ls -la; exit 1
           fi
-          mv "$FILE" PollyMC-Continued-Linux-x86_64.AppImage
+          mv "$FILE" "PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Linux-AppImage
-          path: PollyMC-Continued-Linux-x86_64.AppImage
+          path: PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage
 
   build-macos:
     name: macOS (Universal)
@@ -564,7 +588,7 @@ jobs:
       CCACHE_DIR: ${{ github.workspace }}/.ccache
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -583,7 +607,7 @@ jobs:
           cache: true
 
       - name: Cache ccache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.CCACHE_DIR }}
           # Unique per run so a fresh save always succeeds (actions/cache
@@ -711,7 +735,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -798,7 +822,7 @@ jobs:
           files: |
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
-            PollyMC-Continued-Linux-x86_64.AppImage
+            PollyMC-Continued-*-Linux-x86_64.AppImage
             PollyMC-Continued-*-macOS-arm64.zip
             PollyMC-Continued-*-macOS-arm64.dmg
             PollyMC-Continued-*-macOS-arm64.sha256

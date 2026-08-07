@@ -1,5 +1,16 @@
 # Changelog
 
+## v9.2.2
+
+**Changed:**
+- Linux AppImage bundles the KDE Breeze widget style
+- Fractional screen scaling rounds sanely under KDE Plasma; per-screen scale factors logged at startup
+- Java diagnostics redact secret-looking environment values (TOKEN/KEY/SECRET/PASSWORD/AUTH)
+
+**Fixed:**
+- Portable Windows zip now includes `portable.txt`, so the launcher and auto-updater detect and update portable installs correctly
+- Windows installer asset renamed to include "Windows" (e.g. `PollyMC-Continued-9.2.2-Windows-Setup.exe`) so the auto-updater can match it
+
 ## v9.2.1
 
 **Changed:**
@@ -7,8 +18,8 @@
 
 **Fixed:**
 - Quilt instances no longer fail to launch when using an offline account
-- "Not enough RAM" warning no longer triggers on momentary free RAM: the blocking check now compares the allocation against total installed RAM (minus a 1 GiB OS margin), and a temporarily low free-RAM count is only a log note, not a launch blocker
-- Updater no longer nags "new version available" when the installed version matches the latest release: macOS builds now carry a strictly increasing build number (`MACOSX_BUNDLE_BUNDLE_VERSION` = marketing version + CI run number) distinct from the marketing version
+- "Not enough RAM" warning now compares the allocation against total installed RAM instead of momentary free RAM
+- Updater no longer reports a new version when the installed version matches the latest release (macOS builds now carry a build number distinct from the marketing version)
 
 ## v9.2.0
 

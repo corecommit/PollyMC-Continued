@@ -180,10 +180,8 @@ void JavaChecker::error(QProcess::ProcessError err)
 {
     if (err == QProcess::FailedToStart) {
         qDebug() << "Java checker has failed to start.";
-        qDebug() << "Process environment:";
-        qDebug() << process->environment();
-        qDebug() << "Native environment:";
-        qDebug() << QProcessEnvironment::systemEnvironment().toStringList();
+        qDebug() << "Process environment (secret values redacted):" << envToStringList(process->processEnvironment());
+        qDebug() << "Native environment (secret values redacted):" << envToStringList(QProcessEnvironment::systemEnvironment());
         killTimer.stop();
         emit checkFinished({ m_path, m_id });
     }
