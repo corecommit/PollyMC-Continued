@@ -1,0 +1,52 @@
+name: Deploy translations
+
+on:
+  push:
+    branches: [main]
+    paths: [translations/*.ts]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install lrelease
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qttools5-dev-tools
+          command -v lrelease-qt5 || command -v lrelease
+
+      - name: Compile .qm files
+        run: |
+          set -e
+          mkdir -p public
+          cp translations/*.ts public/
+          for f in public/*.ts; do
+            key=$(basename "$f" .ts)
+            lrelease -removeidentical "$f" -qm "public/mmc_${key}.qm" || true
+          done
+          ls -la public/
+
+      - name: Generate index_v2.json
+        run: python3 .github/workflows/make_translation_index.py public/
+
+      - name: Landing page so Pages doesn't 404
+        run: printf '<html><body><h1>PollyMC-Continued translations</h1><p>Hosts compiled .qm files served to the launcher.</p></body></html>' > public/index.html
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deploy
+        uses: actions/deploy-pages@v4
