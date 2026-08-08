@@ -5,6 +5,11 @@
 **Added:**
 - Linux man page (`pollymc.6`) for the launcher
 - Installer now asks before creating a desktop shortcut
+- Silent installs skip the desktop shortcut prompt automatically and don't touch the desktop
+- Translation pipeline restored: `.ts` files are compiled to `.qm` and published to our own GitHub Pages
+- Translations now load from our GitHub Pages instead of Prism's i18n server
+- "Help us with translations!" link now points to our repository
+- CONTRIBUTING.md with the translation contribution flow (fork, edit `.ts`, open a PR)
 
 **Fixed:**
 - NeoForge 1.21.x (and modern Forge) instances no longer crash on launch when using an offline account: the skin agent no longer claims the one-time slot — it now registers a protocol handler leaving the slot free for NeoForge/Quilt
