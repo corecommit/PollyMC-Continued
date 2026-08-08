@@ -33,6 +33,9 @@ Function .onInit
     fresh_install:
 FunctionEnd
 
+!define MUI_ICON "program_info\pollymc.ico"
+!define MUI_UNICON "program_info\pollymc.ico"
+
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN "$INSTDIR\pollymc.exe"
@@ -49,7 +52,10 @@ Section "Install"
     CreateDirectory "$SMPROGRAMS\PollyMC-Continued"
     CreateShortcut "$SMPROGRAMS\PollyMC-Continued\PollyMC-Continued.lnk" "$INSTDIR\pollymc.exe"
     CreateShortcut "$SMPROGRAMS\PollyMC-Continued\Uninstall.lnk" "$INSTDIR\uninstall.exe"
+    IfSilent skip_shortcut
+    MessageBox MB_YESNO "Create a desktop shortcut for PollyMC-Continued?" IDNO skip_shortcut
     CreateShortcut "$DESKTOP\PollyMC-Continued.lnk" "$INSTDIR\pollymc.exe"
+    skip_shortcut:
 
     WriteUninstaller "$INSTDIR\uninstall.exe"
 

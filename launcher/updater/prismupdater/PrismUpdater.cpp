@@ -751,6 +751,13 @@ GitHubReleaseAsset PrismUpdaterApp::selectAsset(const QList<GitHubReleaseAsset>&
 void PrismUpdaterApp::performUpdate(const GitHubRelease& release)
 {
     m_install_release = release;
+
+    // Record this release as the one we're applying, so a same-version re-publish (new
+    // commits without a version bump) doesn't re-trigger the same offer on the next run.
+    if (release.updated_at.isValid())
+        QSettings(FS::PathCombine(m_dataPath, "prismlauncher_update.cfg"), QSettings::IniFormat)
+            .setValue("last_seen_updated_at", release.updated_at.toString(Qt::ISODate));
+
     qDebug() << "Updating to" << release.tag_name;
     auto valid_assets = validReleaseArtifacts(release);
     qDebug() << "valid release assets:" << valid_assets;
@@ -1214,6 +1221,7 @@ int PrismUpdaterApp::parseReleasePage(const QByteArray* response)
             release.tag_name = Json::requireString(release_obj, "tag_name");
             release.created_at = QDateTime::fromString(Json::requireString(release_obj, "created_at"), Qt::ISODate);
             release.published_at = QDateTime::fromString(release_obj["published_at"].toString(), Qt::ISODate);
+            release.updated_at = QDateTime::fromString(release_obj["updated_at"].toString(), Qt::ISODate);
             release.draft = Json::requireBoolean(release_obj, "draft");
             release.prerelease = Json::requireBoolean(release_obj, "prerelease");
             release.body = release_obj["body"].toString();
@@ -1262,7 +1270,20 @@ GitHubRelease PrismUpdaterApp::getLatestRelease()
 bool PrismUpdaterApp::needUpdate(const GitHubRelease& release)
 {
     auto current_ver = Version(QString("%1.%2.%3").arg(m_prismVersionMajor).arg(m_prismVersionMinor).arg(m_prismVersionPatch));
-    return current_ver < release.version;
+    if (current_ver < release.version)
+        return true;
+
+    // A release re-published under the same version (new commits without a version bump)
+    // gets a newer updated_at than the last release we installed. Store that timestamp
+    // so same-version updates are offered exactly once.
+    if (current_ver == release.version && release.updated_at.isValid()) {
+        auto last_seen = QSettings(FS::PathCombine(m_dataPath, "prismlauncher_update.cfg"), QSettings::IniFormat)
+                             .value("last_seen_updated_at")
+                             .toDateTime();
+        if (last_seen.isValid() && release.updated_at > last_seen)
+            return true;
+    }
+    return false;
 }
 
 void PrismUpdaterApp::downloadError(QString reason)

@@ -48,6 +48,7 @@ struct GitHubRelease {
     QString tag_name;
     QDateTime created_at;
     QDateTime published_at;
+    QDateTime updated_at;
     bool prerelease;
     bool draft;
     QString body;

@@ -1,18 +1,29 @@
 # Changelog
 
+## v9.2.4
+
+**Added:**
+- Linux man page (`pollymc.6`) for the launcher
+- Installer now asks before creating a desktop shortcut
+
+**Fixed:**
+- NeoForge 1.21.x (and modern Forge) instances no longer crash on launch when using an offline account: the skin agent no longer claims the one-time slot — it now registers a protocol handler leaving the slot free for NeoForge/Quilt
+- Auto-updater now detects new releases published under the same version number
+- Installer and uninstaller now use the PollyMC icon instead of the NSIS default
+
 ## v9.2.3
+
+**Added:**
+- More bugs to fix later. You're welcome. (It's this changelog entry, but let's be honest: it reads as a feature at this point)
 
 **Fixed:**
 - Language selection now lists all available translations instead of only English
-- "Help us with translations!" link now points to the Weblate project page
+- "Help us with translations!" link now points to [NEEDS UPDATE — Weblate reference is stale, tell me the correct current target]
 - Minecraft 1.8.9 and other Java 8 instances no longer fail to start when using an offline account: the skin agent's module options, which only Java 9+ understands, are no longer passed to Java 8
 - Updates are now only offered for actual installable files: checksum and signature files attached to releases (e.g. `.sha256`, `.asc`) can no longer be mistaken for an update
 - Auto-updater no longer leaves a full copy of the update inside the install folder: extraction now happens in the system temp folder, and extraction leftovers from older updates are removed when the update installs
 - Portable installs now reliably receive files that are new to a release: the updater installs the file list shipped with the update instead of guessing from the old install folder
 - Help buttons that previously opened a dead link (and did nothing at all) now say what's what instead of silently failing — pending documentation, they politely tell you the page is "coming later"
-
-**Added:**
-- More bugs to fix later. You're welcome. (It's this changelog entry, but let's be honest: it reads as a feature at this point)
 
 **Removed:**
 - Cat feature: "Meow" button (toolbar and View menu), cat packs folder entry, cat background/overlay rendering, cat pack selector and cat scaling/opacity settings in Appearance, the CatPack/CatPainter classes and all cat icon assets, and "And cat :3" from the Linux AppStream metadata
@@ -48,6 +59,13 @@
 - Bot Manager: per-bot Minecraft version picker, actually used when the bot connects
 - System tray icon with Show/Quit menu — "Minimize to Tray" no longer makes the app unreachable
 
+**Changed:**
+- Bot Manager: Send button now inherits the launcher theme instead of a hardcoded green
+
+**Removed:**
+- Bot Manager: "Microsoft account" login option (not implemented)
+- Dead BotTerminalPage code
+
 **Fixed:**
 - Auto-updater: release list fetch blocked by a malformed repo URL
 - Updater layout: restore checkboxes no longer overlap the interval spinner
@@ -62,13 +80,6 @@
 - Bot Manager: `/join` supports a port argument
 - Bot Manager: duplicate bot names rejected
 
-**Changed:**
-- Bot Manager: Send button now inherits the launcher theme instead of a hardcoded green
-
-**Removed:**
-- Bot Manager: "Microsoft account" login option (not implemented)
-- Dead BotTerminalPage code
-
 ## v9.1.1
 
 **Added:**
@@ -76,16 +87,16 @@
 - Retain network error info across auth steps for better offline fallback messaging
 - Skip pointless retries on HTTP 404 responses in NetJob
 
-**Fixed:**
-- Memory leak and potential crash in data packs modal dialog (non-modal with WA_DeleteOnClose)
-- Infinite update check loop when timer fires during an ongoing check (re-entrancy guard)
-- Updater now builds and runs on all platforms (removed `NOT APPLE` guard); macOS falls back to PrismExternalUpdater when Sparkle feed URL is empty
-
 **Changed:**
 - Update README: remove downloads section, add contributor avatars
 - Add Discord badge and enable Discord Guild menu item in launcher
 - Installer now uses CI version instead of hardcoded "1.0.0" for registry DisplayVersion
 - Enable auto-updater (Windows/Linux via GitHub releases, macOS via Sparkle)
+
+**Fixed:**
+- Memory leak and potential crash in data packs modal dialog (non-modal with WA_DeleteOnClose)
+- Infinite update check loop when timer fires during an ongoing check (re-entrancy guard)
+- Updater now builds and runs on all platforms (removed `NOT APPLE` guard); macOS falls back to PrismExternalUpdater when Sparkle feed URL is empty
 
 ## v9.1.0
 
@@ -100,6 +111,12 @@
   - Multi-profile picker when server returns multiple availableProfiles
 - macOS derives version from git tag (like Windows/Linux)
 
+**Changed:**
+- Add ccache to CI builds (Windows, Linux, macOS) for faster rebuilds
+
+**Removed:**
+- Unused accountIsOnline variable
+
 **Fixed:**
 - Cancel button not working in Yggdrasil login dialog
 - Yggdrasil accounts not fetching player skins
@@ -107,12 +124,6 @@
 - PollyMC ↔ PollyMC-Continued account compatibility (reads both `authlibInjectorUrl` and `auth-server-url`, writes `authlibInjectorUrl`)
 - Use accountData() accessor instead of protected data member
 - authlib-injector.jar not found on AppImage (`applicationDirPath()` resolves to temp mount; added `dataRoot()/libraries/` as persistent fallback)
-
-**Changed:**
-- Add ccache to CI builds (Windows, Linux, macOS) for faster rebuilds
-
-**Removed:**
-- Unused accountIsOnline variable
 
 ## v9.0.9
 
@@ -126,15 +137,15 @@
 - Contributors section in README
 - Branch name check skips main/master/develop
 
+**Changed:**
+- Revise README for clarity and feature highlights
+- Shorten README
+
 **Fixed:**
 - Use --codesigning=off for Qt 6.9+ macdeployqt
 - Remove codesign flags for Qt 6.9+ macdeployqt
 - verify_bundle.sh for Qt 6.11: handle @rpath/Frameworks and bundle-internal framework deps
 - Skip binary files in branch name grep to avoid matching 'main' in compiled code
-
-**Changed:**
-- Revise README for clarity and feature highlights
-- Shorten README
 
 ## v9.0.8
 
@@ -143,6 +154,15 @@
 - Enhance build script with DLL checks and updates
 - Enhance release workflow with additional triggers
 - Enhance versioning logic in build.yml
+
+**Changed:**
+- Refactor CI workflow for Windows and Linux builds
+- Refactor DLL dependency handling in build workflow
+- Refactor CMake build process and improve logging
+- Refactor deployment script for improved clarity
+- Update build permissions and fix version handling
+- Update release workflow to handle versioning
+- Improve DLL deployment logic
 
 **Fixed:**
 - Filter Windows system DLLs from recursive dep check; add installer DLL test step
@@ -153,15 +173,6 @@
 - Formatting issue in build.yml
 - GitHub actions workflow bugs (×2)
 - Icon naming in .desktop file
-
-**Changed:**
-- Refactor CI workflow for Windows and Linux builds
-- Refactor DLL dependency handling in build workflow
-- Refactor CMake build process and improve logging
-- Refactor deployment script for improved clarity
-- Update build permissions and fix version handling
-- Update release workflow to handle versioning
-- Improve DLL deployment logic
 
 ## v9.0.7
 
@@ -198,14 +209,14 @@
 
 ## v9.0.1
 
+**Changed:**
+- Update CI workflow
+- Update pollymc icon, remove old files
+
 **Fixed:**
 - Deploy MinGW runtime DLLs in Windows build
 - Resolve release conflict in CI workflow
 - Let GitHub auto-generate release notes from commits
-
-**Changed:**
-- Update CI workflow
-- Update pollymc icon, remove old files
 
 **Other:**
 - Debug: Verify release files exist before upload
