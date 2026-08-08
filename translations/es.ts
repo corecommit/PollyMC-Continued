@@ -99,10 +99,7 @@
         <source>Use Default</source>
         <translation>Usar predeterminada</translation>
     </message>
-    <message>
-        <source>Refresh on launch</source>
-        <translation type="vanished">Actualizar al iniciar</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="109"/>
         <source>You can set this to a third-party metadata server to use patched libraries or other hacks.</source>
@@ -322,10 +319,7 @@
         <source>About Qt</source>
         <translation>Acerca de Qt</translation>
     </message>
-    <message>
-        <source>About %1</source>
-        <translation type="vanished">Acerca de %1</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/dialogs/AboutDialog.cpp" line="119"/>
         <source>Channel</source>
@@ -349,10 +343,7 @@
 </context>
 <context>
     <name>AccountList</name>
-    <message>
-        <source>MSA</source>
-        <translation type="vanished">MSA</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="344"/>
         <source>MSA</source>
@@ -397,10 +388,7 @@
         <source>Status</source>
         <translation>Estado</translation>
     </message>
-    <message>
-        <source>Offline</source>
-        <translation type="vanished">Sin conexión</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="392"/>
         <source>Minecraft username associated with the account.</source>
@@ -411,21 +399,12 @@
         <source>Username</source>
         <translation>Nombre de usuario</translation>
     </message>
-    <message>
-        <source>Unknown</source>
-        <translation type="vanished">Desconocido</translation>
-    </message>
-    <message>
-        <source>Type of the account (MSA or Offline)</source>
-        <translation type="vanished">Tipo de cuenta (MSA o Offline)</translation>
-    </message>
+    
+    
 </context>
 <context>
     <name>AccountListPage</name>
-    <message>
-        <source>Error</source>
-        <translation type="vanished">Error</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
@@ -471,12 +450,7 @@
         <source>Remo&amp;ve</source>
         <translation>&amp;Eliminar</translation>
     </message>
-    <message>
-        <source>Welcome!
-If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to link your Microsoft account.</source>
-        <translation type="vanished">Bienvenido/a
-Si eres nuevo aquí, puedes seleccionar el botón «Añadir Microsoft» para vincular tu cuenta Microsoft.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.h" line="58"/>
         <source>Accounts</source>
@@ -529,10 +503,7 @@ Puedes añadir una cuenta de Microsoft, offline o Yggdrasil (authlib-injector) p
         <source>Remove account?</source>
         <translation>¿Eliminar cuenta?</translation>
     </message>
-    <message>
-        <source>You must add a Microsoft account that owns Minecraft before you can add an offline account.&lt;br&gt;&lt;br&gt;If you have lost your account you can contact Microsoft for support.</source>
-        <translation type="vanished">Debes añadir una cuenta Microsoft propietaria de Minecraft antes de poder añadir una cuenta offline.&lt;br&gt;&lt;br&gt;Si has perdido tu cuenta puedes contactar con Microsoft para obtener soporte.</translation>
-    </message>
+    
 </context>
 <context>
     <name>AllVersionProxyModel</name>
@@ -552,28 +523,16 @@ Puedes añadir una cuenta de Microsoft, offline o Yggdrasil (authlib-injector) p
 </context>
 <context>
     <name>AppearanceWidget</name>
-    <message>
-        <source>Fit</source>
-        <translation type="vanished">Encajar</translation>
-    </message>
-    <message>
-        <source>Fill</source>
-        <translation type="vanished">Llenar</translation>
-    </message>
-    <message>
-        <source>View cat packs folder.</source>
-        <translation type="vanished">Ver carpeta de dibujos.</translation>
-    </message>
+    
+    
+    
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="37"/>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="47"/>
         <source>Open Folder</source>
         <translation>Abrir carpeta</translation>
     </message>
-    <message>
-        <source>Opaque</source>
-        <translation type="vanished">Opaco</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="86"/>
         <source>Reload All</source>
@@ -584,14 +543,8 @@ Puedes añadir una cuenta de Microsoft, offline o Yggdrasil (authlib-injector) p
         <source>Theme:</source>
         <translation>Tema:</translation>
     </message>
-    <message>
-        <source>Cat Opacity</source>
-        <translation type="vanished">Opacidad del gato</translation>
-    </message>
-    <message>
-        <source>&amp;Cat Pack:</source>
-        <translation type="vanished">&amp;Dibujos:</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="216"/>
         <source>[INFO] A harmless message...</source>
@@ -617,23 +570,14 @@ Puedes añadir una cuenta de Microsoft, offline o Yggdrasil (authlib-injector) p
         <source>View icon themes folder.</source>
         <translation>Ver la carpeta de iconos temáticos.</translation>
     </message>
-    <message>
-        <source>Cat Scaling</source>
-        <translation type="vanished">Escala del gato</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="219"/>
         <source>[FATAL] A terrifying fatal error!</source>
         <translation>[FATAL] ¡Un error catastrófico!</translation>
     </message>
-    <message>
-        <source>Transparent</source>
-        <translation type="vanished">Transparente</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="vanished">Estirar</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="103"/>
         <source>&amp;Icons:</source>
@@ -677,34 +621,8 @@ Puedes añadir una cuenta de Microsoft, offline o Yggdrasil (authlib-injector) p
         <source>Migration failed! Reason: %1</source>
         <translation>¡Migración fallida! Motivo: %1</translation>
     </message>
-    <message>
-        <source>Update succeeded
-
-You are now running %1 .
-Check the Prism Launcher updater log at: 
-%2
-for details.</source>
-        <translation type="vanished">La actualización se ha realizado correctamente
-
-Ahora está ejecutando %1 .
-Comprueba el registro de actualización de Prism Launcher en: 
-%2
-para más detalles.</translation>
-    </message>
-    <message>
-        <source>An update attempt failed
-
-Please ensure your installation is in working order before proceeding.
-Check the Prism Launcher updater log at: 
-%1
-for details on the last update attempt.</source>
-        <translation type="vanished">Ha fallado un intento de actualización
-
-Asegúrese de que la instalación funciona correctamente antes de continuar.
-Compruebe el registro de actualización de Prism Launcher en: 
-%1
-para más detalles sobre el último intento de actualización.</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/Application.cpp" line="687"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
@@ -805,32 +723,7 @@ Puede resolver este problema volviendo a montar /tmp como &apos;exec&apos; o est
         <source>Settings</source>
         <translation>Ajustes</translation>
     </message>
-    <message>
-        <source>This installation has a update lock file present at: %1
-
-Timestamp: %2
-Updating from version %3 to %4
-Target install path: %5
-Data Path: %6
-This likely means that a update attempt failed. Please ensure your installation is in working order before proceeding.
-Check the Prism Launcher updater log at: 
-%7
-for details on the last update attempt.
-
-To delete this lock and proceed select &quot;Ignore&quot; below.</source>
-        <translation type="vanished">Esta instalación tiene un archivo de bloqueo de actualización en: %1
-
-Fecha y hora: %2
-Actualización de la versión %3 a %4
-Ruta de instalación de destino: %5
-Ruta de datos: %6
-Probablemente esto signifique que ha fallado un intento de actualización. Asegúrate de que tu instalación funciona correctamente antes de continuar.
-Consulte el registro del actualizador de Prism Launcher en: 
-%7
-para obtener detalles sobre el último intento de actualización.
-
-Para eliminar este bloqueo y continuar, selecciona &quot;Ignorar&quot; a continuación.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
@@ -1726,14 +1619,8 @@ Para eliminar este bloqueo y continuar, selecciona &quot;Ignorar&quot; a continu
 </context>
 <context>
     <name>CopyWorldTask</name>
-    <message>
-        <source>Copying world...</source>
-        <translation type="vanished">Copiando el mundo...</translation>
-    </message>
-    <message>
-        <source>Failed to copy world.</source>
-        <translation type="vanished">Error al copiar el mundo.</translation>
-    </message>
+    
+    
 </context>
 <context>
     <name>CoreModFolderPage</name>
@@ -2030,10 +1917,7 @@ Para eliminar este bloqueo y continuar, selecciona &quot;Ignorar&quot; a continu
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Tamaño</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/DataPackFolderModel.cpp" line="86"/>
         <location filename="../launcher/minecraft/mod/DataPackFolderModel.cpp" line="145"/>
@@ -2046,10 +1930,7 @@ Para eliminar este bloqueo y continuar, selecciona &quot;Ignorar&quot; a continu
         <source>Image</source>
         <translation>Imagen</translation>
     </message>
-    <message>
-        <source>File Name</source>
-        <translation type="vanished">Nombre del archivo</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/DataPackFolderModel.cpp" line="140"/>
         <source>Is the data pack enabled? (Only valid for ZIPs)</source>
@@ -2065,10 +1946,7 @@ Para eliminar este bloqueo y continuar, selecciona &quot;Ignorar&quot; a continu
         <source>The name of the data pack.</source>
         <translation>El nombre del data pack.</translation>
     </message>
-    <message>
-        <source>The size of the data pack.</source>
-        <translation type="vanished">El tamaño del data pack.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/DataPackFolderModel.cpp" line="51"/>
         <source>Pack Format</source>
@@ -2084,10 +1962,7 @@ Para eliminar este bloqueo y continuar, selecciona &quot;Ignorar&quot; a continu
         <source>Last Modified</source>
         <translation>Última modificación</translation>
     </message>
-    <message>
-        <source>The file name of the data pack.</source>
-        <translation type="vanished">El nombre del archivo del data pack.</translation>
-    </message>
+    
 </context>
 <context>
     <name>DataPackPage</name>
@@ -2214,33 +2089,13 @@ Are you sure?</source>
 </context>
 <context>
     <name>DeleteWorldTask</name>
-    <message>
-        <source>Failed to delete world.</source>
-        <translation type="vanished">Error al eliminar el mundo.</translation>
-    </message>
-    <message>
-        <source>Deleting world...</source>
-        <translation type="vanished">Eliminando el mundo...</translation>
-    </message>
+    
+    
 </context>
 <context>
     <name>EnsureAvailableMemory</name>
-    <message>
-        <source>Low free memory</source>
-        <translation type="vanished">Poca memoria libre</translation>
-    </message>
-    <message>
-        <source>Your system is under critical memory pressure.
-This may lead to severe slowdowns, crashes or system instability.
-It is recommended to close other applications or restart your system.
-
-Launch anyway?</source>
-        <translation type="vanished">Tu sistema está sufriendo una falta de memoria grave.
-Esto puede provocar ralentizaciones importantes, fallos o inestabilidad del sistema.
-Se recomienda cerrar otras aplicaciones o reiniciar el sistema.
-
-¿Quieres continuar de todos modos?</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="46"/>
         <source>Not enough RAM</source>
@@ -2271,40 +2126,10 @@ RAM total del sistema: %2 MiB
         <source>Note: only %1 MiB RAM is currently free, but this instance requests %2 MiB. Other running programs may cause slowdowns; consider closing some before playing.</source>
         <translation>Nota: actualmente solo hay %1 MiB de RAM libre, pero esta instancia solicita %2 MiB. Otros programas en ejecución pueden causar ralentizaciones; considera cerrar algunos antes de jugar.</translation>
     </message>
-    <message>
-        <source>High memory pressure</source>
-        <translation type="vanished">Gran demanda de memoria</translation>
-    </message>
-    <message>
-        <source>The system is under increased memory pressure.
-This may lead to lag or slowdowns.
-If possible, close other applications before continuing.
-
-Launch anyway?</source>
-        <translation type="vanished">El sistema está sometido a una mayor carga de memoria.
-Esto puede provocar retrasos o ralentizaciones.
-Si es posible, cierra otras aplicaciones antes de continuar.
-
-¿Quieres iniciar la instancia de todos modos?</translation>
-    </message>
-    <message>
-        <source>The system is under high memory pressure</source>
-        <translation type="vanished">El sistema está sometido a una gran demanda de memoria</translation>
-    </message>
-    <message>
-        <source>There might not be enough free RAM to launch this instance with the current memory settings.
-
-Maximum allocated: %1 MiB
-Free: %2 MiB (out of %3 MiB total)
-
-Launch anyway? This may cause slowdowns in the game and your system.</source>
-        <translation type="vanished">Es posible que no haya suficiente RAM libre para iniciar esta instancia con la configuración de memoria actual.
-
-Máximo asignado: %1 MiB
-Espacio libre: %2 MiB (de un total de %3 MiB)
-
-¿Quieres continuar de todos modos? Esto podría ralentizar el juego y tu sistema.</translation>
-    </message>
+    
+    
+    
+    
 </context>
 <context>
     <name>EnsureMetadataTask</name>
@@ -2338,12 +2163,7 @@ Espacio libre: %2 MiB (de un total de %3 MiB)
 </context>
 <context>
     <name>EnsureOfflineLibraries</name>
-    <message>
-        <source>
-This instance cannot be launched because some libraries are missing or have not been downloaded yet. Please try again in online mode with a working Internet connection</source>
-        <translation type="vanished">
-No se puede iniciar esta instancia porque faltan algunas bibliotecas o aún no se han descargado. Inténtalo de nuevo en modo en línea con una conexión a Internet que funcione</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/launch/EnsureOfflineLibraries.cpp" line="33"/>
         <source>This instance cannot be launched because some libraries are missing or have not been downloaded yet. Please try again in online mode with a working Internet connection</source>
@@ -2731,10 +2551,7 @@ Esta acción puede ser definitiva y la carpeta desaparecerá de la carpeta princ
         <source> (%1 installed)</source>
         <translation> (%1 instalado(s))</translation>
     </message>
-    <message>
-        <source>Select %1</source>
-        <translation type="vanished">Seleccionar %1</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="179"/>
         <source>Verify Dependencies</source>
@@ -3258,14 +3075,8 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>No loader version set for modpack!</source>
         <translation>¡No se ha definido la versión del loader para el modpack!</translation>
     </message>
-    <message>
-        <source>Removing old conflicting files...</source>
-        <translation type="vanished">Eliminando archivos antiguos que causan conflictos...</translation>
-    </message>
-    <message>
-        <source>Failed to remove old conflicting files.</source>
-        <translation type="vanished">No se han podido eliminar los archivos antiguos que causaban conflictos.</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="460"/>
         <source>Unable to resolve mod IDs:
@@ -3293,10 +3104,7 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>We couldn&apos;t find a suitable index file for the older version. This may cause some of the files to be duplicated. Do you want to continue?</source>
         <translation>No pudimos encontrar un archivo de índice apropiado para la anterior versión. Esto puede causar que algunos de los archivos se dupliquen. ¿Deseas continuar?</translation>
     </message>
-    <message>
-        <source>Failed to fetch the old files.</source>
-        <translation type="vanished">No se pudieron recuperar los archivos antiguos.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="115"/>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="327"/>
@@ -3330,10 +3138,7 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>Failed to find version for %1 loader</source>
         <translation>Error al encontrar la versión del loader %1</translation>
     </message>
-    <message>
-        <source>We couldn&apos;t fetch the old files because: %1. This may cause some of the files to be duplicated. Do you want to continue?</source>
-        <translation type="vanished">No hemos podido recuperar los archivos antiguos debido a: %1. Esto puede provocar que algunos archivos se dupliquen. ¿Deseas continuar?</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="339"/>
         <source>Could not rename the overrides folder:
@@ -3341,10 +3146,7 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <translation>No se pudo cambiar el nombre de la carpeta de reemplazos:
 </translation>
     </message>
-    <message>
-        <source>We couldn&apos;t fetch the old files because the task was aborted. This may cause some of the files to be duplicated. Do you want to continue?</source>
-        <translation type="vanished">No se pudieron recuperar los archivos antiguos por que la tarea fue abortada. Esto puede causar que algunos de los archivos sean duplicados. Desea continuar?</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="120"/>
         <source> (version %1)</source>
@@ -3435,10 +3237,7 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>Error</source>
         <translation>Error</translation>
     </message>
-    <message>
-        <source>Note: CurseForge allows creators to block access to third-party tools like Prism Launcher. As such, you may need to manually download some mods to be able to install a modpack.</source>
-        <translation type="vanished">Nota: CurseForge permite a los creadores bloquear el acceso a herramientas de terceros como Prism Launcher. Por ello, puede que debas descargar manualmente algunos mods para poder instalar un modpack.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.cpp" line="84"/>
         <source>Sort by Author</source>
@@ -3642,14 +3441,8 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>OK</source>
         <translation>OK</translation>
     </message>
-    <message>
-        <source>All</source>
-        <translation type="vanished">Todo</translation>
-    </message>
-    <message>
-        <source>Search Icons...</source>
-        <translation type="vanished">Buscar iconos...</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/dialogs/IconPickerDialog.cpp" line="118"/>
         <source>Select Icons</source>
@@ -3666,26 +3459,11 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>Open Folder</source>
         <translation>Abrir carpeta</translation>
     </message>
-    <message>
-        <source>Custom</source>
-        <translation type="vanished">Personalizado</translation>
-    </message>
-    <message>
-        <source>Legacy</source>
-        <translation type="vanished">Clásico</translation>
-    </message>
-    <message>
-        <source>Modern</source>
-        <translation type="vanished">Moderno</translation>
-    </message>
-    <message>
-        <source>Modpacks</source>
-        <translation type="vanished">Packs de mods</translation>
-    </message>
-    <message>
-        <source>Icon category</source>
-        <translation type="vanished">Categoría de iconos</translation>
-    </message>
+    
+    
+    
+    
+    
     <message>
         <location filename="../launcher/ui/dialogs/IconPickerDialog.cpp" line="39"/>
         <source>Search...</source>
@@ -3759,10 +3537,7 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>Import</source>
         <translation>Importar</translation>
     </message>
-    <message>
-        <source>- Prism Launcher, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation type="vanished">- Instancias exportadas de Prism Launcher / PolyMC / MultiMC (ZIP)</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.cpp" line="153"/>
         <source>The modpack %1 is blocked for third-parties! Please download it manually.</source>
@@ -3872,10 +3647,7 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
 </context>
 <context>
     <name>InstallLoaderDialog</name>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">Aceptar</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="140"/>
         <source>Forge</source>
@@ -3932,14 +3704,8 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
 </context>
 <context>
     <name>InstallWorldTask</name>
-    <message>
-        <source>Failed to import world.</source>
-        <translation type="vanished">Error al importar el mundo.</translation>
-    </message>
-    <message>
-        <source>Importing world...</source>
-        <translation type="vanished">Importando el mundo...</translation>
-    </message>
+    
+    
 </context>
 <context>
     <name>InstanceCopyTask</name>
@@ -4084,22 +3850,10 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
 </context>
 <context>
     <name>InstanceTask</name>
-    <message>
-        <source>Skip</source>
-        <translation type="vanished">Omitir</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="vanished">Error</translation>
-    </message>
-    <message>
-        <source>Downloading game files</source>
-        <translation type="vanished">Descargando archivos del juego</translation>
-    </message>
-    <message>
-        <source>Could not download game files: %1</source>
-        <translation type="vanished">No se han podido descargar los archivos del juego: %1</translation>
-    </message>
+    
+    
+    
+    
 </context>
 <context>
     <name>InstanceView</name>
@@ -4141,14 +3895,8 @@ Esta acción puede ser irreversible y los elementos desaparecerán de la carpeta
         <source>Ctrl+K</source>
         <translation>Ctrl+K</translation>
     </message>
-    <message>
-        <source>Restart the running instance</source>
-        <translation type="vanished">Reiniciar la instancia en ejecución.}</translation>
-    </message>
-    <message>
-        <source>&amp;Restart</source>
-        <translation type="vanished">&amp;Reiniciar</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="89"/>
         <source>&amp;Launch</source>
@@ -4445,10 +4193,7 @@ Are you sure?</source>
         <source>The amount of memory available to store loaded Java classes.</source>
         <translation>Cantidad de memoria disponible para almacenar clases cargadas de Java.</translation>
     </message>
-    <message>
-        <source>Warn when there is not enough memory available</source>
-        <translation type="vanished">Avisar cuando no haya suficiente memoria disponible</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="345"/>
         <source>Memory Notice</source>
@@ -4556,10 +4301,7 @@ Asegúrese de que el valor máximo de memoria es inferior.</translation>
         <source>Please select how much memory to allocate to instances and if PollyMC-Continued should manage Java automatically or manually.</source>
         <translation>Por favor, selecciona cuánta memoria asignar a las instancias y si PollyMC-Continued debe gestionar Java automáticamente o manualmente.</translation>
     </message>
-    <message>
-        <source>Please select how much memory to allocate to instances and if Prism Launcher should manage Java automatically or manually.</source>
-        <translation type="vanished">Por favor, selecciona cuánta memoria asignar a las instancias y si Prism Launcher debe gestionar Java automática o manualmente.</translation>
-    </message>
+    
 </context>
 <context>
     <name>JavaWizardWidget</name>
@@ -4704,10 +4446,7 @@ Puedes cambiar la versión de Java en la configuración más tarde.
         <source>Use system locales</source>
         <translation>Usar configuraciones regionales del sistema</translation>
     </message>
-    <message>
-        <source>Use system regional standards</source>
-        <translation type="vanished">Utilizar las configuraciones regionales del sistema</translation>
-    </message>
+    
 </context>
 <context>
     <name>LanguageWizardPage</name>
@@ -4911,10 +4650,7 @@ Para jugar a la versión completa, primero debes comprar el juego.</translation>
         <source>An error occurred while refreshing &apos;%1&apos;</source>
         <translation>Se ha producido un error al actualizar «%1»</translation>
     </message>
-    <message>
-        <source>In order to play Minecraft, you must have at least one Microsoft account which owns Minecraft logged in. Would you like to open the account manager to add an account now?</source>
-        <translation type="vanished">Para jugar a Minecraft, debes tener al menos una cuenta de Microsoft que sea propietaria de Minecraft iniciada sesión. ¿Deseas abrir el administrador de cuentas para añadir una cuenta ahora?</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/LaunchController.cpp" line="486"/>
         <source>This can cause the instance to get corrupted and should only be used if Minecraft is frozen for some reason</source>
@@ -4981,10 +4717,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>s</source>
         <translation>s</translation>
     </message>
-    <message>
-        <source>Add</source>
-        <translation type="vanished">Añadir</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="476"/>
         <source>Suggest to update an existing instance during modpack installation</source>
@@ -5005,14 +4738,8 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>Tasks</source>
         <translation>Tareas</translation>
     </message>
-    <message>
-        <source>Instance Creation</source>
-        <translation type="vanished">Creación de instancias</translation>
-    </message>
-    <message>
-        <source>Additional Instance Folder</source>
-        <translation type="vanished">Carpeta de instancia adicional</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="423"/>
         <source>When enabled, it will move blocked resources instead of copying them.</source>
@@ -5028,10 +4755,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>Concurrent Download Limit:</source>
         <translation>Límite de descargas simultáneas:</translation>
     </message>
-    <message>
-        <source>Folder where Prism Launcher stores automatically downloaded Java versions. Do NOT set this to your system Java installation.</source>
-        <translation type="vanished">Carpeta en la que Prism Launcher almacena las versiones de Java descargadas automáticamente. NO la configures con la instalación de Java de tu sistema.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="189"/>
         <source>Skins Folder</source>
@@ -5047,10 +4771,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>Never rename the folder</source>
         <translation>Nunca renombrar la carpeta</translation>
     </message>
-    <message>
-        <source>This directory has already been added.</source>
-        <translation type="vanished">Este directorio ya ha sido añadido.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="169"/>
         <source>Downloads Folder</source>
@@ -5086,10 +4807,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>User Interface</source>
         <translation>Interfaz de usuario</translation>
     </message>
-    <message>
-        <source>Downloads required game files while creating the instance. Disable this to skip the initial download and fetch files when the instance is launched instead.</source>
-        <translation type="vanished">Se descargan los archivos necesarios del juego mientras se crea la instancia. Desactiva esta opción para omitir la descarga inicial y descargar los archivos en el momento en que se inicie la instancia.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="407"/>
         <source>Mods and Modpacks</source>
@@ -5190,10 +4908,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>How Often?</source>
         <translation>¿Con qué frecuencia?</translation>
     </message>
-    <message>
-        <source>Remove</source>
-        <translation type="vanished">Eliminar</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="623"/>
         <source>Seconds to wait until the requests are terminated</source>
@@ -5209,10 +4924,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>&amp;Stop logging when log overflows</source>
         <translation>Dejar de registrar cuando el registro se &amp;sobrecargue</translation>
     </message>
-    <message>
-        <source>Download game files during instance creation</source>
-        <translation type="vanished">Descargar los archivos del juego durante la creación de la instancia</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="199"/>
         <source>Set to 0 to only check on launch</source>
@@ -5263,10 +4975,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>When creating a new modpack instance, suggest updating an existing instance instead.</source>
         <translation>Al crear una nueva instancia de un modpack, sugiere actualizar una instancia existente en su lugar.</translation>
     </message>
-    <message>
-        <source>This is already your primary instance directory.</source>
-        <translation type="vanished">Este ya es su directorio principal de instancia.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="394"/>
         <source>&amp;Icons:</source>
@@ -5277,19 +4986,13 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>By &amp;name</source>
         <translation>Por &amp;nombre</translation>
     </message>
-    <message>
-        <source>Additional instance directories</source>
-        <translation type="vanished">Directorios de instancia adicionales</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
         <source>&amp;Skins:</source>
         <translation>&amp;Skins:</translation>
     </message>
-    <message>
-        <source>Duplicate directory</source>
-        <translation type="vanished">Directorio duplicado</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="171"/>
         <source>Updater</source>
@@ -5305,10 +5008,7 @@ You may have to fix your mods because the game is still logging to files and lik
         <source>Folders</source>
         <translation>Carpetas</translation>
     </message>
-    <message>
-        <source>By total time &amp;played</source>
-        <translation type="vanished">Por tiempo total de &amp;juego</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="252"/>
         <location filename="../launcher/ui/pages/global/LauncherPage.h" line="59"/>
@@ -5339,7 +5039,7 @@ Granting %1 access to it via Flatseal is recommended.</source>
         <translation>Usted está intentando especificar una carpeta de instancias que fue concedida temporalmente a través de Flatpak.
 Se sabe que esto causa problemas. Después de un reinicio el launcher podría romperse, porque ya no tendrá acceso a ese directorio.
 
-Se recomienda conceder acceso a Prism Launcher a través de Flatseal.</translation>
+Se recomienda conceder acceso a %1 vía Flatseal.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="104"/>
@@ -5391,10 +5091,7 @@ Se recomienda conceder acceso a Prism Launcher a través de Flatseal.</translati
         <source>Legacy launcher library could not be found. Please check your installation.</source>
         <translation>No se ha encontrado la biblioteca del lanzador de legado. Compruebe su instalación.</translation>
     </message>
-    <message>
-        <source>Could not launch Minecraft: %1</source>
-        <translation type="vanished">No se pudo ejecutar Minecraft: %1</translation>
-    </message>
+    
 </context>
 <context>
     <name>LegacyFMLLibrariesTask</name>
@@ -5758,10 +5455,7 @@ Tienes que solucionar el problema manualmente.</translation>
         <source>The process failed to start.</source>
         <translation>El proceso no se pudo iniciar.</translation>
     </message>
-    <message>
-        <source>The process failed to start: %1</source>
-        <translation type="vanished">El proceso no pudo iniciarse: %1</translation>
-    </message>
+    
 </context>
 <context>
     <name>LoginWizardPage</name>
@@ -5785,19 +5479,13 @@ Tienes que solucionar el problema manualmente.</translation>
         <source>Add offline account</source>
         <translation>Añadir cuenta sin conexión</translation>
     </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Add Microsoft account&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Añadir cuenta de Microsoft&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.ui" line="50"/>
         <source>Add Microsoft account</source>
         <translation>Añadir cuenta de Microsoft</translation>
     </message>
-    <message>
-        <source>In order to play Minecraft, you must have at least one Microsoft account logged in. Do you want to log in now?</source>
-        <translation type="vanished">Para jugar a Minecraft, debes tener al menos una cuenta de Microsoft iniciada. ¿Quieres iniciar sesión ahora?</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.cpp" line="51"/>
         <source>Please enter your desired username.</source>
@@ -6068,10 +5756,7 @@ Tienes que solucionar el problema manualmente.</translation>
         <source>Open the bot terminal to control Minecraft bots.</source>
         <translation>Abrir la terminal de bots para controlar bots de Minecraft.</translation>
     </message>
-    <message>
-        <source>&amp;Meow</source>
-        <translation type="vanished">&amp;Miau</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="175"/>
         <source>&amp;View</source>
@@ -6389,10 +6074,7 @@ URL:
         <source>Themes</source>
         <translation>Temas</translation>
     </message>
-    <message>
-        <source>Prism Launcher (zip)</source>
-        <translation type="vanished">Prism Launcher (zip)</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="671"/>
         <source>Open %1 subreddit.</source>
@@ -6413,10 +6095,7 @@ URL:
         <source>Open the skins folder in a file browser.</source>
         <translation>Abra la carpeta de skins en un explorador de archivos.</translation>
     </message>
-    <message>
-        <source>Manage &amp;Skins...</source>
-        <translation type="vanished">Gestionar &amp;Skins...</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1144"/>
         <source>No instance available to add the resource to.
@@ -6434,10 +6113,7 @@ Por favor, cree una nueva instancia antes de intentar instalar este recurso de n
         <source>This is a problem: &lt;br/&gt; - The launcher will likely be deleted without warning by the operating system &lt;br/&gt; - close the launcher now and extract it to a real location, not a temporary folder</source>
         <translation>Este es un problema: &lt;br/&gt; - Es probable que el sistema operativo borre el launcher sin previo aviso &lt;br/&gt; - cierra el launcher ahora y extráelo a una carpeta real, no a una carpeta temporal</translation>
     </message>
-    <message>
-        <source>Cat Packs</source>
-        <translation type="vanished">Dibujos</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="649"/>
         <source>Open %1 Discord guild.</source>
@@ -6797,10 +6473,7 @@ Comprueba la papelera de reciclaje para restaurarlos manualmente.</translation>
         <source>Export the selected instance to supported formats.</source>
         <translation>Exporte la instancia seleccionada a los formatos compatibles.</translation>
     </message>
-    <message>
-        <source>It&apos;s a fluffy kitty :3</source>
-        <translation type="vanished">Es un gatito mullido :3</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
@@ -6882,10 +6555,7 @@ Comprueba la papelera de reciclaje para restaurarlos manualmente.</translation>
         <source>No instance!</source>
         <translation>¡No hay instancia!</translation>
     </message>
-    <message>
-        <source>Open the cat packs folder in a file browser.</source>
-        <translation type="vanished">Abrir la carpeta de dibujos en un explorador de archivos.</translation>
-    </message>
+    
 </context>
 <context>
     <name>ManagedPackPage</name>
@@ -7050,17 +6720,11 @@ Asegúrate también de que la URL es de confianza.
         <comment>This is for the task name that loads the meta index.</comment>
         <translation>Cargar meta para %1:%2</translation>
     </message>
-    <message>
-        <source>Load meta for %1:%2</source>
-        <translation type="vanished">Cargar meta para %1:%2</translation>
-    </message>
+    
 </context>
 <context>
     <name>Meta::VersionList</name>
-    <message>
-        <source>Load meta for %1</source>
-        <translation type="vanished">Cargar meta para %1</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/meta/VersionList.cpp" line="37"/>
         <source>Load meta for %1</source>
@@ -7234,10 +6898,7 @@ Asegúrate también de que la URL es de confianza.
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#f5c211;&quot;&gt;Warning&lt;/span&gt;&lt;span style=&quot; color:#f5c211;&quot;&gt;: The maximized option may not be fully supported on all Minecraft versions.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#f5c211;&quot;&gt;Advertencia&lt;/span&gt;&lt;span style=&quot; color:#f5c211;&quot;&gt;: La opción maximizada puede no ser totalmente compatible con todas las versiones de Minecraft.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message>
-        <source>Use system installation of SDL</source>
-        <translation type="vanished">Utilizar la instalación del sistema de SDL</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
@@ -7466,10 +7127,7 @@ Es muy probable que tengas que cambiar la ruta - consulta el sitio web del mod.<
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable Feral Interactive&apos;s GameMode, to potentially improve gaming performance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activa el GameMode de Feral Interactive, para mejorar potencialmente el rendimiento de los juegos.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message>
-        <source>&amp;Count time playing this instance into total time played</source>
-        <translation type="vanished">&amp;Incluir el tiempo dedicado a esta instancia en el tiempo total de juego</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="95"/>
         <source>When the game window closes, quit the launcher</source>
@@ -7480,10 +7138,7 @@ Es muy probable que tengas que cambiar la ruta - consulta el sitio web del mod.<
         <source>Singleplayer world:</source>
         <translation>Mundo solitario:</translation>
     </message>
-    <message>
-        <source>&amp;SDL library path:</source>
-        <translation type="vanished">&amp;Ruta de la biblioteca SDL:</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
@@ -7760,14 +7415,8 @@ Es muy probable que tengas que cambiar la ruta - consulta el sitio web del mod.<
         <source>Confirm toggle</source>
         <translation>Confirmar alternar</translation>
     </message>
-    <message>
-        <source>The following mods will be enabled:</source>
-        <translation type="vanished">Los siguientes mods seran habilitados:</translation>
-    </message>
-    <message>
-        <source>File Name</source>
-        <translation type="vanished">Nombre del archivo</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/minecraft/mod/ModFolderModel.cpp" line="193"/>
         <source>Is the mod enabled?</source>
@@ -7942,19 +7591,13 @@ Ignorarlos puede provocar fallos en el juego.</translation>
         <source>On what environment the mod is running.</source>
         <translation>En qué entorno se ejecuta el mod.</translation>
     </message>
-    <message>
-        <source>The file name of the mod.</source>
-        <translation type="vanished">El nombre del archivo del mod.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/ModFolderModel.cpp" line="209"/>
         <source>The release type.</source>
         <translation>El estado del mod.</translation>
     </message>
-    <message>
-        <source>The following mods will be disabled:</source>
-        <translation type="vanished">Los siguientes mods seran deshabilitados:</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/ModFolderModel.cpp" line="433"/>
         <source>Do you want to automatically apply these related changes?
@@ -7985,6 +7628,17 @@ Ignorarlos puede provocar errores en el juego.</translation>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.h" line="56"/>
         <source>Mods</source>
         <translation>Mods</translation>
+    </message>
+    <message>
+        <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="416"/>
+        <source>You need to install a compatible mod loader before installing mods. Would you like to do so?</source>
+        <translation>Necesitas instalar un mod loader compatible antes de instalar mods.
+¿Te gustaría hacerlo?</translation>
+    </message>
+    <message>
+        <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="417"/>
+        <source>Missing Mod Loader</source>
+        <translation>Loader de mods ausente</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="190"/>
@@ -8043,19 +7697,9 @@ Do you want to disable them?</source>
         <source>Change a mod&apos;s version.</source>
         <translation>Cambiar la versión del mod.</translation>
     </message>
-    <message>
-        <source>You need to install a compatible mod loader before installing mods. Would you like to do so?</source>
-        <translation type="vanished">Necesitas instalar un mod loader compatible antes de instalar mods.
-¿Te gustaría hacerlo?</translation>
-    </message>
-    <message>
-        <source>Missing Mod Loader</source>
-        <translation type="vanished">Loader de mods ausente</translation>
-    </message>
-    <message>
-        <source>The following mods depend on the mod(s) you want to remove:</source>
-        <translation type="vanished">Los siguientes mods dependen de uno o varios mods que quieras eliminar:</translation>
-    </message>
+    
+    
+    
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="190"/>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="257"/>
@@ -8122,10 +7766,7 @@ Are you sure?</source>
         <source>Try to check or update all selected mods (all mods if none are selected)</source>
         <translation>Intentar validar o actualizar los mods seleccionados (todos los mods si no hay ninguno seleccionado)</translation>
     </message>
-    <message>
-        <source>No mod loader was installed. Please try again.</source>
-        <translation type="vanished">No se instaló ningún cargador de mods. Inténtalo de nuevo.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="269"/>
         <source>Update checker</source>
@@ -8249,10 +7890,7 @@ Please update %1!</source>
         <source>Download URL for %1 is not a correctly formatted URL</source>
         <translation>La URL de descarga para %1 no es una URL correctamente formateada</translation>
     </message>
-    <message>
-        <source>Removing old conflicting files...</source>
-        <translation type="vanished">Eliminando archivos antiguos que causan conflictos...</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="194"/>
         <source>Could not rename the client overrides folder:
@@ -8260,10 +7898,7 @@ Please update %1!</source>
         <translation>No se pudo renombrar la carpeta de reemplazos del cliente:
 </translation>
     </message>
-    <message>
-        <source>Failed to remove old conflicting files.</source>
-        <translation type="vanished">No se han podido eliminar los archivos antiguos que causaban conflictos.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="137"/>
         <source>We couldn&apos;t find a suitable index file for the older version. This may cause some of the files to be duplicated. Do you want to continue?</source>
@@ -8481,13 +8116,7 @@ Please update %1!</source>
         <extracomment>Download speed at 0 bytes per second</extracomment>
         <translation>0 B/s</translation>
     </message>
-    <message numerus="yes">
-        <source>Rate Limited: Waiting %n second(s)</source>
-        <translation type="vanished">
-            <numerusform>Frecuencia Limitada: Esperando %n segundo</numerusform>
-            <numerusform>Frecuencia Limitada: Esperando %n segundos</numerusform>
-        </translation>
-    </message>
+    
     <message>
         <location filename="../launcher/net/NetRequest.cpp" line="73"/>
         <source>Requesting %1</source>
@@ -8504,8 +8133,8 @@ Please update %1!</source>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Solicitudes limitadas por %n segundo. Reintentar después de %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Solicitudes limitadas por %n segundos. Reintentar después de %1&lt;/numerusform&gt;
+            <numerusform>Solicitudes limitadas por %n segundo. Reintentar después de %1</numerusform>
+            <numerusform>Solicitudes limitadas por %n segundos. Reintentar después de %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8513,17 +8142,11 @@ Please update %1!</source>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Frecuencia Limitada: Esperando %n segundo&lt;/numerusform&gt;
-            &lt;numerusform&gt;Frecuencia Limitada: Esperando %n segundos&lt;/numerusform&gt;
+            <numerusform>Frecuencia Limitada: Esperando %n segundo</numerusform>
+            <numerusform>Frecuencia Limitada: Esperando %n segundos</numerusform>
         </translation>
     </message>
-    <message numerus="yes">
-        <source>Request Rate Limited for %n second(s): Retry After %1</source>
-        <translation type="vanished">
-            <numerusform>Solicitudes limitadas por %n segundo. Reintentar después de %1</numerusform>
-            <numerusform>Solicitudes limitadas por %n segundos. Reintentar después de %1</numerusform>
-        </translation>
-    </message>
+    
     <message>
         <location filename="../launcher/net/NetRequest.cpp" line="150"/>
         <source>%1 / %2</source>
@@ -8653,27 +8276,15 @@ Please update %1!</source>
         <source>&amp;Name:</source>
         <translation>&amp;Nombre:</translation>
     </message>
-    <message>
-        <source>The instance directory &quot;%1&quot; is no longer accessible. Please choose another location.</source>
-        <translation type="vanished">Ya no se puede acceder al directorio de la instancia &quot;%1&quot;. Elige otra ubicación.</translation>
-    </message>
-    <message>
-        <source>Directory unavailable</source>
-        <translation type="vanished">Directorio no disponible</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.cpp" line="120"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
-    <message>
-        <source>Default (%1)</source>
-        <translation type="vanished">Por defecto (%1)</translation>
-    </message>
-    <message>
-        <source>&amp;Location:</source>
-        <translation type="vanished">&amp;Ubicación:</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="39"/>
         <source>&amp;Group:</source>
@@ -8971,108 +8582,31 @@ Esta acción puede ser definitiva y el archivo desaparecerá de la carpeta de re
 </context>
 <context>
     <name>PackInstallTask</name>
-    <message>
-        <source>Downloading mods...</source>
-        <translation type="vanished">Descargando mods...</translation>
-    </message>
-    <message>
-        <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation type="vanished">Los siguientes archivos no están disponibles para su descarga en lanzadores de terceros. &lt;br/&gt;Deberás descargarlos manualmente e incorporarlos a la instancia.</translation>
-    </message>
-    <message>
-        <source>No loader version set for modpack!</source>
-        <translation type="vanished">¡No se ha configurado ninguna versión del cargador para el modpack!</translation>
-    </message>
-    <message>
-        <source>Deleting existing files...</source>
-        <translation type="vanished">Eliminando archivos existentes...</translation>
-    </message>
-    <message>
-        <source>Config download</source>
-        <translation type="vanished">Descarga de configuración</translation>
-    </message>
-    <message>
-        <source>Unsupported installation mode</source>
-        <translation type="vanished">Modo de instalación no admitido</translation>
-    </message>
-    <message>
-        <source>Failed to create pack component</source>
-        <translation type="vanished">Error al crear el componente del pack</translation>
-    </message>
-    <message>
-        <source>Failed to create libraries component</source>
-        <translation type="vanished">Error al crear el componente de librerías</translation>
-    </message>
-    <message>
-        <source>Mod download</source>
-        <translation type="vanished">Descarga del mod</translation>
-    </message>
-    <message>
-        <source>Unknown or unsupported download type: %1</source>
-        <translation type="vanished">Tipo de descarga desconocido o no soportado: %1</translation>
-    </message>
-    <message>
-        <source>Extracting configs...</source>
-        <translation type="vanished">Extrayendo configuraciones...</translation>
-    </message>
-    <message>
-        <source>Unknown mod type: %1</source>
-        <translation type="vanished">Tipo de mod desconocido: %1</translation>
-    </message>
-    <message>
-        <source>Failed to extract mods...</source>
-        <translation type="vanished">Error al extraer los mods...</translation>
-    </message>
-    <message>
-        <source>Failed to get local metadata index for %1</source>
-        <translation type="vanished">Error al obtener el índice de metadatos local para %1</translation>
-    </message>
-    <message>
-        <source>Unknown loader type: </source>
-        <translation type="vanished">Tipo de loader desconocido: </translation>
-    </message>
-    <message>
-        <source>Could not understand pack manifest:
-</source>
-        <translation type="vanished">No se ha podido interpretar el manifiesto del paquete:
-</translation>
-    </message>
-    <message>
-        <source>Blocked mods found</source>
-        <translation type="vanished">Se han encontrado mods bloqueados</translation>
-    </message>
-    <message>
-        <source>%1 out of %2 complete</source>
-        <translation type="vanished">%1 out of %2 completados</translation>
-    </message>
-    <message>
-        <source>Failed to find version for %1 loader</source>
-        <translation type="vanished">Error al encontrar versión para %1 loader</translation>
-    </message>
-    <message>
-        <source>Installing modpack</source>
-        <translation type="vanished">Instalando modpack</translation>
-    </message>
-    <message>
-        <source>Selecting optional mods...</source>
-        <translation type="vanished">Seleccionando mods opcionales...</translation>
-    </message>
-    <message>
-        <source>Downloading configs...</source>
-        <translation type="vanished">Descargando configuraciones...</translation>
-    </message>
-    <message>
-        <source>Failed to get local metadata index for &apos;%1&apos; v%2</source>
-        <translation type="vanished">Error al obtener el índice de metadatos local para &apos;%1&apos; v%2</translation>
-    </message>
-    <message>
-        <source>Extracting mods...</source>
-        <translation type="vanished">Extrayendo mods...</translation>
-    </message>
-    <message>
-        <source>Unknown download type: %1</source>
-        <translation type="vanished">Tipo de descarga desconocido: %1</translation>
-    </message>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </context>
 <context>
     <name>PackProfile</name>
@@ -9529,10 +9063,7 @@ StdErr: %2</translation>
         <source>Allow updating to pre-release releases</source>
         <translation>Permitir la actualización a versiones anteriores al lanzamiento</translation>
     </message>
-    <message>
-        <source>Actions outside of checking if an update is available are not supported when running the flatpak version of Prism Launcher.</source>
-        <translation type="vanished">Las acciones que no sean comprobar si hay actualizaciones disponibles no son compatibles cuando se ejecuta la versión flatpak de Prism Launcher.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="537"/>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="544"/>
@@ -9736,32 +9267,7 @@ El actualizador no podrá continuar hasta que solucione este problema.</translat
         <source>Process start result: %1</source>
         <translation>Resultado del inicio del proceso: %1</translation>
     </message>
-    <message>
-        <source>This installation has a update lock file present at: %1
-
-Timestamp: %2
-Updating from version %3 to %4
-Target install path: %5
-Data Path: %6
-This likely means that a previous update attempt failed. Please ensure your installation is in working order before proceeding.
-Check the Prism Launcher updater log at: 
-%7
-for details on the last update attempt.
-
-To overwrite this lock and proceed with this update anyway, select &quot;Ignore&quot; below.</source>
-        <translation type="vanished">Esta instalación tiene un archivo de bloqueo de actualización presente en: %1
-
-Marcador de tiempo: %2
-Actualización de la versión %3 a %4
-Ruta de instalación de destino: %5
-Ruta de datos: %6
-Esto probablemente significa que un intento de actualización anterior falló. Asegúrese de que su instalación funciona correctamente antes de continuar.
-Compruebe el registro de actualización de Prism Launcher en: 
-%7
-para más detalles sobre el último intento de actualización.
-
-Para sobrescribir este bloqueo y proceder con esta actualización de todos modos, selecciona «ignorar» a continuación.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="762"/>
         <source>Github release %1 has no valid assets for this platform: %2</source>
@@ -10021,10 +9527,7 @@ Elija su nombre cuidadosamente:</translation>
         <source>Dark</source>
         <translation>Oscuro</translation>
     </message>
-    <message>
-        <source>Gone</source>
-        <translation type="vanished">Desaparecido</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/MMCTime.cpp" line="75"/>
         <source>days</source>
@@ -10035,10 +9538,7 @@ Elija su nombre cuidadosamente:</translation>
         <source>item</source>
         <translation>item</translation>
     </message>
-    <message>
-        <source>mods</source>
-        <translation type="vanished">mods</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/GuiUtil.cpp" line="112"/>
         <source>The log has %1 lines, exceeding mclo.gs&apos; limit of %2.
@@ -10059,10 +9559,7 @@ Si eliges &apos;No&apos;, mclo.gs sólo mantendrá las primeras %2 líneas, cort
         <source>%1, a dependency of this component, has reported issues</source>
         <translation>%1, una dependencia de este componente, ha informado de problemas</translation>
     </message>
-    <message>
-        <source>Unrecognized</source>
-        <translation type="vanished">No reconocido</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="144"/>
         <source>%1 (in use)</source>
@@ -10078,10 +9575,7 @@ Si eliges &apos;No&apos;, mclo.gs sólo mantendrá las primeras %2 líneas, cort
         <source>MultiMC Developers</source>
         <translation>Desarrolladores de MultiMC</translation>
     </message>
-    <message>
-        <source>Ready</source>
-        <translation type="vanished">Listo</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/PackProfile.cpp" line="218"/>
         <source>Couldn&apos;t parse %1 : bad file format</source>
@@ -10092,10 +9586,7 @@ Si eliges &apos;No&apos;, mclo.gs sólo mantendrá las primeras %2 líneas, cort
         <source>items</source>
         <translation>items</translation>
     </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="vanished">Desactivado</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/tools/JVisualVM.cpp" line="85"/>
         <source>Invalid path to VisualVM</source>
@@ -10187,14 +9678,7 @@ Si eliges &apos;No&apos;, mclo.gs sólo mantendrá las primeras %2 líneas, cort
         <source>Desktop Entries</source>
         <translation>Entradas de Escritorio</translation>
     </message>
-    <message>
-        <source>The instance folder cannot be renamed while the instance is running.
-
-Only the instance name will be changed. The folder will keep its current name.</source>
-        <translation type="vanished">No se puede cambiar el nombre de la carpeta de la instancia mientras esta se esté ejecutando.
-
-Solo se modificará el nombre de la instancia. La carpeta conservará su nombre actual.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/MojangVersionFormat.cpp" line="175"/>
         <source>The &apos;minimumLauncherVersion&apos; value of this version (%1) is higher than supported by %3 (%2). It might not work properly!</source>
@@ -10285,10 +9769,7 @@ Do you wish to proceed?</source>
 ¿Desea continuar?</numerusform>
         </translation>
     </message>
-    <message>
-        <source>data packs</source>
-        <translation type="vanished">Data packs</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/GuiUtil.cpp" line="98"/>
         <source>Confirm Upload</source>
@@ -10319,10 +9800,7 @@ Do you wish to proceed?</source>
         <source>%1 is missing requirement %2 %3</source>
         <translation>%1 falta el requisito %2 %3</translation>
     </message>
-    <message>
-        <source>shader packs</source>
-        <translation type="vanished">Shader packs</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/MMCTime.cpp" line="33"/>
         <source>%1min %2s</source>
@@ -10412,10 +9890,7 @@ Would you like to remove those existing saves as part of this update?</source>
         <source>Failed to create %1 shortcut!</source>
         <translation>¡Error al crear el acceso directo %1!</translation>
     </message>
-    <message>
-        <source>Offline</source>
-        <translation type="vanished">Sin conexión</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/net/PasteUpload.cpp" line="151"/>
         <source>Failed to parse response from mclogs server: expected JSON but got an invalid response. Error: %1</source>
@@ -10531,10 +10006,7 @@ NOTA: Asegúrate de hacer una copia de seguridad de los datos importantes de tu 
         <source>%1, a dependency of this component, is not the required version %2</source>
         <translation>%1, una dependencia de este componente, no es la versión requerida %2</translation>
     </message>
-    <message>
-        <source>Teawie (drawn by SympathyTea)</source>
-        <translation type="vanished">Teawie (dibujada por SympathyTea)</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/JavaCommon.cpp" line="71"/>
         <source>Java test succeeded!&lt;br /&gt;Platform reported: %1&lt;br /&gt;Java version reported: %2&lt;br /&gt;Java vendor reported: %3&lt;br /&gt;</source>
@@ -10555,10 +10027,7 @@ NOTA: Asegúrate de hacer una copia de seguridad de los datos importantes de tu 
         <source>Create new instance</source>
         <translation>Crear nueva instancia</translation>
     </message>
-    <message>
-        <source>Rory ID 11 (flat edition, drawn by Ashtaka)</source>
-        <translation type="vanished">Rory ID 11 (edición liza, dibujada por Ashtaka)</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/InstanceTask.cpp" line="32"/>
         <source>Similar modpack was found!</source>
@@ -10579,10 +10048,7 @@ NOTA: Asegúrate de hacer una copia de seguridad de los datos importantes de tu 
         <source>Created a shortcut to this %1 in your applications folder!</source>
         <translation>¡Se creó un acceso directo a este %1 en su carpeta de aplicaciones!</translation>
     </message>
-    <message>
-        <source>An auto-updater for Prism Launcher</source>
-        <translation type="vanished">Un auto-actualizador para Prism Launcher</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/tools/MCEditTool.cpp" line="40"/>
         <source>Path does not seem to be a MCEdit path</source>
@@ -10600,10 +10066,7 @@ NOTA: Asegúrate de hacer una copia de seguridad de los datos importantes de tu 
         <source>Patch is not loaded yet.</source>
         <translation>La ruta no existe.</translation>
     </message>
-    <message>
-        <source>Unchecked</source>
-        <translation type="vanished">Sin seleccionar</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/PackProfile.cpp" line="188"/>
         <source>Couldn&apos;t open %1 for reading: %2</source>
@@ -10619,10 +10082,7 @@ NOTA: Asegúrate de hacer una copia de seguridad de los datos importantes de tu 
         <source>data pack</source>
         <translation>Data Pack</translation>
     </message>
-    <message>
-        <source>resources</source>
-        <translation type="vanished">Resources</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/ShortcutUtils.cpp" line="181"/>
         <source>Created a shortcut to this %1 on your desktop!</source>
@@ -10700,10 +10160,7 @@ Este mensaje seguirá apareciendo hasta que elimines este argumento de los argum
         <source>Version file contains unsupported element &apos;tweakers&apos;</source>
         <translation>El archivo de versión contiene un elemento no soportado &apos;tweakers&apos;</translation>
     </message>
-    <message>
-        <source>resource packs</source>
-        <translation type="vanished">Resource packs</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/ShortcutUtils.cpp" line="244"/>
         <source>Created a shortcut to this %1!</source>
@@ -10724,10 +10181,7 @@ Este mensaje seguirá apareciendo hasta que elimines este argumento de los argum
         <source>Renaming</source>
         <translation>Renombrar</translation>
     </message>
-    <message>
-        <source>Unknown</source>
-        <translation type="vanished">Desconocido</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/modplatform/ResourceType.cpp" line="31"/>
         <source>unknown</source>
@@ -10798,19 +10252,13 @@ Este mensaje seguirá apareciendo hasta que elimines este argumento de los argum
         <source>Sort by Downloads</source>
         <translation>Ordenar por Descargas</translation>
     </message>
-    <message>
-        <source>Errored</source>
-        <translation type="vanished">Fallido</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/JavaCommon.cpp" line="79"/>
         <source>&lt;br /&gt;Warnings:&lt;br /&gt;&lt;font color=&quot;orange&quot;&gt;%1&lt;/font&gt;</source>
         <translation>&lt;br /&gt;Advertencias:&lt;br /&gt;&lt;font color=&quot;orange&quot;&gt;%1&lt;/font&gt;</translation>
     </message>
-    <message>
-        <source>resource</source>
-        <translation type="vanished">Resource</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/net/PasteUpload.cpp" line="162"/>
         <source>Error: %1 returned an error: %2</source>
@@ -10827,10 +10275,7 @@ Comprueba bien que no contenga información personal.
 
 ¿Estás seguro/a?</translation>
     </message>
-    <message>
-        <source>Expired</source>
-        <translation type="vanished">Expirado</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/themes/SystemTheme.cpp" line="102"/>
         <source>The default Qt widget style</source>
@@ -10862,10 +10307,7 @@ Comprueba bien que no contenga información personal.
         <source>There are linked instances</source>
         <translation>Hay instancias vinculadas</translation>
     </message>
-    <message>
-        <source>texture packs</source>
-        <translation type="vanished">Texture packs</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/InstanceTask.cpp" line="39"/>
         <source>Update existing instance</source>
@@ -10876,10 +10318,7 @@ Comprueba bien que no contenga información personal.
         <source>Sort by Featured</source>
         <translation>Ordenar por Destacados</translation>
     </message>
-    <message>
-        <source>Background Cat (from MultiMC)</source>
-        <translation type="vanished">Gato Background (de MultiMC)</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.cpp" line="65"/>
         <source>Minecraft Server</source>
@@ -10895,10 +10334,7 @@ Comprueba bien que no contenga información personal.
         <source>The specified Java binary returned unexpected results:&lt;br /&gt;</source>
         <translation>El ejecutable de Java especificado ha devuelto resultados inesperados:&lt;br /&gt;</translation>
     </message>
-    <message>
-        <source>Working</source>
-        <translation type="vanished">Trabajando</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="720"/>
         <source>%1, a dependency of this component, is not the suggested version %2</source>
@@ -10909,10 +10345,7 @@ Comprueba bien que no contenga información personal.
         <source>Assets for %1</source>
         <translation>Recursos para %1</translation>
     </message>
-    <message>
-        <source>Cannot rename instance folder</source>
-        <translation type="vanished">No se puede cambiar el nombre de la carpeta de instancia</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/modplatform/flame/FlameAPI.cpp" line="172"/>
         <source>Sort by Game Version</source>
@@ -10997,10 +10430,7 @@ Nombre nuevo: %2</translation>
         <source>texture pack</source>
         <translation>texture pack</translation>
     </message>
-    <message>
-        <source>Rory ID 11 (drawn by Ashtaka)</source>
-        <translation type="vanished">Rory ID 11 (dibujada por Ashtaka)</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="94"/>
         <source>An auto-updater for PollyMC-Continued</source>
@@ -11070,10 +10500,7 @@ Nombre nuevo: %2</translation>
 </context>
 <context>
     <name>ResourceDownload::ResourceDownloadDialog</name>
-    <message>
-        <source>mods</source>
-        <translation type="vanished">mods</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/dialogs/ResourceDownloadDialog.cpp" line="174"/>
         <source>Abort</source>
@@ -11099,14 +10526,8 @@ Nombre nuevo: %2</translation>
         <source>Download %1</source>
         <translation>Descargar %1</translation>
     </message>
-    <message>
-        <source>data packs</source>
-        <translation type="vanished">Data packs</translation>
-    </message>
-    <message>
-        <source>shader packs</source>
-        <translation type="vanished">Shader packs</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/dialogs/ResourceDownloadDialog.cpp" line="101"/>
         <source>You have %1 selected resources.
@@ -11145,14 +10566,8 @@ Are you sure you want to close this dialog?</source>
         <extracomment>String that gets appended to the download dialog title (&quot;Download &quot; + resourcesString())</extracomment>
         <translation>Resources</translation>
     </message>
-    <message>
-        <source>resource packs</source>
-        <translation type="vanished">Resource packs</translation>
-    </message>
-    <message>
-        <source>texture packs</source>
-        <translation type="vanished">Texture packs</translation>
-    </message>
+    
+    
     <message>
         <location filename="../launcher/ui/dialogs/ResourceDownloadDialog.cpp" line="100"/>
         <source>Confirmation Needed</source>
@@ -11299,10 +10714,7 @@ Please update %1!</source>
         <source>Source code: &lt;a href=%1&gt;%1&lt;/a&gt;</source>
         <translation>Código fuente: &lt;a href=%1&gt;%1&lt;/a&gt;</translation>
     </message>
-    <message>
-        <source> [installed]</source>
-        <translation type="vanished"> [instalado]</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/modplatform/ResourcePage.h" line="47"/>
         <source>resources</source>
@@ -11440,10 +10852,7 @@ El autor probablemente bloqueó los launchers de terceros.</translation>
         <source>Confirm toggle</source>
         <translation>Confirmar alternancia</translation>
     </message>
-    <message>
-        <source>File Name</source>
-        <translation type="vanished">Nombre del archivo</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/ResourceFolderModel.cpp" line="711"/>
         <source>Override Columns Visibility</source>
@@ -11490,10 +10899,7 @@ El autor probablemente bloqueó los launchers de terceros.</translation>
         <source>The name of the resource.</source>
         <translation>El nombre del recurso.</translation>
     </message>
-    <message>
-        <source>The file name of the resource.</source>
-        <translation type="vanished">El nombre del archivo del recurso.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/ResourceFolderModel.cpp" line="549"/>
         <source>
@@ -11540,19 +10946,13 @@ Advertencia: Este recurso está enlazado en otro sitio. Si lo editas, también s
         <source>Image</source>
         <translation>Imagen</translation>
     </message>
-    <message>
-        <source>The file name of the resource pack.</source>
-        <translation type="vanished">El nombre del archivo del resource pack.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/ResourcePackFolderModel.cpp" line="151"/>
         <source>The date and time this resource pack was last changed (or added).</source>
         <translation>La fecha y la hora en la que este resource pack se modificó por última vez (o se creó).</translation>
     </message>
-    <message>
-        <source>File Name</source>
-        <translation type="vanished">Nombre del archivo</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/ResourcePackFolderModel.cpp" line="51"/>
         <source>Pack Format</source>
@@ -13011,19 +12411,13 @@ falta inheritsFrom</translation>
         <source>The name of the texture pack.</source>
         <translation>El nombre del texture pack.</translation>
     </message>
-    <message>
-        <source>File Name</source>
-        <translation type="vanished">Nombre del archivo</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/TexturePackFolderModel.cpp" line="45"/>
         <source>Enable</source>
         <translation>Activar</translation>
     </message>
-    <message>
-        <source>The file name of the texture pack.</source>
-        <translation type="vanished">El nombre del archivo del paquete de texturas.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/minecraft/mod/TexturePackFolderModel.cpp" line="45"/>
         <source>Last Modified</source>
@@ -13222,22 +12616,10 @@ Es posible que los archivos antiguos no se eliminen, ya que están en uso.
 </context>
 <context>
     <name>UntrustedModsDialog</name>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;b&gt;Malicious mods are often distributed through links sent on platforms such as Discord.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;We strongly recommend only importing modpacks from trusted sources.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;b&gt;Los mods maliciosos suelen distribuirse a través de enlaces que se envían en plataformas como Discord.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Recomendamos encarecidamente importar únicamente modpacks procedentes de fuentes fiables.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Easy There!</source>
-        <translation type="vanished">¡Con cuidado!</translation>
-    </message>
-    <message>
-        <source>I trust this modpack and wish to proceed regardless</source>
-        <translation type="vanished">Confío en este modpack y quiero seguir adelante de todos modos</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The modpack you are installing includes mods which are not hosted on Modrinth or CurseForge:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;El modpack que estás instalando incluye mods que no están alojados en Modrinth ni en CurseForge:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
+    
+    
+    
+    
 </context>
 <context>
     <name>UpdateAvailableDialog</name>
@@ -13575,12 +12957,7 @@ Esta acción es permanente y eliminará por completo tus personalizaciones.
         <source>Confirm Reversion</source>
         <translation>Confirmar Reversión</translation>
     </message>
-    <message>
-        <source>Cannot download Minecraft or update instances unless you have at least one account added.
-Please add a Microsoft account.</source>
-        <translation type="vanished">No puedes descargar Minecraft o actualizar instancias a menos que tengas al menos una cuenta añadida.
-Por favor, añade una cuenta Microsoft.</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/pages/instance/VersionPage.cpp" line="280"/>
         <source>Confirm Removal</source>
@@ -13787,10 +13164,7 @@ Por favor, añade una cuenta Microsoft.</translation>
 </context>
 <context>
     <name>VersionSelectDialog</name>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">Aceptar</translation>
-    </message>
+    
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="99"/>
         <source>Reloads the version list.</source>
