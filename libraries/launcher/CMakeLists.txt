@@ -40,7 +40,8 @@ set(LEGACY_SRC
 
 set(SKIN_AGENT_SRC
     org/prismlauncher/agent/OfflineSkinAgent.java
-    org/prismlauncher/agent/LocalSkinFactory.java
+    org/prismlauncher/agent/Skin.java
+    org/prismlauncher/agent/protocol/https/Handler.java
 )
 
 add_jar(NewLaunch ${SRC})
