@@ -21,7 +21,6 @@
       <li>Isolate Minecraft instances to keep everything clean</li>
       <li>Install and update mods directly from the launcher</li>
       <li>Customize the launcher with themes, and more</li>
-      <li>And cat :3</li>
     </ul>
   </description>
   <screenshots>
@@ -48,10 +47,6 @@
     <screenshot>
       <caption>Instance management</caption>
       <image type="source" width="960" height="659">https://prismlauncher.org/img/screenshots/PropertiesDark.png</image>
-    </screenshot>
-    <screenshot>
-      <caption>Cat :3</caption>
-      <image type="source" width="1042" height="754">https://prismlauncher.org/img/screenshots/LauncherCatDark.png</image>
     </screenshot>
     <screenshot>
       <caption>Customization</caption>

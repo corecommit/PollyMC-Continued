@@ -1,5 +1,14 @@
 # Changelog
 
+## v9.2.3
+
+**Fixed:**
+- Language selection now lists all available translations instead of only English
+- "Help us with translations!" link now points to the Weblate project page
+
+**Removed:**
+- Cat feature: "Meow" button (toolbar and View menu), cat packs folder entry, cat background/overlay rendering, cat pack selector and cat scaling/opacity settings in Appearance, the CatPack/CatPainter classes and all cat icon assets, and "And cat :3" from the Linux AppStream metadata
+
 ## v9.2.2
 
 **Changed:**

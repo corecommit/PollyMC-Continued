@@ -41,7 +41,6 @@
 #include <QScrollBar>
 #include <functional>
 #include "VisualGroup.h"
-#include "ui/themes/CatPainter.h"
 
 struct InstanceViewRoles {
     enum { GroupRole = Qt::UserRole, ProgressValueRole, ProgressMaximumRole };
@@ -78,7 +77,6 @@ class InstanceView : public QAbstractItemView {
     virtual QRegion visualRegionForSelection(const QItemSelection& selection) const override;
 
     int spacing() const { return m_spacing; };
-    void setPaintCat(bool visible);
 
    public slots:
     virtual void updateGeometries() override;
@@ -129,7 +127,6 @@ class InstanceView : public QAbstractItemView {
     int m_currentItemsPerRow = -1;
     int m_currentCursorColumn = -1;
     mutable QCache<int, QRect> m_geometryCache;
-    CatPainter* m_cat = nullptr;
 
     // point where the currently active mouse action started in geometry coordinates
     QPoint m_pressedPosition;

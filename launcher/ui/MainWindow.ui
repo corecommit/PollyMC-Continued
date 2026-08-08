@@ -56,9 +56,8 @@
    <addaction name="actionPerformancePresets"/>
    <addaction name="actionHelpButton"/>
    <addaction name="actionCheckUpdate"/>
-   <addaction name="separator"/>
-   <addaction name="actionCAT"/>
-   <addaction name="actionAccountsButton"/>
+<addaction name="separator"/>
+    <addaction name="actionAccountsButton"/>
   </widget>
   <widget class="QToolBar" name="newsToolBar">
    <property name="windowTitle">
@@ -180,7 +179,6 @@
     </property>
     <addaction name="actionChangeTheme"/>
     <addaction name="separator"/>
-    <addaction name="actionCAT"/>
     <addaction name="actionToggleStatusBar"/>
     <addaction name="actionLockToolbars"/>
     <addaction name="separator"/>
@@ -201,7 +199,6 @@
     <addaction name="separator"/>
     <addaction name="actionViewIconThemeFolder"/>
     <addaction name="actionViewWidgetThemeFolder"/>
-    <addaction name="actionViewCatPackFolder"/>
     <addaction name="actionViewIconsFolder"/>
     <addaction name="separator"/>
     <addaction name="actionViewLogsFolder"/>
@@ -249,20 +246,6 @@
    </property>
    <property name="toolTip">
     <string>Open the development blog to read more news about %1.</string>
-   </property>
-  </action>
-  <action name="actionCAT">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset theme="cat"/>
-   </property>
-   <property name="text">
-    <string>&amp;Meow</string>
-   </property>
-   <property name="toolTip">
-    <string>It's a fluffy kitty :3</string>
    </property>
   </action>
   <action name="actionToggleStatusBar">
@@ -799,18 +782,7 @@
     <string>Open the icon theme folder in a file browser.</string>
    </property>
   </action>
-  <action name="actionViewCatPackFolder">
-   <property name="icon">
-    <iconset theme="viewfolder"/>
-   </property>
-   <property name="text">
-    <string>Cat Packs</string>
-   </property>
-   <property name="toolTip">
-    <string>Open the cat packs folder in a file browser.</string>
-   </property>
-  </action>
-   <action name="actionViewJavaFolder">
+  <action name="actionViewJavaFolder">
     <property name="icon">
      <iconset theme="viewfolder"/>
     </property>

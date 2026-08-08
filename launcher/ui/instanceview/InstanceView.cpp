@@ -49,7 +49,6 @@
 #include <QtMath>
 
 #include "VisualGroup.h"
-#include "ui/themes/CatPainter.h"
 #include "ui/themes/ThemeManager.h"
 
 #include <Application.h>
@@ -72,7 +71,6 @@ InstanceView::InstanceView(QWidget* parent) : QAbstractItemView(parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     setAcceptDrops(true);
     setAutoScroll(true);
-    setPaintCat(APPLICATION->settings()->get("TheCat").toBool());
     connect(verticalScrollBar(), &QScrollBar::valueChanged, viewport(), QOverload<>::of(&QWidget::update));
     connect(horizontalScrollBar(), &QScrollBar::valueChanged, viewport(), QOverload<>::of(&QWidget::update));
 }
@@ -81,9 +79,6 @@ InstanceView::~InstanceView()
 {
     qDeleteAll(m_groups);
     m_groups.clear();
-    if (m_cat) {
-        m_cat->deleteLater();
-    }
 }
 
 void InstanceView::setModel(QAbstractItemModel* model)
@@ -440,28 +435,11 @@ void InstanceView::mouseDoubleClickEvent(QMouseEvent* event)
     }
 }
 
-void InstanceView::setPaintCat(bool visible)
-{
-    if (m_cat) {
-        disconnect(m_cat, &CatPainter::updateFrame, this, nullptr);
-        delete m_cat;
-        m_cat = nullptr;
-    }
-    if (visible) {
-        m_cat = new CatPainter(APPLICATION->themeManager()->getCatPack(), this);
-        connect(m_cat, &CatPainter::updateFrame, this, [this] { viewport()->update(); });
-    }
-}
-
 void InstanceView::paintEvent([[maybe_unused]] QPaintEvent* event)
 {
     executeDelayedItemsLayout();
 
     QPainter painter(this->viewport());
-
-    if (m_cat) {
-        m_cat->paint(&painter, this->viewport()->rect());
-    }
 
     QStyleOptionViewItem option;
     initViewItemOption(&option);
