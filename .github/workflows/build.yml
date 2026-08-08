@@ -380,6 +380,9 @@ jobs:
           # portable.txt marks a portable install (data dir + updater asset matching depend on it),
           # so the portable zip must contain it next to pollymc.exe
           cp "$GITHUB_WORKSPACE/program_info/portable.txt" portable.txt
+          # manifest.txt lists every top-level entry of the install; the updater installs exactly
+          # this list, so files that are new to a release (like portable.txt) actually get deployed
+          find . -mindepth 1 -maxdepth 1 -printf '%P\n' | sort > manifest.txt
           "/c/Program Files/7-Zip/7z.exe" a \
             "../PollyMC-Continued-${VERSION}-Windows-portable.zip" .
           cd ..

@@ -44,6 +44,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QListView>
+#include <QMessageBox>
 #include <QPushButton>
 #include <QSortFilterProxyModel>
 #include <QStackedLayout>
@@ -238,7 +239,12 @@ void PageContainer::help()
         QString pageId = m_currentPage->helpPage();
         if (pageId.isEmpty())
             return;
-        DesktopServices::openUrl(QUrl(BuildConfig.HELP_URL.arg(pageId)));
+        QString url = BuildConfig.HELP_URL.arg(pageId);
+        if (url.isEmpty() || url == "https://") {
+            QMessageBox::information(this, tr("Help"), tr("Will fix later."));
+            return;
+        }
+        DesktopServices::openUrl(QUrl(url));
     }
 }
 

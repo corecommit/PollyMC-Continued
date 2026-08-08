@@ -129,8 +129,11 @@ void LauncherPartLaunch::executeTask()
         if (!skinAgentPath.isEmpty()) {
             args << ("-javaagent:" + skinAgentPath);
             args << ("-Dprismlauncher.datadir=" + QDir::toNativeSeparators(APPLICATION->dataRoot()));
-            args << "--add-opens=java.base/java.net=ALL-UNNAMED";
-            args << "--add-opens=java.base/sun.net.www.protocol.https=ALL-UNNAMED";
+            // --add-opens is a Java 9+ option; Java 8 (e.g. 1.8.9) exits on it, so only pass it to modular JVMs
+            if (instance->getJavaVersion().isModular()) {
+                args << "--add-opens=java.base/java.net=ALL-UNNAMED";
+                args << "--add-opens=java.base/sun.net.www.protocol.https=ALL-UNNAMED";
+            }
             emit logLine("Offline skin agent injected.\n", MessageLevel::Launcher);
         }
     } else if (m_session && m_session->user_type == "offline" && isQuilt) {

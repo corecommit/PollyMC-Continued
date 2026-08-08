@@ -74,7 +74,18 @@ LauncherPage::LauncherPage(QWidget* parent) : QWidget(parent), ui(new Ui::Launch
 
     loadSettings();
 
+#ifdef Q_OS_MACOS
+    if (!APPLICATION->updater()) {
+        // macOS builds ship without a Sparkle feed/signing setup, so the updater section
+        // shows a static note instead of controls that would do nothing (see root CMakeLists)
+        ui->autoUpdateCheckBox->hide();
+        ui->updateIntervalLabel->hide();
+        ui->updateIntervalSpinBox->hide();
+        ui->updaterNotSupportedNote->show();
+    }
+#else
     ui->updateSettingsBox->setHidden(!APPLICATION->updater());
+#endif
 }
 
 LauncherPage::~LauncherPage()

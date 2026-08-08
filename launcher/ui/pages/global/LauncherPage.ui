@@ -215,25 +215,38 @@
                </property>
               </widget>
              </item>
-             <item>
+<item>
               <spacer name="horizontalSpacer">
                <property name="orientation">
                 <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>0</width>
-                 <height>0</height>
+                 <width>40</width>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
              </item>
             </layout>
            </item>
+           <item row="1" column="0" colspan="3">
+            <widget class="QLabel" name="updaterNotSupportedNote">
+             <property name="text">
+              <string>Updates are not available for macOS builds yet: they require a code-signed app and a signed update feed that the project does not currently provide.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="visible">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
           </layout>
-        </widget>
-       </item>
-       <item>
+         </widget>
+        </item>
+        <item>
          <widget class="QGroupBox" name="generalBox">
           <property name="title">
            <string>General</string>

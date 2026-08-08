@@ -372,6 +372,12 @@ set(Launcher_ENABLE_UPDATER NO)
 set(Launcher_BUILD_UPDATER NO)
 
 if (NOT Launcher_UPDATER_GITHUB_REPO STREQUAL "" AND NOT Launcher_BUILD_ARTIFACT STREQUAL "")
+    # The standalone updater binary is only built for Windows/Linux. macOS uses Sparkle
+    # (MacSparkleUpdater) instead; it is wired up below only if BOTH the appcast feed URL and the
+    # Sparkle EdDSA public key are supplied at configure time. Even then Sparkle refuses to apply
+    # updates to unsigned apps, so macOS auto-update additionally needs code signing/notarization
+    # and EdDSA-signed releases, which this project does not set up yet. Until then macOS builds
+    # ship with updates disabled (the Settings > Launcher page explains this to users).
     if (NOT APPLE)
         set(Launcher_BUILD_UPDATER YES)
         set(Launcher_ENABLE_UPDATER YES)

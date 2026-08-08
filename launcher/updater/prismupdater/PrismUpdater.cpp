@@ -577,6 +577,9 @@ void PrismUpdaterApp::moveAndFinishUpdate(QDir target)
     progress.setValue(i);
     QCoreApplication::processEvents();
 
+    // remove stale extraction folders that older updaters left inside the install folder
+    FS::deletePath(FS::PathCombine(target.absolutePath(), "prism_launcher_update_release"));
+
     if (error) {
         logUpdate(tr("There were errors installing the update."));
         auto fail_marker = FS::PathCombine(m_dataPath, ".prism_launcher_update.fail");
@@ -667,8 +670,21 @@ QList<GitHubReleaseAsset> PrismUpdaterApp::validReleaseArtifacts(const GitHubRel
     if (BuildConfig.BUILD_ARTIFACT.isEmpty())
         qWarning() << "Build platform is not set!";
     for (auto asset : release.assets) {
-        if (asset.name.endsWith(".zsync")) {
-            qDebug() << "Rejecting zsync file" << asset.name;
+        auto asset_name = asset.name.toLower();
+        // reject non-installable artifacts (checksums, signatures, metadata) on every platform,
+        // not just the AppImage/Windows cases below - a .sha256 or .asc is never something to run
+        static const QStringList s_nonInstallableSuffixes = {
+            "zsync", "sha256", "sha512", "sha1", "md5", "sig", "asc", "txt", "xml", "json"
+        };
+        bool non_installable = false;
+        for (auto const& suffix : s_nonInstallableSuffixes) {
+            if (asset_name.endsWith("." + suffix)) {
+                non_installable = true;
+                break;
+            }
+        }
+        if (non_installable) {
+            qDebug() << "Rejecting" << asset.name << "because it is not an installable artifact";
             continue;
         }
         if (!m_isAppimage && asset.name.toLower().endsWith("appimage")) {
@@ -678,7 +694,6 @@ QList<GitHubReleaseAsset> PrismUpdaterApp::validReleaseArtifacts(const GitHubRel
             qDebug() << "Rejecting" << asset.name << "because it is not an AppImage";
             continue;
         }
-        auto asset_name = asset.name.toLower();
         auto [platform, platform_qt_ver] = StringUtils::splitFirst(BuildConfig.BUILD_ARTIFACT.toLower(), "-qt");
         auto system_is_arm = QSysInfo::buildCpuArchitecture().contains("arm64");
         auto asset_is_arm = asset_name.contains("arm64");
@@ -1055,9 +1070,14 @@ void PrismUpdaterApp::backupAppDir()
 
 std::optional<QDir> PrismUpdaterApp::unpackArchive(QFileInfo archive)
 {
-    auto temp_extract_path = FS::PathCombine(m_dataPath, "prism_launcher_update_release");
-    FS::ensureFolderPathExists(temp_extract_path);
-    auto tmp_extract_dir = QDir(temp_extract_path);
+    // extract outside the install folder - for portable installs m_dataPath IS the install root,
+    // so extracting there left a full duplicate of the launcher inside the install on every update.
+    // the OS temp dir is outside the install and cleaned up by the system. ponytail: no self-cleanup
+    // of the temp dir; the exe runs from inside it so Windows would refuse to delete it anyway
+    auto base_extract_path = FS::PathCombine(QDir::tempPath(), "prism_launcher_update_release");
+    FS::deletePath(base_extract_path);  // stale extraction from a crashed or aborted previous run
+    FS::ensureFolderPathExists(base_extract_path);
+    auto tmp_extract_dir = QDir(base_extract_path);
 
     auto result = MMCZip::extractDir(archive.absoluteFilePath(), tmp_extract_dir.absolutePath());
     if (result) {
