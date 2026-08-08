@@ -8438,7 +8438,7 @@ Frissítsd a következőt: %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Kéréskorlátozás %n másodpercig: Újrapróbálkozás %1 múlva&lt;/numerusform&gt;
+            <numerusform>Kéréskorlátozás %n másodpercig: Újrapróbálkozás %1 múlva</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8446,7 +8446,7 @@ Frissítsd a következőt: %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Kéréskorlátozás: Várakozás %n másodpercig&lt;/numerusform&gt;
+            <numerusform>Kéréskorlátozás: Várakozás %n másodpercig</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -10180,13 +10180,13 @@ Csak a példány neve fog megváltozni. A mappa meg fogja tartani a jelenlegi ne
 
 Do you wish to proceed?</source>
         <translation>
-            &lt;numerusform&gt;A következő példány(ok) hivatkozhat(nak) ebben a példányban lévő fájlokra:
+            <numerusform>A következő példány(ok) hivatkozhat(nak) ebben a példányban lévő fájlokra:
 
 %1
 
 %2 tönkre teheti a (többi) példányt, 
 
-Szeretnéd folytatni?&lt;/numerusform&gt;
+Szeretnéd folytatni?</numerusform>
         </translation>
     </message>
     <message>

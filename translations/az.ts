@@ -8365,8 +8365,8 @@ Zəhmət olmasa, %1 tətbiqini yeniləyin!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Sorğu tezliyi %n saniyəlik məhdudlaşdırıldı: %1 sonra təkrar cəhd edin&lt;/numerusform&gt;
-            &lt;numerusform&gt;Sorğu tezliyi %n saniyə məhdudlaşdırıldı: %1 sonra təkrar cəhd edin&lt;/numerusform&gt;
+            <numerusform>Sorğu tezliyi %n saniyəlik məhdudlaşdırıldı: %1 sonra təkrar cəhd edin</numerusform>
+            <numerusform>Sorğu tezliyi %n saniyə məhdudlaşdırıldı: %1 sonra təkrar cəhd edin</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8374,8 +8374,8 @@ Zəhmət olmasa, %1 tətbiqini yeniləyin!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Tezlik məhdudlaşdırıldı: %n saniyəlik gözlənilir&lt;/numerusform&gt;
-            &lt;numerusform&gt;Tezlik məhdudlaşdırıldı: %n saniyə gözlənilir&lt;/numerusform&gt;
+            <numerusform>Tezlik məhdudlaşdırıldı: %n saniyəlik gözlənilir</numerusform>
+            <numerusform>Tezlik məhdudlaşdırıldı: %n saniyə gözlənilir</numerusform>
         </translation>
     </message>
     <message numerus="yes">

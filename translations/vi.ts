@@ -8434,7 +8434,7 @@ Vui lòng cập nhật %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Tỷ lệ yêu cầu bị giới hạn trong %n giây: Thử lại sau %1&lt;/numerusform&gt;
+            <numerusform>Tỷ lệ yêu cầu bị giới hạn trong %n giây: Thử lại sau %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8442,7 +8442,7 @@ Vui lòng cập nhật %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Tỷ lệ bị giới hạn: Chờ %n giây&lt;/numerusform&gt;
+            <numerusform>Tỷ lệ bị giới hạn: Chờ %n giây</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -10172,13 +10172,13 @@ Xác nhận cắt bớt?</translation>
 
 Do you wish to proceed?</source>
         <translation>
-            &lt;numerusform&gt;Các phiên hiện tại có thể tham chiếu đến các tệp của phiên sau:
+            <numerusform>Các phiên hiện tại có thể tham chiếu đến các tệp của phiên sau:
 
 %1
 
 %2 nó có thể phá hỏng các phiên khácm
 
-Bạn có muốn tiếp tục không?&lt;/numerusform&gt;
+Bạn có muốn tiếp tục không?</numerusform>
         </translation>
     </message>
     <message>

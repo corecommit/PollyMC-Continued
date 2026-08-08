@@ -8495,8 +8495,8 @@ Aggiorna %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Richiesta bloccata per %n secondo: riprova fra %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Richiesta bloccata per %n secondi: riprova fra %1&lt;/numerusform&gt;
+            <numerusform>Richiesta bloccata per %n secondo: riprova fra %1</numerusform>
+            <numerusform>Richiesta bloccata per %n secondi: riprova fra %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8504,8 +8504,8 @@ Aggiorna %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Richieste limitate: aspettando %n secondo&lt;/numerusform&gt;
-            &lt;numerusform&gt;Richieste limitate: aspettando %n secondi&lt;/numerusform&gt;
+            <numerusform>Richieste limitate: aspettando %n secondo</numerusform>
+            <numerusform>Richieste limitate: aspettando %n secondi</numerusform>
         </translation>
     </message>
     <message numerus="yes">

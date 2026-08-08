@@ -8454,8 +8454,8 @@ Bitte aktualisiere %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Anforderungsrate für %n Sekunde begrenzt: Versuchen Sie es nach %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Anforderungsrate für %n Sekunden begrenzt: Versuchen Sie es nach %1&lt;/numerusform&gt;
+            <numerusform>Anforderungsrate für %n Sekunde begrenzt: Versuchen Sie es nach %1</numerusform>
+            <numerusform>Anforderungsrate für %n Sekunden begrenzt: Versuchen Sie es nach %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8463,8 +8463,8 @@ Bitte aktualisiere %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Rate begrenzt: Warte %1 Sekunde&lt;/numerusform&gt;
-            &lt;numerusform&gt;Rate begrenzt: Warte %1 Sekunden&lt;/numerusform&gt;
+            <numerusform>Rate begrenzt: Warte %1 Sekunde</numerusform>
+            <numerusform>Rate begrenzt: Warte %1 Sekunden</numerusform>
         </translation>
     </message>
     <message numerus="yes">

@@ -8513,9 +8513,9 @@ Nuashonraigh %1 le do thoil!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Ráta Iarratais Teoranta ar feadh %n soicind: Déan iarracht arís tar éis %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Ráta Iarratais Teoranta ar feadh %n soicindí: Déan iarracht arís tar éis %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Ráta Iarratais Teoranta ar feadh %n soicindí: Déan iarracht arís tar éis %1&lt;/numerusform&gt;
+            <numerusform>Ráta Iarratais Teoranta ar feadh %n soicind: Déan iarracht arís tar éis %1</numerusform>
+            <numerusform>Ráta Iarratais Teoranta ar feadh %n soicindí: Déan iarracht arís tar éis %1</numerusform>
+            <numerusform>Ráta Iarratais Teoranta ar feadh %n soicindí: Déan iarracht arís tar éis %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8523,9 +8523,9 @@ Nuashonraigh %1 le do thoil!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Ráta Teoranta: Ag fanacht %n soicind&lt;/numerusform&gt;
-            &lt;numerusform&gt;Ráta Teoranta: Ag fanacht %n soicindí&lt;/numerusform&gt;
-            &lt;numerusform&gt;Ráta Teoranta: Ag fanacht %n soicindí&lt;/numerusform&gt;
+            <numerusform>Ráta Teoranta: Ag fanacht %n soicind</numerusform>
+            <numerusform>Ráta Teoranta: Ag fanacht %n soicindí</numerusform>
+            <numerusform>Ráta Teoranta: Ag fanacht %n soicindí</numerusform>
         </translation>
     </message>
     <message numerus="yes">

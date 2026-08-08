@@ -8482,7 +8482,7 @@ Lütfen %1&apos;i güncelleyin!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;İstek oranı %n saniye boyunca sınırlandırıldı: %1 sonra tekrar deneyin&lt;/numerusform&gt;
+            <numerusform>İstek oranı %n saniye boyunca sınırlandırıldı: %1 sonra tekrar deneyin</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8490,7 +8490,7 @@ Lütfen %1&apos;i güncelleyin!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Hız Sınırlı: %n saniye bekleniyor&lt;/numerusform&gt;
+            <numerusform>Hız Sınırlı: %n saniye bekleniyor</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -10227,13 +10227,13 @@ Sadece kopyanın ismi değiştirilecektir. Kopyanın bulunduğu klasör adı ayn
 
 Do you wish to proceed?</source>
         <translation>
-            &lt;numerusform&gt;Aşağıdaki profil(ler), bu profildeki dosyaları referans alabilir:
+            <numerusform>Aşağıdaki profil(ler), bu profildeki dosyaları referans alabilir:
 
 %1
 
 %2 diğer profilleri bozabilir, 
 
-Devam etmek istiyor musunuz?&lt;/numerusform&gt;
+Devam etmek istiyor musunuz?</numerusform>
         </translation>
     </message>
     <message>

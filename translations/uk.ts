@@ -8413,9 +8413,9 @@ Please update %1!</source>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;секунду&lt;/numerusform&gt;
-            &lt;numerusform&gt;секунди&lt;/numerusform&gt;
-            &lt;numerusform&gt;секунд&lt;/numerusform&gt;
+            <numerusform>секунду</numerusform>
+            <numerusform>секунди</numerusform>
+            <numerusform>секунд</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8423,9 +8423,9 @@ Please update %1!</source>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;секунду&lt;/numerusform&gt;
-            &lt;numerusform&gt;секунди&lt;/numerusform&gt;
-            &lt;numerusform&gt;секунд&lt;/numerusform&gt;
+            <numerusform>секунду</numerusform>
+            <numerusform>секунди</numerusform>
+            <numerusform>секунд</numerusform>
         </translation>
     </message>
     <message numerus="yes">

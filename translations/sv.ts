@@ -8403,8 +8403,8 @@ Uppdatera %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Förfrågan är begränsad i %n sekund: Försök igen efter %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Förfrågan är begränsad i %n sekunder: Försök igen efter %1&lt;/numerusform&gt;
+            <numerusform>Förfrågan är begränsad i %n sekund: Försök igen efter %1</numerusform>
+            <numerusform>Förfrågan är begränsad i %n sekunder: Försök igen efter %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8412,8 +8412,8 @@ Uppdatera %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Frekvensbegränsad: Väntar %n sekund&lt;/numerusform&gt;
-            &lt;numerusform&gt;Frekvensbegränsad: Väntar %n sekunder&lt;/numerusform&gt;
+            <numerusform>Frekvensbegränsad: Väntar %n sekund</numerusform>
+            <numerusform>Frekvensbegränsad: Väntar %n sekunder</numerusform>
         </translation>
     </message>
     <message numerus="yes">

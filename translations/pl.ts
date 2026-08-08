@@ -8499,9 +8499,9 @@ Proszę zaktualizować %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Tempo Zapytań Jest Limitowane przez %n sekundę: Spróbuj Ponownie Za %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Tempo Zapytań Jest Limitowane przez %n sekundy: Spróbuj Ponownie Za %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Tempo Zapytań Jest Limitowane przez %n sekund: Spróbuj Ponownie Za %1&lt;/numerusform&gt;
+            <numerusform>Tempo Zapytań Jest Limitowane przez %n sekundę: Spróbuj Ponownie Za %1</numerusform>
+            <numerusform>Tempo Zapytań Jest Limitowane przez %n sekundy: Spróbuj Ponownie Za %1</numerusform>
+            <numerusform>Tempo Zapytań Jest Limitowane przez %n sekund: Spróbuj Ponownie Za %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8509,9 +8509,9 @@ Proszę zaktualizować %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Tempo Limitowane: Czekanie %n sekundę&lt;/numerusform&gt;
-            &lt;numerusform&gt;Tempo Limitowane: Czekanie %n sekundy&lt;/numerusform&gt;
-            &lt;numerusform&gt;Tempo Limitowane: Czekanie %n sekund&lt;/numerusform&gt;
+            <numerusform>Tempo Limitowane: Czekanie %n sekundę</numerusform>
+            <numerusform>Tempo Limitowane: Czekanie %n sekundy</numerusform>
+            <numerusform>Tempo Limitowane: Czekanie %n sekund</numerusform>
         </translation>
     </message>
     <message numerus="yes">

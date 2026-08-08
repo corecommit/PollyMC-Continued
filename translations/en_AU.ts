@@ -8472,8 +8472,8 @@ Please update %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Request Rate Limited for %n second: Retry After %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Request Rate Limited for %n seconds: Retry After %1&lt;/numerusform&gt;
+            <numerusform>Request Rate Limited for %n second: Retry After %1</numerusform>
+            <numerusform>Request Rate Limited for %n seconds: Retry After %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8481,8 +8481,8 @@ Please update %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Rate Limited: Waiting %n second&lt;/numerusform&gt;
-            &lt;numerusform&gt;Rate Limited: Waiting %n seconds&lt;/numerusform&gt;
+            <numerusform>Rate Limited: Waiting %n second</numerusform>
+            <numerusform>Rate Limited: Waiting %n seconds</numerusform>
         </translation>
     </message>
     <message numerus="yes">

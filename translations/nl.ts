@@ -8389,8 +8389,8 @@ Gelieve %1 bij te werken!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Verzoekfrequentie beperkt gedurende %n seconde: Opnieuw proberen na %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Verzoekfrequentie beperkt gedurende %n seconden: Opnieuw proberen na %1&lt;/numerusform&gt;
+            <numerusform>Verzoekfrequentie beperkt gedurende %n seconde: Opnieuw proberen na %1</numerusform>
+            <numerusform>Verzoekfrequentie beperkt gedurende %n seconden: Opnieuw proberen na %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8398,8 +8398,8 @@ Gelieve %1 bij te werken!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Verzoekssnelheid beperkt: %n seconde aan het wachten&lt;/numerusform&gt;
-            &lt;numerusform&gt;Verzoekssnelheid beperkt: %n seconden aan het wachten&lt;/numerusform&gt;
+            <numerusform>Verzoekssnelheid beperkt: %n seconde aan het wachten</numerusform>
+            <numerusform>Verzoekssnelheid beperkt: %n seconden aan het wachten</numerusform>
         </translation>
     </message>
     <message numerus="yes">

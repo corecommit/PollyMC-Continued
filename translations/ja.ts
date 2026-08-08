@@ -8435,7 +8435,7 @@ Please update %1!</source>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;%n 秒間のリクエストレート制限: %1 秒後に再試行してください&lt;/numerusform&gt;
+            <numerusform>%n 秒間のリクエストレート制限: %1 秒後に再試行してください</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8443,7 +8443,7 @@ Please update %1!</source>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;レート制限: %n 秒待機中&lt;/numerusform&gt;
+            <numerusform>レート制限: %n 秒待機中</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -10180,13 +10180,13 @@ Only the instance name will be changed. The folder will keep its current name.</
 
 Do you wish to proceed?</source>
         <translation>
-            &lt;numerusform&gt;以下の起動構成は、この起動構成のファイルを参照する可能性があります。
+            <numerusform>以下の起動構成は、この起動構成のファイルを参照する可能性があります。
 
 %1
 
 %2 他の起動構成を壊す可能性があります。
 
-本当に続行しますか？&lt;/numerusform&gt;
+本当に続行しますか？</numerusform>
         </translation>
     </message>
     <message>

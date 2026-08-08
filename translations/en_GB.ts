@@ -8451,13 +8451,17 @@ Please update %1!</translation>
         <location filename="../launcher/net/NetRequest.cpp" line="276" />
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
-        <translation>Request Rate Limited for %n second(s): Retry After %1</translation>
+        <translation>
+            <numerusform>Request Rate Limited for %n second(s): Retry After %1</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/net/NetRequest.cpp" line="281" />
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
-        <translation>Rate Limited: Waiting %n second(s)</translation>
+        <translation>
+            <numerusform>Rate Limited: Waiting %n second(s)</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
