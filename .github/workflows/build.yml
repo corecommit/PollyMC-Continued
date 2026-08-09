@@ -424,6 +424,7 @@ jobs:
             build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
             qt6-websockets-dev qt6-base-dev-tools qt6-tools-dev libgl-dev \
+            qt6-imageformats \
             extra-cmake-modules \
             libtomlplusplus-dev libcmark-dev libqrencode-dev cmark \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
@@ -493,6 +494,10 @@ jobs:
           cp -L /usr/lib/x86_64-linux-gnu/libcrypto.so.* appdir/usr/lib/ 2>/dev/null || true
           cp -L /usr/lib/x86_64-linux-gnu/libgamemode.so.* appdir/usr/lib/ 2>/dev/null || true
           cp -L /usr/lib/x86_64-linux-gnu/libgamemodeauto.so.* appdir/usr/lib/ 2>/dev/null || true
+
+          # Bundle all Qt image format plugins
+          mkdir -p appdir/usr/plugins/imageformats
+          cp -L /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/*.so appdir/usr/plugins/imageformats/ 2>/dev/null || true
 
       - name: Bundle bot-server
         run: |
