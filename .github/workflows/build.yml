@@ -424,7 +424,7 @@ jobs:
             build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
             qt6-websockets-dev qt6-base-dev-tools qt6-tools-dev libgl-dev \
-            qt6-imageformats \
+            qt6-image-formats-plugins \
             extra-cmake-modules \
             libtomlplusplus-dev libcmark-dev libqrencode-dev cmark \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
