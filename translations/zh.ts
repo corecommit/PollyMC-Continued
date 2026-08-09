@@ -8485,7 +8485,7 @@ Please update %1!</source>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;请求频率过高，持续 %n 秒：请在 %1 之后重试&lt;/numerusform&gt;
+            <numerusform>请求频率过高，持续 %n 秒：请在 %1 之后重试</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8493,7 +8493,7 @@ Please update %1!</source>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;请求频率过高：等待 %n 秒后自动重试&lt;/numerusform&gt;
+            <numerusform>请求频率过高：等待 %n 秒后自动重试</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -10230,13 +10230,13 @@ Only the instance name will be changed. The folder will keep its current name.</
 
 Do you wish to proceed?</source>
         <translation>
-            &lt;numerusform&gt;下列实例可能引用了这个实例的文件：
+            <numerusform>下列实例可能引用了这个实例的文件：
 
 %1
 
 %2 这可能会损坏其他的实例， 
 
-你是否仍要继续？&lt;/numerusform&gt;
+你是否仍要继续？</numerusform>
         </translation>
     </message>
     <message>

@@ -8483,7 +8483,7 @@ Please update %1!</source>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;요청 속도 제한, %n초 동안 제한됨: %1초 후에 재시도&lt;/numerusform&gt;
+            <numerusform>요청 속도 제한, %n초 동안 제한됨: %1초 후에 재시도</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8491,7 +8491,7 @@ Please update %1!</source>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;속도 제한: %n초 대기 중&lt;/numerusform&gt;
+            <numerusform>속도 제한: %n초 대기 중</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -10228,13 +10228,13 @@ Only the instance name will be changed. The folder will keep its current name.</
 
 Do you wish to proceed?</source>
         <translation>
-            &lt;numerusform&gt;다음 인스턴스가 이 인스턴스에서 파일을 참조할 수 있습니다:
+            <numerusform>다음 인스턴스가 이 인스턴스에서 파일을 참조할 수 있습니다:
 
 %1
 
 %2로 인해 다른 인스턴스가 중단될 수 있습니다, 
 
-계속하시겠습니까?&lt;/numerusform&gt;
+계속하시겠습니까?</numerusform>
         </translation>
     </message>
     <message>

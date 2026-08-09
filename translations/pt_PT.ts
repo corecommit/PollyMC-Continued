@@ -8395,8 +8395,8 @@ Por favor atualiza %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Taxa de Pedidos Limitada por %n segundo: Tenta de novo depois de %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Taxa de Pedidos Limitada por %n segundos: Tenta de novo depois de %1&lt;/numerusform&gt;
+            <numerusform>Taxa de Pedidos Limitada por %n segundo: Tenta de novo depois de %1</numerusform>
+            <numerusform>Taxa de Pedidos Limitada por %n segundos: Tenta de novo depois de %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8404,8 +8404,8 @@ Por favor atualiza %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Taxa Limitada: Esperando %n segundo&lt;/numerusform&gt;
-            &lt;numerusform&gt;Taxa Limitada: Esperando %n segundos&lt;/numerusform&gt;
+            <numerusform>Taxa Limitada: Esperando %n segundo</numerusform>
+            <numerusform>Taxa Limitada: Esperando %n segundos</numerusform>
         </translation>
     </message>
     <message numerus="yes">

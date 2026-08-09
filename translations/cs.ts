@@ -8505,9 +8505,9 @@ Aktualizujte prosím %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Počet požadavků omezen na %n sekundu: Zkuste to znovu po %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Počet požadavků omezen na %n sekundy: Zkuste to znovu po %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Počet požadavků omezen na %n sekund: Zkuste to znovu po %1&lt;/numerusform&gt;
+            <numerusform>Počet požadavků omezen na %n sekundu: Zkuste to znovu po %1</numerusform>
+            <numerusform>Počet požadavků omezen na %n sekundy: Zkuste to znovu po %1</numerusform>
+            <numerusform>Počet požadavků omezen na %n sekund: Zkuste to znovu po %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8515,9 +8515,9 @@ Aktualizujte prosím %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Počet požadavků omezen: Čekám %n sekundu&lt;/numerusform&gt;
-            &lt;numerusform&gt;Počet požadavků omezen: Čekám %n sekundy&lt;/numerusform&gt;
-            &lt;numerusform&gt;Počet požadavků omezen: Čekám %n sekund&lt;/numerusform&gt;
+            <numerusform>Počet požadavků omezen: Čekám %n sekundu</numerusform>
+            <numerusform>Počet požadavků omezen: Čekám %n sekundy</numerusform>
+            <numerusform>Počet požadavků omezen: Čekám %n sekund</numerusform>
         </translation>
     </message>
     <message numerus="yes">

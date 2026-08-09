@@ -8398,8 +8398,8 @@ Veuillez mettre à jour %1&#xa0;!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Nombre de requêtes limité pour %n seconde : Réessayez après %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Nombre de requêtes limité pour %n secondes : Réessayez après %1&lt;/numerusform&gt;
+            <numerusform>Nombre de requêtes limité pour %n seconde : Réessayez après %1</numerusform>
+            <numerusform>Nombre de requêtes limité pour %n secondes : Réessayez après %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8407,8 +8407,8 @@ Veuillez mettre à jour %1&#xa0;!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Débit du réseau limité : Attendez %n seconde&lt;/numerusform&gt;
-            &lt;numerusform&gt;Débit du réseau limité : Attendez %n secondes&lt;/numerusform&gt;
+            <numerusform>Débit du réseau limité : Attendez %n seconde</numerusform>
+            <numerusform>Débit du réseau limité : Attendez %n secondes</numerusform>
         </translation>
     </message>
     <message numerus="yes">

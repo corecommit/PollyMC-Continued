@@ -8486,7 +8486,7 @@ Mohon perbarui %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Permintaan dibataslajukan untuk %n detik: Coba Lagi Setelah %1&lt;/numerusform&gt;
+            <numerusform>Permintaan dibataslajukan untuk %n detik: Coba Lagi Setelah %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8494,7 +8494,7 @@ Mohon perbarui %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Batas Laju: Menunggu %n detik&lt;/numerusform&gt;
+            <numerusform>Batas Laju: Menunggu %n detik</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -10232,13 +10232,13 @@ Hanya nama instansi akan diubah. Folder akan mempertahankan namanya saat ini.</t
 
 Do you wish to proceed?</source>
         <translation>
-            &lt;numerusform&gt;Instansi berikut mungkin memiliki file referensi di instansi ini:
+            <numerusform>Instansi berikut mungkin memiliki file referensi di instansi ini:
 
 %1
 
 %2 itu dapat merusak instansi lain, 
 
-Apakah kamu ingin lanjut?&lt;/numerusform&gt;
+Apakah kamu ingin lanjut?</numerusform>
         </translation>
     </message>
     <message>

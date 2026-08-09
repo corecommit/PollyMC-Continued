@@ -8405,9 +8405,9 @@ Te rugăm actualizează %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Limitare a frecvenței cererilor pentru %n secundă: Reîncercare după %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Limitare a frecvenței cererilor pentru %n secunde: Reîncercare după %1&lt;/numerusform&gt;
-            &lt;numerusform&gt;Limitare a frecvenței cererilor pentru %n secunde: Reîncercare după %1&lt;/numerusform&gt;
+            <numerusform>Limitare a frecvenței cererilor pentru %n secundă: Reîncercare după %1</numerusform>
+            <numerusform>Limitare a frecvenței cererilor pentru %n secunde: Reîncercare după %1</numerusform>
+            <numerusform>Limitare a frecvenței cererilor pentru %n secunde: Reîncercare după %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8415,9 +8415,9 @@ Te rugăm actualizează %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            &lt;numerusform&gt;Limită de rată: Așteptare %n secundă&lt;/numerusform&gt;
-            &lt;numerusform&gt;Limită de rată: Așteptare %n secunde&lt;/numerusform&gt;
-            &lt;numerusform&gt;Limită de rată: Așteptare %n secunde&lt;/numerusform&gt;
+            <numerusform>Limită de rată: Așteptare %n secundă</numerusform>
+            <numerusform>Limită de rată: Așteptare %n secunde</numerusform>
+            <numerusform>Limită de rată: Așteptare %n secunde</numerusform>
         </translation>
     </message>
     <message numerus="yes">
