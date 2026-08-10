@@ -424,6 +424,7 @@ jobs:
             build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
             qt6-websockets-dev qt6-base-dev-tools qt6-tools-dev libgl-dev \
+            qt6-image-formats-plugins \
             extra-cmake-modules \
             libtomlplusplus-dev libcmark-dev libqrencode-dev cmark \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
@@ -493,6 +494,22 @@ jobs:
           cp -L /usr/lib/x86_64-linux-gnu/libcrypto.so.* appdir/usr/lib/ 2>/dev/null || true
           cp -L /usr/lib/x86_64-linux-gnu/libgamemode.so.* appdir/usr/lib/ 2>/dev/null || true
           cp -L /usr/lib/x86_64-linux-gnu/libgamemodeauto.so.* appdir/usr/lib/ 2>/dev/null || true
+
+          # Bundle all Qt image format plugins
+          mkdir -p appdir/usr/plugins/imageformats
+          cp -L /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/*.so appdir/usr/plugins/imageformats/ 2>/dev/null || true
+
+          # Bundle the Qt icon engine plugin (libqsvgicon.so) so SVG icons
+          # render in menus/toolbars. Without it, QIcon::fromTheme() SVG
+          # icons silently fail to load. imageformats/libqsvg.so alone is not
+          # enough - it only handles SVG as a raster image.
+          mkdir -p appdir/usr/plugins/iconengines
+          for p in /usr/lib/x86_64-linux-gnu/qt6/plugins/iconengines/*.so /usr/lib/qt6/plugins/iconengines/*.so; do
+            if [ -f "$p" ]; then
+              cp -L "$p" appdir/usr/plugins/iconengines/
+              echo "DEBUG: bundled icon engine plugin: $p"
+            fi
+          done
 
       - name: Bundle bot-server
         run: |
