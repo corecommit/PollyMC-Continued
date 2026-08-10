@@ -499,6 +499,18 @@ jobs:
           mkdir -p appdir/usr/plugins/imageformats
           cp -L /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/*.so appdir/usr/plugins/imageformats/ 2>/dev/null || true
 
+          # Bundle the Qt icon engine plugin (libqsvgicon.so) so SVG icons
+          # render in menus/toolbars. Without it, QIcon::fromTheme() SVG
+          # icons silently fail to load. imageformats/libqsvg.so alone is not
+          # enough - it only handles SVG as a raster image.
+          mkdir -p appdir/usr/plugins/iconengines
+          for p in /usr/lib/x86_64-linux-gnu/qt6/plugins/iconengines/*.so /usr/lib/qt6/plugins/iconengines/*.so; do
+            if [ -f "$p" ]; then
+              cp -L "$p" appdir/usr/plugins/iconengines/
+              echo "DEBUG: bundled icon engine plugin: $p"
+            fi
+          done
+
       - name: Bundle bot-server
         run: |
           set -euo pipefail
