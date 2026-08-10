@@ -50,23 +50,26 @@ jobs:
             VERSION="${VERSION#v}"
             echo "DEBUG: Tag push detected, using tag version: ${VERSION}"
           else
-            LATEST_TAG=$(git describe --tags --match "v*" --abbrev=0 2>/dev/null || echo "")
+                        LATEST_TAG=$(git describe --tags --match "v*" --abbrev=0 2>/dev/null || echo "")
             if [ -z "$LATEST_TAG" ]; then
-              # No tags exist yet in this repo - diff against full history instead
-              # of a synthetic "v0.0.0" ref, which would make `git log` fail.
-              BUMP_COMMITS=$(git log --format="%s %b" 2>/dev/null || echo "")
+              # No tags exist yet in this repo - use commit subjects only.
+              BUMP_COMMITS=$(git log --format="%s" 2>/dev/null || echo "")
               LATEST_TAG="v0.0.0"
             else
-              BUMP_COMMITS=$(git log "${LATEST_TAG}..HEAD" --format="%s %b" 2>/dev/null || echo "")
+              # Only commit subjects are considered for versioning.
+              BUMP_COMMITS=$(git log "${LATEST_TAG}..HEAD" --format="%s" 2>/dev/null || echo "")
             fi
 
             VERSION=${LATEST_TAG#v}
             IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
 
-            if echo "$BUMP_COMMITS" | grep -q "BREAKING CHANGE"; then
+            echo "DEBUG: Commits considered for version bump:"
+            printf '%s\n' "$BUMP_COMMITS"
+
+            if printf '%s\n' "$BUMP_COMMITS" | grep -qE '^[^:]+!:|^[^:]+:.*BREAKING CHANGE|BREAKING CHANGE'; then
               MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0
               BUMP="major"
-            elif echo "$BUMP_COMMITS" | grep -qE "^(feat|feature|Add|Build|Enhance)(\(|:|\ )"; then
+            elif printf '%s\n' "$BUMP_COMMITS" | grep -qE '^(feat|feature)(\([^)]*\))?:[[:space:]]'; then
               MINOR=$((MINOR + 1)); PATCH=0
               BUMP="minor"
             else
