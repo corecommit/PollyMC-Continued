@@ -1,4 +1,4 @@
-name: Build PollyMC-Continued
+name: Build PollyMC-Continued 
 
 on:
   push:
