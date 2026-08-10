@@ -12,6 +12,7 @@
 - CONTRIBUTING.md with the translation contribution flow (fork, edit `.ts`, open a PR)
 
 **Fixed:**
+- Bundle Qt image format plugins in Linux AppImage
 - NeoForge 1.21.x (and modern Forge) instances no longer crash on launch when using an offline account: the skin agent no longer claims the one-time slot — it now registers a protocol handler leaving the slot free for NeoForge/Quilt
 - Auto-updater now detects new releases published under the same version number
 - Installer and uninstaller now use the PollyMC icon instead of the NSIS default
