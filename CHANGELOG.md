@@ -5,6 +5,7 @@
 **Fixed:**
 - Bundle Qt image format plugins in Linux AppImage
 - Repair malformed plural entries in all translations so every language compiles again
+- Custom Skin not loading on singleplayer world
 
 ## v9.2.4
 
