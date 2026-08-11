@@ -32,6 +32,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Base64;
 import java.util.Hashtable;
 
@@ -51,8 +52,10 @@ import java.util.Hashtable;
 public final class Skin {
 
     private static final String HANDLER_PKG = "org.prismlauncher.agent.protocol";
-    private static final String SESSION_HOST = "sessionserver.mojang.com";
-    private static final String PROFILE_PATH = "/session/minecraft/profile/";
+    static final String SESSION_HOST = "sessionserver.mojang.com";
+    static final String PROFILE_PATH = "/session/minecraft/profile/";
+    static final String TEXTURE_HOST = "textures.minecraft.net";
+    static final String SKIN_PATH_PREFIX = "/skin/";
 
     private static volatile URLStreamHandler originalHttpsHandler;
 
@@ -122,6 +125,18 @@ public final class Skin {
                     }
                 }
             }
+        } else if (TEXTURE_HOST.equals(host)) {
+            String path = url.getPath();
+            if (path != null && path.startsWith(SKIN_PATH_PREFIX)) {
+                String uuid = path.substring(SKIN_PATH_PREFIX.length()).replace(".png", "").replace("-", "");
+                String skinDir = findSkinDir(uuid);
+                if (skinDir != null) {
+                    File skinFile = new File(skinDir, "skin.png");
+                    if (skinFile.exists()) {
+                        return new LocalSkinTextureURLConnection(url, skinFile);
+                    }
+                }
+            }
         }
 
         URLStreamHandler fallback = originalHttpsHandler;
@@ -152,22 +167,72 @@ public final class Skin {
     }
 
     private static String findSkinDir(String uuid) {
-        String[] searchPaths = {
-            System.getProperty("prismlauncher.datadir", ""),
-            System.getProperty("user.home") + "/.local/share/PrismLauncher",
-            System.getProperty("user.home") + "/AppData/Roaming/PrismLauncher"
-        };
-
-        for (String basePath : searchPaths) {
-            if (basePath == null || basePath.isEmpty()) {
-                continue;
-            }
+        for (String basePath : searchPaths()) {
             File dir = new File(basePath, "skins/" + uuid);
             if (dir.isDirectory()) {
                 return dir.getAbsolutePath();
             }
         }
         return null;
+    }
+
+    static String findAccountName(String uuid) {
+        for (String basePath : searchPaths()) {
+            File accountsFile = new File(basePath, "accounts.json");
+            if (!accountsFile.isFile()) {
+                continue;
+            }
+            try {
+                String content = new String(Files.readAllBytes(accountsFile.toPath()), StandardCharsets.UTF_8);
+                int idx = content.indexOf("\"profile\"");
+                while (idx >= 0) {
+                    int objStart = content.indexOf('{', idx);
+                    int objEnd = content.indexOf('}', objStart);
+                    if (objStart < 0 || objEnd < 0) {
+                        break;
+                    }
+                    String block = content.substring(objStart, objEnd + 1);
+                    String id = extractJsonString(block, "\"id\"");
+                    if (id != null && id.replace("-", "").equalsIgnoreCase(uuid)) {
+                        String name = extractJsonString(block, "\"name\"");
+                        if (name != null && !name.isEmpty()) {
+                            return name;
+                        }
+                    }
+                    idx = content.indexOf("\"profile\"", objEnd);
+                }
+            } catch (Exception ignored) {}
+        }
+        return null;
+    }
+
+    private static String extractJsonString(String json, String key) {
+        int keyIdx = json.indexOf(key);
+        if (keyIdx < 0) {
+            return null;
+        }
+        int colonIdx = json.indexOf(':', keyIdx);
+        if (colonIdx < 0) {
+            return null;
+        }
+        int quoteIdx = json.indexOf('"', colonIdx);
+        if (quoteIdx < 0) {
+            return null;
+        }
+        int endQuoteIdx = json.indexOf('"', quoteIdx + 1);
+        if (endQuoteIdx < 0) {
+            return null;
+        }
+        return json.substring(quoteIdx + 1, endQuoteIdx);
+    }
+
+    private static String[] searchPaths() {
+        String[] paths = {
+            System.getProperty("prismlauncher.datadir", ""),
+            System.getProperty("user.home") + "/.local/share/PrismLauncher",
+            System.getProperty("user.home") + "/AppData/Roaming/PrismLauncher"
+        };
+        return paths;
     }
 }
 
@@ -208,11 +273,16 @@ class LocalSkinURLConnection extends HttpURLConnection {
             } catch (Exception ignored) {}
         }
 
-        String skinUrl = "file://" + skinFile.getAbsolutePath().replace("\\", "/");
+        String skinUrl = "https://" + Skin.TEXTURE_HOST + Skin.SKIN_PATH_PREFIX + uuid + ".png";
+
+        String profileName = Skin.findAccountName(uuid);
+        if (profileName == null) {
+            profileName = "Player";
+        }
 
         String texturesJson = "{\"timestamp\":" + System.currentTimeMillis()
             + ",\"profileId\":\"" + uuid + "\""
-            + ",\"profileName\":\"Player\""
+            + ",\"profileName\":\"" + profileName + "\""
             + ",\"textures\":{\"SKIN\":{\"url\":\"" + skinUrl + "\""
             + (model.equals("slim") ? ",\"metadata\":{\"model\":\"slim\"}" : "")
             + "}}}";
@@ -220,7 +290,7 @@ class LocalSkinURLConnection extends HttpURLConnection {
         String base64 = Base64.getEncoder().encodeToString(texturesJson.getBytes(StandardCharsets.UTF_8));
 
         String responseJson = "{\"id\":\"" + uuid + "\""
-            + ",\"name\":\"Player\""
+            + ",\"name\":\"" + profileName + "\""
             + ",\"properties\":[{\"name\":\"textures\",\"value\":\"" + base64 + "\"}]}";
 
         responseCode = 200;
@@ -240,6 +310,60 @@ class LocalSkinURLConnection extends HttpURLConnection {
     @Override
     public long getContentLengthLong() {
         return -1;
+    }
+
+    @Override
+    public boolean usingProxy() {
+        return false;
+    }
+
+    @Override
+    public void disconnect() {
+        connected = false;
+    }
+}
+
+class LocalSkinTextureURLConnection extends HttpURLConnection {
+
+    private final File skinFile;
+
+    LocalSkinTextureURLConnection(URL url, File skinFile) {
+        super(url);
+        this.skinFile = skinFile;
+    }
+
+    @Override
+    public void connect() {
+        connected = true;
+    }
+
+    @Override
+    public InputStream getInputStream() throws IOException {
+        if (!connected) {
+            connect();
+        }
+        byte[] data = Files.readAllBytes(skinFile.toPath());
+        responseCode = 200;
+        return new ByteArrayInputStream(data);
+    }
+
+    @Override
+    public int getResponseCode() {
+        return 200;
+    }
+
+    @Override
+    public String getContentType() {
+        return "image/png";
+    }
+
+    @Override
+    public long getContentLengthLong() {
+        try {
+            return Files.size(skinFile.toPath());
+        } catch (IOException e) {
+            return -1;
+        }
     }
 
     @Override
