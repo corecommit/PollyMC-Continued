@@ -154,26 +154,27 @@ LaunchDecision LaunchController::decideLaunchMode()
         state = AccountState::Working;
     }
 
-    if (state == AccountState::Working) {
+    // If a refresh task is pending, wait for it to finish even when the
+    // account already reports a healthy state. The refresh() call above can
+    // queue a task that has not been started yet, and leaving it behind would
+    // keep the account marked as active forever.
+    auto task = m_accountToUse->currentTask();
+    if (task) {
         // refresh is in progress, we need to wait for it to finish to proceed.
         ProgressDialog progDialog(m_parentWidget);
         progDialog.setSkipButton(true, tr("Abort"));
 
-        // Get a shared_ptr to keep the task alive while we use it.
-        // NOTE: currentTask() could return null if the refresh completed
-        // between the state check above and this call (fully async tasks).
-        auto task = m_accountToUse->currentTask();
-        if (!task) {
-            state = m_accountToUse->accountState();
-        } else {
-            progDialog.execWithTask(task.get());
+        progDialog.execWithTask(task.get());
 
-            if (task->getState() == State::AbortedByUser) {
-                return LaunchDecision::Abort;
-            }
-
-            state = m_accountToUse->accountState();
+        if (task->getState() == State::AbortedByUser) {
+            return LaunchDecision::Abort;
         }
+
+        state = m_accountToUse->accountState();
+    } else if (state == AccountState::Working) {
+        // the refresh completed between the state check above and this call
+        // (fully async tasks); pick up whatever state it settled on.
+        state = m_accountToUse->accountState();
     }
 
     QString reauthReason;
