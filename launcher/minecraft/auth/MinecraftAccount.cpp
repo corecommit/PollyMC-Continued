@@ -62,6 +62,10 @@ MinecraftAccountPtr MinecraftAccount::loadFromJsonV3(const QJsonObject& json)
 {
     MinecraftAccountPtr account(new MinecraftAccount());
     if (account->data.resumeStateFromV3(json)) {
+        // Offline accounts need no authentication, so they are always ready.
+        if (account->data.type == AccountType::Offline) {
+            account->data.accountState = AccountState::Online;
+        }
         return account;
     }
     return nullptr;
@@ -229,6 +233,11 @@ bool MinecraftAccount::shouldRefresh() const
      * Don't refresh broken accounts.
      * Refresh accounts that would expire in the next 12 hours (fresh token validity is 24 hours).
      */
+    // Offline accounts have no server-side token to refresh: they are always
+    // ready to play and there is nothing to validate against.
+    if (accountType() == AccountType::Offline) {
+        return false;
+    }
     if (isInUse()) {
         return false;
     }
