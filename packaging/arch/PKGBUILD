@@ -1,0 +1,68 @@
+# Maintainer: PollyMC-Continued Contributors <corecommit>
+# Upstream: https://github.com/corecommit/PollyMC-Continued
+
+pkgname=pollymc-continued
+_pkgname=PollyMC-Continued
+pkgver=9.1.0
+pkgrel=1
+pkgdesc="PollyMC-Continued is a custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once."
+arch=('x86_64' 'aarch64')
+url="https://github.com/corecommit/PollyMC-Continued"
+license=('GPL-3.0-or-later')
+depends=(
+    'qt6-base'
+    'qt6-5compat'
+    'qt6-networkauth'
+    'qt6-svg'
+    'qt6-websockets'
+    'qt6-imageformats'
+    'gcc-libs'
+    'glibc'
+    'libarchive'
+    'libpng'
+    'qrencode'
+    'openssl'
+    'tomlplusplus'
+    'zlib'
+    'zstd'
+    'hicolor-icon-theme'
+    'shared-mime-info'
+)
+optdepends=(
+    'gamemode: enable Feral GameMode for better gaming performance'
+    'mangohud: enable the MangoHud performance overlay'
+)
+makedepends=(
+    'cmake'
+    'extra-cmake-modules'
+    'ninja'
+    'qt6-tools'
+    'ccache'
+    'cmark'
+    'jdk17-openjdk'
+    'vulkan-headers'
+)
+conflicts=('pollymc' 'prismlauncher')
+provides=('pollymc-continued')
+source=("${_pkgname}-${pkgver}.tar.gz::https://github.com/corecommit/PollyMC-Continued/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+    cd "${srcdir}/${_pkgname}-${pkgver}"
+    cmake -B build -G Ninja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_CXX_FLAGS="$CXXFLAGS -Wno-error" \
+        -DCMAKE_C_FLAGS="$CFLAGS -Wno-error" \
+        -DLauncher_BUILD_RELEASE=ON \
+        -DLauncher_ENABLE_JAVA_DOWNLOADER=ON \
+        -DLauncher_UPDATER_GITHUB_REPO="" \
+        -DLauncher_VERSION="${pkgver}" \
+        -DLauncher_BUILD_NUMBER=0
+    cmake --build build
+}
+
+package() {
+    cd "${srcdir}/${_pkgname}-${pkgver}"
+    DESTDIR="${pkgdir}" cmake --install build
+}

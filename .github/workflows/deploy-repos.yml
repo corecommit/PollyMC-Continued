@@ -1,0 +1,130 @@
+name: Deploy apt and pacman repositories
+
+on:
+  release:
+    types: [released]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-repos
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Download release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p downloads
+          # On the release event GITHUB_REF_NAME is the tag; on manual runs,
+          # omit the tag so gh downloads from the latest release (passing
+          # "latest" as an argument makes gh look for a literal tag named
+          # "latest", which does not exist).
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            RELEASE_ARGS=("${GITHUB_REF_NAME}")
+          else
+            RELEASE_ARGS=()
+          fi
+          # The release event can fire before the build workflow finishes
+          # uploading assets; retry until they show up.
+          for i in $(seq 1 30); do
+            if gh release download "${RELEASE_ARGS[@]}" --pattern 'pollymc-continued*' --dir downloads --clobber 2>/dev/null; then
+              if ls downloads/pollymc-continued*.deb >/dev/null 2>&1 && ls downloads/pollymc-continued*.pkg.tar.zst >/dev/null 2>&1; then
+                echo "downloaded release assets"
+                break
+              fi
+            fi
+            echo "assets not ready yet (attempt $i/30), waiting 10s..."
+            sleep 10
+          done
+          ls -la downloads/
+
+      - name: Install repo tooling
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev apt-utils gpg
+
+      - name: Build apt repository
+        run: |
+          set -euo pipefail
+          mkdir -p repo/apt/pool/main/p/pollymc-continued
+          cp downloads/pollymc-continued*.deb repo/apt/pool/main/p/pollymc-continued/
+
+          mkdir -p repo/apt/dists/stable/main/binary-amd64
+          cd repo/apt
+          dpkg-scanpackages --multiversion pool > dists/stable/main/binary-amd64/Packages
+          gzip -k -9 dists/stable/main/binary-amd64/Packages
+          apt-ftparchive release dists/stable > dists/stable/Release
+
+          # Sign the repository if a signing key is configured as a secret.
+          # Without it the repo is published unsigned and users must use
+          # [trusted=yes] in the sources line (documented in README.md).
+          if [[ -n "${{ secrets.APT_SIGNING_KEY }}" ]]; then
+            echo "${{ secrets.APT_SIGNING_KEY }}" | gpg --batch --import
+            gpg --batch --no-tty --pinentry-mode loopback \
+              --passphrase "${{ secrets.APT_SIGNING_PASSPHRASE }}" \
+              --yes --detach-sign --armor \
+              -o dists/stable/Release.gpg dists/stable/Release
+            gpg --batch --no-tty --pinentry-mode loopback \
+              --passphrase "${{ secrets.APT_SIGNING_PASSPHRASE }}" \
+              --yes --clearsign \
+              -o dists/stable/InRelease dists/stable/Release
+            # Export the public key so users can fetch it for signed-by.
+            gpg --batch --export --armor \
+              $(gpg --batch --with-colons --list-secret-keys | awk -F: '/^sec:/{print $5; exit}') \
+              > pollymc-continued.gpg
+            echo "apt repository signed"
+          else
+            echo "::warning::No APT_SIGNING_KEY secret set; apt repo will be unsigned (use [trusted=yes])"
+          fi
+          echo "=== apt repo layout ==="
+          find . -type f | sort
+
+      - name: Build pacman repository
+        run: |
+          set -euo pipefail
+          mkdir -p repo/arch/x86_64
+          cp downloads/pollymc-continued*.pkg.tar.zst repo/arch/x86_64/
+          cd repo/arch/x86_64
+          repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
+          # repo-add writes real .db.tar.gz/.files.tar.gz plus symlinks named
+          # .db/.files. Static hosts can't serve symlinks, so rename the real
+          # archives to the short names pacman looks for.
+          mv pollymc-continued.db.tar.gz pollymc-continued.db
+          mv pollymc-continued.files.tar.gz pollymc-continued.files
+          echo "=== pacman repo layout ==="
+          ls -la
+
+      - name: Build landing page
+        run: |
+          set -euo pipefail
+          mkdir -p public
+          cp -r repo/* public/
+          cat > public/index.html <<'EOF'
+          <html><body>
+          <h1>PollyMC-Continued package repositories</h1>
+          <p><a href="apt/">apt</a> - Debian/Ubuntu .deb packages</p>
+          <p><a href="arch/">arch</a> - Arch Linux pacman packages</p>
+          </body></html>
+          EOF
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deploy
+        uses: actions/deploy-pages@v4

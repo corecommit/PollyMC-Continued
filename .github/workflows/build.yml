@@ -490,6 +490,39 @@ jobs:
           ccache -s
           ccache --print-stats
 
+      - name: Build .deb package
+        run: |
+          set -euo pipefail
+          # CPack DEB requires dpkg-dev at runtime for shlibdeps resolution.
+          sudo apt-get install -y dpkg-dev
+          # Distro packages must NOT ship the in-app updater (the package
+          # manager owns updates), so configure a dedicated build with it off.
+          # ccache makes this second pass cheap (only updater-related files
+          # actually recompile).
+          cmake -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DCMAKE_CXX_FLAGS="-Wno-error" \
+            -DCMAKE_C_FLAGS="-Wno-error" \
+            -DCMAKE_C_COMPILER_LAUNCHER=ccache \
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
+            -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
+            -DLauncher_UPDATER_GITHUB_REPO="" \
+            -DLauncher_ENABLE_JAVA_DOWNLOADER=ON \
+            -S . -B build-deb
+          cmake --build build-deb -j$(nproc)
+          cpack --config build-deb/CPackConfig.cmake -G DEB -B build-deb
+          echo "=== DEB artifacts ==="
+          ls -la build-deb/*.deb
+
+      - name: Upload .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PollyMC-Continued-Linux-DEB
+          path: build-deb/*.deb
+          if-no-files-found: error
+
       - name: Package
         run: |
           set -euo pipefail
@@ -759,9 +792,77 @@ jobs:
             security delete-keychain "$KEYCHAIN_PATH"
           fi
 
+  build-arch:
+    name: Arch package
+    needs: [skip-check]
+    if: needs.skip-check.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    container: archlinux:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Update package database and install build tools
+        run: |
+          set -euo pipefail
+          pacman -Syu --noconfirm --needed
+          pacman -S --noconfirm --needed \
+            base-devel git cmake ninja extra-cmake-modules \
+            qt6-base qt6-5compat qt6-networkauth qt6-svg qt6-websockets \
+            qt6-imageformats qt6-tools ccache \
+            libarchive libpng qrencode openssl tomlplusplus zlib zstd \
+            lz4 xz bzip2 gamemode mangohud \
+            cmark jdk17-openjdk vulkan-headers
+
+      - name: Build Arch package
+        run: |
+          set -euo pipefail
+          # makepkg refuses to run as root; build as an unprivileged user.
+          useradd -m builder
+          mkdir -p "$GITHUB_WORKSPACE"
+          chown -R builder:builder "$GITHUB_WORKSPACE"
+          VERSION="${{ needs.skip-check.outputs.version }}"
+          # Point the PKGBUILD at the checked-out tree instead of a remote tarball.
+          sed -i "s/pkgver=.*/pkgver=${VERSION}/" packaging/arch/PKGBUILD
+          sed -i 's|source=.*|source=("${pkgname}-${pkgver}.tar.gz")|' packaging/arch/PKGBUILD
+          sed -i "s/sha256sums=.*/sha256sums=('SKIP')/" packaging/arch/PKGBUILD
+          tar --exclude-vcs --exclude=build --exclude=.ccache \
+            --transform="s|^\./|PollyMC-Continued-${VERSION}/|" \
+            -czf "packaging/arch/pollymc-continued-${VERSION}.tar.gz" .
+          cd packaging/arch
+          su builder -c "makepkg --noconfirm --force"
+
+      - name: Create pacman repo database
+        run: |
+          set -euo pipefail
+          cd packaging/arch
+          chmod -R a+rX .
+          repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
+          # repo-add writes real .db.tar.gz/.files.tar.gz plus symlinks named
+          # .db/.files. Static hosts/artifacts can't serve symlinks, so rename
+          # the real archives to the short names pacman looks for.
+          rm -f pollymc-continued.db pollymc-continued.files
+          mv pollymc-continued.db.tar.gz pollymc-continued.db
+          mv pollymc-continued.files.tar.gz pollymc-continued.files
+          ls -la pollymc-continued.*
+
+      - name: Upload Arch package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PollyMC-Continued-Arch
+          path: |
+            packaging/arch/pollymc-continued-*.pkg.tar.zst
+            packaging/arch/pollymc-continued.db
+            packaging/arch/pollymc-continued.files
+          if-no-files-found: error
+
   release:
-    name: Publish Release
-    needs: [skip-check, changelog-check, build-windows, build-linux, build-macos]
+    name: Release
+    needs: [skip-check, changelog-check, build-windows, build-linux, build-macos, build-arch]
     if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
@@ -839,3 +940,5 @@ jobs:
             PollyMC-Continued-*-macOS-arm64.zip
             PollyMC-Continued-*-macOS-arm64.dmg
             PollyMC-Continued-*-macOS-arm64.sha256
+            pollymc-continued_*.deb
+            pollymc-continued-*.pkg.tar.zst

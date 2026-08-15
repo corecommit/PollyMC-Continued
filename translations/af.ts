@@ -5980,8 +5980,9 @@ Om die metadatakas handmatig uit te wis, druk Gidse -&gt; Bekyk Laaierhoofgids, 
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530" />
         <source> and its %n registered shortcut(s)</source>
-        <translation> en sy %n geregistreerde kortpad/kortpaaie<numerusform />
-            <numerusform />
+        <translation>
+            <numerusform> en sy %n geregistreerde kortpad</numerusform>
+            <numerusform> en sy %n geregistreerde kortpaaie</numerusform>
         </translation>
     </message>
     <message>
@@ -7553,18 +7554,18 @@ Dit is hoogs waarskynlik dat jy die pad sal moet verander - verwys asseblief na 
         <location filename="../launcher/minecraft/mod/ModFolderModel.cpp" line="431" />
         <source>%n mod(s) will be enabled
 </source>
-        <translation>%n mod(s) sal geaktiveer word
-<numerusform />
-            <numerusform />
+        <translation>
+            <numerusform>%n mod sal geaktiveer word</numerusform>
+            <numerusform>%n mods sal geaktiveer word</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/minecraft/mod/ModFolderModel.cpp" line="432" />
         <source>%n mod(s) will be disabled
 </source>
-        <translation>%n mod(s) sal gedeaktiveer word
-<numerusform />
-            <numerusform />
+        <translation>
+            <numerusform>%n mod sal gedeaktiveer word</numerusform>
+            <numerusform>%n mods sal gedeaktiveer word</numerusform>
         </translation>
     </message>
     <message>
@@ -7593,9 +7594,9 @@ Die ignoring daarvan kan die spel breek.</translation>
         <location filename="../launcher/minecraft/mod/ModFolderModel.cpp" line="438" />
         <source>The enabled mod(s) require %n mod(s).
 </source>
-        <translation>Die geaktiveerde mod(s) vereis %n mod(s).
-<numerusform />
-            <numerusform />
+        <translation>
+            <numerusform>Die geaktiveerde mod(s) vereis %n mod.</numerusform>
+            <numerusform>Die geaktiveerde mod(s) vereis %n mods.</numerusform>
         </translation>
     </message>
     <message>
@@ -7624,9 +7625,9 @@ Die ignoring daarvan kan die spel breek.</translation>
         <location filename="../launcher/minecraft/mod/ModFolderModel.cpp" line="444" />
         <source>The disabled mod(s) are required by %n mod(s).
 </source>
-        <translation>Die gedeaktiveerde mod(s) word deur %n mod(s) vereis.
-<numerusform />
-            <numerusform />
+        <translation>
+            <numerusform>Die gedeaktiveerde mod(s) word deur %n mod vereis.</numerusform>
+            <numerusform>Die gedeaktiveerde mod(s) word deur %n mods vereis.</numerusform>
         </translation>
     </message>
     <message>
@@ -8150,16 +8151,18 @@ Dateer %1 asseblief op!</translation>
         <location filename="../launcher/net/NetRequest.cpp" line="276" />
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
-        <translation>Versoektempo beperk vir %n sekonde(s): Probeer weer na %1<numerusform />
-            <numerusform />
+        <translation>
+            <numerusform>Versoektempo beperk vir %n sekonde: Probeer weer na %1</numerusform>
+            <numerusform>Versoektempo beperk vir %n sekondes: Probeer weer na %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/net/NetRequest.cpp" line="281" />
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
-        <translation>Tempo beperk: Wag %n sekonde(s)<numerusform />
-            <numerusform />
+        <translation>
+            <numerusform>Tempo beperk: Wag %n sekonde</numerusform>
+            <numerusform>Tempo beperk: Wag %n sekondes</numerusform>
         </translation>
     </message>
 </context>
@@ -9781,14 +9784,21 @@ Nuwe naam: %2</translation>
 %2 it could break the other instance(s), 
 
 Do you wish to proceed?</source>
-        <translation>Die volgende instansie(s) verwys dalk na lêers in hierdie instansie:
+        <translation>
+            <numerusform>Die volgende instansie verwys dalk na lêers in hierdie instansie:
 
 %1
 
-%2 dit kan die ander instansie(s) breek,
+%2 dit kan die ander instansie breek,
 
-Wil jy voortgaan?<numerusform />
-            <numerusform />
+Wil jy voortgaan?</numerusform>
+            <numerusform>Die volgende instansies verwys dalk na lêers in hierdie instansie:
+
+%1
+
+%2 dit kan die ander instansies breek,
+
+Wil jy voortgaan?</numerusform>
         </translation>
     </message>
     <message>

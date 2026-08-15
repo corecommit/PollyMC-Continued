@@ -1,5 +1,23 @@
 # Changelog
 
+## v9.2.6
+
+**Added:**
+- Debian/Ubuntu apt repository — `.deb` packages installable via `sudo apt install pollymc-continued`, hosted on GitHub Pages (optionally GPG-signed)
+- Arch Linux pacman repository — `.pkg.tar.zst` packages installable via `sudo pacman -S pollymc-continued`, hosted on GitHub Pages
+- `deploy-repos.yml` workflow publishing both repositories to GitHub Pages on every release
+- README "Install" section covering both package managers
+
+**Changed:**
+- Releases now include `.deb` and `.pkg.tar.zst` packages
+- Account page button now reads "Add &amp;Authlib-injector"
+
+**Fixed:**
+- Afrikaans translation now 100% complete
+
+**Removed:**
+- Joke languages (`en@pirate`, `en@uwu`, `grc`, `jam`, `peo`, `rue`) and their translation files
+
 ## v9.2.5
 
 **Fixed:**
