@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (c) 2023-2025 Trial97 <alexandru.tripon97@gmail.com>
  *  Copyright (c) 2025 Rinth, Inc.
  *

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
   <id>@Launcher_AppID@</id>
-  <name>Prism Launcher</name>
+  <name>PollyMC-Continued</name>
   <summary>Custom Minecraft Launcher to easily manage multiple Minecraft installations at once</summary>
-  <developer id="org.prismlauncher">
-    <name>Prism Launcher Contributors</name>
+  <developer id="org.pollymc">
+    <name>PollyMC-Continued Contributors</name>
   </developer>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-only</project_license>
   <description>
-    <p>Prism Launcher is a custom launcher for Minecraft that focuses on predictability, long term stability and simplicity.</p>
+    <p>PollyMC-Continued is a custom launcher for Minecraft that focuses on predictability, long term stability and simplicity.</p>
     <p>Features:</p>
     <ul>
       <li>Easily install game modifications, such as Fabric, Forge and Quilt</li>
@@ -25,7 +25,7 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <caption>The main Prism Launcher window</caption>
+      <caption>The main PollyMC-Continued window</caption>
       <image type="source" width="1030" height="764">https://prismlauncher.org/img/screenshots/LauncherDark.png</image>
     </screenshot>
     <screenshot>

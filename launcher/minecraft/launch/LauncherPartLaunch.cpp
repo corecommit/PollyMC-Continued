@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -128,7 +128,7 @@ void LauncherPartLaunch::executeTask()
         QString skinAgentPath = APPLICATION->getJarPath("SkinAgent.jar");
         if (!skinAgentPath.isEmpty()) {
             args << ("-javaagent:" + skinAgentPath);
-            args << ("-Dprismlauncher.datadir=" + QDir::toNativeSeparators(APPLICATION->dataRoot()));
+            args << ("-Dpollymc.datadir=" + QDir::toNativeSeparators(APPLICATION->dataRoot()));
             // --add-opens is a Java 9+ option; Java 8 (e.g. 1.8.9) exits on it, so only pass it to modular JVMs
             if (instance->getJavaVersion().isModular()) {
                 args << "--add-opens=java.base/java.net=ALL-UNNAMED";
@@ -161,7 +161,7 @@ void LauncherPartLaunch::executeTask()
 #else
     args << classPath.join(':');
 #endif
-    args << "org.prismlauncher.EntryPoint";
+    args << "org.pollymc.EntryPoint";
 
     qDebug() << args.join(' ');
 

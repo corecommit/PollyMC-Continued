@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.check.outputs.skip }}
+      skip_release: ${{ steps.check.outputs.skip_release }}
       version: ${{ steps.check.outputs.version }}
     steps:
       - uses: actions/checkout@v5
@@ -39,6 +40,14 @@ jobs:
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
             echo "DEBUG: No [skip-all] found."
+          fi
+
+          if echo "$COMMITS" | grep -qF '[skip release]'; then
+            echo "skip_release=true" >> "$GITHUB_OUTPUT"
+            echo "DEBUG: [skip release] found, skipping release only."
+          else
+            echo "skip_release=false" >> "$GITHUB_OUTPUT"
+            echo "DEBUG: No [skip release] found."
           fi
 
           # --- Single source of truth for version number ---
@@ -753,7 +762,7 @@ jobs:
   release:
     name: Publish Release
     needs: [skip-check, changelog-check, build-windows, build-linux, build-macos]
-    if: always() && needs.skip-check.outputs.skip != 'true' && needs.changelog-check.result == 'success' && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
+    if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -762,34 +771,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check for skip-release marker
-        id: skipcheck
-        run: |
-          set -euo pipefail
-          HEAD_MSG=$(git log --format="%s %b" HEAD -1)
-          echo "DEBUG: HEAD commit message: $HEAD_MSG"
-          if echo "$HEAD_MSG" | grep -qF '[skip release]'; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Skipping release: [skip release] found in the latest commit."
-          else
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            echo "DEBUG: No [skip release] found, proceeding with release."
-          fi
-
       - name: Download all artifacts
-        if: steps.skipcheck.outputs.skip != 'true'
         uses: actions/download-artifact@v4
         with:
           merge-multiple: true
 
       - name: List release files
-        if: steps.skipcheck.outputs.skip != 'true'
         run: |
           set -euo pipefail
           ls -la PollyMC-Continued-* || true
 
       - name: Prepare release metadata
-        if: steps.skipcheck.outputs.skip != 'true'
         id: prep
         run: |
           set -euo pipefail
@@ -805,7 +797,6 @@ jobs:
           echo "release_name=PollyMC Continued ${NEW_TAG}" >> "$GITHUB_OUTPUT"
 
       - name: Extract changelog section
-        if: steps.skipcheck.outputs.skip != 'true'
         id: changelog
         run: |
           set -euo pipefail
@@ -834,7 +825,6 @@ jobs:
           cat release_notes.md
 
       - name: Publish release
-        if: steps.skipcheck.outputs.skip != 'true'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.prep.outputs.tag_name }}
