@@ -56,7 +56,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y dpkg-dev apt-utils gpg pacman-package-manager
+          sudo apt-get install -y dpkg-dev apt-utils gpg
 
       - name: Build apt repository
         run: |
@@ -98,16 +98,19 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p repo/arch/x86_64
-          cp downloads/pollymc-continued*.pkg.tar.zst repo/arch/x86_64/
-          cd repo/arch/x86_64
-          repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
-          # repo-add writes real .db.tar.gz/.files.tar.gz plus symlinks named
-          # .db/.files. Static hosts can't serve symlinks, so rename the real
-          # archives to the short names pacman looks for.
-          mv pollymc-continued.db.tar.gz pollymc-continued.db
-          mv pollymc-continued.files.tar.gz pollymc-continued.files
-          echo "=== pacman repo layout ==="
-          ls -la
+          cp downloads/pollymc-continued-*.pkg.tar.zst repo/arch/x86_64/
+          # Ubuntu's pacman-package-manager predates zstd packages and its
+          # repo-add rejects them, so run repo-add inside an Arch container.
+          docker run --rm -v "$PWD/repo/arch/x86_64:/repo" -w /repo archlinux:latest bash -c '
+            repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
+            # repo-add writes real .db.tar.gz/.files.tar.gz plus symlinks named
+            # .db/.files. Static hosts can't serve symlinks, so rename the real
+            # archives to the short names pacman looks for.
+            rm -f pollymc-continued.db pollymc-continued.files
+            mv pollymc-continued.db.tar.gz pollymc-continued.db
+            mv pollymc-continued.files.tar.gz pollymc-continued.files
+            ls -la
+          '
 
       - name: Build landing page
         run: |
