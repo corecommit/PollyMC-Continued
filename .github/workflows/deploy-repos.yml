@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
-  group: pages-repos
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -23,23 +23,23 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: site
+
       - name: Download release assets
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           mkdir -p downloads
-          # On the release event GITHUB_REF_NAME is the tag; on manual runs,
-          # omit the tag so gh downloads from the latest release (passing
-          # "latest" as an argument makes gh look for a literal tag named
-          # "latest", which does not exist).
           if [[ "${{ github.event_name }}" == "release" ]]; then
             RELEASE_ARGS=("${GITHUB_REF_NAME}")
           else
             RELEASE_ARGS=()
           fi
-          # The release event can fire before the build workflow finishes
-          # uploading assets; retry until they show up.
           for i in $(seq 1 30); do
             if gh release download "${RELEASE_ARGS[@]}" --pattern 'pollymc-continued*' --dir downloads --clobber 2>/dev/null; then
               if ls downloads/pollymc-continued*.deb >/dev/null 2>&1 && ls downloads/pollymc-continued*.pkg.tar.zst >/dev/null 2>&1; then
@@ -57,15 +57,26 @@ jobs:
           set -euo pipefail
           sudo apt-get update
           sudo apt-get install -y dpkg-dev apt-utils gpg
+          # NOTE: pacman-package-manager is intentionally NOT installed here.
+          # Its `repo-add` is a shim that runs inside a throwaway
+          # `docker run archlinux ...` container and does not bind-mount the
+          # working directory, so its output never makes it back to the
+          # host. We invoke Docker ourselves in the pacman repo step below,
+          # with an explicit bind mount, instead.
+
+      - name: Clear old apt/arch content
+        run: |
+          set -euo pipefail
+          rm -rf site/apt site/arch
 
       - name: Build apt repository
         run: |
           set -euo pipefail
-          mkdir -p repo/apt/pool/main/p/pollymc-continued
-          cp downloads/pollymc-continued*.deb repo/apt/pool/main/p/pollymc-continued/
+          mkdir -p site/apt/pool/main/p/pollymc-continued
+          cp downloads/pollymc-continued*.deb site/apt/pool/main/p/pollymc-continued/
 
-          mkdir -p repo/apt/dists/stable/main/binary-amd64
-          cd repo/apt
+          mkdir -p site/apt/dists/stable/main/binary-amd64
+          cd site/apt
           dpkg-scanpackages --multiversion pool > dists/stable/main/binary-amd64/Packages
           gzip -k -9 dists/stable/main/binary-amd64/Packages
           apt-ftparchive release dists/stable > dists/stable/Release
@@ -83,7 +94,6 @@ jobs:
               --passphrase "${{ secrets.APT_SIGNING_PASSPHRASE }}" \
               --yes --clearsign \
               -o dists/stable/InRelease dists/stable/Release
-            # Export the public key so users can fetch it for signed-by.
             gpg --batch --export --armor \
               $(gpg --batch --with-colons --list-secret-keys | awk -F: '/^sec:/{print $5; exit}') \
               > pollymc-continued.gpg
@@ -97,37 +107,60 @@ jobs:
       - name: Build pacman repository
         run: |
           set -euo pipefail
-          mkdir -p repo/arch/x86_64
-          cp downloads/pollymc-continued-*.pkg.tar.zst repo/arch/x86_64/
-          # Ubuntu's pacman-package-manager predates zstd packages and its
-          # repo-add rejects them, so run repo-add inside an Arch container.
-          docker run --rm -v "$PWD/repo/arch/x86_64:/repo" -w /repo archlinux:latest bash -c '
-            repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
-            # repo-add writes real .db.tar.gz/.files.tar.gz plus symlinks named
-            # .db/.files. Static hosts can't serve symlinks, so rename the real
-            # archives to the short names pacman looks for.
-            rm -f pollymc-continued.db pollymc-continued.files
-            mv pollymc-continued.db.tar.gz pollymc-continued.db
-            mv pollymc-continued.files.tar.gz pollymc-continued.files
-            ls -la
-          '
+          mkdir -p site/arch/x86_64
+          cp downloads/pollymc-continued*.pkg.tar.zst site/arch/x86_64/
+          cd site/arch/x86_64
 
-      - name: Build landing page
+          # repo-add needs to run on real Arch (not available/portable on
+          # Ubuntu), so run it inside an archlinux container with the
+          # working directory bind-mounted, ensuring the generated db files
+          # land back on the host instead of being lost when the container exits.
+          docker run --rm -v "$PWD":/repo -w /repo archlinux:latest \
+            repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
+
+          mv pollymc-continued.db.tar.gz pollymc-continued.db
+          mv pollymc-continued.files.tar.gz pollymc-continued.files
+          echo "=== pacman repo layout ==="
+          ls -la
+
+      - name: Rebuild landing page
         run: |
           set -euo pipefail
-          mkdir -p public
-          cp -r repo/* public/
-          cat > public/index.html <<'EOF'
-          <html><body>
-          <h1>PollyMC-Continued package repositories</h1>
-          <p><a href="apt/">apt</a> - Debian/Ubuntu .deb packages</p>
-          <p><a href="arch/">arch</a> - Arch Linux pacman packages</p>
-          </body></html>
-          EOF
+          {
+            echo "<html><body>"
+            echo "<h1>PollyMC-Continued</h1>"
+            echo "<p><a href=\"apt/\">apt</a> - Debian/Ubuntu .deb packages</p>"
+            echo "<p><a href=\"arch/\">arch</a> - Arch Linux pacman packages</p>"
+            if [ -d site/translations ]; then
+              echo "<p><a href=\"translations/\">translations</a> - Compiled .qm translation files</p>"
+            fi
+            echo "</body></html>"
+          } > site/index.html
+
+      - name: Commit and push to gh-pages
+        run: |
+          set -euo pipefail
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update apt/arch repos (${{ github.event_name }})"
+            for i in $(seq 1 5); do
+              if git push; then
+                break
+              fi
+              echo "Push rejected, rebasing and retrying ($i/5)..."
+              git fetch origin gh-pages
+              git rebase origin/gh-pages
+            done
+          fi
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: site
       - id: deploy
         uses: actions/deploy-pages@v4

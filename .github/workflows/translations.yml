@@ -7,13 +7,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -24,32 +24,75 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: site
+
       - name: Install lrelease
         run: |
           sudo apt-get update
           sudo apt-get install -y qttools5-dev-tools
           command -v lrelease-qt5 || command -v lrelease
 
+      - name: Clear old translations content
+        run: rm -rf site/translations
+
       - name: Compile .qm files
         run: |
           set -e
-          mkdir -p public
-          cp translations/*.ts public/
-          for f in public/*.ts; do
+          mkdir -p site/translations
+          cp translations/*.ts site/translations/
+          for f in site/translations/*.ts; do
             key=$(basename "$f" .ts)
-            lrelease -removeidentical "$f" -qm "public/mmc_${key}.qm" || true
+            lrelease -removeidentical "$f" -qm "site/translations/mmc_${key}.qm" || true
           done
-          ls -la public/
+          ls -la site/translations/
 
       - name: Generate index_v2.json
-        run: python3 .github/workflows/make_translation_index.py public/
+        run: python3 .github/workflows/make_translation_index.py site/translations/
 
-      - name: Landing page so Pages doesn't 404
-        run: printf '<html><body><h1>PollyMC-Continued translations</h1><p>Hosts compiled .qm files served to the launcher.</p></body></html>' > public/index.html
+      - name: Rebuild landing page
+        run: |
+          set -euo pipefail
+          {
+            echo "<html><body>"
+            echo "<h1>PollyMC-Continued</h1>"
+            if [ -d site/apt ]; then
+              echo "<p><a href=\"apt/\">apt</a> - Debian/Ubuntu .deb packages</p>"
+            fi
+            if [ -d site/arch ]; then
+              echo "<p><a href=\"arch/\">arch</a> - Arch Linux pacman packages</p>"
+            fi
+            echo "<p><a href=\"translations/\">translations</a> - Compiled .qm translation files</p>"
+            echo "</body></html>"
+          } > site/index.html
+
+      - name: Commit and push to gh-pages
+        run: |
+          set -euo pipefail
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update translations"
+            for i in $(seq 1 5); do
+              if git push; then
+                break
+              fi
+              echo "Push rejected, rebasing and retrying ($i/5)..."
+              git fetch origin gh-pages
+              git rebase origin/gh-pages
+            done
+          fi
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: site
       - id: deploy
         uses: actions/deploy-pages@v4
