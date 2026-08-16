@@ -107,14 +107,15 @@ jobs:
       - name: Build pacman repository
         run: |
           set -euo pipefail
-          mkdir -p site/arch/x86_64
-          cp downloads/pollymc-continued*.pkg.tar.zst site/arch/x86_64/
-          cd site/arch/x86_64
+          mkdir -p repo/arch/x86_64
+          for f in downloads/pollymc-continued*.pkg.tar.zst; do
+            case "$f" in
+              *-debug-*) echo "Skipping debug package: $f" ;;
+              *) cp "$f" repo/arch/x86_64/ ;;
+            esac
+          done
+          cd repo/arch/x86_64
 
-          # repo-add needs to run on real Arch (not available/portable on
-          # Ubuntu), so run it inside an archlinux container with the
-          # working directory bind-mounted, ensuring the generated db files
-          # land back on the host instead of being lost when the container exits.
           docker run --rm -v "$PWD":/repo -w /repo archlinux:latest \
             repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
 
