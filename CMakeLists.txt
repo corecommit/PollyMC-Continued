@@ -222,7 +222,7 @@ set(Launcher_BUG_TRACKER_URL "" CACHE STRING "URL for the bug tracker.")
 
 # Translations Platform URL
 set(Launcher_TRANSLATIONS_URL "https://github.com/corecommit/PollyMC-Continued" CACHE STRING "URL for the translations platform.")
-set(Launcher_TRANSLATION_FILES_URL "https://corecommit.github.io/PollyMC-Continued/" CACHE STRING "URL for the translations files.")
+set(Launcher_TRANSLATION_FILES_URL "https://corecommit.github.io/PollyMC-Continued/translations/" CACHE STRING "URL for the translations files.")
 
 # Matrix Space
 set(Launcher_MATRIX_URL "" CACHE STRING "URL to the Matrix Space")

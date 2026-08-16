@@ -11,6 +11,7 @@
 **Changed:**
 - Releases now include `.deb` and `.pkg.tar.zst` packages
 - Account page button now reads "Add &amp;Authlib-injector"
+- Translations now load from the `translations` subdirectory of our GitHub Pages site
 
 **Fixed:**
 - Afrikaans translation now 100% complete
