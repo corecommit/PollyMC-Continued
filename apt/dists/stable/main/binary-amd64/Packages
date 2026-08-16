@@ -1,0 +1,17 @@
+Package: pollymc-continued
+Version: 9.2.6
+Architecture: amd64
+Maintainer: PollyMC-Continued Contributors <corecommit>
+Installed-Size: 15905
+Depends: libarchive13t64 (>= 3.2.1), libc6 (>= 2.38), libcmark0.30.2 (>= 0.30.2), libgcc-s1 (>= 3.0), libqrencode4 (>= 3.2.0), libqt6core6t64 (>= 6.4.0), libqt6dbus6t64 (>= 6.4.0), libqt6gui6t64 (>= 6.4.0), libqt6network6t64 (>= 6.4.0), libqt6networkauth6 (>= 6.2.1), libqt6opengl6t64 (>= 6.1.2), libqt6websockets6 (>= 6.2.1), libqt6widgets6t64 (>= 6.3.0), libqt6xml6t64 (>= 6.1.2), libstdc++6 (>= 13.1), libtomlplusplus3t64 (>= 3.2.0), qt6-websockets-abi (= 6.4.2), zlib1g (>= 1:1.1.4)
+Recommends: gamemode;mangohud
+Filename: pool/main/p/pollymc-continued/pollymc-continued_9.2.6_amd64.deb
+Size: 6987022
+MD5sum: 28d522aee91fe8dd644d5eb1cbbb7415
+SHA1: c62e9000d2752ad6b84a620b223025dc9152ed9a
+SHA256: ecd3729fda48fdc87c1222f6b94640d6bc1353c4070189adffd56f0759c34646
+Section: games
+Priority: optional
+Homepage: https://github.com/corecommit/PollyMC-Continued
+Description: PollyMC-Continued is a custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once.
+
