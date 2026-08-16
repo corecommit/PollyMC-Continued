@@ -56,7 +56,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y dpkg-dev apt-utils gpg
+          sudo apt-get install -y dpkg-dev apt-utils gpg pacman-package-manager
 
       - name: Build apt repository
         run: |
