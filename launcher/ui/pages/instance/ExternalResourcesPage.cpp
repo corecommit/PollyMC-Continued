@@ -111,7 +111,19 @@ ExternalResourcesPage::ExternalResourcesPage(BaseInstance* instance, ResourceFol
     connect(viewHeader, &QHeaderView::customContextMenuRequested, this, &ExternalResourcesPage::ShowHeaderContextMenu);
 
     m_model->loadColumns(ui->treeView);
-    connect(ui->treeView->header(), &QHeaderView::sectionResized, this, [this] { m_model->saveColumns(ui->treeView); });
+    // Debounce the column-state writes: saveState()/INI serialization per
+    // pixel of a drag is needlessly expensive.
+    m_saveColumnsTimer = new QTimer(this);
+    m_saveColumnsTimer->setSingleShot(true);
+    m_saveColumnsTimer->setInterval(500);
+    connect(m_saveColumnsTimer, &QTimer::timeout, this, [this] { m_model->saveColumns(ui->treeView); });
+    connect(ui->treeView->header(), &QHeaderView::sectionResized, this, [this] { m_saveColumnsTimer->start(); });
+    m_filterTimer = new QTimer(this);
+    m_filterTimer->setSingleShot(true);
+    m_filterTimer->setInterval(250);
+    connect(m_filterTimer, &QTimer::timeout, this, [this] {
+        m_filterModel->setFilterRegularExpression(m_viewFilter);
+    });
     connect(ui->filterEdit, &QLineEdit::textChanged, this, &ExternalResourcesPage::filterTextChanged);
     updateActions();
 }
@@ -156,6 +168,11 @@ void ExternalResourcesPage::closedImpl()
 {
     m_model->stopWatching();
 
+    if (m_saveColumnsTimer->isActive()) {
+        m_saveColumnsTimer->stop();
+        m_model->saveColumns(ui->treeView);
+    }
+
     m_wide_bar_setting->set(QString::fromUtf8(ui->actionsToolbar->getVisibilityState().toBase64()));
 }
 
@@ -173,7 +190,7 @@ void ExternalResourcesPage::itemActivated(const QModelIndex&)
 void ExternalResourcesPage::filterTextChanged(const QString& newContents)
 {
     m_viewFilter = newContents;
-    m_filterModel->setFilterRegularExpression(m_viewFilter);
+    m_filterTimer->start();
 }
 
 bool ExternalResourcesPage::shouldDisplay() const

@@ -214,13 +214,6 @@ jobs:
           restore-keys: |
             ccache-windows-
 
-      - name: Setup Node.js
-        shell: bash
-        run: |
-          # Node.js is available via MSYS2; just install deps
-          cd bot-server
-          npm install --omit=dev
-
       - name: Configure
         run: |
           set -euo pipefail
@@ -252,8 +245,8 @@ jobs:
           rm -rf install/bot-server
           cp -r bot-server install/bot-server
           rm -f install/bot-server/.gitignore
-          # Remove any dev-only files to keep the bundle lean
-          rm -rf install/bot-server/node_modules/.cache 2>/dev/null || true
+          # node_modules is not bundled; installed on first use from the Bot Manager
+          rm -rf install/bot-server/node_modules
 
       - name: Deploy Qt
         run: |
@@ -461,12 +454,6 @@ jobs:
           restore-keys: |
             ccache-linux-
 
-      - name: Setup Node.js
-        run: |
-          # Node.js ships preinstalled on GitHub-hosted runners; just install deps
-          cd bot-server
-          npm install --omit=dev
-
       - name: Configure
         run: |
           set -euo pipefail
@@ -513,6 +500,7 @@ jobs:
             -S . -B build-deb
           cmake --build build-deb -j$(nproc)
           cpack --config build-deb/CPackConfig.cmake -G DEB -B build-deb
+          mv build-deb/*.deb "build-deb/PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.deb"
           echo "=== DEB artifacts ==="
           ls -la build-deb/*.deb
 
@@ -562,8 +550,8 @@ jobs:
           # applicationDirPath() = appdir/usr/bin at runtime inside the AppImage
           cp -r bot-server appdir/usr/bin/bot-server
           rm -f appdir/usr/bin/bot-server/.gitignore
-          # Remove any dev-only files to keep the bundle lean
-          rm -rf appdir/usr/bin/bot-server/node_modules/.cache 2>/dev/null || true
+          # node_modules is not bundled; installed on first use from the Bot Manager
+          rm -rf appdir/usr/bin/bot-server/node_modules
 
       - name: Cache linuxdeploy
         uses: actions/cache@v5
@@ -629,11 +617,27 @@ jobs:
           fi
           mv "$FILE" "PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage"
 
+      - name: Create Linux binary tarball
+        run: |
+          set -euo pipefail
+          VERSION="${{ needs.skip-check.outputs.version }}"
+          # Same portable layout as the Windows zip: bot-server + portable.txt
+          # + manifest.txt next to the binary (/tmp/pollymc/bin).
+          cp -r bot-server /tmp/pollymc/bin/bot-server
+          rm -f /tmp/pollymc/bin/bot-server/.gitignore
+          rm -rf /tmp/pollymc/bin/bot-server/node_modules
+          cp "$GITHUB_WORKSPACE/program_info/portable.txt" /tmp/pollymc/portable.txt
+          find /tmp/pollymc -mindepth 1 -maxdepth 1 -printf '%P\n' | sort > /tmp/pollymc/manifest.txt
+          tar -czf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" -C /tmp/pollymc .
+          ls -la PollyMC-Continued-*-Linux-x86_64.tar.gz
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Linux-AppImage
-          path: PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage
+          path: |
+            PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage
+            PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.tar.gz
 
   build-macos:
     name: macOS (Universal)
@@ -684,12 +688,6 @@ jobs:
           key: ccache-macos-${{ github.run_id }}
           restore-keys: |
             ccache-macos-
-
-      - name: Setup Node.js
-        run: |
-          # Node.js ships preinstalled on GitHub-hosted runners; just install deps
-          cd bot-server
-          npm install --omit=dev
 
       - name: Configure
         run: |
@@ -835,13 +833,19 @@ jobs:
             -czf "packaging/arch/pollymc-continued-${VERSION}.tar.gz" .
           cd packaging/arch
           su builder -c "makepkg --noconfirm --force"
+          # makepkg names the file after pkgname (lowercase); rename it so the
+          # release artifact and repo files use the branded name. The container's
+          # makepkg.conf also builds a <pkgname>-debug package; drop it and name
+          # the main package explicitly (the glob would match both).
+          rm -f pollymc-continued-debug-*.pkg.tar.zst
+          mv "pollymc-continued-${VERSION}-1-x86_64.pkg.tar.zst" "PollyMC-Continued-${VERSION}-1-x86_64.pkg.tar.zst"
 
       - name: Create pacman repo database
         run: |
           set -euo pipefail
           cd packaging/arch
           chmod -R a+rX .
-          repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
+          repo-add -n pollymc-continued.db.tar.gz PollyMC-Continued-*.pkg.tar.zst
           # repo-add writes real .db.tar.gz/.files.tar.gz plus symlinks named
           # .db/.files. Static hosts/artifacts can't serve symlinks, so rename
           # the real archives to the short names pacman looks for.
@@ -854,10 +858,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PollyMC-Continued-Arch
-          path: |
-            packaging/arch/pollymc-continued-*.pkg.tar.zst
-            packaging/arch/pollymc-continued.db
-            packaging/arch/pollymc-continued.files
+          path: packaging/arch/PollyMC-Continued-*.pkg.tar.zst
           if-no-files-found: error
 
   release:
@@ -937,8 +938,10 @@ jobs:
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
             PollyMC-Continued-*-Linux-x86_64.AppImage
+            PollyMC-Continued-*-Linux-x86_64.tar.gz
             PollyMC-Continued-*-macOS-arm64.zip
             PollyMC-Continued-*-macOS-arm64.dmg
             PollyMC-Continued-*-macOS-arm64.sha256
-            pollymc-continued_*.deb
-            pollymc-continued-*.pkg.tar.zst
+            PollyMC-Continued-*.deb
+            PollyMC-Continued-*.pkg.tar.zst
+

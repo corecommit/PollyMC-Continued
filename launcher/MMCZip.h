@@ -58,7 +58,7 @@ using FilterFileFunction = std::function<bool(const QFileInfo&)>;
 /**
  * take a source jar, add mods to it, resulting in target jar
  */
-bool createModdedJar(QString sourceJarPath, QString targetJarPath, const QList<Mod*>& mods);
+bool createModdedJar(QString sourceJarPath, QString targetJarPath, const QList<Mod::Ptr>& mods);
 #endif
 
 /**

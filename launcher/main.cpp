@@ -55,8 +55,13 @@ int main(int argc, char* argv[])
     // policy (PassThrough) produces muddled fractional scaling under KDE
     // Plasma. Round sanely unless the user (or Plasma) already set a policy
     // via QT_SCALE_FACTOR_ROUNDING_POLICY.
+    // NOTE: only applies on Linux - Windows/macOS keep PassThrough so common
+    // 125%/150% display scales render at their true size instead of being
+    // floored to 100%.
+#if defined Q_OS_LINUX
     if (qEnvironmentVariableIsEmpty("QT_SCALE_FACTOR_ROUNDING_POLICY"))
         QApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor);
+#endif
 
     // initialize Qt
     Application app(argc, argv);

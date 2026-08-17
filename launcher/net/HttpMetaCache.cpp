@@ -116,7 +116,15 @@ auto HttpMetaCache::resolveEntry(QString base, QString resource_path, QString ex
             qWarning() << "Failed to open file" << input.fileName() << "for reading:" << input.errorString();
             return staleEntry(base, resource_path);
         }
-        QString md5sum = QCryptographicHash::hash(input.readAll(), QCryptographicHash::Md5).toHex().constData();
+        // Hash in chunks instead of readAll(): avoids a full-file memory copy
+        // and lets big downloads pass through without stalling on allocation.
+        QCryptographicHash hasher(QCryptographicHash::Md5);
+        QByteArray buffer;
+        buffer.resize(1024 * 1024);
+        qint64 bytes_read = 0;
+        while ((bytes_read = input.read(buffer.data(), buffer.size())) > 0)
+            hasher.addData(QByteArrayView(buffer.constData(), bytes_read));
+        QString md5sum = hasher.result().toHex().constData();
         if (entry->m_md5sum != md5sum) {
             selected_base.entry_list.remove(resource_path);
             return staleEntry(base, resource_path);

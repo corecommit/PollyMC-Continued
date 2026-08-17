@@ -1319,15 +1319,15 @@ WorldList* MinecraftInstance::worldList()
     return m_world_list.get();
 }
 
-QList<Mod*> MinecraftInstance::getJarMods() const
+QList<Mod::Ptr> MinecraftInstance::getJarMods() const
 {
     auto profile = m_components->getProfile();
-    QList<Mod*> mods;
+    QList<Mod::Ptr> mods;
     for (auto jarmod : profile->getJarMods()) {
         QStringList jar, temp1, temp2, temp3;
         jarmod->getApplicableFiles(runtimeContext(), jar, temp1, temp2, temp3, jarmodsPath().absolutePath());
         // QString filePath = jarmodsPath().absoluteFilePath(jarmod->filename(currentSystem));
-        mods.push_back(new Mod(QFileInfo(jar[0])));
+        mods.push_back(Mod::Ptr(new Mod(QFileInfo(jar[0]))));
     }
     return mods;
 }

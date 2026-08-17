@@ -252,6 +252,8 @@ std::unique_ptr<MinecraftInstance> ModrinthCreationTask::createInstance()
             resources[file.hash.toHex()] = mod;
         }
         if (file.downloads.empty()) {
+            for (auto resource : resources)
+                delete resource;
             setError(tr("The file '%1' is missing a download link. This is invalid in the pack format.").arg(fileName));
             return nullptr;
         }

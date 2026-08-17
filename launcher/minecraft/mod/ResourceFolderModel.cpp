@@ -49,8 +49,11 @@ ResourceFolderModel::ResourceFolderModel(const QDir& dir, BaseInstance* instance
 
 ResourceFolderModel::~ResourceFolderModel()
 {
-    while (!QThreadPool::globalInstance()->waitForDone(100))
-        QCoreApplication::processEvents();
+    // Parse tasks only write to their shared Result pointers, so destroying
+    // the model while they are still queued or running is safe; the queued
+    // watcher callbacks are dropped together with this object. There is no
+    // need to drain the whole global thread pool (which could block the UI
+    // thread at shutdown for unrelated work).
 }
 
 bool ResourceFolderModel::startWatching(const QStringList& paths)

@@ -1,8 +1,11 @@
-name: Deploy apt and pacman repositories
+name: Deploy repos and translations
 
 on:
   release:
     types: [released]
+  push:
+    branches: [main]
+    paths: [translations/*.ts]
   workflow_dispatch:
 
 permissions:
@@ -29,29 +32,6 @@ jobs:
           ref: gh-pages
           path: site
 
-      - name: Download release assets
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          mkdir -p downloads
-          if [[ "${{ github.event_name }}" == "release" ]]; then
-            RELEASE_ARGS=("${GITHUB_REF_NAME}")
-          else
-            RELEASE_ARGS=()
-          fi
-          for i in $(seq 1 30); do
-            if gh release download "${RELEASE_ARGS[@]}" --pattern 'pollymc-continued*' --dir downloads --clobber 2>/dev/null; then
-              if ls downloads/pollymc-continued*.deb >/dev/null 2>&1 && ls downloads/pollymc-continued*.pkg.tar.zst >/dev/null 2>&1; then
-                echo "downloaded release assets"
-                break
-              fi
-            fi
-            echo "assets not ready yet (attempt $i/30), waiting 10s..."
-            sleep 10
-          done
-          ls -la downloads/
-
       - name: Install repo tooling
         run: |
           set -euo pipefail
@@ -64,16 +44,48 @@ jobs:
           # host. We invoke Docker ourselves in the pacman repo step below,
           # with an explicit bind mount, instead.
 
+      - name: Install lrelease
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qttools5-dev-tools
+          command -v lrelease-qt5 || command -v lrelease
+
+      - name: Download release assets
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p downloads
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            RELEASE_ARGS=("${GITHUB_REF_NAME}")
+          else
+            RELEASE_ARGS=()
+          fi
+          for i in $(seq 1 30); do
+            if gh release download "${RELEASE_ARGS[@]}" --pattern 'PollyMC-Continued-*.deb' --pattern 'PollyMC-Continued-*.pkg.tar.zst' --dir downloads --clobber 2>/dev/null; then
+              if ls downloads/PollyMC-Continued*.deb >/dev/null 2>&1 && ls downloads/PollyMC-Continued*.pkg.tar.zst >/dev/null 2>&1; then
+                echo "downloaded release assets"
+                break
+              fi
+            fi
+            echo "assets not ready yet (attempt $i/30), waiting 10s..."
+            sleep 10
+          done
+          ls -la downloads/
+
       - name: Clear old apt/arch content
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
         run: |
           set -euo pipefail
           rm -rf site/apt site/arch
 
       - name: Build apt repository
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
         run: |
           set -euo pipefail
           mkdir -p site/apt/pool/main/p/pollymc-continued
-          cp downloads/pollymc-continued*.deb site/apt/pool/main/p/pollymc-continued/
+          cp downloads/PollyMC-Continued*.deb site/apt/pool/main/p/pollymc-continued/
 
           mkdir -p site/apt/dists/stable/main/binary-amd64
           cd site/apt
@@ -94,6 +106,7 @@ jobs:
               --passphrase "${{ secrets.APT_SIGNING_PASSPHRASE }}" \
               --yes --clearsign \
               -o dists/stable/InRelease dists/stable/Release
+            # Export the public key so users can fetch it for signed-by.
             gpg --batch --export --armor \
               $(gpg --batch --with-colons --list-secret-keys | awk -F: '/^sec:/{print $5; exit}') \
               > pollymc-continued.gpg
@@ -105,10 +118,11 @@ jobs:
           find . -type f | sort
 
       - name: Build pacman repository
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
         run: |
           set -euo pipefail
           mkdir -p site/arch/x86_64
-          for f in downloads/pollymc-continued*.pkg.tar.zst; do
+          for f in downloads/PollyMC-Continued*.pkg.tar.zst; do
             case "$f" in
               *-debug-*) echo "Skipping debug package: $f" ;;
               *) cp "$f" site/arch/x86_64/ ;;
@@ -117,12 +131,32 @@ jobs:
           cd site/arch/x86_64
 
           docker run --rm -v "$PWD":/repo -w /repo archlinux:latest \
-            repo-add -n pollymc-continued.db.tar.gz pollymc-continued-*.pkg.tar.zst
+            repo-add -n pollymc-continued.db.tar.gz PollyMC-Continued-*.pkg.tar.zst
 
           mv pollymc-continued.db.tar.gz pollymc-continued.db
           mv pollymc-continued.files.tar.gz pollymc-continued.files
           echo "=== pacman repo layout ==="
           ls -la
+
+      - name: Clear old translations content
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: rm -rf site/translations
+
+      - name: Compile .qm files
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          set -e
+          mkdir -p site/translations
+          cp translations/*.ts site/translations/
+          for f in site/translations/*.ts; do
+            key=$(basename "$f" .ts)
+            lrelease -removeidentical "$f" -qm "site/translations/mmc_${key}.qm" || true
+          done
+          ls -la site/translations/
+
+      - name: Generate index_v2.json
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: python3 .github/workflows/make_translation_index.py site/translations/
 
       - name: Rebuild landing page
         run: |
@@ -130,8 +164,12 @@ jobs:
           {
             echo "<html><body>"
             echo "<h1>PollyMC-Continued</h1>"
-            echo "<p><a href=\"apt/\">apt</a> - Debian/Ubuntu .deb packages</p>"
-            echo "<p><a href=\"arch/\">arch</a> - Arch Linux pacman packages</p>"
+            if [ -d site/apt ]; then
+              echo "<p><a href=\"apt/\">apt</a> - Debian/Ubuntu .deb packages</p>"
+            fi
+            if [ -d site/arch ]; then
+              echo "<p><a href=\"arch/\">arch</a> - Arch Linux pacman packages</p>"
+            fi
             if [ -d site/translations ]; then
               echo "<p><a href=\"translations/\">translations</a> - Compiled .qm translation files</p>"
             fi
@@ -148,7 +186,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update apt/arch repos (${{ github.event_name }})"
+            git commit -m "Update repos/translations (${{ github.event_name }})"
             for i in $(seq 1 5); do
               if git push; then
                 break

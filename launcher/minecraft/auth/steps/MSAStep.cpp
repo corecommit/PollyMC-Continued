@@ -54,7 +54,9 @@ bool isSchemeHandlerRegistered()
 #ifdef Q_OS_LINUX
     QProcess process;
     process.start("xdg-mime", { "query", "default", "x-scheme-handler/" + BuildConfig.LAUNCHER_APP_BINARY_NAME });
-    process.waitForFinished();
+    // Bound the wait so a hung xdg-mime can't freeze the UI indefinitely.
+    if (!process.waitForFinished(5000))
+        return false;
     QString output = process.readAllStandardOutput().trimmed();
 
     return output.contains(APPLICATION->desktopFileName());

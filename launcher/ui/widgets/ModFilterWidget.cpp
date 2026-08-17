@@ -352,6 +352,10 @@ void ModFilterWidget::setCategories(const QList<ModPlatform::Category>& categori
 {
     m_categories = categories;
 
+    // The checkboxes are parented to the group box, so deleting the layout
+    // alone would leave them behind; delete them explicitly.
+    const auto oldCheckboxes = ui->categoryGroup->findChildren<QCheckBox*>();
+    qDeleteAll(oldCheckboxes);
     delete ui->categoryGroup->layout();
     auto layout = new QVBoxLayout(ui->categoryGroup);
 
@@ -359,7 +363,7 @@ void ModFilterWidget::setCategories(const QList<ModPlatform::Category>& categori
         auto name = category.name;
         name.replace("-", " ");
         name.replace("&", "&&");
-        auto checkbox = new QCheckBox(name);
+        auto checkbox = new QCheckBox(name, ui->categoryGroup);
         auto font = checkbox->font();
         font.setCapitalization(QFont::Capitalize);
         checkbox->setFont(font);

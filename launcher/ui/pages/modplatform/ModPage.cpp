@@ -76,7 +76,13 @@ void ModPage::setFilterWidget(std::unique_ptr<ModFilterWidget>& widget)
 
     m_filter = m_filter_widget->getFilter();
 
-    connect(m_filter_widget.get(), &ModFilterWidget::filterChanged, this, &ModPage::triggerSearch);
+    // Debounce: checkbox toggles and text edits fire filterChanged rapidly;
+    // each one would otherwise trigger a fresh network search.
+    m_searchDebounceTimer = new QTimer(this);
+    m_searchDebounceTimer->setSingleShot(true);
+    m_searchDebounceTimer->setInterval(300);
+    connect(m_filter_widget.get(), &ModFilterWidget::filterChanged, m_searchDebounceTimer, [this] { m_searchDebounceTimer->start(); });
+    connect(m_searchDebounceTimer, &QTimer::timeout, this, &ModPage::triggerSearch);
     prepareProviderCategories();
 }
 

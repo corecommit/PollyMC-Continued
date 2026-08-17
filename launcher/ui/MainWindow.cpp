@@ -391,7 +391,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     // Memory monitor timer
     m_memoryTimer = new QTimer(this);
     connect(m_memoryTimer, &QTimer::timeout, this, [this]() {
-        auto mem = QProcess();
         m_statusMemory->setText(QString("RAM: %1 MB").arg(
             QString::number(HardwareInfo::totalRamMiB())));
     });
@@ -410,8 +409,8 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     // Update the menu when the active account changes.
     // Shouldn't have to use lambdas here like this, but if I don't, the compiler throws a fit.
     // Template hell sucks...
-    connect(APPLICATION->accounts(), &AccountList::defaultAccountChanged, [this] { defaultAccountChanged(); });
-    connect(APPLICATION->accounts(), &AccountList::listChanged, [this] { defaultAccountChanged(); });
+    connect(APPLICATION->accounts(), &AccountList::defaultAccountChanged, this, [this] { defaultAccountChanged(); });
+    connect(APPLICATION->accounts(), &AccountList::listChanged, this, [this] { defaultAccountChanged(); });
 
     // Show initial account
     defaultAccountChanged();

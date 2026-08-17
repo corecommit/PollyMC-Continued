@@ -70,12 +70,7 @@ class InstallJavaPage : public QWidget, public BasePage {
 
         QMetaObject::connectSlotsByName(this);
     }
-    ~InstallJavaPage()
-    {
-        delete horizontalLayout;
-        delete majorVersionSelect;
-        delete javaVersionSelect;
-    }
+    ~InstallJavaPage() = default;
 
     //! loads the list if needed.
     void initialize(Meta::VersionList::Ptr vlist)

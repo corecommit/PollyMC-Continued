@@ -1,5 +1,28 @@
 # Changelog
 
+## v9.2.7
+
+**Added:**
+- Linux binary tarball release artifact (`PollyMC-Continued-*-Linux-x86_64.tar.gz`) — portable install with the same layout as the Windows portable zip
+- Finnish, Hungarian, Japanese, and Laotian translations completed to 100%
+
+**Changed:**
+- Release `.deb` and `.pkg.tar.zst` artifacts renamed to the `PollyMC-Continued-*` naming scheme (package install names unchanged)
+- Mods page table columns now resize proportionally with the window — Name, Last Modified, and Provider stretch; the Enable checkbox column sizes to its content
+- Dropped the unused pacman database files (`pollymc-continued.db`/`.files`) from build artifacts
+- Mod folder parsing (zip handling, metadata, icon decoding) now runs off the UI thread, so loading large mod folders no longer freezes the launcher
+- Column-layout saves and the resource browser search are now debounced instead of firing on every pixel of a drag or every keystroke
+
+**Fixed:**
+- Launcher ignored display scaling at 125% and 150% on Windows and macOS (the rounding policy floored fractional scales to 100%); the policy now only applies on Linux
+- Closing the Java wizard after enabling automatic Java download crashed the launcher (double-free of a layout item)
+- Jar mods were leaked on every launch (`getJarMods()` returned unowned objects)
+- Setup wizard, category filter checkboxes, and in-flight icon downloads leaked when dismissed or closed
+- Mod dependency relationships rebuilt in O(n²) time on large mod folders — now uses lookup tables
+- Resolving the cache could stall the UI with a full-file MD5 read and unbounded `xdg-mime` wait
+- Bot dependency install could hang forever if npm failed to start; the bot status now shows the install progress
+- Launcher shutdown no longer blocks on draining the global thread pool
+
 ## v9.2.6
 
 **Added:**
@@ -12,6 +35,8 @@
 - Releases now include `.deb` and `.pkg.tar.zst` packages
 - Account page button now reads "Add &amp;Authlib-injector"
 - Translations now load from the `translations` subdirectory of our GitHub Pages site
+- Bot system no longer bundles Node.js modules into installs — they are downloaded on first use
+- Bot Manager now checks for Node.js and the required modules when opened, prompting the user to install them when missing
 
 **Fixed:**
 - Afrikaans translation now 100% complete

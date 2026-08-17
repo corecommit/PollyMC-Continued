@@ -1,5 +1,6 @@
 #include "LocalModParseTask.h"
 
+#include <QtConcurrent>
 #include <qdcss.h>
 #include <toml++/toml.h>
 #include <QJsonArray>
@@ -799,18 +800,28 @@ LocalModParseTask::LocalModParseTask(int token, ResourceType type, const QFileIn
 bool LocalModParseTask::abort()
 {
     m_aborted.store(true);
+    if (m_future.isRunning())
+        m_future.cancel();
     return true;
 }
 
 void LocalModParseTask::executeTask()
 {
-    Mod mod{ m_modFile };
-    ModUtils::process(mod, ModUtils::ProcessingLevel::Full);
-
-    m_result->details = mod.details();
-
-    if (m_aborted)
-        emitAborted();
-    else
-        emitSucceeded();
+    // The parsing (zip handling, TOML/JSON and icon decoding) is pure CPU
+    // work. Run it off the UI thread so large mod folders don't freeze the
+    // interface, then report the result back through the watcher.
+    auto modFile = m_modFile;
+    auto result = m_result;
+    m_future = QtConcurrent::run(QThreadPool::globalInstance(), [modFile, result] {
+        Mod mod{ modFile };
+        ModUtils::process(mod, ModUtils::ProcessingLevel::Full);
+        result->details = mod.details();
+    });
+    connect(&m_watcher, &QFutureWatcher<void>::finished, this, [this] {
+        if (m_aborted)
+            emitAborted();
+        else
+            emitSucceeded();
+    });
+    m_watcher.setFuture(m_future);
 }

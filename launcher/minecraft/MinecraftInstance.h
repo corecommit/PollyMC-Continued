@@ -127,7 +127,7 @@ class MinecraftInstance : public BaseInstance {
     LaunchTask* createLaunchTask(AuthSessionPtr account, MinecraftTarget::Ptr targetToJoin) override;
     QStringList extraArguments() override;
     QStringList verboseDescription(AuthSessionPtr session, MinecraftTarget::Ptr targetToJoin) override;
-    QList<Mod*> getJarMods() const;
+    QList<Mod::Ptr> getJarMods() const;
     QString createLaunchScript(AuthSessionPtr session, MinecraftTarget::Ptr targetToJoin);
     /// get arguments passed to java
     QStringList javaArguments();
