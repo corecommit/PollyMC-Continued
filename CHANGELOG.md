@@ -12,6 +12,8 @@
 - Dropped the unused pacman database files (`pollymc-continued.db`/`.files`) from build artifacts
 - Mod folder parsing (zip handling, metadata, icon decoding) now runs off the UI thread, so loading large mod folders no longer freezes the launcher
 - Column-layout saves and the resource browser search are now debounced instead of firing on every pixel of a drag or every keystroke
+- Bot system no longer bundles Node.js modules into installs — they are downloaded on first use
+- Bot Manager now checks for Node.js and the required modules when opened, prompting the user to install them when missing
 
 **Fixed:**
 - Launcher ignored display scaling at 125% and 150% on Windows and macOS (the rounding policy floored fractional scales to 100%); the policy now only applies on Linux
@@ -35,8 +37,6 @@
 - Releases now include `.deb` and `.pkg.tar.zst` packages
 - Account page button now reads "Add &amp;Authlib-injector"
 - Translations now load from the `translations` subdirectory of our GitHub Pages site
-- Bot system no longer bundles Node.js modules into installs — they are downloaded on first use
-- Bot Manager now checks for Node.js and the required modules when opened, prompting the user to install them when missing
 
 **Fixed:**
 - Afrikaans translation now 100% complete
