@@ -650,6 +650,10 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
         m_settings->registerSetting("MenuBarInsteadOfToolBar", false);
 
+        // GitHub star reminder — dismissed means "never ask again"
+        m_settings->registerSetting("StarReminderDismissed", false);
+        m_settings->registerSetting("StarReminderLastShown", QString());
+
         m_settings->registerSetting("NumberOfConcurrentTasks", 10);
         m_settings->registerSetting("NumberOfConcurrentDownloads", 6);
         m_settings->registerSetting("NumberOfManualRetries", 1);

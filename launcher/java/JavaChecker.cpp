@@ -44,6 +44,8 @@
 #include "FileSystem.h"
 #include "java/JavaUtils.h"
 
+Q_LOGGING_CATEGORY(javaCheckLogC, "launcher.java")
+
 JavaChecker::JavaChecker(QString path, QString args, int minMem, int maxMem, int permGen, int id)
     : Task(), m_path(path), m_args(args), m_minMem(minMem), m_maxMem(maxMem), m_permGen(permGen), m_id(id)
 {}
@@ -180,8 +182,8 @@ void JavaChecker::error(QProcess::ProcessError err)
 {
     if (err == QProcess::FailedToStart) {
         qDebug() << "Java checker has failed to start.";
-        qDebug() << "Process environment (secret values redacted):" << envToStringList(process->processEnvironment());
-        qDebug() << "Native environment (secret values redacted):" << envToStringList(QProcessEnvironment::systemEnvironment());
+        qCDebug(javaCheckLogC) << "Process environment (secret values redacted):" << envToStringList(process->processEnvironment());
+        qCDebug(javaCheckLogC) << "Native environment (secret values redacted):" << envToStringList(QProcessEnvironment::systemEnvironment());
         killTimer.stop();
         emit checkFinished({ m_path, m_id });
     }

@@ -62,6 +62,10 @@ class KonamiCode;
 class InstanceTask;
 class LabeledToolButton;
 class QSystemTrayIcon;
+class QShowEvent;
+class QResizeEvent;
+
+class ToastNotification;
 class BotManagerDialog;
 
 namespace Ui {
@@ -77,6 +81,8 @@ class MainWindow : public QMainWindow {
     bool eventFilter(QObject* obj, QEvent* ev) override;
     void closeEvent(QCloseEvent* event) override;
     void changeEvent(QEvent* event) override;
+    void showEvent(QShowEvent* event) override;
+    void resizeEvent(QResizeEvent* event) override;
 
     void checkInstancePathForProblems();
 
@@ -240,6 +246,9 @@ class MainWindow : public QMainWindow {
     void runModalTask(Task* task);
     void instanceFromInstanceTask(InstanceTask* task);
 
+    void maybeShowStarToast();
+    QPoint toastPosition() const;
+
    private:
     Ui::MainWindow* ui;
     // these are managed by Qt's memory management model!
@@ -252,6 +261,8 @@ class MainWindow : public QMainWindow {
     QTimer* m_memoryTimer = nullptr;
     bool m_forceClose = false;
     QSystemTrayIcon* m_trayIcon = nullptr;
+    ToastNotification* m_toast = nullptr;
+    bool m_starToastScheduled = false;
     BotManagerDialog* m_botManager = nullptr;
     LabeledToolButton* changeIconButton = nullptr;
     LabeledToolButton* renameButton = nullptr;
