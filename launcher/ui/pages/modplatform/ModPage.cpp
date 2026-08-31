@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-only AND Apache-2.0
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *  Copyright (C) 2022 TheKodeToad <TheKodeToad@proton.me>
  *  Copyright (c) 2023 Trial97 <alexandru.tripon97@gmail.com>
@@ -22,7 +22,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -76,7 +76,13 @@ void ModPage::setFilterWidget(std::unique_ptr<ModFilterWidget>& widget)
 
     m_filter = m_filter_widget->getFilter();
 
-    connect(m_filter_widget.get(), &ModFilterWidget::filterChanged, this, &ModPage::triggerSearch);
+    // Debounce: checkbox toggles and text edits fire filterChanged rapidly;
+    // each one would otherwise trigger a fresh network search.
+    m_searchDebounceTimer = new QTimer(this);
+    m_searchDebounceTimer->setSingleShot(true);
+    m_searchDebounceTimer->setInterval(300);
+    connect(m_filter_widget.get(), &ModFilterWidget::filterChanged, m_searchDebounceTimer, [this] { m_searchDebounceTimer->start(); });
+    connect(m_searchDebounceTimer, &QTimer::timeout, this, &ModPage::triggerSearch);
     prepareProviderCategories();
 }
 

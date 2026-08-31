@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2025 TheKodeToad <TheKodeToad@proton.me>
  *  Copyright (C) 2022 Tayou <git@tayou.org>
  *

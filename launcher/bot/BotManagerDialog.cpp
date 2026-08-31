@@ -192,10 +192,55 @@ BotManagerDialog::BotManagerDialog(QWidget* parent)
     connect(m_bot, &BotProcess::botConnected, this, &BotManagerDialog::onBotConnected);
     connect(m_bot, &BotProcess::botChat, this, &BotManagerDialog::onBotChat);
     connect(m_bot, &BotProcess::processExited, this, &BotManagerDialog::onProcessExited);
+    connect(m_bot, &BotProcess::dependenciesInstalled, this, &BotManagerDialog::onDependenciesInstalled);
 
     loadConfigs();
     refreshTable();
-    startBotServer();
+    ensureBotDependencies();
+}
+
+void BotManagerDialog::ensureBotDependencies()
+{
+    if (!m_bot->hasNode()) {
+        appendLog("<span style='color:#f87171;'>Node.js is required for the bot system — install it from https://nodejs.org, then reopen the Bot Manager.</span>");
+        QMessageBox::information(this, "Bot System",
+            "The bot system requires Node.js, which was not found on this system.\n\n"
+            "Install it from https://nodejs.org, then reopen the Bot Manager.");
+        return;
+    }
+
+    if (m_bot->hasDependencies()) {
+        startBotServer();
+        return;
+    }
+
+    auto answer = QMessageBox::question(this, "Bot System",
+        "The bot system needs its Node.js modules installed before it can run.\n"
+        "This downloads a few megabytes of dependencies into your launcher folder.\n\n"
+        "Install the required modules now?",
+        QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+
+    if (answer == QMessageBox::Yes) {
+        appendLog("Installing bot dependencies (npm install)...");
+        m_statusLabel->setText("Bot server: installing dependencies...");
+        m_statusLabel->setStyleSheet("color: #fbbf24; padding: 0 12px; font-size: 12px;");
+        m_bot->installDependencies();
+    } else {
+        appendLog("<span style='color:#f87171;'>Bot dependencies not installed — bot system disabled.</span>"
+                  " Open the Bot Manager again to install them later.");
+    }
+}
+
+void BotManagerDialog::onDependenciesInstalled(bool ok)
+{
+    if (ok) {
+        appendLog("Bot dependencies installed.");
+        startBotServer();
+    } else {
+        appendError("Failed to install bot dependencies.");
+        m_statusLabel->setText("Bot server: install failed");
+        m_statusLabel->setStyleSheet("color: #f87171; padding: 0 12px; font-size: 12px;");
+    }
 }
 
 BotManagerDialog::~BotManagerDialog()

@@ -1,0 +1,205 @@
+name: Deploy repos and translations
+
+on:
+  release:
+    types: [released]
+  push:
+    branches: [main]
+    paths: [translations/*.ts]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: site
+
+      - name: Install repo tooling
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev apt-utils gpg
+          # NOTE: pacman-package-manager is intentionally NOT installed here.
+          # Its `repo-add` is a shim that runs inside a throwaway
+          # `docker run archlinux ...` container and does not bind-mount the
+          # working directory, so its output never makes it back to the
+          # host. We invoke Docker ourselves in the pacman repo step below,
+          # with an explicit bind mount, instead.
+
+      - name: Install lrelease
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qttools5-dev-tools
+          command -v lrelease-qt5 || command -v lrelease
+
+      - name: Download release assets
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p downloads
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            RELEASE_ARGS=("${GITHUB_REF_NAME}")
+          else
+            RELEASE_ARGS=()
+          fi
+          for i in $(seq 1 30); do
+            if gh release download "${RELEASE_ARGS[@]}" --pattern 'PollyMC-Continued-*.deb' --pattern 'PollyMC-Continued-*.pkg.tar.zst' --dir downloads --clobber 2>/dev/null; then
+              if ls downloads/PollyMC-Continued*.deb >/dev/null 2>&1 && ls downloads/PollyMC-Continued*.pkg.tar.zst >/dev/null 2>&1; then
+                echo "downloaded release assets"
+                break
+              fi
+            fi
+            echo "assets not ready yet (attempt $i/30), waiting 10s..."
+            sleep 10
+          done
+          ls -la downloads/
+
+      - name: Clear old apt/arch content
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        run: |
+          set -euo pipefail
+          rm -rf site/apt site/arch
+
+      - name: Build apt repository
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        run: |
+          set -euo pipefail
+          mkdir -p site/apt/pool/main/p/pollymc-continued
+          cp downloads/PollyMC-Continued*.deb site/apt/pool/main/p/pollymc-continued/
+
+          mkdir -p site/apt/dists/stable/main/binary-amd64
+          cd site/apt
+          dpkg-scanpackages --multiversion pool > dists/stable/main/binary-amd64/Packages
+          gzip -k -9 dists/stable/main/binary-amd64/Packages
+          apt-ftparchive release dists/stable > dists/stable/Release
+
+          # Sign the repository if a signing key is configured as a secret.
+          # Without it the repo is published unsigned and users must use
+          # [trusted=yes] in the sources line (documented in README.md).
+          if [[ -n "${{ secrets.APT_SIGNING_KEY }}" ]]; then
+            echo "${{ secrets.APT_SIGNING_KEY }}" | gpg --batch --import
+            gpg --batch --no-tty --pinentry-mode loopback \
+              --passphrase "${{ secrets.APT_SIGNING_PASSPHRASE }}" \
+              --yes --detach-sign --armor \
+              -o dists/stable/Release.gpg dists/stable/Release
+            gpg --batch --no-tty --pinentry-mode loopback \
+              --passphrase "${{ secrets.APT_SIGNING_PASSPHRASE }}" \
+              --yes --clearsign \
+              -o dists/stable/InRelease dists/stable/Release
+            # Export the public key so users can fetch it for signed-by.
+            gpg --batch --export --armor \
+              $(gpg --batch --with-colons --list-secret-keys | awk -F: '/^sec:/{print $5; exit}') \
+              > pollymc-continued.gpg
+            echo "apt repository signed"
+          else
+            echo "::warning::No APT_SIGNING_KEY secret set; apt repo will be unsigned (use [trusted=yes])"
+          fi
+          echo "=== apt repo layout ==="
+          find . -type f | sort
+
+      - name: Build pacman repository
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        run: |
+          set -euo pipefail
+          mkdir -p site/arch/x86_64
+          for f in downloads/PollyMC-Continued*.pkg.tar.zst; do
+            case "$f" in
+              *-debug-*) echo "Skipping debug package: $f" ;;
+              *) cp "$f" site/arch/x86_64/ ;;
+            esac
+          done
+          cd site/arch/x86_64
+
+          docker run --rm -v "$PWD":/repo -w /repo archlinux:latest \
+            repo-add -n pollymc-continued.db.tar.gz PollyMC-Continued-*.pkg.tar.zst
+
+          mv pollymc-continued.db.tar.gz pollymc-continued.db
+          mv pollymc-continued.files.tar.gz pollymc-continued.files
+          echo "=== pacman repo layout ==="
+          ls -la
+
+      - name: Clear old translations content
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: rm -rf site/translations
+
+      - name: Compile .qm files
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          set -e
+          mkdir -p site/translations
+          cp translations/*.ts site/translations/
+          for f in site/translations/*.ts; do
+            key=$(basename "$f" .ts)
+            lrelease -removeidentical "$f" -qm "site/translations/mmc_${key}.qm" || true
+          done
+          ls -la site/translations/
+
+      - name: Generate index_v2.json
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: python3 .github/workflows/make_translation_index.py site/translations/
+
+      - name: Rebuild landing page
+        run: |
+          set -euo pipefail
+          {
+            echo "<html><body>"
+            echo "<h1>PollyMC-Continued</h1>"
+            if [ -d site/apt ]; then
+              echo "<p><a href=\"apt/\">apt</a> - Debian/Ubuntu .deb packages</p>"
+            fi
+            if [ -d site/arch ]; then
+              echo "<p><a href=\"arch/\">arch</a> - Arch Linux pacman packages</p>"
+            fi
+            if [ -d site/translations ]; then
+              echo "<p><a href=\"translations/\">translations</a> - Compiled .qm translation files</p>"
+            fi
+            echo "</body></html>"
+          } > site/index.html
+
+      - name: Commit and push to gh-pages
+        run: |
+          set -euo pipefail
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update repos/translations (${{ github.event_name }})"
+            for i in $(seq 1 5); do
+              if git push; then
+                break
+              fi
+              echo "Push rejected, rebasing and retrying ($i/5)..."
+              git fetch origin gh-pages
+              git rebase origin/gh-pages
+            done
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

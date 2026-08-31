@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (c) 2022 flowln <flowlnlnln@gmail.com>
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *
@@ -19,7 +19,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -77,10 +77,6 @@ struct Language {
             result = u8"Español de Latinoamérica";
         } else if (key == "en_NZ") {
             result = u8"New Zealand English";  // No idea why qt translates this to just english and not to New Zealand English
-        } else if (key == "en@pirate") {
-            result = u8"Tongue of the High Seas";
-        } else if (key == "en@uwu") {
-            result = u8"Cute Engwish";
         } else if (key == "tok") {
             result = u8"toki pona";
         } else if (key == "nan") {

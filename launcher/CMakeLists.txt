@@ -1139,6 +1139,8 @@ SET(LAUNCHER_SOURCES
     ui/widgets/LogView.h
     ui/widgets/InfoFrame.cpp
     ui/widgets/InfoFrame.h
+    ui/widgets/ToastNotification.cpp
+    ui/widgets/ToastNotification.h
     ui/widgets/ModFilterWidget.cpp
     ui/widgets/ModFilterWidget.h
     ui/widgets/ModListView.cpp

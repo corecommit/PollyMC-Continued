@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -55,8 +55,13 @@ int main(int argc, char* argv[])
     // policy (PassThrough) produces muddled fractional scaling under KDE
     // Plasma. Round sanely unless the user (or Plasma) already set a policy
     // via QT_SCALE_FACTOR_ROUNDING_POLICY.
+    // NOTE: only applies on Linux - Windows/macOS keep PassThrough so common
+    // 125%/150% display scales render at their true size instead of being
+    // floored to 100%.
+#if defined Q_OS_LINUX
     if (qEnvironmentVariableIsEmpty("QT_SCALE_FACTOR_ROUNDING_POLICY"))
         QApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor);
+#endif
 
     // initialize Qt
     Application app(argc, argv);

@@ -1,7 +1,10 @@
 #pragma once
 
 #include <QDebug>
+#include <QFuture>
+#include <QFutureWatcher>
 #include <QObject>
+#include <QThreadPool>
 
 #include "minecraft/mod/Mod.h"
 #include "minecraft/mod/ModDetails.h"
@@ -52,6 +55,9 @@ class LocalModParseTask : public Task {
     ResourceType m_type;
     QFileInfo m_modFile;
     ResultPtr m_result;
+
+    QFuture<void> m_future;
+    QFutureWatcher<void> m_watcher;
 
     std::atomic<bool> m_aborted = false;
 };

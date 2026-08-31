@@ -7124,7 +7124,7 @@ Győződj meg róla, hogy az URL megbízható.
     <message>
         <location filename="../launcher/ui/pages/global/MinecraftPage.h" line="54"/>
         <source>Minecraft</source>
-        <translation></translation>
+        <translation>Minecraft</translation>
     </message>
 </context>
 <context>
@@ -8538,7 +8538,7 @@ Frissítsd a következőt: %1!</translation>
     <message>
         <location filename="../launcher/ui/dialogs/NewComponentDialog.ui" line="37"/>
         <source>uid</source>
-        <translation></translation>
+        <translation>azonosító</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/NewComponentDialog.ui" line="30"/>
@@ -13597,7 +13597,7 @@ Adj hozzá egy Microsoft-fiókot.</translation>
     <message>
         <location filename="../launcher/VersionProxyModel.cpp" line="112"/>
         <source>Minecraft</source>
-        <translation></translation>
+        <translation>Minecraft</translation>
     </message>
     <message>
         <location filename="../launcher/VersionProxyModel.cpp" line="198"/>
@@ -13880,7 +13880,7 @@ Ezt a globális beállításokban tudod beállítani.</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/WorldListPage.ui" line="126"/>
         <source>MCEdit</source>
-        <translation></translation>
+        <translation>MCEdit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/WorldListPage.cpp" line="342"/>

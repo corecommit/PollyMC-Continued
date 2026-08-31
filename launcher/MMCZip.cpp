@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *  Copyright (c) 2023-2024 Trial97 <alexandru.tripon97@gmail.com>
  *
@@ -19,7 +19,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ bool compressDirFiles(ArchiveWriter& zip, QString dir, QFileInfoList files)
 }
 
 // ours
-bool createModdedJar(QString sourceJarPath, QString targetJarPath, const QList<Mod*>& mods)
+bool createModdedJar(QString sourceJarPath, QString targetJarPath, const QList<Mod::Ptr>& mods)
 {
     ArchiveWriter zipOut(targetJarPath);
     if (!zipOut.open()) {
@@ -106,7 +106,7 @@ bool createModdedJar(QString sourceJarPath, QString targetJarPath, const QList<M
     // Modify the jar
     // This needs to be done in reverse-order to ensure we respect the loading order of components
     for (auto i = mods.crbegin(); i != mods.crend(); i++) {
-        const auto* mod = *i;
+        const auto& mod = *i;
         // do not merge disabled mods.
         if (!mod->enabled())
             continue;

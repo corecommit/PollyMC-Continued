@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only AND Apache-2.0
 
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *  Copyright (C) 2022 Lenny McLennington <lenny@sneed.church>
  *  Copyright (C) 2022 Tayou <git@tayou.org>
@@ -25,7 +25,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -649,6 +649,10 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         m_settings->registerSetting("LastUsedGroupForNewInstance", QString());
 
         m_settings->registerSetting("MenuBarInsteadOfToolBar", false);
+
+        // GitHub star reminder — dismissed means "never ask again"
+        m_settings->registerSetting("StarReminderDismissed", false);
+        m_settings->registerSetting("StarReminderLastShown", QString());
 
         m_settings->registerSetting("NumberOfConcurrentTasks", 10);
         m_settings->registerSetting("NumberOfConcurrentDownloads", 6);
@@ -1325,6 +1329,8 @@ bool Application::event(QEvent* event)
 void Application::setupWizardFinished(int status)
 {
     qDebug() << "Wizard result =" << status;
+    m_setupWizard->deleteLater();
+    m_setupWizard = nullptr;
     performMainStartupAction();
 }
 

@@ -5141,7 +5141,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="208"/>
         <source>Every </source>
-        <translation> </translation>
+        <translation>すべての</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="62"/>

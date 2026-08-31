@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (c) 2024 Trial97 <alexandru.tripon97@gmail.com>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -70,12 +70,7 @@ class InstallJavaPage : public QWidget, public BasePage {
 
         QMetaObject::connectSlotsByName(this);
     }
-    ~InstallJavaPage()
-    {
-        delete horizontalLayout;
-        delete majorVersionSelect;
-        delete javaVersionSelect;
-    }
+    ~InstallJavaPage() = default;
 
     //! loads the list if needed.
     void initialize(Meta::VersionList::Ptr vlist)

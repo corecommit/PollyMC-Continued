@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <QTimer>
 #include <QWidget>
 
 #include "modplatform/ModIndex.h"
@@ -69,6 +70,8 @@ class ModPage : public ResourcePage {
    protected:
     std::unique_ptr<ModFilterWidget> m_filter_widget;
     std::shared_ptr<ModFilterWidget::Filter> m_filter;
+
+    QTimer* m_searchDebounceTimer = nullptr;
 };
 
 }  // namespace ResourceDownload

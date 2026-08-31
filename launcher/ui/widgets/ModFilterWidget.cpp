@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (c) 2023 Trial97 <alexandru.tripon97@gmail.com>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -352,6 +352,10 @@ void ModFilterWidget::setCategories(const QList<ModPlatform::Category>& categori
 {
     m_categories = categories;
 
+    // The checkboxes are parented to the group box, so deleting the layout
+    // alone would leave them behind; delete them explicitly.
+    const auto oldCheckboxes = ui->categoryGroup->findChildren<QCheckBox*>();
+    qDeleteAll(oldCheckboxes);
     delete ui->categoryGroup->layout();
     auto layout = new QVBoxLayout(ui->categoryGroup);
 
@@ -359,7 +363,7 @@ void ModFilterWidget::setCategories(const QList<ModPlatform::Category>& categori
         auto name = category.name;
         name.replace("-", " ");
         name.replace("&", "&&");
-        auto checkbox = new QCheckBox(name);
+        auto checkbox = new QCheckBox(name, ui->categoryGroup);
         auto font = checkbox->font();
         font.setCapitalization(QFont::Capitalize);
         checkbox->setFont(font);

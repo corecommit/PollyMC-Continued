@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *  Copyright (C) 2022 Jamie Mansfield <jmansfield@cadixdev.org>
  *  Copyright (C) 2023 TheKodeToad <TheKodeToad@proton.me>
@@ -20,7 +20,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -1319,15 +1319,15 @@ WorldList* MinecraftInstance::worldList()
     return m_world_list.get();
 }
 
-QList<Mod*> MinecraftInstance::getJarMods() const
+QList<Mod::Ptr> MinecraftInstance::getJarMods() const
 {
     auto profile = m_components->getProfile();
-    QList<Mod*> mods;
+    QList<Mod::Ptr> mods;
     for (auto jarmod : profile->getJarMods()) {
         QStringList jar, temp1, temp2, temp3;
         jarmod->getApplicableFiles(runtimeContext(), jar, temp1, temp2, temp3, jarmodsPath().absolutePath());
         // QString filePath = jarmodsPath().absoluteFilePath(jarmod->filename(currentSystem));
-        mods.push_back(new Mod(QFileInfo(jar[0])));
+        mods.push_back(Mod::Ptr(new Mod(QFileInfo(jar[0]))));
     }
     return mods;
 }

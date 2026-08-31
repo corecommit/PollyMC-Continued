@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (c) 2022 flowln <flowlnlnln@gmail.com>
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *  Copyright (c) 2023 Trial97 <alexandru.tripon97@gmail.com>
@@ -20,7 +20,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -274,19 +274,29 @@ void ModFolderModel::onParseFinished()
     auto modsList = allMods();
     auto mods = QSet(modsList.begin(), modsList.end());
 
+    // Build O(1) lookup tables instead of linear-searching the mod set for
+    // every dependency (O(n^2) on large folders). Keys are composite strings
+    // (Qt 6.4's qHash has no overload for ModPlatform::ResourceProvider).
+    auto projectKey = [](const QString& id, ModPlatform::ResourceProvider provider) {
+        return id + QChar(0x1f) + QString::number(static_cast<int>(provider));
+    };
+    QHash<QString, Mod*> byModId;
+    QHash<QString, Mod*> byProjectId;
+    byModId.reserve(mods.size());
+    byProjectId.reserve(mods.size());
+    for (auto mod : mods) {
+        byModId.insert(mod->mod_id(), mod);
+        if (mod->metadata())
+            byProjectId.insert(projectKey(mod->metadata()->project_id.toString(), mod->metadata()->provider), mod);
+    }
+
     m_requires.clear();
     m_requiredBy.clear();
 
-    auto findByProjectID = [mods](QVariant modId, ModPlatform::ResourceProvider provider) -> Mod* {
-        auto found = std::find_if(mods.begin(), mods.end(), [modId, provider](Mod* m) {
-            return m->metadata() && m->metadata()->provider == provider && m->metadata()->project_id == modId;
-        });
-        return found != mods.end() ? *found : nullptr;
-    };
     for (auto mod : mods) {
         auto id = mod->mod_id();
         for (auto dep : mod->dependencies()) {
-            auto d = findById(mods, dep);
+            auto d = byModId.value(dep);
             if (d) {
                 m_requires[id] << d;
                 m_requiredBy[d->mod_id()] << mod;
@@ -295,7 +305,7 @@ void ModFolderModel::onParseFinished()
         if (mod->metadata()) {
             for (auto dep : mod->metadata()->dependencies) {
                 if (dep.type == ModPlatform::DependencyType::REQUIRED) {
-                    auto d = findByProjectID(dep.addonId, mod->metadata()->provider);
+                    auto d = byProjectId.value(projectKey(dep.addonId.toString(), mod->metadata()->provider));
                     if (d) {
                         m_requires[id] << d;
                         m_requiredBy[d->mod_id()] << mod;

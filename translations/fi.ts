@@ -145,129 +145,128 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation type="unfinished">Ei pystytty käsittelemään paketin manifest-tiedostoa:
-</translation>
+        <translation>Paketin manifest-tiedostoa ei voitu ymmärtää:</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
         <source>Unsupported installation mode</source>
-        <translation type="unfinished">Tukematon asennustila</translation>
+        <translation>Tukematon asennustila</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="156"/>
         <source>Failed to get local metadata index for &apos;%1&apos; v%2</source>
-        <translation type="unfinished">Paikallista metatiedon indeksiä ei voitu ladata kohteelle &apos;%1&apos; v%2</translation>
+        <translation>Paikallista metatiedon indeksiä ei voitu ladata kohteelle &apos;%1&apos; v%2</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="187"/>
         <source>Deleting existing files...</source>
-        <translation type="unfinished">Poistetaan olemassa olevia tiedostoja...</translation>
+        <translation>Poistetaan olemassa olevia tiedostoja...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="334"/>
         <source>Unknown mod type: %1</source>
-        <translation type="unfinished">Tuntematon modityyppi: %1</translation>
+        <translation>Tuntematon modityyppi: %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="346"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation type="unfinished">Paikallista metatiedon indeksiä ei voitu ladata kohteelle %1</translation>
+        <translation>Paikallista metatiedon indeksiä ei voitu ladata kohteelle %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="377"/>
         <source>Failed to find version for %1 loader</source>
-        <translation type="unfinished">Versiota ei löytynyt %1-modilataajalle</translation>
+        <translation>Versiota ei löytynyt lataajalle %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="390"/>
         <source>No loader version set for modpack!</source>
-        <translation type="unfinished">Modipaketilla ei ole määritetty modilataajan versiota!</translation>
+        <translation>Lataajan versiota ei ole asetettu modipaketille!</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="520"/>
         <source>Unknown or unsupported download type: %1</source>
-        <translation type="unfinished">Tuntematon tai ei tuettu lataustyyppi: %1</translation>
+        <translation>Tuntematon tai tuettamaton lataustyyppi: %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="634"/>
         <source>Downloading configs...</source>
-        <translation type="unfinished">Ladataan konfiguraatioita...</translation>
+        <translation>Ladataan asetuksia...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="635"/>
         <source>Config download</source>
-        <translation type="unfinished">Konfiguraatioiden lataus</translation>
+        <translation>Asetusten lataus</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="676"/>
         <source>Extracting configs...</source>
-        <translation type="unfinished">Puretaan konfiguraatioita...</translation>
+        <translation>Puretaan asetuksia...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="700"/>
         <source>Selecting optional mods...</source>
-        <translation type="unfinished">Valitaan valinnaisia modeja...</translation>
+        <translation>Valitaan valinnaisia modeja...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="709"/>
         <source>Downloading mods...</source>
-        <translation type="unfinished">Ladataan modeja...</translation>
+        <translation>Ladataan modeja...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="712"/>
         <source>Mod download</source>
-        <translation type="unfinished">Modien lataus</translation>
+        <translation>Modin lataus</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="737"/>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="867"/>
         <source>Unknown download type: %1</source>
-        <translation type="unfinished">Tuntematon lataustyyppi: %1</translation>
+        <translation>Tuntematon lataustyyppi: %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="817"/>
         <source>Blocked mods found</source>
-        <translation type="unfinished">Estettyjä modeja löydetty</translation>
+        <translation>Estettyjä modeja löytyi</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="818"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation type="unfinished">Seuraavia tiedostoja ei voi ladata kolmannen osapuolen käynnistysohjelmissa.&lt;br/&gt;Sinun pitää manuaalisesti ladata ja lisätä ne pelipakettiin.</translation>
+        <translation>Seuraavia tiedostoja ei voi ladata kolmannen osapuolen lataajissa.&lt;br/&gt;Sinun täytyy ladata ne manuaalisesti ja lisätä ne instanssiin.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="874"/>
         <source>%1 out of %2 complete</source>
-        <translation type="unfinished">%1/%2 valmiina</translation>
+        <translation>%1 / %2 valmiina</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="909"/>
         <source>Failed to extract mods...</source>
-        <translation type="unfinished">Modien purku epäonnistui...</translation>
+        <translation>Modien purkaminen epäonnistui...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="919"/>
         <source>Extracting mods...</source>
-        <translation type="unfinished">Puretaan modeja...</translation>
+        <translation>Puretaan modeja...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="991"/>
         <source>Installing modpack</source>
-        <translation type="unfinished">Asennetaan modipakettia</translation>
+        <translation>Asennetaan modipakettia</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="1002"/>
         <source>Failed to create libraries component</source>
-        <translation type="unfinished">Kirjastokomponenttien luonti epäonnistui</translation>
+        <translation>Kirjastokomponentin luominen epäonnistui</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="1029"/>
         <source>Unknown loader type: </source>
-        <translation type="unfinished">Tuntematon lataajatyyppi: </translation>
+        <translation>Tuntematon lataajatyyppi: </translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="1043"/>
         <source>Failed to create pack component</source>
-        <translation type="unfinished">Pakettikomponentin luonti epäonnistui</translation>
+        <translation>Pakettikomponentin luominen epäonnistui</translation>
     </message>
 </context>
 <context>
@@ -358,25 +357,25 @@
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="344"/>
         <source>MSA</source>
         <comment>Account type</comment>
-        <translation type="unfinished">MSA</translation>
+        <translation>MSA</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="347"/>
         <source>Offline</source>
         <comment>Account type</comment>
-        <translation type="unfinished">Offline</translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="350"/>
         <source>Authlib-Injector</source>
         <comment>Account type</comment>
-        <translation type="unfinished"></translation>
+        <translation>Authlib-Injector</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="353"/>
         <source>Unknown</source>
         <comment>Account type</comment>
-        <translation type="unfinished">Tuntematon</translation>
+        <translation>Tuntematon</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="382"/>
@@ -386,7 +385,7 @@
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="394"/>
         <source>Type of the account (MSA, Offline, or Authlib-Injector)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilin tyyppi (MSA, Offline tai Authlib-Injector)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="396"/>
@@ -440,7 +439,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
         <source>Add &amp;Yggdrasil</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää &amp;Yggdrasil</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="108"/>
@@ -517,7 +516,8 @@ Jos olet uusi täällä, voit painaa &quot;Lisää Microsoft&quot; -nappia lisä
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="58"/>
         <source>Welcome!
 You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get started.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tervetuloa!
+Voit lisätä Microsoft-, offline- tai Yggdrasil (authlib-injector) -tilin aloittaaksesi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="90"/>
@@ -734,7 +734,18 @@ Check the PollyMC-Continued updater log at:
 for details on the last update attempt.
 
 To delete this lock and proceed select &quot;Ignore&quot; below.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tässä asennuksessa on päivityslukkotiedosto osoitteessa: %1
+
+Aikaleima: %2
+Päivitetään versiosta %3 versioon %4
+Kohdeasennuspolku: %5
+Datapolku: %6
+Tämä tarkoittaa todennäköisesti sitä, että päivitysyritys epäonnistui. Varmista, että asennuksesi on toimintakunnossa ennen jatkamista.
+Katso PollyMC-Continuedin päivitysloki osoitteesta: 
+%7
+lisätietoja viimeisimmästä päivitysyrityksestä.
+
+Poistaaksesi tämän lukon ja jatkaaksesi valitse &quot;Ohita&quot; alla.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1107"/>
@@ -744,7 +755,12 @@ Please ensure your installation is in working order before proceeding.
 Check the PollyMC-Continued updater log at: 
 %1
 for details on the last update attempt.</source>
-        <translation type="unfinished"></translation>
+        <translation>Päivitysyritys epäonnistui
+
+Varmista, että asennuksesi on toimintakunnossa ennen jatkamista.
+Katso PollyMC-Continuedin päivitysloki osoitteesta: 
+%1
+lisätietoja viimeisimmästä päivitysyrityksestä.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -759,7 +775,12 @@ You are now running %1 .
 Check the PollyMC-Continued updater log at: 
 %2
 for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>Päivitys onnistui
+
+Käytössäsi on nyt %1 .
+Katso PollyMC-Continuedin päivitysloki osoitteesta: 
+%2
+lisätietoja.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1179"/>
@@ -1041,47 +1062,47 @@ Poistaaksesi tämän lukituksen ja jatkaaksesi, valitse alempaa &quot;Sivuuta&qu
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="14"/>
         <source>Add Yggdrasil (authlib-injector) Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää Yggdrasil (authlib-injector) -tili</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="23"/>
         <source>Yggdrasil Auth Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Yggdrasil-todennuspalvelin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="30"/>
         <source>Auth server URL (e.g. https://example.com/api/yggdrasil)</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelimen URL (esim. https://example.com/api/yggdrasil)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="37"/>
         <source>Username / Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Käyttäjänimi / Sähköposti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="47"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Salasana</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="66"/>
         <source>Log in</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjaudu sisään</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="18"/>
         <source>Logging in...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjaudutaan sisään...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="25"/>
         <source>Please fill in all fields.</source>
-        <translation type="unfinished"></translation>
+        <translation>Täytä kaikki kentät.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="34"/>
         <source>Server URL must start with http:// or https://</source>
-        <translation type="unfinished"></translation>
+        <translation>Palvelimen URL:n täytyy alkaa http:// tai https://</translation>
     </message>
 </context>
 <context>
@@ -1089,69 +1110,69 @@ Poistaaksesi tämän lukituksen ja jatkaaksesi, valitse alempaa &quot;Sivuuta&qu
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="21"/>
         <source>Authenticating with Yggdrasil auth server</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennetaan Yggdrasil-todennuspalvelimella</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="28"/>
         <source>No auth server URL set. Remove this account and re-add it with the correct URL.</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelimen URL:ia ei ole asetettu. Poista tämä tili ja lisää se uudelleen oikealla URL:lla.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="117"/>
         <source>Auth request failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspyyntö epäonnistui: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="120"/>
         <source>Could not reach auth server: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelimeen ei päästy: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="128"/>
         <source>Could not parse auth server response.</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelimen vastausta ei voitu jäsentää.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="138"/>
         <source>Auth server error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelimen virhe: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="147"/>
         <source>Auth server did not return an access token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelin ei palauttanut käyttöoikeustunnusta.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="151"/>
         <source>Auth server did not return a profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelin ei palauttanut profiilia.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="158"/>
         <source>Auth server returned an incomplete profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelin palautti epätäydellisen profiilin.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="173"/>
         <source>Choose Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse profiili</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="174"/>
         <source>Multiple profiles found. Select one:</source>
-        <translation type="unfinished"></translation>
+        <translation>Useita profiileja löytyi. Valitse yksi:</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="227"/>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="234"/>
         <source>Authentication successful (no skin data)</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennus onnistui (ei ihodataa)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="269"/>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="278"/>
         <source>Authentication successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennus onnistui</translation>
     </message>
 </context>
 <context>
@@ -2201,7 +2222,7 @@ Käynnistetäänkö silti?</translation>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="46"/>
         <source>Not enough RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei tarpeeksi RAM-muistia</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="47"/>
@@ -2211,7 +2232,12 @@ Required: %1 MiB
 Total system RAM: %2 MiB
 
 Continue anyway? This may cause severe slowdowns or crashes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tämä instanssi on määritetty käyttämään enemmän muistia kuin järjestelmässäsi on asennettuna.
+
+Vaaditaan: %1 MiB
+Järjestelmän RAM-muisti yhteensä: %2 MiB
+
+Jatketaanko silti? Tämä voi aiheuttaa vakavia hidastumisia tai kaatumisia.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="57"/>
@@ -2221,7 +2247,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="69"/>
         <source>Note: only %1 MiB RAM is currently free, but this instance requests %2 MiB. Other running programs may cause slowdowns; consider closing some before playing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Huom: vain %1 MiB RAM-muistia on tällä hetkellä vapaana, mutta tämä instanssi vaatii %2 MiB. Muut käynnissä olevat ohjelmat voivat aiheuttaa hidastumista; harkitse joidenkin sulkemista ennen pelaamista.</translation>
     </message>
     <message>
         <source>High memory pressure</source>
@@ -2299,7 +2325,7 @@ Pelipakettia ei voitu käynnistää koska jotkin kirjastot puuttuvat tai niitä 
     <message>
         <location filename="../launcher/minecraft/launch/EnsureOfflineLibraries.cpp" line="33"/>
         <source>This instance cannot be launched because some libraries are missing or have not been downloaded yet. Please try again in online mode with a working Internet connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Tätä instanssia ei voida käynnistää, koska jotkin kirjastot puuttuvat tai niitä ei ole vielä ladattu. Yritä uudelleen verkkotilassa toimivan Internet-yhteyden kanssa</translation>
     </message>
 </context>
 <context>
@@ -2797,7 +2823,7 @@ Oletko varma?</translation>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="214"/>
         <source>Select %1</source>
         <comment>Select whatever type of files the page contains. Example: &apos;Loader Mods&apos;</comment>
-        <translation type="unfinished">Valitse %1</translation>
+        <translation>Valitse %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="256"/>
@@ -3387,7 +3413,7 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.ui" line="22"/>
         <source>Note: CurseForge allows creators to block access to third-party tools. As such, you may need to manually download some mods to be able to install a modpack.</source>
-        <translation type="unfinished"></translation>
+        <translation>Huom: CurseForge antaa tekijöille mahdollisuuden estää kolmannen osapuolen työkalujen käytön. Saatat joutua lataamaan joitakin modeja manuaalisesti asentaaksesi modipaketin.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.ui" line="97"/>
@@ -3716,7 +3742,7 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
         <source>- PollyMC-Continued, Prism Launcher, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>- PollyMC-Continued-, Prism Launcher-, PolyMC- tai MultiMC-vientiin tehdyt instanssit (ZIP)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="73"/>
@@ -3839,7 +3865,7 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="109"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="142"/>
@@ -4475,7 +4501,7 @@ Vahvista että enimmäismuistivaraus on alempi.</translation>
     <message>
         <location filename="../launcher/ui/setupwizard/JavaWizardPage.cpp" line="85"/>
         <source>Please select how much memory to allocate to instances and if PollyMC-Continued should manage Java automatically or manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse, kuinka paljon muistia instansseille varataan ja hallitseeko PollyMC-Continued Javan automaattisesti vai manuaalisesti.</translation>
     </message>
     <message>
         <source>Please select how much memory to allocate to instances and if Prism Launcher should manage Java automatically or manually.</source>
@@ -4623,7 +4649,7 @@ Voit muuttaa Java-version myöhemmin asetuksista.
     <message>
         <location filename="../launcher/ui/widgets/LanguageSelectionWidget.cpp" line="66"/>
         <source>Use system locales</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytä järjestelmän lokaaleja</translation>
     </message>
     <message>
         <source>Use system regional standards</source>
@@ -4679,7 +4705,7 @@ Voit muuttaa Java-version myöhemmin asetuksista.
     <message>
         <location filename="../launcher/LaunchController.cpp" line="99"/>
         <source>In order to play Minecraft, you must have at least one account added. Would you like to open the account manager to add an account now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Minecraftin pelaamiseen tarvitset vähintään yhden lisätyn tilin. Haluatko avata tilienhallinnan lisätäksesi tilin nyt?</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="217"/>
@@ -4689,26 +4715,28 @@ Voit muuttaa Java-version myöhemmin asetuksista.
     <message>
         <location filename="../launcher/LaunchController.cpp" line="243"/>
         <source>Auth servers offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Todennuspalvelimet offline</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="244"/>
         <source>The Minecraft authentication servers are currently unavailable, launching in offline mode.
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Minecraftin todennuspalvelimet ovat tällä hetkellä pois käytöstä. Käynnistetään offline-tilassa.
+</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="246"/>
         <source>No internet connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei Internet-yhteyttä</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="247"/>
         <source>You are not connected to the Internet, launching in offline mode.
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Et ole yhteydessä Internetiin. Käynnistetään offline-tilassa.
+</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="369"/>
@@ -5018,22 +5046,22 @@ Sinun tarvitsee ehkä korjata modisi, koska peli jatkaa silti lokin kirjoittamis
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="236"/>
         <source>Updates are not available for macOS builds yet: they require a code-signed app and a signed update feed that the project does not currently provide.</source>
-        <translation type="unfinished"></translation>
+        <translation>Päivitykset eivät ole vielä saatavilla macOS-versioille: ne vaativat allekirjoitetun sovelluksen ja allekirjoitetun päivityssyötteen, joita projekti ei tällä hetkellä tarjoa.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="258"/>
         <source>Auto-launch last played instance on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Käynnistä viimeksi pelattu instanssi automaattisesti käynnistyksessä</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="265"/>
         <source>Minimize to system tray instead of closing</source>
-        <translation type="unfinished"></translation>
+        <translation>Pienennä järjestelmälokeroon sulkemisen sijaan</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="294"/>
         <source>Folder where PollyMC-Continued stores automatically downloaded Java versions. Do NOT set this to your system Java installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kansio, johon PollyMC-Continued tallentaa automaattisesti ladatut Java-versiot. ÄLÄ aseta tätä järjestelmän Java-asennukseesi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
@@ -5273,7 +5301,7 @@ Luvan myöntäminen %1:lle Flatseal:illa on suositeltua.</translation>
         <location filename="../launcher/minecraft/launch/LauncherPartLaunch.cpp" line="202"/>
         <source>Could not launch Minecraft!</source>
         <extracomment>Error message displayed if instace can&apos;t start</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Minecraftia ei voitu käynnistää!</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/LauncherPartLaunch.cpp" line="90"/>
@@ -5645,7 +5673,7 @@ Tämä on korjattava manuaalisesti.</translation>
     <message>
         <location filename="../launcher/LoggedProcess.cpp" line="117"/>
         <source>The process failed to start.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prosessin käynnistäminen epäonnistui.</translation>
     </message>
     <message>
         <source>The process failed to start: %1</source>
@@ -5662,17 +5690,17 @@ Tämä on korjattava manuaalisesti.</translation>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.ui" line="20"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Add an account&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Lisää tili&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.ui" line="33"/>
         <source>Add a Microsoft account if you own Minecraft, or an offline account to play without authentication.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää Microsoft-tili, jos omistat Minecraftin, tai offline-tili pelataksesi ilman todennusta.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.ui" line="57"/>
         <source>Add offline account</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää offline-tili</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Add Microsoft account&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -5690,7 +5718,7 @@ Tämä on korjattava manuaalisesti.</translation>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.cpp" line="51"/>
         <source>Please enter your desired username.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anna haluamasi käyttäjänimi.</translation>
     </message>
 </context>
 <context>
@@ -5774,7 +5802,7 @@ Tämä on korjattava manuaalisesti.</translation>
     <message>
         <location filename="../launcher/minecraft/auth/steps/MSADeviceCodeStep.cpp" line="125"/>
         <source>Failed to retrieve device authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>Laitevaltuutuksen hakeminen epäonnistui</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/MSADeviceCodeStep.cpp" line="262"/>
@@ -5925,22 +5953,22 @@ Tämä on korjattava manuaalisesti.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="319"/>
         <source>&amp;Performance Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Suorituskykyesiasetukset</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="322"/>
         <source>Quick memory presets for low-end PCs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nopeat muistiesiasetukset heikommille tietokoneille.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="349"/>
         <source>&amp;Quick Launch</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pikakäynnistys</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="352"/>
         <source>Launch the last played instance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Käynnistä viimeksi pelattu instanssi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
@@ -5950,12 +5978,12 @@ Tämä on korjattava manuaalisesti.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="801"/>
         <source>&amp;Bots</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Botit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="804"/>
         <source>Open the bot terminal to control Minecraft bots.</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa bottipääte ohjataksesi Minecraft-botteja.</translation>
     </message>
     <message>
         <source>&amp;Meow</source>
@@ -6023,34 +6051,34 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1505"/>
         <source>Crash Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaatumisraportit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1505"/>
         <source>No crash reports found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaatumisraportteja ei löytynyt.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1673"/>
         <location filename="../launcher/ui/MainWindow.cpp" line="1678"/>
         <location filename="../launcher/ui/MainWindow.cpp" line="1682"/>
         <source>Quick Launch</source>
-        <translation type="unfinished"></translation>
+        <translation>Pikakäynnistys</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1673"/>
         <source>No instance has been launched yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Instanssia ei ole vielä käynnistetty.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1678"/>
         <source>Last launched instance no longer exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Viimeksi käynnistettyä instanssia ei ole enää olemassa.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1682"/>
         <source>Instance is already running.</source>
-        <translation type="unfinished"></translation>
+        <translation>Instanssi on jo käynnissä.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1801"/>
@@ -6410,12 +6438,12 @@ Luo uusi pelipaketti ennen kuin yrität asentaa tätä resurssia uudelleen.</tra
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="167"/>
         <source>Show PollyMC</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä PollyMC</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="169"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Lopeta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1406"/>
@@ -6546,27 +6574,27 @@ Luo uusi pelipaketti ennen kuin yrität asentaa tätä resurssia uudelleen.</tra
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="385"/>
         <source>&amp;Backup Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Varmuuskopioi instanssi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="388"/>
         <source>Backup the selected instance as a zip file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Varmuuskopioi valittu instanssi zip-tiedostona.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="396"/>
         <source>&amp;Crash Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kaatumisraportit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="399"/>
         <source>Open the crash reports folder for the selected instance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa valitun instanssin kaatumisraporttikansio.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="493"/>
         <source>PollyMC-Continued (zip)</source>
-        <translation type="unfinished"></translation>
+        <translation>PollyMC-Continued (zip)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="682"/>
@@ -6937,7 +6965,7 @@ Varmista luottamuksesi URL:ään.
         <location filename="../launcher/meta/Index.cpp" line="144"/>
         <source>Load meta for %1:%2</source>
         <comment>This is for the task name that loads the meta index.</comment>
-        <translation type="unfinished">Lataa meta-indeksi %1:%2</translation>
+        <translation>Ladataan metatietoja kohteelle %1:%2</translation>
     </message>
     <message>
         <source>Load meta for %1:%2</source>
@@ -6954,7 +6982,7 @@ Varmista luottamuksesi URL:ään.
         <location filename="../launcher/meta/VersionList.cpp" line="37"/>
         <source>Load meta for %1</source>
         <comment>This is for the task name that loads the meta index.</comment>
-        <translation type="unfinished">Lataa meta-indeksi %1</translation>
+        <translation>Ladataan metatietoja kohteelle %1</translation>
     </message>
 </context>
 <context>
@@ -7136,12 +7164,12 @@ Varmista luottamuksesi URL:ään.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="58"/>
         <source>Custom</source>
-        <translation type="unfinished">Mukautettu</translation>
+        <translation>Mukautettu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="64"/>
         <source>Quick resolution presets</source>
-        <translation type="unfinished"></translation>
+        <translation>Nopeat resoluutioesiasetukset</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="88"/>
@@ -8363,19 +8391,13 @@ Päivitä %1!</translation>
         <location filename="../launcher/net/NetRequest.cpp" line="276"/>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
-        <translation type="unfinished">
-            <numerusform>Pyynnöt rajoitettu %n sekunniksi: Yritä uudelleen %1:n jälkeen</numerusform>
-            <numerusform>Pyynnöt rajoitettu %n sekunniksi: Yritä uudelleen %1:n jälkeen</numerusform>
-        </translation>
+        <translation>Pyyntö rajoitettu %n sekunniksi: yritä uudelleen %1 jälkeen</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/net/NetRequest.cpp" line="281"/>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
-        <translation type="unfinished">
-            <numerusform>Tahti rajoitettu: Odotetaan %n sekunti</numerusform>
-            <numerusform>Tahti rajoitettu: Odotetaan %n sekuntia</numerusform>
-        </translation>
+        <translation>Rajoitettu: odotetaan %n sekuntia</translation>
     </message>
     <message numerus="yes">
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
@@ -8941,12 +8963,12 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/widgets/PageContainer.cpp" line="244"/>
         <source>Help</source>
-        <translation type="unfinished">Ohje</translation>
+        <translation>Ohje</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/PageContainer.cpp" line="244"/>
         <source>Will fix later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Korjataan myöhemmin.</translation>
     </message>
 </context>
 <context>
@@ -8995,47 +9017,47 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="21"/>
         <source>Performance Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>Suorituskykyesiasetukset</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="39"/>
         <source>System Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Järjestelmätiedot</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="43"/>
         <source>Detected RAM: %1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation>Havaittu RAM: %1 Gt</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="48"/>
         <source>Recommended preset: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Suositeltu esiasetus: %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="54"/>
         <source>Select Preset</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse esiasetus</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="58"/>
         <source>Low (4GB RAM or less)</source>
-        <translation type="unfinished"></translation>
+        <translation>Matala (4 Gt RAM tai vähemmän)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="59"/>
         <source>Medium (8GB RAM)</source>
-        <translation type="unfinished"></translation>
+        <translation>Keskitaso (8 Gt RAM)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="60"/>
         <source>High (16GB+ RAM)</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkea (16 Gt+ RAM)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="81"/>
         <source>How it works</source>
-        <translation type="unfinished"></translation>
+        <translation>Näin se toimii</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="87"/>
@@ -9047,7 +9069,14 @@ Oletko varma?</translation>
 
 These are global defaults. You can override per-instance in instance settings.
 Minecraft will use this as -Xms (min) and -Xmx (max) JVM arguments.</source>
-        <translation type="unfinished"></translation>
+        <translation>Suorituskykyesiasetukset säätävät, kuinka paljon RAM-muistia Minecraft voi käyttää.
+
+- Matala: Paras kannettaville, joissa on 4 Gt RAM-muistia. Vähemmän muistia = vähemmän ladattuja lohkoja.
+- Keskitaso: Hyvä useimmille 8 Gt RAM:n tietokoneille.
+- Korkea: Pelitietokoneille, joissa on 16 Gt+ RAM-muistia. Enemmän muistia = enemmän lohkoja ja modeja.
+
+Nämä ovat globaaleja oletusarvoja. Voit ohittaa ne instanssikohtaisesti instanssiasetuksissa.
+Minecraft käyttää tätä -Xms (min) ja -Xmx (max) JVM-argumentteina.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="125"/>
@@ -9057,7 +9086,12 @@ Minecraft will use this as -Xms (min) and -Xmx (max) JVM arguments.</source>
 Best for: Laptops, 4GB RAM PCs
 Recommended for: Vanilla Minecraft, small modpacks
 Warning: Large modpacks may crash with out-of-memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Matala esiasetus
+-Xms%1m -Xmx%2m
+
+Paras: Kannettavat, 4 Gt RAM:n tietokoneet
+Suositeltu: Vanilla Minecraft, pienet modipaketit
+Varoitus: Suuret modipaketit voivat kaatua muistin loppuessa</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="133"/>
@@ -9067,7 +9101,12 @@ Warning: Large modpacks may crash with out-of-memory</source>
 Best for: Desktop PCs, 8GB RAM
 Recommended for: Medium modpacks, shaders
 Good balance of performance and stability</source>
-        <translation type="unfinished"></translation>
+        <translation>Keskitaso esiasetus
+-Xms%1m -Xmx%2m
+
+Paras: Pöytätietokoneet, 8 Gt RAM
+Suositeltu: Keskikokoiset modipaketit, shaderit
+Hyvä tasapaino suorituskyvyn ja vakauden välillä</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="141"/>
@@ -9077,7 +9116,12 @@ Good balance of performance and stability</source>
 Best for: Gaming PCs, 16GB+ RAM
 Recommended for: Large modpacks, heavy shaders
 Maximum performance for demanding setups</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkea esiasetus
+-Xms%1m -Xmx%2m
+
+Paras: Pelitietokoneet, 16 Gt+ RAM
+Suositeltu: Suuret modipaketit, raskaat shaderit
+Maksimaalinen suorituskyky vaativille kokoonpanoille</translation>
     </message>
 </context>
 <context>
@@ -9319,7 +9363,7 @@ Standardivirhe (stderr): %2</translation>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="458"/>
         <source>Actions outside of checking if an update is available are not supported when running the flatpak version of PollyMC-Continued.</source>
-        <translation type="unfinished"></translation>
+        <translation>Muut toiminnot kuin päivityksen saatavuuden tarkistaminen eivät ole tuettuja PollyMC-Continuedin flatpak-versiossa.</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="549"/>
@@ -9427,7 +9471,18 @@ Check the PollyMC-Continued updater log at:
 for details on the last update attempt.
 
 To overwrite this lock and proceed with this update anyway, select &quot;Ignore&quot; below.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tässä asennuksessa on päivityslukkotiedosto osoitteessa: %1
+
+Aikaleima: %2
+Päivitetään versiosta %3 versioon %4
+Kohdeasennuspolku: %5
+Datapolku: %6
+Tämä tarkoittaa todennäköisesti sitä, että edellinen päivitysyritys epäonnistui. Varmista, että asennuksesi on toimintakunnossa ennen jatkamista.
+Katso PollyMC-Continuedin päivitysloki osoitteesta: 
+%7
+lisätietoja viimeisimmästä päivitysyrityksestä.
+
+Ohittaaksesi tämän lukon ja jatkaaksesi tätä päivitystä valitse &quot;Ohita&quot; alla.</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="1086"/>
@@ -10529,49 +10584,49 @@ Tämä viesti näytetään kunnes poistat tämän JVM-argumenteista.</translatio
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="288"/>
         <source>Unchecked</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Tarkistamaton</translation>
+        <translation>Ei valittu</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="290"/>
         <source>Offline</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Offline</translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="292"/>
         <source>Ready</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Valmis</translation>
+        <translation>Valmis</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="294"/>
         <source>Working</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Työstetään</translation>
+        <translation>Työstetään</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="296"/>
         <source>Errored</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Virheellinen</translation>
+        <translation>Virheellinen</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="298"/>
         <source>Expired</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Vanhentunut</translation>
+        <translation>Vanhentunut</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="300"/>
         <source>Disabled</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Pois käytöstä</translation>
+        <translation>Poistettu käytöstä</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="302"/>
         <source>Gone</source>
         <comment>Account status</comment>
-        <translation type="unfinished">Poissa</translation>
+        <translation>Poistunut</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="304"/>
@@ -10787,7 +10842,7 @@ Uusi nimi: %2</translation>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="94"/>
         <source>An auto-updater for PollyMC-Continued</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaattinen päivitysohjelma PollyMC-Continuedille</translation>
     </message>
 </context>
 <context>
@@ -10999,7 +11054,7 @@ Päivitä %1!</translation>
         <location filename="../launcher/ui/pages/modplatform/ResourcePage.cpp" line="305"/>
         <source> [installed]</source>
         <comment>Mod version select</comment>
-        <translation type="unfinished"> [asennettu]</translation>
+        <translation> [asennettu]</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ResourcePage.cpp" line="539"/>
@@ -12349,27 +12404,27 @@ Oletko varma?</translation>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="315"/>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="323"/>
         <source>Skin Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Ihon tallennus</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="315"/>
         <source>Failed to create skins directory!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ihokansion luominen epäonnistui!</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="323"/>
         <source>Failed to copy skin file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ihotiedoston kopiointi epäonnistui!</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="335"/>
         <source>Skin Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Iho tallennettu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="336"/>
         <source>Skin saved for singleplayer. Note: other players in multiplayer will not see your skin unless the server has CustomSkinLoader installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Iho tallennettu yksinpeliä varten. Huom: muut pelaajat eivät näe ihoasi moninpelissä, ellei palvelimella ole CustomSkinLoader asennettuna.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="469"/>
@@ -12971,7 +13026,10 @@ Oletko varma, että haluat tehdä näin?</translation>
 %2 translated
 %3 fuzzy
 %4 total</source>
-        <translation type="unfinished"></translation>
+        <translation>%1:
+%2 käännetty
+%3 epätarkka
+%4 yhteensä</translation>
     </message>
     <message>
         <location filename="../launcher/translations/TranslationsModel.cpp" line="391"/>
@@ -13313,7 +13371,7 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/VersionPage.cpp" line="427"/>
         <source>Cannot download Minecraft or update instances unless you have at least one account added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Minecraftia ei voi ladata eikä instansseja päivittää, ellei sinulla ole vähintään yhtä lisättyä tiliä.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/VersionPage.cpp" line="567"/>
@@ -13549,7 +13607,7 @@ Ole hyvä ja lisää Microsoft-tili.</translation>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="72"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="73"/>
@@ -13892,7 +13950,7 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/minecraft/auth/steps/XboxAuthorizationStep.cpp" line="68"/>
         <source>Failed to get authorization for %1 services. Error %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Valtuutuksen saaminen %1 palveluille epäonnistui. Virhe %2.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/XboxAuthorizationStep.cpp" line="71"/>

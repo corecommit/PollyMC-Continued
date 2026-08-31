@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (c) 2022 flowln <flowlnlnln@gmail.com>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -116,7 +116,15 @@ auto HttpMetaCache::resolveEntry(QString base, QString resource_path, QString ex
             qWarning() << "Failed to open file" << input.fileName() << "for reading:" << input.errorString();
             return staleEntry(base, resource_path);
         }
-        QString md5sum = QCryptographicHash::hash(input.readAll(), QCryptographicHash::Md5).toHex().constData();
+        // Hash in chunks instead of readAll(): avoids a full-file memory copy
+        // and lets big downloads pass through without stalling on allocation.
+        QCryptographicHash hasher(QCryptographicHash::Md5);
+        QByteArray buffer;
+        buffer.resize(1024 * 1024);
+        qint64 bytes_read = 0;
+        while ((bytes_read = input.read(buffer.data(), buffer.size())) > 0)
+            hasher.addData(QByteArrayView(buffer.constData(), bytes_read));
+        QString md5sum = hasher.result().toHex().constData();
         if (entry->m_md5sum != md5sum) {
             selected_base.entry_list.remove(resource_path);
             return staleEntry(base, resource_path);

@@ -97,7 +97,7 @@
   </action>
   <action name="actionAddAuthlibInjector">
    <property name="text">
-    <string>Add &amp;Yggdrasil</string>
+    <string>Add &amp;Authlib-injector</string>
    </property>
   </action>
   <action name="actionRefresh">

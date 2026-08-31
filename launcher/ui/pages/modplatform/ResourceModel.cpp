@@ -40,6 +40,12 @@ ResourceModel::ResourceModel(ResourceAPI* api) : QAbstractListModel(), m_api(api
 ResourceModel::~ResourceModel()
 {
     s_running_models.find(this).value() = false;
+
+    // Cancel in-flight icon downloads so the network requests are aborted
+    // immediately instead of lingering until deferred deletion.
+    if (m_current_icon_job && m_current_icon_job->isRunning())
+        m_current_icon_job->abort();
+    m_current_icon_job.clear();
 }
 
 auto ResourceModel::data(const QModelIndex& index, int role) const -> QVariant
@@ -316,6 +322,13 @@ std::optional<QIcon> ResourceModel::getIcon(QModelIndex& index, const QUrl& url)
         return { pixmap };
 
     if (!m_current_icon_job) {
+        m_current_icon_job.reset(new NetJob("IconJob", APPLICATION->network()));
+        m_current_icon_job->setAskRetry(false);
+    } else if (m_current_icon_job->isRunning()) {
+        // A new icon batch is about to be queued; abort the stale one so the
+        // old requests don't keep the network busy.
+        m_current_icon_job->abort();
+        m_current_icon_job.clear();
         m_current_icon_job.reset(new NetJob("IconJob", APPLICATION->network()));
         m_current_icon_job->setAskRetry(false);
     }

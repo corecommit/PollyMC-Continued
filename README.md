@@ -14,6 +14,49 @@ Lets you play Minecraft **without a Microsoft account** — add offline accounts
 - Setup wizard — offers offline account on first launch
 - NSIS installer with upgrade support
 
+## Install
+
+### Debian / Ubuntu (apt)
+
+Add the repository, then install with `sudo apt install`:
+
+```bash
+# (Optional) trust the repo signing key if the repository is signed
+curl -fsSL https://corecommit.github.io/PollyMC-Continued/apt/pollymc-continued.gpg \
+  | sudo tee /etc/apt/keyrings/pollymc-continued.asc
+
+echo "deb [signed-by=/etc/apt/keyrings/pollymc-continued.asc] https://corecommit.github.io/PollyMC-Continued/apt stable main" \
+  | sudo tee /etc/apt/sources.list.d/pollymc-continued.list
+
+sudo apt update
+sudo apt install pollymc-continued
+```
+
+If the repository is published unsigned (no `APT_SIGNING_KEY` secret configured), drop the `signed-by` option and use `[trusted=yes]` instead:
+
+```bash
+echo "deb [trusted=yes] https://corecommit.github.io/PollyMC-Continued/apt stable main" \
+  | sudo tee /etc/apt/sources.list.d/pollymc-continued.list
+sudo apt update && sudo apt install pollymc-continued
+```
+
+### Arch Linux (pacman)
+
+Add the custom repository to `/etc/pacman.conf` and install with `sudo pacman -S`:
+
+```ini
+[pollymc-continued]
+Server = https://corecommit.github.io/PollyMC-Continued/arch/$arch
+SigLevel = Optional
+```
+
+```bash
+sudo pacman -Syy
+sudo pacman -S pollymc-continued
+```
+
+A `PKGBUILD` is also available in [`packaging/arch/`](packaging/arch/PKGBUILD) — it can be built locally with `makepkg` or submitted to the AUR for `yay -S` / `paru -S` installs.
+
 ## Build
 
 ### Windows

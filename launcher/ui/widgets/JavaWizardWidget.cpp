@@ -550,7 +550,4 @@ void JavaWizardWidget::onSpinBoxValueChanged(int)
     m_memoryTimer->start(500);
 }
 
-JavaWizardWidget::~JavaWizardWidget()
-{
-    delete m_verticalSpacer;
-};
+JavaWizardWidget::~JavaWizardWidget() = default;

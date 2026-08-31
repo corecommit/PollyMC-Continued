@@ -42,9 +42,11 @@ private slots:
     void onBotConnected(const QString& username, const QString& server);
     void onBotChat(const QString& bot, const QString& from, const QString& message);
     void onProcessExited(int code);
+    void onDependenciesInstalled(bool ok);
 
 private:
     void startBotServer();
+    void ensureBotDependencies();
     void showHelp();
     void saveConfigs();
     void loadConfigs();

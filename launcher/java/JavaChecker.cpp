@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Sefa Eyeoglu <contact@scrumplex.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * This file incorporates work covered by the following copyright and
  * permission notice:
  *
- *      Copyright 2013-2021 MultiMC Contributors
+ *      Copyright 2026 PollyMC-Continued Contributors
  *
  *      Licensed under the Apache License, Version 2.0 (the "License");
  *      you may not use this file except in compliance with the License.
@@ -43,6 +43,8 @@
 #include "Commandline.h"
 #include "FileSystem.h"
 #include "java/JavaUtils.h"
+
+Q_LOGGING_CATEGORY(javaCheckLogC, "launcher.java")
 
 JavaChecker::JavaChecker(QString path, QString args, int minMem, int maxMem, int permGen, int id)
     : Task(), m_path(path), m_args(args), m_minMem(minMem), m_maxMem(maxMem), m_permGen(permGen), m_id(id)
@@ -180,8 +182,8 @@ void JavaChecker::error(QProcess::ProcessError err)
 {
     if (err == QProcess::FailedToStart) {
         qDebug() << "Java checker has failed to start.";
-        qDebug() << "Process environment (secret values redacted):" << envToStringList(process->processEnvironment());
-        qDebug() << "Native environment (secret values redacted):" << envToStringList(QProcessEnvironment::systemEnvironment());
+        qCDebug(javaCheckLogC) << "Process environment (secret values redacted):" << envToStringList(process->processEnvironment());
+        qCDebug(javaCheckLogC) << "Native environment (secret values redacted):" << envToStringList(QProcessEnvironment::systemEnvironment());
         killTimer.stop();
         emit checkFinished({ m_path, m_id });
     }

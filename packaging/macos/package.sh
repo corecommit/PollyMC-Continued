@@ -45,21 +45,19 @@ find "$app" \( -name '.DS_Store' -o -name '._*' \) -delete
 xattr -cr "$app"
 chmod +x "$app_executable"
 
-# Bundle bot-server (JS + node_modules) NEXT TO the app bundle, not inside it:
+# Bundle bot-server NEXT TO the app bundle, not inside it:
 # codesign fails on unsigned files inside the bundle, and
 # BotProcess::findBotServerDir() resolves ../bot-server from the app dir.
-# Only bundled when npm install ran.
+# node_modules is not bundled; installed on first use from the Bot Manager.
 bundle_bot_server() {
     dest=$1
     cmake -E rm -rf "$dest/bot-server"
     cp -R "$source_root/bot-server" "$dest/bot-server"
     rm -f "$dest/bot-server/.gitignore"
-    rm -rf "$dest/bot-server/node_modules/.cache" 2>/dev/null || true
+    rm -rf "$dest/bot-server/node_modules"
 }
 
-if [[ -d "$source_root/bot-server/node_modules" ]]; then
-    bundle_bot_server "$install_dir"
-fi
+bundle_bot_server "$install_dir"
 
 # Remove build-machine search paths.
 while IFS= read -r -d '' candidate; do
@@ -183,9 +181,7 @@ dmg_check="$install_dir/dmg-check"
 cmake -E rm -rf "$dmg_root"
 cmake -E make_directory "$dmg_root"
 ditto --norsrc --noextattr --noqtn --noacl "$app" "$dmg_root/PollyMC.app"
-if [[ -d "$source_root/bot-server/node_modules" ]]; then
-    bundle_bot_server "$dmg_root"
-fi
+bundle_bot_server "$dmg_root"
 ln -s /Applications "$dmg_root/Applications"
 cp "$app/Contents/Resources/PollyMC.icns" "$dmg_root/.VolumeIcon.icns"
 

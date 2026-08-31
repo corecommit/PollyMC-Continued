@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25) # Required for features like `CMAKE_MSVC_DEBUG_INFORMATION_FORMAT`
 
-set(Launcher_VERSION "9.1.0" CACHE STRING "Launcher version in MAJOR.MINOR.PATCH format")
+set(Launcher_VERSION "9.2.8" CACHE STRING "Launcher version in MAJOR.MINOR.PATCH format")
 if(Launcher_VERSION STREQUAL "")
     set(Launcher_VERSION "9.0.10" CACHE STRING "Launcher version in MAJOR.MINOR.PATCH format" FORCE)
 endif()
@@ -222,7 +222,7 @@ set(Launcher_BUG_TRACKER_URL "" CACHE STRING "URL for the bug tracker.")
 
 # Translations Platform URL
 set(Launcher_TRANSLATIONS_URL "https://github.com/corecommit/PollyMC-Continued" CACHE STRING "URL for the translations platform.")
-set(Launcher_TRANSLATION_FILES_URL "https://corecommit.github.io/PollyMC-Continued/" CACHE STRING "URL for the translations files.")
+set(Launcher_TRANSLATION_FILES_URL "https://corecommit.github.io/PollyMC-Continued/translations/" CACHE STRING "URL for the translations files.")
 
 # Matrix Space
 set(Launcher_MATRIX_URL "" CACHE STRING "URL to the Matrix Space")
@@ -540,3 +540,32 @@ if(BUILD_TESTING AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests")
 endif()
 # NOTE: this must always be last to appease the CMake deity of quirky install command evaluation order.
 add_subdirectory(launcher)
+
+############################### Packaging (CPack) ###############################
+
+if(UNIX AND NOT APPLE)
+    set(CPACK_GENERATOR "DEB")
+    set(CPACK_PACKAGE_NAME "pollymc-continued")
+    set(CPACK_PACKAGE_VENDOR "PollyMC-Continued")
+    set(CPACK_PACKAGE_CONTACT "PollyMC-Continued Contributors")
+    set(CPACK_PACKAGE_HOMEPAGE_URL "${Launcher_Git}")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${Launcher_DisplayName} is a custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once.")
+    set(CPACK_PACKAGE_VERSION "${Launcher_VERSION}")
+    set(CPACK_PACKAGE_VERSION_MAJOR "${Launcher_VERSION_MAJOR}")
+    set(CPACK_PACKAGE_VERSION_MINOR "${Launcher_VERSION_MINOR}")
+    set(CPACK_PACKAGE_VERSION_PATCH "${Launcher_VERSION_PATCH}")
+    set(CPACK_PACKAGE_FILE_NAME "PollyMC-Continued-${CPACK_PACKAGE_VERSION}")
+    set(CPACK_DEBIAN_PACKAGE_NAME "pollymc-continued")
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "PollyMC-Continued Contributors <corecommit>")
+    set(CPACK_DEBIAN_PACKAGE_SECTION "games")
+    set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
+    set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+    set(CPACK_DEBIAN_PACKAGE_GENERATE_SHLIBS ON)
+    set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "${Launcher_Git}")
+    set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY OFF)
+    set(CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+    set(CPACK_STRIP_FILES TRUE)
+    set(CPACK_PACKAGE_EXECUTABLES "pollymc" "PollyMC-Continued")
+    set(CPACK_DEBIAN_PACKAGE_RECOMMENDS "gamemode;mangohud")
+    include(CPack)
+endif()

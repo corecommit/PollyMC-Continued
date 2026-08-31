@@ -145,128 +145,128 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ສາມາດເຂົ້າໃຈ manifest ຂອງ pack ໄດ້:</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
         <source>Unsupported installation mode</source>
-        <translation type="unfinished">ໂໝດການຕິດຕັ້ງບໍ່ຮອງຮັບ</translation>
+        <translation>ຮູບແບບການຕິດຕັ້ງທີ່ບໍ່ຮອງຮັບ</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="156"/>
         <source>Failed to get local metadata index for &apos;%1&apos; v%2</source>
-        <translation type="unfinished">ບໍ່ສາມາດດຶງດັດຊະນີ metadata ທ້ອງຖິ່ນສຳລັບ &apos;%1&apos; v%2</translation>
+        <translation>ບໍ່ສາມາດໂຫຼດດັດຊະນີ metadata ທ້ອງຖິ່ນສຳລັບ &apos;%1&apos; v%2 ໄດ້</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="187"/>
         <source>Deleting existing files...</source>
-        <translation type="unfinished">ກຳລັງລຶບໄຟລ໌ທີ່ມີຢູ່...</translation>
+        <translation>ກຳລັງລຶບໄຟລ໌ທີ່ມີຢູ່...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="334"/>
         <source>Unknown mod type: %1</source>
-        <translation type="unfinished">ບໍ່ຮູ້ຈັກປະເພດມອດ: %1</translation>
+        <translation>ປະເພດ mod ທີ່ບໍ່ຮູ້ຈັກ: %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="346"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation type="unfinished">ບໍ່ສາມາດດຶງຂໍ້ມູນດັດສະນີ metadata ໃນເຄື່ອງສຳລັບ %1 ໄດ້</translation>
+        <translation>ບໍ່ສາມາດໂຫຼດດັດຊະນີ metadata ທ້ອງຖິ່ນສຳລັບ %1 ໄດ້</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="377"/>
         <source>Failed to find version for %1 loader</source>
-        <translation type="unfinished">ບໍ່ພົບເວີຊັນສຳລັບຕົວຕິດຕັ້ງມອດ %1</translation>
+        <translation>ບໍ່ພົບເວີຊັນສຳລັບ loader %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="390"/>
         <source>No loader version set for modpack!</source>
-        <translation type="unfinished">ບໍ່ໄດ້ກຳນົດເວີຊັນຕົວຕິດຕັ້ງມອດສຳລັບມອດແພັກ!</translation>
+        <translation>ຍັງບໍ່ໄດ້ຕັ້ງເວີຊັນ loader ສຳລັບ modpack!</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="520"/>
         <source>Unknown or unsupported download type: %1</source>
-        <translation type="unfinished">ປະເພດການດາວໂຫຼດບໍ່ຮູ້ຈັກ ຫຼື ບໍ່ຮອງຮັບ: %1</translation>
+        <translation>ປະເພດການດາວໂຫຼດທີ່ບໍ່ຮູ້ຈັກ ຫຼື ບໍ່ຮອງຮັບ: %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="634"/>
         <source>Downloading configs...</source>
-        <translation type="unfinished">ກຳລັງດາວໂຫຼດຄ່າກຳນົດ (configs)...</translation>
+        <translation>ກຳລັງດາວໂຫຼດ configs...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="635"/>
         <source>Config download</source>
-        <translation type="unfinished">ດາວໂຫຼດ Config</translation>
+        <translation>ການດາວໂຫຼດ config</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="676"/>
         <source>Extracting configs...</source>
-        <translation type="unfinished">ກຳລັງແຕກໄຟລ໌ຄ່າກຳນົດ (configs)...</translation>
+        <translation>ກຳລັງແຍກໄຟລ໌ configs...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="700"/>
         <source>Selecting optional mods...</source>
-        <translation type="unfinished">ກຳລັງເລືອກມອດເສີມ...</translation>
+        <translation>ກຳລັງເລືອກ mods ທາງເລືອກ...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="709"/>
         <source>Downloading mods...</source>
-        <translation type="unfinished"></translation>
+        <translation>ກຳລັງດາວໂຫຼດ mods...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="712"/>
         <source>Mod download</source>
-        <translation type="unfinished">ດາວໂຫຼດມອດ</translation>
+        <translation>ການດາວໂຫຼດ mod</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="737"/>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="867"/>
         <source>Unknown download type: %1</source>
-        <translation type="unfinished">ບໍ່ຮູ້ຈັກປະເພດການດາວໂຫຼດ: %1</translation>
+        <translation>ປະເພດການດາວໂຫຼດທີ່ບໍ່ຮູ້ຈັກ: %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="817"/>
         <source>Blocked mods found</source>
-        <translation type="unfinished">ພົບມອດທີ່ຖືກບລັອກ</translation>
+        <translation>ພົບ mods ທີ່ຖືກບລັອກ</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="818"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation type="unfinished"></translation>
+        <translation>ໄຟລ໌ຕໍ່ໄປນີ້ບໍ່ສາມາດດາວໂຫຼດໄດ້ໃນ launcher ຂອງພາກສ່ວນທີສາມ.&lt;br/&gt;ເຈົ້າຈະຕ້ອງດາວໂຫຼດພວກມັນດ້ວຍຕົນເອງ ແລະ ເພີ່ມໃສ່ instance.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="874"/>
         <source>%1 out of %2 complete</source>
-        <translation type="unfinished">ສຳເລັດ %1 ຈາກທັງໝົດ %2</translation>
+        <translation>%1 ຈາກ %2 ສຳເລັດ</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="909"/>
         <source>Failed to extract mods...</source>
-        <translation type="unfinished">ບໍ່ສາມາດແຕກໄຟລ໌ມອດໄດ້...</translation>
+        <translation>ການແຍກໄຟລ໌ mods ລົ້ມເຫຼວ...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="919"/>
         <source>Extracting mods...</source>
-        <translation type="unfinished">ກຳລັງແຕກໄຟລ໌ມອດ...</translation>
+        <translation>ກຳລັງແຍກໄຟລ໌ mods...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="991"/>
         <source>Installing modpack</source>
-        <translation type="unfinished">ກຳລັງຕິດຕັ້ງມອດແພັກ</translation>
+        <translation>ກຳລັງຕິດຕັ້ງ modpack</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="1002"/>
         <source>Failed to create libraries component</source>
-        <translation type="unfinished">ບໍ່ສາມາດສ້າງສ່ວນປະກອບຄັງສຳຮອງ (libraries) ໄດ້</translation>
+        <translation>ການສ້າງອົງປະກອບ libraries ລົ້ມເຫຼວ</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="1029"/>
         <source>Unknown loader type: </source>
-        <translation type="unfinished">ບໍ່ຮູ້ຈັກປະເພດຕົວໂຫຼດ: </translation>
+        <translation>ປະເພດ loader ທີ່ບໍ່ຮູ້ຈັກ: </translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="1043"/>
         <source>Failed to create pack component</source>
-        <translation type="unfinished">ບໍ່ສາມາດສ້າງສ່ວນປະກອບແພັກໄດ້</translation>
+        <translation>ການສ້າງອົງປະກອບ pack ລົ້ມເຫຼວ</translation>
     </message>
 </context>
 <context>
@@ -357,25 +357,25 @@
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="344"/>
         <source>MSA</source>
         <comment>Account type</comment>
-        <translation type="unfinished">MSA</translation>
+        <translation>MSA</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="347"/>
         <source>Offline</source>
         <comment>Account type</comment>
-        <translation type="unfinished">ອອບລາຍ</translation>
+        <translation>ອອບໄລນ໌</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="350"/>
         <source>Authlib-Injector</source>
         <comment>Account type</comment>
-        <translation type="unfinished"></translation>
+        <translation>Authlib-Injector</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="353"/>
         <source>Unknown</source>
         <comment>Account type</comment>
-        <translation type="unfinished">ບໍ່ຮູ້ຈັກ</translation>
+        <translation>ບໍ່ຮູ້ຈັກ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="382"/>
@@ -385,7 +385,7 @@
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="394"/>
         <source>Type of the account (MSA, Offline, or Authlib-Injector)</source>
-        <translation type="unfinished"></translation>
+        <translation>ປະເພດຂອງບັນຊີ (MSA, Offline, ຫຼື Authlib-Injector)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="396"/>
@@ -439,7 +439,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
         <source>Add &amp;Yggdrasil</source>
-        <translation type="unfinished"></translation>
+        <translation>ເພີ່ມ &amp;Yggdrasil</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="108"/>
@@ -516,7 +516,8 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="58"/>
         <source>Welcome!
 You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get started.</source>
-        <translation type="unfinished"></translation>
+        <translation>ຍິນດີຕ້ອນຮັບ!
+ເຈົ້າສາມາດເພີ່ມບັນຊີ Microsoft, offline, ຫຼື Yggdrasil (authlib-injector) ເພື່ອເລີ່ມຕົ້ນ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="90"/>
@@ -733,7 +734,18 @@ Check the PollyMC-Continued updater log at:
 for details on the last update attempt.
 
 To delete this lock and proceed select &quot;Ignore&quot; below.</source>
-        <translation type="unfinished"></translation>
+        <translation>ການຕິດຕັ້ງນີ້ມີໄຟລ໌ລັອກການອັບເດດຢູ່ທີ່: %1
+
+ເວລາ: %2
+ກຳລັງອັບເດດຈາກເວີຊັນ %3 ເປັນ %4
+ເສັ້ນທາງຕິດຕັ້ງເປົ້າໝາຍ: %5
+ເສັ້ນທາງຂໍ້ມູນ: %6
+ອັນນີ້ອາດໝາຍຄວາມວ່າການອັບເດດລົ້ມເຫຼວ. ກະລຸນາຮັບປະກັນວ່າການຕິດຕັ້ງຂອງເຈົ້າຢູ່ໃນສະພາບທີ່ເຮັດວຽກໄດ້ກ່ອນດຳເນີນການຕໍ່.
+ເບິ່ງບັນທຶກການອັບເດດຂອງ PollyMC-Continued ທີ່: 
+%7
+ສຳລັບລາຍລະອຽດຂອງການອັບເດດຄັ້ງສຸດທ້າຍ.
+
+ເພື່ອລຶບລັອກນີ້ ແລະ ດຳເນີນການຕໍ່ ໃຫ້ເລືອກ &quot;ຂ້າມໄປ&quot; ຂ້າງລຸ່ມ.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1107"/>
@@ -743,7 +755,12 @@ Please ensure your installation is in working order before proceeding.
 Check the PollyMC-Continued updater log at: 
 %1
 for details on the last update attempt.</source>
-        <translation type="unfinished"></translation>
+        <translation>ການອັບເດດລົ້ມເຫຼວ
+
+ກະລຸນາຮັບປະກັນວ່າການຕິດຕັ້ງຂອງເຈົ້າຢູ່ໃນສະພາບທີ່ເຮັດວຽກໄດ້ກ່ອນດຳເນີນການຕໍ່.
+ເບິ່ງບັນທຶກການອັບເດດຂອງ PollyMC-Continued ທີ່: 
+%1
+ສຳລັບລາຍລະອຽດຂອງການອັບເດດຄັ້ງສຸດທ້າຍ.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -758,7 +775,12 @@ You are now running %1 .
 Check the PollyMC-Continued updater log at: 
 %2
 for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>ການອັບເດດສຳເລັດ
+
+ຕອນນີ້ເຈົ້າກຳລັງໃຊ້ %1 .
+ເບິ່ງບັນທຶກການອັບເດດຂອງ PollyMC-Continued ທີ່: 
+%2
+ສຳລັບລາຍລະອຽດ.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1179"/>
@@ -1040,47 +1062,47 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="14"/>
         <source>Add Yggdrasil (authlib-injector) Account</source>
-        <translation type="unfinished"></translation>
+        <translation>ເພີ່ມບັນຊີ Yggdrasil (authlib-injector)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="23"/>
         <source>Yggdrasil Auth Server</source>
-        <translation type="unfinished"></translation>
+        <translation>ເຊີບເວີຢືນຢັນ Yggdrasil</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="30"/>
         <source>Auth server URL (e.g. https://example.com/api/yggdrasil)</source>
-        <translation type="unfinished"></translation>
+        <translation>URL ເຊີບເວີຢືນຢັນ (ຕົວຢ່າງ: https://example.com/api/yggdrasil)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="37"/>
         <source>Username / Email</source>
-        <translation type="unfinished"></translation>
+        <translation>ຊື່ຜູ້ໃຊ້ / ອີເມວ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="47"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>ລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="66"/>
         <source>Log in</source>
-        <translation type="unfinished"></translation>
+        <translation>ເຂົ້າສູ່ລະບົບ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="18"/>
         <source>Logging in...</source>
-        <translation type="unfinished"></translation>
+        <translation>ກຳລັງເຂົ້າສູ່ລະບົບ...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="25"/>
         <source>Please fill in all fields.</source>
-        <translation type="unfinished"></translation>
+        <translation>ກະລຸນາຕື່ມທຸກຊ່ອງ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="34"/>
         <source>Server URL must start with http:// or https://</source>
-        <translation type="unfinished"></translation>
+        <translation>URL ເຊີບເວີຕ້ອງຂຶ້ນຕົ້ນດ້ວຍ http:// ຫຼື https://</translation>
     </message>
 </context>
 <context>
@@ -1088,69 +1110,69 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="21"/>
         <source>Authenticating with Yggdrasil auth server</source>
-        <translation type="unfinished"></translation>
+        <translation>ກຳລັງຢືນຢັນກັບເຊີບເວີຢືນຢັນ Yggdrasil</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="28"/>
         <source>No auth server URL set. Remove this account and re-add it with the correct URL.</source>
-        <translation type="unfinished"></translation>
+        <translation>ຍັງບໍ່ໄດ້ຕັ້ງ URL ເຊີບເວີຢືນຢັນ. ລຶບບັນຊີນີ້ ແລະ ເພີ່ມໃໝ່ດ້ວຍ URL ທີ່ຖືກຕ້ອງ.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="117"/>
         <source>Auth request failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ຄຳຂໍການຢືນຢັນລົ້ມເຫຼວ: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="120"/>
         <source>Could not reach auth server: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ສາມາດເຂົ້າຫາເຊີບເວີຢືນຢັນໄດ້: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="128"/>
         <source>Could not parse auth server response.</source>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ສາມາດວິເຄາະການຕອບກັບຂອງເຊີບເວີຢືນຢັນໄດ້.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="138"/>
         <source>Auth server error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ເຊີບເວີຢືນຢັນເກີດຂໍ້ຜິດພາດ: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="147"/>
         <source>Auth server did not return an access token.</source>
-        <translation type="unfinished"></translation>
+        <translation>ເຊີບເວີຢືນຢັນບໍ່ໄດ້ສົ່ງຄືນ token ການເຂົ້າເຖິງ.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="151"/>
         <source>Auth server did not return a profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>ເຊີບເວີຢືນຢັນບໍ່ໄດ້ສົ່ງຄືນ profile.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="158"/>
         <source>Auth server returned an incomplete profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>ເຊີບເວີຢືນຢັນສົ່ງຄືນ profile ທີ່ບໍ່ຄົບຖ້ວນ.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="173"/>
         <source>Choose Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>ເລືອກ Profile</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="174"/>
         <source>Multiple profiles found. Select one:</source>
-        <translation type="unfinished"></translation>
+        <translation>ພົບຫຼາຍ profiles. ເລືອກອັນໜຶ່ງ:</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="227"/>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="234"/>
         <source>Authentication successful (no skin data)</source>
-        <translation type="unfinished"></translation>
+        <translation>ການຢືນຢັນສຳເລັດ (ບໍ່ມີຂໍ້ມູນ skin)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="269"/>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="278"/>
         <source>Authentication successful</source>
-        <translation type="unfinished"></translation>
+        <translation>ການຢືນຢັນສຳເລັດ</translation>
     </message>
 </context>
 <context>
@@ -2188,7 +2210,7 @@ Launch anyway?</source>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="46"/>
         <source>Not enough RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>RAM ບໍ່ພຽງພໍ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="47"/>
@@ -2198,7 +2220,12 @@ Required: %1 MiB
 Total system RAM: %2 MiB
 
 Continue anyway? This may cause severe slowdowns or crashes.</source>
-        <translation type="unfinished"></translation>
+        <translation>instance ນີ້ຖືກຕັ້ງຄ່າໃຫ້ໃຊ້ຄວາມຈຳຫຼາຍກວ່າທີ່ລະບົບຂອງເຈົ້າມີຕິດຕັ້ງ.
+
+ຕ້ອງການ: %1 MiB
+RAM ທັງໝົດຂອງລະບົບ: %2 MiB
+
+ຈະສືບຕໍ່ບໍ? ອັນນີ້ອາດເຮັດໃຫ້ເກີດການຊ້າລົງຢ່າງຮ້າຍແຮງ ຫຼື ການຕົກ.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="57"/>
@@ -2208,7 +2235,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="69"/>
         <source>Note: only %1 MiB RAM is currently free, but this instance requests %2 MiB. Other running programs may cause slowdowns; consider closing some before playing.</source>
-        <translation type="unfinished"></translation>
+        <translation>ໝາຍເຫດ: ມີພຽງ %1 MiB RAM ທີ່ຫວ່າງຢູ່, ແຕ່ instance ນີ້ຕ້ອງການ %2 MiB. ໂປຣແກຣມອື່ນທີ່ກຳລັງເຮັດວຽກອາດເຮັດໃຫ້ຊ້າລົງ; ພິຈາລະນາປິດບາງອັນກ່ອນຫຼິ້ນ.</translation>
     </message>
     <message>
         <source>High memory pressure</source>
@@ -2286,7 +2313,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/minecraft/launch/EnsureOfflineLibraries.cpp" line="33"/>
         <source>This instance cannot be launched because some libraries are missing or have not been downloaded yet. Please try again in online mode with a working Internet connection</source>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ສາມາດເປີດ instance ນີ້ໄດ້ ເພາະບາງ libraries ຫາຍໄປ ຫຼື ຍັງບໍ່ທັນໄດ້ດາວໂຫຼດ. ກະລຸນາລອງໃໝ່ໃນໂໝດອອນໄລນ໌ດ້ວຍການເຊື່ອມຕໍ່ອິນເຕີເນັດທີ່ເຮັດວຽກໄດ້</translation>
     </message>
 </context>
 <context>
@@ -2784,7 +2811,7 @@ Are you sure?</source>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="214"/>
         <source>Select %1</source>
         <comment>Select whatever type of files the page contains. Example: &apos;Loader Mods&apos;</comment>
-        <translation type="unfinished">ເລືອກ %1</translation>
+        <translation>ເລືອກ %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="256"/>
@@ -3374,7 +3401,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.ui" line="22"/>
         <source>Note: CurseForge allows creators to block access to third-party tools. As such, you may need to manually download some mods to be able to install a modpack.</source>
-        <translation type="unfinished"></translation>
+        <translation>ໝາຍເຫດ: CurseForge ອະນຸຍາດໃຫ້ຜູ້ສ້າງບລັອກການເຂົ້າເຖິງເຄື່ອງມືຂອງພາກສ່ວນທີສາມ. ດັ່ງນັ້ນ, ເຈົ້າອາດຕ້ອງດາວໂຫຼດ mods ບາງອັນດ້ວຍຕົນເອງເພື່ອຕິດຕັ້ງ modpack.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.ui" line="97"/>
@@ -3679,7 +3706,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
         <source>- PollyMC-Continued, Prism Launcher, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>- instances ທີ່ສົ່ງອອກຈາກ PollyMC-Continued, Prism Launcher, PolyMC ຫຼື MultiMC (ZIP)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="73"/>
@@ -3802,7 +3829,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="109"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>ຕົກລົງ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="142"/>
@@ -4434,7 +4461,7 @@ Please make sure that the maximum memory value is lower.</source>
     <message>
         <location filename="../launcher/ui/setupwizard/JavaWizardPage.cpp" line="85"/>
         <source>Please select how much memory to allocate to instances and if PollyMC-Continued should manage Java automatically or manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>ກະລຸນາເລືອກວ່າຈະຈັດສັນຄວາມຈຳເທົ່າໃດໃຫ້ instances ແລະ ວ່າ PollyMC-Continued ຈະຈັດການ Java ອັດຕະໂນມັດ ຫຼື ດ້ວຍມື.</translation>
     </message>
     <message>
         <source>Please select how much memory to allocate to instances and if Prism Launcher should manage Java automatically or manually.</source>
@@ -4582,7 +4609,7 @@ You can change the Java version in the settings later.
     <message>
         <location filename="../launcher/ui/widgets/LanguageSelectionWidget.cpp" line="66"/>
         <source>Use system locales</source>
-        <translation type="unfinished"></translation>
+        <translation>ໃຊ້ locales ຂອງລະບົບ</translation>
     </message>
 </context>
 <context>
@@ -4634,7 +4661,7 @@ You can change the Java version in the settings later.
     <message>
         <location filename="../launcher/LaunchController.cpp" line="99"/>
         <source>In order to play Minecraft, you must have at least one account added. Would you like to open the account manager to add an account now?</source>
-        <translation type="unfinished"></translation>
+        <translation>ເພື່ອຫຼິ້ນ Minecraft, ເຈົ້າຕ້ອງມີຢ່າງໜ້ອຍໜຶ່ງບັນຊີ. ເຈົ້າຕ້ອງການເປີດຕົວຈັດການບັນຊີເພື່ອເພີ່ມບັນຊີຕອນນີ້ບໍ?</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="217"/>
@@ -4644,26 +4671,28 @@ You can change the Java version in the settings later.
     <message>
         <location filename="../launcher/LaunchController.cpp" line="243"/>
         <source>Auth servers offline</source>
-        <translation type="unfinished"></translation>
+        <translation>ເຊີບເວີຢືນຢັນອອບໄລນ໌</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="244"/>
         <source>The Minecraft authentication servers are currently unavailable, launching in offline mode.
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>ເຊີບເວີຢືນຢັນຂອງ Minecraft ບໍ່ສາມາດໃຊ້ງານໄດ້ໃນຕອນນີ້, ກຳລັງເປີດໃນໂໝດອອບໄລນ໌.
+</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="246"/>
         <source>No internet connection</source>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="247"/>
         <source>You are not connected to the Internet, launching in offline mode.
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>ເຈົ້າບໍ່ໄດ້ເຊື່ອມຕໍ່ກັບອິນເຕີເນັດ, ກຳລັງເປີດໃນໂໝດອອບໄລນ໌.
+</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="369"/>
@@ -4949,22 +4978,22 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="236"/>
         <source>Updates are not available for macOS builds yet: they require a code-signed app and a signed update feed that the project does not currently provide.</source>
-        <translation type="unfinished"></translation>
+        <translation>ຍັງບໍ່ມີການອັບເດດສຳລັບ macOS builds ເທື່ອ: ພວກມັນຕ້ອງການແອັບທີ່ມີລາຍເຊັນ ແລະ ຟີດການອັບເດດທີ່ມີລາຍເຊັນ ເຊິ່ງໂປຣເຈັກຍັງບໍ່ໄດ້ສະໜອງ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="258"/>
         <source>Auto-launch last played instance on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>ເປີດ instance ທີ່ຫຼິ້ນຄັ້ງສຸດທ້າຍອັດຕະໂນມັດເມື່ອເລີ່ມຕົ້ນ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="265"/>
         <source>Minimize to system tray instead of closing</source>
-        <translation type="unfinished"></translation>
+        <translation>ຍ່ອຍໄປໃສ່ system tray ແທນການປິດ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="294"/>
         <source>Folder where PollyMC-Continued stores automatically downloaded Java versions. Do NOT set this to your system Java installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>ໂຟນເດີທີ່ PollyMC-Continued ເກັບເວີຊັນ Java ທີ່ດາວໂຫຼດອັດຕະໂນມັດ. ຫ້າມຕັ້ງອັນນີ້ໃສ່ການຕິດຕັ້ງ Java ຂອງລະບົບ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="407"/>
@@ -5216,7 +5245,7 @@ Granting %1 access to it via Flatseal is recommended.</source>
         <location filename="../launcher/minecraft/launch/LauncherPartLaunch.cpp" line="202"/>
         <source>Could not launch Minecraft!</source>
         <extracomment>Error message displayed if instace can&apos;t start</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ສາມາດເປີດ Minecraft ໄດ້!</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/LauncherPartLaunch.cpp" line="90"/>
@@ -5584,7 +5613,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/LoggedProcess.cpp" line="117"/>
         <source>The process failed to start.</source>
-        <translation type="unfinished"></translation>
+        <translation>ການເລີ່ມຕົ້ນ process ລົ້ມເຫຼວ.</translation>
     </message>
 </context>
 <context>
@@ -5597,17 +5626,17 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.ui" line="20"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Add an account&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;ເພີ່ມບັນຊີ&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.ui" line="33"/>
         <source>Add a Microsoft account if you own Minecraft, or an offline account to play without authentication.</source>
-        <translation type="unfinished"></translation>
+        <translation>ເພີ່ມບັນຊີ Microsoft ຖ້າເຈົ້າເປັນເຈົ້າຂອງ Minecraft, ຫຼື ບັນຊີ offline ເພື່ອຫຼິ້ນໂດຍບໍ່ຕ້ອງຢືນຢັນ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.ui" line="57"/>
         <source>Add offline account</source>
-        <translation type="unfinished"></translation>
+        <translation>ເພີ່ມບັນຊີ offline</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Add Microsoft account&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -5625,7 +5654,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/setupwizard/LoginWizardPage.cpp" line="51"/>
         <source>Please enter your desired username.</source>
-        <translation type="unfinished"></translation>
+        <translation>ກະລຸນາໃສ່ຊື່ຜູ້ໃຊ້ທີ່ຕ້ອງການ.</translation>
     </message>
 </context>
 <context>
@@ -5709,7 +5738,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/minecraft/auth/steps/MSADeviceCodeStep.cpp" line="125"/>
         <source>Failed to retrieve device authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>ການດຶງການອະນຸຍາດອຸປະກອນລົ້ມເຫຼວ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/MSADeviceCodeStep.cpp" line="262"/>
@@ -5860,22 +5889,22 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="319"/>
         <source>&amp;Performance Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Performance Presets</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="322"/>
         <source>Quick memory presets for low-end PCs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Presets ຄວາມຈຳໄວສຳລັບ PC ທີ່ສະເພາະຕໍ່າ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="349"/>
         <source>&amp;Quick Launch</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Quick Launch</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="352"/>
         <source>Launch the last played instance.</source>
-        <translation type="unfinished"></translation>
+        <translation>ເປີດ instance ທີ່ຫຼິ້ນຄັ້ງສຸດທ້າຍ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
@@ -5885,12 +5914,12 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="801"/>
         <source>&amp;Bots</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bots</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="804"/>
         <source>Open the bot terminal to control Minecraft bots.</source>
-        <translation type="unfinished"></translation>
+        <translation>ເປີດ terminal ຂອງ bots ເພື່ອຄວບຄຸມ Minecraft bots.</translation>
     </message>
     <message>
         <source>&amp;Meow</source>
@@ -5958,34 +5987,34 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1505"/>
         <source>Crash Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Crash Reports</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1505"/>
         <source>No crash reports found.</source>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ພົບ crash reports.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1673"/>
         <location filename="../launcher/ui/MainWindow.cpp" line="1678"/>
         <location filename="../launcher/ui/MainWindow.cpp" line="1682"/>
         <source>Quick Launch</source>
-        <translation type="unfinished"></translation>
+        <translation>Quick Launch</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1673"/>
         <source>No instance has been launched yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>ຍັງບໍ່ທັນມີ instance ທີ່ຖືກເປີດ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1678"/>
         <source>Last launched instance no longer exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>instance ທີ່ເປີດຄັ້ງສຸດທ້າຍບໍ່ມີອີກແລ້ວ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1682"/>
         <source>Instance is already running.</source>
-        <translation type="unfinished"></translation>
+        <translation>instance ກຳລັງເຮັດວຽກຢູ່ແລ້ວ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1801"/>
@@ -6345,12 +6374,12 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="167"/>
         <source>Show PollyMC</source>
-        <translation type="unfinished"></translation>
+        <translation>ສະແດງ PollyMC</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="169"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>ອອກ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1406"/>
@@ -6481,27 +6510,27 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="385"/>
         <source>&amp;Backup Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Backup Instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="388"/>
         <source>Backup the selected instance as a zip file.</source>
-        <translation type="unfinished"></translation>
+        <translation>ສຳຮອງ instance ທີ່ເລືອກເປັນໄຟລ໌ zip.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="396"/>
         <source>&amp;Crash Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Crash Reports</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="399"/>
         <source>Open the crash reports folder for the selected instance.</source>
-        <translation type="unfinished"></translation>
+        <translation>ເປີດໂຟນເດີ crash reports ສຳລັບ instance ທີ່ເລືອກ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="493"/>
         <source>PollyMC-Continued (zip)</source>
-        <translation type="unfinished"></translation>
+        <translation>PollyMC-Continued (zip)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="682"/>
@@ -6872,7 +6901,7 @@ Make sure you also trust the URL.
         <location filename="../launcher/meta/Index.cpp" line="144"/>
         <source>Load meta for %1:%2</source>
         <comment>This is for the task name that loads the meta index.</comment>
-        <translation type="unfinished">ໂຫຼດເມຕາສຳລັບ %1:%2</translation>
+        <translation>ໂຫຼດ meta ສຳລັບ %1:%2</translation>
     </message>
     <message>
         <source>Load meta for %1:%2</source>
@@ -6889,7 +6918,7 @@ Make sure you also trust the URL.
         <location filename="../launcher/meta/VersionList.cpp" line="37"/>
         <source>Load meta for %1</source>
         <comment>This is for the task name that loads the meta index.</comment>
-        <translation type="unfinished">ໂຫຼດເມຕາສຳລັບ %1</translation>
+        <translation>ໂຫຼດ meta ສຳລັບ %1</translation>
     </message>
 </context>
 <context>
@@ -7071,12 +7100,12 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="58"/>
         <source>Custom</source>
-        <translation type="unfinished">ກຳນົດເອງ</translation>
+        <translation>ກຳນົດເອງ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="64"/>
         <source>Quick resolution presets</source>
-        <translation type="unfinished"></translation>
+        <translation>presets ຄວາມລະອຽດໄວ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="88"/>
@@ -8290,19 +8319,13 @@ Please update %1!</source>
         <location filename="../launcher/net/NetRequest.cpp" line="276"/>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
-        <translation type="unfinished">
-            <numerusform>ການຮ້ອງຂໍຖືກຈຳກັດເວລາສຳລັບ %n ວິນາທີ: ລອງໃໝ່ຫຼັງຈາກ %1</numerusform>
-            <numerusform>ການຮ້ອງຂໍຖືກຈຳກັດເວລາສຳລັບ %n ວິນາທີ: ລອງໃໝ່ຫຼັງຈາກ %1</numerusform>
-        </translation>
+        <translation>ຄຳຂໍຖືກຈຳກັດ %n ວິນາທີ: ລອງໃໝ່ຫຼັງ %1</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/net/NetRequest.cpp" line="281"/>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
-        <translation type="unfinished">
-            <numerusform>ຖືກຈຳກັດເວລາ: ກຳລັງລໍຖ້າ %n ວິນາທີ</numerusform>
-            <numerusform>ຖືກຈຳກັດເວລາ: ກຳລັງລໍຖ້າ %n ວິນາທີ</numerusform>
-        </translation>
+        <translation>ຈຳກັດອັດຕາ: ກຳລັງລໍຖ້າ %n ວິນາທີ</translation>
     </message>
     <message numerus="yes">
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
@@ -8838,12 +8861,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/PageContainer.cpp" line="244"/>
         <source>Help</source>
-        <translation type="unfinished">ຊ່ວຍເຫຼືອ</translation>
+        <translation>ຊ່ວຍເຫຼືອ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/PageContainer.cpp" line="244"/>
         <source>Will fix later.</source>
-        <translation type="unfinished"></translation>
+        <translation>ຈະແກ້ໄຂພາຍຫຼັງ.</translation>
     </message>
 </context>
 <context>
@@ -8892,47 +8915,47 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="21"/>
         <source>Performance Presets</source>
-        <translation type="unfinished"></translation>
+        <translation>Performance Presets</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="39"/>
         <source>System Info</source>
-        <translation type="unfinished"></translation>
+        <translation>ຂໍ້ມູນລະບົບ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="43"/>
         <source>Detected RAM: %1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation>ກວດພົບ RAM: %1 GB</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="48"/>
         <source>Recommended preset: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>preset ທີ່ແນະນຳ: %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="54"/>
         <source>Select Preset</source>
-        <translation type="unfinished"></translation>
+        <translation>ເລືອກ Preset</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="58"/>
         <source>Low (4GB RAM or less)</source>
-        <translation type="unfinished"></translation>
+        <translation>ຕໍ່າ (RAM 4GB ຫຼື ໜ້ອຍກວ່າ)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="59"/>
         <source>Medium (8GB RAM)</source>
-        <translation type="unfinished"></translation>
+        <translation>ປານກາງ (RAM 8GB)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="60"/>
         <source>High (16GB+ RAM)</source>
-        <translation type="unfinished"></translation>
+        <translation>ສູງ (RAM 16GB+)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="81"/>
         <source>How it works</source>
-        <translation type="unfinished"></translation>
+        <translation>ມັນເຮັດວຽກແນວໃດ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="87"/>
@@ -8944,7 +8967,14 @@ Are you sure?</source>
 
 These are global defaults. You can override per-instance in instance settings.
 Minecraft will use this as -Xms (min) and -Xmx (max) JVM arguments.</source>
-        <translation type="unfinished"></translation>
+        <translation>Performance presets ປັບປະລິມານ RAM ທີ່ Minecraft ສາມາດໃຊ້ໄດ້.
+
+- ຕໍ່າ: ດີທີ່ສຸດສຳລັບຄອມພິວເຕີໂນດບຸກທີ່ມີ RAM 4GB. ຄວາມຈຳໜ້ອຍ = ມີ chunks ຖືກໂຫຼດໜ້ອຍລົງ.
+- ປານກາງ: ດີສຳລັບ PC ສ່ວນໃຫຍ່ທີ່ມີ RAM 8GB.
+- ສູງ: ສຳລັບ PC ເກມທີ່ມີ RAM 16GB+. ຄວາມຈຳຫຼາຍ = ມີ chunks ແລະ mods ຫຼາຍຂຶ້ນ.
+
+ເຫຼົ່ານີ້ແມ່ນຄ່າເລີ່ມຕົ້ນທົ່ວໂລກ. ເຈົ້າສາມາດປ່ຽນແທນໄດ້ຕໍ່ instance ໃນການຕັ້ງຄ່າ instance.
+Minecraft ຈະໃຊ້ອັນນີ້ເປັນອາກິວເມັນ JVM -Xms (ຕ່ຳສຸດ) ແລະ -Xmx (ສູງສຸດ).</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="125"/>
@@ -8954,7 +8984,12 @@ Minecraft will use this as -Xms (min) and -Xmx (max) JVM arguments.</source>
 Best for: Laptops, 4GB RAM PCs
 Recommended for: Vanilla Minecraft, small modpacks
 Warning: Large modpacks may crash with out-of-memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Low Preset
+-Xms%1m -Xmx%2m
+
+ດີທີ່ສຸດສຳລັບ: ໂນດບຸກ, PC ທີ່ມີ RAM 4GB
+ແນະນຳສຳລັບ: Vanilla Minecraft, modpacks ນ້ອຍ
+ຄຳເຕືອນ: modpacks ໃຫຍ່ອາດຕົກເພາະຄວາມຈຳໝົດ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="133"/>
@@ -8964,7 +8999,12 @@ Warning: Large modpacks may crash with out-of-memory</source>
 Best for: Desktop PCs, 8GB RAM
 Recommended for: Medium modpacks, shaders
 Good balance of performance and stability</source>
-        <translation type="unfinished"></translation>
+        <translation>Medium Preset
+-Xms%1m -Xmx%2m
+
+ດີທີ່ສຸດສຳລັບ: PC ຕັ້ງໂຕະ, RAM 8GB
+ແນະນຳສຳລັບ: modpacks ປານກາງ, shaders
+ຄວາມສົມດຸນທີ່ດີລະຫວ່າງປະສິດທິພາບ ແລະ ຄວາມໝັ້ນຄົງ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="141"/>
@@ -8974,7 +9014,12 @@ Good balance of performance and stability</source>
 Best for: Gaming PCs, 16GB+ RAM
 Recommended for: Large modpacks, heavy shaders
 Maximum performance for demanding setups</source>
-        <translation type="unfinished"></translation>
+        <translation>High Preset
+-Xms%1m -Xmx%2m
+
+ດີທີ່ສຸດສຳລັບ: PC ເກມ, RAM 16GB+
+ແນະນຳສຳລັບ: modpacks ໃຫຍ່, shaders ໜັກ
+ປະສິດທິພາບສູງສຸດສຳລັບການຕັ້ງຄ່າທີ່ຕ້ອງການ</translation>
     </message>
 </context>
 <context>
@@ -9216,7 +9261,7 @@ StdErr: %2</translation>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="458"/>
         <source>Actions outside of checking if an update is available are not supported when running the flatpak version of PollyMC-Continued.</source>
-        <translation type="unfinished"></translation>
+        <translation>ການກະທຳນອກເໜືອຈາກການກວດສອບວ່າມີການອັບເດດຫຼືບໍ່ ບໍ່ຖືກຮອງຮັບເມື່ອແລ່ນເວີຊັນ flatpak ຂອງ PollyMC-Continued.</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="549"/>
@@ -9324,7 +9369,18 @@ Check the PollyMC-Continued updater log at:
 for details on the last update attempt.
 
 To overwrite this lock and proceed with this update anyway, select &quot;Ignore&quot; below.</source>
-        <translation type="unfinished"></translation>
+        <translation>ການຕິດຕັ້ງນີ້ມີໄຟລ໌ລັອກການອັບເດດຢູ່ທີ່: %1
+
+ເວລາ: %2
+ກຳລັງອັບເດດຈາກເວີຊັນ %3 ເປັນ %4
+ເສັ້ນທາງຕິດຕັ້ງເປົ້າໝາຍ: %5
+ເສັ້ນທາງຂໍ້ມູນ: %6
+ອັນນີ້ອາດໝາຍຄວາມວ່າການອັບເດດຄັ້ງກ່ອນລົ້ມເຫຼວ. ກະລຸນາຮັບປະກັນວ່າການຕິດຕັ້ງຂອງເຈົ້າຢູ່ໃນສະພາບທີ່ເຮັດວຽກໄດ້ກ່ອນດຳເນີນການຕໍ່.
+ເບິ່ງບັນທຶກການອັບເດດຂອງ PollyMC-Continued ທີ່: 
+%7
+ສຳລັບລາຍລະອຽດຂອງການອັບເດດຄັ້ງສຸດທ້າຍ.
+
+ເພື່ອຂຽນທັບລັອກນີ້ ແລະ ສືບຕໍ່ການອັບເດດນີ້, ໃຫ້ເລືອກ &quot;ຂ້າມໄປ&quot; ຂ້າງລຸ່ມ.</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="1086"/>
@@ -10442,49 +10498,49 @@ This message will be displayed until you remove this from the JVM arguments.</so
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="288"/>
         <source>Unchecked</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ບໍ່ໄດ້ກວດສອບ</translation>
+        <translation>ບໍ່ໄດ້ເລືອກ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="290"/>
         <source>Offline</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ອອບລາຍ</translation>
+        <translation>ອອບໄລນ໌</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="292"/>
         <source>Ready</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ພ້ອມແລ້ວ</translation>
+        <translation>ພ້ອມ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="294"/>
         <source>Working</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ກຳລັງເຮັດວຽກ</translation>
+        <translation>ກຳລັງເຮັດວຽກ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="296"/>
         <source>Errored</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ຜິດພາດ</translation>
+        <translation>ມີຂໍ້ຜິດພາດ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="298"/>
         <source>Expired</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ໝົດອາຍຸ</translation>
+        <translation>ໝົດອາຍຸ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="300"/>
         <source>Disabled</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ປິດໃຊ້ງານແລ້ວ</translation>
+        <translation>ຖືກປິດໃຊ້ງານ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="302"/>
         <source>Gone</source>
         <comment>Account status</comment>
-        <translation type="unfinished">ຫາຍໄປແລ້ວ</translation>
+        <translation>ໄປແລ້ວ</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="304"/>
@@ -10696,7 +10752,7 @@ New name: %2</source>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="94"/>
         <source>An auto-updater for PollyMC-Continued</source>
-        <translation type="unfinished"></translation>
+        <translation>ໂປຣແກຣມອັບເດດອັດຕະໂນມັດສຳລັບ PollyMC-Continued</translation>
     </message>
 </context>
 <context>
@@ -10920,7 +10976,7 @@ Please update %1!</source>
         <location filename="../launcher/ui/pages/modplatform/ResourcePage.cpp" line="305"/>
         <source> [installed]</source>
         <comment>Mod version select</comment>
-        <translation type="unfinished"> [ຕິດຕັ້ງແລ້ວ]</translation>
+        <translation> [ຕິດຕັ້ງແລ້ວ]</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ResourcePage.cpp" line="539"/>
@@ -12254,27 +12310,27 @@ Are you sure?</source>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="315"/>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="323"/>
         <source>Skin Save</source>
-        <translation type="unfinished"></translation>
+        <translation>ບັນທຶກ Skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="315"/>
         <source>Failed to create skins directory!</source>
-        <translation type="unfinished"></translation>
+        <translation>ການສ້າງໂຟນເດີ skins ລົ້ມເຫຼວ!</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="323"/>
         <source>Failed to copy skin file!</source>
-        <translation type="unfinished"></translation>
+        <translation>ການສຳເນົາໄຟລ໌ skin ລົ້ມເຫຼວ!</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="335"/>
         <source>Skin Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>ບັນທຶກ Skin ແລ້ວ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="336"/>
         <source>Skin saved for singleplayer. Note: other players in multiplayer will not see your skin unless the server has CustomSkinLoader installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>ບັນທຶກ skin ສຳລັບຫຼິ້ນຄົນດຽວ. ໝາຍເຫດ: ຜູ້ຫຼິ້ນອື່ນໃນ multiplayer ຈະບໍ່ເຫັນ skin ຂອງເຈົ້າ ເວັ້ນເສຍແຕ່ເຊີບເວີມີ CustomSkinLoader ຕິດຕັ້ງ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="469"/>
@@ -12868,7 +12924,10 @@ Are you sure you want to do this?</source>
 %2 translated
 %3 fuzzy
 %4 total</source>
-        <translation type="unfinished"></translation>
+        <translation>%1:
+%2 ແປແລ້ວ
+%3 fuzzy
+%4 ທັງໝົດ</translation>
     </message>
     <message>
         <location filename="../launcher/translations/TranslationsModel.cpp" line="391"/>
@@ -13210,7 +13269,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/VersionPage.cpp" line="427"/>
         <source>Cannot download Minecraft or update instances unless you have at least one account added.</source>
-        <translation type="unfinished"></translation>
+        <translation>ບໍ່ສາມາດດາວໂຫຼດ Minecraft ຫຼື ອັບເດດ instances ໄດ້ ເວັ້ນເສຍແຕ່ເຈົ້າມີຢ່າງໜ້ອຍໜຶ່ງບັນຊີ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/VersionPage.cpp" line="567"/>
@@ -13446,7 +13505,7 @@ Please add a Microsoft account.</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="72"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>ຕົກລົງ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="73"/>
@@ -13789,7 +13848,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/minecraft/auth/steps/XboxAuthorizationStep.cpp" line="68"/>
         <source>Failed to get authorization for %1 services. Error %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>ການຂໍອະນຸຍາດສຳລັບ %1 ບໍລິການລົ້ມເຫຼວ. ຂໍ້ຜິດພາດ %2.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/XboxAuthorizationStep.cpp" line="71"/>

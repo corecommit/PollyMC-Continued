@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2022 Rachel Powers <508861+Ryex@users.noreply.github.com>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -121,12 +121,12 @@ static std::tuple<bool, QString, bool> contains_level_dat(QString fileName)
                 continue;
             relativePath = relativePath.mid(QString("saves/").length());
         }
-        if (!relativePath.endsWith("/level.dat", Qt::CaseInsensitive))
+        if (!relativePath.endsWith("/level.dat", Qt::CaseInsensitive) && relativePath.compare("level.dat", Qt::CaseInsensitive) != 0)
             continue;
 
         int slashIndex = relativePath.indexOf('/');
         if (slashIndex == -1)
-            continue;  // malformed: no slash between saves/ and level.dat
+            return std::make_tuple(true, "", saves);  // level.dat directly at the archive/folder root
 
         QString worldName = relativePath.left(slashIndex);
         QString remaining = relativePath.mid(slashIndex + 1);

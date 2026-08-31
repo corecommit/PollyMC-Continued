@@ -80,6 +80,44 @@ bool BotProcess::isRunning() const
     return m_process->state() == QProcess::Running;
 }
 
+bool BotProcess::hasNode() const
+{
+    return !QStandardPaths::findExecutable(findNodePath()).isEmpty();
+}
+
+bool BotProcess::hasDependencies() const
+{
+    QString serverDir = findBotServerDir();
+    return QDir(serverDir + "/node_modules/mineflayer").exists();
+}
+
+void BotProcess::installDependencies()
+{
+    if (!m_installProcess) {
+        m_installProcess = new QProcess(this);
+        connect(m_installProcess, &QProcess::readyReadStandardOutput, this, [this] {
+            emit logMessage(QString::fromUtf8(m_installProcess->readAllStandardOutput()).trimmed());
+        });
+        connect(m_installProcess, &QProcess::readyReadStandardError, this, [this] {
+            emit logMessage(QString::fromUtf8(m_installProcess->readAllStandardError()).trimmed());
+        });
+        connect(m_installProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+                this, &BotProcess::onInstallFinished);
+        // Qt never emits finished() when a process fails to start; without
+        // this the install flow would hang forever if npm is missing/broken.
+        connect(m_installProcess, &QProcess::errorOccurred, this, [this](QProcess::ProcessError error) {
+            if (error == QProcess::FailedToStart)
+                emit dependenciesInstalled(false);
+        });
+    }
+    if (m_installProcess->state() != QProcess::NotRunning)
+        return;
+
+    QString serverDir = findBotServerDir();
+    m_installProcess->setWorkingDirectory(serverDir);
+    m_installProcess->start("npm", { "install", "--omit=dev" });
+}
+
 void BotProcess::sendCommand(const QString& cmd, const QJsonObject& params)
 {
     if (!isRunning()) {
@@ -95,15 +133,20 @@ void BotProcess::sendCommand(const QString& cmd, const QJsonObject& params)
 void BotProcess::onStdoutReady()
 {
     m_buffer += QString::fromUtf8(m_process->readAllStandardOutput());
-    while (m_buffer.contains('\n')) {
-        int idx = m_buffer.indexOf('\n');
-        QString line = m_buffer.left(idx).trimmed();
-        m_buffer = m_buffer.mid(idx + 1);
-        if (line.isEmpty()) continue;
-        QJsonDocument doc = QJsonDocument::fromJson(line.toUtf8());
-        if (doc.isObject())
-            handleMessage(doc.object());
+    int start = 0;
+    int idx = m_buffer.indexOf('\n');
+    while (idx != -1) {
+        QString line = m_buffer.mid(start, idx - start).trimmed();
+        start = idx + 1;
+        if (!line.isEmpty()) {
+            QJsonDocument doc = QJsonDocument::fromJson(line.toUtf8());
+            if (doc.isObject())
+                handleMessage(doc.object());
+        }
+        idx = m_buffer.indexOf('\n', start);
     }
+    if (start > 0)
+        m_buffer = m_buffer.mid(start);
 }
 
 void BotProcess::onStderrReady()
@@ -123,6 +166,12 @@ void BotProcess::onProcessFinished(int exitCode, QProcess::ExitStatus status)
 {
     Q_UNUSED(status);
     emit processExited(exitCode);
+}
+
+void BotProcess::onInstallFinished(int exitCode, QProcess::ExitStatus status)
+{
+    Q_UNUSED(status);
+    emit dependenciesInstalled(exitCode == 0);
 }
 
 void BotProcess::handleMessage(const QJsonObject& msg)
