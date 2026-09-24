@@ -183,7 +183,6 @@ jobs:
             mingw-w64-x86_64-qt6-websockets
             mingw-w64-x86_64-extra-cmake-modules
             mingw-w64-x86_64-tomlplusplus
-            mingw-w64-x86_64-cmark
             mingw-w64-x86_64-qrencode
             mingw-w64-x86_64-libarchive
             mingw-w64-x86_64-zlib
@@ -218,6 +217,28 @@ jobs:
           key: ccache-windows-${{ github.run_id }}
           restore-keys: |
             ccache-windows-
+
+      - name: Build cmark from source
+        run: |
+          set -euo pipefail
+          # MSYS2 dropped the MINGW64 (MSVCRT) build of cmark -- the
+          # mingw-w64-cmark base package now only ships ucrt64/clang64/
+          # clangarm64 binaries, so 'mingw-w64-x86_64-cmark' failed with
+          # 'target not found'. Compile the pinned release from source and
+          # install it into the standard MINGW64 prefix, where the main
+          # project's find_package(cmark) picks it up (the exported target is
+          # cmark::cmark, matching what the distro package used to provide).
+          curl -fsSL -o /tmp/cmark.tar.gz \
+            "https://github.com/commonmark/cmark/archive/refs/tags/0.31.2.tar.gz"
+          tar -xzf /tmp/cmark.tar.gz -C /tmp
+          cmake -S /tmp/cmark-0.31.2 -B /tmp/cmark-0.31.2/build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=ON \
+            -DBUILD_TESTING=OFF \
+            -DCMAKE_INSTALL_PREFIX=/mingw64
+          cmake --build /tmp/cmark-0.31.2/build
+          cmake --install /tmp/cmark-0.31.2/build
+          ls -la /mingw64/bin/cmark.exe /mingw64/lib/libcmark.dll.a /mingw64/lib/cmake/cmark/
 
       - name: Configure
         run: |
@@ -940,7 +961,13 @@ jobs:
           sed -i "s/sha256sums=.*/sha256sums=('SKIP')/" packaging/arch/PKGBUILD
           tar --exclude-vcs --exclude=build --exclude=.ccache \
             --transform="s|^\./|PollyMC-Continued-${VERSION}/|" \
-            -czf "packaging/arch/pollymc-continued-${VERSION}.tar.gz" .
+            -czf /tmp/pollymc-continued.tar.gz .
+          # Write the source tarball to /tmp and move it afterwards: writing it
+          # directly into packaging/arch/ (a directory inside the tree being
+          # archived) made tar read the file as it was writing it ("tar: ...:
+          # file changed as we read it") and exit 1, failing the job under
+          # set -e.
+          mv "/tmp/pollymc-continued.tar.gz" "packaging/arch/pollymc-continued-${VERSION}.tar.gz"
           cd packaging/arch
           su builder -c "makepkg --noconfirm --force"
           # makepkg names the file after pkgname (lowercase); rename it so the
