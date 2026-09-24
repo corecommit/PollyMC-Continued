@@ -627,14 +627,46 @@ jobs:
           set -euo pipefail
           VERSION="${{ needs.skip-check.outputs.version }}"
           # Same portable layout as the Windows zip: bot-server + portable.txt
-          # + manifest.txt next to the binary (/tmp/pollymc/bin).
+          # + manifest.txt next to the binary (/tmp/pollymc/bin). The updater
+          # copies the manifest's top-level entries wholesale, so files added
+          # inside bin/ ship and update automatically.
           cp -r bot-server /tmp/pollymc/bin/bot-server
           rm -f /tmp/pollymc/bin/bot-server/.gitignore
           rm -rf /tmp/pollymc/bin/bot-server/node_modules
+
+          # Bundle every non-standard shared library the binary links against
+          # into bin/, next to the binary (Launcher_BINARY_RPATH is $ORIGIN/,
+          # so they are found before system libs). Qt6 itself is deliberately
+          # left to the system, but these three are version-pinned or seldom
+          # preinstalled: cmark's SONAME in particular differs between distros
+          # (0.30.2 on Ubuntu 24.04 vs 0.31.2 on Arch/openSUSE), so unpackaged
+          # the tarball only ran on distros whose cmark matched the build image.
+          # Fail loudly if any lib can't be resolved on the runner.
+          BUNDLE_LIBS="libcmark.so.0.30.2 libtomlplusplus.so.3 libqrencode.so.4"
+          for lib in $BUNDLE_LIBS; do
+            SRC=$(ldconfig -p 2>/dev/null | awk -v n="$lib" '$1==n {print $NF; exit}')
+            if [ -z "$SRC" ]; then
+              echo "::error::Could not resolve $lib on the build runner; install the matching package in the 'Install Dependencies' step."
+              exit 1
+            fi
+            cp -L "$SRC" /tmp/pollymc/bin/
+            echo "DEBUG: bundled $lib <- $SRC"
+          done
+
           cp "$GITHUB_WORKSPACE/program_info/portable.txt" /tmp/pollymc/portable.txt
           find /tmp/pollymc -mindepth 1 -maxdepth 1 -printf '%P\n' | sort > /tmp/pollymc/manifest.txt
           tar -czf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" -C /tmp/pollymc .
           ls -la PollyMC-Continued-*-Linux-x86_64.tar.gz
+
+          # Guard the packaged artifact itself: the bundled libs must sit in
+          # bin/ next to the binary, or the tarball is broken. (tar -t prefixes
+          # every entry with ./ when created with -C dir .)
+          for lib in $BUNDLE_LIBS; do
+            if ! tar -tzf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" | sed 's|^\./||' | grep -qx "bin/$lib"; then
+              echo "::error::$lib missing from packaged tarball (not in bin/)"
+              exit 1
+            fi
+          done
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -643,6 +675,79 @@ jobs:
           path: |
             PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage
             PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.tar.gz
+
+  linux-tarball-cross-distro:
+    name: Linux tarball (cross-distro smoke test)
+    needs: [skip-check, build-linux]
+    if: needs.skip-check.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: PollyMC-Continued-Linux-AppImage
+
+      - name: Install runtime dependencies
+        run: |
+          set -euo pipefail
+          pacman -Syu --noconfirm --needed
+          pacman -S --noconfirm --needed \
+            qt6-base qt6-networkauth qt6-websockets \
+            libarchive libpng zlib zstd
+          # Sanity check: the container must NOT provide the launcher's expected
+          # cmark SONAME, otherwise this test would pass even without bundling.
+          if ldconfig -p | grep -q 'libcmark.so.0.30.2'; then
+            echo "::error::Arch container unexpectedly has libcmark 0.30.2; the smoke test would be meaningless."
+            exit 1
+          fi
+
+      - name: Extract tarball and check bundle
+        run: |
+          set -euo pipefail
+          TARBALL=$(ls PollyMC-Continued-*-Linux-x86_64.tar.gz | head -n1)
+          if [ -z "$TARBALL" ]; then
+            echo "::error::No Linux tarball artifact found"
+            exit 1
+          fi
+          rm -rf /tmp/pollymc-test && mkdir -p /tmp/pollymc-test
+          tar -xzf "$TARBALL" -C /tmp/pollymc-test
+          cd /tmp/pollymc-test
+
+          # The tarball bundles libcmark.so.0.30.2 in bin/ (RUNPATH=$ORIGIN/).
+          # Arch's system cmark is 0.31.2, so if bundling ever breaks, this
+          # reproduces the user-visible "libcmark.so.0.30.2: cannot open shared
+          # object file" failure exactly.
+          for lib in libcmark.so.0.30.2 libtomlplusplus.so.3 libqrencode.so.4; do
+            if [ ! -f "bin/$lib" ]; then
+              echo "::error::Bundled library $lib missing from bin/ in the extracted tarball"
+              exit 1
+            fi
+          done
+          if ldd bin/pollymc 2>&1 | grep -q "not found"; then
+            echo "::error::Unresolved shared libraries in packaged binary:"
+            ldd bin/pollymc 2>&1 | grep "not found"
+            exit 1
+          fi
+
+      - name: Headless launch smoke test
+        run: |
+          set -euo pipefail
+          cd /tmp/pollymc-test
+          # Start the launcher with the offscreen platform; it must still be
+          # alive after 10s (mirrors the Windows missing-DLL test).
+          QT_QPA_PLATFORM=offscreen ./bin/pollymc >/tmp/pollymc-smoke.log 2>&1 &
+          APP_PID=$!
+          sleep 10
+          if ! kill -0 "$APP_PID" 2>/dev/null; then
+            echo "::error::pollymc exited during startup:"
+            tail -40 /tmp/pollymc-smoke.log
+            exit 1
+          fi
+          echo "pollymc ran for 10s in the cross-distro smoke test"
+          kill "$APP_PID" 2>/dev/null || true
 
   build-macos:
     name: macOS (Universal)
@@ -868,8 +973,8 @@ jobs:
 
   release:
     name: Release
-    needs: [skip-check, changelog-check, build-windows, build-linux, build-macos, build-arch]
-    if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
+    needs: [skip-check, changelog-check, build-windows, build-linux, linux-tarball-cross-distro, build-macos, build-arch]
+    if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-linux.result != 'success' || needs.linux-tarball-cross-distro.result == 'success') && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: write
