@@ -1,5 +1,12 @@
 # Changelog
 
+## v9.2.10
+
+**Fixed:**
+
+- The in-app updater no longer queries the upstream repository: builds now bake in the GitHub repository they were actually built from, so the "latest release" it reports matches the releases of this fork (previously the updater looked at the old repo and never offered the new versions)
+- A fresh portable install (the Linux tarball with `portable.txt`, or an install with a `UserData/` folder) now offers to adopt the data of a previous install found in the standard location, instead of silently starting with an empty data folder and appearing to have lost all instances and accounts
+
 ## v9.2.9
 
 **Fixed:**

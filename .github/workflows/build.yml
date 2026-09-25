@@ -253,6 +253,7 @@ jobs:
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
+            -DLauncher_UPDATER_GITHUB_REPO="${{ github.server_url }}/${{ github.repository }}" \
             -S . -B build
 
       - name: Build
@@ -492,6 +493,7 @@ jobs:
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
+            -DLauncher_UPDATER_GITHUB_REPO="${{ github.server_url }}/${{ github.repository }}" \
             -S . -B build
 
       - name: Build
@@ -837,6 +839,7 @@ jobs:
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
+            -DLauncher_UPDATER_GITHUB_REPO="${{ github.server_url }}/${{ github.repository }}" \
             -S . -B build
 
       - name: Read and validate version

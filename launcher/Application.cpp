@@ -404,6 +404,10 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         adjustedBy = "Persistent data path";
 
 #ifndef Q_OS_MACOS
+        // Remember the standard (persistent) data path: if this is a fresh
+        // portable install, we may offer to adopt existing data from there.
+        QString persistentDataPath = dataPath;
+
         if (auto portableUserData = FS::PathCombine(m_rootPath, "UserData"); QDir(portableUserData).exists()) {
             dataPath = portableUserData;
             adjustedBy = "Portable user data path";
@@ -412,6 +416,32 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
             dataPath = m_rootPath;
             adjustedBy = "Portable data path";
             m_portable = true;
+        }
+
+        // A portable install that has never been used (no config file yet)
+        // would otherwise silently start with an empty data folder, even when
+        // the user already has a previous install with real data in the
+        // standard location. Offer to use that existing data instead. Once the
+        // launcher has run once it writes its config file, so the question is
+        // only ever asked on the very first start of a fresh portable install.
+        if (m_portable && !QFile::exists(FS::PathCombine(dataPath, BuildConfig.LAUNCHER_CONFIGFILE))) {
+            auto existingConfig = FS::PathCombine(persistentDataPath, BuildConfig.LAUNCHER_CONFIGFILE);
+            if (QFile::exists(existingConfig)) {
+                const auto message =
+                    tr("It looks like you have used %1 on this computer before. The data of that install was found at:\n"
+                       "%2\n\n"
+                       "This portable install has no data yet. Do you want to use the existing data instead of starting "
+                       "with an empty data folder?")
+                        .arg(BuildConfig.LAUNCHER_DISPLAYNAME, QDir::toNativeSeparators(persistentDataPath));
+
+                auto answer = QMessageBox::question(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, message,
+                                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+                if (answer == QMessageBox::Yes) {
+                    dataPath = persistentDataPath;
+                    adjustedBy = "Portable install adopted the persistent data path";
+                    m_portable = false;
+                }
+            }
         }
 #endif
     }
