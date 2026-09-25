@@ -1,17 +1,12 @@
 # Changelog
 
-## v9.2.9
+## v9.2.8
 
 **Fixed:**
 
 - Linux binary tarball now bundles its version-sensitive shared libraries (`libcmark.so.0.30.2`, `libtomlplusplus.so.3`, `libqrencode.so.4`) into `bin/`, so the launcher no longer fails on distros whose cmark has a different SONAME (e.g. `libcmark.so.0.30.2: cannot open shared object file` on openSUSE/Arch)
 - Arch package builds no longer fail with `tar: file changed as we read it` — the source tarball is now written outside the tree being archived (to `/tmp`) and moved into place afterwards
 - Windows builds compile cmark from source instead of relying on a pacman package: MSYS2 dropped `mingw-w64-x86_64-cmark` for the MINGW64 environment (only ucrt64/clang64/clangarm64 remain), which broke the setup step with `target not found`
-
-## v9.2.8
-
-**Fixed:**
-
 - World save ZIPs with level.dat at the archive root are recognized again (dropping the file onto the launcher installs the world into an instance instead of opening the import-modpack dialog; nested ZIPs no longer fail silently)
 
 ## v9.2.7
