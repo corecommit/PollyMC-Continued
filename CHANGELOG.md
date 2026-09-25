@@ -11,7 +11,7 @@
 
 ## v9.2.7
 
-**Added:**
+**Added:** 
 
 - Linux binary tarball release artifact (`PollyMC-Continued-*-Linux-x86_64.tar.gz`) — portable install with the same layout as the Windows portable zip
 - Finnish, Hungarian, Japanese, and Laotian translations completed to 100%
