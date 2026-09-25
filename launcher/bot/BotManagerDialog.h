@@ -74,4 +74,5 @@ private:
     QPushButton* m_commandsBtn;
 
     QString m_configPath;
+    QString m_legacyConfigPath;
 };

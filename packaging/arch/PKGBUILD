@@ -16,6 +16,7 @@ depends=(
     'qt6-svg'
     'qt6-websockets'
     'qt6-imageformats'
+    'cmark'
     'gcc-libs'
     'glibc'
     'libarchive'
@@ -38,7 +39,6 @@ makedepends=(
     'ninja'
     'qt6-tools'
     'ccache'
-    'cmark'
     'jdk17-openjdk'
     'vulkan-headers'
 )

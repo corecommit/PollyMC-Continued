@@ -55,6 +55,14 @@ sudo pacman -Syy
 sudo pacman -S pollymc-continued
 ```
 
+### Installing a downloaded package file
+
+The `.pkg.tar.zst` asset on the [releases page](https://github.com/corecommit/PollyMC-Continued/releases) is a package archive, **not** a program — running it directly (`./PollyMC-Continued-…pkg.tar.zst`) just makes your shell try to interpret the compressed bytes as a script and fail with a `syntax error`. Install it with `pacman -U` instead:
+
+```bash
+sudo pacman -U ./PollyMC-Continued-*-x86_64.pkg.tar.zst
+```
+
 A `PKGBUILD` is also available in [`packaging/arch/`](packaging/arch/PKGBUILD) — it can be built locally with `makepkg` or submitted to the AUR for `yay -S` / `paru -S` installs.
 
 ## Build

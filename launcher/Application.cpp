@@ -589,6 +589,14 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
             migrated = handleDataMigration(
                 dataPath, FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "../../multimc"), "MultiMC",
                 "multimc.cfg");
+
+        // the data root flips with portable.txt, so instances can be left behind in either root
+        if (!migrated) {
+            const QString appDataRoot = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+            migrated = handleFlippedDataRoot(dataPath, FS::PathCombine(appDataRoot, ".."));
+        }
+        if (!migrated)
+            migrated = handleFlippedDataRoot(dataPath, m_rootPath);
     }
 
     {
@@ -1948,6 +1956,26 @@ QString Application::getUserAgent()
     return BuildConfig.USER_AGENT;
 }
 
+// The files a data migration copies; everything else in the old root is left alone.
+static QList<Filter> migrationFilters(const QString& configFile)
+{
+    using namespace Filters;
+
+    QList<Filter> filters;
+    filters.append(equals(configFile));
+    filters.append(equals(BuildConfig.LAUNCHER_CONFIGFILE));  // it's possible that we already used that directory before
+    filters.append(startsWith("logs/"));
+    filters.append(equals("accounts.json"));
+    filters.append(startsWith("accounts/"));
+    filters.append(startsWith("assets/"));
+    filters.append(startsWith("icons/"));
+    filters.append(startsWith("instances/"));
+    filters.append(startsWith("libraries/"));
+    filters.append(startsWith("mods/"));
+    filters.append(startsWith("themes/"));
+    return filters;
+}
+
 bool Application::handleDataMigration(const QString& currentData,
                                       const QString& oldData,
                                       const QString& name,
@@ -2007,23 +2035,8 @@ bool Application::handleDataMigration(const QString& currentData,
 
     if (!currentExists) {
         // Migrate!
-        using namespace Filters;
-
-        QList<Filter> filters;
-        filters.append(equals(configFile));
-        filters.append(equals(BuildConfig.LAUNCHER_CONFIGFILE));  // it's possible that we already used that directory before
-        filters.append(startsWith("logs/"));
-        filters.append(equals("accounts.json"));
-        filters.append(startsWith("accounts/"));
-        filters.append(startsWith("assets/"));
-        filters.append(startsWith("icons/"));
-        filters.append(startsWith("instances/"));
-        filters.append(startsWith("libraries/"));
-        filters.append(startsWith("mods/"));
-        filters.append(startsWith("themes/"));
-
         ProgressDialog diag;
-        DataMigrationTask task(oldData, currentData, any(std::move(filters)));
+        DataMigrationTask task(oldData, currentData, Filters::any(migrationFilters(configFile)));
         if (diag.execWithTask(&task)) {
             qDebug() << "<> Migration succeeded";
             setDoNotMigrate();
@@ -2035,6 +2048,54 @@ bool Application::handleDataMigration(const QString& currentData,
         qWarning() << "<> Migration was skipped, due to existing data";
     }
     return true;
+}
+
+// Instances can be stranded when the data root flips (portable.txt added/removed or a different launch), so offer them back.
+bool Application::handleFlippedDataRoot(const QString& currentData, const QString& oldData) const
+{
+    const QString curRoot = QDir(currentData).absolutePath();
+    const QString oldRoot = QDir(oldData).absolutePath();
+    if (curRoot.isEmpty() || oldRoot.isEmpty() || curRoot == oldRoot)
+        return false;
+
+    const auto hasInstances = [](const QString& root) {
+        return !QDir(FS::PathCombine(root, "instances")).entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty();
+    };
+
+    // only interesting when the other root holds instances and ours has none
+    if (hasInstances(curRoot) || !hasInstances(oldRoot))
+        return false;
+
+    const QString nomigratePath = FS::PathCombine(curRoot, BuildConfig.LAUNCHER_APP_BINARY_NAME + "_dataroot_nomigrate.txt");
+    if (QFileInfo::exists(nomigratePath))
+        return false;
+
+    auto setDoNotMigrate = [&nomigratePath] {
+        QFile file(nomigratePath);
+        if (!file.open(QIODevice::WriteOnly))
+            qWarning() << "setDoNotMigrate failed; Failed to open file" << file.fileName() << "for writing:" << file.errorString();
+    };
+
+    QString message = tr("Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?")
+                          .arg(oldRoot, BuildConfig.LAUNCHER_DISPLAYNAME, curRoot);
+
+    if (QMessageBox::question(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes)
+        != QMessageBox::Yes) {
+        qDebug() << "<> Data root migration declined for" << oldRoot;
+        setDoNotMigrate();
+        return false;
+    }
+
+    ProgressDialog diag;
+    DataMigrationTask task(oldRoot, curRoot, Filters::any(migrationFilters(BuildConfig.LAUNCHER_CONFIGFILE)));
+    if (diag.execWithTask(&task)) {
+        qDebug() << "<> Data root migration succeeded for" << oldRoot;
+        setDoNotMigrate();
+        return true;
+    }
+
+    QMessageBox::critical(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, tr("Migration failed! Reason: %1").arg(task.failReason()));
+    return false;
 }
 
 void Application::triggerUpdateCheck()

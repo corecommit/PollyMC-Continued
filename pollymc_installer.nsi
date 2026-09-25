@@ -4,6 +4,10 @@
 !ifndef BUILD_DIR
     !define BUILD_DIR "C:\pollymc_build"
 !endif
+; VERSION is passed by CI; keep a fallback for local builds
+!ifndef VERSION
+    !define VERSION "9.0.0"
+!endif
 
 Name "PollyMC-Continued"
 OutFile "PollyMC-Continued-9.0.0-Setup.exe"
@@ -26,7 +30,16 @@ Function .onInit
         nsExec::ExecToStack 'taskkill /F /IM pollymc.exe'
         Pop $0
         Sleep 1000
-        ; Clean old files (but keep user data)
+        ; Upgrade where it is actually installed (custom $INSTDIR is remembered in the registry)
+        ReadRegStr $0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "InstallLocation"
+        StrCmp $0 "" check_data
+        StrCpy $INSTDIR $0
+    check_data:
+        ; Never wipe a portable install or any other folder holding user data
+        IfFileExists "$INSTDIR\portable.txt" fresh_install
+        IfFileExists "$INSTDIR\UserData\*.*" fresh_install
+        IfFileExists "$INSTDIR\instances\*.*" fresh_install
+        ; Clean old program files - regular installs keep their data in %APPDATA%
         RMDir /r "$INSTDIR"
         Goto fresh_install
 
@@ -61,7 +74,8 @@ Section "Install"
 
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "DisplayName" "PollyMC-Continued"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "UninstallString" "$\"$INSTDIR\uninstall.exe$\""
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "DisplayVersion" "9.0.0"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "InstallLocation" "$INSTDIR"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "DisplayVersion" "${VERSION}"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "Publisher" "PollyMC-Continued Contributors"
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "NoModify" 1
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\PollyMC-Continued" "NoRepair" 1

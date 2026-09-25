@@ -229,6 +229,7 @@ class Application : public QApplication {
 
    private:
     bool handleDataMigration(const QString& currentData, const QString& oldData, const QString& name, const QString& configFile) const;
+    bool handleFlippedDataRoot(const QString& currentData, const QString& oldData) const;
     bool createSetupWizard();
     void performMainStartupAction();
 

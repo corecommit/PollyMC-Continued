@@ -566,6 +566,7 @@ if(UNIX AND NOT APPLE)
     set(CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
     set(CPACK_STRIP_FILES TRUE)
     set(CPACK_PACKAGE_EXECUTABLES "pollymc" "PollyMC-Continued")
-    set(CPACK_DEBIAN_PACKAGE_RECOMMENDS "gamemode;mangohud")
+    # Debian fields need commas; a ';' makes dpkg reject the package.
+    set(CPACK_DEBIAN_PACKAGE_RECOMMENDS "gamemode, mangohud")
     include(CPack)
 endif()
