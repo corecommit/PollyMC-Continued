@@ -3,7 +3,7 @@
 
 pkgname=pollymc-continued
 _pkgname=PollyMC-Continued
-pkgver=9.2.8
+pkgver=9.3.0
 pkgrel=1
 pkgdesc="PollyMC-Continued is a custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once."
 arch=('x86_64' 'aarch64')

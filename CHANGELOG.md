@@ -1,13 +1,35 @@
 # Changelog
 
-## v9.2.8
+## v9.3.0
+
+**Changed:**
+
+- Startup writes the settings directory in one go instead of once per migrated key, so first run and upgrades no longer hit the disk repeatedly while the window is opening
+- GameMode/MangoHud detection and shared-library probes are deferred until after the first paint (the Microsoft login and modpack-install capability flags are still resolved synchronously for the first-run wizard)
+- Selecting an instance fills in the status bar description after the UI paints instead of parsing component JSON first
+- Instance list sorting and layout now scale with the number of instances instead of re-scanning the whole list per row, so large instance folders reorder noticeably faster
+- Instance rows cache their shaped text, so scrolling and repainting the grid no longer re-runs text layout for every visible label
+- Icon and screenshot caching is capped at 128 MB instead of growing without a practical limit
+- The launcher logo SVG is decoded once and reused instead of on every access
 
 **Fixed:**
 
+- Instances no longer appear to vanish after an update: the launcher now detects a data-root flip (portable install turned regular or vice versa, or a differently-located copy overwriting the data root) and offers to move the stranded instances instead of silently starting empty
+- The portable marker (`portable.txt`) is looked up next to the launcher itself rather than in the current working directory, which broke portability when starting from a desktop entry or shortcut
+- Windows upgrades now read the real install location from the registry instead of assuming the default path, and no longer wipe folders containing `portable.txt`, `UserData` or `instances` during uninstall of the old version
+- The uninstaller entry reports the actual version instead of a hardcoded 9.0.0
+- Published `.deb` is installable again — `Recommends` fields were semicolon-separated, which dpkg rejects as an invalid package name (`gamemode;mangohud`)
+- Arch package pulls `cmark` as a runtime dependency instead of relying on it being present, fixing `libcmark` load failures
+- Bot server installs work from read-only locations (e.g. `/usr/bin`): the bundled copy is preferred when writable, and a per-user copy under the data root is created/refreshed otherwise, with legacy `bot-server/bots.json` still read as fallback
+- Instructions note `pacman -U <file>` for downloaded Arch packages instead of running the archive directly
 - Linux binary tarball now bundles its version-sensitive shared libraries (`libcmark.so.0.30.2`, `libtomlplusplus.so.3`, `libqrencode.so.4`) into `bin/`, so the launcher no longer fails on distros whose cmark has a different SONAME (e.g. `libcmark.so.0.30.2: cannot open shared object file` on openSUSE/Arch)
 - Arch package builds no longer fail with `tar: file changed as we read it` — the source tarball is now written outside the tree being archived (to `/tmp`) and moved into place afterwards
 - Windows builds compile cmark from source instead of relying on a pacman package: MSYS2 dropped `mingw-w64-x86_64-cmark` for the MINGW64 environment (only ucrt64/clang64/clangarm64 remain), which broke the setup step with `target not found`
 - World save ZIPs with level.dat at the archive root are recognized again (dropping the file onto the launcher installs the world into an instance instead of opening the import-modpack dialog; nested ZIPs no longer fail silently)
+
+**Removed:**
+
+- Duplicate, unused `installer.nsi` (the Windows installer script in use is `pollymc_installer.nsi`), plus stale `Readme [skip-all]` and `releases.json` files
 
 ## v9.2.7
 
