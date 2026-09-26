@@ -11,7 +11,7 @@
 - Instance rows cache their shaped text, so scrolling and repainting the grid no longer re-runs text layout for every visible label
 - Icon and screenshot caching is capped at 128 MB instead of growing without a practical limit
 - The launcher logo SVG is decoded once and reused instead of on every access
-- Discord Rich Presence cards are branded: the large logo and the in-game badge are loaded from image URLs hosted in this repository (no Rich Presence art upload is needed in the Discord portal), the second line always names the launcher (`In launcher · PollyMC-Continued`), and the activity targets the launcher's own Discord application (`1553275360358047766`)
+- Discord Rich Presence cards are branded: the large logo and the in-game badge are loaded from image URLs hosted in this repository (no Rich Presence art upload is needed in the Discord portal) and the second line always names the launcher (`In launcher · PollyMC-Continued`)
 
 **Fixed:**
 
