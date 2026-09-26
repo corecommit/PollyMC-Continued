@@ -1,24 +1,14 @@
 # Changelog
 
-## v9.2.10
+## v9.2.8
 
 **Fixed:**
 
 - The in-app updater no longer queries the upstream repository: builds now bake in the GitHub repository they were actually built from, so the "latest release" it reports matches the releases of this fork (previously the updater looked at the old repo and never offered the new versions)
 - A fresh portable install (the Linux tarball with `portable.txt`, or an install with a `UserData/` folder) now offers to adopt the data of a previous install found in the standard location, instead of silently starting with an empty data folder and appearing to have lost all instances and accounts
-
-## v9.2.9
-
-**Fixed:**
-
 - Linux binary tarball now bundles its version-sensitive shared libraries (`libcmark.so.0.30.2`, `libtomlplusplus.so.3`, `libqrencode.so.4`) into `bin/`, so the launcher no longer fails on distros whose cmark has a different SONAME (e.g. `libcmark.so.0.30.2: cannot open shared object file` on openSUSE/Arch)
 - Arch package builds no longer fail with `tar: file changed as we read it` — the source tarball is now written outside the tree being archived (to `/tmp`) and moved into place afterwards
 - Windows builds compile cmark from source instead of relying on a pacman package: MSYS2 dropped `mingw-w64-x86_64-cmark` for the MINGW64 environment (only ucrt64/clang64/clangarm64 remain), which broke the setup step with `target not found`
-
-## v9.2.8
-
-**Fixed:**
-
 - World save ZIPs with level.dat at the archive root are recognized again (dropping the file onto the launcher installs the world into an instance instead of opening the import-modpack dialog; nested ZIPs no longer fail silently)
 
 ## v9.2.7
