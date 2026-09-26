@@ -100,6 +100,7 @@
 #include <QStringLiteral>
 #include <QStyleFactory>
 #include <QTranslator>
+#include <QTimer>
 #include <QWindow>
 
 #include "InstanceList.h"
@@ -649,6 +650,9 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         // Provide a fallback for migration from PolyMC
         m_settings.reset(new INISettingsObject({ BuildConfig.LAUNCHER_CONFIGFILE, "polymc.cfg", "multimc.cfg" }, this));
 
+        // register/migrate without flushing the file on every single change
+        SettingsObject::Lock settingsLock(m_settings.get());
+
         // Theming
         m_settings->registerSetting("IconTheme", QString());
         m_settings->registerSetting("ApplicationTheme", QString());
@@ -1064,9 +1068,12 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         }
     });
 
-    updateCapabilities();
-
-    detectLibraries();
+    // MSA/Flame flags are read by the first-run wizard; D-Bus and library probes can wait for the window
+    updateConfiguredCapabilities();
+    QTimer::singleShot(0, this, [this] {
+        updateCapabilities();
+        detectLibraries();
+    });
 
     // check update locks
     {
@@ -1519,7 +1526,10 @@ JavaInstallList* Application::javalist()
 
 QIcon Application::logo()
 {
-    return QIcon(":/" + BuildConfig.LAUNCHER_SVGFILENAME);
+    // decoding the SVG resource is not free, so keep the icon around
+    if (m_logo.isNull())
+        m_logo = QIcon(":/" + BuildConfig.LAUNCHER_SVGFILENAME);
+    return m_logo;
 }
 
 bool Application::openJsonEditor(const QString& filename)
@@ -1870,13 +1880,18 @@ Meta::Index* Application::metadataIndex()
     return m_metadataIndex.get();
 }
 
-void Application::updateCapabilities()
+void Application::updateConfiguredCapabilities()
 {
     m_capabilities = None;
     if (!getMSAClientID().isEmpty())
         m_capabilities |= SupportsMSA;
     if (!getFlameAPIKey().isEmpty())
         m_capabilities |= SupportsFlame;
+}
+
+void Application::updateCapabilities()
+{
+    updateConfiguredCapabilities();
 
 #ifdef Q_OS_LINUX
     if (gamemode_query_status() >= 0)

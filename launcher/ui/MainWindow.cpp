@@ -477,7 +477,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent* event)
 void MainWindow::retranslateUi()
 {
     if (m_selectedInstance) {
-        m_statusLeft->setText(m_selectedInstance->getStatusbarDescription());
+        updateStatusDescription();
     } else {
         m_statusLeft->setText(tr("No instance selected"));
     }
@@ -703,7 +703,9 @@ void MainWindow::updateThemeMenu()
 
     auto themes = APPLICATION->themeManager()->getValidApplicationThemes();
 
-    QActionGroup* themesGroup = new QActionGroup(this);
+    // keep a single group for the lifetime of the window instead of leaking one per rebuild
+    if (!m_themeGroup)
+        m_themeGroup = new QActionGroup(this);
 
     for (auto* theme : themes) {
         QAction* themeAction = themeMenu->addAction(theme->name());
@@ -712,7 +714,7 @@ void MainWindow::updateThemeMenu()
         if (APPLICATION->settings()->get("ApplicationTheme").toString() == theme->id()) {
             themeAction->setChecked(true);
         }
-        themeAction->setActionGroup(themesGroup);
+        themeAction->setActionGroup(m_themeGroup);
 
         connect(themeAction, &QAction::triggered, [theme]() {
             APPLICATION->themeManager()->setApplicationTheme(theme->id());
@@ -1813,7 +1815,7 @@ void MainWindow::instanceChanged(const QModelIndex& current, [[maybe_unused]] co
         ui->actionKillInstance->setEnabled(m_selectedInstance->isRunning());
         ui->actionExportInstance->setEnabled(m_selectedInstance->canExport());
         renameButton->setText(m_selectedInstance->name());
-        m_statusLeft->setText(m_selectedInstance->getStatusbarDescription());
+        updateStatusDescription();
         updateStatusCenter();
         updateInstanceToolIcon(m_selectedInstance->iconKey());
 
@@ -1892,6 +1894,18 @@ void MainWindow::checkInstancePathForProblems()
         warning.setDefaultButton(QMessageBox::Ok);
         warning.exec();
     }
+}
+
+void MainWindow::updateStatusDescription()
+{
+    const QString id = m_selectedInstance ? m_selectedInstance->id() : QString();
+    if (m_selectedInstance)
+        m_statusLeft->setText(m_selectedInstance->name());
+    // resolving components parses JSON, so fill in the details once the UI has had a chance to paint
+    QTimer::singleShot(0, this, [this, id] {
+        if (m_selectedInstance && m_selectedInstance->id() == id)
+            m_statusLeft->setText(m_selectedInstance->getStatusbarDescription());
+    });
 }
 
 void MainWindow::updateStatusCenter()

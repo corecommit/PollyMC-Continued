@@ -64,6 +64,7 @@ void INISettingsObject::resumeSave()
     m_suspendSave = false;
     if (m_doSave) {
         m_ini.saveFile(m_filePath);
+        m_doSave = false;  // the pending save happened, don't repeat it on the next resume
     }
 }
 

@@ -64,6 +64,7 @@ class LabeledToolButton;
 class QSystemTrayIcon;
 class QShowEvent;
 class QResizeEvent;
+class QActionGroup;
 
 class ToastNotification;
 class BotManagerDialog;
@@ -241,6 +242,7 @@ class MainWindow : public QMainWindow {
     void updateInstanceToolIcon(QString new_icon);
     void setSelectedInstanceById(const QString& id);
     void updateStatusCenter();
+    void updateStatusDescription();
     void setInstanceActionsEnabled(bool enabled);
 
     void runModalTask(Task* task);
@@ -256,6 +258,7 @@ class MainWindow : public QMainWindow {
     InstanceProxyModel* proxymodel = nullptr;
     QToolButton* newsLabel = nullptr;
     QLabel* m_statusLeft = nullptr;
+    QActionGroup* m_themeGroup = nullptr;
     QLabel* m_statusCenter = nullptr;
     QLabel* m_statusMemory = nullptr;
     QTimer* m_memoryTimer = nullptr;

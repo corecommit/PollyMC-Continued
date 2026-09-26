@@ -154,6 +154,7 @@ class Application : public QApplication {
     Meta::Index* metadataIndex();
 
     void updateCapabilities();
+    void updateConfiguredCapabilities();
 
     void detectLibraries();
 
@@ -268,10 +269,11 @@ class Application : public QApplication {
 
     QMap<QString, std::shared_ptr<BaseProfilerFactory>> m_profilers;
 
+    QIcon m_logo;
     QString m_rootPath;
     QString m_dataPath;
     Status m_status = Application::StartingUp;
-    Capabilities m_capabilities;
+    Capabilities m_capabilities = None;
     bool m_portable = false;
 
 #ifdef Q_OS_MACOS
