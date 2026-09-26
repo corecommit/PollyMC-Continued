@@ -173,8 +173,12 @@ void ToastNotification::showToast(const QPoint& finalPos, int displayMs)
 void ToastNotification::updatePosition(const QPoint& finalPos)
 {
     m_finalPos = finalPos;
-    if (m_visible && m_animation->state() == QAbstractAnimation::Stopped)
+    if (!m_visible)
+        return;
+    if (m_animation->state() == QAbstractAnimation::Stopped)
         move(m_finalPos);
+    else  // retarget the in-flight slide-in so a resize mid-animation lands right
+        m_animation->setEndValue(m_finalPos);
 }
 
 void ToastNotification::dismissToast()
@@ -203,8 +207,10 @@ void ToastNotification::onAnimationFinished()
 
 void ToastNotification::slideOut(bool emitDismissed)
 {
-    if (!m_visible || m_animation->state() != QAbstractAnimation::Stopped)
+    if (!m_visible)
         return;
+    if (m_animation->state() != QAbstractAnimation::Stopped)
+        m_animation->stop();  // cut the slide-in short, otherwise a click in the first 250ms is lost
 
     m_autoHideTimer->stop();
     m_visible = false;

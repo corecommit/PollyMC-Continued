@@ -22,6 +22,7 @@
 - Arch package pulls `cmark` as a runtime dependency instead of relying on it being present, fixing `libcmark` load failures
 - Bot server installs work from read-only locations (e.g. `/usr/bin`): the bundled copy is preferred when writable, and a per-user copy under the data root is created/refreshed otherwise, with legacy `bot-server/bots.json` still read as fallback
 - Instructions note `pacman -U <file>` for downloaded Arch packages instead of running the archive directly
+- GitHub star reminder no longer ignores input during its slide-in: a click in the first 250 ms could leave the card stuck on screen or silently drop the dismissal, and a resize mid-animation left it at the old spot
 - Linux binary tarball now bundles its version-sensitive shared libraries (`libcmark.so.0.30.2`, `libtomlplusplus.so.3`, `libqrencode.so.4`) into `bin/`, so the launcher no longer fails on distros whose cmark has a different SONAME (e.g. `libcmark.so.0.30.2: cannot open shared object file` on openSUSE/Arch)
 - Arch package builds no longer fail with `tar: file changed as we read it` — the source tarball is now written outside the tree being archived (to `/tmp`) and moved into place afterwards
 - Windows builds compile cmark from source instead of relying on a pacman package: MSYS2 dropped `mingw-w64-x86_64-cmark` for the MINGW64 environment (only ucrt64/clang64/clangarm64 remain), which broke the setup step with `target not found`
