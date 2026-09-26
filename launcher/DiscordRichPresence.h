@@ -34,7 +34,7 @@ class DiscordRichPresence : public QObject {
     // Low-level update — all helpers call this.
     void updatePresence(const QString& details,
                         const QString& state,
-                        const QString& largeImageKey  = QStringLiteral("pollymc"),
+                        const QString& largeImageKey  = QLatin1String(LOGO_URL),
                         const QString& largeImageText = QStringLiteral("PollyMC-Continued"),
                         const QString& smallImageKey  = QString(),
                         const QString& smallImageText = QString(),
@@ -45,6 +45,8 @@ class DiscordRichPresence : public QObject {
                                 qint64         startTime);
     void updateIdle();
     void updateBrowsing();
+    // Call when a browsing dialog closes; leaves a running game's status alone.
+    void browsingClosed();
 
     bool isIpcConnected() const { return m_ipcConnected; }
     bool isWsActive()     const { return m_wsServer && m_wsServer->isListening(); }
@@ -94,11 +96,12 @@ class DiscordRichPresence : public QObject {
 
     // ── Shared state ─────────────────────────────────────────────────────────
     bool m_shuttingDown = false;
+    bool m_gameRunning  = false;
 
     struct PresenceCache {
         QString details;
         QString state;
-        QString largeImageKey  = QStringLiteral("pollymc");
+        QString largeImageKey  = QLatin1String(LOGO_URL);
         QString largeImageText = QStringLiteral("PollyMC-Continued");
         QString smallImageKey;
         QString smallImageText;
@@ -108,5 +111,11 @@ class DiscordRichPresence : public QObject {
 
     QJsonObject buildActivityJson() const;
 
-    static constexpr const char* APP_ID = "1356656498988818502";
+    static constexpr const char* APP_ID = "1553275360358047766";
+    // Discord fetches external image URLs itself, so the logo shows even if no art assets are uploaded to the portal
+    static constexpr const char* LOGO_URL =
+        "https://raw.githubusercontent.com/corecommit/PollyMC-Continued/main/program_info/org.pollymc.PollyMC_256.png";
+    // Same trick for the in-game badge, so the portal's Art Assets page is never required
+    static constexpr const char* MC_ICON_URL =
+        "https://raw.githubusercontent.com/corecommit/PollyMC-Continued/main/launcher/resources/multimc/256x256/minecraft.png";
 };

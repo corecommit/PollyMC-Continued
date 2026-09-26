@@ -33,6 +33,8 @@
 class BaseInstance;
 class ModFolderModel;
 class PageContainer;
+class QHideEvent;
+class QShowEvent;
 class QVBoxLayout;
 class QDialogButtonBox;
 class ResourceDownloadTask;
@@ -86,6 +88,9 @@ class ResourceDownloadDialog : public QDialog, public BasePageProvider {
     void setButtonStatus();
 
     virtual GetModDependenciesTask::Ptr getModDependenciesTask() { return nullptr; }
+
+    void showEvent(QShowEvent* event) override;
+    void hideEvent(QHideEvent* event) override;
 
    protected:
     ResourceFolderModel* m_base_model;

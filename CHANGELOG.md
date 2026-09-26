@@ -11,6 +11,7 @@
 - Instance rows cache their shaped text, so scrolling and repainting the grid no longer re-runs text layout for every visible label
 - Icon and screenshot caching is capped at 128 MB instead of growing without a practical limit
 - The launcher logo SVG is decoded once and reused instead of on every access
+- Discord Rich Presence cards are branded: the large logo and the in-game badge are loaded from image URLs hosted in this repository (no Rich Presence art upload is needed in the Discord portal), the second line always names the launcher (`In launcher · PollyMC-Continued`), and the activity targets the launcher's own Discord application (`1553275360358047766`)
 
 **Fixed:**
 
@@ -27,6 +28,7 @@
 - Arch package builds no longer fail with `tar: file changed as we read it` — the source tarball is now written outside the tree being archived (to `/tmp`) and moved into place afterwards
 - Windows builds compile cmark from source instead of relying on a pacman package: MSYS2 dropped `mingw-w64-x86_64-cmark` for the MINGW64 environment (only ucrt64/clang64/clangarm64 remain), which broke the setup step with `target not found`
 - World save ZIPs with level.dat at the archive root are recognized again (dropping the file onto the launcher installs the world into an instance instead of opening the import-modpack dialog; nested ZIPs no longer fail silently)
+- Discord Rich Presence now shows a card the moment the launcher opens instead of only after a game launch: the first presence is pushed before the IPC handshake completes (Discord web / arRPC clients previously received nothing at all), the mod and instance-creation browsers now actually publish their `Browsing` state (the state existed but had no callers), closing a browser dialog can no longer clear a running game's status, a failed launch no longer leaves a phantom `Playing` entry, and the playing status shows the real Minecraft version instead of `Loading...`
 
 **Removed:**
 

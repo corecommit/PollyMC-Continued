@@ -36,6 +36,7 @@
 
 #include "NewInstanceDialog.h"
 #include "Application.h"
+#include "DiscordRichPresence.h"
 #include "ui/pages/modplatform/ModpackProviderBasePage.h"
 #include "ui/pages/modplatform/import_ftb/ImportFTBPage.h"
 #include "ui_NewInstanceDialog.h"
@@ -51,9 +52,11 @@
 
 #include <QDialogButtonBox>
 #include <QFileDialog>
+#include <QHideEvent>
 #include <QLayout>
 #include <QPushButton>
 #include <QScreen>
+#include <QShowEvent>
 #include <QValidator>
 #include <utility>
 
@@ -165,6 +168,18 @@ void NewInstanceDialog::accept()
     m_container->prepareToClose();
 
     QDialog::accept();
+}
+
+void NewInstanceDialog::showEvent(QShowEvent* event)
+{
+    QDialog::showEvent(event);
+    DiscordRichPresence::instance()->updateBrowsing();
+}
+
+void NewInstanceDialog::hideEvent(QHideEvent* event)
+{
+    QDialog::hideEvent(event);
+    DiscordRichPresence::instance()->browsingClosed();
 }
 
 QList<BasePage*> NewInstanceDialog::getPages()

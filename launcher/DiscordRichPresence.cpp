@@ -77,6 +77,8 @@ void DiscordRichPresence::init()
     m_shuttingDown = false;
     ipcConnect();
     wsStart();
+    // Set a presence now so WebSocket (Discord web) clients get one without waiting for the handshake
+    updateIdle();
 }
 
 void DiscordRichPresence::shutdown()
@@ -127,26 +129,35 @@ void DiscordRichPresence::updatePlayingMinecraft(const QString& instanceName,
                                                   const QString& mcVersion,
                                                   qint64         startTime)
 {
+    m_gameRunning = true;
     updatePresence(
         QStringLiteral("Playing %1").arg(instanceName),
-        QStringLiteral("Minecraft %1").arg(mcVersion),
-        QStringLiteral("pollymc"),
+        QStringLiteral("Minecraft %1 · PollyMC-Continued").arg(mcVersion),
+        QLatin1String(LOGO_URL),
         QStringLiteral("PollyMC-Continued"),
-        QStringLiteral("minecraft"),
+        QLatin1String(MC_ICON_URL),
         QStringLiteral("Minecraft"),
         startTime);
 }
 
 void DiscordRichPresence::updateIdle()
 {
-    updatePresence(QStringLiteral("Idle"), QStringLiteral("In launcher"),
-                   QStringLiteral("pollymc"), QStringLiteral("PollyMC-Continued"));
+    m_gameRunning = false;
+    updatePresence(QStringLiteral("Idle"), QStringLiteral("In launcher · PollyMC-Continued"));
 }
 
 void DiscordRichPresence::updateBrowsing()
 {
-    updatePresence(QStringLiteral("Browsing"), QStringLiteral("Looking for mods"),
-                   QStringLiteral("pollymc"), QStringLiteral("PollyMC-Continued"));
+    if (m_gameRunning)  // a running game outranks browsing
+        return;
+    updatePresence(QStringLiteral("Browsing"), QStringLiteral("Looking for mods · PollyMC-Continued"));
+}
+
+void DiscordRichPresence::browsingClosed()
+{
+    if (m_gameRunning)
+        return;
+    updateIdle();
 }
 
 // ============================================================================

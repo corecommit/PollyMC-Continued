@@ -45,6 +45,8 @@
 
 #include "DataMigrationTask.h"
 #include "java/JavaInstallList.h"
+#include "minecraft/MinecraftInstance.h"
+#include "minecraft/PackProfile.h"
 #include "net/PasteUpload.h"
 #include "tasks/Task.h"
 #include "tools/GenericProfiler.h"
@@ -1579,8 +1581,15 @@ bool Application::launch(BaseInstance* instance,
 
         // Update Discord Rich Presence
         QTimer::singleShot(2000, this, [instance]() {
+            if (!instance->isRunning())
+                return;  // the launch failed in the meantime
+            QString mcVersion;
+            if (auto mc = dynamic_cast<MinecraftInstance*>(instance); mc && mc->getPackProfile())
+                mcVersion = mc->getPackProfile()->getComponentVersion(QStringLiteral("net.minecraft"));
+            if (mcVersion.isEmpty())
+                mcVersion = QStringLiteral("Loading...");
             DiscordRichPresence::instance()->updatePlayingMinecraft(
-                instance->name(), "Loading...", QDateTime::currentSecsSinceEpoch());
+                instance->name(), mcVersion, QDateTime::currentSecsSinceEpoch());
         });
 
         return true;
