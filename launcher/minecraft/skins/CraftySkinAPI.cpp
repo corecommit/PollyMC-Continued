@@ -19,15 +19,18 @@
 #include "CraftySkinAPI.h"
 
 #include <QDir>
+#include <QElapsedTimer>
 #include <QFileInfo>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QTimer>
 #include <QUrl>
 
 #include "Application.h"
 #include "FileSystem.h"
 #include "QObjectPtr.h"
 #include "minecraft/skins/SkinModel.h"
+#include "net/ByteArraySink.h"
 #include "net/Download.h"
 #include "net/NetJob.h"
 
@@ -40,6 +43,81 @@ static QString encode(const QString& text)
 {
     return QString::fromUtf8(QUrl::toPercentEncoding(text));
 }
+
+namespace {
+
+// One budget for every crafty.gg request, so the 150/minute API limit is never reached.
+class RateGate {
+   public:
+    RateGate() { m_clock.start(); }
+
+    // Milliseconds to wait, or 0 when the request may start right now (its start is then reserved).
+    int acquire()
+    {
+        const qint64 now = m_clock.elapsed();
+        while (!m_starts.isEmpty() && now - m_starts.first() >= kWindowMs)
+            m_starts.removeFirst();
+        qint64 ready = now;
+        if (!m_starts.isEmpty())
+            ready = qMax(ready, m_starts.last() + kSpacingMs);
+        if (m_starts.size() >= kBudget)
+            ready = qMax(ready, m_starts.first() + kWindowMs);
+        if (ready > now)
+            return int(ready - now);
+        m_starts.append(now);
+        return 0;
+    }
+
+   private:
+    static constexpr int kBudget = 120;         // rolling budget, the API allows 150
+    static constexpr qint64 kWindowMs = 60000;  // rate limit window
+    static constexpr qint64 kSpacingMs = 500;   // minimum gap between two request starts
+    QElapsedTimer m_clock;
+    QList<qint64> m_starts;
+};
+
+RateGate& gate()
+{
+    static RateGate instance;
+    return instance;
+}
+
+// A crafty.gg download that waits for its turn in the rate gate instead of firing immediately.
+class PacedDownload : public Net::Download {
+   public:
+    static std::pair<Net::Download::Ptr, QByteArray*> makeByteArray(const QUrl& url);
+
+   protected:
+    void executeTask() override;
+};
+
+std::pair<Net::Download::Ptr, QByteArray*> PacedDownload::makeByteArray(const QUrl& url)
+{
+    auto dl = makeShared<PacedDownload>();
+    dl->setUrl(url);
+    dl->setObjectName(QString("BYTES:") + url.toString());
+    // a rate limited reply is retried after the wait the server asks for instead of failing the page
+    dl->enableAutoRetry(true);
+
+    auto sink = std::make_unique<Net::ByteArraySink>();
+    QByteArray* response = sink->output();
+    dl->m_sink = std::move(sink);
+
+    return { dl, response };
+}
+
+void PacedDownload::executeTask()
+{
+    const auto wait = getState() == Task::State::Running ? gate().acquire() : 0;
+    if (wait > 0) {
+        // the task stays running while it waits, the base class still emits the final signals
+        QTimer::singleShot(wait, this, [this] { Net::Download::executeTask(); });
+        return;
+    }
+    Net::Download::executeTask();
+}
+
+}  // namespace
 
 namespace Crafty {
 
@@ -163,7 +241,7 @@ NetJob::Ptr API::catalogPage(int page, const QString& search, PageCallback callb
 
     auto job = makeShared<NetJob>(tr("Browse skins"), APPLICATION->network());
     job->setAskRetry(false);
-    auto [action, response] = Net::Download::makeByteArray(QUrl(url));
+    auto [action, response] = PacedDownload::makeByteArray(QUrl(url));
     job->addNetAction(action);
 
     connect(job.get(), &NetJob::succeeded, this, [response, page, callback] {
@@ -187,7 +265,7 @@ NetJob::Ptr API::playerPage(int page, const QString& playerId, const QString& pl
 
     auto job = makeShared<NetJob>(tr("Download player skins"), APPLICATION->network());
     job->setAskRetry(false);
-    auto [action, response] = Net::Download::makeByteArray(QUrl(url));
+    auto [action, response] = PacedDownload::makeByteArray(QUrl(url));
     job->addNetAction(action);
 
     connect(job.get(), &NetJob::succeeded, this, [response, page, playerName, callback] {
@@ -219,7 +297,7 @@ NetJob::Ptr API::fetchSkins(int page, const QString& query, PageCallback callbac
 
     auto job = makeShared<NetJob>(tr("Find player"), APPLICATION->network());
     job->setAskRetry(false);
-    auto [action, response] = Net::Download::makeByteArray(QUrl(QStringLiteral("%1/players?search=%2").arg(baseUrl(), encode(query))));
+    auto [action, response] = PacedDownload::makeByteArray(QUrl(QStringLiteral("%1/players?search=%2").arg(baseUrl(), encode(query))));
     job->addNetAction(action);
 
     connect(job.get(), &NetJob::succeeded, this, [this, response, page, query, callback] {
@@ -262,7 +340,7 @@ NetJob::Ptr API::fetchTextures(const QList<SkinPtr>& skins, EachCallback each, D
                 each(skin);
             continue;
         }
-        auto [action, response] = Net::Download::makeByteArray(QUrl(QStringLiteral("%1/skins/%2").arg(baseUrl(), skin->hash)));
+        auto [action, response] = PacedDownload::makeByteArray(QUrl(QStringLiteral("%1/skins/%2").arg(baseUrl(), skin->hash)));
         job->addNetAction(action);
         requested++;
         connect(action.get(), &Task::succeeded, this, [skin, response, each] {
