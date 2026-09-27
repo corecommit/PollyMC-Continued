@@ -49,6 +49,7 @@ class SkinManageDialog : public QDialog, public SkinProvider {
     void on_fileBtn_clicked();
     void on_urlBtn_clicked();
     void on_userBtn_clicked();
+    void on_viewOnlineBtn_clicked();
     void accept() override;
     void on_capeCombo_currentIndexChanged(int index);
     void on_steveBtn_toggled(bool checked);

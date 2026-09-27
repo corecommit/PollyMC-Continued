@@ -386,6 +386,8 @@ set(MINECRAFT_SOURCES
     minecraft/skins/SkinModel.h
     minecraft/skins/SkinList.cpp
     minecraft/skins/SkinList.h
+    minecraft/skins/CraftySkinAPI.cpp
+    minecraft/skins/CraftySkinAPI.h
 
     minecraft/Agent.h)
 
@@ -1110,6 +1112,8 @@ SET(LAUNCHER_SOURCES
 
     ui/dialogs/skins/SkinManageDialog.cpp
     ui/dialogs/skins/SkinManageDialog.h
+    ui/dialogs/skins/SkinBrowserDialog.cpp
+    ui/dialogs/skins/SkinBrowserDialog.h
 
     ui/dialogs/skins/draw/SkinOpenGLWindow.h
     ui/dialogs/skins/draw/SkinOpenGLWindow.cpp
@@ -1280,6 +1284,7 @@ qt_wrap_ui(LAUNCHER_UI
     ui/dialogs/BlockedModsDialog.ui
     ui/dialogs/ChooseProviderDialog.ui
     ui/dialogs/skins/SkinManageDialog.ui
+    ui/dialogs/skins/SkinBrowserDialog.ui
     ui/dialogs/ChooseOfflineNameDialog.ui
 )
 
