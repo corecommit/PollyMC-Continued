@@ -118,16 +118,20 @@ jobs:
             EXPECTED_TAG="v${{ needs.skip-check.outputs.version }}"
           fi
 
-          HEAD_MSG=$(git log --format="%s %b" HEAD -1)
-          if echo "$HEAD_MSG" | grep -qF '[skip changelog]'; then
-            echo "Skipping changelog check: [skip changelog] found in the latest commit."
-            exit 0
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            COMMITS=$(git log --format="%s %b" "${{ github.event.pull_request.base.sha }}".."${{ github.event.pull_request.head.sha }}")
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            COMMITS=$(git log --format="%s %b" "${{ github.event.before }}".."${{ github.event.after }}" 2>/dev/null || git log --format="%s %b" -1)
+          else
+            COMMITS=$(git log --format="%s %b" -1)
           fi
 
+          if echo "$COMMITS" | grep -qF '[skip changelog]'; then
+            echo "Skipping changelog check: [skip changelog] found in the push/PR range."
+            exit 0
+          fi
+          
           echo "Looking for '## ${EXPECTED_TAG}' in CHANGELOG.md ..."
-          # Use a counted grep, not `grep -q`: -q exits on the first match and
-          # closes the pipe, sed then dies with SIGPIPE and pipefail turns the
-          # whole pipeline into a failure even though the section exists.
           if [ "$(sed 's/\r$//' CHANGELOG.md | grep -Fxc "## ${EXPECTED_TAG}" || true)" -eq 0 ]; then
             echo "::error::CHANGELOG.md has no '## ${EXPECTED_TAG}' section, but the computed release version is ${EXPECTED_TAG}."
             echo "::error::Add a '## ${EXPECTED_TAG}' section (Added/Changed/Fixed/Removed) to CHANGELOG.md, or add '[skip changelog]' to the commit message if this change doesn't need a release note."
@@ -135,7 +139,6 @@ jobs:
           fi
 
           echo "Found matching CHANGELOG.md section for ${EXPECTED_TAG}."
-
   build-windows:
     name: Windows (MinGW)
     needs: [skip-check]
@@ -160,12 +163,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: C:\msys64\var\cache\pacman\pkg
-          # NOTE: hashFiles assumes this workflow file is saved as build.yml.
-          # If it's saved under a different filename, hashFiles returns "" and
-          # this key never changes when the workflow is edited. Verify the
-          # actual path, or hash something more stable like CMakeLists.txt.
-          key: msys2-v1
-          restore-keys: msys2-
+          key: msys2-v2-${{ hashFiles('.github/workflows/build.yml') }}
+          restore-keys: |
+            msys2-v2-
 
       - name: Setup MSYS2
         uses: msys2/setup-msys2@v2
@@ -771,7 +771,7 @@ jobs:
           kill "$APP_PID" 2>/dev/null || true
 
   build-macos:
-    name: macOS (Universal)
+    name: macOS (arm64)
     needs: [skip-check]
     if: needs.skip-check.outputs.skip != 'true'
     runs-on: macos-14
@@ -857,7 +857,7 @@ jobs:
       - name: Build
         run: |
           ccache -z
-          cmake --build --preset macos_universal --config "$BUILD_TYPE"
+          cmake --build --config "$BUILD_TYPE"
           echo "=== ccache stats ==="
           ccache -s
           ccache --print-stats
