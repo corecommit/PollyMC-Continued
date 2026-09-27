@@ -8,6 +8,7 @@
 - **Use skin** in that browser downloads the picked skin, adds it to the local skin library and applies it right away — uploaded for Microsoft accounts, stored for the offline skin agent for offline accounts
 - Online skins are cached under `cache/skins`, so opening the browser again never re-downloads textures it already has
 - Discord Rich Presence reports **Looking for skins** while the browser is open instead of the mod browser's wording
+- All crafty.gg requests share one pacing budget (at most 120 per minute, at least 500 ms apart), so browsing, searching and previewing skins never reaches the API rate limit; a rare HTTP 429 is retried after the wait the server asks for instead of failing the page
 
 **Changed:**
 
@@ -37,6 +38,7 @@
 - World save ZIPs with level.dat at the archive root are recognized again (dropping the file onto the launcher installs the world into an instance instead of opening the import-modpack dialog; nested ZIPs no longer fail silently)
 - Applying a skin no longer fails with HTTP 401 when the account's 24 hour launcher token has expired: the token is refreshed before the upload instead of only after it
 - Discord Rich Presence now shows a card the moment the launcher opens instead of only after a game launch: the first presence is pushed before the IPC handshake completes (Discord web / arRPC clients previously received nothing at all), the mod and instance-creation browsers now actually publish their `Browsing` state (the state existed but had no callers), closing a browser dialog can no longer clear a running game's status, a failed launch no longer leaves a phantom `Playing` entry, and the playing status shows the real Minecraft version instead of `Loading...`
+- macOS release build stops failing bundle verification with `bundle contains the local source branch name`: the check now ignores compiled Qt/zstd binaries (which contain the branch name by coincidence) and only scans text plus the git refspec, so it still catches a real branch-name leak
 
 **Removed:**
 
