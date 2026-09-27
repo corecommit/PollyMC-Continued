@@ -857,7 +857,7 @@ jobs:
       - name: Build
         run: |
           ccache -z
-          cmake --build --config "$BUILD_TYPE"
+          cmake --build build -j$(sysctl -n hw.ncpu) --config "$BUILD_TYPE"
           echo "=== ccache stats ==="
           ccache -s
           ccache --print-stats
