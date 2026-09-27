@@ -162,12 +162,14 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->actionMoreNews->setVisible(false);
 
     setWindowIcon(APPLICATION->logo());
-    setWindowTitle(APPLICATION->applicationDisplayName());
+    // only the main window shows name and version, no branch or channel suffix
+    const auto title = QString("%1 %2").arg(BuildConfig.LAUNCHER_DISPLAYNAME, BuildConfig.versionString());
+    setWindowTitle(title);
 
     // System tray icon — used by "Minimize to Tray"
     if (QSystemTrayIcon::isSystemTrayAvailable()) {
         m_trayIcon = new QSystemTrayIcon(APPLICATION->logo(), this);
-        m_trayIcon->setToolTip(APPLICATION->applicationDisplayName());
+        m_trayIcon->setToolTip(title);
         auto* trayMenu = new QMenu(this);
         auto* showAction = trayMenu->addAction(tr("Show PollyMC"));
         connect(showAction, &QAction::triggered, this, &MainWindow::showFromTray);
