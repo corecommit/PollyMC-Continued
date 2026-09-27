@@ -2,7 +2,7 @@
 
 ## v9.3.0
 
-**Changed:**
+**Changed:** 
 
 - Startup writes the settings directory in one go instead of once per migrated key, so first run and upgrades no longer hit the disk repeatedly while the window is opening
 - GameMode/MangoHud detection and shared-library probes are deferred until after the first paint (the Microsoft login and modpack-install capability flags are still resolved synchronously for the first-run wizard)
