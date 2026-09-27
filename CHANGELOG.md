@@ -20,6 +20,9 @@
 - Icon and screenshot caching is capped at 128 MB instead of growing without a practical limit
 - The launcher logo SVG is decoded once and reused instead of on every access
 - Discord Rich Presence cards are branded: the large logo and the in-game badge are loaded from image URLs hosted in this repository (no Rich Presence art upload is needed in the Discord portal) and the second line always names the launcher (`In launcher · PollyMC-Continued`)
+- The main window title is just `PollyMC-Continued <version>` — the git branch/channel is no longer appended, so it reads `9.3.0` instead of `9.3.0-testing`
+- Every other window keeps its own title: the launcher name and version are no longer appended after it (Quick Setup, the offline player name dialog and all other dialogs used to end in `- PollyMC-Continued <version>`)
+- Linux, Windows and `.deb` CI packages hide git metadata like the macOS and Arch packages already did, so their version string has no commit-hash suffix either
 
 **Fixed:**
 

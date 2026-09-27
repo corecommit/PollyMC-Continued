@@ -251,6 +251,7 @@ jobs:
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_BUILD_RELEASE=ON \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
             -S . -B build
@@ -490,6 +491,7 @@ jobs:
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_BUILD_RELEASE=ON \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
             -S . -B build
@@ -519,6 +521,7 @@ jobs:
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_BUILD_RELEASE=ON \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
             -DLauncher_UPDATER_GITHUB_REPO="" \
