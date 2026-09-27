@@ -2,7 +2,14 @@
 
 ## v9.3.0
 
-**Changed:** 
+**Added:**
+
+- A **View skins online** button in the skin manager: it opens a browser for the crafty.gg skin catalog with page navigation, player-name search, the player every skin belongs to, and a rotatable 3D preview of the selected skin
+- **Use skin** in that browser downloads the picked skin, adds it to the local skin library and applies it right away — uploaded for Microsoft accounts, stored for the offline skin agent for offline accounts
+- Online skins are cached under `cache/skins`, so opening the browser again never re-downloads textures it already has
+- Discord Rich Presence reports **Looking for skins** while the browser is open instead of the mod browser's wording
+
+**Changed:**
 
 - Startup writes the settings directory in one go instead of once per migrated key, so first run and upgrades no longer hit the disk repeatedly while the window is opening
 - GameMode/MangoHud detection and shared-library probes are deferred until after the first paint (the Microsoft login and modpack-install capability flags are still resolved synchronously for the first-run wizard)
@@ -28,6 +35,7 @@
 - Arch package builds no longer fail with `tar: file changed as we read it` — the source tarball is now written outside the tree being archived (to `/tmp`) and moved into place afterwards
 - Windows builds compile cmark from source instead of relying on a pacman package: MSYS2 dropped `mingw-w64-x86_64-cmark` for the MINGW64 environment (only ucrt64/clang64/clangarm64 remain), which broke the setup step with `target not found`
 - World save ZIPs with level.dat at the archive root are recognized again (dropping the file onto the launcher installs the world into an instance instead of opening the import-modpack dialog; nested ZIPs no longer fail silently)
+- Applying a skin no longer fails with HTTP 401 when the account's 24 hour launcher token has expired: the token is refreshed before the upload instead of only after it
 - Discord Rich Presence now shows a card the moment the launcher opens instead of only after a game launch: the first presence is pushed before the IPC handshake completes (Discord web / arRPC clients previously received nothing at all), the mod and instance-creation browsers now actually publish their `Browsing` state (the state existed but had no callers), closing a browser dialog can no longer clear a running game's status, a failed launch no longer leaves a phantom `Playing` entry, and the playing status shows the real Minecraft version instead of `Loading...`
 
 **Removed:**

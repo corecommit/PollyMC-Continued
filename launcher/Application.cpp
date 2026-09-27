@@ -843,6 +843,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         m_settings->registerSetting("TPDownloadGeometry", "");
         m_settings->registerSetting("ShaderDownloadGeometry", "");
         m_settings->registerSetting("DataPackDownloadGeometry", "");
+        m_settings->registerSetting("SkinBrowserGeometry", "");
 
         // data pack window
         // in future, more pages may be added - so this name is chosen to avoid needing migration

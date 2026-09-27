@@ -44,7 +44,7 @@ class DiscordRichPresence : public QObject {
                                 const QString& mcVersion,
                                 qint64         startTime);
     void updateIdle();
-    void updateBrowsing();
+    void updateBrowsing(const QString& activity = {});
     // Call when a browsing dialog closes; leaves a running game's status alone.
     void browsingClosed();
 

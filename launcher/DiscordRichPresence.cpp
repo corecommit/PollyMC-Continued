@@ -146,11 +146,12 @@ void DiscordRichPresence::updateIdle()
     updatePresence(QStringLiteral("Idle"), QStringLiteral("In launcher · PollyMC-Continued"));
 }
 
-void DiscordRichPresence::updateBrowsing()
+void DiscordRichPresence::updateBrowsing(const QString& activity)
 {
     if (m_gameRunning)  // a running game outranks browsing
         return;
-    updatePresence(QStringLiteral("Browsing"), QStringLiteral("Looking for mods · PollyMC-Continued"));
+    auto what = activity.isEmpty() ? QStringLiteral("Looking for mods") : activity;
+    updatePresence(QStringLiteral("Browsing"), QStringLiteral("%1 · PollyMC-Continued").arg(what));
 }
 
 void DiscordRichPresence::browsingClosed()

@@ -52,6 +52,7 @@
 
 #include "ui/dialogs/CustomMessageBox.h"
 #include "ui/dialogs/ProgressDialog.h"
+#include "ui/dialogs/skins/SkinBrowserDialog.h"
 #include "ui/instanceview/InstanceDelegate.h"
 
 SkinManageDialog::SkinManageDialog(QWidget* parent, MinecraftAccountPtr acct)
@@ -180,6 +181,40 @@ void SkinManageDialog::on_fileBtn_clicked()
         CustomMessageBox::selectable(this, tr("Selected file is not a valid skin"), message, QMessageBox::Critical)->show();
         return;
     }
+}
+
+void SkinManageDialog::on_viewOnlineBtn_clicked()
+{
+    SkinBrowserDialog dialog(this);
+    if (dialog.exec() != QDialog::Accepted)
+        return;
+    auto choice = dialog.choice();
+    if (choice.texturePath.isEmpty())
+        return;
+
+    auto name = choice.playerName.isEmpty() ? QStringLiteral("crafty-") + choice.hash.left(8) : choice.playerName;
+    auto path = FS::PathCombine(m_list.getDir(), name + ".png");
+    if (QFileInfo::exists(path))
+        path = FS::PathCombine(m_list.getDir(), name + "-" + choice.hash.left(6) + ".png");
+    if (!QFile::copy(choice.texturePath, path)) {
+        CustomMessageBox::selectable(this, tr("Skin Import"), tr("Could not copy the skin into the skins folder."), QMessageBox::Warning)
+            ->show();
+        return;
+    }
+
+    SkinModel skin(path);
+    if (!skin.isValid()) {
+        QFile::remove(path);
+        CustomMessageBox::selectable(this, tr("Skin Import"), tr("The downloaded image is not a valid skin."), QMessageBox::Warning)
+            ->show();
+        return;
+    }
+    skin.setModel(choice.model);
+    skin.setURL(Crafty::API::pageUrl(choice.hash));
+    m_list.updateSkin(&skin);
+    m_selectedSkinKey = skin.name();
+    // uploads the skin, or stores it locally for offline accounts
+    accept();
 }
 
 QPixmap previewCape(QImage capeImage, bool elytra = false)
@@ -341,6 +376,14 @@ void SkinManageDialog::accept()
     }
 
     ProgressDialog prog(this);
+
+    // the 24 hour launcher token may already be expired, refresh it before building the upload
+    if (m_acct->shouldRefresh() && prog.execWithTask(m_acct->refresh().get()) != QDialog::Accepted) {
+        CustomMessageBox::selectable(this, tr("Skin Upload"), tr("Could not refresh the account login."), QMessageBox::Warning)->exec();
+        reject();
+        return;
+    }
+
     NetJob::Ptr skinUpload{ new NetJob(tr("Change skin"), APPLICATION->network(), 1) };
 
     skinUpload->addNetAction(SkinUpload::make(m_acct->accessToken(), skin->getPath(), skin->getModelString()));
