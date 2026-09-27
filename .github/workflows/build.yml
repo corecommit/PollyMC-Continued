@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - id: check
+      - id: check 
         shell: bash
         run: |
           set -euo pipefail
