@@ -83,7 +83,7 @@ jobs:
             if printf '%s\n' "$BUMP_COMMITS" | grep -qE '^[^:]+!:|^[^:]+:.*BREAKING CHANGE|BREAKING CHANGE'; then
               MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0
               BUMP="major"
-            elif printf '%s\n' "$BUMP_COMMITS" | grep -qE '^(feat|feature)(\([^)]*\))?:[[:space:]]'; then
+            elif printf '%s\n' "$BUMP_COMMITS" | grep -qiE '^(feat|feature|add|enhance)(\([^)]*\))?:[[:space:]]'; then
               MINOR=$((MINOR + 1)); PATCH=0
               BUMP="minor"
             else
