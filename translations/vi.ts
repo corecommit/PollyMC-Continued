@@ -835,7 +835,7 @@ Kiểm tra tệp log cho việc cập nhật Prism Launcher ở:
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
-        <translation>Dữ liệu cũ từ %1 đã được tìm thấy, nhưng bạn đã có dữ liệu cho %2. Thật buồn khi bạn sẽ phải di chuyển dữ liệu của mình đi. Bạn có muốn được nhắc nhở về việc di chuyển dữ liệu đang chờ xử lý khi bạn bắt đầu % 2 ở lần kế tiếp không?</translation>
+        <translation>Dữ liệu cũ từ %1 đã được tìm thấy, nhưng bạn đã có dữ liệu cho %2. Thật buồn khi bạn sẽ phải di chuyển dữ liệu của mình đi. Bạn có muốn được nhắc nhở về việc di chuyển dữ liệu đang chờ xử lý khi bạn bắt đầu %2 ở lần kế tiếp không?</translation>
     </message>
 </context>
 <context>
@@ -2433,7 +2433,7 @@ Không thể chạy đối tượng này do một vài thư viện đang bị th
     <message>
         <location filename="../launcher/ui/dialogs/ExportInstanceDialog.cpp" line="137"/>
         <source>Export %1</source>
-        <translation>Xuất 1%</translation>
+        <translation>Xuất %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportInstanceDialog.cpp" line="149"/>
@@ -3199,7 +3199,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="93"/>
         <source>Parsing the API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Xử lý phản hồi API từ CurseForge cho &apos;% 1&apos; ...</translation>
+        <translation>Xử lý phản hồi API từ CurseForge cho &apos;%1&apos; ...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="40"/>
@@ -3472,7 +3472,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.cpp" line="301"/>
         <source>Source code: &lt;a href=%1&gt;%1&lt;/a&gt;</source>
-        <translation>Mã nguồn: &lt;a href=%1&gt;% 1 &lt;/a&gt;</translation>
+        <translation>Mã nguồn: &lt;a href=%1&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.cpp" line="81"/>
@@ -6506,7 +6506,7 @@ Hãy tạo một phiên mới trước khi thử cài đặt tài nguyên này m
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>&amp;Về</translation>
+        <translation>&amp;Về %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
@@ -6936,8 +6936,8 @@ This can be updated either using a file in %1 format or an URL.
 Do not use a different format than the one mentioned as it may break the instance.
 Make sure you also trust the URL.
 </source>
-        <translation>Đây là một modpack được lưu trên máy
-Nó có thể được cập nhập bằng một tệp cùng định dạng hoặc từ một URL.
+        <translation>Đây là một modpack được lưu trên máy.
+Nó có thể được cập nhập bằng một tệp cùng định dạng %1 hoặc từ một URL.
 Không được dùng một định dạng khác với cái modpack này do nó có thể phá hỏng đối tượng.
 Hãy đảm bảo rằng bạn tin tưởng cái URL
 </translation>

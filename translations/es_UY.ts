@@ -708,7 +708,7 @@ para más detalles sobre el último intento de actualización.</translation>
     <message>
         <location filename="../launcher/Application.cpp" line="687"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>No se puede mostrar este registro ya que su largo ha superado las 1% lineas.</translation>
+        <translation>No se puede mostrar este registro ya que su largo ha superado las %1 líneas.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1980"/>
@@ -3253,7 +3253,7 @@ Esto puede ser permanente y desaparecerán por siempre de la carpeta.
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="298"/>
         <source>Failed to find version for %1 loader</source>
-        <translation>Error al encontrar la versión para el loader de 1%</translation>
+        <translation>Error al encontrar la versión para el loader de %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="339"/>
@@ -5145,7 +5145,7 @@ Granting %1 access to it via Flatseal is recommended.</source>
         <translation>Estás intentando especificar una carpeta de instancias que fue concedida temporalmente a través de Flatpak,
 Se sabe que esto causa problemas. Después de un reinicio el launcher podría romperse, ya que no tendrá acceso a ese directorio.
 
-Se recomienda conceder acceso a Prism Launcher a través de Flatseal.</translation>
+Se recomienda conceder acceso a %1 a través de Flatseal.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="104"/>

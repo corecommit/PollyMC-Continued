@@ -674,7 +674,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/Application.cpp" line="2026"/>
         <source>Migration failed! Reason: %1</source>
-        <translation>فشل الترحيل! السبب: ٪1</translation>
+        <translation>فشل الترحيل! السبب: %1</translation>
     </message>
     <message>
         <source>Update succeeded
@@ -712,12 +712,12 @@ for details on the last update attempt.</source>
     <message>
         <location filename="../launcher/Application.cpp" line="1980"/>
         <source>It looks like you used %1 on %2 before. Do you want to migrate your data to the new location of %3?</source>
-        <translation>يبدو أنك استخدمت ٪1 على٪2 من قبل. هل تريد ترحيل البيانات إلى الموقع الجديد ٪3؟</translation>
+        <translation>يبدو أنك استخدمت %1 على %2 من قبل. هل تريد ترحيل بياناتك إلى الموقع الجديد %3؟</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1974"/>
         <source>It looks like you used %1 before. Do you want to migrate your data to the new location of %2?</source>
-        <translation>يبدو أنك استخدمت ٪1 من قبل. هل تريد ترحيل البيانات إلى الموقع الجديد ٪2؟</translation>
+        <translation>يبدو أنك استخدمت %1 من قبل. هل تريد ترحيل بياناتك إلى الموقع الجديد %2؟</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1066"/>
@@ -812,7 +812,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
-        <translation>تم العثور على بيانات قديمة من ٪ 1 ولكن لديك بالفعل بيانات موجودة ل ٪ 2. للأسف سوف تحتاج إلى الانتقال بنفسك. هل تريد أن يتم تذكيرك بترحيل البيانات المعلقة في المرة القادمة التي تبدأ فيها ٪2؟</translation>
+        <translation>تم العثور على بيانات قديمة من %1 ولكن لديك بالفعل بيانات موجودة لـ%2. للأسف ستحتاج إلى الترحيل بنفسك. هل تريد أن يُذكّرك بترحيل البيانات المعلّقة في المرة القادمة التي تبدأ فيها %2؟</translation>
     </message>
 </context>
 <context>
@@ -1450,7 +1450,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="249"/>
         <source>Downloading metadata for %1 components</source>
-        <translation>جري تنزيل البيانات الوصفية لالمكونات 1%</translation>
+        <translation>جارٍ تنزيل البيانات الوصفية لـ%1 مكوّن</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="508"/>
@@ -2779,10 +2779,10 @@ Are you sure?</source>
 This may be permanent and they will be gone from the folder.
 
 Are you sure?</source>
-        <translation>أنت على وشك إزالة ٪ 1 عناصر.
-قد يكون هذا دائم وستحذف العناصر من الملف
+        <translation>أنت على وشك إزالة %1 عنصرًا.
+قد يكون هذا دائمًا وسيختفي العنصر من المجلد.
 
-هل أنت متأكد؟؟</translation>
+هل أنت متأكد؟</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="92"/>
@@ -3075,7 +3075,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="85"/>
         <source>Failed to find pack version %1</source>
-        <translation>فشل وجود هذي النسخة لهذا الحزمة 1%</translation>
+        <translation>تعذّر العثور على إصدار الحزمة %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="375"/>
@@ -6921,10 +6921,10 @@ This can be updated either using a file in %1 format or an URL.
 Do not use a different format than the one mentioned as it may break the instance.
 Make sure you also trust the URL.
 </source>
-        <translation>هذا مودباك محلي.
-هذا يمكن تحديثة إما بإستخدام ملف بتنسيق 1% او عنوان URL.
-لا تستخدم تنسيقاً مختلف عن التنسيق المنشور وإلا فقد يؤدي ذلك إلى تعطيل النسخة .
-تأكد انك أيضاً تثق في عنوان الURL.
+        <translation>هذه حزمة تعديلات محلية.
+يمكن تحديثها إما باستخدام ملف بصيغة %1 أو رابط URL.
+لا تستخدم صيغة غير المذكورة فقد يؤدي ذلك إلى تعطيل المثبّت.
+تأكد أيضًا من أنك تثق بالرابط.
 </translation>
     </message>
     <message>
@@ -9293,7 +9293,7 @@ StdErr: %2</source>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="924"/>
         <source>Updating portable install at %1</source>
-        <translation>جاري تحديث التطبيق المتنقل لذى 1%</translation>
+        <translation>جارٍ تحديث التثبيت المحمول في %1</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="761"/>
@@ -9337,7 +9337,7 @@ StdErr: %2</source>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="966"/>
         <source>Failed to launch &apos;%1&apos; %2</source>
-        <translation>فشل في الإطلاق &apos;1%&apos; %2</translation>
+        <translation>فشل تشغيل &apos;%1&apos; %2</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="316"/>
@@ -9429,7 +9429,7 @@ The updater cannot continue until you fix this problem.</source>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="921"/>
         <source>Updating from %1 to %2</source>
-        <translation>التحديث من %1 إلى 2%</translation>
+        <translation>جارٍ التحديث من %1 إلى %2</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="108"/>
@@ -9533,7 +9533,7 @@ To overwrite this lock and proceed with this update anyway, select &quot;Ignore&
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="1084"/>
         <source>Extracted the following to &quot;%1&quot;:
   %2</source>
-        <translation>تم استخراج إلى &quot;1%&quot;:
+        <translation>تم استخراج ما يلي إلى &quot;%1&quot;:
   %2</translation>
     </message>
     <message>
@@ -9578,7 +9578,7 @@ To overwrite this lock and proceed with this update anyway, select &quot;Ignore&
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="936"/>
         <source>Process start result: %1</source>
-        <translation>نتج عن عمل التطبيق: 1%</translation>
+        <translation>نتيجة بدء العملية: %1</translation>
     </message>
     <message>
         <source>This installation has a update lock file present at: %1

@@ -11187,7 +11187,7 @@ Por favor, atualize %1!</translation>
         <location filename="../launcher/ui/pages/modplatform/ResourcePage.cpp" line="432"/>
         <source>No versions for &apos;%1&apos; are available.
 The author likely blocked third-party launchers.</source>
-        <translation>Nenhuma versão de &apos;%s&apos; está disponível.
+        <translation>Nenhuma versão de &apos;%1&apos; está disponível.
 Provavelmente o autor bloqueou launchers de terceiros.</translation>
     </message>
     <message>

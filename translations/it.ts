@@ -1666,7 +1666,7 @@ Per rimuovere questo blocco e procedere selezione &quot;Ignora&quot; di seguito.
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="96"/>
         <source>Reflinks are supported on %1</source>
-        <translation>I reflinks sono supportati su 1%</translation>
+        <translation>I reflink sono supportati su %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="98"/>
@@ -6783,7 +6783,7 @@ Per pulire i metadati manualmente, premi Cartelle -&gt; Cartella del launcher, c
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Eliminare gruppo &apos;%1&apos;</translation>
+        <translation>&amp;Elimina gruppo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>

@@ -6641,7 +6641,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1080"/>
         <source>Minecraft %1</source>
-        <translation>Майнкрафт</translation>
+        <translation>Майнкрафт %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1085"/>

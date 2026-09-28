@@ -1637,7 +1637,7 @@ Til að eyða þessum lás og halda áfram skaltu velja &quot;Hunsa&quot; fyrir 
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="96"/>
         <source>Reflinks are supported on %1</source>
-        <translation>Ref-tenglar eru studdir á % 1</translation>
+        <translation>Re-tenglar eru studdir á %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="98"/>
@@ -2092,7 +2092,7 @@ Ertu viss?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="151"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="32"/>
@@ -6527,7 +6527,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>&amp;Eyða hóp &apos;%1&apos;</translation>
+        <translation>&amp;Eyða hóp</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7685,7 +7685,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="261"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="311"/>
@@ -10946,7 +10946,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="168"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="218"/>
@@ -11664,7 +11664,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="165"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="215"/>
@@ -12363,7 +12363,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="173"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="223"/>

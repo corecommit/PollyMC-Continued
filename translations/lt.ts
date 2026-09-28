@@ -2263,13 +2263,13 @@ Vis tiek paleisti? Tai gali sulėtinti žaidimą ir jūsų sistemą.</translatio
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="390"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="458"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &quot;% 1&quot;...</translation>
+        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &quot;%1&quot;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="243"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="331"/>
         <source>Parsing API response from Modrinth for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš Modrinth, skirtas &apos;% 1&apos;...</translation>
+        <translation>Analizuojamas API atsakymas iš Modrinth, skirtas &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="163"/>
@@ -2284,7 +2284,7 @@ Vis tiek paleisti? Tai gali sulėtinti žaidimą ir jūsų sistemą.</translatio
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="165"/>
         <source>Requesting metadata information from %1 for &apos;%2&apos;...</source>
-        <translation>Prašoma metaduomenų informacijos iš % 1, skirtos &apos;% 2&apos;...</translation>
+        <translation>Prašoma metaduomenų informacijos iš %1, skirtos &apos;%2&apos;...</translation>
     </message>
 </context>
 <context>
@@ -2680,7 +2680,7 @@ Ar tu tuo tikras?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="349"/>
         <source> (%1 installed)</source>
-        <translation> (% 1 įdiegta)</translation>
+        <translation> (%1 įdiegta)</translation>
     </message>
     <message>
         <source>Select %1</source>
@@ -2704,7 +2704,7 @@ Ar tu tuo tikras?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="347"/>
         <source> (%1 installed, %2 selected)</source>
-        <translation> (% 1 įdiegta, % 2 pasirinkta)</translation>
+        <translation> (%1 įdiegta, %2 pasirinkta)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="59"/>
@@ -2993,7 +2993,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/minecraft/launch/ExtractNatives.cpp" line="75"/>
         <source>Couldn&apos;t extract native jar &apos;%1&apos; to destination &apos;%2&apos;</source>
-        <translation>Nepavyko išskleisti vietinio jar archyvo &quot;% 1&quot; į paskirties vietą &quot;% 2&quot;</translation>
+        <translation>Nepavyko išskleisti vietinio jar archyvo &quot;%1&quot; į paskirties vietą &quot;%2&quot;</translation>
     </message>
 </context>
 <context>
@@ -3058,7 +3058,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="375"/>
         <source>Copying Blocked Mods (%1 out of %2 are done)</source>
-        <translation>Kopijuojamos užblokuotos modifikacijos (% 1 iš % 2 atlikta)</translation>
+        <translation>Kopijuojamos užblokuotos modifikacijos (%1 iš %2 atlikta)</translation>
     </message>
 </context>
 <context>
@@ -3125,7 +3125,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="254"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakas iš CurseForge už &apos;1%&apos;...</translation>
+        <translation>Analizuojamas API atsakas iš CurseForge už &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="127"/>
@@ -3149,7 +3149,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="93"/>
         <source>Parsing the API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš CurseForge skirtas „% 1“...</translation>
+        <translation>Analizuojamas API atsakymas iš CurseForge skirtas „%1“...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="40"/>
@@ -3287,12 +3287,12 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="120"/>
         <source> (version %1)</source>
-        <translation> (versija % 1)</translation>
+        <translation> (versija %1)</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="622"/>
         <source>Copying Blocked Mods (%1 out of %2 are done)</source>
-        <translation>Kopijuojamos užblokuotos modifikacijos (% 1 iš % 2 atlikta)</translation>
+        <translation>Kopijuojamos užblokuotos modifikacijos (%1 iš %2 atlikta)</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="388"/>
@@ -3315,7 +3315,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="434"/>
         <source>%1 (Current)</source>
-        <translation>% 1 (dabartinis)</translation>
+        <translation>%1 (dabartinis)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="394"/>
@@ -3329,7 +3329,7 @@ Ar jūs tuo tikras?</translation>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="219"/>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="282"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &apos;% 1&apos;...</translation>
+        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="51"/>
@@ -3545,7 +3545,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/tools/GenericProfiler.cpp" line="39"/>
         <source>Started process: %1</source>
-        <translation>Pradėtas procesas: 1%</translation>
+        <translation>Pradėtas procesas: %1</translation>
     </message>
 </context>
 <context>
@@ -3962,7 +3962,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/InstancePageProvider.h" line="52"/>
         <source>Edit Instance (%1)</source>
-        <translation>Redaguoti Instanciją (1%)</translation>
+        <translation>Redaguoti Instanciją (%1)</translation>
     </message>
 </context>
 <context>
@@ -6401,7 +6401,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1002"/>
         <source>The modpack, mod, or resource %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>Šis modpack, modas ar šaltinis yra blokuojamas trečiosioms šalims. Prašome atsisiųsti patiems.</translation>
+        <translation>Šis modpack, modas ar šaltinis %1 yra blokuojamas trečiosioms šalims. Prašome atsisiųsti patiems.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
@@ -8019,7 +8019,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="66"/>
         <source> (version %1)</source>
-        <translation> (versija % 1)</translation>
+        <translation> (versija %1)</translation>
     </message>
 </context>
 <context>
@@ -8032,7 +8032,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="288"/>
         <source>%1 (Current)</source>
-        <translation>% 1 (dabartinis)</translation>
+        <translation>%1 (dabartinis)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="302"/>

@@ -3160,7 +3160,7 @@ Da li ste sigurni?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="265"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation>Dobijanje indeksa lokalnih metapodataka nije uspelo za 1%</translation>
+        <translation>Dobijanje indeksa lokalnih metapodataka nije uspelo za %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="241"/>

@@ -12225,7 +12225,7 @@ Er du sikker?</translation>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="595"/>
         <source>Unable to find the skin for &apos;%1&apos;
  because: %2.</source>
-        <translation>Kan ikke finde skin for &apos;% 1&apos;
+        <translation>Kan ikke finde skin for &apos;%1&apos;
  fordi: %2.</translation>
     </message>
     <message>

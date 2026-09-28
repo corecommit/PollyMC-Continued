@@ -707,7 +707,7 @@ za podrobnosti o zadnji posodobitvi.</translation>
     <message>
         <location filename="../launcher/Application.cpp" line="687"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla &amp;1 vrstic.</translation>
+        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla %1 vrstic.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1980"/>
@@ -8534,7 +8534,7 @@ Are you sure?</source>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="89"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="307"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla &amp;1 vrstic.</translation>
+        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla %1 vrstic.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="35"/>

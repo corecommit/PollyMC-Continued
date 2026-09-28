@@ -812,7 +812,7 @@ For å slette denne låsfilen og fortsette, velg «Ignorer» nedenfor.</translat
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
-        <translation>Fant gammel data fra %1, men du har allerede eksisterende data for %2. Du må dessverre overføre dataene selv. Vil du bli påminnet om den pågående dataoverføringen neste gang du starter 2%?</translation>
+        <translation>Fant gammel data fra %1, men du har allerede eksisterende data for %2. Du må dessverre overføre dataene selv. Vil du bli påminnet om den pågående dataoverføringen neste gang du starter %2?</translation>
     </message>
 </context>
 <context>
@@ -5097,8 +5097,8 @@ Det kan hende at du må fikse modsene dine, siden spillet logger fortsatt til fi
 This is known to cause problems. After a restart the launcher might break, because it will no longer have access to that directory.
 
 Granting %1 access to it via Flatseal is recommended.</source>
-        <translation>Du prøver å spesifisere en instansmappe som %1 har fått tilgang til midlertidig via Flatpak.
-Dette kan forårsake problemer. Etter en omstart får ikke %1 tilgang til den mappen lenger.
+        <translation>Du prøver å spesifisere en instansmappe som ble gitt midlertidig tilgang via Flatpak.
+Dette kan forårsake problemer. Etter en omstart får ikke launcheren tilgang til den mappen lenger.
 
 Det anbefales å gi %1 tilgang til mappen via Flatseal.</translation>
     </message>

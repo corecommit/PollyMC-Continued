@@ -52,6 +52,7 @@
 - Searching in the skin browser finds skins again: it asks crafty.gg's own text search (player names, tags and styles) and merges those hits with the matched player's own skins into one scrollable list, instead of jumping to one arbitrary player's skins — so a tag like `boy` shows what crafty.gg has for it and a name still shows all of that player's skins
 - Skin rows show a plain mannequin while their texture downloads instead of an empty square, and pick up the player's name with it, so results look like a normal list right away
 - crafty.gg requests that must wait now reserve their slot before waiting, so a burst of downloads (one page of textures, for example) goes out one every 500 ms instead of all at once after the same delay
+- 210 broken translations across 47 languages repaired — messages that printed a literal `1%`/`% 1` instead of the value, or had a placeholder dropped, duplicated or mangled — and Finnish and Laotian translate again at all: their two plural messages lacked the plural-form markup, which made `lrelease` reject the whole file
 
 **Removed:**
 

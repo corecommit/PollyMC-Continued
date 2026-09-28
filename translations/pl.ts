@@ -6282,7 +6282,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="757"/>
         <source>%1 &amp;Wiki</source>
-        <translation>Wiki</translation>
+        <translation>%1 &amp;Wiki</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="589"/>

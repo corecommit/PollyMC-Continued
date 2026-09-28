@@ -1262,7 +1262,7 @@ Prism Launcher жаңарту журналын мына жерден қараң�
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="155"/>
         <source>&lt;span style=&quot;color:green&quot;&gt; &amp;#x2714; Found at %1 &lt;/span&gt;</source>
-        <translation>&lt;span style=&quot;color:green&quot;&gt; &amp;#x2714; 1% табылды &lt;/span&gt;</translation>
+        <translation>&lt;span style=&quot;color:green&quot;&gt; &amp;#x2714; %1 табылды &lt;/span&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="160"/>
@@ -3080,7 +3080,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="265"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation>% 1 үшін жергілікті метадеректер индексін алу сәтсіз аяқталды</translation>
+        <translation>%1 үшін жергілікті метадеректер индексін алу сәтсіз аяқталды</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="115"/>

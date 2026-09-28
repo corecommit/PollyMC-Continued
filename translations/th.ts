@@ -3725,7 +3725,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.cpp" line="153"/>
         <source>The modpack %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>modpack% 1 ถูกบล็อกโดยบุคคลที่สาม! กรุณาดาวน์โหลดด้วยตนเอง</translation>
+        <translation>modpack %1 ถูกบล็อกโดยบุคคลที่สาม! กรุณาดาวน์โหลดด้วยตนเอง</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="43"/>
@@ -3779,7 +3779,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/ImportResourceDialog.cpp" line="46"/>
         <source>Choose the instance you would like to import this %1 to.</source>
-        <translation>เลือกอินสแตนซ์ที่คุณต้องการนำเข้า% 1 นี้</translation>
+        <translation>เลือกอินสแตนซ์ที่คุณต้องการนำเข้า %1 นี้</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ImportResourceDialog.cpp" line="49"/>
@@ -3944,7 +3944,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/InstanceCreationTask.cpp" line="102"/>
         <source>Could not download game files: %1</source>
-        <translation>ไม่สามารถดาวน์โหลดไฟล์เกมได้</translation>
+        <translation>ไม่สามารถดาวน์โหลดไฟล์เกมได้: %1</translation>
     </message>
 </context>
 <context>
@@ -5485,7 +5485,7 @@ Should it be removed now?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/legacy_ftb/Page.cpp" line="365"/>
         <source>Are you sure you want to remove pack %1?</source>
-        <translation>คุณแน่ใจว่าคุณต้องการจะลบแพ็ก?</translation>
+        <translation>คุณแน่ใจว่าต้องการลบแพ็ก %1 หรือไม่?</translation>
     </message>
 </context>
 <context>
@@ -5498,7 +5498,7 @@ Should it be removed now?</source>
     <message>
         <location filename="../launcher/minecraft/update/LibrariesTask.cpp" line="23"/>
         <source>Libraries for instance %1</source>
-        <translation>ไฟล์โปรแกรมมาตรฐานสำหรับอินสแตนซ์</translation>
+        <translation>ไฟล์ไลบรารีสำหรับอินสแตนซ์ %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/update/LibrariesTask.cpp" line="15"/>
