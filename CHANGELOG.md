@@ -27,6 +27,8 @@
 - The Help button on settings and instance pages opens the Discord server invite in your browser instead of showing a `Will fix later.` placeholder
 - The top toolbar is grouped with separators — `Add instance │ Folders, Settings, Performance presets │ More │ Accounts` — so the spacing between buttons reads evenly instead of only after the first one
 - The toolbar's Help button is now called **More**, and **Check for update** (with its icon) moved into its dropdown instead of being its own toolbar button
+- The More menu (and the Help menu) is ordered by what the entries do: `Check for update`, `View logs`, `Report a Bug` first, then `Wiki`, `More News`, `Bots`, then `Discord`, `Matrix`, `Subreddit`, then the maintenance entries, with `About` last
+- Tooltips now appear in every dropdown, not just Folders and Help — the Accounts menu, the More menu and the Export submenu had tooltip display turned off — and the entries that had no tooltip at all got one (Accounts, Manage Accounts, No Default Account, Undo Last Instance Deletion, Status Bar, Lock Toolbars, Themes and the three export formats)
 
 **Fixed:**
 

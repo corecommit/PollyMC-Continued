@@ -229,6 +229,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
         helpMenuButton = dynamic_cast<QToolButton*>(ui->mainToolBar->widgetForAction(ui->actionHelpButton));
         ui->actionHelpButton->setMenu(new QMenu(this));
+        ui->actionHelpButton->menu()->setToolTipsVisible(true);
         ui->actionHelpButton->menu()->addActions(ui->helpMenu->actions());
         helpMenuButton->setPopupMode(QToolButton::InstantPopup);
 
@@ -236,6 +237,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
         accountMenuButton->setPopupMode(QToolButton::InstantPopup);
 
         auto exportInstanceMenu = new QMenu(this);
+        exportInstanceMenu->setToolTipsVisible(true);
         exportInstanceMenu->addAction(ui->actionExportInstanceZip);
         exportInstanceMenu->addAction(ui->actionExportInstanceMrPack);
         exportInstanceMenu->addAction(ui->actionExportInstanceFlamePack);
