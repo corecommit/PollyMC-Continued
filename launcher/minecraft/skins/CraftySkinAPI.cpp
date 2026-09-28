@@ -23,6 +23,7 @@
 #include <QFileInfo>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QSet>
 #include <QTimer>
 #include <QUrl>
 
@@ -62,8 +63,11 @@ class RateGate {
             ready = qMax(ready, m_starts.last() + kSpacingMs);
         if (m_starts.size() >= kBudget)
             ready = qMax(ready, m_starts.first() + kWindowMs);
-        if (ready > now)
+        if (ready > now) {
+            // the slot is reserved even when it lies in the future, so waiters stagger instead of firing together
+            m_starts.append(ready);
             return int(ready - now);
+        }
         m_starts.append(now);
         return 0;
     }
@@ -283,41 +287,123 @@ NetJob::Ptr API::playerPage(int page, const QString& playerId, const QString& pl
     return job;
 }
 
+// waits for both halves of a search (text matches and the matched player's skins) and reports them as one page
+namespace {
+class SearchMerger {
+   public:
+    SearchMerger(int page, API::PageCallback callback) : m_page(page), m_callback(std::move(callback)) {}
+
+    void setCatalog(const SkinPage& page, const QString& error)
+    {
+        if (m_catalogDone)
+            return;
+        m_catalogDone = true;
+        m_catalog = page;
+        m_catalogError = error;
+        report();
+    }
+
+    void setPlayer(const SkinPage& page, const QString& error)
+    {
+        if (m_playerDone)
+            return;
+        m_playerDone = true;
+        m_player = page;
+        m_playerError = error;
+        report();
+    }
+
+   private:
+    static void append(QList<SkinPtr>& merged, QSet<QString>& seen, const QList<SkinPtr>& skins)
+    {
+        for (const auto& skin : skins)
+            if (!skin->hash.isEmpty() && !seen.contains(skin->hash)) {
+                seen.insert(skin->hash);
+                merged << skin;
+            }
+    }
+
+    void report()
+    {
+        if (!m_catalogDone || !m_playerDone)
+            return;
+
+        // the keyword matches lead the first page, the player's own skins paginate behind them
+        QList<SkinPtr> merged;
+        QSet<QString> seen;
+        if (m_page == 1)
+            append(merged, seen, m_catalog.skins);
+        append(merged, seen, m_player.skins);
+
+        SkinPage result;
+        result.skins = merged;
+        result.page = m_page;
+        result.hasMore = m_player.hasMore;
+        result.playerName = m_player.playerName;
+        if (!merged.isEmpty() || (m_catalogError.isEmpty() && m_playerError.isEmpty())) {
+            m_callback(result, {});
+            return;
+        }
+        m_callback({}, m_catalogError.isEmpty() ? m_playerError : m_catalogError);
+    }
+
+    int m_page;
+    API::PageCallback m_callback;
+    SkinPage m_catalog;
+    SkinPage m_player;
+    QString m_catalogError;
+    QString m_playerError;
+    bool m_catalogDone = false;
+    bool m_playerDone = false;
+};
+}  // namespace
+
 NetJob::Ptr API::fetchSkins(int page, const QString& query, PageCallback callback)
 {
     if (m_pageJob && m_pageJob->isRunning())
         m_pageJob->abort();
     if (m_nestedJob && m_nestedJob->isRunning())
         m_nestedJob->abort();
+    if (m_searchJob && m_searchJob->isRunning())
+        m_searchJob->abort();
+    m_pageJob = m_nestedJob = m_searchJob = nullptr;
 
     if (query.isEmpty()) {
         m_pageJob = catalogPage(page, {}, callback);
         return m_pageJob;
     }
 
+    auto merger = std::make_shared<SearchMerger>(page, callback);
+
+    // crafty's own text search covers player names, tags and styles, it never has more than one page
+    if (page == 1)
+        m_searchJob = catalogPage(1, query, [merger](const SkinPage& found, const QString& error) { merger->setCatalog(found, error); });
+    else
+        merger->setCatalog({}, {});
+
+    // and the player the text names exactly, so a name search still lists all of that player's skins
     auto job = makeShared<NetJob>(tr("Find player"), APPLICATION->network());
     job->setAskRetry(false);
     auto [action, response] = PacedDownload::makeByteArray(QUrl(QStringLiteral("%1/players?search=%2").arg(baseUrl(), encode(query))));
     job->addNetAction(action);
 
-    connect(job.get(), &NetJob::succeeded, this, [this, response, page, query, callback] {
+    connect(job.get(), &NetJob::succeeded, this, [this, response, page, merger] {
         QJsonParseError parseError{};
         auto doc = QJsonDocument::fromJson(*response, &parseError);
         const auto data = parseError.error == QJsonParseError::NoError ? doc.object()["data"] : QJsonValue();
-        if (data.isObject()) {
-            const auto player = data.toObject();
-            const auto id = player["id"].toString();
-            if (!id.isEmpty()) {
-                m_nestedJob = playerPage(page, id, player["username"].toString(), callback);
-                return;
-            }
+        const auto player = data.isObject() ? data.toObject() : QJsonObject{};
+        const auto id = player["id"].toString();
+        if (id.isEmpty()) {
+            // nobody by that name, the keyword matches stand on their own
+            merger->setPlayer({}, {});
+            return;
         }
-        // no such player, fall back to searching the catalog itself
-        m_nestedJob = catalogPage(page, query, callback);
+        m_nestedJob = playerPage(page, id, player["username"].toString(),
+                                 [merger](const SkinPage& found, const QString& error) { merger->setPlayer(found, error); });
     });
-    connect(job.get(), &NetJob::failed, this, [this, page, query, callback](const QString&) {
-        // crafty replies 404 when the player is unknown, the catalog search decides what to show
-        m_nestedJob = catalogPage(page, query, callback);
+    connect(job.get(), &NetJob::failed, this, [merger](const QString&) {
+        // crafty replies 404 when the player is unknown, the keyword search still has the results
+        merger->setPlayer({}, {});
     });
 
     m_pageJob = job;
@@ -369,12 +455,14 @@ void API::abortAll()
 {
     if (m_pageJob && m_pageJob->isRunning())
         m_pageJob->abort();
+    if (m_searchJob && m_searchJob->isRunning())
+        m_searchJob->abort();
     if (m_nestedJob && m_nestedJob->isRunning())
         m_nestedJob->abort();
     for (const auto& job : m_textureJobs)
         if (job && job->isRunning())
             job->abort();
-    m_pageJob = m_nestedJob = nullptr;
+    m_pageJob = m_nestedJob = m_searchJob = nullptr;
     m_textureJobs.clear();
 }
 

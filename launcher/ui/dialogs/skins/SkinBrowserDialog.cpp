@@ -26,6 +26,7 @@
 #include <QLabel>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QPainter>
 #include <QPixmap>
 #include <QShowEvent>
 
@@ -187,7 +188,7 @@ void SkinBrowserDialog::loadPage(int page)
                 if (row < 0)
                     return;
                 if (auto item = m_ui->skinList->item(row))
-                    item->setIcon(QIcon(iconPixmap(skin)));
+                    decorateItem(item, skin);
                 if (row == m_ui->skinList->currentRow())
                     updateDetails();
             },
@@ -203,9 +204,27 @@ QPixmap SkinBrowserDialog::iconPixmap(const Crafty::SkinPtr& skin) const
 {
     if (!skin->preview.isNull())
         return QPixmap::fromImage(skin->preview).scaled(72, 72, Qt::KeepAspectRatio, Qt::FastTransformation);
+    // a plain mannequin, so every row looks filled while its texture is still downloading
     QPixmap placeholder(72, 72);
     placeholder.fill(Qt::transparent);
+    QPainter painter(&placeholder);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(palette().color(QPalette::Mid));
+    painter.drawRect(24, 6, 24, 24);
+    painter.drawRect(28, 34, 16, 22);
+    painter.drawRect(19, 34, 8, 20);
+    painter.drawRect(45, 34, 8, 20);
+    painter.drawRect(28, 58, 7, 10);
+    painter.drawRect(37, 58, 7, 10);
     return placeholder;
+}
+
+void SkinBrowserDialog::decorateItem(QListWidgetItem* item, const Crafty::SkinPtr& skin) const
+{
+    const auto name = skin->username.isEmpty() ? tr("Unnamed skin") : skin->username;
+    item->setIcon(QIcon(iconPixmap(skin)));
+    item->setText(name);
+    item->setToolTip(skin->username.isEmpty() ? name : tr("%1 · used by %2 players").arg(skin->username).arg(skin->playersCount));
 }
 
 void SkinBrowserDialog::fillList()
@@ -215,9 +234,8 @@ void SkinBrowserDialog::fillList()
     m_previewModel.reset();
 
     for (const auto& skin : m_skins) {
-        auto name = skin->username.isEmpty() ? tr("Unnamed skin") : skin->username;
-        auto item = new QListWidgetItem(iconPixmap(skin), name, m_ui->skinList);
-        item->setToolTip(skin->username.isEmpty() ? name : tr("%1 · used by %2 players").arg(skin->username).arg(skin->playersCount));
+        auto item = new QListWidgetItem(m_ui->skinList);
+        decorateItem(item, skin);
     }
     updateDetails();
 }

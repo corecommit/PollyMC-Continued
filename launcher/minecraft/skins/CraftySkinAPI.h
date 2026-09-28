@@ -64,7 +64,7 @@ class API : public QObject {
 
     explicit API(QObject* parent = nullptr);
 
-    // an empty query browses the catalog, otherwise the text is looked up as a player name
+    // an empty query browses the catalog, a query matches player names, tags and styles and adds the matching player's own skins
     NetJob::Ptr fetchSkins(int page, const QString& query, PageCallback callback);
     // fills texture/preview/texturePath on every entry, cached textures are not downloaded again
     NetJob::Ptr fetchTextures(const QList<SkinPtr>& skins, EachCallback each, DoneCallback done);
@@ -83,6 +83,7 @@ class API : public QObject {
     static bool loadCached(const SkinPtr& skin);
 
     NetJob::Ptr m_pageJob;
+    NetJob::Ptr m_searchJob;
     NetJob::Ptr m_nestedJob;
     QList<NetJob::Ptr> m_textureJobs;
 };
