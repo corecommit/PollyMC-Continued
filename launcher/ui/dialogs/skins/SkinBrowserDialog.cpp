@@ -130,12 +130,6 @@ void SkinBrowserDialog::on_nextBtn_clicked()
         loadPage(m_page + 1);
 }
 
-void SkinBrowserDialog::on_siteBtn_clicked()
-{
-    if (m_current)
-        QDesktopServices::openUrl(QUrl(Crafty::API::pageUrl(m_current->hash)));
-}
-
 void SkinBrowserDialog::on_useSkinBtn_clicked()
 {
     if (!m_current || m_current->texture.isNull())
