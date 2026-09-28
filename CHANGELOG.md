@@ -54,6 +54,8 @@
 - Skin rows show a plain mannequin while their texture downloads instead of an empty square, and pick up the player's name with it, so results look like a normal list right away
 - crafty.gg requests that must wait now reserve their slot before waiting, so a burst of downloads (one page of textures, for example) goes out one every 500 ms instead of all at once after the same delay
 - 210 broken translations across 47 languages repaired — messages that printed a literal `1%`/`% 1` instead of the value, or had a placeholder dropped, duplicated or mangled — and Finnish and Laotian translate again at all: their two plural messages lacked the plural-form markup, which made `lrelease` reject the whole file
+- Translations no longer print junk: 29 menu entries showed a literal `%` where the accelerator belonged (`&Options` rendered as `%Innstillinger`), 8 showed raw `&lt;ACCESS TOKEN&gt;` because the angle brackets were double-escaped, Russian and Laotian printed a literal `` `n` ``/`\n` instead of a line break, one Esperanto message rendered blank, and 1177 menu items that had lost their `&` got it back so `Alt`+letter works again
+- Translations no longer drop content: 42 plural forms lost the `%n` count (the Ukrainian rate-limit and mod dialogs printed only `секунду`/`мод`), 22 rich-text messages had broken markup — unclosed `<a>` links dragged the rest of the sentence into the link, garbled tag attributes and a cut-off Slovenian sentence — and 11 messages lost their trailing line break; the 20 strings still in English in the Czech and Tamil files are translated
 
 **Removed:**
 

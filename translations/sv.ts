@@ -470,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Ta bort</translation>
+        <translation>&amp;Ta bort</translation>
     </message>
     <message>
         <source>Welcome!
@@ -4386,7 +4386,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Java Argument</translation>
+        <translation>&amp;Java Argument</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -5015,7 +5015,7 @@ Du kan behöva fixa dina mods eftersom spelet fortfarande loggar till filer och 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="321"/>
         <source>&amp;Mods:</source>
-        <translation>Mods:</translation>
+        <translation>&amp;Mods:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="56"/>
@@ -5143,7 +5143,7 @@ Du kan behöva fixa dina mods eftersom spelet fortfarande loggar till filer och 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Stoppa loggning om den blir för stor</translation>
+        <translation>&amp;Stoppa loggning om den blir för stor</translation>
     </message>
     <message>
         <source>Download game files during instance creation</source>
@@ -5187,7 +5187,7 @@ Du kan behöva fixa dina mods eftersom spelet fortfarande loggar till filer och 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
         <source>I&amp;nstances:</source>
-        <translation>Instanser:</translation>
+        <translation>&amp;Instanser:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="486"/>
@@ -5202,7 +5202,7 @@ Du kan behöva fixa dina mods eftersom spelet fortfarande loggar till filer och 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="394"/>
         <source>&amp;Icons:</source>
-        <translation>Ikoner:</translation>
+        <translation>&amp;Ikoner:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
@@ -6728,7 +6728,7 @@ Kontrollera papperskorgen för att återställa dem manuellt.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Skapa instans</translation>
+        <translation>&amp;Skapa instans</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7181,7 +7181,7 @@ Se till också till att du litar på URL länken.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="88"/>
         <source>&amp;Record time playing this instance</source>
-        <translation>Håll koll på spelad tid för denna instans</translation>
+        <translation>&amp;Håll koll på spelad tid för denna instans</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
@@ -7349,7 +7349,7 @@ Det är sannolikt att du måste ändra sökvägen - var snäll och vänd dig til
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>Inbyggda bibliotek</translation>
+        <translation>&amp;Inbyggda bibliotek</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="781"/>

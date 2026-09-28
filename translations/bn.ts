@@ -41,12 +41,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>মেটাডেটা সার্ভার</translation>
+        <translation>&amp;মেটাডেটা সার্ভার</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>মড্রিন্থ</translation>
+        <translation>&amp;মড্রিন্থ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -456,7 +456,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>মুছে ফেলুন</translation>
+        <translation>&amp;মুছে ফেলুন</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>

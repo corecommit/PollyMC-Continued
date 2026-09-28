@@ -474,7 +474,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Verwyder</translation>
+        <translation>&amp;Verwyder</translation>
     </message>
     <message>
         <source>Welcome!

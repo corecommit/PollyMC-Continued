@@ -145,7 +145,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Paketin manifest-tiedostoa ei voitu ymmärtää:</translation>
+        <translation>Paketin manifest-tiedostoa ei voitu ymmärtää:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -4444,7 +4445,7 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Tunnista Java-versio automaattisesti</translation>
+        <translation>&amp;Tunnista Java-versio automaattisesti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -5066,7 +5067,7 @@ Sinun tarvitsee ehkä korjata modisi, koska peli jatkaa silti lokin kirjoittamis
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>Tarkista mm.alakansiot estettyjä modeja varten</translation>
+        <translation>&amp;Tarkista mm.alakansiot estettyjä modeja varten</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -6144,8 +6145,8 @@ Oletko varma?</translation>
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
         <source> and its %n registered shortcut(s)</source>
         <translation>
-            <numerusform> ja sen % rekisteröity oikotie</numerusform>
-            <numerusform> ja sen % rekisteröidyt oikotiet</numerusform>
+            <numerusform> ja sen %n rekisteröity oikotie</numerusform>
+            <numerusform> ja sen %n rekisteröidyt oikotiet</numerusform>
         </translation>
     </message>
     <message>
@@ -9847,7 +9848,7 @@ Valitse käyttäjänimi huolellisesti:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Käytä järjestelmän asetuksia</translation>
+        <translation>&amp;Käytä järjestelmän asetuksia</translation>
     </message>
 </context>
 <context>

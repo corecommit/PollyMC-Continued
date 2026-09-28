@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -449,12 +449,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Перемістити вище</translation>
+        <translation>&amp;Перемістити вище</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Перемістити нижче</translation>
+        <translation>&amp;Перемістити нижче</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -1898,7 +1898,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>Команда після виходу</translation>
+        <translation>&amp;Команда після виходу</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
@@ -1913,7 +1913,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Підпорядкування та загальні налаштування</translation>
+        <translation>&amp;Підпорядкування та загальні налаштування</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -4363,7 +4363,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>Тестові налаштування</translation>
+        <translation>&amp;Тестові налаштування</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4393,7 +4393,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Пам&apos;ять</translation>
+        <translation>&amp;Пам&apos;ять</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4413,7 +4413,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="295"/>
         <source>&amp;PermGen Size:</source>
-        <translation>Розмір PermGen:</translation>
+        <translation>Розмір &amp;PermGen:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="229"/>
@@ -4462,7 +4462,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Java встановлення</translation>
+        <translation>&amp;Java встановлення</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4482,7 +4482,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Автовиявлення версії Java</translation>
+        <translation>&amp;Автовиявлення версії Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4998,7 +4998,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="501"/>
         <source>Log History &amp;Limit:</source>
-        <translation>Історія Звіту й Обмеження:</translation>
+        <translation>&amp;Історія Звіту й Обмеження:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="616"/>
@@ -5971,12 +5971,12 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="817"/>
         <source>I&amp;con Theme</source>
-        <translation>Тема іконок</translation>
+        <translation>&amp;Тема іконок</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="166"/>
         <source>&amp;Edit</source>
-        <translation>Редагувати</translation>
+        <translation>&amp;Редагувати</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="64"/>
@@ -6211,7 +6211,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="283"/>
         <source>&amp;Undo Last Instance Deletion</source>
-        <translation>Скасувати останнє видалення збірки</translation>
+        <translation>&amp;Скасувати останнє видалення збірки</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="294"/>
@@ -6813,7 +6813,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="703"/>
         <source>Sub&amp;reddit</source>
-        <translation>Сабреддит</translation>
+        <translation>&amp;Сабреддит</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="474"/>
@@ -7277,7 +7277,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>Завжди показувати тривалість у годинах</translation>
+        <translation>&amp;Завжди показувати тривалість у годинах</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -7297,12 +7297,12 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="88"/>
         <source>&amp;Record time playing this instance</source>
-        <translation>Записати час, проведений у цій збірці</translation>
+        <translation>&amp;Записати час, проведений у цій збірці</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>Розмір Вікна:</translation>
+        <translation>&amp;Розмір Вікна:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7334,17 +7334,17 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="222"/>
         <source>&amp;Console Window</source>
-        <translation>Вікно консолі</translation>
+        <translation>&amp;Вікно консолі</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>Ввімкнути Авто-Приєднання</translation>
+        <translation>&amp;Ввімкнути Авто-Приєднання</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
         <source>&amp;Performance</source>
-        <translation>Продуктивність</translation>
+        <translation>&amp;Продуктивність</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="638"/>
@@ -7384,7 +7384,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
         <source>Open &amp;Global Settings</source>
-        <translation>Відкрити загальні налаштування</translation>
+        <translation>&amp;Відкрити загальні налаштування</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="93"/>
@@ -7430,7 +7430,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>Застарілі Налаштування</translation>
+        <translation>&amp;Застарілі Налаштування</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="768"/>
@@ -7440,7 +7440,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="325"/>
         <source>Game &amp;Time</source>
-        <translation>Ігровий час</translation>
+        <translation>&amp;Ігровий час</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="155"/>
@@ -7455,7 +7455,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="368"/>
         <source>Override &amp;Default Account</source>
-        <translation>Перевизначити обліковий запис за замовчуванням</translation>
+        <translation>&amp;Перевизначити обліковий запис за замовчуванням</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="758"/>
@@ -7465,7 +7465,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>Нативні бібліотеки</translation>
+        <translation>&amp;Нативні бібліотеки</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="781"/>
@@ -7515,7 +7515,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>Показати час, проведений у цій збірці</translation>
+        <translation>&amp;Показати час, проведений у цій збірці</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7555,7 +7555,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>Завантаження та перевизначення завантажувачів модів</translation>
+        <translation>&amp;Завантаження та перевизначення завантажувачів модів</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
@@ -7570,17 +7570,17 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Показати час, проведений у збірках</translation>
+        <translation>&amp;Показати час, проведений у збірках</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>Вікно гри</translation>
+        <translation>&amp;Вікно гри</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Записати час, проведений у збірках</translation>
+        <translation>&amp;Записати час, проведений у збірках</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="692"/>
@@ -7595,7 +7595,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>Показати загальний час, проведений у збірках</translation>
+        <translation>&amp;Показати загальний час, проведений у збірках</translation>
     </message>
 </context>
 <context>
@@ -7817,11 +7817,11 @@ It is most likely you will need to change the path - please refer to the mod&apo
         <source>%n mod(s) will be disabled
 </source>
         <translation>
-            <numerusform>мод
+            <numerusform>%n мод буде вимкнено
 </numerusform>
-            <numerusform>моди
+            <numerusform>%n моди буде вимкнено
 </numerusform>
-            <numerusform>модів
+            <numerusform>%n модів буде вимкнено
 </numerusform>
         </translation>
     </message>
@@ -7872,11 +7872,11 @@ Ignoring them may break the game.</source>
         <source>The disabled mod(s) are required by %n mod(s).
 </source>
         <translation>
-            <numerusform>мода
+            <numerusform>Вимкнені моди потрібні для %n мода.
 </numerusform>
-            <numerusform>моди
+            <numerusform>Вимкнені моди потрібні для %n модів.
 </numerusform>
-            <numerusform>модів
+            <numerusform>Вимкнені моди потрібні для %n модів.
 </numerusform>
         </translation>
     </message>
@@ -7905,11 +7905,11 @@ Ignoring them may break the game.</source>
         <source>The enabled mod(s) require %n mod(s).
 </source>
         <translation>
-            <numerusform>мод
+            <numerusform>Для увімкненого мода потрібен %n мод.
 </numerusform>
-            <numerusform>моди
+            <numerusform>Для увімкненого мода потрібні %n моди.
 </numerusform>
-            <numerusform>модів
+            <numerusform>Для увімкненого мода потрібні %n модів.
 </numerusform>
         </translation>
     </message>
@@ -7993,11 +7993,11 @@ Ignoring them may break the game.</source>
         <source>%n mod(s) will be enabled
 </source>
         <translation>
-            <numerusform>мод
+            <numerusform>%n мод буде увімкнено
 </numerusform>
-            <numerusform>моди
+            <numerusform>%n моди буде увімкнено
 </numerusform>
-            <numerusform>модів
+            <numerusform>%n модів буде увімкнено
 </numerusform>
         </translation>
     </message>
@@ -8528,9 +8528,9 @@ Please update %1!</source>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            <numerusform>секунду</numerusform>
-            <numerusform>секунди</numerusform>
-            <numerusform>секунд</numerusform>
+            <numerusform>Запит обмежено: очікування %n секунди, повторна спроба після %1</numerusform>
+            <numerusform>Запит обмежено: очікування %n секунди, повторна спроба після %1</numerusform>
+            <numerusform>Запит обмежено: очікування %n секунд, повторна спроба після %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8538,9 +8538,9 @@ Please update %1!</source>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            <numerusform>секунду</numerusform>
-            <numerusform>секунди</numerusform>
-            <numerusform>секунд</numerusform>
+            <numerusform>Обмеження запитів: очікування %n секунди</numerusform>
+            <numerusform>Обмеження запитів: очікування %n секунди</numerusform>
+            <numerusform>Обмеження запитів: очікування %n секунд</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -8807,7 +8807,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="35"/>
         <source>&amp;Find</source>
-        <translation>Знайти</translation>
+        <translation>&amp;Знайти</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="483"/>
@@ -8918,17 +8918,17 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="114"/>
         <source>Delete &amp;All</source>
-        <translation>Видалити все</translation>
+        <translation>&amp;Видалити все</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="58"/>
         <source>&amp;Bottom</source>
-        <translation>Донизу</translation>
+        <translation>&amp;Донизу</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="104"/>
         <source>&amp;Delete Selected</source>
-        <translation>Видалити вибране</translation>
+        <translation>&amp;Видалити вибране</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="439"/>
@@ -8939,12 +8939,12 @@ Please update %1!</source>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="191"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="477"/>
         <source>&amp;Reload</source>
-        <translation>Перезавантажити</translation>
+        <translation>&amp;Перезавантажити</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="181"/>
         <source>&amp;Upload</source>
-        <translation>Завантажити</translation>
+        <translation>&amp;Завантажити</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="382"/>
@@ -9990,7 +9990,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Використання системних налаштувань</translation>
+        <translation>&amp;Використання системних налаштувань</translation>
     </message>
 </context>
 <context>
@@ -10428,7 +10428,7 @@ Would you like to remove those existing saves as part of this update?</source>
     <message>
         <location filename="../launcher/InstanceDirUpdate.cpp" line="71"/>
         <source>&amp;Remember my choice</source>
-        <translation>Запам&apos;ятати мій вибір</translation>
+        <translation>&amp;Запам&apos;ятати мій вибір</translation>
     </message>
     <message>
         <location filename="../launcher/GZip.cpp" line="210"/>

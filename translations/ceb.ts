@@ -185,7 +185,7 @@
     </message>
     <message>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Ipahunong ang pagtala sa pag-awas sa talaan</translation>
+        <translation>Ipahunong ang pagtala &amp;sa pag-awas sa talaan</translation>
     </message>
     <message>
         <source>Set to 0 to only check on launch</source>

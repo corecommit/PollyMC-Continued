@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>Удостоверяване на Microsoft</translation>
+        <translation>Удостоверяване на &amp;Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="44"/>
         <source>&amp;Pastebin Service</source>
-        <translation>Пейстбин услуга</translation>
+        <translation>&amp;Пейстбин услуга</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="259"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API Ключove</translation>
+        <translation>&amp;API Ключove</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>Тип на пейстбин услуга</translation>
+        <translation>&amp;Тип на пейстбин услуга</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="70"/>
         <source>Base &amp;URL</source>
-        <translation>Базов URL адрес</translation>
+        <translation>Базов &amp;URL адрес</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="310"/>
@@ -1842,7 +1842,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>Команда след изход</translation>
+        <translation>&amp;Команда след изход</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
@@ -2344,7 +2344,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Замени глобалните настройки</translation>
+        <translation>&amp;Замени глобалните настройки</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2477,7 +2477,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="209"/>
         <source>&amp;Mark disabled files as optional</source>
-        <translation>Маркирай деактивираните файлове като опционални</translation>
+        <translation>&amp;Маркирай деактивираните файлове като опционални</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="61"/>
@@ -2811,7 +2811,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="163"/>
         <source>Check for &amp;Updates</source>
-        <translation>Проверете за и актуализации</translation>
+        <translation>&amp;Проверете за и актуализации</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="218"/>
@@ -2821,7 +2821,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="141"/>
         <source>View &amp;Folder</source>
-        <translation>Преглед на папка</translation>
+        <translation>&amp;Преглед на папка</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="144"/>
@@ -4362,7 +4362,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Java инсталация</translation>
+        <translation>&amp;Java инсталация</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -6682,7 +6682,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Създай инстанция</translation>
+        <translation>&amp;Създай инстанция</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="341"/>
@@ -9545,7 +9545,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Парола:</translation>
+        <translation>&amp;Парола:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -9555,7 +9555,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Потребителско име:</translation>
+        <translation>&amp;Потребителско име:</translation>
     </message>
 </context>
 <context>

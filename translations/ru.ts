@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>Аутентификация с помощью Microsoft</translation>
+        <translation>Аутентификация с помощью &amp;Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -41,12 +41,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>Ключи API</translation>
+        <translation>Ключи &amp;API</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>Сервер метаданных</translation>
+        <translation>&amp;Сервер метаданных</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
@@ -4441,7 +4441,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>Минимальное использование памяти:</translation>
+        <translation>&amp;Минимальное использование памяти:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
@@ -4476,7 +4476,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Аргументы Java</translation>
+        <translation>&amp;Аргументы Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4495,7 +4495,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>Максимальное использование памяти:</translation>
+        <translation>&amp;Максимальное использование памяти:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -6829,12 +6829,12 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="665"/>
         <source>&amp;Rename group</source>
-        <translation>Переименовать группу</translation>
+        <translation>&amp;Переименовать группу</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="607"/>
         <source>Launcher &amp;Root</source>
-        <translation>Корневая папка лаунчера</translation>
+        <translation>&amp;Корневая папка лаунчера</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="391"/>
@@ -7511,7 +7511,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>Устаревшие настройки</translation>
+        <translation>&amp;Устаревшие настройки</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="768"/>
@@ -7546,7 +7546,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>Нативные библиотеки</translation>
+        <translation>&amp;Нативные библиотеки</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="781"/>
@@ -9329,7 +9329,9 @@ Are you sure?</source>
 
 These are global defaults. You can override per-instance in instance settings.
 Minecraft will use this as -Xms (min) and -Xmx (max) JVM arguments.</source>
-        <translation>Пресеты производительности регулируют, сколько ОЗУ может использовать Minecraft.`n`n- Низкий: для ноутбуков с 4 ГБ ОЗУ. Меньше памяти = меньше загружаемых чанков.`n- Средний: для большинства ПК с 8 ГБ ОЗУ.`n- Высокий: для игровых ПК с 16+ ГБ ОЗУ. Больше памяти = больше чанков и модов.`n`nЭто глобальные значения по умолчанию. Их можно переопределить для каждого экземпляра в его настройках.`nMinecraft будет использовать их как аргументы JVM -Xms (мин.) и -Xmx (макс.).</translation>
+        <translation>Пресеты производительности регулируют, сколько ОЗУ может использовать Minecraft.
+n- Низкий: для ноутбуков с 4 ГБ ОЗУ. Меньше памяти = меньше загружаемых чанков.`n- Средний: для большинства ПК с 8 ГБ ОЗУ.`n- Высокий: для игровых ПК с 16+ ГБ ОЗУ. Больше памяти = больше чанков и модов.
+nЭто глобальные значения по умолчанию. Их можно переопределить для каждого экземпляра в его настройках.`nMinecraft будет использовать их как аргументы JVM -Xms (мин.) и -Xmx (макс.).</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/PerformancePresetsDialog.h" line="125"/>
@@ -9724,7 +9726,9 @@ Check the PollyMC-Continued updater log at:
 for details on the last update attempt.
 
 To overwrite this lock and proceed with this update anyway, select &quot;Ignore&quot; below.</source>
-        <translation>В этой установке есть файл блокировки обновления: %1`n`nМетка времени: %2`nОбновление с версии %3 до %4`nЦелевой путь установки: %5`nПуть данных: %6`nЭто, скорее всего, означает, что предыдущая попытка обновления не удалась. Перед продолжением убедитесь, что установка исправна.`nПодробности последней попытки смотрите в журнале обновления PollyMC-Continued:`n%7`n`nЧтобы перезаписать эту блокировку и продолжить обновление, выберите «Игнорировать» ниже.</translation>
+        <translation>В этой установке есть файл блокировки обновления: %1
+nМетка времени: %2`nОбновление с версии %3 до %4`nЦелевой путь установки: %5`nПуть данных: %6`nЭто, скорее всего, означает, что предыдущая попытка обновления не удалась. Перед продолжением убедитесь, что установка исправна.`nПодробности последней попытки смотрите в журнале обновления PollyMC-Continued:`n%7
+nЧтобы перезаписать эту блокировку и продолжить обновление, выберите «Игнорировать» ниже.</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="1093"/>

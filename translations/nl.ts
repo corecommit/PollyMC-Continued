@@ -145,7 +145,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Kon het pack manifest niet begrijpen:</translation>
+        <translation>Kon het pack manifest niet begrijpen:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -429,7 +430,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
-        <translation>Offline tovoegen</translation>
+        <translation>&amp;Offline tovoegen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="85"/>
@@ -449,27 +450,27 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Naar omhoog verplaatsen</translation>
+        <translation>&amp;Naar omhoog verplaatsen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Naar omlaag verplaatsen</translation>
+        <translation>&amp;Naar omlaag verplaatsen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Als standaard instellen</translation>
+        <translation>Als &amp;standaard instellen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>Vernieuwen</translation>
+        <translation>&amp;Vernieuwen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Verwijderen</translation>
+        <translation>&amp;Verwijderen</translation>
     </message>
     <message>
         <source>Welcome!
@@ -485,7 +486,7 @@ Als je hier nieuw bent, kun je de knop &quot;Microsoft toevoegen&quot; kiezen om
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Geen standaard</translation>
+        <translation>&amp;Geen standaard</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -495,12 +496,12 @@ Als je hier nieuw bent, kun je de knop &quot;Microsoft toevoegen&quot; kiezen om
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
         <source>&amp;Manage Skins</source>
-        <translation>Skins beheren</translation>
+        <translation>&amp;Skins beheren</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>Microsoft toevoegen</translation>
+        <translation>&amp;Microsoft toevoegen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="171"/>
@@ -1869,7 +1870,7 @@ Om deze lock te verwijderen en door te gaan, druk hieronder op &quot;Negeer&quot
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
         <source>&amp;Wrapper Command</source>
-        <translation>Wrapper opdracht</translation>
+        <translation>&amp;Wrapper opdracht</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
@@ -2802,12 +2803,12 @@ Weet u het zeker?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="114"/>
         <source>&amp;Enable</source>
-        <translation>Inschakelen</translation>
+        <translation>&amp;Inschakelen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="125"/>
         <source>&amp;Disable</source>
-        <translation>Uitschakelen</translation>
+        <translation>&amp;Uitschakelen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="103"/>
@@ -3875,7 +3876,7 @@ Weet u het zeker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>Vernieuwen</translation>
+        <translation>&amp;Vernieuwen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="146"/>
@@ -4200,7 +4201,7 @@ Weet u het zeker?</translation>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>Vernieuwen</translation>
+        <translation>&amp;Vernieuwen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="288"/>
@@ -4317,7 +4318,7 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>Instellingen testen</translation>
+        <translation>&amp;Instellingen testen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4377,7 +4378,7 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Java-argumenten</translation>
+        <translation>&amp;Java-argumenten</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4406,7 +4407,7 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
         <source>Java &amp;Executable</source>
-        <translation>Java uitvoerbaar bestand</translation>
+        <translation>&amp;Java uitvoerbaar bestand</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="130"/>
@@ -4416,7 +4417,7 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Java-installatie</translation>
+        <translation>&amp;Java-installatie</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4436,7 +4437,7 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Automatisch jJava versie detecteren</translation>
+        <translation>Automatisch jJava versie &amp;detecteren</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4951,7 +4952,7 @@ Misschien moet u uw mods eens fixen. Het spel is nog steeds naar bestanden aan h
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="501"/>
         <source>Log History &amp;Limit:</source>
-        <translation>Limiet voor log-geschiedenis:</translation>
+        <translation>&amp;Limiet voor log-geschiedenis:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="616"/>
@@ -5212,7 +5213,7 @@ Misschien moet u uw mods eens fixen. Het spel is nog steeds naar bestanden aan h
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="161"/>
         <source>&amp;Replace toolbar with menubar</source>
-        <translation>Werkbalk vervangen door menubalk</translation>
+        <translation>&amp;Werkbalk vervangen door menubalk</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -6085,7 +6086,7 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="407"/>
         <source>&amp;Change Group...</source>
-        <translation>Groep veranderen...</translation>
+        <translation>&amp;Groep veranderen...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1822"/>
@@ -6631,7 +6632,7 @@ Maak a.u.b. een nieuwe instantie aan voor deze bron opnieuw proberen te installe
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="575"/>
         <source>Launcher &amp;Root</source>
-        <translation>Hoofdmap van launcher</translation>
+        <translation>&amp;Hoofdmap van launcher</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="383"/>
@@ -6718,7 +6719,7 @@ A.u.b. controleer uw prullenbak voor ze manueel te herstellen.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Instantie aanmaken</translation>
+        <translation>&amp;Instantie aanmaken</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7151,7 +7152,7 @@ Zorg er ook voor dat u de URL vertrouwt.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>Tijdsduur altijd in uren weergeven</translation>
+        <translation>&amp;Tijdsduur altijd in uren weergeven</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -7339,7 +7340,7 @@ Je gaat hoogst waarschijnlijk het pad moeten veranderen - kijk hiervoor naar de 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>Ingebouwde bibliotheken</translation>
+        <translation>&amp;Ingebouwde bibliotheken</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="781"/>
@@ -7444,7 +7445,7 @@ Je gaat hoogst waarschijnlijk het pad moeten veranderen - kijk hiervoor naar de 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Tijd besteed aan het spelen van instanties weergeven</translation>
+        <translation>&amp;Tijd besteed aan het spelen van instanties weergeven</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
@@ -8776,7 +8777,7 @@ Gelieve %1 bij te werken!</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="114"/>
         <source>Delete &amp;All</source>
-        <translation>Alles verwijderen</translation>
+        <translation>&amp;Alles verwijderen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="58"/>
@@ -8797,7 +8798,7 @@ Gelieve %1 bij te werken!</translation>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="191"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="477"/>
         <source>&amp;Reload</source>
-        <translation>Opnieuw laden</translation>
+        <translation>&amp;Opnieuw laden</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="181"/>
@@ -8979,7 +8980,7 @@ Weet u het zeker?</translation>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="47"/>
         <source>&amp;OK</source>
-        <translation>Ok</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="49"/>
@@ -9820,7 +9821,7 @@ Kies uw naam zorgvuldig:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Wachtwoord:</translation>
+        <translation>&amp;Wachtwoord:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9835,12 +9836,12 @@ Kies uw naam zorgvuldig:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Adres en poort</translation>
+        <translation>&amp;Adres en poort</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Gebruikersnaam:</translation>
+        <translation>&amp;Gebruikersnaam:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -9850,7 +9851,7 @@ Kies uw naam zorgvuldig:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Systeeminstellingen gebruiken</translation>
+        <translation>&amp;Systeeminstellingen gebruiken</translation>
     </message>
 </context>
 <context>
@@ -10285,7 +10286,7 @@ Wil je deze als onderdeel van deze update verwijderen?</translation>
     <message>
         <location filename="../launcher/InstanceDirUpdate.cpp" line="71"/>
         <source>&amp;Remember my choice</source>
-        <translation>Onthoud mijn keuze</translation>
+        <translation>&amp;Onthoud mijn keuze</translation>
     </message>
     <message>
         <location filename="../launcher/GZip.cpp" line="210"/>
@@ -12417,7 +12418,7 @@ Ben je zeker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="178"/>
         <source>&amp;Rename Skin</source>
-        <translation>Naam skin wijzigen</translation>
+        <translation>&amp;Naam skin wijzigen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="429"/>
@@ -12543,7 +12544,7 @@ Ben je zeker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Skin verwijderen</translation>
+        <translation>&amp;Skin verwijderen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="145"/>

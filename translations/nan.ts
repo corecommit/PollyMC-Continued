@@ -310,7 +310,7 @@
     </message>
     <message>
         <source>&amp;Microsoft Authentication</source>
-        <translation>Microsoft 身份認證</translation>
+        <translation>&amp;Microsoft 身份認證</translation>
     </message>
     <message>
         <source>Enter a custom URL for meta here.</source>
@@ -342,7 +342,7 @@
     </message>
     <message>
         <source>Meta&amp;data Server</source>
-        <translation>後設資料 Server</translation>
+        <translation>&amp;後設資料 Server</translation>
     </message>
     <message>
         <source>Miscellaneous</source>
