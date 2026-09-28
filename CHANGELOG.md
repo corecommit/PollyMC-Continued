@@ -9,7 +9,7 @@
 - Online skins are cached under `cache/skins`, so opening the browser again never re-downloads textures it already has
 - Discord Rich Presence reports **Looking for skins** while the browser is open instead of the mod browser's wording
 - All crafty.gg requests share one pacing budget (at most 120 per minute, at least 500 ms apart), so browsing, searching and previewing skins never reaches the API rate limit; a rare HTTP 429 is retried after the wait the server asks for instead of failing the page
-- Hindi translation completed to 100% — all 1876 untranslated strings (including the new skin browser, More menu and toolbar entries) now have Hindi text, the two empty plural forms are filled, and the `%l` typo that broke the log-length message in both of its places is repaired
+- Hindi and Bangla translations completed to 100% — all 1876 Hindi and 2043 Bangla strings that had no translation at all (including the new skin browser, More menu and toolbar entries) now carry text, the empty plural forms are filled, and the placeholder typos that broke the log-length, commit and build-date messages are repaired
 
 **Changed:**
 
