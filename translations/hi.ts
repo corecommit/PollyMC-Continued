@@ -46,7 +46,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>मेटा और डेटा सर्वर</translation>
+        <translation>&amp;मेटा और डेटा सर्वर</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>तकनिकी</translation>
+        <translation>&amp;तकनिकी</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -445,12 +445,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>ऊपर जाए</translation>
+        <translation>&amp;ऊपर जाए</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>नीचे जाए</translation>
+        <translation>&amp;नीचे जाए</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -2462,7 +2462,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="183"/>
         <source>&amp;Files</source>
-        <translation>%फ़ाइल</translation>
+        <translation>%&amp;फ़ाइल</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="31"/>

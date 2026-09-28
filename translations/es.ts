@@ -142,7 +142,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>No se pudo entender el manifiesto del paquete:</translation>
+        <translation>No se pudo entender el manifiesto del paquete:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -428,12 +429,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Subir</translation>
+        <translation>&amp;Subir</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Bajar</translation>
+        <translation>&amp;Bajar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -2213,7 +2214,7 @@ RAM total del sistema: %2 MiB
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Sobrescribir configuración global</translation>
+        <translation>Sobrescribir configuración &amp;global</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2300,7 +2301,7 @@ RAM total del sistema: %2 MiB
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="183"/>
         <source>&amp;Files</source>
-        <translation>Archivos</translation>
+        <translation>&amp;Archivos</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="31"/>
@@ -2325,7 +2326,7 @@ RAM total del sistema: %2 MiB
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="114"/>
         <source>&amp;Options</source>
-        <translation>Opciones</translation>
+        <translation>&amp;Opciones</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="135"/>
@@ -2346,7 +2347,7 @@ RAM total del sistema: %2 MiB
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="209"/>
         <source>&amp;Mark disabled files as optional</source>
-        <translation>Selecciona los archivos desactivados como opcionales</translation>
+        <translation>&amp;Selecciona los archivos desactivados como opcionales</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="61"/>
@@ -2356,12 +2357,12 @@ RAM total del sistema: %2 MiB
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="76"/>
         <source>&amp;Summary</source>
-        <translation>Resumen</translation>
+        <translation>&amp;Resumen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="20"/>
         <source>&amp;Description</source>
-        <translation>Descripción</translation>
+        <translation>&amp;Descripción</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="44"/>
@@ -4126,7 +4127,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>Probar configuración</translation>
+        <translation>&amp;Probar configuración</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4166,7 +4167,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="123"/>
         <source>Auto-download &amp;Mojang Java</source>
-        <translation>Descargar automáticamente el Java de Mojang</translation>
+        <translation>Descargar automáticamente el Java de &amp;Mojang</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="153"/>
@@ -6238,7 +6239,7 @@ Por favor, cree una nueva instancia antes de intentar instalar este recurso de n
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1451"/>
         <source>%1 was successfully added to your PATH. You can now start it by running `%2`.</source>
-        <translation>%1 fue añadido exitosamente a %PATH . Ahora puedes iniciarlo ejecutando `%2`.</translation>
+        <translation>%1 fue añadido exitosamente a PATH . Ahora puedes iniciarlo ejecutando `%2`.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1802"/>
@@ -6449,7 +6450,7 @@ Para borrar la caché de metadatos manualmente, pulsa Carpetas (O) -&gt; Raíz d
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="668"/>
         <source>Sub&amp;reddit</source>
-        <translation>Subreddit</translation>
+        <translation>&amp;Subreddit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="457"/>
@@ -6522,7 +6523,7 @@ Comprueba la papelera de reciclaje para restaurarlos manualmente.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1450"/>
         <source>Successfully added %1 to PATH</source>
-        <translation>Añadido exitosamente %1 a %PATH</translation>
+        <translation>Añadido exitosamente %1 a PATH</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1270"/>
@@ -6922,7 +6923,7 @@ Asegúrate también de que la URL es de confianza.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="88"/>
         <source>&amp;Record time playing this instance</source>
-        <translation>Tiempo récord jugando en esta instancia</translation>
+        <translation>Tiempo &amp;récord jugando en esta instancia</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
@@ -11624,7 +11625,7 @@ Versión instalada actualmente: %1</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Recursos</translation>
+        <translation>&amp;Recursos</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>
@@ -11713,7 +11714,7 @@ Esta acción es definitiva y el servidor desaparecerá de tu lista para siempre 
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="29"/>
         <source>&amp;Next &gt;</source>
-        <translation>Siguiente &gt;</translation>
+        <translation>&amp;Siguiente &gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -11723,7 +11724,7 @@ Esta acción es definitiva y el servidor desaparecerá de tu lista para siempre 
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>&lt; Atrás</translation>
+        <translation>&lt; &amp;Atrás</translation>
     </message>
 </context>
 <context>

@@ -4284,7 +4284,7 @@ Adakah anda pasti?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
         <source>Java &amp;Executable</source>
-        <translation>Java dan Executable</translation>
+        <translation>Java dan &amp;Executable</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="130"/>

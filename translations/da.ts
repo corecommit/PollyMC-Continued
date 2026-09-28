@@ -456,7 +456,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Fjern</translation>
+        <translation>&amp;Fjern</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
@@ -1838,7 +1838,7 @@ For at slette denne lås og fortsætte skal du vælge &quot;Ignorer&quot; nedenf
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>Kommando Efter Lukning</translation>
+        <translation>&amp;Kommando Efter Lukning</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
@@ -4279,7 +4279,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
         <source>Java &amp;Executable</source>
-        <translation>Java-eksekverbar fil</translation>
+        <translation>Java-&amp;eksekverbar fil</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="130"/>
@@ -4309,7 +4309,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Automatisk registrering af Java version</translation>
+        <translation>&amp;Automatisk registrering af Java version</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>

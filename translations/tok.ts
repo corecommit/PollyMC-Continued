@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>View &amp;Configs</source>
-        <translation>o lukin e nasin ilo</translation>
+        <translation>&amp;o lukin e nasin ilo</translation>
     </message>
     <message>
         <source>Enable selected item</source>
@@ -288,7 +288,7 @@
     </message>
     <message>
         <source>View &amp;Folder</source>
-        <translation>o open e poki</translation>
+        <translation>&amp;o open e poki</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@ ken la sina o weka e ona tan ilo sina o kama jo sin e ona.</translation>
     </message>
     <message>
         <source>&amp;Pastebin Service</source>
-        <translation>kin lipu linluwi Pastebin</translation>
+        <translation>kin lipu linluwi &amp;Pastebin</translation>
     </message>
     <message>
         <source>Enter a custom client ID for Microsoft Authentication here. </source>
@@ -1111,7 +1111,7 @@ o pana e sona jan sina tan musi Manka anu tan kulupu Mojang.</translation>
     </message>
     <message>
         <source>Minec&amp;raft Folder</source>
-        <translation>poki pi musi Manka (%r)</translation>
+        <translation>poki pi musi Manka (&amp;r)</translation>
     </message>
     <message>
         <source>Add Instanc&amp;e...</source>
@@ -1143,7 +1143,7 @@ o pana e sona jan sina tan musi Manka anu tan kulupu Mojang.</translation>
     </message>
     <message>
         <source>Confi&amp;g Folder</source>
-        <translation>poki pi nasin pali (%G)</translation>
+        <translation>poki pi nasin pali (&amp;G)</translation>
     </message>
     <message>
         <source>Delete group</source>
@@ -1287,7 +1287,7 @@ o pana e sona jan sina tan musi Manka anu tan kulupu Mojang.</translation>
     </message>
     <message>
         <source>&amp;Instance Folder</source>
-        <translation>poki pi ijo musi (%I)</translation>
+        <translation>poki pi ijo musi (&amp;I)</translation>
     </message>
     <message>
         <source>Launch the selected instance.</source>
@@ -1638,7 +1638,7 @@ o luka e ilo wan tan lipu anpa. ken ante la o alasa e ilo Java ante.</translatio
     </message>
     <message>
         <source>Java argumen&amp;ts</source>
-        <translation>toki namako Java</translation>
+        <translation>&amp;toki namako Java</translation>
     </message>
     <message>
         <source>Game windows</source>
@@ -1917,7 +1917,7 @@ ilo anpa sina en %1, la o kama jo e nanpa sin.</translation>
     </message>
     <message>
         <source>Add &amp;Offline</source>
-        <translation>o pana e sona sina pi linluwi ala</translation>
+        <translation>&amp;o pana e sona sina pi linluwi ala</translation>
     </message>
     <message>
         <source>Refresh the account tokens</source>
@@ -2146,7 +2146,7 @@ o alasa sin.</translation>
     </message>
     <message>
         <source>&amp;Wrapper command:</source>
-        <translation>nimi lawa lon tawa:</translation>
+        <translation>&amp;nimi lawa lon tawa:</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pre-launch command runs before the instance launches and post-exit command runs after it exits.&lt;/p&gt;&lt;p&gt;Both will be run in the launcher&apos;s working folder with extra environment variables:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Name of the instance&lt;/li&gt;&lt;li&gt;$INST_ID - ID of the instance (its folder name)&lt;/li&gt;&lt;li&gt;$INST_DIR - absolute path of the instance&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - absolute path of Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java binary used for launch&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - command-line parameters used for launch (warning: will not work correctly if arguments contain spaces)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper command allows launching using an extra wrapper program (like &apos;optirun&apos; on Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -2154,11 +2154,11 @@ o alasa sin.</translation>
     </message>
     <message>
         <source>&amp;Pre-launch command:</source>
-        <translation>nimi lawa lon open:</translation>
+        <translation>&amp;nimi lawa lon open:</translation>
     </message>
     <message>
         <source>P&amp;ost-exit command:</source>
-        <translation>nimi lawa lon pini:</translation>
+        <translation>&amp;nimi lawa lon pini:</translation>
     </message>
 </context>
 <context>
@@ -2628,7 +2628,7 @@ o alasa sin.</translation>
     </message>
     <message>
         <source>&amp;Group:</source>
-        <translation>kulupu (%G):</translation>
+        <translation>kulupu (&amp;G):</translation>
     </message>
 </context>
 <context>

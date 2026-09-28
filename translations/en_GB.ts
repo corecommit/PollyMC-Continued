@@ -6773,7 +6773,7 @@ Please check your recycle bin to manually restore them.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576" />
         <source>&amp;Create instance</source>
-        <translation>Create instance</translation>
+        <translation>&amp;Create instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539" />
@@ -9911,7 +9911,7 @@ Choose your name carefully:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54" />
         <source>Use s&amp;ystem settings</source>
-        <translation>Use system Settings</translation>
+        <translation>&amp;Use system Settings</translation>
     </message>
 </context>
 <context>

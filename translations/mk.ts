@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API клучеви</translation>
+        <translation>&amp;API клучеви</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -11455,7 +11455,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Име</translation>
+        <translation>&amp;Име</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="88"/>

@@ -21,7 +21,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="44"/>
         <source>&amp;Pastebin Service</source>
-        <translation>Pastebin Service</translation>
+        <translation>&amp;Pastebin Service</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="259"/>
@@ -4478,7 +4478,7 @@ Are you sure?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Java Installation</translation>
+        <translation>&amp;Java Installation</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -6793,7 +6793,7 @@ Please check your trashbin to manually restore them.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Create instance</translation>
+        <translation>&amp;Create instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>

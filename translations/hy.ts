@@ -26,7 +26,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API բանալիներ</translation>
+        <translation>&amp;API բանալիներ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="70"/>
         <source>Base &amp;URL</source>
-        <translation>Հիմք և URL</translation>
+        <translation>Հիմք և &amp;URL</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -450,7 +450,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Հեռացնել</translation>
+        <translation>&amp;Հեռացնել</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
@@ -9132,7 +9132,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Հասցե և նավահանգիստ</translation>
+        <translation>&amp;Հասցե և նավահանգիստ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="154"/>
@@ -9142,7 +9142,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Անունը:</translation>
+        <translation>&amp;Անունը:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
@@ -11192,7 +11192,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Անուն</translation>
+        <translation>&amp;Անուն</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>

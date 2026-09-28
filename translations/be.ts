@@ -51,12 +51,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>Сэрвіс устаўкі</translation>
+        <translation>&amp;Сэрвіс устаўкі</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -459,7 +459,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Выкарыстоўваць па змаўчанні</translation>
+        <translation>&amp;Выкарыстоўваць па змаўчанні</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -469,7 +469,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Выдаліць</translation>
+        <translation>&amp;Выдаліць</translation>
     </message>
     <message>
         <source>Welcome!
@@ -485,7 +485,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Няма значэння па змаўчанні</translation>
+        <translation>&amp;Няма значэння па змаўчанні</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -1842,7 +1842,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>Каманда пасля выхаду</translation>
+        <translation>&amp;Каманда пасля выхаду</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
@@ -1857,7 +1857,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Перавызначэнне і глабальныя налады</translation>
+        <translation>&amp;Перавызначэнне і глабальныя налады</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -2344,7 +2344,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Перавызначэнне і глабальныя налады</translation>
+        <translation>&amp;Перавызначэнне і глабальныя налады</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2947,7 +2947,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="97"/>
         <source>&amp;MCEdit</source>
-        <translation>MCEdit</translation>
+        <translation>&amp;MCEdit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="136"/>
@@ -3221,7 +3221,8 @@ Are you sure?</source>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="460"/>
         <source>Unable to resolve mod IDs:
 </source>
-        <translation>Не ўдалося вырашыць ID модаў:</translation>
+        <translation>Не ўдалося вырашыць ID модаў:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="421"/>
@@ -4416,7 +4417,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Аўтаматычнае вызначэнне версіі Java</translation>
+        <translation>&amp;Аўтаматычнае вызначэнне версіі Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -5044,7 +5045,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>Правяраць падпапкі на заблакіраваныя моды</translation>
+        <translation>&amp;Правяраць падпапкі на заблакіраваныя моды</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -5118,7 +5119,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Спыняць запіс логаў, калі яны перапоўнены</translation>
+        <translation>&amp;Спыняць запіс логаў, калі яны перапоўнены</translation>
     </message>
     <message>
         <source>Download game files during instance creation</source>
@@ -5157,7 +5158,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>Па апошнім запушчаным</translation>
+        <translation>&amp;Па апошнім запушчаным</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
@@ -5182,12 +5183,12 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
         <source>By &amp;name</source>
-        <translation>Па назве</translation>
+        <translation>&amp;Па назве</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
         <source>&amp;Skins:</source>
-        <translation>Скіны:</translation>
+        <translation>&amp;Скіны:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="171"/>
@@ -5197,7 +5198,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="161"/>
         <source>&amp;Replace toolbar with menubar</source>
-        <translation>Замяніць панэль інструментаў панэллю меню</translation>
+        <translation>&amp;Замяніць панэль інструментаў панэллю меню</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -5227,7 +5228,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="291"/>
         <source>&amp;Auto Java Download:</source>
-        <translation>Аўтаматычнае спампоўванне Java:</translation>
+        <translation>&amp;Аўтаматычнае спампоўванне Java:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="126"/>
@@ -6085,7 +6086,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="272"/>
         <source>&amp;Undo Last Instance Deletion</source>
-        <translation>Адмяніць выдаленне мінулай зборкі</translation>
+        <translation>&amp;Адмяніць выдаленне мінулай зборкі</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
@@ -6982,7 +6983,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1030"/>
         <source>&lt;ACCESS TOKEN&gt;</source>
-        <translation>&amp;lt; маркер доступу &amp;gt;</translation>
+        <translation>&lt; маркер доступу &gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1085"/>
@@ -7007,12 +7008,12 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="309"/>
         <source>Launch &amp;Offline</source>
-        <translation>Запуск і аўтаномны рэжым</translation>
+        <translation>&amp;Запуск і аўтаномны рэжым</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1032"/>
         <source>&lt;PROFILE ID&gt;</source>
-        <translation>&amp;lt; id профілю &amp;gt;</translation>
+        <translation>&lt; id профілю &gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1027"/>
@@ -7052,7 +7053,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="311"/>
         <source>Launch &amp;Demo</source>
-        <translation>Запуск і дэманстрацыя</translation>
+        <translation>&amp;Запуск і дэманстрацыя</translation>
     </message>
 </context>
 <context>
@@ -7184,7 +7185,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="666"/>
         <source>&amp;GLFW library path:</source>
-        <translation>Шлях да бібліятэкі GLFW:</translation>
+        <translation>Шлях да бібліятэкі &amp;GLFW:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="442"/>
@@ -7199,7 +7200,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>Уключыць аўтаматычнае ўключэнне і далучэнне</translation>
+        <translation>&amp;Уключыць аўтаматычнае ўключэнне і далучэнне</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
@@ -7244,7 +7245,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
         <source>Open &amp;Global Settings</source>
-        <translation>Адкрытыя і глабальныя налады</translation>
+        <translation>&amp;Адкрытыя і глабальныя налады</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="93"/>
@@ -7300,7 +7301,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="325"/>
         <source>Game &amp;Time</source>
-        <translation>Гульня і час</translation>
+        <translation>&amp;Гульня і час</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="155"/>
@@ -7315,7 +7316,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="368"/>
         <source>Override &amp;Default Account</source>
-        <translation>Пераазначэнне ўліковага запісу і уліковы запіс па змаўчанні</translation>
+        <translation>&amp;Пераазначэнне ўліковага запісу і уліковы запіс па змаўчанні</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="758"/>
@@ -7375,7 +7376,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>Паказаць час і прайграць гэты асобнік</translation>
+        <translation>&amp;Паказаць час і прайграць гэты асобнік</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7415,7 +7416,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>Пераазначэнне загрузкі і загрузнікаў модов</translation>
+        <translation>&amp;Пераазначэнне загрузкі і загрузнікаў модов</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
@@ -7430,17 +7431,17 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Паказваць затрачаны час і гульнявыя асобнікі</translation>
+        <translation>&amp;Паказваць затрачаны час і гульнявыя асобнікі</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>Гульня і акно</translation>
+        <translation>&amp;Гульня і акно</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Запісваць час, затрачаны на прайграванне инстансов</translation>
+        <translation>&amp;Запісваць час, затрачаны на прайграванне инстансов</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="692"/>
@@ -7455,7 +7456,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>Паказвае агульны час, згулянае ў розных экземплярах</translation>
+        <translation>&amp;Паказвае агульны час, згулянае ў розных экземплярах</translation>
     </message>
 </context>
 <context>

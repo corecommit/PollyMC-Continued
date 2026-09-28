@@ -145,7 +145,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Konnte Pack-Manifest nicht verstehen:</translation>
+        <translation>Konnte Pack-Manifest nicht verstehen:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -448,12 +449,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Nach oben verschieben</translation>
+        <translation>&amp;Nach oben verschieben</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Nach unten verschieben</translation>
+        <translation>&amp;Nach unten verschieben</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -4406,7 +4407,7 @@ Sind Sie sicher?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>Einstellungen testen</translation>
+        <translation>&amp;Einstellungen testen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -5227,7 +5228,7 @@ Möglicherweise musst du deine Mods anpassen, da das Spiel immer noch in Dateien
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Loggen abbrechen, wenn das Log zu groß wird</translation>
+        <translation>&amp;Loggen abbrechen, wenn das Log zu groß wird</translation>
     </message>
     <message>
         <source>Download game files during instance creation</source>
@@ -6869,7 +6870,7 @@ Um den Metadaten-Cache manuell zu bereinigen, klicke auf Ordner -&gt; Launcher-S
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="661"/>
         <source>&amp;Delete group</source>
-        <translation>Gruppe löschen</translation>
+        <translation>&amp;Gruppe löschen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1386"/>
@@ -6890,7 +6891,7 @@ Bitte überprüfe deinen Papierkorb, um sie manuell wiederherzustellen.</transla
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="647"/>
         <source>&amp;Create instance</source>
-        <translation>Instanz erstellen</translation>
+        <translation>&amp;Instanz erstellen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="568"/>
@@ -7168,7 +7169,7 @@ Stellen Sie sicher, dass Sie der URL vertrauen können.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1030"/>
         <source>&lt;ACCESS TOKEN&gt;</source>
-        <translation>&amp;lt;ZUGANGS-TOKEN&amp;gt;</translation>
+        <translation>&lt;ZUGANGS-TOKEN&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1085"/>
@@ -7198,12 +7199,12 @@ Stellen Sie sicher, dass Sie der URL vertrauen können.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1032"/>
         <source>&lt;PROFILE ID&gt;</source>
-        <translation>&amp;lt;PROFIL-ID&amp;gt;</translation>
+        <translation>&lt;PROFIL-ID&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1027"/>
         <source>&lt;SESSION ID&gt;</source>
-        <translation>&amp;lt;SITZUNGS-ID&amp;gt;</translation>
+        <translation>&lt;SITZUNGS-ID&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="307"/>
@@ -7213,7 +7214,7 @@ Stellen Sie sicher, dass Sie der URL vertrauen können.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="330"/>
         <source>&amp;No Profiler</source>
-        <translation>Kein Profiler</translation>
+        <translation>&amp;Kein Profiler</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1080"/>
@@ -7385,7 +7386,7 @@ Du musst wahrscheinlich den Pfad ändern - berücksichtige hierzu die Mods Websi
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>Automatisches Beitreten aktivieren</translation>
+        <translation>&amp;Automatisches Beitreten aktivieren</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
@@ -7645,7 +7646,7 @@ Du musst wahrscheinlich den Pfad ändern - berücksichtige hierzu die Mods Websi
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>Insgesamte Spielzeit aller Instanzen anzeigen</translation>
+        <translation>&amp;Insgesamte Spielzeit aller Instanzen anzeigen</translation>
     </message>
 </context>
 <context>
@@ -8578,8 +8579,8 @@ Bitte aktualisiere %1!</translation>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
         <translation>
-            <numerusform>Rate begrenzt: Warte %1 Sekunde</numerusform>
-            <numerusform>Rate begrenzt: Warte %1 Sekunden</numerusform>
+            <numerusform>Rate begrenzt: Warte %n Sekunde</numerusform>
+            <numerusform>Rate begrenzt: Warte %n Sekunden</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -9998,7 +9999,7 @@ Wähle deinen Namen sorgfältig:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Passwort:</translation>
+        <translation>&amp;Passwort:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -10018,7 +10019,7 @@ Wähle deinen Namen sorgfältig:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Benutzername:</translation>
+        <translation>&amp;Benutzername:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>

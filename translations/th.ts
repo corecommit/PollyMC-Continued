@@ -449,12 +449,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>ย้ายขึ้นด้านบน</translation>
+        <translation>&amp;ย้ายขึ้นด้านบน</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>ย้ายขึ้นด้านล่าง</translation>
+        <translation>&amp;ย้ายขึ้นด้านล่าง</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -1853,12 +1853,12 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>คำสั่งหลังปิด</translation>
+        <translation>&amp;คำสั่งหลังปิด</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
         <source>&amp;Wrapper Command</source>
-        <translation>คำสั่งช่วยเปิด</translation>
+        <translation>&amp;คำสั่งช่วยเปิด</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
@@ -1868,12 +1868,12 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>ยกเลิกการตั้งค่าส่วนกลาง</translation>
+        <translation>&amp;ยกเลิกการตั้งค่าส่วนกลาง</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
         <source>&amp;Pre-launch Command</source>
-        <translation>คำสั่งก่อนเปิด</translation>
+        <translation>&amp;คำสั่งก่อนเปิด</translation>
     </message>
 </context>
 <context>
@@ -2339,7 +2339,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="50"/>
         <source>&amp;Add</source>
-        <translation>%เพิ่ม</translation>
+        <translation>%&amp;เพิ่ม</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="14"/>
@@ -2359,12 +2359,12 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="77"/>
         <source>&amp;Clear</source>
-        <translation>%ล้าง</translation>
+        <translation>%&amp;ล้าง</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>ยกเลิกการตั้งค่าส่วนกลาง</translation>
+        <translation>&amp;ยกเลิกการตั้งค่าส่วนกลาง</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2476,7 +2476,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="114"/>
         <source>&amp;Options</source>
-        <translation>%ตัวเลือก</translation>
+        <translation>%&amp;ตัวเลือก</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="135"/>
@@ -2841,7 +2841,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="141"/>
         <source>View &amp;Folder</source>
-        <translation>ดูและโฟลเดอร์</translation>
+        <translation>&amp;ดูและโฟลเดอร์</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="144"/>
@@ -4314,7 +4314,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>ทดสอบการตั้งค่า</translation>
+        <translation>&amp;ทดสอบการตั้งค่า</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4413,7 +4413,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>การติดตั้งและใช้งาน Java</translation>
+        <translation>&amp;การติดตั้งและใช้งาน Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4433,7 +4433,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>ตรวจจับเวอร์ชัน Java โดยอัตโนมัติ</translation>
+        <translation>&amp;ตรวจจับเวอร์ชัน Java โดยอัตโนมัติ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4443,7 +4443,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>เปิดตัวดาวน์โหลด Java</translation>
+        <translation>&amp;เปิดตัวดาวน์โหลด Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -7143,7 +7143,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>เปิดการเข้าร่วมอัตโนมัติ</translation>
+        <translation>&amp;เปิดการเข้าร่วมอัตโนมัติ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
@@ -7188,7 +7188,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
         <source>Open &amp;Global Settings</source>
-        <translation>เปิดดูการตั่งค่าส่วนกลาง</translation>
+        <translation>&amp;เปิดดูการตั่งค่าส่วนกลาง</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="93"/>
@@ -7259,7 +7259,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="368"/>
         <source>Override &amp;Default Account</source>
-        <translation>ใช้แทนบัญชีดั้งเดิม</translation>
+        <translation>&amp;ใช้แทนบัญชีดั้งเดิม</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="758"/>
@@ -7319,7 +7319,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>แสดงเวลาและจำนวนเล่นในอินสแตนซ์นี้</translation>
+        <translation>&amp;แสดงเวลาและจำนวนเล่นในอินสแตนซ์นี้</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7354,7 +7354,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>กำหนดตัวช่วยดาวน์โหลดมอดเอง</translation>
+        <translation>&amp;กำหนดตัวช่วยดาวน์โหลดมอดเอง</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
@@ -8414,7 +8414,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="39"/>
         <source>&amp;Group:</source>
-        <translation>กลุ่ม:</translation>
+        <translation>&amp;กลุ่ม:</translation>
     </message>
 </context>
 <context>
@@ -11719,7 +11719,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>ชื่อ</translation>
+        <translation>&amp;ชื่อ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="88"/>
@@ -11805,7 +11805,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>รีเฟรช</translation>
+        <translation>&amp;รีเฟรช</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -13247,7 +13247,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>รีเฟรช</translation>
+        <translation>&amp;รีเฟรช</translation>
     </message>
 </context>
 <context>

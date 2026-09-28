@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API kalitlari</translation>
+        <translation>&amp;API kalitlari</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -1293,7 +1293,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.ui" line="45"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your configured global mods folder and default downloads folder are automatically checked for the downloaded mods and they will be copied to the instance if found.&lt;/p&gt;&lt;p&gt;Optionally, you may drag and drop the downloaded mods onto this dialog or add a folder to watch if you did not download the mods to a default location.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Click &apos;Open Missing&apos; to open all the download links in the browser. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sizning konfiguratsiya qilingan global mod papkasi va standart yuklab olishlar papkasi yuklab olingan modlar uchun avtomatik tekshiriladi va ular topilsa, namunaga ko‘chiriladi.&lt;/p&gt;&lt;p&gt;Ixtiyoriy ravishda, yuklab olingan modlarni ushbu dialog oynasiga sudrab olib tashlashingiz yoki modlarni birlamchi joyga yuklab olmagan bo‘lsangiz, tomosha qilish uchun jild qo‘shishingiz mumkin.&lt;/p&gt;&lt;0-web style=&quot;: fontweight;&quot;: Brauzerda barcha yuklab olish havolalarini ochish uchun &quot;Ochish yo&apos;qolgan&quot;. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sizning konfiguratsiya qilingan global mod papkasi va standart yuklab olishlar papkasi yuklab olingan modlar uchun avtomatik tekshiriladi va ular topilsa, namunaga ko‘chiriladi.&lt;/p&gt;&lt;p&gt;Ixtiyoriy ravishda, yuklab olingan modlarni ushbu dialog oynasiga sudrab olib tashlashingiz yoki modlarni birlamchi joyga yuklab olmagan bo‘lsangiz, tomosha qilish uchun jild qo‘shishingiz mumkin.&lt;/p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Brauzerda barcha yuklab olish havolalarini ochish uchun &quot;Ochish yo&apos;qolgan&quot; tugmasini bosing. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="160"/>
@@ -1863,7 +1863,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pre-launch command runs before the instance launches and post-exit command runs after it exits.&lt;/p&gt;&lt;p&gt;Both will be run in the launcher&apos;s working folder with extra environment variables:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Name of the instance&lt;/li&gt;&lt;li&gt;$INST_ID - ID of the instance (its folder name)&lt;/li&gt;&lt;li&gt;$INST_DIR - absolute path of the instance&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - absolute path of Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java binary used for launch&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - command-line parameters used for launch (warning: will not work correctly if arguments contain spaces)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper command allows launching using an extra wrapper program (like &apos;optirun&apos; on Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ishga tushirishdan oldingi buyruq namuna ishga tushirilgunga qadar ishlaydi va u chiqqandan keyin chiqishdan keyingi buyruq ishlaydi.&lt;/p&gt;&lt;p&gt;Ikkisi ham qo‘shimcha muhit o‘zgaruvchilari bilan ishga tushirgichning ishchi papkasida ishga tushadi:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Namuna nomi&lt;/li&gt;&lt;li&gt;$INST_ID - papkaning identifikatori -$li&gt;$INST_ID&lt;/i&gt;ST_ID -$liD&gt; misolning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - Minecraft&apos;ning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_JAVA - ishga tushirish uchun ishlatiladigan Java ikkilik fayli&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - ishga tushirish uchun ishlatiladigan buyruq qatori parametrlari (ogohlantirish: agar argumentlarda bo&apos;sh joy bo&apos;lsa, to&apos;g&apos;ri ishlamaydi)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wpper qo&apos;shimcha buyruq yordamida ishga tushirishga imkon beradi. Linuxda &quot;optirun&quot;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ishga tushirishdan oldingi buyruq namuna ishga tushirilgunga qadar ishlaydi va u chiqqandan keyin chiqishdan keyingi buyruq ishlaydi.&lt;/p&gt;&lt;p&gt;Ikkisi ham qo‘shimcha muhit o‘zgaruvchilari bilan ishga tushirgichning ishchi papkasida ishga tushadi:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Namuna nomi&lt;/li&gt;&lt;li&gt;$INST_ID - papkaning identifikatori (papka nomi)&lt;/li&gt;&lt;li&gt;$INST_DIR - misolning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - Minecraft&apos;ning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_JAVA - ishga tushirish uchun ishlatiladigan Java ikkilik fayli&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - ishga tushirish uchun ishlatiladigan buyruq qatori parametrlari (ogohlantirish: agar argumentlarda bo&apos;sh joy bo&apos;lsa, to&apos;g&apos;ri ishlamaydi)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wpper qo&apos;shimcha buyruq yordamida ishga tushirishga imkon beradi. Linuxda &quot;optirun&quot;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>

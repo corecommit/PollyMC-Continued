@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>احراز هویت مایکروسافت</translation>
+        <translation>&amp;احراز هویت مایکروسافت</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="44"/>
         <source>&amp;Pastebin Service</source>
-        <translation>سرویس Pastebin</translation>
+        <translation>سرویس &amp;Pastebin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="259"/>
@@ -41,22 +41,22 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>کلید های API</translation>
+        <translation>کلید های &amp;API</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>سرور متادیتا (Metadata)</translation>
+        <translation>&amp;سرور متادیتا (Metadata)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>ماد-رینث (Modrinth)</translation>
+        <translation>&amp;ماد-رینث (Modrinth)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>نوع و سرویسِ جایگذاری</translation>
+        <translation>&amp;نوع و سرویسِ جایگذاری</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="70"/>
         <source>Base &amp;URL</source>
-        <translation>URL پایه</translation>
+        <translation>&amp;URL پایه</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="310"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>کرس فورج</translation>
+        <translation>&amp;کرس فورج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -429,7 +429,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
-        <translation>افزودن آفلاین</translation>
+        <translation>&amp;افزودن آفلاین</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="85"/>
@@ -459,12 +459,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>قرار دادن به عنوان پیشفرض</translation>
+        <translation>&amp;قرار دادن به عنوان پیشفرض</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>تازه‌سازی</translation>
+        <translation>&amp;تازه‌سازی</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
@@ -485,7 +485,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>بدون پیش فرض</translation>
+        <translation>&amp;بدون پیش فرض</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -495,12 +495,12 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
         <source>&amp;Manage Skins</source>
-        <translation>مدیریت اسکین‌ها</translation>
+        <translation>&amp;مدیریت اسکین‌ها</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>افزودن مایکروسافت</translation>
+        <translation>&amp;افزودن مایکروسافت</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="171"/>
@@ -636,7 +636,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="103"/>
         <source>&amp;Icons:</source>
-        <translation>آیکن ها:</translation>
+        <translation>&amp;آیکن ها:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="218"/>
@@ -1568,7 +1568,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="93"/>
         <source>&amp;Group</source>
-        <translation>گروه</translation>
+        <translation>&amp;گروه</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="291"/>
@@ -2337,7 +2337,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="50"/>
         <source>&amp;Add</source>
-        <translation>اضافه کردن</translation>
+        <translation>&amp;اضافه کردن</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="14"/>
@@ -2357,7 +2357,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="77"/>
         <source>&amp;Clear</source>
-        <translation>پاکسازی</translation>
+        <translation>&amp;پاکسازی</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
@@ -2367,7 +2367,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
         <source>&amp;Remove</source>
-        <translation>حذف کردن</translation>
+        <translation>&amp;حذف کردن</translation>
     </message>
 </context>
 <context>
@@ -2783,7 +2783,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="92"/>
         <source>&amp;Add File</source>
-        <translation>افزودن فایل</translation>
+        <translation>&amp;افزودن فایل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="215"/>
@@ -3210,7 +3210,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="541"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation>‌فایل‌های زیر در لانچرهای شخص ثالث برای بارگیری در دسترس نیستند. باید آنها را به صورت دستی دانلود کرده و به نمونه اضافه کنید.</translation>
+        <translation>‌فایل‌های زیر در لانچرهای شخص ثالث برای بارگیری در دسترس نیستند.&lt;br/&gt;باید آنها را به صورت دستی دانلود کرده و به نمونه اضافه کنید.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="344"/>
@@ -5212,7 +5212,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
         <source>I&amp;nstances:</source>
-        <translation>نمایه ها:</translation>
+        <translation>&amp;نمایه ها:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="486"/>
@@ -5232,7 +5232,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
         <source>By &amp;name</source>
-        <translation>بر اساس نام</translation>
+        <translation>&amp;بر اساس نام</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
@@ -5247,7 +5247,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="161"/>
         <source>&amp;Replace toolbar with menubar</source>
-        <translation>عوض کردن نواز ابزار با نوار منو</translation>
+        <translation>&amp;عوض کردن نواز ابزار با نوار منو</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -5613,7 +5613,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="93"/>
         <source>&amp;Copy</source>
-        <translation>کپی</translation>
+        <translation>&amp;کپی</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="113"/>
@@ -6127,12 +6127,12 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="272"/>
         <source>&amp;Undo Last Instance Deletion</source>
-        <translation>کپی خذف شده قبلی را بازگردان</translation>
+        <translation>&amp;کپی خذف شده قبلی را بازگردان</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
         <source>Add Instanc&amp;e...</source>
-        <translation>افزودن نمایه ...</translation>
+        <translation>&amp;افزودن نمایه ...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="657"/>
@@ -6357,7 +6357,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
         <source>Cop&amp;y...</source>
-        <translation>رونویسی‏...</translation>
+        <translation>&amp;رونویسی‏...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="432"/>
@@ -6392,7 +6392,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>خروجی گرفتن...</translation>
+        <translation>&amp;خروجی گرفتن...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="741"/>
@@ -6427,7 +6427,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
         <source>&amp;Accounts</source>
-        <translation>حساب های کاربری</translation>
+        <translation>&amp;حساب های کاربری</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="749"/>
@@ -6463,7 +6463,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="564"/>
         <source>&amp;Instances</source>
-        <translation>نمایه</translation>
+        <translation>&amp;نمایه</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="710"/>
@@ -6473,17 +6473,17 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="454"/>
         <source>Dele&amp;te</source>
-        <translation>حذف کردن</translation>
+        <translation>&amp;حذف کردن</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Setti&amp;ngs...</source>
-        <translation>تنظیمات...</translation>
+        <translation>&amp;تنظیمات...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
         <source>&amp;Folder</source>
-        <translation>پوشه</translation>
+        <translation>&amp;پوشه</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
@@ -6498,7 +6498,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="429"/>
         <source>&amp;Edit...</source>
-        <translation>ویرایش...</translation>
+        <translation>&amp;ویرایش...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="256"/>
@@ -6518,7 +6518,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="594"/>
         <source>&amp;Rename group</source>
-        <translation>بازنویسی نام گروه</translation>
+        <translation>&amp;بازنویسی نام گروه</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="167"/>
@@ -6550,7 +6550,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
         <source>F&amp;olders</source>
-        <translation>پوشه ها</translation>
+        <translation>&amp;پوشه ها</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="727"/>
@@ -6565,7 +6565,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="668"/>
         <source>Sub&amp;reddit</source>
-        <translation>ساب ردیت</translation>
+        <translation>&amp;ساب ردیت</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="457"/>
@@ -6584,7 +6584,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>ساخت نمایه</translation>
+        <translation>&amp;ساخت نمایه</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -8489,7 +8489,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="56"/>
         <source>&amp;Name:</source>
-        <translation>نام:</translation>
+        <translation>&amp;نام:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.cpp" line="120"/>
@@ -8499,7 +8499,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="39"/>
         <source>&amp;Group:</source>
-        <translation>گروه:</translation>
+        <translation>&amp;گروه:</translation>
     </message>
 </context>
 <context>
@@ -8613,7 +8613,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="171"/>
         <source>&amp;Copy</source>
-        <translation>کپی</translation>
+        <translation>&amp;کپی</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="483"/>
@@ -9634,7 +9634,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="64"/>
         <source>&amp;None</source>
-        <translation>هیچکدام</translation>
+        <translation>&amp;هیچکدام</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.h" line="56"/>
@@ -11771,12 +11771,12 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>نام</translation>
+        <translation>&amp;نام</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>منابع</translation>
+        <translation>&amp;منابع</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>
@@ -11852,17 +11852,17 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>تازه‌سازی</translation>
+        <translation>&amp;تازه‌سازی</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="31"/>
         <source>&amp;Finish</source>
-        <translation>پایان</translation>
+        <translation>&amp;پایان</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="29"/>
         <source>&amp;Next &gt;</source>
-        <translation>&lt; بعدی</translation>
+        <translation>&lt; &amp;بعدی</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -11872,7 +11872,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>قبلی &gt;</translation>
+        <translation>&amp;قبلی &gt;</translation>
     </message>
 </context>
 <context>
@@ -13312,7 +13312,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>تازه‌سازی</translation>
+        <translation>&amp;تازه‌سازی</translation>
     </message>
 </context>
 <context>

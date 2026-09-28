@@ -31,12 +31,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>Allwedd API</translation>
+        <translation>&amp;Allwedd API</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>Fersiynau Minecraft</translation>
+        <translation>&amp;Fersiynau Minecraft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Gosod rhagosodiad</translation>
+        <translation>&amp;Gosod rhagosodiad</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
@@ -452,12 +452,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>Loywi</translation>
+        <translation>&amp;Loywi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Dileu</translation>
+        <translation>&amp;Dileu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
@@ -477,7 +477,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Dim Diofyn</translation>
+        <translation>&amp;Dim Diofyn</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="58"/>
@@ -513,7 +513,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>Ychwanegu Microsoft</translation>
+        <translation>&amp;Ychwanegu Microsoft</translation>
     </message>
 </context>
 <context>
@@ -3561,7 +3561,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>Loywi</translation>
+        <translation>&amp;Loywi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="109"/>
@@ -3920,7 +3920,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>Loywi</translation>
+        <translation>&amp;Loywi</translation>
     </message>
 </context>
 <context>
@@ -11463,7 +11463,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Loywi</translation>
+        <translation>&amp;Loywi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -11887,7 +11887,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Dileu Croen</translation>
+        <translation>&amp;Dileu Croen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="170"/>
@@ -12896,7 +12896,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Loywi</translation>
+        <translation>&amp;Loywi</translation>
     </message>
 </context>
 <context>

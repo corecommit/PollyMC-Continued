@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>Autentificare Microsoft</translation>
+        <translation>Autentificare &amp;Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>Chei API</translation>
+        <translation>Chei &amp;API</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -460,7 +460,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Setează valoarea implicită</translation>
+        <translation>&amp;Setează valoarea implicită</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -470,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Elimină</translation>
+        <translation>&amp;Elimină</translation>
     </message>
     <message>
         <source>Welcome!
@@ -5178,7 +5178,7 @@ Ar trebui să vă reparați mod-urile, deoarece jocul încă scrie în fișiere 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>După ultima lansare</translation>
+        <translation>&amp;După ultima lansare</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
@@ -5248,7 +5248,7 @@ Ar trebui să vă reparați mod-urile, deoarece jocul încă scrie în fișiere 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="291"/>
         <source>&amp;Auto Java Download:</source>
-        <translation>Descărcare %Automată Java:</translation>
+        <translation>Descărcare &amp;Automată Java:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="126"/>
@@ -6188,7 +6188,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="597"/>
         <source>&amp;Skins</source>
-        <translation>%Skin-uri</translation>
+        <translation>&amp;Skin-uri</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="520"/>
@@ -6472,7 +6472,7 @@ Vă rugăm creați o instanță înainte de a încerca să instalați această r
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
         <source>&amp;Accounts</source>
-        <translation>%Conturi</translation>
+        <translation>&amp;Conturi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="749"/>
@@ -6638,7 +6638,7 @@ Vă rugăm creați o instanță înainte de a încerca să instalați această r
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="575"/>
         <source>Launcher &amp;Root</source>
-        <translation>%Rădăcina Lansatorului</translation>
+        <translation>&amp;Rădăcina Lansatorului</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="383"/>
@@ -6689,7 +6689,7 @@ Pentru a curăța manual stocarea temporară de metadate, apasă pe Dosare -&gt;
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="586"/>
         <source>&amp;Central Mods</source>
-        <translation>Și mod-urile centrale</translation>
+        <translation>Și mod-urile &amp;centrale</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="668"/>
@@ -7183,7 +7183,7 @@ Asigurați-vă că aveți încredere și în adresa URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>Marimea ferestrei:</translation>
+        <translation>&amp;Marimea ferestrei:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7396,7 +7396,7 @@ Cel mai probabil va trebui să modificați calea de acces - vă rugăm să consu
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>Afișați timp petrecut în această instanță</translation>
+        <translation>Afișați timp &amp;petrecut în această instanță</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7436,7 +7436,7 @@ Cel mai probabil va trebui să modificați calea de acces - vă rugăm să consu
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>Înlocuirea descărcării modurilor și a încărcătoarelor</translation>
+        <translation>&amp;Înlocuirea descărcării modurilor și a încărcătoarelor</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
@@ -8805,7 +8805,7 @@ Te rugăm actualizează %1!</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="104"/>
         <source>&amp;Delete Selected</source>
-        <translation>Șterge cele selectate</translation>
+        <translation>&amp;Șterge cele selectate</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="439"/>

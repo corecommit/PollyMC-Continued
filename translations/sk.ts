@@ -2346,7 +2346,7 @@ Túto inštanciu nie je možné spustiť, pretože niektoré knižnice chýbajú
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="77"/>
         <source>&amp;Clear</source>
-        <translation>Vymazať</translation>
+        <translation>&amp;Vymazať</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
@@ -7003,7 +7003,7 @@ Uistite sa, že URL dôverujete.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="309"/>
         <source>Launch &amp;Offline</source>
-        <translation>Spustiť @offline</translation>
+        <translation>Spustiť @&amp;offline</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1032"/>
@@ -7133,7 +7133,7 @@ Uistite sa, že URL dôverujete.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>Vždy ukazovať trvanie v hodinách</translation>
+        <translation>Vždy ukazovať trvanie v &amp;hodinách</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -7158,7 +7158,7 @@ Uistite sa, že URL dôverujete.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>Veľkosť okna:</translation>
+        <translation>&amp;Veľkosť okna:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7190,12 +7190,12 @@ Je pravdepodobné, že budete musieť zmeniť jeho cestu - prosím obráťte sa 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="222"/>
         <source>&amp;Console Window</source>
-        <translation>Okno konzoly</translation>
+        <translation>&amp;Okno konzoly</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>Povoliť automatické pripojenie</translation>
+        <translation>&amp;Povoliť automatické pripojenie</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
@@ -7286,7 +7286,7 @@ Je pravdepodobné, že budete musieť zmeniť jeho cestu - prosím obráťte sa 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>Zastarané vylepšenia</translation>
+        <translation>&amp;Zastarané vylepšenia</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="768"/>
@@ -7311,7 +7311,7 @@ Je pravdepodobné, že budete musieť zmeniť jeho cestu - prosím obráťte sa 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="368"/>
         <source>Override &amp;Default Account</source>
-        <translation>Prepísať predvolený účet</translation>
+        <translation>&amp;Prepísať predvolený účet</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="758"/>
@@ -7321,7 +7321,7 @@ Je pravdepodobné, že budete musieť zmeniť jeho cestu - prosím obráťte sa 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>Natívne knižnice</translation>
+        <translation>&amp;Natívne knižnice</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="781"/>
@@ -7371,7 +7371,7 @@ Je pravdepodobné, že budete musieť zmeniť jeho cestu - prosím obráťte sa 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>Ukázať čas strávený hraním tejto inštancie</translation>
+        <translation>&amp;Ukázať čas strávený hraním tejto inštancie</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7431,7 +7431,7 @@ Je pravdepodobné, že budete musieť zmeniť jeho cestu - prosím obráťte sa 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>Okno %hry</translation>
+        <translation>Okno &amp;hry</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
@@ -8973,7 +8973,7 @@ Naozaj to chcete odstrániť?</translation>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="47"/>
         <source>&amp;OK</source>
-        <translation>OK</translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="49"/>
@@ -9124,7 +9124,9 @@ Maximum performance for demanding setups</source>
         <source>Post-Launch command ran successfully.
 
 </source>
-        <translation>Príkaz po spustení zbehol v poriadku.</translation>
+        <translation>Príkaz po spustení zbehol v poriadku.
+
+</translation>
     </message>
     <message>
         <location filename="../launcher/launch/steps/PostLaunchCommand.cpp" line="60"/>
@@ -9143,7 +9145,9 @@ Maximum performance for demanding setups</source>
         <source>Pre-Launch command ran successfully.
 
 </source>
-        <translation>Príkaz pred spustením zbehol v poriadku.</translation>
+        <translation>Príkaz pred spustením zbehol v poriadku.
+
+</translation>
     </message>
     <message>
         <location filename="../launcher/launch/steps/PreLaunchCommand.cpp" line="51"/>

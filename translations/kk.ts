@@ -456,7 +456,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Әдетті қалыпқа орнату</translation>
+        <translation>&amp;Әдетті қалыпқа орнату</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -466,7 +466,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Алып тастау</translation>
+        <translation>&amp;Алып тастау</translation>
     </message>
     <message>
         <source>Welcome!
@@ -482,7 +482,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Әдетті қалыпта қолданбау</translation>
+        <translation>&amp;Әдетті қалыпта қолданбау</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -5620,7 +5620,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>Процесті аяқтау</translation>
+        <translation>&amp;Процесті аяқтау</translation>
     </message>
     <message>
         <source>&amp;Meow</source>
@@ -5977,7 +5977,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
         <source>&amp;Launch</source>
-        <translation>Іске қосу</translation>
+        <translation>&amp;Іске қосу</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="35"/>

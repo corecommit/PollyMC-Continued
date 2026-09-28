@@ -470,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Kaldır</translation>
+        <translation>&amp;Kaldır</translation>
     </message>
     <message>
         <source>Welcome!
@@ -1870,7 +1870,7 @@ Bu kilidi silmek ve devam etmek için aşağıdaki “Yoksay” seçeneğini se�
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>Çıkış Sonrası Komut</translation>
+        <translation>&amp;Çıkış Sonrası Komut</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
@@ -1885,7 +1885,7 @@ Bu kilidi silmek ve devam etmek için aşağıdaki “Yoksay” seçeneğini se�
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Genel Ayarları Geçersiz Kıl</translation>
+        <translation>&amp;Genel Ayarları Geçersiz Kıl</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -2388,7 +2388,7 @@ Bazı kütüphaneler eksik veya indirilmemiş olduğundan bu profil başlatılam
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Genel Ayarları Geçersiz Kıl</translation>
+        <translation>&amp;Genel Ayarları Geçersiz Kıl</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -4403,7 +4403,7 @@ Emin misiniz?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Bellek</translation>
+        <translation>&amp;Bellek</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4433,7 +4433,7 @@ Emin misiniz?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Java Argümanları</translation>
+        <translation>&amp;Java Argümanları</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4502,7 +4502,7 @@ Emin misiniz?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>Java İndiricisini Aç</translation>
+        <translation>&amp;Java İndiricisini Aç</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -6006,7 +6006,7 @@ Bu sorunu manuel olarak düzeltmeniz gerekecek.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="779"/>
         <source>I&amp;con Theme</source>
-        <translation>Simge Teması</translation>
+        <translation>&amp;Simge Teması</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="166"/>
@@ -6606,7 +6606,7 @@ Lütfen bu kaynağı tekrar yüklemeye çalışmadan önce yeni bir örnek oluş
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Setti&amp;ngs...</source>
-        <translation>Ayarlar...</translation>
+        <translation>&amp;Ayarlar...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
@@ -7780,7 +7780,6 @@ Büyük olasılıkla yolu değiştirmeniz gerekecektir - lütfen modun web sites
 </source>
         <translation>
             <numerusform>%n mod devre dışı bırakılacak
-%n tane mod devre dışı bırakılacak
 </numerusform>
         </translation>
     </message>
@@ -7948,8 +7947,7 @@ Yok sayılması, oyunun bozulmasına neden olabilir.</translation>
         <source>%n mod(s) will be enabled
 </source>
         <translation>
-            <numerusform>%n modu etkinleştirilecek
-%n mod etkinleştirilecek
+            <numerusform>%n mod etkinleştirilecek
 </numerusform>
         </translation>
     </message>
@@ -9939,7 +9937,7 @@ Adınızı dikkatli seçin:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Sistem ayarlarını kullan</translation>
+        <translation>&amp;Sistem ayarlarını kullan</translation>
     </message>
 </context>
 <context>

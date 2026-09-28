@@ -460,7 +460,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Alapértelmezetté állítás</translation>
+        <translation>&amp;Alapértelmezetté állítás</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -2774,7 +2774,7 @@ Biztos vagy ebben?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="152"/>
         <source>&amp;Download</source>
-        <translation>Letöltés</translation>
+        <translation>&amp;Letöltés</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="155"/>
@@ -2835,7 +2835,7 @@ Biztos vagy ebben?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="103"/>
         <source>&amp;Remove</source>
-        <translation>Eltávolítás</translation>
+        <translation>&amp;Eltávolítás</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="133"/>
@@ -4141,7 +4141,7 @@ Biztos vagy ebben?</translation>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="89"/>
         <source>&amp;Launch</source>
-        <translation>Indítás</translation>
+        <translation>&amp;Indítás</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="57"/>
@@ -4869,7 +4869,7 @@ A teljes verzió játszásához először meg kell vásárolnod a játékot.</tr
     <message>
         <location filename="../launcher/LaunchController.cpp" line="438"/>
         <source>&amp;Launch</source>
-        <translation>Indítás</translation>
+        <translation>&amp;Indítás</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="209"/>
@@ -5110,7 +5110,7 @@ Lehet, hogy ellenőrizned kell a modjaid, mert a játék még mindig naplóz, é
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>Almappák ellenőrzése a blokkolt modok után</translation>
+        <translation>&amp;Almappák ellenőrzése a blokkolt modok után</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -5184,7 +5184,7 @@ Lehet, hogy ellenőrizned kell a modjaid, mert a játék még mindig naplóz, é
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Naplózás leállítása, ha a napló túlcsordul</translation>
+        <translation>&amp;Naplózás leállítása, ha a napló túlcsordul</translation>
     </message>
     <message>
         <source>Download game files during instance creation</source>
@@ -5223,7 +5223,7 @@ Lehet, hogy ellenőrizned kell a modjaid, mert a játék még mindig naplóz, é
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>Legutóbbi indítás szerint</translation>
+        <translation>&amp;Legutóbbi indítás szerint</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
@@ -5248,7 +5248,7 @@ Lehet, hogy ellenőrizned kell a modjaid, mert a játék még mindig naplóz, é
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
         <source>By &amp;name</source>
-        <translation>Név szerint</translation>
+        <translation>&amp;Név szerint</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
@@ -6186,7 +6186,7 @@ Biztos vagy ebben?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>Ablak bezárása</translation>
+        <translation>&amp;Ablak bezárása</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
@@ -6768,7 +6768,7 @@ Ellenőrizd a lomtárat, hogy manuálisan visszaállíthasd őket.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Példány létrehozása</translation>
+        <translation>&amp;Példány létrehozása</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7483,7 +7483,7 @@ Valószínűleg meg kell változtatnod az elérési utat - lásd a mod weboldal�
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>Modbetöltők felülbírálása a mod letöltőben</translation>
+        <translation>Modbetöltők felülbírálása a mod &amp;letöltőben</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
@@ -7498,7 +7498,7 @@ Valószínűleg meg kell változtatnod az elérési utat - lásd a mod weboldal�
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Mutassa az eltöltött időt a példányokkal</translation>
+        <translation>Mutassa az eltöltött időt a &amp;példányokkal</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
@@ -7508,7 +7508,7 @@ Valószínűleg meg kell változtatnod az elérési utat - lásd a mod weboldal�
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Mentse az eltöltött időt a példányokkal</translation>
+        <translation>&amp;Mentse az eltöltött időt a példányokkal</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="692"/>
@@ -9881,7 +9881,7 @@ Válaszd meg a nevedet okosan:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Cím és Port</translation>
+        <translation>&amp;Cím és Port</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
@@ -12590,7 +12590,7 @@ ok: %2.</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Skin törlése</translation>
+        <translation>&amp;Skin törlése</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="145"/>

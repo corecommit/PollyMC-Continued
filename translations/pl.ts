@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -145,7 +145,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Nie można zrozumieć manifestu paczki:</translation>
+        <translation>Nie można zrozumieć manifestu paczki:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -7077,7 +7078,7 @@ Upewnij się też że ufasz adresowi URL
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1030"/>
         <source>&lt;ACCESS TOKEN&gt;</source>
-        <translation>&amp;lt;TOKEN DOSTĘPU&amp;gt;</translation>
+        <translation>&lt;TOKEN DOSTĘPU&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1085"/>
@@ -7107,12 +7108,12 @@ Upewnij się też że ufasz adresowi URL
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1032"/>
         <source>&lt;PROFILE ID&gt;</source>
-        <translation>&amp;lt;ID PROFILU&amp;gt;</translation>
+        <translation>&lt;ID PROFILU&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1027"/>
         <source>&lt;SESSION ID&gt;</source>
-        <translation>&amp;lt;ID SESJI&amp;gt;</translation>
+        <translation>&lt;ID SESJI&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="307"/>
@@ -7868,11 +7869,11 @@ Zignorowanie ich może zepsuć grę.</translation>
         <source>The enabled mod(s) require %n mod(s).
 </source>
         <translation>
-            <numerusform>Włączony mod wymaga &amp;n moda.
+            <numerusform>Włączony mod wymaga %n moda.
 </numerusform>
-            <numerusform>Włączony mod wymaga &amp;n modów.
+            <numerusform>Włączony mod wymaga %n modów.
 </numerusform>
-            <numerusform>Włączony mod wymaga &amp;n modów.
+            <numerusform>Włączony mod wymaga %n modów.
 </numerusform>
         </translation>
     </message>
