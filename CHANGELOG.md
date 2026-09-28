@@ -29,7 +29,7 @@
 - The toolbar's Help button is now called **More**, and **Check for update** (with its icon) moved into its dropdown instead of being its own toolbar button
 - The More menu (and the Help menu) is ordered by what the entries do: `Check for update`, `View logs`, `Report a Bug` first, then `Wiki`, `More News`, `Bots`, then `Discord`, `Matrix`, `Subreddit`, then the maintenance entries, with `About` last
 - Tooltips now appear in every dropdown, not just Folders and Help — the Accounts menu, the More menu and the Export submenu had tooltip display turned off — and the entries that had no tooltip at all got one (Accounts, Manage Accounts, No Default Account, Undo Last Instance Deletion, Status Bar, Lock Toolbars, Themes and the three export formats)
-- Translations are back in sync with the code: Russian, Ukrainian, German and Afrikaans now cover the 57 new strings (the skin browser and skin manager, the More menu, the new toolbar tooltips), all compiling with zero untranslated messages
+- Translations are back in sync with the code: French, Russian, Ukrainian, German and Afrikaans now cover the 57 new strings (the skin browser and the More menu tooltips), all compiling with zero untranslated messages — and five translations that dropped or scrambled a `%1`/`%2` placeholder (so the message printed a literal token at runtime) are repaired
 
 **Fixed:**
 

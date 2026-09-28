@@ -10817,7 +10817,7 @@ This message will be displayed until you remove this from the JVM arguments.</so
 You should double-check for personal information.
 
 Are you sure?</source>
-        <translation>Ви намагаєтесь вивантажити &quot;%1&quot; до $2.
+        <translation>Ви намагаєтесь вивантажити &quot;%1&quot; до %2.
 Вам варто перевірити це двічі на наявність персональної інформації.
 
 Ви впевнені?</translation>
