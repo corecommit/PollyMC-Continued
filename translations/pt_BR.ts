@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="70"/>
         <source>Base &amp;URL</source>
-        <translation>URL base</translation>
+        <translation>&amp;URL base</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="310"/>
@@ -450,17 +450,17 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Mover para %Cima</translation>
+        <translation>Mover para &amp;Cima</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Mover para %baixo</translation>
+        <translation>Mover para &amp;baixo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Definir como Padrão</translation>
+        <translation>&amp;Definir como Padrão</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -486,7 +486,7 @@ Se você é novo aqui, pode selecionar o botão “Adicionar conta Microsoft” 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Sem padrão</translation>
+        <translation>&amp;Sem padrão</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -496,7 +496,7 @@ Se você é novo aqui, pode selecionar o botão “Adicionar conta Microsoft” 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
         <source>&amp;Manage Skins</source>
-        <translation>Gerenciar skins</translation>
+        <translation>&amp;Gerenciar skins</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
@@ -2367,7 +2367,7 @@ Esta instância não pode ser iniciada porque algumas bibliotecas estão faltand
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="77"/>
         <source>&amp;Clear</source>
-        <translation>Limpar</translation>
+        <translation>&amp;Limpar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
@@ -2459,7 +2459,7 @@ Esta instância não pode ser iniciada porque algumas bibliotecas estão faltand
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="183"/>
         <source>&amp;Files</source>
-        <translation>Arquivos</translation>
+        <translation>&amp;Arquivos</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="31"/>
@@ -2752,7 +2752,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="152"/>
         <source>&amp;Download</source>
-        <translation>Baixar</translation>
+        <translation>&amp;Baixar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="155"/>
@@ -2803,7 +2803,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="114"/>
         <source>&amp;Enable</source>
-        <translation>Habilitar</translation>
+        <translation>&amp;Habilitar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="125"/>
@@ -2849,7 +2849,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="141"/>
         <source>View &amp;Folder</source>
-        <translation>Visualizar Pasta</translation>
+        <translation>&amp;Visualizar Pasta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="144"/>
@@ -4080,7 +4080,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>Encerrar</translation>
+        <translation>&amp;Encerrar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="106"/>
@@ -4100,7 +4100,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="89"/>
         <source>&amp;Launch</source>
-        <translation>Iniciar</translation>
+        <translation>&amp;Iniciar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="57"/>
@@ -4351,12 +4351,12 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>Uso Mínimo de Memória:</translation>
+        <translation>&amp;Uso Mínimo de Memória:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Memória</translation>
+        <translation>&amp;Memória</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4366,7 +4366,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="123"/>
         <source>Auto-download &amp;Mojang Java</source>
-        <translation>Baixar Java da Mojang automaticamente</translation>
+        <translation>Baixar Java da &amp;Mojang automaticamente</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="153"/>
@@ -4405,7 +4405,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>Uso Maximo de Memória:</translation>
+        <translation>&amp;Uso Maximo de Memória:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4455,7 +4455,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>Abrir Instalador Java</translation>
+        <translation>&amp;Abrir Instalador Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -4828,7 +4828,7 @@ Você precisa comprar o jogo primeiro para jogar a versão completa.</translatio
     <message>
         <location filename="../launcher/LaunchController.cpp" line="438"/>
         <source>&amp;Launch</source>
-        <translation>Iniciar</translation>
+        <translation>&amp;Iniciar</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="209"/>
@@ -4961,7 +4961,7 @@ Você talvez tenha de consertar os seus mods, pois o jogo ainda está registrand
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="501"/>
         <source>Log History &amp;Limit:</source>
-        <translation>Limite de Histórico de Registros:</translation>
+        <translation>&amp;Limite de Histórico de Registros:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="616"/>
@@ -5178,7 +5178,7 @@ Você talvez tenha de consertar os seus mods, pois o jogo ainda está registrand
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>Por último jogado</translation>
+        <translation>&amp;Por último jogado</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
@@ -5946,12 +5946,12 @@ Corrija esse problema manualmente.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="142"/>
         <source>&amp;File</source>
-        <translation>Arquivo</translation>
+        <translation>&amp;Arquivo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="213"/>
         <source>&amp;Help</source>
-        <translation>Ajuda</translation>
+        <translation>&amp;Ajuda</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="319"/>
@@ -5976,7 +5976,7 @@ Corrija esse problema manualmente.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>Encerrar</translation>
+        <translation>&amp;Encerrar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="801"/>
@@ -6091,7 +6091,7 @@ Você tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="407"/>
         <source>&amp;Change Group...</source>
-        <translation>Alterar grupo...</translation>
+        <translation>&amp;Alterar grupo...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1822"/>
@@ -6111,7 +6111,7 @@ Você tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
         <source>Add Instanc&amp;e...</source>
-        <translation>Adicionar instância...</translation>
+        <translation>&amp;Adicionar instância...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="657"/>
@@ -6141,7 +6141,7 @@ Você tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>Fechar Janela</translation>
+        <translation>&amp;Fechar Janela</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
@@ -6326,7 +6326,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
         <source>Cop&amp;y...</source>
-        <translation>Copiar...</translation>
+        <translation>&amp;Copiar...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="600"/>
@@ -6406,7 +6406,7 @@ Por favor, crie uma nova instância antes de tentar instalar este recurso novame
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="330"/>
         <source>&amp;Manage Accounts...</source>
-        <translation>Gerenciar contas...</translation>
+        <translation>&amp;Gerenciar contas...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="660"/>
@@ -6466,7 +6466,7 @@ Por favor, crie uma nova instância antes de tentar instalar este recurso novame
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>Sobre %1</translation>
+        <translation>&amp;Sobre %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
@@ -6537,7 +6537,7 @@ Por favor, crie uma nova instância antes de tentar instalar este recurso novame
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
         <source>&amp;Folder</source>
-        <translation>Pasta</translation>
+        <translation>&amp;Pasta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1086"/>
@@ -6552,7 +6552,7 @@ Por favor, crie uma nova instância antes de tentar instalar este recurso novame
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
         <source>&amp;Launch</source>
-        <translation>Iniciar</translation>
+        <translation>&amp;Iniciar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="528"/>
@@ -6673,7 +6673,7 @@ Para limpar a metadata de cache manualmente, vá em Pastas -&gt; Raiz do Launche
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
         <source>F&amp;olders</source>
-        <translation>Pastas</translation>
+        <translation>&amp;Pastas</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="727"/>
@@ -7042,7 +7042,7 @@ Certifique-se também de confiar no URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="307"/>
         <source>&amp;Launch</source>
-        <translation>Iniciar</translation>
+        <translation>&amp;Iniciar</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="330"/>
@@ -7219,7 +7219,7 @@ Será bem provável que você deverá mudar o caminho do arquivo ‐ por favor, 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>Habilitar entrada automática</translation>
+        <translation>&amp;Habilitar entrada automática</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
@@ -7310,7 +7310,7 @@ Será bem provável que você deverá mudar o caminho do arquivo ‐ por favor, 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>Ajustes Legados</translation>
+        <translation>Ajustes &amp;Legados</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="768"/>
@@ -7455,7 +7455,7 @@ Será bem provável que você deverá mudar o caminho do arquivo ‐ por favor, 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>Janela do Jogo</translation>
+        <translation>&amp;Janela do Jogo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
@@ -9826,7 +9826,7 @@ Escolha o seu nome com cuidado:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Senha:</translation>
+        <translation>&amp;Senha:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9856,7 +9856,7 @@ Escolha o seu nome com cuidado:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Usar configurações do sistema</translation>
+        <translation>&amp;Usar configurações do sistema</translation>
     </message>
 </context>
 <context>
@@ -12186,7 +12186,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>&lt; Voltar</translation>
+        <translation>&lt; &amp;Voltar</translation>
     </message>
 </context>
 <context>
@@ -12549,7 +12549,7 @@ Tem certeza?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Excluir skin</translation>
+        <translation>&amp;Excluir skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="145"/>

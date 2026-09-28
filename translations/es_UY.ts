@@ -450,17 +450,17 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Subir</translation>
+        <translation>&amp;Subir</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Bajar</translation>
+        <translation>&amp;Bajar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Establecer por defecto</translation>
+        <translation>&amp;Establecer por defecto</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -486,7 +486,7 @@ Si eres nuevo/a aquí, puedes seleccionar el botón &quot;Añadir Microsoft&quot
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Sin predeterminado</translation>
+        <translation>&amp;Sin predeterminado</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -2456,7 +2456,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="209"/>
         <source>&amp;Mark disabled files as optional</source>
-        <translation>%Marcar archivos desactivados como opcionales</translation>
+        <translation>&amp;Marcar archivos desactivados como opcionales</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="61"/>
@@ -4358,7 +4358,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Instalación de Java</translation>
+        <translation>&amp;Instalación de Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="269"/>
@@ -4368,7 +4368,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Auto-detectar versión de Java</translation>
+        <translation>Auto-&amp;detectar versión de Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -5003,7 +5003,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Dejar de registrar si el registro se sobrecarga</translation>
+        <translation>Dejar de registrar &amp;si el registro se sobrecarga</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="133"/>
@@ -5108,7 +5108,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
         <source>&amp;Skins:</source>
-        <translation>%Skins:</translation>
+        <translation>&amp;Skins:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="161"/>
@@ -6034,7 +6034,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="597"/>
         <source>&amp;Skins</source>
-        <translation>%Skins</translation>
+        <translation>&amp;Skins</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="520"/>
@@ -6556,7 +6556,7 @@ Para borrar la caché de metadatos manualmente, entre a Carpetas -&gt; Raíz del
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="668"/>
         <source>Sub&amp;reddit</source>
-        <translation>Subreddit</translation>
+        <translation>&amp;Subreddit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="457"/>
@@ -9583,7 +9583,7 @@ Elige tu nombre cuidadosamente:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Contraseña:</translation>
+        <translation>&amp;Contraseña:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9603,12 +9603,12 @@ Elige tu nombre cuidadosamente:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Dirección y puerto</translation>
+        <translation>&amp;Dirección y puerto</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Nombre de usuario:</translation>
+        <translation>Nombre de &amp;usuario:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>

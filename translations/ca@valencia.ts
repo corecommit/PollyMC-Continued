@@ -292,7 +292,7 @@
     </message>
     <message>
         <source>Remo&amp;ve</source>
-        <translation>Eliminar</translation>
+        <translation>&amp;Eliminar</translation>
     </message>
     <message>
         <source>Welcome!

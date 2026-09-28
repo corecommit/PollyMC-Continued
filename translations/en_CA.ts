@@ -6773,7 +6773,7 @@ Please check your trashbin to manually restore them.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Create instance</translation>
+        <translation>&amp;Create instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -8448,8 +8448,8 @@ Please update %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            <numerusform>Request Rate Limited for %in second:Retry After %1</numerusform>
-            <numerusform>Request Rate Limited for %in seconds: Retry After %1</numerusform>
+            <numerusform>Request Rate Limited for %n second:Retry After %1</numerusform>
+            <numerusform>Request Rate Limited for %n seconds: Retry After %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">

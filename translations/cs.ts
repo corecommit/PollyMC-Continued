@@ -145,7 +145,7 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Could not understand pack manifest:
+        <translation>Nepodařilo se pochopit manifest balíčku:
 </translation>
     </message>
     <message>
@@ -232,7 +232,7 @@
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="818"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</translation>
+        <translation>Následující soubory nejsou ke stažení ve externích spouštěčích.&lt;br/&gt;Budete si je muset stáhnout ručně a přidat je do instance.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="874"/>
@@ -386,7 +386,7 @@
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="394"/>
         <source>Type of the account (MSA, Offline, or Authlib-Injector)</source>
-        <translation>Type of the account (MSA, Offline, or Authlib-Injector)</translation>
+        <translation>Typ účtu (MSA, Offline nebo Authlib-Injector)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="396"/>
@@ -470,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Odstranit</translation>
+        <translation>&amp;Odstranit</translation>
     </message>
     <message>
         <source>Welcome!
@@ -517,8 +517,8 @@ Svůj účet Microsoft můžete přidat tlačítkem „Přidat Microsoft“.</tr
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="58"/>
         <source>Welcome!
 You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get started.</source>
-        <translation>Welcome!
-You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get started.</translation>
+        <translation>Vítejte!
+Pro začátek můžete přidat účet Microsoft, offline nebo Yggdrasil (authlib-injector).</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="90"/>
@@ -1062,7 +1062,7 @@ Pro odstranění tohoto uzamčení a pokračování klikněte na „Ignorovat“
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="14"/>
         <source>Add Yggdrasil (authlib-injector) Account</source>
-        <translation>Add Yggdrasil (authlib-injector) Account</translation>
+        <translation>Přidat účet Yggdrasil (authlib-injector)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="23"/>
@@ -1072,7 +1072,7 @@ Pro odstranění tohoto uzamčení a pokračování klikněte na „Ignorovat“
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="30"/>
         <source>Auth server URL (e.g. https://example.com/api/yggdrasil)</source>
-        <translation>Auth server URL (e.g. https://example.com/api/yggdrasil)</translation>
+        <translation>URL autentizačního serveru (např. https://example.com/api/yggdrasil)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="37"/>
@@ -1102,7 +1102,7 @@ Pro odstranění tohoto uzamčení a pokračování klikněte na „Ignorovat“
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="34"/>
         <source>Server URL must start with http:// or https://</source>
-        <translation>Server URL must start with http:// or https://</translation>
+        <translation>URL serveru musí začínat http:// nebo https://</translation>
     </message>
 </context>
 <context>
@@ -1110,12 +1110,12 @@ Pro odstranění tohoto uzamčení a pokračování klikněte na „Ignorovat“
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="21"/>
         <source>Authenticating with Yggdrasil auth server</source>
-        <translation>Authenticating with Yggdrasil auth server</translation>
+        <translation>Ověřování u autentizačního serveru Yggdrasil</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="28"/>
         <source>No auth server URL set. Remove this account and re-add it with the correct URL.</source>
-        <translation>No auth server URL set. Remove this account and re-add it with the correct URL.</translation>
+        <translation>Není nastavena URL autentizačního serveru. Odstraňte tento účet a znovu jej přidejte se správnou URL.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="117"/>
@@ -1130,7 +1130,7 @@ Pro odstranění tohoto uzamčení a pokračování klikněte na „Ignorovat“
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="128"/>
         <source>Could not parse auth server response.</source>
-        <translation>Could not parse auth server response.</translation>
+        <translation>Nepodařilo se zpracovat odpověď autentizačního serveru.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="138"/>
@@ -1140,17 +1140,17 @@ Pro odstranění tohoto uzamčení a pokračování klikněte na „Ignorovat“
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="147"/>
         <source>Auth server did not return an access token.</source>
-        <translation>Auth server did not return an access token.</translation>
+        <translation>Autentizační server nevrátil přístupový token.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="151"/>
         <source>Auth server did not return a profile.</source>
-        <translation>Auth server did not return a profile.</translation>
+        <translation>Autentizační server nevrátil profil.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="158"/>
         <source>Auth server returned an incomplete profile.</source>
-        <translation>Auth server returned an incomplete profile.</translation>
+        <translation>Autentizační server vrátil neúplný profil.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="173"/>
@@ -1160,13 +1160,13 @@ Pro odstranění tohoto uzamčení a pokračování klikněte na „Ignorovat“
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="174"/>
         <source>Multiple profiles found. Select one:</source>
-        <translation>Multiple profiles found. Select one:</translation>
+        <translation>Nalezeno více profilů. Vyberte jeden:</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="227"/>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="234"/>
         <source>Authentication successful (no skin data)</source>
-        <translation>Authentication successful (no skin data)</translation>
+        <translation>Ověření úspěšné (bez dat vzhledu)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="269"/>
@@ -2347,7 +2347,7 @@ Tuto instanci nelze spustit, protože některé knihovny chybí nebo ještě neb
     <message>
         <location filename="../launcher/minecraft/launch/EnsureOfflineLibraries.cpp" line="33"/>
         <source>This instance cannot be launched because some libraries are missing or have not been downloaded yet. Please try again in online mode with a working Internet connection</source>
-        <translation>This instance cannot be launched because some libraries are missing or have not been downloaded yet. Please try again in online mode with a working Internet connection</translation>
+        <translation>Tuto instanci nelze spustit, protože některé knihovny chybí nebo ještě nebyly staženy. Zkuste to znovu v režimu online s funkčním připojením k internetu</translation>
     </message>
 </context>
 <context>
@@ -3055,7 +3055,7 @@ Jste si jisti?</translation>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="213"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation>Následující soubory nejsou dostupné ke stažení v launcherech třetích stran.&lt;br/&gt;Budete si je muset ručně stáhnout a přidat je do instance.</translation>
+        <translation>Následující soubory nejsou ke stažení ve externích spouštěčích.&lt;br/&gt;Budete si je muset stáhnout ručně a přidat je do instance.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="139"/>
@@ -3076,7 +3076,7 @@ Jste si jisti?</translation>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="128"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Nepodařilo se pochopit manifest balíčku
+        <translation>Nepodařilo se pochopit manifest balíčku:
 </translation>
     </message>
     <message>
@@ -3241,7 +3241,7 @@ Jste si jisti?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="541"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation>Následující soubory byly zablokovány pro launchery třetích stran.&lt;br/&gt;Budete je muset stáhnout ručně a přidat je do instance.</translation>
+        <translation>Následující soubory nejsou ke stažení ve externích spouštěčích.&lt;br/&gt;Budete si je muset stáhnout ručně a přidat je do instance.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="344"/>
@@ -3302,7 +3302,7 @@ Jste si jisti?</translation>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="327"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Nerozumím manifestu balíčku:
+        <translation>Nepodařilo se pochopit manifest balíčku:
 </translation>
     </message>
     <message>
@@ -3447,7 +3447,7 @@ Jste si jisti?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.ui" line="22"/>
         <source>Note: CurseForge allows creators to block access to third-party tools. As such, you may need to manually download some mods to be able to install a modpack.</source>
-        <translation>Note: CurseForge allows creators to block access to third-party tools. As such, you may need to manually download some mods to be able to install a modpack.</translation>
+        <translation>Poznámka: CurseForge umožňuje tvůrcům blokovat přístup externím nástrojům. Proto možná budete muset některé mody stáhnout ručně, abyste nainstalovali modpack.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.ui" line="97"/>
@@ -3776,7 +3776,7 @@ Jste si jisti?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
         <source>- PollyMC-Continued, Prism Launcher, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation>- PollyMC-Continued, Prism Launcher, PolyMC or MultiMC exported instances (ZIP)</translation>
+        <translation>- Instance exportované z PollyMC-Continued, Prism Launcher, PolyMC nebo MultiMC (ZIP)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="73"/>
@@ -5207,7 +5207,7 @@ Možná budete muset opravit své mody, protože hra se stále zapisuje do soubo
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Zastavit protokolování při přetečení protokolu</translation>
+        <translation>&amp;Zastavit protokolování při přetečení protokolu</translation>
     </message>
     <message>
         <source>Download game files during instance creation</source>
@@ -5246,7 +5246,7 @@ Možná budete muset opravit své mody, protože hra se stále zapisuje do soubo
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>Podle posledního spuštění</translation>
+        <translation>&amp;Podle posledního spuštění</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
@@ -5275,7 +5275,7 @@ Možná budete muset opravit své mody, protože hra se stále zapisuje do soubo
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
         <source>By &amp;name</source>
-        <translation>Podle jména</translation>
+        <translation>&amp;Podle jména</translation>
     </message>
     <message>
         <source>Additional instance directories</source>
@@ -5298,7 +5298,7 @@ Možná budete muset opravit své mody, protože hra se stále zapisuje do soubo
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="161"/>
         <source>&amp;Replace toolbar with menubar</source>
-        <translation>Nahradit lištu nástrojů lištou menu</translation>
+        <translation>&amp;Nahradit lištu nástrojů lištou menu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -6075,7 +6075,7 @@ Tento problém budete muset opravit ručně.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="175"/>
         <source>&amp;View</source>
-        <translation>Zobrazit</translation>
+        <translation>&amp;Zobrazit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1532"/>
@@ -6191,7 +6191,7 @@ Opravdu?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
         <source>Add Instanc&amp;e...</source>
-        <translation>Přidat instanci...</translation>
+        <translation>&amp;Přidat instanci...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="657"/>
@@ -6633,7 +6633,7 @@ Před opětovným pokusem o instalaci této modifikace prosím vytvořte novou i
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
         <source>&amp;Launch</source>
-        <translation>Spustit</translation>
+        <translation>&amp;Spustit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="528"/>
@@ -8655,7 +8655,7 @@ Aktualizujte prosím %1!</translation>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="56"/>
         <source>&amp;Name:</source>
-        <translation>Název:</translation>
+        <translation>&amp;Název:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.cpp" line="120"/>
@@ -9938,7 +9938,7 @@ Vyber si dobře svoje jméno:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Heslo:</translation>
+        <translation>&amp;Heslo:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -12218,7 +12218,7 @@ Aktuálně nainstalovaná verze: %1</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Zdroje</translation>
+        <translation>&amp;Zdroje</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>
@@ -12877,7 +12877,7 @@ Jste si jisti?</translation>
         <location filename="../launcher/modplatform/technic/SolderPackInstallTask.cpp" line="103"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Nepodařilo se rozluštit manifest modpacku:
+        <translation>Nepodařilo se pochopit manifest balíčku:
 </translation>
     </message>
     <message>

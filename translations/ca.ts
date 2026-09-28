@@ -449,12 +449,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Mou i amunt</translation>
+        <translation>&amp;Mou i amunt</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Mou i baixa</translation>
+        <translation>&amp;Mou i baixa</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -1568,7 +1568,7 @@ Per esborrar aquest bloqueig i procedir, selecciona &quot;Ignora&quot;.</transla
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="93"/>
         <source>&amp;Group</source>
-        <translation>%Grup</translation>
+        <translation>&amp;Grup</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="291"/>
@@ -1842,12 +1842,12 @@ Per esborrar aquest bloqueig i procedir, selecciona &quot;Ignora&quot;.</transla
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>Comanda post-sortida</translation>
+        <translation>&amp;Comanda post-sortida</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
         <source>&amp;Wrapper Command</source>
-        <translation>Comanda contenidor</translation>
+        <translation>&amp;Comanda contenidor</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
@@ -1857,12 +1857,12 @@ Per esborrar aquest bloqueig i procedir, selecciona &quot;Ignora&quot;.</transla
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Sobreescriure configuració global</translation>
+        <translation>Sobreescriure configuració &amp;global</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
         <source>&amp;Pre-launch Command</source>
-        <translation>Comanda pre-execució</translation>
+        <translation>Comanda &amp;pre-execució</translation>
     </message>
 </context>
 <context>
@@ -2320,7 +2320,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Sobreescriure configuració global</translation>
+        <translation>Sobreescriure configuració &amp;global</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -6605,7 +6605,7 @@ Si us plau, revisa la paperera de reciclatge per fer-ho manualment.</translation
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Crear instància</translation>
+        <translation>&amp;Crear instància</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -8633,7 +8633,7 @@ Si us plau, actualitza %1!</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="58"/>
         <source>&amp;Bottom</source>
-        <translation>%Final</translation>
+        <translation>&amp;Final</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="104"/>
@@ -9626,7 +9626,7 @@ Elegeix un nom amb cura:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Nom d&apos;usuari/ària:</translation>
+        <translation>Nom d&apos;&amp;usuari/ària:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>

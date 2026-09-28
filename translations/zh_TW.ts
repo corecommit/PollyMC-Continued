@@ -10379,7 +10379,7 @@ Would you like to remove those existing saves as part of this update?</source>
     <message>
         <location filename="../launcher/InstanceDirUpdate.cpp" line="71"/>
         <source>&amp;Remember my choice</source>
-        <translation>記住我的選擇 (R)</translation>
+        <translation>記住我的選擇 (&amp;R)</translation>
     </message>
     <message>
         <location filename="../launcher/GZip.cpp" line="210"/>

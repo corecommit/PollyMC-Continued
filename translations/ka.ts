@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>მოდრინთი (ModRinth)</translation>
+        <translation>&amp;მოდრინთი (ModRinth)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>თარსიფორგი/კურსფორგი (CurseForge)</translation>
+        <translation>თარსიფორგი/კურსფორგი (&amp;CurseForge)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -1863,7 +1863,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>უპირატესობის მინიჭება და გლობალური პარამეტრები</translation>
+        <translation>&amp;უპირატესობის მინიჭება და გლობალური პარამეტრები</translation>
     </message>
 </context>
 <context>
@@ -2274,7 +2274,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>უპირატესობის მინიჭება და გლობალური პარამეტრები</translation>
+        <translation>&amp;უპირატესობის მინიჭება და გლობალური პარამეტრები</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -3912,7 +3912,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>მოკვლა</translation>
+        <translation>&amp;მოკვლა</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="98"/>
@@ -5816,7 +5816,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>მოკვლა</translation>
+        <translation>&amp;მოკვლა</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="175"/>
@@ -6373,7 +6373,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>გატანა...</translation>
+        <translation>&amp;გატანა...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="553"/>

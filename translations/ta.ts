@@ -31,7 +31,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>பநிஇ விசைகள்</translation>
+        <translation>&amp;பநிஇ விசைகள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>Curseforge</translation>
+        <translation>&amp;Curseforge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="385"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: you only need to set this to access private data.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; குறிப்பு: தனிப்பட்ட தரவை அணுக மட்டுமே இதை நீங்கள் அமைக்க வேண்டும். &lt;/p&gt; &lt;/body&gt; &lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;குறிப்பு: தனிபட்ட தரவை அணுக மட்டுமே இதை நீங்கள் அமைக்க வேண்டும். மேலும தகவலுக್கு ஆவணங்களை&lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;ஆவடங்களை&lt;/a&gt; படிக்கவும்.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
@@ -132,7 +132,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="317"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: you only need to set this to access private data. Read the &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;documentation&lt;/a&gt; for more information.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; குறிப்பு: தனிப்பட்ட தரவை அணுக மட்டுமே இதை நீங்கள் அமைக்க வேண்டும். &lt;/P&gt; &lt;/body&gt; &lt;/html&gt; ஐ &lt;/p&gt; &lt;/html&gt; ஐ &lt;/p&gt; &lt;/html&gt; ஐ &lt;/p&gt; &lt;/html&gt; ஐ &lt;/p&gt; ஆவணங்கள் &lt;/a&gt; ஐ &lt;a href = &quot;https://docs.</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;குறிப்பு: தனிபட்ட தரவை அணுக மட்டுமே இதை நீங்கள் அமைக்க வேண்டும். மேலும தகவலுக್கு ஆவணங்களை&lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;ஆவடங்களை&lt;/a&gt; படிக்கவும்.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -441,7 +441,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>இயல்புநிலையை அமைக்கவும்</translation>
+        <translation>&amp;இயல்புநிலையை அமைக்கவும்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
@@ -482,7 +482,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>இயல்புநிலை இல்லை</translation>
+        <translation>&amp;இயல்புநிலை இல்லை</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -1224,7 +1224,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/setupwizard/AutoJavaWizardPage.ui" line="20"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;New Feature Alert!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; &lt;span சூல் தண்டு = &quot;font-size: 14pt; font-Weight: 600;&quot;&gt; புதிய அம்ச எச்சரிக்கை! html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;புதிய அம்ச எச்சரிக್கை!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -1286,7 +1286,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.ui" line="45"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your configured global mods folder and default downloads folder are automatically checked for the downloaded mods and they will be copied to the instance if found.&lt;/p&gt;&lt;p&gt;Optionally, you may drag and drop the downloaded mods onto this dialog or add a folder to watch if you did not download the mods to a default location.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Click &apos;Open Missing&apos; to open all the download links in the browser. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; உங்கள் கட்டமைக்கப்பட்ட உலகளாவிய மோட்ச் கோப்புறை மற்றும் இயல்புநிலை பதிவிறக்கங்கள் கோப்புறை தானாகவே பதிவிறக்கம் செய்யப்பட்ட மோட்களுக்கு சரிபார்க்கப்படும், மேலும் அவை கண்டுபிடிக்கப்பட்டால் அவை உதாரணமாக நகலெடுக்கப்படும். எழுத்துரு-எடை: 600; &quot;&gt; உலாவியில் உள்ள அனைத்து பதிவிறக்க இணைப்புகளையும் திறக்க &apos;காணாமல் போனது&apos; என்பதைக் சொடுக்கு செய்க. &lt;/span&gt; &lt;/p&gt; &lt;/body&gt; &lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;உங்கள் கட்டமைக்கப்பட்டப் உலகளாவியடிய மச்ச் கோப்புறை மற்஽ும் இயல்புநிலை பதிவிக்கம் செயய்பட்டம் மச்சுக்கு சரிபார்க್கப்படும், மேலும அவை கணடுபிடிக்கப்பட்டால் நகலெடுக್கப்படும்.&lt;/p&gt;&lt;p&gt;மேலும, நீங்கள் பதிவிக்கிய மச்ஜட்களை இண்த உரையாடல் பெட்டிக்கழில் இழுத்து விடலாம், அல்லது இயல்புநிலை இடத்திலும் பதிவிக்கவில்லை இல்லாமல் கண்காணாக்க ஒரு கோப்புறையைச் சேர்க்கலாம்.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;உலாவியில் உள் அனைத்து பதிவிக்க இணைப்பககளையும் திறக்க &apos;Open Missing&apos; என்பதைக் கிளிக் செய்க.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="160"/>
@@ -1845,12 +1845,12 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pre-launch command runs before the instance launches and post-exit command runs after it exits.&lt;/p&gt;&lt;p&gt;Both will be run in the launcher&apos;s working folder with extra environment variables:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Name of the instance&lt;/li&gt;&lt;li&gt;$INST_ID - ID of the instance (its folder name)&lt;/li&gt;&lt;li&gt;$INST_DIR - absolute path of the instance&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - absolute path of Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java binary used for launch&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - command-line parameters used for launch (warning: will not work correctly if arguments contain spaces)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper command allows launching using an extra wrapper program (like &apos;optirun&apos; on Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; நிகழ்வு தொடங்குவதற்கு முன்பே இயங்கும் முன் கட்டளை இயங்கும் மற்றும் அதற்குப் பிறகு வெளியேற்றப்பட்ட பிறகு வெளியேற்றும் கட்டளை இயங்கும். சுற்றுச்சூழல் மாறிகள்: &lt;/p&gt; &lt;ul&gt; &lt;li&gt; $ inst_name - உதாரணத்தின் பெயர் &lt;/li&gt; &lt;li&gt; $ inst_id - உதாரணத்தின் ஐடி (அதன் கோப்புறை பெயர்) &lt;/li&gt; &lt;li&gt; $ inst_dir - முழுமையானது உதாரணத்தின் பாதை &lt;/li&gt; &lt;li&gt; $ inst_mc_dir - Minecraft இன் முழுமையான பாதை &lt;/li&gt; &lt;li&gt; $ inst_java - துவக்கத்திற்குப் பயன்படுத்தப்படும் சாவா பைனரி &lt;/li&gt; &lt;li&gt; $ inst_java_args - துவக்கத்திற்கு பயன்படுத்தப்படும் கட்டளை -வரி அளவுருக்கள் . html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;நிகல்வு தசீங்குவதற்கு முன்பே இயங்கும் முன்தக் கட்டகக் எறகும் மற்஽ும் பிணைப்படும்; அதுற்குப் பிறககு ஓடிடடடும் கட்டலை இயங்கும்.&lt;/p&gt;&lt;p&gt;இரண்஡ும் தசீ நிகல்வுடு பணிக் கோப்புறையில் கூடுதல் சுற்றுச்சல் மாறிகளுடன் இயங்கும்:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - நிகல்வுடின் பேயர್&lt;/li&gt;&lt;li&gt;$INST_ID - நிகல்வுடின் அரிடி (அதன் கோப்புறை பெயர்)&lt;/li&gt;&lt;li&gt;$INST_DIR - நிகல்வுடின் மறுமையாந பாதீ&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - Minecraft லே மறுமையாந பாதி&lt;/li&gt;&lt;li&gt;$INST_JAVA - தசீக்கத்திற்குப் பயன்படுத்தப்படும் Java பைனரி&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - தசீக்கத்திற்குப் படர் வரிப்பகக் அளவுரகக்கள் (எச்சரிக್கை: அளவுரகளில் இடைவெளிகள் இருந்தால் சரிடாமா வேலை செடுக್காது)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper கட்டு கூடுதல் wrapper நிரலைப் பயன்படுத்தி தசீக்க அனுமதிக்கும் (Linux இல் &amp;apos;optirun&apos; பச்சிவ)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>மேலெழுத மற்றும் உலகளாவிய அமைப்புகள்</translation>
+        <translation>&amp;மேலெழுத மற்றும் உலகளாவிய அமைப்புகள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -2269,7 +2269,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>மேலெழுத மற்றும் உலகளாவிய அமைப்புகள்</translation>
+        <translation>&amp;மேலெழுத மற்றும் உலகளாவிய அமைப்புகள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2736,7 +2736,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="163"/>
         <source>Check for &amp;Updates</source>
-        <translation>புதுப்பிப்புகளை சரிபார்க்கவும்</translation>
+        <translation>&amp;புதுப்பிப்புகளை சரிபார்க்கவும்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="218"/>
@@ -2836,7 +2836,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="50"/>
         <source>&amp;Text Editor</source>
-        <translation>உரை ஆசிரியர்</translation>
+        <translation>&amp;உரை ஆசிரியர்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="107"/>
@@ -3245,7 +3245,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="394"/>
         <source>&lt;h1&gt;Hey there!&lt;/h1&gt;&lt;h4&gt;It seems like your Pack ID is null. This is because of a bug in older versions of the launcher.&lt;br/&gt;Unfortunately, we can&apos;t do the proper API requests without this information.&lt;br/&gt;&lt;br/&gt;So, in order for this feature to work, you will need to re-download the modpack from the built-in downloader.&lt;br/&gt;&lt;br/&gt;Don&apos;t worry though, it will ask you to update this instance instead, so you&apos;ll not lose this instance!&lt;/h4&gt;</source>
-        <translation>&lt;H1&gt; ஏய்! &lt;/H1&gt; &lt;H4&gt; உங்கள் பேக் ஐடி பூச்யமாக இருப்பது போல் தெரிகிறது. இது துவக்கத்தின் பழைய பதிப்புகளில் ஒரு பிழை காரணமாகும். &lt;br/&gt; துரதிர்ச்டவசமாக, இந்த செய்தி இல்லாமல் சரியான பநிஇ கோரிக்கைகளை எங்களால் செய்ய முடியாது. &lt;br/&gt; &lt;br/&gt; எனவே, இந்த நற்பொருத்தம் வேலை செய்ய, உள்ளமைக்கப்பட்ட பதிவிறக்கத்திலிருந்து நீங்கள் மோட்பேக்கை மீண்டும் ஏற்ற வேண்டும். &lt;br/&gt; &lt;br/&gt; கவலைப்பட வேண்டாம் என்றாலும், அதற்கு பதிலாக இந்த நிகழ்வைப் புதுப்பிக்க இது கேட்கும், எனவே இந்த நிகழ்வை நீங்கள் இழக்க மாட்டீர்கள்! &lt; /H4&gt;</translation>
+        <translation>&lt;H1&gt; ஏய்! &lt;/H1&gt; &lt;H4&gt; உங்கள் பேக் ஐடி பூச்யமாக இருப்பது போல் தெரிகிறது. இது துவக்கத்தின் பழைய பதிப்புகளில் ஒரு பிழை காரணமாகும். &lt;br/&gt; துரதிர்ச்டவசமாக, இந்த செய்தி இல்லாமல் சரியான பநிஇ கோரிக்கைகளை எங்களால் செய்ய முடியாது. &lt;br/&gt; &lt;br/&gt; எனவே, இந்த நற்பொருத்தம் வேலை செய்ய, உள்ளமைக்கப்பட்ட பதிவிறக்கத்திலிருந்து நீங்கள் மோட்பேக்கை மீண்டும் ஏற்ற வேண்டும். &lt;br/&gt; &lt;br/&gt; கவலைப்பட வேண்டாம் என்றாலும், அதற்கு பதிலாக இந்த நிகழ்வைப் புதுப்பிக்க இது கேட்கும், எனவே இந்த நிகழ்வை நீங்கள் இழக்க மாட்டீர்கள்! &lt;/H4&gt;</translation>
     </message>
 </context>
 <context>
@@ -3611,7 +3611,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="43"/>
         <source>- CurseForge modpacks (ZIP / curseforge:// URL)</source>
-        <translation>- CurseForge modpacks (ZIP / curseforge:// URL)</translation>
+        <translation>- CurseForge மோட்பேக்குகள் (ZIP / curseforge:// URL)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
@@ -3636,7 +3636,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="53"/>
         <source>- Modrinth modpacks (ZIP and mrpack)</source>
-        <translation>- Modrinth modpacks (ZIP and mrpack)</translation>
+        <translation>- Modrinth மோட்பேக்குகள் (ZIP மற்றும் mrpack)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.cpp" line="212"/>
@@ -4251,7 +4251,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>சாவா வாதங்கள்</translation>
+        <translation>&amp;சாவா வாதங்கள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4306,7 +4306,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>தானாக கண்டறியும் சாவா பதிப்பு</translation>
+        <translation>&amp;தானாக கண்டறியும் சாவா பதிப்பு</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4316,7 +4316,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>சாவா பதிவிறக்கத்தைத் திறக்கவும்</translation>
+        <translation>&amp;சாவா பதிவிறக்கத்தைத் திறக்கவும்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -4926,7 +4926,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>தடுக்கப்பட்ட மோட்களுக்கான சோதனை மற்றும் துணை கோப்புறைகள்</translation>
+        <translation>&amp;தடுக்கப்பட்ட மோட்களுக்கான சோதனை மற்றும் துணை கோப்புறைகள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -4966,7 +4966,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="443"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#f5c211;&quot;&gt;Warning&lt;/span&gt;&lt;span style=&quot; color:#f5c211;&quot;&gt;: Disabling mod metadata may also disable some QoL features, such as mod updating!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; &lt;span சூல் தண்டு = &quot;font-Weight: 600; வண்ணம்:#F5C211;&quot;&gt; எச்சரிக்கை &lt;/span&gt; &lt;span சூல் தண்டு = &quot;color:#f5c211;&quot;&gt;: முடக்குதல் மோட் மேனிலை தரவு மோட் புதுப்பித்தல் போன்ற சில QOL அம்சங்களையும் முடக்கலாம்!</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#f5c211;&quot;&gt;எச்சரிக್கை&lt;/span&gt;&lt;span style=&quot; color:#f5c211;&quot;&gt;: மச்஝ மெட்டாடேட்டாவை முடக್குவது மச்஝ புதுப்பித்தல் போன்ன சல QoL அம்சங்களையும் முடக்கலாம்!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="338"/>
@@ -4995,7 +4995,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>உள்நுழைவதை நிறுத்துங்கள் பதிவு நிரம்பி வழிகிறது</translation>
+        <translation>&amp;உள்நுழைவதை நிறுத்துங்கள் பதிவு நிரம்பி வழிகிறது</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="199"/>
@@ -5966,7 +5966,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>சாளரத்தை மூடு</translation>
+        <translation>&amp;சாளரத்தை மூடு</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
@@ -6189,7 +6189,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>ஏற்றுமதி ...</translation>
+        <translation>&amp;ஏற்றுமதி ...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="741"/>
@@ -6384,7 +6384,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="716"/>
         <source>Install to &amp;PATH</source>
-        <translation>பாதைக்கு நிறுவவும்</translation>
+        <translation>&amp;பாதைக்கு நிறுவவும்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="429"/>
@@ -6965,12 +6965,12 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="88"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#f5c211;&quot;&gt;Warning&lt;/span&gt;&lt;span style=&quot; color:#f5c211;&quot;&gt;: The maximized option may not be fully supported on all Minecraft versions.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;Html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; &lt;span சூல் தண்டு = &quot;font-weight: 600; வண்ணம்:#F5C211;&quot;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#f5c211;&quot;&gt;எச்சரிக்கை&lt;/span&gt;&lt;span style=&quot; color:#f5c211;&quot;&gt;: அதிகப்படுத்தப்பட்ட விருப்பம் அனைத்து Minecraft பதிત்તகளில஽ம முழுமொடாக ஆதரிக್கப்படாமல் இருக்கலாம்.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>எப்போதும் மணிநேரங்களில் காலத்தைக் காட்டுங்கள்</translation>
+        <translation>&amp;எப்போதும் மணிநேரங்களில் காலத்தைக் காட்டுங்கள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -6995,7 +6995,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>விண்டர் அளவு:</translation>
+        <translation>&amp;விண்டர் அளவு:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7032,7 +7032,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>ஆட்டோ-சயினை இயக்கவும்</translation>
+        <translation>&amp;ஆட்டோ-சயினை இயக்கவும்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
@@ -7102,7 +7102,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
         <source>Open &amp;Global Settings</source>
-        <translation>திறந்த மற்றும் உலகளாவிய அமைப்புகள்</translation>
+        <translation>&amp;திறந்த மற்றும் உலகளாவிய அமைப்புகள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="93"/>
@@ -7258,7 +7258,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Emulates usages of old online services which are no longer operating.&lt;/p&gt;&lt;p&gt;Current fixes include: skin and online mode support.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; இனி இயங்காத பழைய நிகழ்நிலை சேவைகளின் பயன்பாட்டைப் பின்பற்றுங்கள். &lt;/p&gt; &lt;p&gt; தற்போதைய திருத்தங்கள் பின்வருமாறு: தோல் மற்றும் நிகழ்நிலை பயன்முறை உதவி.</translation>
+        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; இனி இயங்காத பழைய நிகழ்நிலை சேவைகளின் பயன்பாட்டைப் பின்பற்றுங்கள். &lt;/p&gt; &lt;p&gt; தற்போதைய திருத்தங்கள் பின்வருமாறு: தோல் மற்றும் நிகழ்நிலை பயன்முறை உதவி.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="709"/>
@@ -7268,7 +7268,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>செலவழித்த நேரத்தைக் காட்டு மற்றும் நிகழ்வுகளை விளையாடுங்கள்</translation>
+        <translation>&amp;செலவழித்த நேரத்தைக் காட்டு மற்றும் நிகழ்வுகளை விளையாடுங்கள்</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
@@ -7293,7 +7293,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>நிகழ்வுகள் முழுவதும் விளையாடிய மொத்த நேரத்தைக் காட்டு</translation>
+        <translation>&amp;நிகழ்வுகள் முழுவதும் விளையாடிய மொத்த நேரத்தைக் காட்டு</translation>
     </message>
 </context>
 <context>
@@ -8557,7 +8557,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="114"/>
         <source>Delete &amp;All</source>
-        <translation>அனைத்தையும் நீக்கு</translation>
+        <translation>&amp;அனைத்தையும் நீக்கு</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="58"/>
@@ -10005,7 +10005,7 @@ Do you wish to proceed?</source>
     <message>
         <location filename="../launcher/InstanceDirUpdate.cpp" line="71"/>
         <source>&amp;Remember my choice</source>
-        <translation>என் விருப்பத்தை நினைவில் கொள்ளுங்கள்</translation>
+        <translation>&amp;என் விருப்பத்தை நினைவில் கொள்ளுங்கள்</translation>
     </message>
     <message>
         <location filename="../launcher/GZip.cpp" line="210"/>
