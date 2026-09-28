@@ -3271,7 +3271,7 @@ Emin misiniz?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="421"/>
         <source>The recommended memory of the modpack exceeds 90% of your system RAM—reducing it from %1 MiB to %2 MiB!</source>
-        <translation>Mod paketinin önerilen bellek miktarı sistem belleğinizin %90&apos;ını aşıyor—bu nedenle %1 MB&apos;den %2 MB&apos;ye düşürülüyor!</translation>
+        <translation>Mod paketinin önerilen bellek miktarı sistem belleğinizin yüzde 90&apos;ını aşıyor—bu nedenle %1 MiB&apos;den %2 MiB&apos;ye düşürülüyor!</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="563"/>

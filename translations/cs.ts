@@ -12007,7 +12007,7 @@ Jste si jisti, že to chcete udělat?</translation>
 You should double-check for personal information.
 
 Are you sure?</source>
-        <translation>Chystáte se nahrát vybraný snímek na %2.
+        <translation>Chystáte se nahrát vybraný snímek na %1.
 Pro jistotu překontrolujte, zda neobsahují osobní údaje.
 
 Jste si jisti?</translation>

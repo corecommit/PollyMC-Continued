@@ -2202,13 +2202,13 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="390"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="458"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="243"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="331"/>
         <source>Parsing API response from Modrinth for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Modrinth para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa Modrinth para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="163"/>
@@ -3058,7 +3058,7 @@ Sigurado ka ba?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="254"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="127"/>
@@ -3077,7 +3077,7 @@ Sigurado ka ba?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="179"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="93"/>
@@ -3262,7 +3262,7 @@ Sigurado ka ba?</translation>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="219"/>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="282"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="51"/>

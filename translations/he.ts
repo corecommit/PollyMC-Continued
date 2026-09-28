@@ -3682,7 +3682,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/screenshots/ImgurUpload.cpp" line="55"/>
         <source>Could not open file %1 for reading: %2</source>
-        <translation>לא ניתן היה לפתוח את הקובץ 1% לקריאה: 2%</translation>
+        <translation>לא ניתן היה לפתוח את הקובץ %1 לקריאה: %2</translation>
     </message>
 </context>
 <context>
@@ -3731,7 +3731,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.cpp" line="153"/>
         <source>The modpack %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>ערכת המודים 1% חסומה לתוכנות צד-שלישי! אנא הורד אותה ידנית.</translation>
+        <translation>ערכת המודים %1 חסומה לתוכנות צד-שלישי! אנא הורד אותה ידנית.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="43"/>
@@ -4577,7 +4577,7 @@ Do you wish to proceed without a functional version of Java?
 You can change the Java version in the settings later.
 </source>
         <translation>או שלא בחרת גרסת Java או שבחרת אחת שלא עובדת.
-1% לא יוכל להפעיל Minecraft.
+%1 לא יוכל להפעיל Minecraft.
 ברצונך להמשיך ללא גרסת Java מתפקדת?
 
 תוכל לשנות את גרסת ה-Java בהגדרות מאוחר יותר.
@@ -4606,8 +4606,8 @@ Do you wish to proceed?
 
 You can change the Java version in the settings later.
 </source>
-        <translation>בחרת גרסת 32 סיביות של Java, אך הקצאת יותר מ-2048MiB כזיכרון מרבי.
-1% לא יוכל להפעיל Minecraft.
+        <translation>בחרת גרסת 32 סיביות של Java, אך הקצית יותר מ-2048MiB כזיכרון מרבי.
+%1 לא יוכל להפעיל Minecraft.
 ברצונך להמשיך?
 
 תוכל לשנות את גרסת ה-Java בהגדרות מאוחר יותר.

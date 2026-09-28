@@ -6491,7 +6491,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Borrar grupo «%1»</translation>
+        <translation>&amp;Borrar grupo</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>

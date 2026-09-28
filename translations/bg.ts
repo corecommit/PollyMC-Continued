@@ -1469,7 +1469,8 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
         <location filename="../launcher/tasks/ConcurrentTask.cpp" line="141"/>
         <source>Multiple subtasks failed
 %1</source>
-        <translation>Няколко подзадачи се провалиха</translation>
+        <translation>Няколко подзадачи се провалиха
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/tasks/ConcurrentTask.cpp" line="127"/>
@@ -1727,7 +1728,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.cpp" line="112"/>
         <source>%1 (in use)</source>
-        <translation>(използван)</translation>
+        <translation>%1 (използван)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.ui" line="61"/>
@@ -1752,7 +1753,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.cpp" line="96"/>
         <source>%1 [%2] - Last Played: %3</source>
-        <translation>Последно играни</translation>
+        <translation>%1 [%2] - Последно играно: %3</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.ui" line="168"/>
@@ -1803,7 +1804,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.cpp" line="181"/>
         <source>%1 - Server %2</source>
-        <translation>- Сървър</translation>
+        <translation>%1 - Сървър %2</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.cpp" line="90"/>
@@ -6672,7 +6673,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Изтрий група &apos;%1&apos;</translation>
+        <translation>&amp;Изтрий група</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>
@@ -9575,7 +9576,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="144"/>
         <source>%1 (in use)</source>
-        <translation>(използван)</translation>
+        <translation>%1 (използван)</translation>
     </message>
     <message>
         <source>Ready</source>

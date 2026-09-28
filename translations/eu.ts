@@ -3069,7 +3069,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="265"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation>Ezin izan da lortu % 1eko metadatuen indizea</translation>
+        <translation>Ezin izan da lortu %1rako metadatuen indizea</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="115"/>

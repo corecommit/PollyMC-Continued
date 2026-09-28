@@ -6482,7 +6482,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Gruppe &apos;%1&apos; löschen</translation>
+        <translation>&amp;Gruppe löschen</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>

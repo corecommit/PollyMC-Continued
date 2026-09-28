@@ -1754,7 +1754,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.cpp" line="96"/>
         <source>%1 [%2] - Last Played: %3</source>
-        <translation>% 1 [% 2] - ბოლოს ნათამაშები: % 3</translation>
+        <translation>%1 [%2] - ბოლოს ნათამაშები: %3</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.ui" line="168"/>

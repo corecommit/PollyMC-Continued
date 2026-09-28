@@ -1163,7 +1163,7 @@ o pana e sona jan sina tan musi Manka anu tan kulupu Mojang.</translation>
     </message>
     <message>
         <source>Open %1 subreddit.</source>
-        <translation>o open e lipu Wesi pi ilo Prism Launcher.</translation>
+        <translation>o open e lipu Wesi pi %1.</translation>
     </message>
     <message>
         <source>Delete group &apos;%1&apos;</source>
@@ -2642,7 +2642,7 @@ o alasa sin.</translation>
     <name>LanguageWizardPage</name>
     <message>
         <source>Select the language to use in %1</source>
-        <translation>o luka e toki sina</translation>
+        <translation>o luka e toki pi %1</translation>
     </message>
     <message>
         <source>Language</source>

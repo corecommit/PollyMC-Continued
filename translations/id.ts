@@ -6084,7 +6084,7 @@ Anda harus memperbaiki masalah ini secara manual.</translation>
 This may be permanent and will completely delete the instance.
 
 Are you sure?</source>
-        <translation>Anda akan menghapus &quot;%1&quot;.
+        <translation>Anda akan menghapus &quot;%1&quot;%2.
 Ini mungkin permanen dan akan sepenuhnya menghapus instansi ini.
 
 Apakah Anda yakin?</translation>

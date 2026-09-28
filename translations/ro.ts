@@ -2785,8 +2785,8 @@ Sunteți sigur(ă)?</translation>
 This may be permanent and they will be gone from the folder.
 
 Are you sure?</source>
-        <translation>Ești pe cale de a șterge %i elementele.
-Asta ar putea fi permanent și ele for dispărea din fișier.
+        <translation>Ești pe cale de a șterge %1 elemente.
+Asta ar putea fi permanent și ele vor dispărea din dosar.
 
 Sunteți sigur(ă)?</translation>
     </message>
@@ -6417,7 +6417,7 @@ Vă rugăm creați o instanță înainte de a încerca să instalați această r
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="760"/>
         <source>Open the %1 wiki</source>
-        <translation>Deschideți wiki-ul 1%</translation>
+        <translation>Deschideți wiki-ul %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="553"/>
@@ -14076,7 +14076,7 @@ Vă rugăm configurați-vă contul conform %1.</translation>
     <message>
         <location filename="../launcher/minecraft/auth/steps/XboxAuthorizationStep.cpp" line="90"/>
         <source>Server has changed %1 authorization user hash in the reply. Something is wrong.</source>
-        <translation>Serverul a schimbat hash-ul de autorizare al utilizatorului in răspuns. Ceva nu a mers bine.</translation>
+        <translation>Serverul a schimbat hash-ul de autorizare al utilizatorului %1 în răspuns. Ceva nu a mers bine.</translation>
     </message>
 </context>
 <context>

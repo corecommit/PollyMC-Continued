@@ -251,10 +251,10 @@
 You should double-check for personal information.
 
 Are you sure?</source>
-        <translation>Zarŏz wychrōnisz &quot;%1&quot;.
-Je to fungowanie permanynt, a zbiōr ôstanie wychrōniōny z folderu z logami.
+        <translation>Zarŏz wyślōsz &quot;%1&quot; do %2.
+Skōntroluj, czy nie ma tam informacji osobistych.
 
-Na zicher chcesz to zrobić?</translation>
+Na pewno chcesz to zrobić?</translation>
     </message>
     <message>
         <source>Expired</source>
@@ -3294,7 +3294,7 @@ Je żeś tego pewny?</translation>
     </message>
     <message>
         <source>Unknown loader type: </source>
-        <translation>Niyznōno sorta loadera: %1 </translation>
+        <translation>Niyznōno sorta loadera:</translation>
     </message>
     <message>
         <source>Could not understand pack manifest:

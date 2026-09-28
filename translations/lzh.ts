@@ -258,7 +258,7 @@
     </message>
     <message>
         <source>%1: &lt;a href=&apos;%2&apos;&gt;%2&lt;/a&gt; &lt;p&gt;Hash: %3 %4&lt;/p&gt; &lt;br/&gt;</source>
-        <translation>%1：&lt;a href=&apos;%2&apos;&gt;乙&lt;/a&gt; &lt;p&gt;符印：%3 %4&lt;/p&gt; &lt;br/&gt;</translation>
+        <translation>%1：&lt;a href=&apos;%2&apos;&gt;%2&lt;/a&gt; &lt;p&gt;符印：%3 %4&lt;/p&gt; &lt;br/&gt;</translation>
     </message>
     <message>
         <source>Watched Folders:</source>

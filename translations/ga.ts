@@ -3766,7 +3766,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.cpp" line="153"/>
         <source>The modpack %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>Tá an beart leasaithe seo coiscthe do thríú pháirtithe! Ióslódáil é de láimh, le do thoil.</translation>
+        <translation>Tá an modpack %1 seo coiscthe do thríú pháirtithe! Ióslódáil é de láimh, le do thoil.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="43"/>
@@ -13224,7 +13224,7 @@ An bhfuil tú cinnte gur mhaith leat é seo a dhéanamh?</translation>
 %3 fuzzy
 %4 total</source>
         <translation>%1:
-%1 aistrithe
+%2 aistrithe
 %3 neamchinnte
 %4 iomlán</translation>
     </message>

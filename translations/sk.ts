@@ -707,7 +707,7 @@ pre podrobnosti o poslednom pokuse o aktualizáciu.</translation>
     <message>
         <location filename="../launcher/Application.cpp" line="687"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Nemožno zobraziť tento log, pretože jeho dĺžka prekročila 1% riadkov.</translation>
+        <translation>Nemožno zobraziť tento log, pretože jeho dĺžka prekročila %1 riadkov.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1980"/>
@@ -8718,7 +8718,7 @@ Prosím aktualizujte %1!</translation>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="89"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="307"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Nemôžem zobraziť tento log od kedy dĺžka logu prekročila 1% riadku.</translation>
+        <translation>Nemôžem zobraziť tento log, pretože dĺžka logu prekročila %1 riadkov.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="145"/>
@@ -9124,9 +9124,7 @@ Maximum performance for demanding setups</source>
         <source>Post-Launch command ran successfully.
 
 </source>
-        <translation>Príkaz po spustení zbehol v poriadku %1.
-
-</translation>
+        <translation>Príkaz po spustení zbehol v poriadku.</translation>
     </message>
     <message>
         <location filename="../launcher/launch/steps/PostLaunchCommand.cpp" line="60"/>
@@ -9145,9 +9143,7 @@ Maximum performance for demanding setups</source>
         <source>Pre-Launch command ran successfully.
 
 </source>
-        <translation>Príkaz pred spustení zbehol v poriadku %1.
-
-</translation>
+        <translation>Príkaz pred spustením zbehol v poriadku.</translation>
     </message>
     <message>
         <location filename="../launcher/launch/steps/PreLaunchCommand.cpp" line="51"/>
@@ -9378,7 +9374,7 @@ StdErr: %2</translation>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="537"/>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="544"/>
         <source>Installing from %1</source>
-        <translation>Inštalácia z 1 %</translation>
+        <translation>Inštalácia z %1</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="881"/>

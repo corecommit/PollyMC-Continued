@@ -6407,7 +6407,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>グループ &apos;%1&apos; を削除</translation>
+        <translation>&amp;グループを削除</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>

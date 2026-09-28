@@ -4745,7 +4745,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/launch/LaunchTask.cpp" line="236"/>
         <source>[Log4j Parse Error] Failed to parse log4j log event: %1</source>
-        <translation>[Log4j பாகுபடுத்தல் பிழை] லாக் 4 சே பதிவு நிகழ்வை அலசுவதில் தோல்வி</translation>
+        <translation>[Log4j பாகுபடுத்தல் பிழை] log4j பதிவு நிகழ்வை பகுப்பாய்வு செய்ய முடியவில்லை: %1</translation>
     </message>
 </context>
 <context>
@@ -8145,7 +8145,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/tasks/MultipleOptionsTask.cpp" line="60"/>
         <source>Attempting task %1 out of %2</source>
-        <translation>%2 இல் 1 ஐ முயற்சிக்கிறது</translation>
+        <translation>%2 இல் %1 ஐ முயற்சிக்கிறது</translation>
     </message>
     <message>
         <location filename="../launcher/tasks/MultipleOptionsTask.cpp" line="49"/>
@@ -9782,7 +9782,7 @@ Proceed with truncation?</source>
     <message>
         <location filename="../launcher/MMCTime.cpp" line="38"/>
         <source>%1d %2h %3min</source>
-        <translation>1 %d % %</translation>
+        <translation>%1 நாள் %2 மணி %3 நிமிடம்</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ResourceType.cpp" line="29"/>
@@ -9807,7 +9807,7 @@ Proceed with truncation?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaWizardWidget.cpp" line="398"/>
         <source>Java test succeeded!&lt;br /&gt;Platform reported: %1&lt;br /&gt;Java version reported: %2&lt;br /&gt;</source>
-        <translation>சாவா சோதனை செய் பெற்றது!</translation>
+        <translation>சாவா சோதனை வெற்றி!&lt;br /&gt;இயங்குதளம்: %1&lt;br /&gt;சாவா பதிப்பு: %2&lt;br /&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/OneSixVersionFormat.cpp" line="277"/>
@@ -10130,7 +10130,7 @@ NOTE: Make sure you made a backup of your important instance data before updatin
     <message>
         <location filename="../launcher/JavaCommon.cpp" line="71"/>
         <source>Java test succeeded!&lt;br /&gt;Platform reported: %1&lt;br /&gt;Java version reported: %2&lt;br /&gt;Java vendor reported: %3&lt;br /&gt;</source>
-        <translation>சாவா சோதனை செய் பெற்றது!</translation>
+        <translation>சாவா சோதனை வெற்றி!&lt;br /&gt;இயங்குதளம்: %1&lt;br /&gt;சாவா பதிப்பு: %2&lt;br /&gt;சாவா வழங்குநர்: %3&lt;br /&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/OneSixVersionFormat.cpp" line="274"/>
@@ -11766,7 +11766,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/tasks/SequentialTask.cpp" line="53"/>
         <source>Executing task %1 out of %2</source>
-        <translation>%2 இல் 1 ஐ 1 ஐ இயக்குகிறது</translation>
+        <translation>%2 இல் %1 ஐ இயக்குகிறது</translation>
     </message>
 </context>
 <context>

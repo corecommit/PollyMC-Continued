@@ -812,7 +812,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
-        <translation>داده های قدیمی از % 1 پیدا شد، اما از قبل داده های موجود برای % 2 دارید. متأسفانه باید خودتان انتقال داده را انجام دهید. آیا می خواهید دفعه بعد که % 2 را شروع می کنید، انتقال داده های معلق به شما یادآوری شود؟</translation>
+        <translation>داده‌های قدیمی از %1 پیدا شد، اما از قبل داده‌های موجود برای %2 دارید. متأسفانه باید خودتان انتقال داده را انجام دهید. آیا می‌خواهید دفعه بعد که %2 را شروع می‌کنید، انتقال داده‌های معلق به شما یادآوری شود؟</translation>
     </message>
 </context>
 <context>
@@ -842,7 +842,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/update/AssetUpdateTask.cpp" line="81"/>
         <source>Getting the asset files from %1...</source>
-        <translation>دریافت فایل های دارایی (asset) از 1% ...</translation>
+        <translation>دریافت فایل‌های دارایی (asset) از %1...</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/update/AssetUpdateTask.cpp" line="70"/>
@@ -1423,7 +1423,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="808"/>
         <source>Could not download metadata for %1 %2. Please change the version or try again later.</source>
-        <translation>ناتوانی در دانلود متادیتا برای %۱ %۲. لطفاً نسخه را تغییر دهید یا بعداً مجدداً تلاش کنید.</translation>
+        <translation>ناتوانی در دانلود متادیتا برای %1 %2. لطفاً نسخه را تغییر دهید یا بعداً مجدداً تلاش کنید.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="502"/>
@@ -1450,7 +1450,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="249"/>
         <source>Downloading metadata for %1 components</source>
-        <translation>درحال دانلود متادیتا برای 1% اجزا</translation>
+        <translation>درحال دانلود متادیتا برای %1 اجزا</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="508"/>
@@ -2116,13 +2116,13 @@ Are you sure you want to do this?</source>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="201"/>
         <source>You are about to remove the metadata for %1 data packs.
 Are you sure?</source>
-        <translation>شما درحال حذف متادیتا برای 1% دیتا پک ها هستید.
+        <translation>شما درحال حذف متادیتا برای %1 دیتا پک ها هستید.
 آیا مطمئنید؟</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="151"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>1% آپدیت است! :)</translation>
+        <translation>%1 آپدیت است! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="32"/>
@@ -2680,7 +2680,7 @@ Are you sure you want to do this?</source>
 This may be permanent and it will be gone from the parent folder.
 
 Are you sure?</source>
-        <translation>شما در شرف حذف پوشه &quot;% 1&quot; هستید.
+        <translation>شما در شرف حذف پوشه &quot;%1&quot; هستید.
 ممکن است دائمی باشد و از پوشه بالاتر حذف شود.
 
 آیا اطمینان دارید؟</translation>
@@ -2775,7 +2775,7 @@ Are you sure?</source>
 This may be permanent and they will be gone from the folder.
 
 Are you sure?</source>
-        <translation>در شرف حذف % 1 مورد هستید.
+        <translation>در شرف حذف %1 مورد هستید.
 این ممکن است دائمی باشد و آنها از پوشه حذف خواهند شد.
 
 آیا اطمینان دارید؟</translation>
@@ -2973,7 +2973,7 @@ Are you sure?</source>
         <source>Error while checking VisualVM install:
 %1</source>
         <translation>خطا هنگام بررسی نصب VisualVM:
-1%</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="44"/>
@@ -3071,7 +3071,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="85"/>
         <source>Failed to find pack version %1</source>
-        <translation>عدم موفقیت در پیدا کردن نسخهٔ پک 1%</translation>
+        <translation>عدم موفقیت در پیدا کردن نسخهٔ پک %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="375"/>
@@ -3287,7 +3287,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="594"/>
         <source>%1 out of %2 complete</source>
-        <translation>1% از %2 تکمیل شده است</translation>
+        <translation>%1 از %2 تکمیل شده است</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="240"/>
@@ -3297,7 +3297,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="298"/>
         <source>Failed to find version for %1 loader</source>
-        <translation>پیدا کردن نسخه بارگذر(لودر) 1% ناموفق بود</translation>
+        <translation>پیدا کردن نسخه بارگذر(لودر) %1 ناموفق بود</translation>
     </message>
     <message>
         <source>We couldn&apos;t fetch the old files because: %1. This may cause some of the files to be duplicated. Do you want to continue?</source>
@@ -3686,7 +3686,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/screenshots/ImgurUpload.cpp" line="55"/>
         <source>Could not open file %1 for reading: %2</source>
-        <translation>قادرنیست به باز کردن فایل 1% برای خواندن : 2%</translation>
+        <translation>قادرنیست به باز کردن فایل %1 برای خواندن : %2</translation>
     </message>
 </context>
 <context>
@@ -4323,7 +4323,7 @@ Are you sure?</source>
         <location filename="../launcher/ui/pages/global/JavaPage.cpp" line="112"/>
         <source>You are about to remove  the Java installation named &quot;%1&quot;.
 Are you sure?</source>
-        <translation>شما درحال حذف ‫‫• • نصب جاوا با نام 1% هستید.
+        <translation>شما درحال حذف نصب جاوا با نام %1 هستید.
 آیا مطمئنید؟</translation>
     </message>
     <message>
@@ -4581,10 +4581,10 @@ Do you wish to proceed without a functional version of Java?
 You can change the Java version in the settings later.
 </source>
         <translation>شما یا هیچ نسخه‌ای از جاوا را انتخاب نکرده‌اید، یا نسخه‌ای را انتخاب کرده‌اید که کار نمی‌کند.
-1% قادر به اجرای ماینکرفت نخواهد بود.
+%1 قادر به اجرای ماینکرفت نخواهد بود.
 آیا می‌خواهید بدون داشتن یک نسخهٔ قابل‌کار از جاوا ادامه دهید؟
 
-شما میتوانید بعدا نسخه جاوا را در تنظیمات تغییر دهید.
+شما می‌توانید بعداً نسخه جاوا را در تنظیمات تغییر دهید.
 </translation>
     </message>
     <message>
@@ -4611,10 +4611,10 @@ Do you wish to proceed?
 You can change the Java version in the settings later.
 </source>
         <translation>شما یک نسخه ۳۲ بیتی از جاوا را انتخاب کرده‌اید، اما بیش از ۲۰۴۸ مگابایت به‌عنوان حداکثر حافظه اختصاص داده‌اید.
-1% قادر به اجرای ماینکرفت نخواهد بود.
+%1 قادر به اجرای ماینکرفت نخواهد بود.
 آیا می‌خواهید ادامه دهید؟
 
-شما میتوایند نسخه جاوا را در تنظیمات بعدا تغییر بدهید.
+شما می‌توانید بعداً نسخه جاوا را در تنظیمات تغییر دهید.
 </translation>
     </message>
     <message>
@@ -4844,7 +4844,7 @@ You need to purchase the game first to play the full version.</source>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="425"/>
         <source>Profiler check for %1 failed: %2</source>
-        <translation>بررسی کننده پروفایل برای 1% شکست خورد : 2%</translation>
+        <translation>بررسی کننده پروفایل برای %1 شکست خورد : %2</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="438"/>
@@ -4878,7 +4878,7 @@ You need to purchase the game first to play the full version.</source>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="182"/>
         <source>An error occurred while refreshing &apos;%1&apos;</source>
-        <translation>هنگام تازه سازی 1%خطایی رخ داد</translation>
+        <translation>هنگام تازه‌سازی %1 خطایی رخ داد</translation>
     </message>
     <message>
         <source>In order to play Minecraft, you must have at least one Microsoft account which owns Minecraft logged in. Would you like to open the account manager to add an account now?</source>
@@ -4910,13 +4910,13 @@ Do you want to play the demo?</source>
         <location filename="../launcher/launch/LaunchTask.cpp" line="210"/>
         <source>Stopped watching the game log because the log length surpassed %1 lines.
 You may have to fix your mods because the game is still logging to files and likely wasting harddrive space at an alarming rate!</source>
-        <translation>به‌دلیل اینکه طول لاگ بازی از 1%خط بیشتر شد، نظارت بر لاگ بازی متوقف شد.
+        <translation>به‌دلیل اینکه طول لاگ بازی از %1 خط بیشتر شد، نظارت بر لاگ بازی متوقف شد.
 ممکن است لازم باشد مادهای خود را بررسی کنید، زیرا بازی همچنان در حال ثبت لاگ در فایل‌ها است و احتمالاً با سرعت نگران‌کننده‌ای فضای هارد دیسک را هدر می‌دهد!</translation>
     </message>
     <message>
         <location filename="../launcher/launch/LaunchTask.cpp" line="236"/>
         <source>[Log4j Parse Error] Failed to parse log4j log event: %1</source>
-        <translation>[Log4j Parse ارور] در تجزیه (پردازش) رویداد لاگ Log4j خطا رخ داد: 1%</translation>
+        <translation>[خطای Parse در Log4j] در تجزیه رویداد لاگ Log4j خطا رخ داد: %1</translation>
     </message>
 </context>
 <context>
@@ -5600,7 +5600,7 @@ You&apos;ll have to correct this problem manually.</source>
         <source>Updating index for resource:
 %1</source>
         <translation>درحال اپدیت کردن اندیس برای منبع:
-1%</translation>
+%1</translation>
     </message>
 </context>
 <context>
@@ -5768,7 +5768,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/archive/ExportToZipTask.cpp" line="67"/>
         <source>Could not read and compress %1</source>
-        <translation>قادر به خواندن و فشرده کردن 1% نیست</translation>
+        <translation>قادر به خواندن و فشرده کردن %1 نیست</translation>
     </message>
     <message>
         <location filename="../launcher/archive/ExportToZipTask.cpp" line="72"/>
@@ -6784,7 +6784,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1836"/>
         <source>Total playtime: %1</source>
-        <translation>کل زمان بازی: 1%</translation>
+        <translation>کل زمان بازی: %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="421"/>
@@ -6813,7 +6813,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="337"/>
         <source>The instance updated to pack version %1 successfully.</source>
-        <translation>نمایه به نسخه پک 1% با موفقیت آپدیت شد.</translation>
+        <translation>نمایه به نسخه پک %1 با موفقیت آپدیت شد.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="206"/>
@@ -6893,7 +6893,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="343"/>
         <source>The instance failed to update to pack version %1. Please check launcher logs for more information.</source>
-        <translation>به‌روزرسانی نمایه به نسخهٔ بستهٔ 1% با شکست مواجه شد. لطفاً برای اطلاعات بیشتر لاگ‌های لانچر را بررسی کنید.</translation>
+        <translation>به‌روزرسانی نمایه به نسخهٔ بستهٔ %1 با شکست مواجه شد. لطفاً برای اطلاعات بیشتر لاگ‌های لانچر را بررسی کنید.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.ui" line="37"/>
@@ -7106,7 +7106,7 @@ Make sure you also trust the URL.
         <location filename="../launcher/minecraft/auth/steps/MinecraftProfileStep.cpp" line="57"/>
         <location filename="../launcher/minecraft/auth/steps/MinecraftProfileStep.cpp" line="61"/>
         <source>Minecraft Java profile acquisition failed: %1</source>
-        <translation>دریافت پروفایل جاوا ماینکرفت ناموفق بود: 1%</translation>
+        <translation>دریافت پروفایل جاوا ماینکرفت ناموفق بود: %1</translation>
     </message>
 </context>
 <context>
@@ -7962,7 +7962,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="261"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>1% آپدیت است! :)</translation>
+        <translation>%1 آپدیت است! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="190"/>
@@ -8137,7 +8137,7 @@ Please update %1!</source>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="285"/>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="309"/>
         <source>%1 out of %2 complete</source>
-        <translation>1% از %2 تمام شده است</translation>
+        <translation>%1 از %2 تمام شده است</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="136"/>
@@ -8319,7 +8319,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/tasks/MultipleOptionsTask.cpp" line="60"/>
         <source>Attempting task %1 out of %2</source>
-        <translation>در حال تلاش برای انجام عملیات 1% از 2%</translation>
+        <translation>در حال تلاش برای انجام عملیات %1 از %2</translation>
     </message>
     <message>
         <location filename="../launcher/tasks/MultipleOptionsTask.cpp" line="49"/>
@@ -8509,7 +8509,7 @@ Please update %1!</source>
         <source>Failed to load news RSS feed:
 %1</source>
         <translation>بارگیری خوراک RSS اخبار ناموفق بود:
-1%</translation>
+%1</translation>
     </message>
 </context>
 <context>
@@ -9535,7 +9535,7 @@ To overwrite this lock and proceed with this update anyway, select &quot;Ignore&
     <message>
         <location filename="../launcher/ui/dialogs/ProfileSetupDialog.cpp" line="188"/>
         <source>Unhandled profile name status: %1</source>
-        <translation>وضعیت نام پروفایل پردازش‌نشده: 1%</translation>
+        <translation>وضعیت نام پروفایل پردازش‌نشده: %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ProfileSetupDialog.cpp" line="270"/>
@@ -11238,7 +11238,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="168"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>1% آپدیت است! :)</translation>
+        <translation>%1 آپدیت است! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="218"/>
@@ -11956,7 +11956,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="165"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>1% آپدیت است! :)</translation>
+        <translation>%1 آپدیت است! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="215"/>
@@ -12662,7 +12662,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="173"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>1% آپدیت است! :)</translation>
+        <translation>%1 آپدیت است! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="223"/>

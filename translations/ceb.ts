@@ -6891,7 +6891,7 @@ alang sa mga kinuti sa miaging pagsulay sa pagpasibo.</translation>
     <name>InstanceList</name>
     <message>
         <source>%1 Instance</source>
-        <translation>%s ka pananglitan</translation>
+        <translation>%1 ka pananglitan</translation>
     </message>
 </context>
 <context>

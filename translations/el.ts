@@ -3280,7 +3280,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="594"/>
         <source>%1 out of %2 complete</source>
-        <translation>1% από τα 2% ολοκληρωμένο</translation>
+        <translation>%1 από τα %2 ολοκληρωμένο</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="298"/>
@@ -4858,7 +4858,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/minecraft/auth/steps/LauncherLoginStep.cpp" line="71"/>
         <source>Failed to parse the Minecraft access token response.</source>
-        <translation>Αποτυχία ανάγνωσης της απάντησης για το διακριτικό πρόσβασης στο Minecraft: %1.</translation>
+        <translation>Αποτυχία ανάλυσης της απάντησης του διακριτικού πρόσβασης Minecraft.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/LauncherLoginStep.cpp" line="74"/>
@@ -8057,7 +8057,7 @@ Please update %1!</source>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="285"/>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="309"/>
         <source>%1 out of %2 complete</source>
-        <translation>1% από 2% ολοκληρωμένο/α</translation>
+        <translation>%1 από %2 ολοκληρωμένο/α</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="181"/>
