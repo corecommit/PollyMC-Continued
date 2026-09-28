@@ -24,6 +24,7 @@
 - Every other window keeps its own title: the launcher name and version are no longer appended after it (Quick Setup, the offline player name dialog and all other dialogs used to end in `- PollyMC-Continued <version>`)
 - Linux, Windows and `.deb` CI packages hide git metadata like the macOS and Arch packages already did, so their version string has no commit-hash suffix either
 - macOS CI builds run on the macOS 15 runner: Homebrew stopped shipping macOS 14 bottles, which made the job compile `llvm@22` from source (an hour-long build that dies on a patch checksum)
+- The Help button on settings and instance pages opens the Discord server invite in your browser instead of showing a `Will fix later.` placeholder
 
 **Fixed:**
 
