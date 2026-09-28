@@ -96,9 +96,6 @@
      </widget>
      <widget class="QWidget" name="detailBox">
       <layout class="QVBoxLayout" name="detailLayout">
-       <property name="stretch">
-        <string>1,0,0</string>
-       </property>
        <item>
         <layout class="QVBoxLayout" name="previewLayout"/>
        </item>
