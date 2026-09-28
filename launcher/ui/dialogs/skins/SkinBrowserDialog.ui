@@ -14,7 +14,6 @@
    <string>View skins online</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <!-- Search row: page nav removed from here -->
    <item>
     <layout class="QHBoxLayout" name="searchLayout">
      <item>
@@ -97,7 +96,6 @@
      </widget>
      <widget class="QWidget" name="detailBox">
       <layout class="QVBoxLayout" name="detailLayout">
-       <!-- stretch=1 gives the preview all leftover vertical space -->
        <item stretch="1">
         <layout class="QVBoxLayout" name="previewLayout"/>
        </item>
@@ -124,14 +122,19 @@
          </property>
         </widget>
        </item>
-       <!-- siteBtn, detailSpacer, useSkinBtn removed from this layout -->
       </layout>
      </widget>
     </widget>
    </item>
-   <!-- New bottom bar: page nav centered, use skin + close on the right -->
    <item>
     <layout class="QHBoxLayout" name="bottomBar">
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Close</set>
+       </property>
+      </widget>
+     </item>
      <item>
       <spacer name="bottomLeftSpacer">
        <property name="orientation">
@@ -195,13 +198,6 @@
        </property>
        <property name="toolTip">
         <string>Apply this skin to the selected account</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Close</set>
        </property>
       </widget>
      </item>
