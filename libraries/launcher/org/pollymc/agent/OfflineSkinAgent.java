@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2026 PollyMC Continued Contributors
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -34,9 +34,9 @@ public class OfflineSkinAgent {
     public static void premain(String agentArgs, Instrumentation inst) {
         try {
             Skin.install();
-            System.out.println("[PrismLauncher] Offline skin agent installed.");
+            System.out.println("[PollyMC-Continued] Offline skin agent installed.");
         } catch (Throwable t) {
-            System.err.println("[PrismLauncher] Failed to install offline skin agent: " + t.getMessage());
+            System.err.println("[PollyMC-Continued] Failed to install offline skin agent: " + t.getMessage());
         }
     }
 }
