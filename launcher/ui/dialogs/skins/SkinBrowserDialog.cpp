@@ -175,6 +175,7 @@ void SkinBrowserDialog::loadPage(int page)
         m_hasMore = result.hasMore;
         m_ui->prevBtn->setEnabled(m_page > 1);
         m_ui->nextBtn->setEnabled(m_hasMore);
+        m_skins = result.skins;
         fillList();
         if (m_skins.isEmpty())
             m_ui->playerLabel->setText(m_query.isEmpty() ? tr("No skins found") : tr("No skins found for %1").arg(m_query));
