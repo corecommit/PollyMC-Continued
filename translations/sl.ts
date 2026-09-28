@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API Ključi</translation>
+        <translation>&amp;API Ključi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -464,12 +464,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>Osveži</translation>
+        <translation>&amp;Osveži</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Odstrani</translation>
+        <translation>&amp;Odstrani</translation>
     </message>
     <message>
         <source>Welcome!
@@ -707,7 +707,7 @@ za podrobnosti o zadnji posodobitvi.</translation>
     <message>
         <location filename="../launcher/Application.cpp" line="687"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla &amp;1 vrstic.</translation>
+        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla %1 vrstic.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1980"/>
@@ -2719,7 +2719,7 @@ Ali ste prepričani?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="133"/>
         <source>View &amp;Configs</source>
-        <translation>Poglej in nastavi</translation>
+        <translation>&amp;Poglej in nastavi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="152"/>
@@ -3006,7 +3006,7 @@ Ali ste prepričani?</translation>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="213"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation>Sledeče datoteke niso na voljo za prenos v tretjih zaganjalnikih. &lt;br/&gt;Potrebujete jih lastnoročno prenesti in jih dodati v to instanco.</translation>
+        <translation>Sledeče datoteke niso na voljo za prenos v tretjih zaganjalnikih.&lt;br/&gt;Potrebujete jih lastnoročno prenesti in jih dodati v instanco.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="139"/>
@@ -3192,7 +3192,7 @@ Ali ste prepričani?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="541"/>
         <source>The following files are not available for download in third party launchers.&lt;br/&gt;You will need to manually download them and add them to the instance.</source>
-        <translation>Sledeče datoteke niso na voljo za prenos v tretjih zaganjalnikih. Potrebujete jih lastnoročno prenesiti jih dodati v ta</translation>
+        <translation>Sledeče datoteke niso na voljo za prenos v tretjih zaganjalnikih.&lt;br/&gt;Potrebujete jih lastnoročno prenesti in jih dodati v instanco.</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="344"/>
@@ -3824,7 +3824,7 @@ Ali ste prepričani?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>Osveži</translation>
+        <translation>&amp;Osveži</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="146"/>
@@ -4157,7 +4157,7 @@ Ali ste prepričani?</translation>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>Osveži</translation>
+        <translation>&amp;Osveži</translation>
     </message>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="288"/>
@@ -4374,7 +4374,7 @@ Ali ste prepričani?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Spomin</translation>
+        <translation>&amp;Spomin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -8534,7 +8534,7 @@ Are you sure?</source>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="89"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="307"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla &amp;1 vrstic.</translation>
+        <translation>Ta dnevnik ne more biti prikazan, saj je dolžina dnevnika presegla %1 vrstic.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="35"/>
@@ -11629,7 +11629,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Ime</translation>
+        <translation>&amp;Ime</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="88"/>
@@ -11730,7 +11730,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Osveži</translation>
+        <translation>&amp;Osveži</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -13172,7 +13172,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Osveži</translation>
+        <translation>&amp;Osveži</translation>
     </message>
 </context>
 <context>

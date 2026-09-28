@@ -36,17 +36,17 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>Мета-өгөгдлийн сервер</translation>
+        <translation>&amp;Мета-өгөгдлийн сервер</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>Үйлчилгээ ба төрлийг буулгах</translation>
+        <translation>&amp;Үйлчилгээ ба төрлийг буулгах</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="385"/>
@@ -462,7 +462,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Устгах</translation>
+        <translation>&amp;Устгах</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
@@ -5918,7 +5918,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>Экспортлох…</translation>
+        <translation>&amp;Экспортлох…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1301"/>
@@ -6239,7 +6239,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Setti&amp;ngs...</source>
-        <translation>Тохиргоо...</translation>
+        <translation>&amp;Тохиргоо...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="319"/>
@@ -6641,7 +6641,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1080"/>
         <source>Minecraft %1</source>
-        <translation>Майнкрафт</translation>
+        <translation>Майнкрафт %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1085"/>

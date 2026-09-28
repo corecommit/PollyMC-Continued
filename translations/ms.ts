@@ -704,7 +704,7 @@ untuk butiran tentang percubaan kemas kini terakhir.</translation>
     <message>
         <location filename="../launcher/Application.cpp" line="687"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Tidak dapat memaparkan log tersebut kerana panjang log melebihi % 1 baris.</translation>
+        <translation>Tidak dapat memaparkan log tersebut kerana panjang log melebihi %1 baris.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1980"/>
@@ -1447,7 +1447,7 @@ Untuk menghapus lock ini dan melanjutkan pilih &quot;Abaikan&quot; di bawah.</tr
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="249"/>
         <source>Downloading metadata for %1 components</source>
-        <translation>Memuat turun metadata untuk komponen 1%</translation>
+        <translation>Memuat turun metadata untuk komponen %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="508"/>
@@ -3482,7 +3482,7 @@ Adakah anda pasti?</translation>
     <message>
         <location filename="../launcher/minecraft/mod/tasks/GetModDependenciesTask.cpp" line="193"/>
         <source>A network error occurred. Could not load project dependencies:%1</source>
-        <translation>Ralat rangkaian telah berlaku. Tidak dapat memuatkan kebergantungan projek:% 1</translation>
+        <translation>Ralat rangkaian telah berlaku. Tidak dapat memuatkan kebergantungan projek:%1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/mod/tasks/GetModDependenciesTask.cpp" line="54"/>
@@ -4284,7 +4284,7 @@ Adakah anda pasti?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
         <source>Java &amp;Executable</source>
-        <translation>Java dan Executable</translation>
+        <translation>Java dan &amp;Executable</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="130"/>
@@ -4772,7 +4772,7 @@ Anda mungkin perlu membetulkan mod anda kerana permainan masih mengelog masuk ke
         <location filename="../launcher/minecraft/auth/steps/LauncherLoginStep.cpp" line="61"/>
         <location filename="../launcher/minecraft/auth/steps/LauncherLoginStep.cpp" line="64"/>
         <source>Failed to get Minecraft access token: %1</source>
-        <translation>Gagal mendapatkan token akses Minecraft: % 1</translation>
+        <translation>Gagal mendapatkan token akses Minecraft: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/LauncherLoginStep.cpp" line="74"/>
@@ -5293,7 +5293,7 @@ Sila cuba lagi.</translation>
         <location filename="../launcher/ui/pages/modplatform/legacy_ftb/Page.cpp" line="225"/>
         <source>Failed to download pack information for code %1.
 Should it be removed now?</source>
-        <translation>Gagal memuat turun maklumat pek untuk kod % 1.
+        <translation>Gagal memuat turun maklumat pek untuk kod %1.
 Patutkah ia dikeluarkan sekarang?</translation>
     </message>
     <message>
@@ -5354,7 +5354,7 @@ Patutkah ia dikeluarkan sekarang?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/legacy_ftb/Page.cpp" line="365"/>
         <source>Are you sure you want to remove pack %1?</source>
-        <translation>Adakah anda pasti mahu mengalih keluar pek % 1?</translation>
+        <translation>Adakah anda pasti mahu mengalih keluar pek %1?</translation>
     </message>
 </context>
 <context>
@@ -5629,7 +5629,7 @@ Anda perlu membaiki masalah ini secara manual.</translation>
     <message>
         <location filename="../launcher/minecraft/auth/steps/MSADeviceCodeStep.cpp" line="120"/>
         <source>Device authorization failed: %1</source>
-        <translation>Pengesahan peranti gagal: % 1</translation>
+        <translation>Pengesahan peranti gagal: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/MSADeviceCodeStep.cpp" line="55"/>
@@ -8535,7 +8535,7 @@ Sila kemas kini %1!</translation>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="89"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="307"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
-        <translation>Tidak dapat memaparkan log tersebut kerana panjang log melebihi % 1 baris.</translation>
+        <translation>Tidak dapat memaparkan log tersebut kerana panjang log melebihi %1 baris.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="145"/>

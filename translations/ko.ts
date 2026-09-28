@@ -7516,7 +7516,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>모드 다운로드 로더 덮어쓰기</translation>
+        <translation>&amp;모드 다운로드 로더 덮어쓰기</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>

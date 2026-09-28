@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>ការផ្ទៀងផ្ទាត់ Microsoft</translation>
+        <translation>ការផ្ទៀងផ្ទាត់ &amp;Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="44"/>
         <source>&amp;Pastebin Service</source>
-        <translation>%សេវាកម្ម ភេសប៊ីន</translation>
+        <translation>%&amp;សេវាកម្ម ភេសប៊ីន</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="259"/>
@@ -41,17 +41,17 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API Keys</translation>
+        <translation>&amp;API Keys</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>ម៉ាស៊ីនមេ: Standard Khmer for &quot;Server.&quot;</translation>
+        <translation>&amp;ម៉ាស៊ីនមេ: Standard Khmer for &quot;Server.&quot;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>បច្ចេកទេស</translation>
+        <translation>&amp;បច្ចេកទេស</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -496,7 +496,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
         <source>&amp;Manage Skins</source>
-        <translation>%កំណត់ស្បែកស្គីន</translation>
+        <translation>%&amp;កំណត់ស្បែកស្គីន</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>

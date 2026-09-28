@@ -31,7 +31,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API Schlüssel</translation>
+        <translation>&amp;API Schlüssel</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Mod</translation>
+        <translation>&amp;Mod</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -86,12 +86,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: you only need to set this to access private data.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>Hiwiis: Das muess nur feschtglegt wärde, zum privati Date zuezgriffe.</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hiwiis: Das muess nur feschtglegt wärde, zum privati Date zuezgriffe.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -132,7 +132,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="317"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: you only need to set this to access private data. Read the &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;documentation&lt;/a&gt; for more information.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hinwiis: Du muesch das nur setze, wänn du uf privati Date wotsch zuegriffe. Lies d´ &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;Dokumentation&lt;/a&gt; für meh Informatione.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hiwiis: Das muess nur feschtglegt wärde, zum privati Date zuezgriffe. Läs ds &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;Dokumentation&lt;/a&gt; für mehri Info.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -441,7 +441,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Als Standard setze</translation>
+        <translation>Als &amp;Standard setze</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
@@ -482,7 +482,7 @@ Fals neu hie bisch, chasch du &quot;Füeg Microsoft hinzue&quot; Chnopf drucke u
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Kei Standard</translation>
+        <translation>&amp;Kei Standard</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -629,7 +629,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="103"/>
         <source>&amp;Icons:</source>
-        <translation>Bildli</translation>
+        <translation>&amp;Bildli</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="218"/>
@@ -2560,7 +2560,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="133"/>
         <source>View &amp;Configs</source>
-        <translation>Einstellungen öffnen</translation>
+        <translation>&amp;Einstellungen öffnen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="59"/>
@@ -2733,7 +2733,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="141"/>
         <source>View &amp;Folder</source>
-        <translation>Ordner öffnen</translation>
+        <translation>&amp;Ordner öffnen</translation>
     </message>
 </context>
 <context>
@@ -4251,7 +4251,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Arbeitsspeicher</translation>
+        <translation>&amp;Arbeitsspeicher</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4981,7 +4981,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="394"/>
         <source>&amp;Icons:</source>
-        <translation>Bildli</translation>
+        <translation>&amp;Bildli</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -5339,7 +5339,7 @@ Dieses Problem musst du manuell lösen.</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="93"/>
         <source>&amp;Copy</source>
-        <translation>Kopieren</translation>
+        <translation>&amp;Kopieren</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="113"/>
@@ -6482,7 +6482,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Gruppe &apos;%1&apos; löschen</translation>
+        <translation>&amp;Gruppe löschen</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>
@@ -6491,7 +6491,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Instanz erstellen</translation>
+        <translation>&amp;Instanz erstellen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7123,12 +7123,12 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Zeige die Spielzeit aller Instanzen</translation>
+        <translation>&amp;Zeige die Spielzeit aller Instanzen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Speichere die Spielzeit aller Instanzen</translation>
+        <translation>&amp;Speichere die Spielzeit aller Instanzen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="58"/>
@@ -9340,7 +9340,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Passwort:</translation>
+        <translation>&amp;Passwort:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9365,12 +9365,12 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Adresse und Port</translation>
+        <translation>&amp;Adresse und Port</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Benutzername:</translation>
+        <translation>&amp;Benutzername:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -11993,7 +11993,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Skin lösche</translation>
+        <translation>&amp;Skin lösche</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="389"/>

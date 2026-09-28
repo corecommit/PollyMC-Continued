@@ -46,7 +46,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>Meta e datos de servidor</translation>
+        <translation>Meta e &amp;datos de servidor</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
@@ -1857,7 +1857,7 @@ Para borrar este bloqueo e proceder selecciona &quot;Ignorar&quot; abaixo.</tran
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Anular e Configuración Global</translation>
+        <translation>Anular e Configuración &amp;Global</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -4367,7 +4367,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Memoria</translation>
+        <translation>&amp;Memoria</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -6491,7 +6491,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Borrar grupo «%1»</translation>
+        <translation>&amp;Borrar grupo</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>
@@ -6500,7 +6500,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Crear instancia</translation>
+        <translation>&amp;Crear instancia</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7288,12 +7288,12 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Amosar tempo xogado en cada instancia</translation>
+        <translation>&amp;Amosar tempo xogado en cada instancia</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Gardar tempo xogado nas instancias</translation>
+        <translation>&amp;Gardar tempo xogado nas instancias</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="819"/>
@@ -9564,7 +9564,7 @@ Escolle o teu nome coidadosamente:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Contrasinal:</translation>
+        <translation>&amp;Contrasinal:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9584,12 +9584,12 @@ Escolle o teu nome coidadosamente:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Dirección e porto</translation>
+        <translation>&amp;Dirección e porto</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Nome de usuario:</translation>
+        <translation>Nome de &amp;usuario:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>

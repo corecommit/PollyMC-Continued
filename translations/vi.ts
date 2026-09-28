@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -450,12 +450,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>di chuyển lên</translation>
+        <translation>&amp;di chuyển lên</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Di chuyển xuống</translation>
+        <translation>&amp;Di chuyển xuống</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -835,7 +835,7 @@ Kiểm tra tệp log cho việc cập nhật Prism Launcher ở:
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
-        <translation>Dữ liệu cũ từ %1 đã được tìm thấy, nhưng bạn đã có dữ liệu cho %2. Thật buồn khi bạn sẽ phải di chuyển dữ liệu của mình đi. Bạn có muốn được nhắc nhở về việc di chuyển dữ liệu đang chờ xử lý khi bạn bắt đầu % 2 ở lần kế tiếp không?</translation>
+        <translation>Dữ liệu cũ từ %1 đã được tìm thấy, nhưng bạn đã có dữ liệu cho %2. Thật buồn khi bạn sẽ phải di chuyển dữ liệu của mình đi. Bạn có muốn được nhắc nhở về việc di chuyển dữ liệu đang chờ xử lý khi bạn bắt đầu %2 ở lần kế tiếp không?</translation>
     </message>
 </context>
 <context>
@@ -1591,7 +1591,7 @@ Kiểm tra tệp log cho việc cập nhật Prism Launcher ở:
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="93"/>
         <source>&amp;Group</source>
-        <translation>Nhóm</translation>
+        <translation>&amp;Nhóm</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="291"/>
@@ -2389,7 +2389,7 @@ Không thể chạy đối tượng này do một vài thư viện đang bị th
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="77"/>
         <source>&amp;Clear</source>
-        <translation>%Xóa</translation>
+        <translation>&amp;Xóa</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
@@ -2433,7 +2433,7 @@ Không thể chạy đối tượng này do một vài thư viện đang bị th
     <message>
         <location filename="../launcher/ui/dialogs/ExportInstanceDialog.cpp" line="137"/>
         <source>Export %1</source>
-        <translation>Xuất 1%</translation>
+        <translation>Xuất %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportInstanceDialog.cpp" line="149"/>
@@ -3199,7 +3199,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="93"/>
         <source>Parsing the API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Xử lý phản hồi API từ CurseForge cho &apos;% 1&apos; ...</translation>
+        <translation>Xử lý phản hồi API từ CurseForge cho &apos;%1&apos; ...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="40"/>
@@ -3472,7 +3472,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.cpp" line="301"/>
         <source>Source code: &lt;a href=%1&gt;%1&lt;/a&gt;</source>
-        <translation>Mã nguồn: &lt;a href=%1&gt;% 1 &lt;/a&gt;</translation>
+        <translation>Mã nguồn: &lt;a href=%1&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/flame/FlamePage.cpp" line="81"/>
@@ -4359,7 +4359,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>Thử nghiệm Cài đặt</translation>
+        <translation>&amp;Thử nghiệm Cài đặt</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4384,12 +4384,12 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>Bộ nhớ RAM sử dụng tối thiểu:</translation>
+        <translation>&amp;Bộ nhớ RAM sử dụng tối thiểu:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Bộ nhớ</translation>
+        <translation>&amp;Bộ nhớ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4399,7 +4399,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="123"/>
         <source>Auto-download &amp;Mojang Java</source>
-        <translation>Tự động tải xuống Java của Mojang</translation>
+        <translation>Tự động tải xuống Java của &amp;Mojang</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="153"/>
@@ -4419,7 +4419,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Đối số Java</translation>
+        <translation>&amp;Đối số Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4438,7 +4438,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>Bộ nhớ RAM sử dụng tối đa:</translation>
+        <translation>&amp;Bộ nhớ RAM sử dụng tối đa:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4458,7 +4458,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Cài đặt Java</translation>
+        <translation>&amp;Cài đặt Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4478,7 +4478,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Tự động phát hiện phiên bản Java</translation>
+        <translation>&amp;Tự động phát hiện phiên bản Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -5289,7 +5289,7 @@ Bạn nên cần sửa lại các mod vì game vẫn đang thực hiện việc 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="291"/>
         <source>&amp;Auto Java Download:</source>
-        <translation>Tải xuống Java tự động:</translation>
+        <translation>&amp;Tải xuống Java tự động:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="126"/>
@@ -6506,7 +6506,7 @@ Hãy tạo một phiên mới trước khi thử cài đặt tài nguyên này m
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>&amp;Về</translation>
+        <translation>&amp;Về %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
@@ -6764,7 +6764,7 @@ Vui lòng kiểm tra thùng rác để khôi phục các thư mục này.</trans
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Tạo phiên bản</translation>
+        <translation>&amp;Tạo phiên bản</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -6936,8 +6936,8 @@ This can be updated either using a file in %1 format or an URL.
 Do not use a different format than the one mentioned as it may break the instance.
 Make sure you also trust the URL.
 </source>
-        <translation>Đây là một modpack được lưu trên máy
-Nó có thể được cập nhập bằng một tệp cùng định dạng hoặc từ một URL.
+        <translation>Đây là một modpack được lưu trên máy.
+Nó có thể được cập nhập bằng một tệp cùng định dạng %1 hoặc từ một URL.
 Không được dùng một định dạng khác với cái modpack này do nó có thể phá hỏng đối tượng.
 Hãy đảm bảo rằng bạn tin tưởng cái URL
 </translation>
@@ -7197,7 +7197,7 @@ Hãy đảm bảo rằng bạn tin tưởng cái URL
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>Luôn hiển thị thời lượng ở đơn vị đo là giờ</translation>
+        <translation>Luôn &amp;hiển thị thời lượng ở đơn vị đo là giờ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -7222,7 +7222,7 @@ Hãy đảm bảo rằng bạn tin tưởng cái URL
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>Kích cỡ cửa sổ:</translation>
+        <translation>&amp;Kích cỡ cửa sổ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7244,7 +7244,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="666"/>
         <source>&amp;GLFW library path:</source>
-        <translation>Đường dẫn đến thư viện GLFW:</translation>
+        <translation>Đường dẫn đến thư viện &amp;GLFW:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="442"/>
@@ -7254,17 +7254,17 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="222"/>
         <source>&amp;Console Window</source>
-        <translation>Cửa sổ Console</translation>
+        <translation>&amp;Cửa sổ Console</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>Bật tự động tham gia</translation>
+        <translation>&amp;Bật tự động tham gia</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
         <source>&amp;Performance</source>
-        <translation>Hiệu năng</translation>
+        <translation>&amp;Hiệu năng</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="638"/>
@@ -7319,7 +7319,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="258"/>
         <source>&amp;Global Data Packs</source>
-        <translation>Data Pack toàn cục</translation>
+        <translation>&amp;Data Pack toàn cục</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="536"/>
@@ -7350,7 +7350,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>Tinh chỉnh cũ</translation>
+        <translation>&amp;Tinh chỉnh cũ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="768"/>
@@ -7360,7 +7360,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="325"/>
         <source>Game &amp;Time</source>
-        <translation>Game và thời gian</translation>
+        <translation>Game và &amp;thời gian</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="155"/>
@@ -7375,7 +7375,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="368"/>
         <source>Override &amp;Default Account</source>
-        <translation>Ghi đè tài khoản mặc định</translation>
+        <translation>&amp;Ghi đè tài khoản mặc định</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="758"/>
@@ -7385,7 +7385,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>Thư viện sẵn có</translation>
+        <translation>&amp;Thư viện sẵn có</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="781"/>
@@ -7475,7 +7475,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>Ghi đè trình tải và xử lý mod</translation>
+        <translation>Ghi đè trình tải và xử &amp;lý mod</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
@@ -7490,7 +7490,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Hiển thị thời gian đã chơi của các phiên bản</translation>
+        <translation>Hiển thị thời gian đã chơi của các &amp;phiên bản</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
@@ -7505,7 +7505,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="692"/>
         <source>&amp;OpenAL library path:</source>
-        <translation>Đường dẫn đến thư viện OpenAL:</translation>
+        <translation>Đường dẫn đến thư viện &amp;OpenAL:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="819"/>
@@ -7515,7 +7515,7 @@ Bạn có thể sẽ phải thay đổi đường dẫn - vui lòng tham khảo 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>Hiển thị tổng thời gian chơi của tất cả các phiên</translation>
+        <translation>Hiển &amp;thị tổng thời gian chơi của tất cả các phiên</translation>
     </message>
 </context>
 <context>
@@ -8707,7 +8707,7 @@ Vui lòng cập nhật %1!</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="35"/>
         <source>&amp;Find</source>
-        <translation>Tìm</translation>
+        <translation>&amp;Tìm</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="483"/>
@@ -8818,17 +8818,17 @@ Vui lòng cập nhật %1!</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="114"/>
         <source>Delete &amp;All</source>
-        <translation>Xoá Tất cả</translation>
+        <translation>&amp;Xoá Tất cả</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="58"/>
         <source>&amp;Bottom</source>
-        <translation>Dưới cùng</translation>
+        <translation>&amp;Dưới cùng</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="104"/>
         <source>&amp;Delete Selected</source>
-        <translation>Xoá các mục đã chọn</translation>
+        <translation>&amp;Xoá các mục đã chọn</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="439"/>
@@ -8839,12 +8839,12 @@ Vui lòng cập nhật %1!</translation>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="191"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="477"/>
         <source>&amp;Reload</source>
-        <translation>Tải lại</translation>
+        <translation>&amp;Tải lại</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="181"/>
         <source>&amp;Upload</source>
-        <translation>Đăng tải</translation>
+        <translation>&amp;Đăng tải</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="382"/>
@@ -9021,7 +9021,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="47"/>
         <source>&amp;OK</source>
-        <translation>OK</translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="49"/>
@@ -9031,7 +9031,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="48"/>
         <source>&amp;Cancel</source>
-        <translation>Huỷ</translation>
+        <translation>&amp;Huỷ</translation>
     </message>
 </context>
 <context>
@@ -9842,7 +9842,7 @@ Chọn tên của bạn một cách cẩn thận:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="64"/>
         <source>&amp;None</source>
-        <translation>Không</translation>
+        <translation>&amp;Không</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.h" line="56"/>
@@ -9892,7 +9892,7 @@ Chọn tên của bạn một cách cẩn thận:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Sử dụng cài đặt của máy</translation>
+        <translation>&amp;Sử dụng cài đặt của máy</translation>
     </message>
 </context>
 <context>
@@ -10316,7 +10316,7 @@ Bạn có muốn xoá những tệp lưu trước đó không?</translation>
     <message>
         <location filename="../launcher/InstanceDirUpdate.cpp" line="71"/>
         <source>&amp;Remember my choice</source>
-        <translation>Ghi nhớ lựa chọn của tôi</translation>
+        <translation>&amp;Ghi nhớ lựa chọn của tôi</translation>
     </message>
     <message>
         <location filename="../launcher/GZip.cpp" line="210"/>
@@ -12183,17 +12183,17 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Làm mới</translation>
+        <translation>&amp;Làm mới</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="31"/>
         <source>&amp;Finish</source>
-        <translation>Hoàn tất</translation>
+        <translation>&amp;Hoàn tất</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="29"/>
         <source>&amp;Next &gt;</source>
-        <translation>Tiếp theo &gt;</translation>
+        <translation>&amp;Tiếp theo &gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -12203,7 +12203,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>&lt; Quay lại</translation>
+        <translation>&lt; &amp;Quay lại</translation>
     </message>
 </context>
 <context>
@@ -13675,7 +13675,7 @@ Xin bạn hãy đăng nhập vào một tài khoản Microsoft.</translation>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Làm mới</translation>
+        <translation>&amp;Làm mới</translation>
     </message>
 </context>
 <context>

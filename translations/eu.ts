@@ -3069,7 +3069,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="265"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation>Ezin izan da lortu % 1eko metadatuen indizea</translation>
+        <translation>Ezin izan da lortu %1rako metadatuen indizea</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="115"/>
@@ -6469,7 +6469,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Instantzia sortu</translation>
+        <translation>&amp;Instantzia sortu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="308"/>
@@ -11441,7 +11441,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Izena</translation>
+        <translation>&amp;Izena</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>

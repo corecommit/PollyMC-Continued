@@ -46,7 +46,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>Freastalaí Meiteashonraí</translation>
+        <translation>&amp;Freastalaí Meiteashonraí</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>Seirbhís Greamaigh Cineál</translation>
+        <translation>&amp;Seirbhís Greamaigh Cineál</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -430,7 +430,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
-        <translation>Cuir As Líne leis</translation>
+        <translation>&amp;Cuir As Líne leis</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="85"/>
@@ -465,7 +465,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>Athnuaigh</translation>
+        <translation>&amp;Athnuaigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
@@ -496,12 +496,12 @@ Más duine nua thú anseo, is féidir leat an cnaipe &quot;Cuir Microsoft leis&q
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
         <source>&amp;Manage Skins</source>
-        <translation>Bainistigh Cultacha</translation>
+        <translation>&amp;Bainistigh Cultacha</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>Cuir Microsoft leis</translation>
+        <translation>&amp;Cuir Microsoft leis</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="171"/>
@@ -1880,7 +1880,7 @@ Chun an glasáil seo a scriosadh agus leanúint ar aghaidh, roghnaigh &quot;Neam
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
         <source>&amp;Wrapper Command</source>
-        <translation>Ordú Rapair</translation>
+        <translation>&amp;Ordú Rapair</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
@@ -1890,12 +1890,12 @@ Chun an glasáil seo a scriosadh agus leanúint ar aghaidh, roghnaigh &quot;Neam
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Sáraigh Socruithe Domhanda</translation>
+        <translation>&amp;Sáraigh Socruithe Domhanda</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
         <source>&amp;Pre-launch Command</source>
-        <translation>Ordú Réamhlainse</translation>
+        <translation>&amp;Ordú Réamhlainse</translation>
     </message>
 </context>
 <context>
@@ -2368,7 +2368,7 @@ Ní féidir an sampla seo a sheoladh mar gheall ar easpa leabharlann nó nár í
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="50"/>
         <source>&amp;Add</source>
-        <translation>Cuir le</translation>
+        <translation>&amp;Cuir le</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="14"/>
@@ -2393,7 +2393,7 @@ Ní féidir an sampla seo a sheoladh mar gheall ar easpa leabharlann nó nár í
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Sáraigh Socruithe Domhanda</translation>
+        <translation>&amp;Sáraigh Socruithe Domhanda</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2480,7 +2480,7 @@ Ní féidir an sampla seo a sheoladh mar gheall ar easpa leabharlann nó nár í
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="183"/>
         <source>&amp;Files</source>
-        <translation>Comhaid</translation>
+        <translation>&amp;Comhaid</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="31"/>
@@ -2510,7 +2510,7 @@ Ní féidir an sampla seo a sheoladh mar gheall ar easpa leabharlann nó nár í
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="135"/>
         <source>&amp;Recommended Memory:</source>
-        <translation>Cuimhne Molta:</translation>
+        <translation>&amp;Cuimhne Molta:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.cpp" line="165"/>
@@ -2536,17 +2536,17 @@ Ní féidir an sampla seo a sheoladh mar gheall ar easpa leabharlann nó nár í
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="76"/>
         <source>&amp;Summary</source>
-        <translation>Coimre</translation>
+        <translation>&amp;Coimre</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="20"/>
         <source>&amp;Description</source>
-        <translation>Cur síos</translation>
+        <translation>&amp;Cur síos</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="44"/>
         <source>&amp;Version:</source>
-        <translation>Leagan:</translation>
+        <translation>&amp;Leagan:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.cpp" line="166"/>
@@ -2824,7 +2824,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="114"/>
         <source>&amp;Enable</source>
-        <translation>Cumasaigh</translation>
+        <translation>&amp;Cumasaigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="125"/>
@@ -3766,7 +3766,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.cpp" line="153"/>
         <source>The modpack %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>Tá an beart leasaithe seo coiscthe do thríú pháirtithe! Ióslódáil é de láimh, le do thoil.</translation>
+        <translation>Tá an modpack %1 seo coiscthe do thríú pháirtithe! Ióslódáil é de láimh, le do thoil.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="43"/>
@@ -3909,7 +3909,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>Athnuaigh</translation>
+        <translation>&amp;Athnuaigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="146"/>
@@ -4124,7 +4124,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>Maraigh</translation>
+        <translation>&amp;Maraigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="106"/>
@@ -4261,7 +4261,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>Athnuaigh</translation>
+        <translation>&amp;Athnuaigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="288"/>
@@ -4408,7 +4408,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Cuimhne</translation>
+        <translation>&amp;Cuimhne</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4457,7 +4457,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>Úsáid Uasta Cuimhne:</translation>
+        <translation>&amp;Úsáid Uasta Cuimhne:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4487,7 +4487,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="44"/>
         <source>&amp;Detect</source>
-        <translation>Aimsigh</translation>
+        <translation>&amp;Aimsigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="269"/>
@@ -4497,7 +4497,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Uathaimsigh leagan Java</translation>
+        <translation>&amp;Uathaimsigh leagan Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -5246,7 +5246,7 @@ B’fhéidir go mbeidh ort do mhodhanna a shocrú mar tá an cluiche fós ag log
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>De réir lainse is deireanaí</translation>
+        <translation>&amp;De réir lainse is deireanaí</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
@@ -5284,7 +5284,7 @@ B’fhéidir go mbeidh ort do mhodhanna a shocrú mar tá an cluiche fós ag log
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
         <source>&amp;Skins:</source>
-        <translation>Cultacha:</translation>
+        <translation>&amp;Cultacha:</translation>
     </message>
     <message>
         <source>Duplicate directory</source>
@@ -6011,12 +6011,12 @@ Beidh ort an fhadhb seo a cheartú de láimh.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="779"/>
         <source>I&amp;con Theme</source>
-        <translation>Téama Deilbhín</translation>
+        <translation>&amp;Téama Deilbhín</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="166"/>
         <source>&amp;Edit</source>
-        <translation>Athraigh</translation>
+        <translation>&amp;Athraigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="64"/>
@@ -6026,7 +6026,7 @@ Beidh ort an fhadhb seo a cheartú de láimh.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="142"/>
         <source>&amp;File</source>
-        <translation>Comhad</translation>
+        <translation>&amp;Comhad</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="213"/>
@@ -6056,7 +6056,7 @@ Beidh ort an fhadhb seo a cheartú de láimh.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>Maraigh</translation>
+        <translation>&amp;Maraigh</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="801"/>
@@ -6075,7 +6075,7 @@ Beidh ort an fhadhb seo a cheartú de láimh.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="175"/>
         <source>&amp;View</source>
-        <translation>Amharc ar</translation>
+        <translation>&amp;Amharc ar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1532"/>
@@ -6171,7 +6171,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="407"/>
         <source>&amp;Change Group...</source>
-        <translation>Athraigh Grúpa...</translation>
+        <translation>&amp;Athraigh Grúpa...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1822"/>
@@ -6221,7 +6221,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>Dún an Fhuinneog</translation>
+        <translation>&amp;Dún an Fhuinneog</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
@@ -6268,7 +6268,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="597"/>
         <source>&amp;Skins</source>
-        <translation>Cultacha</translation>
+        <translation>&amp;Cultacha</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="520"/>
@@ -6407,7 +6407,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
         <source>Cop&amp;y...</source>
-        <translation>Cóipeáil...</translation>
+        <translation>&amp;Cóipeáil...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="600"/>
@@ -6467,7 +6467,7 @@ Cruthaigh sampla nua sula ndéanann tú iarracht an acmhainn seo a shuiteáil ar
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>Easpórtáil...</translation>
+        <translation>&amp;Easpórtáil...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="741"/>
@@ -6487,7 +6487,7 @@ Cruthaigh sampla nua sula ndéanann tú iarracht an acmhainn seo a shuiteáil ar
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="330"/>
         <source>&amp;Manage Accounts...</source>
-        <translation>Bainistigh Cuntais...</translation>
+        <translation>&amp;Bainistigh Cuntais...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="660"/>
@@ -6608,12 +6608,12 @@ Cruthaigh sampla nua sula ndéanann tú iarracht an acmhainn seo a shuiteáil ar
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="454"/>
         <source>Dele&amp;te</source>
-        <translation>Scrios</translation>
+        <translation>&amp;Scrios</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Setti&amp;ngs...</source>
-        <translation>Socruithe...</translation>
+        <translation>&amp;Socruithe...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
@@ -6643,7 +6643,7 @@ Cruthaigh sampla nua sula ndéanann tú iarracht an acmhainn seo a shuiteáil ar
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="716"/>
         <source>Install to &amp;PATH</source>
-        <translation>Suiteáil chuig PATH</translation>
+        <translation>Suiteáil chuig &amp;PATH</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="429"/>
@@ -6749,12 +6749,12 @@ Chun an taisce meiteashonraí a ghlanadh de láimh, brúigh Fillteáin -&gt; Fé
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="693"/>
         <source>&amp;Clear Metadata Cache</source>
-        <translation>Glan Taisce Meiteashonraí</translation>
+        <translation>&amp;Glan Taisce Meiteashonraí</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
         <source>F&amp;olders</source>
-        <translation>Fillteáin</translation>
+        <translation>&amp;Fillteáin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="727"/>
@@ -6769,7 +6769,7 @@ Chun an taisce meiteashonraí a ghlanadh de láimh, brúigh Fillteáin -&gt; Fé
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="586"/>
         <source>&amp;Central Mods</source>
-        <translation>Lárleasuithe</translation>
+        <translation>&amp;Lárleasuithe</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="668"/>
@@ -6784,7 +6784,7 @@ Chun an taisce meiteashonraí a ghlanadh de láimh, brúigh Fillteáin -&gt; Fé
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Scrios grúpa</translation>
+        <translation>&amp;Scrios grúpa</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>
@@ -7108,7 +7108,7 @@ Déan cinnte go bhfuil muinín agat as an URL freisin.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="309"/>
         <source>Launch &amp;Offline</source>
-        <translation>Lainseáil As Líne</translation>
+        <translation>&amp;Lainseáil As Líne</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1032"/>
@@ -7267,7 +7267,7 @@ Déan cinnte go bhfuil muinín agat as an URL freisin.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>Méid Fuinneoige:</translation>
+        <translation>&amp;Méid Fuinneoige:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7309,7 +7309,7 @@ Is dóichí go mbeidh ort an cosán a athrú - féach ar shuíomh Gréasáin an 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
         <source>&amp;Performance</source>
-        <translation>Feidhmíocht</translation>
+        <translation>&amp;Feidhmíocht</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="638"/>
@@ -7349,7 +7349,7 @@ Is dóichí go mbeidh ort an cosán a athrú - féach ar shuíomh Gréasáin an 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
         <source>Open &amp;Global Settings</source>
-        <translation>Oscail Socruithe Domhanda</translation>
+        <translation>&amp;Oscail Socruithe Domhanda</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="93"/>
@@ -7364,7 +7364,7 @@ Is dóichí go mbeidh ort an cosán a athrú - féach ar shuíomh Gréasáin an 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="258"/>
         <source>&amp;Global Data Packs</source>
-        <translation>Pacáistí Sonraí Domhanda</translation>
+        <translation>&amp;Pacáistí Sonraí Domhanda</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="536"/>
@@ -7395,7 +7395,7 @@ Is dóichí go mbeidh ort an cosán a athrú - féach ar shuíomh Gréasáin an 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>Coigeartuithe Oidhreachta</translation>
+        <translation>&amp;Coigeartuithe Oidhreachta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="768"/>
@@ -7488,7 +7488,7 @@ Is dóichí go mbeidh ort an cosán a athrú - féach ar shuíomh Gréasáin an 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>Taispeáin an t-am a bhí ag imirt an tsamhail seo</translation>
+        <translation>&amp;Taispeáin an t-am a bhí ag imirt an tsamhail seo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7543,12 +7543,12 @@ Is dóichí go mbeidh ort an cosán a athrú - féach ar shuíomh Gréasáin an 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Taispeáin an t-am a caitheadh ag imirt cásanna</translation>
+        <translation>&amp;Taispeáin an t-am a caitheadh ag imirt cásanna</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>Fuinneog Cluiche</translation>
+        <translation>&amp;Fuinneog Cluiche</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
@@ -7568,7 +7568,7 @@ Is dóichí go mbeidh ort an cosán a athrú - féach ar shuíomh Gréasáin an 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>Taispeáin an t-am iomlán a imríodh trasna cásanna</translation>
+        <translation>&amp;Taispeáin an t-am iomlán a imríodh trasna cásanna</translation>
     </message>
 </context>
 <context>
@@ -8940,7 +8940,7 @@ Nuashonraigh %1 le do thoil!</translation>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="191"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="477"/>
         <source>&amp;Reload</source>
-        <translation>Athlódáil</translation>
+        <translation>&amp;Athlódáil</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="181"/>
@@ -9993,7 +9993,7 @@ Roghnaigh d&apos;ainm go cúramach:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Úsáid socruithe an chórais</translation>
+        <translation>&amp;Úsáid socruithe an chórais</translation>
     </message>
 </context>
 <context>
@@ -10443,7 +10443,7 @@ Ar mhaith leat na sábhálacha atá ann cheana a bhaint mar chuid den nuashonrú
     <message>
         <location filename="../launcher/InstanceDirUpdate.cpp" line="71"/>
         <source>&amp;Remember my choice</source>
-        <translation>Cuimhnigh ar mo rogha</translation>
+        <translation>Cuimhnigh ar mo &amp;rogha</translation>
     </message>
     <message>
         <location filename="../launcher/GZip.cpp" line="210"/>
@@ -12238,12 +12238,12 @@ Leagan suiteáilte faoi láthair: %1</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Ainm</translation>
+        <translation>&amp;Ainm</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Acmhainní</translation>
+        <translation>&amp;Acmhainní</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>
@@ -12579,7 +12579,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="178"/>
         <source>&amp;Rename Skin</source>
-        <translation>Athainmnigh Culaith</translation>
+        <translation>&amp;Athainmnigh Culaith</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="429"/>
@@ -12705,7 +12705,7 @@ An bhfuil tú cinnte?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Scrios Culaith</translation>
+        <translation>&amp;Scrios Culaith</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="145"/>
@@ -13224,7 +13224,7 @@ An bhfuil tú cinnte gur mhaith leat é seo a dhéanamh?</translation>
 %3 fuzzy
 %4 total</source>
         <translation>%1:
-%1 aistrithe
+%2 aistrithe
 %3 neamchinnte
 %4 iomlán</translation>
     </message>
@@ -13833,7 +13833,7 @@ Cuir cuntas Microsoft leis, le do thoil.</translation>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Athnuaigh</translation>
+        <translation>&amp;Athnuaigh</translation>
     </message>
 </context>
 <context>

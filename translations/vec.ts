@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Meta&amp;data Server</source>
-        <translation>Computer Sarveo dei Metadata</translation>
+        <translation>Computer Sarveo &amp;dei Metadata</translation>
     </message>
     <message>
         <source>Miscellaneous</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Paste Service &amp;Type</source>
-        <translation>Incoea servisi e Scrivi</translation>
+        <translation>&amp;Incoea servisi e Scrivi</translation>
     </message>
     <message>
         <source>Note: you probably want to change or clear the Base URL after changing the paste service type.</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>&amp;Modrinth API</source>
-        <translation>Modrinth API</translation>
+        <translation>&amp;Modrinth API</translation>
     </message>
 </context>
 <context>

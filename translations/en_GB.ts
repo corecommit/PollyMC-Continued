@@ -4898,7 +4898,7 @@ You need to purchase the game first to play the full version.</translation>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="182" />
         <source>An error occurred while refreshing '%1'</source>
-        <translation>An error occurred while refreshing '1%'</translation>
+        <translation>An error occurred while refreshing '%1'</translation>
     </message>
     <message>
         <source>In order to play Minecraft, you must have at least one Microsoft account which owns Minecraft logged in. Would you like to open the account manager to add an account now?</source>
@@ -6370,7 +6370,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1002" />
         <source>The modpack, mod, or resource %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>The modpack, mod, or resource &amp;1 is blocked for third-parties! Please download it manually.</translation>
+        <translation>The modpack, mod, or resource %1 is blocked for third-parties! Please download it manually.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468" />
@@ -6773,7 +6773,7 @@ Please check your recycle bin to manually restore them.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576" />
         <source>&amp;Create instance</source>
-        <translation>Create instance</translation>
+        <translation>&amp;Create instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539" />
@@ -9911,7 +9911,7 @@ Choose your name carefully:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54" />
         <source>Use s&amp;ystem settings</source>
-        <translation>Use system Settings</translation>
+        <translation>&amp;Use system Settings</translation>
     </message>
 </context>
 <context>

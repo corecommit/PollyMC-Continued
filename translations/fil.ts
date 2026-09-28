@@ -450,12 +450,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Umakyat</translation>
+        <translation>&amp;Umakyat</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Bumaba</translation>
+        <translation>&amp;Bumaba</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -2202,13 +2202,13 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="390"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="458"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="243"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="331"/>
         <source>Parsing API response from Modrinth for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Modrinth para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa Modrinth para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="163"/>
@@ -3058,7 +3058,7 @@ Sigurado ka ba?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="254"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="127"/>
@@ -3077,7 +3077,7 @@ Sigurado ka ba?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="179"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="93"/>
@@ -3262,7 +3262,7 @@ Sigurado ka ba?</translation>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="219"/>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="282"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Pina-parse ang API response na galing sa Curseforge para sa ‘1%’…</translation>
+        <translation>Pina-parse ang API response na galing sa CurseForge para sa &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="51"/>
@@ -4195,7 +4195,7 @@ Sigurado ka ba dito?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>I-try ang Settings</translation>
+        <translation>&amp;I-try ang Settings</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4235,7 +4235,7 @@ Sigurado ka ba dito?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>Minimum na Paggamit ng Memorya:</translation>
+        <translation>&amp;Minimum na Paggamit ng Memorya:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
@@ -4280,7 +4280,7 @@ Sigurado ka ba dito?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>Pinakamataas na Paggamit ng Memorya:</translation>
+        <translation>&amp;Pinakamataas na Paggamit ng Memorya:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -6373,7 +6373,7 @@ Please check your trashbin to manually restore them.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="716"/>
         <source>Install to &amp;PATH</source>
-        <translation>I-install sa %PATH</translation>
+        <translation>I-install sa &amp;PATH</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="429"/>

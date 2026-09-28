@@ -21,7 +21,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="44"/>
         <source>&amp;Pastebin Service</source>
-        <translation>Servisat e Pastebin</translation>
+        <translation>Servisat e &amp;Pastebin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="259"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>Çelësat API</translation>
+        <translation>Çelësat &amp;API</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Teknik</translation>
+        <translation>&amp;Teknik</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -470,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Hiq</translation>
+        <translation>&amp;Hiq</translation>
     </message>
     <message>
         <source>Welcome!
@@ -496,7 +496,7 @@ Nese jeni i ri ketu, ju mundeni te selektoni &quot;Shto Microsoft&quot; buton qe
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
         <source>&amp;Manage Skins</source>
-        <translation>%Menaxho Skins</translation>
+        <translation>&amp;Menaxho Skins</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>

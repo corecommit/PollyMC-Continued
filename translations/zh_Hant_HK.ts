@@ -11,27 +11,27 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="44"/>
         <source>&amp;Pastebin Service</source>
-        <translation>Pastebin 服務</translation>
+        <translation>&amp;Pastebin 服務</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>中繼資料伺服器</translation>
+        <translation>&amp;中繼資料伺服器</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>Pastebin 服務類型</translation>
+        <translation>&amp;Pastebin 服務類型</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="70"/>
         <source>Base &amp;URL</source>
-        <translation>Base URL</translation>
+        <translation>Base &amp;URL</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="375"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -417,7 +417,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
-        <translation>新增離線帳號</translation>
+        <translation>&amp;新增離線帳號</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="85"/>
@@ -437,27 +437,27 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>上移</translation>
+        <translation>&amp;上移</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>下移</translation>
+        <translation>&amp;下移</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>設定為預設角色</translation>
+        <translation>&amp;設定為預設角色</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>重新整理</translation>
+        <translation>&amp;重新整理</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>刪除</translation>
+        <translation>&amp;刪除</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.h" line="58"/>
@@ -467,7 +467,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>無預設帳號</translation>
+        <translation>&amp;無預設帳號</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -477,12 +477,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="82"/>
         <source>&amp;Manage Skins</source>
-        <translation>管理角色外觀</translation>
+        <translation>&amp;管理角色外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>新增 Microsoft 帳號</translation>
+        <translation>&amp;新增 Microsoft 帳號</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="171"/>
@@ -600,7 +600,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="103"/>
         <source>&amp;Icons:</source>
-        <translation>圖案主題包：</translation>
+        <translation>&amp;圖案主題包：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
@@ -1460,7 +1460,7 @@ You may solve this issue by remounting /tmp as &apos;exec&apos; or setting the j
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="93"/>
         <source>&amp;Group</source>
-        <translation>分類</translation>
+        <translation>&amp;分類</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="17"/>
@@ -2177,7 +2177,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="50"/>
         <source>&amp;Add</source>
-        <translation>新增</translation>
+        <translation>&amp;新增</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="14"/>
@@ -2202,12 +2202,12 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="77"/>
         <source>&amp;Clear</source>
-        <translation>清除</translation>
+        <translation>&amp;清除</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
         <source>&amp;Remove</source>
-        <translation>刪除</translation>
+        <translation>&amp;刪除</translation>
     </message>
 </context>
 <context>
@@ -2310,12 +2310,12 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="183"/>
         <source>&amp;Files</source>
-        <translation>檔案</translation>
+        <translation>&amp;檔案</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="31"/>
         <source>&amp;Name:</source>
-        <translation>名稱：</translation>
+        <translation>&amp;名稱：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.cpp" line="131"/>
@@ -2330,12 +2330,12 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="114"/>
         <source>&amp;Options</source>
-        <translation>選項</translation>
+        <translation>&amp;選項</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="135"/>
         <source>&amp;Recommended Memory:</source>
-        <translation>建議記憶體：</translation>
+        <translation>&amp;建議記憶體：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="209"/>
@@ -2345,22 +2345,22 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="61"/>
         <source>&amp;Author:</source>
-        <translation>作者：</translation>
+        <translation>&amp;作者：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="76"/>
         <source>&amp;Summary</source>
-        <translation>簡介</translation>
+        <translation>&amp;簡介</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="20"/>
         <source>&amp;Description</source>
-        <translation>簡介</translation>
+        <translation>&amp;簡介</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="44"/>
         <source>&amp;Version:</source>
-        <translation>版本：</translation>
+        <translation>&amp;版本：</translation>
     </message>
 </context>
 <context>
@@ -2520,7 +2520,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="152"/>
         <source>&amp;Download</source>
-        <translation>下載</translation>
+        <translation>&amp;下載</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="67"/>
@@ -2545,7 +2545,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="114"/>
         <source>&amp;Enable</source>
-        <translation>啟用</translation>
+        <translation>&amp;啟用</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="117"/>
@@ -2555,7 +2555,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="125"/>
         <source>&amp;Disable</source>
-        <translation>停用</translation>
+        <translation>&amp;停用</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="155"/>
@@ -2615,7 +2615,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="103"/>
         <source>&amp;Remove</source>
-        <translation>刪除</translation>
+        <translation>&amp;刪除</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="133"/>
@@ -2673,7 +2673,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="141"/>
         <source>View &amp;Folder</source>
-        <translation>瀏覽資料夾</translation>
+        <translation>&amp;瀏覽資料夾</translation>
     </message>
 </context>
 <context>
@@ -2779,7 +2779,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="144"/>
         <source>&amp;Profilers</source>
-        <translation>分析器</translation>
+        <translation>&amp;分析器</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="162"/>
@@ -2789,7 +2789,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="50"/>
         <source>&amp;Text Editor</source>
-        <translation>文字編輯器</translation>
+        <translation>&amp;文字編輯器</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="150"/>
@@ -2814,7 +2814,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="44"/>
         <source>&amp;Editors</source>
-        <translation>編輯器</translation>
+        <translation>&amp;編輯器</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="160"/>
@@ -3643,7 +3643,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>重新整理</translation>
+        <translation>&amp;重新整理</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="146"/>
@@ -3843,7 +3843,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>強制結束</translation>
+        <translation>&amp;強制結束</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="98"/>
@@ -3863,7 +3863,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="89"/>
         <source>&amp;Launch</source>
-        <translation>啟動</translation>
+        <translation>&amp;啟動</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="57"/>
@@ -3967,7 +3967,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>重新整理</translation>
+        <translation>&amp;重新整理</translation>
     </message>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="288"/>
@@ -4083,7 +4083,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>測試 Java 設定</translation>
+        <translation>&amp;測試 Java 設定</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="229"/>
@@ -4155,12 +4155,12 @@ Please make sure that the maximum memory value is lower.</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>最小記憶體用量：</translation>
+        <translation>&amp;最小記憶體用量：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>記憶體</translation>
+        <translation>&amp;記憶體</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4170,12 +4170,12 @@ Please make sure that the maximum memory value is lower.</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="123"/>
         <source>Auto-download &amp;Mojang Java</source>
-        <translation>自動下載 Mojang 推薦的 Java 版本</translation>
+        <translation>自動下載 &amp;Mojang 推薦的 Java 版本</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Java 設定參數</translation>
+        <translation>&amp;Java 設定參數</translation>
     </message>
     <message>
         <source>Warn when there is not enough memory available</source>
@@ -4189,7 +4189,7 @@ Please make sure that the maximum memory value is lower.</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>最大記憶體用量：</translation>
+        <translation>&amp;最大記憶體用量：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4199,22 +4199,22 @@ Please make sure that the maximum memory value is lower.</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
         <source>Java &amp;Executable</source>
-        <translation>Java 執行檔</translation>
+        <translation>&amp;Java 執行檔</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Java 安裝設定</translation>
+        <translation>&amp;Java 安裝設定</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
         <source>&amp;Browse</source>
-        <translation>瀏覽</translation>
+        <translation>&amp;瀏覽</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="44"/>
         <source>&amp;Detect</source>
-        <translation>自動偵測</translation>
+        <translation>&amp;自動偵測</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="269"/>
@@ -4224,7 +4224,7 @@ Please make sure that the maximum memory value is lower.</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>自動偵測 Java 版本</translation>
+        <translation>&amp;自動偵測 Java 版本</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4234,7 +4234,7 @@ Please make sure that the maximum memory value is lower.</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>開啓 Java 下載器</translation>
+        <translation>&amp;開啓 Java 下載器</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="156"/>
@@ -4603,7 +4603,7 @@ Do you want to play the demo?</source>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="438"/>
         <source>&amp;Launch</source>
-        <translation>啟動</translation>
+        <translation>&amp;啟動</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="236"/>
@@ -4711,7 +4711,7 @@ Granting %1 access to it via Flatseal is recommended.</source>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="321"/>
         <source>&amp;Mods:</source>
-        <translation>模組：</translation>
+        <translation>&amp;模組：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="56"/>
@@ -4970,12 +4970,12 @@ Granting %1 access to it via Flatseal is recommended.</source>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="394"/>
         <source>&amp;Icons:</source>
-        <translation>圖案主題包：</translation>
+        <translation>&amp;圖案主題包：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
         <source>&amp;Skins:</source>
-        <translation>角色外觀：</translation>
+        <translation>&amp;角色外觀：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -5280,7 +5280,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="93"/>
         <source>&amp;Copy</source>
-        <translation>複製</translation>
+        <translation>&amp;複製</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="113"/>
@@ -5640,7 +5640,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="779"/>
         <source>I&amp;con Theme</source>
-        <translation>圖案主題包</translation>
+        <translation>&amp;圖案主題包</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="166"/>
@@ -5660,7 +5660,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="213"/>
         <source>&amp;Help</source>
-        <translation>說明</translation>
+        <translation>&amp;說明</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="272"/>
@@ -5705,7 +5705,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>強制結束</translation>
+        <translation>&amp;強制結束</translation>
     </message>
     <message>
         <source>&amp;Meow</source>
@@ -5747,7 +5747,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="407"/>
         <source>&amp;Change Group...</source>
-        <translation>更改分類…</translation>
+        <translation>&amp;更改分類…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1789"/>
@@ -5757,12 +5757,12 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
         <source>Add Instanc&amp;e...</source>
-        <translation>新增 Instance</translation>
+        <translation>&amp;新增 Instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="657"/>
         <source>&amp;Matrix Space</source>
-        <translation>Matrix 聊天室</translation>
+        <translation>&amp;Matrix 聊天室</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="245"/>
@@ -5847,7 +5847,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>關閉視窗</translation>
+        <translation>&amp;關閉視窗</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="793"/>
@@ -5872,7 +5872,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="597"/>
         <source>&amp;Skins</source>
-        <translation>角色外觀</translation>
+        <translation>&amp;角色外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1292"/>
@@ -5887,7 +5887,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="757"/>
         <source>%1 &amp;Wiki</source>
-        <translation>%1 百科</translation>
+        <translation>%1 &amp;百科</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="823"/>
@@ -5966,7 +5966,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
         <source>Cop&amp;y...</source>
-        <translation>複製</translation>
+        <translation>&amp;複製</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="600"/>
@@ -5999,17 +5999,17 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>匯出整合包…</translation>
+        <translation>&amp;匯出整合包…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="330"/>
         <source>&amp;Manage Accounts...</source>
-        <translation>管理角色</translation>
+        <translation>&amp;管理角色</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="768"/>
         <source>&amp;Widget Themes</source>
-        <translation>啓動器主題包</translation>
+        <translation>&amp;啓動器主題包</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="865"/>
@@ -6024,12 +6024,12 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>關於 %1</translation>
+        <translation>&amp;關於 %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
         <source>&amp;Accounts</source>
-        <translation>角色帳號</translation>
+        <translation>&amp;角色帳號</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="749"/>
@@ -6050,12 +6050,12 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="291"/>
         <source>&amp;Update...</source>
-        <translation>檢查更新</translation>
+        <translation>&amp;檢查更新</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="564"/>
         <source>&amp;Instances</source>
-        <translation>Instances</translation>
+        <translation>&amp;Instances</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="710"/>
@@ -6065,17 +6065,17 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="454"/>
         <source>Dele&amp;te</source>
-        <translation>刪除</translation>
+        <translation>&amp;刪除</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Setti&amp;ngs...</source>
-        <translation>設定</translation>
+        <translation>&amp;設定</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
         <source>&amp;Folder</source>
-        <translation>資料夾</translation>
+        <translation>&amp;資料夾</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1086"/>
@@ -6085,7 +6085,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
         <source>&amp;Launch</source>
-        <translation>啟動</translation>
+        <translation>&amp;啟動</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="528"/>
@@ -6160,12 +6160,12 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="716"/>
         <source>Install to &amp;PATH</source>
-        <translation>安裝至系統 PATH</translation>
+        <translation>安裝至系統 &amp;PATH</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="429"/>
         <source>&amp;Edit...</source>
-        <translation>編輯…</translation>
+        <translation>&amp;編輯…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="256"/>
@@ -6278,12 +6278,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="594"/>
         <source>&amp;Rename group</source>
-        <translation>重新命名分類</translation>
+        <translation>&amp;重新命名分類</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="575"/>
         <source>Launcher &amp;Root</source>
-        <translation>Prism Launcher 根目錄</translation>
+        <translation>&amp;Prism Launcher 根目錄</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="418"/>
@@ -6293,17 +6293,17 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="646"/>
         <source>&amp;Discord Guild</source>
-        <translation>Discord 伺服器</translation>
+        <translation>&amp;Discord 伺服器</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="693"/>
         <source>&amp;Clear Metadata Cache</source>
-        <translation>清除元數據快取</translation>
+        <translation>&amp;清除元數據快取</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
         <source>F&amp;olders</source>
-        <translation>資料夾</translation>
+        <translation>&amp;資料夾</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="727"/>
@@ -6313,17 +6313,17 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="586"/>
         <source>&amp;Central Mods</source>
-        <translation>共用模組</translation>
+        <translation>&amp;共用模組</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="668"/>
         <source>Sub&amp;reddit</source>
-        <translation>Reddit 子論壇</translation>
+        <translation>&amp;Reddit 子論壇</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>刪除分類</translation>
+        <translation>&amp;刪除分類</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>
@@ -6332,7 +6332,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>建立新 Instance</translation>
+        <translation>&amp;建立新 Instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -6683,7 +6683,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="309"/>
         <source>Launch &amp;Offline</source>
-        <translation>離線啟動</translation>
+        <translation>&amp;離線啟動</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1032"/>
@@ -6698,12 +6698,12 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="307"/>
         <source>&amp;Launch</source>
-        <translation>啟動</translation>
+        <translation>&amp;啟動</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="330"/>
         <source>&amp;No Profiler</source>
-        <translation>不使用分析器</translation>
+        <translation>&amp;不使用分析器</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1080"/>
@@ -6728,7 +6728,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="311"/>
         <source>Launch &amp;Demo</source>
-        <translation>啟動試玩版</translation>
+        <translation>&amp;啟動試玩版</translation>
     </message>
 </context>
 <context>
@@ -6833,12 +6833,12 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>一律使用小時顯示時間長度</translation>
+        <translation>&amp;一律使用小時顯示時間長度</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>預設視窗大小：</translation>
+        <translation>&amp;預設視窗大小：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="109"/>
@@ -6858,7 +6858,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
         <source>&amp;Performance</source>
-        <translation>性能</translation>
+        <translation>&amp;性能</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="638"/>
@@ -6903,17 +6903,17 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>舊版 Minecraft 修補設定</translation>
+        <translation>&amp;舊版 Minecraft 修補設定</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="325"/>
         <source>Game &amp;Time</source>
-        <translation>遊玩時長</translation>
+        <translation>&amp;遊玩時長</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>系統原生程式庫</translation>
+        <translation>&amp;系統原生程式庫</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="515"/>
@@ -6958,7 +6958,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>顯示 Instance 遊玩時長</translation>
+        <translation>&amp;顯示 Instance 遊玩時長</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
@@ -6973,7 +6973,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>遊戲視窗</translation>
+        <translation>&amp;遊戲視窗</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="85"/>
@@ -7029,12 +7029,12 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>記錄 Instance 遊玩時長</translation>
+        <translation>&amp;記錄 Instance 遊玩時長</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>顯示各 Instance 的總遊玩時長</translation>
+        <translation>&amp;顯示各 Instance 的總遊玩時長</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="748"/>
@@ -8136,7 +8136,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="56"/>
         <source>&amp;Name:</source>
-        <translation>名稱：</translation>
+        <translation>&amp;名稱：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.cpp" line="120"/>
@@ -8146,7 +8146,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="39"/>
         <source>&amp;Group:</source>
-        <translation>分類：</translation>
+        <translation>&amp;分類：</translation>
     </message>
 </context>
 <context>
@@ -8259,7 +8259,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="171"/>
         <source>&amp;Copy</source>
-        <translation>複製</translation>
+        <translation>&amp;複製</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="483"/>
@@ -8424,7 +8424,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="58"/>
         <source>&amp;Bottom</source>
-        <translation>底部</translation>
+        <translation>&amp;底部</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="178"/>
@@ -8468,12 +8468,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="47"/>
         <source>&amp;OK</source>
-        <translation>確定</translation>
+        <translation>&amp;確定</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="48"/>
         <source>&amp;Cancel</source>
-        <translation>取消</translation>
+        <translation>&amp;取消</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="49"/>
@@ -9202,7 +9202,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="64"/>
         <source>&amp;None</source>
-        <translation>無</translation>
+        <translation>&amp;無</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.h" line="56"/>
@@ -9223,7 +9223,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>密碼：</translation>
+        <translation>&amp;密碼：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9238,12 +9238,12 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>伺服器地址及連接埠</translation>
+        <translation>&amp;伺服器地址及連接埠</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>使用者名稱：</translation>
+        <translation>&amp;使用者名稱：</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -9253,7 +9253,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>使用系統設定</translation>
+        <translation>&amp;使用系統設定</translation>
     </message>
 </context>
 <context>
@@ -11362,12 +11362,12 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>伺服器名稱</translation>
+        <translation>&amp;伺服器名稱</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>資源包</translation>
+        <translation>&amp;資源包</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>
@@ -11461,7 +11461,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>重新整理</translation>
+        <translation>&amp;重新整理</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -12903,7 +12903,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>重新整理</translation>
+        <translation>&amp;重新整理</translation>
     </message>
 </context>
 <context>

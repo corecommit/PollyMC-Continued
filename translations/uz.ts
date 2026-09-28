@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API kalitlari</translation>
+        <translation>&amp;API kalitlari</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -820,7 +820,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/minecraft/update/AssetUpdateTask.cpp" line="27"/>
         <source>Asset index for %1</source>
-        <translation>% 1 uchun aktiv indeksi</translation>
+        <translation>%1 uchun aktiv indeksi</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/update/AssetUpdateTask.cpp" line="77"/>
@@ -837,7 +837,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
         <source>Failed to download assets:
 %1</source>
         <translation>Obyektlarni yuklab bo‘lmadi:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/update/AssetUpdateTask.cpp" line="81"/>
@@ -854,7 +854,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
         <source>Failed to download the assets index:
 %1</source>
         <translation>Aktivlar indeksini yuklab bo‘lmadi:
-% 1</translation>
+%1</translation>
     </message>
 </context>
 <context>
@@ -1022,7 +1022,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/minecraft/auth/AuthFlow.cpp" line="145"/>
         <source>Unknown account task state: %1</source>
-        <translation>Noma’lum hisob vazifasi holati: % 1</translation>
+        <translation>Noma’lum hisob vazifasi holati: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AuthFlow.cpp" line="123"/>
@@ -1293,7 +1293,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.ui" line="45"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your configured global mods folder and default downloads folder are automatically checked for the downloaded mods and they will be copied to the instance if found.&lt;/p&gt;&lt;p&gt;Optionally, you may drag and drop the downloaded mods onto this dialog or add a folder to watch if you did not download the mods to a default location.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Click &apos;Open Missing&apos; to open all the download links in the browser. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sizning konfiguratsiya qilingan global mod papkasi va standart yuklab olishlar papkasi yuklab olingan modlar uchun avtomatik tekshiriladi va ular topilsa, namunaga ko‘chiriladi.&lt;/p&gt;&lt;p&gt;Ixtiyoriy ravishda, yuklab olingan modlarni ushbu dialog oynasiga sudrab olib tashlashingiz yoki modlarni birlamchi joyga yuklab olmagan bo‘lsangiz, tomosha qilish uchun jild qo‘shishingiz mumkin.&lt;/p&gt;&lt;0-web style=&quot;: fontweight;&quot;: Brauzerda barcha yuklab olish havolalarini ochish uchun &quot;Ochish yo&apos;qolgan&quot;. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sizning konfiguratsiya qilingan global mod papkasi va standart yuklab olishlar papkasi yuklab olingan modlar uchun avtomatik tekshiriladi va ular topilsa, namunaga ko‘chiriladi.&lt;/p&gt;&lt;p&gt;Ixtiyoriy ravishda, yuklab olingan modlarni ushbu dialog oynasiga sudrab olib tashlashingiz yoki modlarni birlamchi joyga yuklab olmagan bo‘lsangiz, tomosha qilish uchun jild qo‘shishingiz mumkin.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Brauzerda barcha yuklab olish havolalarini ochish uchun &quot;Ochish yo&apos;qolgan&quot; tugmasini bosing. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="160"/>
@@ -1440,7 +1440,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
         <source>Component metadata update task failed while downloading from remote server:
 %1</source>
         <translation>Masofaviy serverdan yuklab olishda komponent metamaʼlumotlarini yangilash vazifasi bajarilmadi:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="244"/>
@@ -1480,7 +1480,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/tasks/ConcurrentTask.cpp" line="246"/>
         <source>Executing %1 task(s) (%2 out of %3 are done)</source>
-        <translation>%1 topshiriq(lar) bajarilmoqda (%3dan 2% bajarildi)</translation>
+        <translation>%1 topshiriq(lar) bajarilmoqda (%3dan %2 bajarildi)</translation>
     </message>
     <message>
         <location filename="../launcher/tasks/ConcurrentTask.cpp" line="139"/>
@@ -1739,7 +1739,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.cpp" line="112"/>
         <source>%1 (in use)</source>
-        <translation>% 1 (ishlatilmoqda)</translation>
+        <translation>%1 (ishlatilmoqda)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CreateShortcutDialog.ui" line="61"/>
@@ -1863,7 +1863,7 @@ Ushbu qulf-faylni o&apos;chirish va davom etish uchun quyida &quot;E&apos;tibor 
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pre-launch command runs before the instance launches and post-exit command runs after it exits.&lt;/p&gt;&lt;p&gt;Both will be run in the launcher&apos;s working folder with extra environment variables:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Name of the instance&lt;/li&gt;&lt;li&gt;$INST_ID - ID of the instance (its folder name)&lt;/li&gt;&lt;li&gt;$INST_DIR - absolute path of the instance&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - absolute path of Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java binary used for launch&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - command-line parameters used for launch (warning: will not work correctly if arguments contain spaces)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper command allows launching using an extra wrapper program (like &apos;optirun&apos; on Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ishga tushirishdan oldingi buyruq namuna ishga tushirilgunga qadar ishlaydi va u chiqqandan keyin chiqishdan keyingi buyruq ishlaydi.&lt;/p&gt;&lt;p&gt;Ikkisi ham qo‘shimcha muhit o‘zgaruvchilari bilan ishga tushirgichning ishchi papkasida ishga tushadi:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Namuna nomi&lt;/li&gt;&lt;li&gt;$INST_ID - papkaning identifikatori -$li&gt;$INST_ID&lt;/i&gt;ST_ID -$liD&gt; misolning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - Minecraft&apos;ning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_JAVA - ishga tushirish uchun ishlatiladigan Java ikkilik fayli&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - ishga tushirish uchun ishlatiladigan buyruq qatori parametrlari (ogohlantirish: agar argumentlarda bo&apos;sh joy bo&apos;lsa, to&apos;g&apos;ri ishlamaydi)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wpper qo&apos;shimcha buyruq yordamida ishga tushirishga imkon beradi. Linuxda &quot;optirun&quot;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ishga tushirishdan oldingi buyruq namuna ishga tushirilgunga qadar ishlaydi va u chiqqandan keyin chiqishdan keyingi buyruq ishlaydi.&lt;/p&gt;&lt;p&gt;Ikkisi ham qo‘shimcha muhit o‘zgaruvchilari bilan ishga tushirgichning ishchi papkasida ishga tushadi:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Namuna nomi&lt;/li&gt;&lt;li&gt;$INST_ID - papkaning identifikatori (papka nomi)&lt;/li&gt;&lt;li&gt;$INST_DIR - misolning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - Minecraft&apos;ning mutlaq yo&apos;li&lt;/li&gt;&lt;li&gt;$INST_JAVA - ishga tushirish uchun ishlatiladigan Java ikkilik fayli&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - ishga tushirish uchun ishlatiladigan buyruq qatori parametrlari (ogohlantirish: agar argumentlarda bo&apos;sh joy bo&apos;lsa, to&apos;g&apos;ri ishlamaydi)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wpper qo&apos;shimcha buyruq yordamida ishga tushirishga imkon beradi. Linuxda &quot;optirun&quot;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
@@ -2126,7 +2126,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="151"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;% 1&apos; yangilangan! :)</translation>
+        <translation>&apos;%1&apos; yangilangan! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="32"/>
@@ -2285,13 +2285,13 @@ Baribir ishga tushirilsinmi? Bu o&apos;yin va tizimingizda sekinlashuvga olib ke
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="390"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="458"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>&quot;% 1&quot; uchun CurseForge&apos;dan API javobi tahlil qilinmoqda...</translation>
+        <translation>&quot;%1&quot; uchun CurseForge&apos;dan API javobi tahlil qilinmoqda...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="243"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="331"/>
         <source>Parsing API response from Modrinth for &apos;%1&apos;...</source>
-        <translation>Modrinthdan &quot;% 1&quot; uchun API javobi tahlil qilinmoqda...</translation>
+        <translation>Modrinthdan &quot;%1&quot; uchun API javobi tahlil qilinmoqda...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="163"/>
@@ -2306,7 +2306,7 @@ Baribir ishga tushirilsinmi? Bu o&apos;yin va tizimingizda sekinlashuvga olib ke
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="165"/>
         <source>Requesting metadata information from %1 for &apos;%2&apos;...</source>
-        <translation>“% 2” uchun %1 dan metadata maʼlumotlari soʻralmoqda...</translation>
+        <translation>“%2” uchun %1 dan metadata maʼlumotlari soʻralmoqda...</translation>
     </message>
 </context>
 <context>
@@ -2684,7 +2684,7 @@ Haqiqatan ham buni qilmoqchimisiz?</translation>
 This may be permanent and it will be gone from the parent folder.
 
 Are you sure?</source>
-        <translation>Siz “% 1” jildini olib tashlamoqchisiz.
+        <translation>Siz “%1” jildini olib tashlamoqchisiz.
 Bu doimiy bo&apos;lishi mumkin va u asosiy jilddan o&apos;chiriladi.
 
 Ishonchingiz komilmi?</translation>
@@ -2702,7 +2702,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="349"/>
         <source> (%1 installed)</source>
-        <translation> (% 1 oʻrnatilgan)</translation>
+        <translation> (%1 oʻrnatilgan)</translation>
     </message>
     <message>
         <source>Select %1</source>
@@ -2726,7 +2726,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="347"/>
         <source> (%1 installed, %2 selected)</source>
-        <translation> (% 1 oʻrnatilgan, % 2 tanlangan)</translation>
+        <translation> (%1 oʻrnatilgan, %2 tanlangan)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="59"/>
@@ -2941,7 +2941,7 @@ Ishonchingiz komilmi?</translation>
         <source>Error while checking JProfiler install:
 %1</source>
         <translation>JProfiler o&apos;rnatilishini tekshirishda xatolik yuz berdi:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="176"/>
@@ -2959,7 +2959,7 @@ Ishonchingiz komilmi?</translation>
         <source>Error while checking MCEdit install:
 %1</source>
         <translation>MCEdit o&apos;rnatilishini tekshirishda xatolik yuz berdi:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="121"/>
@@ -2977,7 +2977,7 @@ Ishonchingiz komilmi?</translation>
         <source>Error while checking VisualVM install:
 %1</source>
         <translation>VisualVM o&apos;rnatilishini tekshirishda xatolik yuz berdi:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="44"/>
@@ -3015,7 +3015,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/minecraft/launch/ExtractNatives.cpp" line="75"/>
         <source>Couldn&apos;t extract native jar &apos;%1&apos; to destination &apos;%2&apos;</source>
-        <translation>“% 1” mahalliy jarni “% 2” manziliga chiqarib bo‘lmadi</translation>
+        <translation>“%1” mahalliy jarni “%2” manziliga chiqarib bo‘lmadi</translation>
     </message>
 </context>
 <context>
@@ -3314,7 +3314,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="622"/>
         <source>Copying Blocked Mods (%1 out of %2 are done)</source>
-        <translation>Bloklangan modlardan nusxa olinmoqda (%2dan 1% bajarildi)</translation>
+        <translation>Bloklangan modlardan nusxa olinmoqda (%2dan %1 bajarildi)</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="388"/>
@@ -3337,7 +3337,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="434"/>
         <source>%1 (Current)</source>
-        <translation>% 1 (Joriy)</translation>
+        <translation>%1 (Joriy)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="394"/>
@@ -3575,7 +3575,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/minecraft/mod/tasks/GetModDependenciesTask.cpp" line="193"/>
         <source>A network error occurred. Could not load project dependencies:%1</source>
-        <translation>Tarmoqda xatolik yuz berdi. Loyihaga bog‘liqliklarni yuklab bo‘lmadi:% 1</translation>
+        <translation>Tarmoqda xatolik yuz berdi. Loyihaga bog‘liqliklarni yuklab bo‘lmadi:%1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/mod/tasks/GetModDependenciesTask.cpp" line="54"/>
@@ -3907,7 +3907,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/InstanceCopyTask.cpp" line="40"/>
         <source>Copying instance %1</source>
-        <translation>Namuna nusxasi % 1</translation>
+        <translation>Namuna nusxasi %1</translation>
     </message>
     <message>
         <location filename="../launcher/InstanceCopyTask.cpp" line="186"/>
@@ -3952,7 +3952,7 @@ Ishonchingiz komilmi?</translation>
         <source>Error while creating new instance:
 %1</source>
         <translation>Yangi misol yaratishda xatolik yuz berdi:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/InstanceCreationTask.cpp" line="102"/>
@@ -3982,7 +3982,7 @@ Ishonchingiz komilmi?</translation>
         <source>Downloading modpack:
 %1</source>
         <translation>Modpack yuklab olinmoqda:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/InstanceImportTask.cpp" line="123"/>
@@ -4006,7 +4006,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/InstanceList.cpp" line="181"/>
         <source>%1 Instance</source>
-        <translation>% 1 misol</translation>
+        <translation>%1 misol</translation>
     </message>
 </context>
 <context>
@@ -4014,7 +4014,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/InstancePageProvider.h" line="52"/>
         <source>Edit Instance (%1)</source>
-        <translation>Misolni tahrirlash (% 1)</translation>
+        <translation>Misolni tahrirlash (%1)</translation>
     </message>
     <message>
         <location filename="../launcher/InstancePageProvider.h" line="48"/>
@@ -4123,7 +4123,7 @@ Ishonchingiz komilmi?</translation>
     <message>
         <location filename="../launcher/tools/JProfiler.cpp" line="29"/>
         <source>Listening on port: %1</source>
-        <translation>Portda tinglanmoqda: % 1</translation>
+        <translation>Portda tinglanmoqda: %1</translation>
     </message>
     <message>
         <location filename="../launcher/tools/JProfiler.cpp" line="35"/>
@@ -4307,7 +4307,7 @@ Ishonchingiz komilmi?</translation>
         <location filename="../launcher/ui/pages/global/JavaPage.cpp" line="112"/>
         <source>You are about to remove  the Java installation named &quot;%1&quot;.
 Are you sure?</source>
-        <translation>Siz &quot;% 1&quot; deb nomlangan Java o&apos;rnatmasini olib tashlamoqchisiz.
+        <translation>Siz &quot;%1&quot; deb nomlangan Java o&apos;rnatmasini olib tashlamoqchisiz.
 Ishonchingiz komilmi?</translation>
     </message>
     <message>
@@ -7845,7 +7845,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="261"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;% 1&apos; yangilangan! :)</translation>
+        <translation>&apos;%1&apos; yangilangan! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="311"/>
@@ -8055,7 +8055,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="288"/>
         <source>%1 (Current)</source>
-        <translation>% 1 (Joriy)</translation>
+        <translation>%1 (Joriy)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="302"/>
@@ -8267,7 +8267,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/net/NetJob.cpp" line="149"/>
         <source>Executing %1 task(s) (%2 out of %3 are done)</source>
-        <translation>%1 topshiriq(lar) bajarilmoqda (%3dan 2% bajarildi)</translation>
+        <translation>%1 topshiriq(lar) bajarilmoqda (%3dan %2 bajarildi)</translation>
     </message>
 </context>
 <context>
@@ -9609,7 +9609,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="144"/>
         <source>%1 (in use)</source>
-        <translation>% 1 (ishlatilmoqda)</translation>
+        <translation>%1 (ishlatilmoqda)</translation>
     </message>
     <message>
         <source>Ready</source>
@@ -11144,7 +11144,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="168"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;% 1&apos; yangilangan! :)</translation>
+        <translation>&apos;%1&apos; yangilangan! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="218"/>
@@ -11862,7 +11862,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="165"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;% 1&apos; yangilangan! :)</translation>
+        <translation>&apos;%1&apos; yangilangan! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="215"/>
@@ -12306,7 +12306,7 @@ Are you sure?</source>
         <source>Downloading modpack:
 %1</source>
         <translation>Modpack yuklab olinmoqda:
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/technic/SingleZipPackInstallTask.cpp" line="64"/>
@@ -12565,7 +12565,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="173"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;% 1&apos; yangilangan! :)</translation>
+        <translation>&apos;%1&apos; yangilangan! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="223"/>

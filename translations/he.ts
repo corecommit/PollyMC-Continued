@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>כניסה עם Microsoft</translation>
+        <translation>כניסה עם &amp;Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>מפתחות API</translation>
+        <translation>מפתחות &amp;API</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -1863,7 +1863,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pre-launch command runs before the instance launches and post-exit command runs after it exits.&lt;/p&gt;&lt;p&gt;Both will be run in the launcher&apos;s working folder with extra environment variables:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Name of the instance&lt;/li&gt;&lt;li&gt;$INST_ID - ID of the instance (its folder name)&lt;/li&gt;&lt;li&gt;$INST_DIR - absolute path of the instance&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - absolute path of Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java binary used for launch&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - command-line parameters used for launch (warning: will not work correctly if arguments contain spaces)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper command allows launching using an extra wrapper program (like &apos;optirun&apos; on Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>‏&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;הפקודה להרצה לפני ההפעלה מורצת לפני שהעותק מופעל, והפקודה להרצה לאחר היציאה מורצת לאחר סגירתו.&lt;/p&gt;&lt;p&gt;שתי הפקודות מורצות בתיקיית העבודה של המשגר, יחד עם משתנים סביבתיים נוספים:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;‏‎$INST_NAME‏ - שם העותק&lt;/li&gt;&lt;li&gt;‏ּ‎$INST_ID‏ - מזהה העותק (שם התיקייה שלו)&lt;/li&gt;&lt;li&gt;‎‎$INST_DIR‏ - הנתיב המלא לתיקיית העותק&lt;/li&gt;&lt;li&gt;‎$INST_MC_DIR‏ הנתיב המלא לקובץ ההרצה של Minecraft&lt;/li&gt;&lt;li&gt;‏‎$INST_JAVA‏ - הקובץ הבינרי של Java שמשמש להפעלת המשחק&lt;/li&gt;&lt;li&gt;‏‎$INST_JAVA_ARGS‏ - פרמטרים לשורת הפקודה שמשמשים להפעלה (אזהרה: הארגומנטים לא יעבדו כראוי אם הם מכילים רווחים)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;שימוש בפקודה Wrapper מאפשר הפעלה באמצעות תוכנית מעטפת נוספת (כמו ‚optirun’ הזמינה ללינוקס)&lt;/p&gt;&lt;/body&gt;&lt;/html</translation>
+        <translation>‏&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;הפקודה להרצה לפני ההפעלה מורצת לפני שהעותק מופעל, והפקודה להרצה לאחר היציאה מורצת לאחר סגירתו.&lt;/p&gt;&lt;p&gt;שתי הפקודות מורצות בתיקיית העבודה של המשגר, יחד עם משתנים סביבתיים נוספים:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;‏‎$INST_NAME‏ - שם העותק&lt;/li&gt;&lt;li&gt;‏ּ‎$INST_ID‏ - מזהה העותק (שם התיקייה שלו)&lt;/li&gt;&lt;li&gt;‎‎$INST_DIR‏ - הנתיב המלא לתיקיית העותק&lt;/li&gt;&lt;li&gt;‎$INST_MC_DIR‏ הנתיב המלא לקובץ ההרצה של Minecraft&lt;/li&gt;&lt;li&gt;‏‎$INST_JAVA‏ - הקובץ הבינרי של Java שמשמש להפעלת המשחק&lt;/li&gt;&lt;li&gt;‏‎$INST_JAVA_ARGS‏ - פרמטרים לשורת הפקודה שמשמשים להפעלה (אזהרה: הארגומנטים לא יעבדו כראוי אם הם מכילים רווחים)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;שימוש בפקודה Wrapper מאפשר הפעלה באמצעות תוכנית מעטפת נוספת (כמו ‚optirun’ הזמינה ללינוקס)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
@@ -2366,7 +2366,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>עקיפת הגדרות גלובליות</translation>
+        <translation>&amp;עקיפת הגדרות גלובליות</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2478,7 +2478,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="114"/>
         <source>&amp;Options</source>
-        <translation>ואפשרויות</translation>
+        <translation>&amp;ואפשרויות</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="135"/>
@@ -2499,7 +2499,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="209"/>
         <source>&amp;Mark disabled files as optional</source>
-        <translation>וסמן קבצים מושבתים כאופציונליים</translation>
+        <translation>&amp;וסמן קבצים מושבתים כאופציונליים</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="61"/>
@@ -2509,7 +2509,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="76"/>
         <source>&amp;Summary</source>
-        <translation>סיכום</translation>
+        <translation>&amp;סיכום</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="20"/>
@@ -2519,7 +2519,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="44"/>
         <source>&amp;Version:</source>
-        <translation>וגרסה:</translation>
+        <translation>&amp;וגרסה:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.cpp" line="166"/>
@@ -2982,7 +2982,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="44"/>
         <source>&amp;Editors</source>
-        <translation>ועורכים</translation>
+        <translation>&amp;ועורכים</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="160"/>
@@ -3682,7 +3682,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/screenshots/ImgurUpload.cpp" line="55"/>
         <source>Could not open file %1 for reading: %2</source>
-        <translation>לא ניתן היה לפתוח את הקובץ 1% לקריאה: 2%</translation>
+        <translation>לא ניתן היה לפתוח את הקובץ %1 לקריאה: %2</translation>
     </message>
 </context>
 <context>
@@ -3731,7 +3731,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.cpp" line="153"/>
         <source>The modpack %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>ערכת המודים 1% חסומה לתוכנות צד-שלישי! אנא הורד אותה ידנית.</translation>
+        <translation>ערכת המודים %1 חסומה לתוכנות צד-שלישי! אנא הורד אותה ידנית.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="43"/>
@@ -4577,7 +4577,7 @@ Do you wish to proceed without a functional version of Java?
 You can change the Java version in the settings later.
 </source>
         <translation>או שלא בחרת גרסת Java או שבחרת אחת שלא עובדת.
-1% לא יוכל להפעיל Minecraft.
+%1 לא יוכל להפעיל Minecraft.
 ברצונך להמשיך ללא גרסת Java מתפקדת?
 
 תוכל לשנות את גרסת ה-Java בהגדרות מאוחר יותר.
@@ -4606,8 +4606,8 @@ Do you wish to proceed?
 
 You can change the Java version in the settings later.
 </source>
-        <translation>בחרת גרסת 32 סיביות של Java, אך הקצאת יותר מ-2048MiB כזיכרון מרבי.
-1% לא יוכל להפעיל Minecraft.
+        <translation>בחרת גרסת 32 סיביות של Java, אך הקצית יותר מ-2048MiB כזיכרון מרבי.
+%1 לא יוכל להפעיל Minecraft.
 ברצונך להמשיך?
 
 תוכל לשנות את גרסת ה-Java בהגדרות מאוחר יותר.
@@ -5012,7 +5012,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="321"/>
         <source>&amp;Mods:</source>
-        <translation>מודים:</translation>
+        <translation>&amp;מודים:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="56"/>
@@ -6500,7 +6500,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="716"/>
         <source>Install to &amp;PATH</source>
-        <translation>התקנת נתיב לשורת הפקודה (‎$PATH)</translation>
+        <translation>התקנת נתיב לשורת הפקודה (‎$&amp;PATH)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="429"/>
@@ -7734,8 +7734,7 @@ Ignoring them may break the game.</source>
         <source>%n mod(s) will be disabled
 </source>
         <translation>
-            <numerusform>המוד יושבת
-</numerusform>
+            <numerusform>%n מוד מושבהת</numerusform>
             <numerusform>יושבתו %n מודים
 </numerusform>
         </translation>
@@ -7809,10 +7808,8 @@ Ignoring them may break the game.</source>
         <source>%n mod(s) will be enabled
 </source>
         <translation>
-            <numerusform>המוד יימחק
-</numerusform>
-            <numerusform>יימחקו %n מודים
-</numerusform>
+            <numerusform>%n מוד יופעל</numerusform>
+            <numerusform>יופעלו %n מודים</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -9632,7 +9629,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="84"/>
         <source>&amp;HTTP</source>
-        <translation>HTTP</translation>
+        <translation>&amp;HTTP</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="64"/>
@@ -9657,7 +9654,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>סיסמה:</translation>
+        <translation>&amp;סיסמה:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9682,7 +9679,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>שם משתמש:</translation>
+        <translation>&amp;שם משתמש:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -11882,12 +11879,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="29"/>
         <source>&amp;Next &gt;</source>
-        <translation>הבא</translation>
+        <translation>&amp;הבא</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>חזור</translation>
+        <translation>&amp;חזור</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>

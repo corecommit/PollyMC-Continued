@@ -469,7 +469,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Noņemt</translation>
+        <translation>&amp;Noņemt</translation>
     </message>
     <message>
         <source>Welcome!
@@ -1868,7 +1868,7 @@ Lai dzēstu šo slēdzeni un turpinātu, tālāk atlasiet “Ignorēt”.</trans
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Pārrakstīšana un vispārējie iestatījumi</translation>
+        <translation>&amp;Pārrakstīšana un vispārējie iestatījumi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -2293,7 +2293,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>Pārrakstīšana un vispārējie iestatījumi</translation>
+        <translation>&amp;Pārrakstīšana un vispārējie iestatījumi</translation>
     </message>
 </context>
 <context>
@@ -3745,7 +3745,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>Pārlādēt</translation>
+        <translation>&amp;Pārlādēt</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="146"/>
@@ -4079,7 +4079,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>Pārlādēt</translation>
+        <translation>&amp;Pārlādēt</translation>
     </message>
 </context>
 <context>
@@ -4295,7 +4295,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Atmiņa</translation>
+        <translation>&amp;Atmiņa</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -6531,7 +6531,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Dzēst grupu</translation>
+        <translation>&amp;Dzēst grupu</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>
@@ -6540,7 +6540,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Izveidot Instanci</translation>
+        <translation>&amp;Izveidot Instanci</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7062,12 +7062,12 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Rādīt laiku spēlējot instances</translation>
+        <translation>&amp;Rādīt laiku spēlējot instances</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Ierakstīt laiku spēlējot instances</translation>
+        <translation>&amp;Ierakstīt laiku spēlējot instances</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="522"/>
@@ -9407,7 +9407,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Parole:</translation>
+        <translation>&amp;Parole:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9432,12 +9432,12 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Adrese un Ports</translation>
+        <translation>&amp;Adrese un Ports</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Lietotājvārds:</translation>
+        <translation>&amp;Lietotājvārds:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -11531,7 +11531,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Vārds</translation>
+        <translation>&amp;Vārds</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
@@ -11612,12 +11612,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Pārlādēt</translation>
+        <translation>&amp;Pārlādēt</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="31"/>
         <source>&amp;Finish</source>
-        <translation>Beigt</translation>
+        <translation>&amp;Beigt</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="29"/>
@@ -11627,7 +11627,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>&lt; Atpakaļ</translation>
+        <translation>&lt; &amp;Atpakaļ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -13070,7 +13070,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Pārlādēt</translation>
+        <translation>&amp;Pārlādēt</translation>
     </message>
 </context>
 <context>
