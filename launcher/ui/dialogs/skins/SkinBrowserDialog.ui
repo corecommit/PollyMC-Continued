@@ -19,7 +19,7 @@
      <item>
       <widget class="QLineEdit" name="searchEdit">
        <property name="placeholderText">
-        <string>Search a player name…</string>
+        <string>Search by player, tag or style…</string>
        </property>
        <property name="clearButtonEnabled">
         <bool>true</bool>
