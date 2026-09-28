@@ -4,7 +4,7 @@
 
 **Added:**
 
-- A **View skins online** button in the skin manager: it opens a browser for the crafty.gg skin catalog with page navigation, player-name search, the player every skin belongs to, and a rotatable 3D preview of the selected skin
+- A **View skins online** button in the skin manager: it opens a browser for the crafty.gg skin catalog with page navigation, search by player name, tag or style, the player every skin belongs to, and a rotatable 3D preview of the selected skin
 - **Use skin** in that browser downloads the picked skin, adds it to the local skin library and applies it right away — uploaded for Microsoft accounts, stored for the offline skin agent for offline accounts
 - Online skins are cached under `cache/skins`, so opening the browser again never re-downloads textures it already has
 - Discord Rich Presence reports **Looking for skins** while the browser is open instead of the mod browser's wording
@@ -42,6 +42,9 @@
 - Applying a skin no longer fails with HTTP 401 when the account's 24 hour launcher token has expired: the token is refreshed before the upload instead of only after it
 - Discord Rich Presence now shows a card the moment the launcher opens instead of only after a game launch: the first presence is pushed before the IPC handshake completes (Discord web / arRPC clients previously received nothing at all), the mod and instance-creation browsers now actually publish their `Browsing` state (the state existed but had no callers), closing a browser dialog can no longer clear a running game's status, a failed launch no longer leaves a phantom `Playing` entry, and the playing status shows the real Minecraft version instead of `Loading...`
 - macOS release build stops failing bundle verification with `bundle contains the local source branch name`: the check now ignores compiled Qt/zstd binaries (which contain the branch name by coincidence) and only scans text plus the git refspec, so it still catches a real branch-name leak
+- Searching in the skin browser finds skins again: it asks crafty.gg's own text search (player names, tags and styles) and merges those hits with the matched player's own skins into one scrollable list, instead of jumping to one arbitrary player's skins — so a tag like `boy` shows what crafty.gg has for it and a name still shows all of that player's skins
+- Skin rows show a plain mannequin while their texture downloads instead of an empty square, and pick up the player's name with it, so results look like a normal list right away
+- crafty.gg requests that must wait now reserve their slot before waiting, so a burst of downloads (one page of textures, for example) goes out one every 500 ms instead of all at once after the same delay
 
 **Removed:**
 

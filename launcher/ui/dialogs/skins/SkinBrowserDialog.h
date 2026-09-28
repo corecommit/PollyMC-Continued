@@ -31,6 +31,7 @@
 #include "ui/dialogs/skins/draw/SkinOpenGLWindow.h"
 
 class QLabel;
+class QListWidgetItem;
 
 namespace Ui {
 class SkinBrowserDialog;
@@ -78,6 +79,8 @@ class SkinBrowserDialog : public QDialog, public SkinProvider {
     void updateDetails();
     void showError(const QString& reason);
     QPixmap iconPixmap(const Crafty::SkinPtr& skin) const;
+    // name and icon for one row, re-run when the texture (and with it the player name) arrives
+    void decorateItem(QListWidgetItem* item, const Crafty::SkinPtr& skin) const;
 
    private:
     Ui::SkinBrowserDialog* m_ui;
