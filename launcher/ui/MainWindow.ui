@@ -54,10 +54,10 @@
    <addaction name="actionFoldersButton"/>
    <addaction name="actionSettings"/>
    <addaction name="actionPerformancePresets"/>
+   <addaction name="separator"/>
    <addaction name="actionHelpButton"/>
-   <addaction name="actionCheckUpdate"/>
-<addaction name="separator"/>
-    <addaction name="actionAccountsButton"/>
+   <addaction name="separator"/>
+   <addaction name="actionAccountsButton"/>
   </widget>
   <widget class="QToolBar" name="newsToolBar">
    <property name="windowTitle">
@@ -288,7 +288,7 @@
     <iconset theme="checkupdate"/>
    </property>
    <property name="text">
-    <string>&amp;Update...</string>
+    <string>Check for update</string>
    </property>
    <property name="toolTip">
     <string>Check for new updates for %1.</string>
@@ -735,7 +735,7 @@
     <iconset theme="help"/>
    </property>
    <property name="text">
-    <string>Help</string>
+    <string>More</string>
    </property>
    <property name="toolTip">
     <string>Get help with %1 or Minecraft.</string>

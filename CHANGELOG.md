@@ -25,6 +25,8 @@
 - Linux, Windows and `.deb` CI packages hide git metadata like the macOS and Arch packages already did, so their version string has no commit-hash suffix either
 - macOS CI builds run on the macOS 15 runner: Homebrew stopped shipping macOS 14 bottles, which made the job compile `llvm@22` from source (an hour-long build that dies on a patch checksum)
 - The Help button on settings and instance pages opens the Discord server invite in your browser instead of showing a `Will fix later.` placeholder
+- The top toolbar is grouped with separators — `Add instance │ Folders, Settings, Performance presets │ More │ Accounts` — so the spacing between buttons reads evenly instead of only after the first one
+- The toolbar's Help button is now called **More**, and **Check for update** (with its icon) moved into its dropdown instead of being its own toolbar button
 
 **Fixed:**
 
