@@ -20,7 +20,6 @@
 #include "ui_SkinBrowserDialog.h"
 
 #include <QDateTime>
-#include <QDesktopServices>
 #include <QFileInfo>
 #include <QIcon>
 #include <QLabel>
