@@ -23,6 +23,7 @@
 - The main window title is just `PollyMC-Continued <version>` — the git branch/channel is no longer appended, so it reads `9.3.0` instead of `9.3.0-testing`
 - Every other window keeps its own title: the launcher name and version are no longer appended after it (Quick Setup, the offline player name dialog and all other dialogs used to end in `- PollyMC-Continued <version>`)
 - Linux, Windows and `.deb` CI packages hide git metadata like the macOS and Arch packages already did, so their version string has no commit-hash suffix either
+- macOS CI builds run on the macOS 15 runner: Homebrew stopped shipping macOS 14 bottles, which made the job compile `llvm@22` from source (an hour-long build that dies on a patch checksum)
 
 **Fixed:**
 
