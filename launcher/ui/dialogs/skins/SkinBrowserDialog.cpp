@@ -271,7 +271,6 @@ void SkinBrowserDialog::updateDetails()
 {
     const bool hasSkin = m_current && !m_current->texture.isNull();
     m_ui->useSkinBtn->setEnabled(hasSkin);
-    m_ui->siteBtn->setEnabled(m_current && !m_current->hash.isEmpty());
 
     if (!m_current) {
         m_ui->playerLabel->setText(tr("Select a skin"));
