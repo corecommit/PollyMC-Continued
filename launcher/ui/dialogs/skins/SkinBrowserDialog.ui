@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>View skins online</string>
+   <string>Browse online skins</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -96,7 +96,10 @@
      </widget>
      <widget class="QWidget" name="detailBox">
       <layout class="QVBoxLayout" name="detailLayout">
-       <item stretch="1">
+       <property name="stretch">
+        <string>1,0,0</string>
+       </property>
+       <item>
         <layout class="QVBoxLayout" name="previewLayout"/>
        </item>
        <item>
