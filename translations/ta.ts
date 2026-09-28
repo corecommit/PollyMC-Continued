@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: you only need to set this to access private data.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;குறிப்பு: தனிபட்ட தரவை அணுக மட்டுமே இதை நீங்கள் அமைக்க வேண்டும். மேலும தகவலுக್கு ஆவணங்களை&lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;ஆவடங்களை&lt;/a&gt; படிக்கவும்.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;குறிப்பு: தனிப்பட்ட தரவை அணுக மட்டுமே இதை நீங்கள் அமைக்க வேண்டும்.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
@@ -10255,7 +10255,7 @@ NOTE: Make sure you made a backup of your important instance data before updatin
     <message>
         <location filename="../launcher/ui/GuiUtil.cpp" line="159"/>
         <source>The &lt;a href=&quot;%1&quot;&gt;link to the uploaded log&lt;/a&gt; has been placed in your clipboard.</source>
-        <translation>பதிவேற்றிய பதிவுக்கான &lt;a href = &quot;%1&quot;&gt; இணைப்பு உங்கள் கிளிப்போர்டில் வைக்கப்பட்டுள்ளது.</translation>
+        <translation>பதிவேற்றிய பதிவுக்கான &lt;a href=&quot;%1&quot;&gt;இணைப்பு&lt;/a&gt;உங்கள் கிளிப்போர்டில் வைக்கப்பட்டுள்ளது.</translation>
     </message>
     <message>
         <location filename="../launcher/JavaCommon.cpp" line="58"/>
@@ -11680,12 +11680,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ScreenshotsPage.cpp" line="463"/>
         <source>The &lt;a href=&quot;%1&quot;&gt;link  to the uploaded album&lt;/a&gt; has been placed in your clipboard.</source>
-        <translation>பதிவேற்றிய ஆல்பத்திற்கான &lt;a href = &quot;%1&quot;&gt; இணைப்பு உங்கள் கிளிப்போர்டில் வைக்கப்பட்டுள்ளது.</translation>
+        <translation>பதிவேற்றிய ஆல்பத்திற்கான &lt;a href=&quot;%1&quot;&gt;இணைப்பு&lt;/a&gt;உங்கள் கிளிப்போர்டில் வைக்கப்பட்டுள்ளது.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ScreenshotsPage.cpp" line="420"/>
         <source>The &lt;a href=&quot;%1&quot;&gt;link  to the uploaded screenshot&lt;/a&gt; has been placed in your clipboard.</source>
-        <translation>பதிவேற்றிய ச்கிரீன்சாட்டுக்கான &lt;a href = &quot;%1&quot;&gt; இணைப்பு உங்கள் கிளிப்போர்டில் வைக்கப்பட்டுள்ளது.</translation>
+        <translation>பதிவேற்றிய ச்கிரீன்சாட்டுக்கான &lt;a href=&quot;%1&quot;&gt;இணைப்பு&lt;/a&gt;உங்கள் கிளிப்போர்டில் வைக்கப்பட்டுள்ளது.</translation>
     </message>
 </context>
 <context>
