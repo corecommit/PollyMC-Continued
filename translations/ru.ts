@@ -1456,7 +1456,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="808"/>
         <source>Could not download metadata for %1 %2. Please change the version or try again later.</source>
-        <translation>Не удалось скачать метаданные на 1%2%. Пожалуйста, смените версию или попробуйте ещё раз позже.</translation>
+        <translation>Не удалось скачать метаданные для %1 %2. Пожалуйста, смените версию или попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="502"/>
