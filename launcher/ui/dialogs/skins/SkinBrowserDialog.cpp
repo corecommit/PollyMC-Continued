@@ -41,6 +41,7 @@ SkinBrowserDialog::SkinBrowserDialog(QWidget* parent)
 {
     m_ui->setupUi(this);
     setWindowModality(Qt::WindowModal);
+    m_ui->detailLayout->setStretch(0, 1);
 
     auto geometry = APPLICATION->settings()->get(geometryKey).toString();
     if (geometry.isEmpty()) {
