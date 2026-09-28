@@ -56,7 +56,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>Mətn Paylaşma Xidməti/Növü</translation>
+        <translation>&amp;Mətn Paylaşma Xidməti/Növü</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -1278,7 +1278,7 @@ Bu kilidi silmək və davam etmək üçün aşağıdan &quot;Məhəl qoyma&quot;
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="158"/>
         <source>&lt;span style=&quot;color:red&quot;&gt; &amp;#x2718; Not Found &lt;/span&gt;</source>
-        <translation>&lt;span style=&quot;color:red&quot;&gt; Tapılmadı &lt;/span&gt;</translation>
+        <translation>&lt;&amp;span style=&quot;color:red&quot;&gt; Tapılmadı &lt;/span&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="178"/>
@@ -6084,7 +6084,7 @@ Bu proses qalıcı ola bilər və profili tamamilə siləcəkdir.
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="272"/>
         <source>&amp;Undo Last Instance Deletion</source>
-        <translation>Silinmiş son profili bərpa et</translation>
+        <translation>&amp;Silinmiş son profili bərpa et</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
@@ -6119,7 +6119,7 @@ Bu proses qalıcı ola bilər və profili tamamilə siləcəkdir.
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>Pəncərəni bağla</translation>
+        <translation>&amp;Pəncərəni bağla</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
@@ -7131,7 +7131,7 @@ Həmçinin URL-in etibarlı olduğundan əmin olun.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>Müddətləri hər zaman saatlarla göstər</translation>
+        <translation>Müddətləri &amp;hər zaman saatlarla göstər</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -7238,7 +7238,7 @@ Böyük ehtimalla yolu dəyişməli olacaqsınız - zəhmət olmasa, modun veb-s
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
         <source>Open &amp;Global Settings</source>
-        <translation>Qlobal tənzimləmələri aç</translation>
+        <translation>&amp;Qlobal tənzimləmələri aç</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="93"/>
@@ -7294,7 +7294,7 @@ Böyük ehtimalla yolu dəyişməli olacaqsınız - zəhmət olmasa, modun veb-s
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="325"/>
         <source>Game &amp;Time</source>
-        <translation>Oyun vaxtı</translation>
+        <translation>&amp;Oyun vaxtı</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="155"/>
@@ -7429,7 +7429,7 @@ Böyük ehtimalla yolu dəyişməli olacaqsınız - zəhmət olmasa, modun veb-s
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>Oyun pəncərəsi</translation>
+        <translation>&amp;Oyun pəncərəsi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
@@ -9821,7 +9821,7 @@ Adınızı diqqətlə seçin:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Sistem tənzimləmələrindən istifadə et</translation>
+        <translation>&amp;Sistem tənzimləmələrindən istifadə et</translation>
     </message>
 </context>
 <context>

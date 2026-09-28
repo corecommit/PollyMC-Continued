@@ -4347,7 +4347,7 @@ Tens a certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>Mínimo de uso de memória:</translation>
+        <translation>&amp;Mínimo de uso de memória:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
@@ -4401,7 +4401,7 @@ Tens a certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>Máximo de uso de memória:</translation>
+        <translation>&amp;Máximo de uso de memória:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4421,7 +4421,7 @@ Tens a certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Instalação do Java</translation>
+        <translation>&amp;Instalação do Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4441,7 +4441,7 @@ Tens a certeza?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Detectar automaticamente versão do Java</translation>
+        <translation>&amp;Detectar automaticamente versão do Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4957,7 +4957,7 @@ Talvez tenhas que resolver problemas com os teus mods porque o jogo ainda está 
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="501"/>
         <source>Log History &amp;Limit:</source>
-        <translation>Limite de Histórico de Registos:</translation>
+        <translation>&amp;Limite de Histórico de Registos:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="616"/>
@@ -6637,7 +6637,7 @@ Por favor crie uma nova instância antes de tentar instalar este recurso novamen
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="575"/>
         <source>Launcher &amp;Root</source>
-        <translation>Raíz do Launcher</translation>
+        <translation>&amp;Raíz do Launcher</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="383"/>
@@ -7219,7 +7219,7 @@ Será bem provável que deverá mudar o caminho do ficheiro ‐ por favor, leia 
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>Ativar entrada automática</translation>
+        <translation>&amp;Ativar entrada automática</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
@@ -9856,7 +9856,7 @@ Escolhe o teu nome com cuidado:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Usar Configurações do Sistema</translation>
+        <translation>&amp;Usar Configurações do Sistema</translation>
     </message>
 </context>
 <context>
@@ -12083,7 +12083,7 @@ Versão instalada atualmente: %1</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Recursos</translation>
+        <translation>&amp;Recursos</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>

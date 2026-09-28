@@ -459,7 +459,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Postavi kao podrazumevano</translation>
+        <translation>&amp;Postavi kao podrazumevano</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -469,7 +469,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Ukloni</translation>
+        <translation>&amp;Ukloni</translation>
     </message>
     <message>
         <source>Welcome!
@@ -1842,7 +1842,7 @@ Da biste obrisali ovo zaključavanje i nastavili dalje izaberite &quot;Ignoriši
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>Komanda nakon izlaza</translation>
+        <translation>&amp;Komanda nakon izlaza</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
@@ -3160,7 +3160,7 @@ Da li ste sigurni?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="265"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation>Dobijanje indeksa lokalnih metapodataka nije uspelo za 1%</translation>
+        <translation>Dobijanje indeksa lokalnih metapodataka nije uspelo za %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="241"/>
@@ -11592,7 +11592,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Osveži</translation>
+        <translation>&amp;Osveži</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -12046,7 +12046,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Избриши маску</translation>
+        <translation>&amp;Избриши маску</translation>
     </message>
 </context>
 <context>
@@ -13026,7 +13026,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Osveži</translation>
+        <translation>&amp;Osveži</translation>
     </message>
 </context>
 <context>

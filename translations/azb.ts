@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Paste Service &amp;Type</source>
-        <translation>Mətn Paylaşma xodamatı/növü</translation>
+        <translation>&amp;Mətn Paylaşma xodamatı/növü</translation>
     </message>
     <message>
         <source>Note: you probably want to change or clear the Base URL after changing the paste service type.</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Base &amp;URL</source>
-        <translation>əsas url</translation>
+        <translation>əsas &amp;url</translation>
     </message>
     <message>
         <source>(Default)</source>

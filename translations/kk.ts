@@ -132,7 +132,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="317"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: you only need to set this to access private data. Read the &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;documentation&lt;/a&gt; for more information.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ескертпе: бұны жеке ақпаратты алу үшін ғана орнату керек. Толық ақпаратты алу үшін &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;сілтемесі бойынша өтіңіз.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ескертпе: бұны жеке ақпаратты алу үшін ғана орнату керек. Толық ақпаратты алу үшін &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;сілтемесі бойынша өтіңіз.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -456,7 +456,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Әдетті қалыпқа орнату</translation>
+        <translation>&amp;Әдетті қалыпқа орнату</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -466,7 +466,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Алып тастау</translation>
+        <translation>&amp;Алып тастау</translation>
     </message>
     <message>
         <source>Welcome!
@@ -482,7 +482,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Әдетті қалыпта қолданбау</translation>
+        <translation>&amp;Әдетті қалыпта қолданбау</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -1262,7 +1262,7 @@ Prism Launcher жаңарту журналын мына жерден қараң�
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="155"/>
         <source>&lt;span style=&quot;color:green&quot;&gt; &amp;#x2714; Found at %1 &lt;/span&gt;</source>
-        <translation>&lt;span style=&quot;color:green&quot;&gt; &amp;#x2714; 1% табылды &lt;/span&gt;</translation>
+        <translation>&lt;span style=&quot;color:green&quot;&gt; &amp;#x2714; %1 табылды &lt;/span&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/BlockedModsDialog.cpp" line="160"/>
@@ -3080,7 +3080,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="265"/>
         <source>Failed to get local metadata index for %1</source>
-        <translation>% 1 үшін жергілікті метадеректер индексін алу сәтсіз аяқталды</translation>
+        <translation>%1 үшін жергілікті метадеректер индексін алу сәтсіз аяқталды</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="115"/>
@@ -5620,7 +5620,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>Процесті аяқтау</translation>
+        <translation>&amp;Процесті аяқтау</translation>
     </message>
     <message>
         <source>&amp;Meow</source>
@@ -5977,7 +5977,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
         <source>&amp;Launch</source>
-        <translation>Іске қосу</translation>
+        <translation>&amp;Іске қосу</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="35"/>

@@ -470,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Ukloniti</translation>
+        <translation>&amp;Ukloniti</translation>
     </message>
     <message>
         <source>Welcome!
@@ -2720,7 +2720,7 @@ Stvarno želiš to učiniti?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="133"/>
         <source>View &amp;Configs</source>
-        <translation>Pregled i Konfiguracija</translation>
+        <translation>&amp;Pregled i Konfiguracija</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="152"/>
@@ -2927,7 +2927,7 @@ Stvarno želiš to učiniti?</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="50"/>
         <source>&amp;Text Editor</source>
-        <translation>%Urednik Teksta</translation>
+        <translation>&amp;Urednik Teksta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="107"/>
@@ -2976,7 +2976,7 @@ Stvarno želiš to učiniti?</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="44"/>
         <source>&amp;Editors</source>
-        <translation>%Urednici</translation>
+        <translation>&amp;Urednici</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="130"/>

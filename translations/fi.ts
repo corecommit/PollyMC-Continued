@@ -145,7 +145,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Paketin manifest-tiedostoa ei voitu ymmärtää:</translation>
+        <translation>Paketin manifest-tiedostoa ei voitu ymmärtää:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -4444,7 +4445,7 @@ Oletko varma?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Tunnista Java-versio automaattisesti</translation>
+        <translation>&amp;Tunnista Java-versio automaattisesti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -5066,7 +5067,7 @@ Sinun tarvitsee ehkä korjata modisi, koska peli jatkaa silti lokin kirjoittamis
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>Tarkista mm.alakansiot estettyjä modeja varten</translation>
+        <translation>&amp;Tarkista mm.alakansiot estettyjä modeja varten</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -6144,8 +6145,8 @@ Oletko varma?</translation>
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
         <source> and its %n registered shortcut(s)</source>
         <translation>
-            <numerusform> ja sen % rekisteröity oikotie</numerusform>
-            <numerusform> ja sen % rekisteröidyt oikotiet</numerusform>
+            <numerusform> ja sen %n rekisteröity oikotie</numerusform>
+            <numerusform> ja sen %n rekisteröidyt oikotiet</numerusform>
         </translation>
     </message>
     <message>
@@ -8391,13 +8392,13 @@ Päivitä %1!</translation>
         <location filename="../launcher/net/NetRequest.cpp" line="276"/>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
-        <translation>Pyyntö rajoitettu %n sekunniksi: yritä uudelleen %1 jälkeen</translation>
+        <translation><numerusform>Pyyntö rajoitettu %n sekunniksi: yritä uudelleen %1 jälkeen</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/net/NetRequest.cpp" line="281"/>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
-        <translation>Rajoitettu: odotetaan %n sekuntia</translation>
+        <translation><numerusform>Rajoitettu: odotetaan %n sekuntia</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
@@ -9326,7 +9327,7 @@ Standardivirhe (stderr): %2</translation>
         <source>Backing up:
   %1</source>
         <translation>Varmuuskopioidaan:
-  %2</translation>
+  %1</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="303"/>
@@ -9847,7 +9848,7 @@ Valitse käyttäjänimi huolellisesti:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>Käytä järjestelmän asetuksia</translation>
+        <translation>&amp;Käytä järjestelmän asetuksia</translation>
     </message>
 </context>
 <context>
@@ -11174,7 +11175,7 @@ Tekijä on todennäköisesti estänyt kolmansien osapuolten käynnistysohjelmat.
     <message>
         <location filename="../launcher/ui/pages/modplatform/ResourcePage.cpp" line="277"/>
         <source>Deselect %1 for download</source>
-        <translation>Poista latausmerkintä</translation>
+        <translation>Poista %1 latausvalinnasta</translation>
     </message>
 </context>
 <context>
@@ -11750,7 +11751,7 @@ Oletko varma, että haluat tehdä näin?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/ReviewMessageBox.cpp" line="118"/>
         <source>Confirm %1 selection</source>
-        <translation>Vahvista valinta</translation>
+        <translation>Vahvista %1-valinta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ReviewMessageBox.cpp" line="64"/>
@@ -11835,7 +11836,7 @@ Oletko varma, että haluat tehdä näin?</translation>
 You should double-check for personal information.
 
 Are you sure?</source>
-        <translation>Olet lähettämässä valitun näyttökuvan verkkopalveluun osoitteessa %2.
+        <translation>Olet lähettämässä valitun näyttökuvan verkkopalveluun osoitteessa %1.
 Sinun kannattaa vahvistaa, onko sisällössä mitään henkilökohtaista tietoa.
 
 Oletko varma?</translation>

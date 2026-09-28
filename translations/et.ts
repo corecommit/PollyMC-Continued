@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -2830,7 +2830,7 @@ Kas oled kindel?</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="236"/>
         <source>&amp;VisualVM</source>
-        <translation>%VisuaalneVM</translation>
+        <translation>&amp;VisuaalneVM</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="101"/>
@@ -4352,7 +4352,7 @@ Kas oled kindel?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Tuvasta Java versioon automaatselt</translation>
+        <translation>&amp;Tuvasta Java versioon automaatselt</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -5931,7 +5931,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="407"/>
         <source>&amp;Change Group...</source>
-        <translation>Muuda gruppi...</translation>
+        <translation>&amp;Muuda gruppi...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1822"/>
@@ -11476,7 +11476,7 @@ Are you sure?</source>
 This may be permanent and it will be gone from the folder.
 
 Are you sure?</source>
-        <translation>Hakkad kustutama &quot;%1&quot;
+        <translation>Hakkad kustutama valitud ekraanipilti.
 See võib olla püsiv ning see kaob kaustast.
 
 Kas oled kindel?</translation>
@@ -11992,7 +11992,7 @@ Kas oled kindel?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="178"/>
         <source>&amp;Rename Skin</source>
-        <translation>%Nimeta välimus ümber</translation>
+        <translation>&amp;Nimeta välimus ümber</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="429"/>

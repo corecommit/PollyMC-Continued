@@ -1637,7 +1637,7 @@ Til að eyða þessum lás og halda áfram skaltu velja &quot;Hunsa&quot; fyrir 
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="96"/>
         <source>Reflinks are supported on %1</source>
-        <translation>Ref-tenglar eru studdir á % 1</translation>
+        <translation>Re-tenglar eru studdir á %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="98"/>
@@ -1845,7 +1845,7 @@ Til að eyða þessum lás og halda áfram skaltu velja &quot;Hunsa&quot; fyrir 
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pre-launch command runs before the instance launches and post-exit command runs after it exits.&lt;/p&gt;&lt;p&gt;Both will be run in the launcher&apos;s working folder with extra environment variables:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Name of the instance&lt;/li&gt;&lt;li&gt;$INST_ID - ID of the instance (its folder name)&lt;/li&gt;&lt;li&gt;$INST_DIR - absolute path of the instance&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - absolute path of Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java binary used for launch&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - command-line parameters used for launch (warning: will not work correctly if arguments contain spaces)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper command allows launching using an extra wrapper program (like &apos;optirun&apos; on Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Forræsa skipun keyrir áður en tilvikið er ræst og before exit skipunin keyrir eftir að það hættir.&lt;/p&gt;&lt;p&gt;Báðar verða keyrðar í vinnumöppu ræsiforritsins með auka umhverfisbreytur:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Heiti tilviks&lt;/li&gt;&lt;li&gt;$INST_ID - auðkenni tilviks (möppuheiti þess)&lt;/li&gt;&lt;li&gt;$INST_DIR - algert slóð tilviksins&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - alger slóð Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java tvöfaldur notaður fyrir ræsingu&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - skipanalínufæribreytur notaðar fyrir ræsingu (viðvörun: mun ekki virka rétt ef rök innihalda bil)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper skipun gerir kleift að ræsa með því að nota auka umbúðaforrit (eins og &apos;optirun&apos; á Linux)&lt;/p&gt;&lt;/body&gt;&lt;/ html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Forræsa skipun keyrir áður en tilvikið er ræst og before exit skipunin keyrir eftir að það hættir.&lt;/p&gt;&lt;p&gt;Báðar verða keyrðar í vinnumöppu ræsiforritsins með auka umhverfisbreytur:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Heiti tilviks&lt;/li&gt;&lt;li&gt;$INST_ID - auðkenni tilviks (möppuheiti þess)&lt;/li&gt;&lt;li&gt;$INST_DIR - algert slóð tilviksins&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - alger slóð Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java tvöfaldur notaður fyrir ræsingu&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - skipanalínufæribreytur notaðar fyrir ræsingu (viðvörun: mun ekki virka rétt ef rök innihalda bil)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper skipun gerir kleift að ræsa með því að nota auka umbúðaforrit (eins og &apos;optirun&apos; á Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
@@ -2092,7 +2092,7 @@ Ertu viss?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="151"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/DataPackPage.cpp" line="32"/>
@@ -2352,7 +2352,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="183"/>
         <source>&amp;Files</source>
-        <translation>$Skrár</translation>
+        <translation>$&amp;Skrár</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="31"/>
@@ -2888,7 +2888,7 @@ Ertu viss?</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="50"/>
         <source>&amp;Text Editor</source>
-        <translation>Textaritill</translation>
+        <translation>&amp;Textaritill</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="44"/>
@@ -6527,7 +6527,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>&amp;Eyða hóp &apos;%1&apos;</translation>
+        <translation>&amp;Eyða hóp</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7685,7 +7685,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="261"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ModFolderPage.cpp" line="311"/>
@@ -10946,7 +10946,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="168"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ResourcePackPage.cpp" line="218"/>
@@ -11664,7 +11664,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="165"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ShaderPackPage.cpp" line="215"/>
@@ -12363,7 +12363,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="173"/>
         <source>&apos;%1&apos; is up-to-date! :)</source>
-        <translation>&apos;&amp;1&apos; er uppfært! :)</translation>
+        <translation>&apos;%1&apos; er uppfært! :)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/TexturePackPage.cpp" line="223"/>

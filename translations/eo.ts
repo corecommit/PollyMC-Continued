@@ -1452,7 +1452,7 @@ Forigi ĉi tiun seruron kaj procedi elektitan &quot;Ignoras&quot; malsupre.</tra
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="508"/>
         <source>Instance has unresolved dependencies while loading/checking for launch.</source>
-        <translation> </translation>
+        <translation>La instanco havas nesolvitajn dependecojn durante la sxargado/kontrolo antau lanco.</translation>
     </message>
 </context>
 <context>
@@ -3727,7 +3727,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>Aktualigi</translation>
+        <translation>&amp;Aktualigi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="146"/>
@@ -3927,7 +3927,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>Mortigi</translation>
+        <translation>&amp;Mortigi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="98"/>
@@ -4232,7 +4232,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Memoro</translation>
+        <translation>&amp;Memoro</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4953,7 +4953,7 @@ Granting %1 access to it via Flatseal is recommended.</source>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="338"/>
         <source>&amp;Downloads:</source>
-        <translation>Elŝutaĵoj:</translation>
+        <translation>&amp;Elŝutaĵoj:</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -5786,7 +5786,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="166"/>
         <source>&amp;Edit</source>
-        <translation>Redakti</translation>
+        <translation>&amp;Redakti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="64"/>
@@ -5796,7 +5796,7 @@ Reason:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="142"/>
         <source>&amp;File</source>
-        <translation>Dosiero</translation>
+        <translation>&amp;Dosiero</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="213"/>
@@ -5941,7 +5941,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="407"/>
         <source>&amp;Change Group...</source>
-        <translation>Ŝanĝi grupon...</translation>
+        <translation>&amp;Ŝanĝi grupon...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1822"/>
@@ -5991,7 +5991,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>Fermi fenestron</translation>
+        <translation>&amp;Fermi fenestron</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="638"/>
@@ -6170,7 +6170,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>Eksporti...</translation>
+        <translation>&amp;Eksporti...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="741"/>
@@ -6210,7 +6210,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="768"/>
         <source>&amp;Widget Themes</source>
-        <translation>Aplikaĵaj etosoj</translation>
+        <translation>&amp;Aplikaĵaj etosoj</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1301"/>
@@ -6290,12 +6290,12 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>Pri %1</translation>
+        <translation>&amp;Pri %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
         <source>&amp;Accounts</source>
-        <translation>Kontoj</translation>
+        <translation>&amp;Kontoj</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="749"/>
@@ -6331,7 +6331,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="291"/>
         <source>&amp;Update...</source>
-        <translation>Ĝisdatigi...</translation>
+        <translation>&amp;Ĝisdatigi...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="564"/>
@@ -6356,7 +6356,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
         <source>&amp;Folder</source>
-        <translation>Dosierujo</translation>
+        <translation>&amp;Dosierujo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
@@ -6406,7 +6406,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="594"/>
         <source>&amp;Rename group</source>
-        <translation>Renomi grupon</translation>
+        <translation>&amp;Renomi grupon</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="383"/>
@@ -6428,7 +6428,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="693"/>
         <source>&amp;Clear Metadata Cache</source>
-        <translation>Malplenigi metadatuman kaŝmemoron</translation>
+        <translation>&amp;Malplenigi metadatuman kaŝmemoron</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
@@ -6458,7 +6458,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Forigi grupon</translation>
+        <translation>&amp;Forigi grupon</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>
@@ -6805,7 +6805,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="311"/>
         <source>Launch &amp;Demo</source>
-        <translation>Lanĉi provoversion</translation>
+        <translation>&amp;Lanĉi provoversion</translation>
     </message>
 </context>
 <context>
@@ -8379,7 +8379,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="171"/>
         <source>&amp;Copy</source>
-        <translation>Kopii</translation>
+        <translation>&amp;Kopii</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="178"/>
@@ -8406,7 +8406,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="35"/>
         <source>&amp;Find</source>
-        <translation>Serĉi</translation>
+        <translation>&amp;Serĉi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="483"/>
@@ -9384,7 +9384,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Pasvorto:</translation>
+        <translation>&amp;Pasvorto:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="74"/>
@@ -11531,7 +11531,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Nomo</translation>
+        <translation>&amp;Nomo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
@@ -11612,7 +11612,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Aktualigi</translation>
+        <translation>&amp;Aktualigi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="31"/>
@@ -13061,7 +13061,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Aktualigi</translation>
+        <translation>&amp;Aktualigi</translation>
     </message>
 </context>
 <context>

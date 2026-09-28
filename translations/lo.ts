@@ -145,7 +145,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>ບໍ່ສາມາດເຂົ້າໃຈ manifest ຂອງ pack ໄດ້:</translation>
+        <translation>ບໍ່ສາມາດເຂົ້າໃຈ manifest ຂອງ pack ໄດ້:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -449,12 +450,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>ຍ້າຍຂຶ້ນ</translation>
+        <translation>&amp;ຍ້າຍຂຶ້ນ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>ຍ້າຍລົງ</translation>
+        <translation>&amp;ຍ້າຍລົງ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -1879,7 +1880,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>ປ່ຽນແທນການຕັ້ງຄ່າສາກົນ</translation>
+        <translation>&amp;ປ່ຽນແທນການຕັ້ງຄ່າສາກົນ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -2359,7 +2360,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>ປ່ຽນແທນການຕັ້ງຄ່າສາກົນ</translation>
+        <translation>&amp;ປ່ຽນແທນການຕັ້ງຄ່າສາກົນ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2893,7 +2894,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="236"/>
         <source>&amp;VisualVM</source>
-        <translation>VisualVM</translation>
+        <translation>&amp;VisualVM</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="101"/>
@@ -2916,7 +2917,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="144"/>
         <source>&amp;Profilers</source>
-        <translation>ເຄື່ອງມືວິເຄາະປະສິດທິພາບ</translation>
+        <translation>&amp;ເຄື່ອງມືວິເຄາະປະສິດທິພາບ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="162"/>
@@ -2939,7 +2940,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="176"/>
         <source>J&amp;Profiler</source>
-        <translation>JProfiler</translation>
+        <translation>&amp;JProfiler</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="74"/>
@@ -2962,7 +2963,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="97"/>
         <source>&amp;MCEdit</source>
-        <translation>MCEdit</translation>
+        <translation>&amp;MCEdit</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="136"/>
@@ -2975,7 +2976,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.ui" line="44"/>
         <source>&amp;Editors</source>
-        <translation>ເຄື່ອງມືແກ້ໄຂ</translation>
+        <translation>&amp;ເຄື່ອງມືແກ້ໄຂ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ExternalToolsPage.cpp" line="160"/>
@@ -3839,7 +3840,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>ໂຫຼດໃໝ່</translation>
+        <translation>&amp;ໂຫຼດໃໝ່</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="146"/>
@@ -4039,7 +4040,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>ປິດເກມທັນທີ</translation>
+        <translation>&amp;ປິດເກມທັນທີ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="106"/>
@@ -4059,7 +4060,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="89"/>
         <source>&amp;Launch</source>
-        <translation>ເປີດເກມ</translation>
+        <translation>&amp;ເປີດເກມ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="57"/>
@@ -4168,7 +4169,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>ໂຫຼດໃໝ່</translation>
+        <translation>&amp;ໂຫຼດໃໝ່</translation>
     </message>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="288"/>
@@ -4285,7 +4286,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>ທົດສອບການຕັ້ງຄ່າ</translation>
+        <translation>&amp;ທົດສອບການຕັ້ງຄ່າ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4310,12 +4311,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>ການໃຊ້ໜ່ວຍຄວາມຈຳຕ່ຳສຸດ:</translation>
+        <translation>&amp;ການໃຊ້ໜ່ວຍຄວາມຈຳຕ່ຳສຸດ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>ໜ່ວຍຄວາມຈຳ</translation>
+        <translation>&amp;ໜ່ວຍຄວາມຈຳ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4325,7 +4326,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="123"/>
         <source>Auto-download &amp;Mojang Java</source>
-        <translation>ດາວໂຫຼດ Java ຂອງ Mojang ອັດຕະໂນມັດ</translation>
+        <translation>ດາວໂຫຼດ Java ຂອງ &amp;Mojang ອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="153"/>
@@ -4335,7 +4336,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="295"/>
         <source>&amp;PermGen Size:</source>
-        <translation>ຂະໜາດ PermGen:</translation>
+        <translation>ຂະໜາດ &amp;PermGen:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="229"/>
@@ -4345,7 +4346,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>ອາຄິວເມັນຂອງ Java</translation>
+        <translation>&amp;ອາຄິວເມັນຂອງ Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4364,7 +4365,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>ການໃຊ້ໜ່ວຍຄວາມຈຳສູງສຸດ:</translation>
+        <translation>&amp;ການໃຊ້ໜ່ວຍຄວາມຈຳສູງສຸດ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4374,7 +4375,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
         <source>Java &amp;Executable</source>
-        <translation>ໄຟລ໌ເຮັດວຽກຂອງ Java</translation>
+        <translation>&amp;ໄຟລ໌ເຮັດວຽກຂອງ Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="130"/>
@@ -4384,17 +4385,17 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>ການຕິດຕັ້ງ Java</translation>
+        <translation>&amp;ການຕິດຕັ້ງ Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
         <source>&amp;Browse</source>
-        <translation>ເລືອກເບິ່ງ</translation>
+        <translation>&amp;ເລືອກເບິ່ງ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="44"/>
         <source>&amp;Detect</source>
-        <translation>ກວດຫາ</translation>
+        <translation>&amp;ກວດຫາ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="269"/>
@@ -4404,7 +4405,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>ກວດຫາເວີຊັນ Java ອັດຕະໂນມັດ</translation>
+        <translation>&amp;ກວດຫາເວີຊັນ Java ອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4414,7 +4415,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>ເປີດຕົວດາວໂຫຼດ Java</translation>
+        <translation>&amp;ເປີດຕົວດາວໂຫຼດ Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -4781,7 +4782,7 @@ You need to purchase the game first to play the full version.</source>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="438"/>
         <source>&amp;Launch</source>
-        <translation>ເປີດເກມ</translation>
+        <translation>&amp;ເປີດເກມ</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="209"/>
@@ -4914,7 +4915,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="501"/>
         <source>Log History &amp;Limit:</source>
-        <translation>ຂີດຈຳກັດປະຫວັດ Log:</translation>
+        <translation>ຂີດຈຳກັດປະຫວັດ &amp;Log:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="616"/>
@@ -4968,7 +4969,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="321"/>
         <source>&amp;Mods:</source>
-        <translation>ມອດ:</translation>
+        <translation>&amp;ມອດ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="56"/>
@@ -5018,7 +5019,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>ກວດສອບໂຟນເດີຍ່ອຍສຳລັບມອດທີ່ຖືກບລັອກ</translation>
+        <translation>&amp;ກວດສອບໂຟນເດີຍ່ອຍສຳລັບມອດທີ່ຖືກບລັອກ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -5063,7 +5064,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="338"/>
         <source>&amp;Downloads:</source>
-        <translation>ການດາວໂຫຼດ:</translation>
+        <translation>&amp;ການດາວໂຫຼດ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="202"/>
@@ -5088,7 +5089,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>ຢຸດບັນທຶກເມື່ອ log ເກີນຂີດຈຳກັດ</translation>
+        <translation>&amp;ຢຸດບັນທຶກເມື່ອ log ເກີນຂີດຈຳກັດ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="199"/>
@@ -5123,12 +5124,12 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>ຕາມການເປີດໃຊ້ຫຼ້າສຸດ</translation>
+        <translation>&amp;ຕາມການເປີດໃຊ້ຫຼ້າສຸດ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
         <source>I&amp;nstances:</source>
-        <translation>ອິນສະແຕນຊ໌:</translation>
+        <translation>&amp;ອິນສະແຕນຊ໌:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="486"/>
@@ -5143,17 +5144,17 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="394"/>
         <source>&amp;Icons:</source>
-        <translation>ໄອຄອນ:</translation>
+        <translation>&amp;ໄອຄອນ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
         <source>By &amp;name</source>
-        <translation>ຕາມຊື່</translation>
+        <translation>&amp;ຕາມຊື່</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
         <source>&amp;Skins:</source>
-        <translation>ສະກິນ:</translation>
+        <translation>&amp;ສະກິນ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="171"/>
@@ -5163,7 +5164,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="161"/>
         <source>&amp;Replace toolbar with menubar</source>
-        <translation>ປ່ຽນແຖບເຄື່ອງມືເປັນແຖບເມນູ</translation>
+        <translation>&amp;ປ່ຽນແຖບເຄື່ອງມືເປັນແຖບເມນູ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -5189,7 +5190,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="291"/>
         <source>&amp;Auto Java Download:</source>
-        <translation>ດາວໂຫຼດ Java ອັດຕະໂນມັດ:</translation>
+        <translation>&amp;ດາວໂຫຼດ Java ອັດຕະໂນມັດ:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="126"/>
@@ -7679,9 +7680,9 @@ Ignoring them may break the game.</source>
         <source>The disabled mod(s) are required by %n mod(s).
 </source>
         <translation>
-            <numerusform>mod ທີ່ປິດໃຊ້ງານເປັນທີ່ຕ້ອງການຂອງອີກ %n mod.\n
+            <numerusform>mod ທີ່ປິດໃຊ້ງານເປັນທີ່ຕ້ອງການຂອງອີກ %n mod.
 </numerusform>
-            <numerusform>mod ທີ່ປິດໃຊ້ງານເປັນທີ່ຕ້ອງການຂອງອີກ %n mod.\n
+            <numerusform>mod ທີ່ປິດໃຊ້ງານເປັນທີ່ຕ້ອງການຂອງອີກ %n mod.
 </numerusform>
         </translation>
     </message>
@@ -7710,9 +7711,9 @@ Ignoring them may break the game.</source>
         <source>The enabled mod(s) require %n mod(s).
 </source>
         <translation>
-            <numerusform>mod ທີ່ເປີດໃຊ້ງານຕ້ອງການອີກ %n mod.\n
+            <numerusform>mod ທີ່ເປີດໃຊ້ງານຕ້ອງການອີກ %n mod.
 </numerusform>
-            <numerusform>mod ທີ່ເປີດໃຊ້ງານຕ້ອງການອີກ %n mod.\n
+            <numerusform>mod ທີ່ເປີດໃຊ້ງານຕ້ອງການອີກ %n mod.
 </numerusform>
         </translation>
     </message>
@@ -8319,13 +8320,13 @@ Please update %1!</source>
         <location filename="../launcher/net/NetRequest.cpp" line="276"/>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
-        <translation>ຄຳຂໍຖືກຈຳກັດ %n ວິນາທີ: ລອງໃໝ່ຫຼັງ %1</translation>
+        <translation><numerusform>ຄຳຂໍຖືກຈຳກັດ %n ວິນາທີ: ລອງໃໝ່ຫຼັງ %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/net/NetRequest.cpp" line="281"/>
         <source>Rate Limited: Waiting %n second(s)</source>
         <comment>seconds</comment>
-        <translation>ຈຳກັດອັດຕາ: ກຳລັງລໍຖ້າ %n ວິນາທີ</translation>
+        <translation><numerusform>ຈຳກັດອັດຕາ: ກຳລັງລໍຖ້າ %n ວິນາທີ</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Request Rate Limited for %n second(s): Retry After %1</source>

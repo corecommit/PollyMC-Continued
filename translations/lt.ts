@@ -429,7 +429,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
-        <translation>Pridėti neprijungtą paskyrą</translation>
+        <translation>&amp;Pridėti neprijungtą paskyrą</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="85"/>
@@ -449,27 +449,27 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Perkelti aukštyn</translation>
+        <translation>&amp;Perkelti aukštyn</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Perkelti žemyn</translation>
+        <translation>&amp;Perkelti žemyn</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Nustatyti numatytąjį</translation>
+        <translation>&amp;Nustatyti numatytąjį</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>Atnaujinti</translation>
+        <translation>&amp;Atnaujinti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Pašalinti</translation>
+        <translation>&amp;Pašalinti</translation>
     </message>
     <message>
         <source>Welcome!
@@ -485,7 +485,7 @@ Jeigu esate čia pirmą kartą, galite pasirinkti &quot;Pridėti Microsoft&quot;
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Nėra numatytojo</translation>
+        <translation>&amp;Nėra numatytojo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -500,7 +500,7 @@ Jeigu esate čia pirmą kartą, galite pasirinkti &quot;Pridėti Microsoft&quot;
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>Pridėti Microsoft Paskyrą</translation>
+        <translation>&amp;Pridėti Microsoft Paskyrą</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="171"/>
@@ -1852,7 +1852,7 @@ Norėdami ištrinti šį užraktą ir tęsti, toliau pasirinkite „Ignoruoti“
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pre-launch command runs before the instance launches and post-exit command runs after it exits.&lt;/p&gt;&lt;p&gt;Both will be run in the launcher&apos;s working folder with extra environment variables:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME - Name of the instance&lt;/li&gt;&lt;li&gt;$INST_ID - ID of the instance (its folder name)&lt;/li&gt;&lt;li&gt;$INST_DIR - absolute path of the instance&lt;/li&gt;&lt;li&gt;$INST_MC_DIR - absolute path of Minecraft&lt;/li&gt;&lt;li&gt;$INST_JAVA - Java binary used for launch&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS - command-line parameters used for launch (warning: will not work correctly if arguments contain spaces)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Wrapper command allows launching using an extra wrapper program (like &apos;optirun&apos; on Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Komanda prieš paleidimą vykdoma prieš paleidžiant egzempliorių, o komanda po išėjimo vykdoma jam išėjus.&lt;/p&gt;&lt;p&gt;Abu bus vykdomi paleidimo priemonės darbiniame aplanke su papildomais aplinkos kintamaisiais:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME – egzemplioriaus pavadinimas&lt;/li&gt;&lt;li&gt;$INST_ID – egzemplioriaus kelias&lt;/li&gt;&gt; absoliutusis egzemplioriaus pavadinimas (jo aplankas)&lt;/li&gt;. INST_MC_DIR – absoliutus Minecraft kelias&lt;/li&gt;&lt;li&gt;$INST_JAVA – paleidimui naudojamas „Java“ dvejetainis failas&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS – paleidimui naudojami komandų eilutės parametrai (įspėjimas: neveiks tinkamai, jei argumentuose yra tarpų)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Komanda „Wrapper“ leidžia paleisti naudojant papildomą įpakavimo programą (pvz., „Linux“/opp&gt;)&lt;/html&gt;&lt;p&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Komanda prieš paleidimą vykdoma prieš paleidžiant egzempliorių, o komanda po išėjimo vykdoma jam išėjus.&lt;/p&gt;&lt;p&gt;Abu bus vykdomi paleidimo priemonės darbiniame aplanke su papildomais aplinkos kintamaisiais:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$INST_NAME – egzemplioriaus pavadinimas&lt;/li&gt;&lt;li&gt;$INST_ID – egzemplioriaus identifikatorius (jo aplanko vardas)&lt;/li&gt;&lt;li&gt;$INST_DIR – absoliutusis egzemplioriaus kelias&lt;/li&gt;&lt;li&gt;$INST_MC_DIR – absoliutus Minecraft kelias&lt;/li&gt;&lt;li&gt;$INST_JAVA – paleidimui naudojamas „Java“ dvejetainis failas&lt;/li&gt;&lt;li&gt;$INST_JAVA_ARGS – paleidimui naudojami komandų eilutės parametrai (įspėjimas: neveiks tinkamai, jei argumentuose yra tarpų)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Komanda „Wrapper“ leidžia paleisti naudojant papildomą įpakavimo programą (pvz., &quot;optirun&quot; Linux)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
@@ -2263,13 +2263,13 @@ Vis tiek paleisti? Tai gali sulėtinti žaidimą ir jūsų sistemą.</translatio
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="390"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="458"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &quot;% 1&quot;...</translation>
+        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &quot;%1&quot;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="243"/>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="331"/>
         <source>Parsing API response from Modrinth for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš Modrinth, skirtas &apos;% 1&apos;...</translation>
+        <translation>Analizuojamas API atsakymas iš Modrinth, skirtas &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="163"/>
@@ -2284,7 +2284,7 @@ Vis tiek paleisti? Tai gali sulėtinti žaidimą ir jūsų sistemą.</translatio
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="165"/>
         <source>Requesting metadata information from %1 for &apos;%2&apos;...</source>
-        <translation>Prašoma metaduomenų informacijos iš % 1, skirtos &apos;% 2&apos;...</translation>
+        <translation>Prašoma metaduomenų informacijos iš %1, skirtos &apos;%2&apos;...</translation>
     </message>
 </context>
 <context>
@@ -2680,7 +2680,7 @@ Ar tu tuo tikras?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="349"/>
         <source> (%1 installed)</source>
-        <translation> (% 1 įdiegta)</translation>
+        <translation> (%1 įdiegta)</translation>
     </message>
     <message>
         <source>Select %1</source>
@@ -2704,7 +2704,7 @@ Ar tu tuo tikras?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="347"/>
         <source> (%1 installed, %2 selected)</source>
-        <translation> (% 1 įdiegta, % 2 pasirinkta)</translation>
+        <translation> (%1 įdiegta, %2 pasirinkta)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="59"/>
@@ -2811,7 +2811,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="163"/>
         <source>Check for &amp;Updates</source>
-        <translation>Tikrinti, ar yra atnaujinimų</translation>
+        <translation>&amp;Tikrinti, ar yra atnaujinimų</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="218"/>
@@ -2993,7 +2993,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/minecraft/launch/ExtractNatives.cpp" line="75"/>
         <source>Couldn&apos;t extract native jar &apos;%1&apos; to destination &apos;%2&apos;</source>
-        <translation>Nepavyko išskleisti vietinio jar archyvo &quot;% 1&quot; į paskirties vietą &quot;% 2&quot;</translation>
+        <translation>Nepavyko išskleisti vietinio jar archyvo &quot;%1&quot; į paskirties vietą &quot;%2&quot;</translation>
     </message>
 </context>
 <context>
@@ -3058,7 +3058,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="375"/>
         <source>Copying Blocked Mods (%1 out of %2 are done)</source>
-        <translation>Kopijuojamos užblokuotos modifikacijos (% 1 iš % 2 atlikta)</translation>
+        <translation>Kopijuojamos užblokuotos modifikacijos (%1 iš %2 atlikta)</translation>
     </message>
 </context>
 <context>
@@ -3125,7 +3125,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="254"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakas iš CurseForge už &apos;1%&apos;...</translation>
+        <translation>Analizuojamas API atsakas iš CurseForge už &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FileResolvingTask.cpp" line="127"/>
@@ -3149,7 +3149,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="93"/>
         <source>Parsing the API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš CurseForge skirtas „% 1“...</translation>
+        <translation>Analizuojamas API atsakymas iš CurseForge skirtas „%1“...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameCheckUpdate.cpp" line="40"/>
@@ -3287,12 +3287,12 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="120"/>
         <source> (version %1)</source>
-        <translation> (versija % 1)</translation>
+        <translation> (versija %1)</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="622"/>
         <source>Copying Blocked Mods (%1 out of %2 are done)</source>
-        <translation>Kopijuojamos užblokuotos modifikacijos (% 1 iš % 2 atlikta)</translation>
+        <translation>Kopijuojamos užblokuotos modifikacijos (%1 iš %2 atlikta)</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="388"/>
@@ -3315,7 +3315,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="434"/>
         <source>%1 (Current)</source>
-        <translation>% 1 (dabartinis)</translation>
+        <translation>%1 (dabartinis)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="394"/>
@@ -3329,7 +3329,7 @@ Ar jūs tuo tikras?</translation>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="219"/>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="282"/>
         <source>Parsing API response from CurseForge for &apos;%1&apos;...</source>
-        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &apos;% 1&apos;...</translation>
+        <translation>Analizuojamas API atsakymas iš CurseForge, skirtas &apos;%1&apos;...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlamePackExportTask.cpp" line="51"/>
@@ -3545,7 +3545,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/tools/GenericProfiler.cpp" line="39"/>
         <source>Started process: %1</source>
-        <translation>Pradėtas procesas: 1%</translation>
+        <translation>Pradėtas procesas: %1</translation>
     </message>
 </context>
 <context>
@@ -3962,7 +3962,7 @@ Ar jūs tuo tikras?</translation>
     <message>
         <location filename="../launcher/InstancePageProvider.h" line="52"/>
         <source>Edit Instance (%1)</source>
-        <translation>Redaguoti Instanciją (1%)</translation>
+        <translation>Redaguoti Instanciją (%1)</translation>
     </message>
 </context>
 <context>
@@ -4286,7 +4286,7 @@ Ar tikrai?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Atmintis</translation>
+        <translation>&amp;Atmintis</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
@@ -4321,7 +4321,7 @@ Ar tikrai?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Java argumentai</translation>
+        <translation>&amp;Java argumentai</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4381,7 +4381,7 @@ Ar tikrai?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Java Įdiegimas</translation>
+        <translation>&amp;Java Įdiegimas</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -6401,7 +6401,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1002"/>
         <source>The modpack, mod, or resource %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>Šis modpack, modas ar šaltinis yra blokuojamas trečiosioms šalims. Prašome atsisiųsti patiems.</translation>
+        <translation>Šis modpack, modas ar šaltinis %1 yra blokuojamas trečiosioms šalims. Prašome atsisiųsti patiems.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
@@ -7198,7 +7198,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
         <source>&amp;Performance</source>
-        <translation>Našumas</translation>
+        <translation>&amp;Našumas</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="638"/>
@@ -8019,7 +8019,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="66"/>
         <source> (version %1)</source>
-        <translation> (versija % 1)</translation>
+        <translation> (versija %1)</translation>
     </message>
 </context>
 <context>
@@ -8032,7 +8032,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="288"/>
         <source>%1 (Current)</source>
-        <translation>% 1 (dabartinis)</translation>
+        <translation>%1 (dabartinis)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ManagedPackPage.cpp" line="302"/>
@@ -8546,7 +8546,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="35"/>
         <source>&amp;Find</source>
-        <translation>Rasti</translation>
+        <translation>&amp;Rasti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="483"/>
@@ -11660,7 +11660,7 @@ Dabar įdiegta versija: %1</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Pavadinimas</translation>
+        <translation>&amp;Pavadinimas</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
@@ -11751,7 +11751,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Atnaujinti</translation>
+        <translation>&amp;Atnaujinti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -12205,7 +12205,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Ištrinti Išvaizdą</translation>
+        <translation>&amp;Ištrinti Išvaizdą</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="389"/>
@@ -13198,7 +13198,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Atnaujinti</translation>
+        <translation>&amp;Atnaujinti</translation>
     </message>
 </context>
 <context>

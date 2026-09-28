@@ -4409,7 +4409,7 @@ Apakah Anda yakin?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Memori</translation>
+        <translation>&amp;Memori</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="238"/>
@@ -4439,7 +4439,7 @@ Apakah Anda yakin?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="358"/>
         <source>Java Argumen&amp;ts</source>
-        <translation>Argumen Java</translation>
+        <translation>&amp;Argumen Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="210"/>
@@ -4478,7 +4478,7 @@ Apakah Anda yakin?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Instalasi Java</translation>
+        <translation>&amp;Instalasi Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4498,7 +4498,7 @@ Apakah Anda yakin?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Deteksi-Otomatis versi Java</translation>
+        <translation>&amp;Deteksi-Otomatis versi Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4508,7 +4508,7 @@ Apakah Anda yakin?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>Pengunduh Java Terbuka</translation>
+        <translation>&amp;Pengunduh Java Terbuka</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -6084,7 +6084,7 @@ Anda harus memperbaiki masalah ini secara manual.</translation>
 This may be permanent and will completely delete the instance.
 
 Are you sure?</source>
-        <translation>Anda akan menghapus &quot;%1&quot;.
+        <translation>Anda akan menghapus &quot;%1&quot;%2.
 Ini mungkin permanen dan akan sepenuhnya menghapus instansi ini.
 
 Apakah Anda yakin?</translation>
@@ -7359,7 +7359,7 @@ Kemungkinan besar kamu akan perlu mengubah path - silakan merujuk ke situs mod.<
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="258"/>
         <source>&amp;Global Data Packs</source>
-        <translation>Data Pack Global</translation>
+        <translation>Data Pack &amp;Global</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="536"/>

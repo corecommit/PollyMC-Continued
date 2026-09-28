@@ -145,7 +145,8 @@
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="124"/>
         <source>Could not understand pack manifest:
 </source>
-        <translation>Impossibile capire il manifesto del pack:</translation>
+        <translation>Impossibile capire il manifesto del pack:
+</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/atlauncher/ATLPackInstallTask.cpp" line="146"/>
@@ -429,7 +430,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
-        <translation>Aggiungi Offline</translation>
+        <translation>Aggiungi &amp;Offline</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="85"/>
@@ -459,7 +460,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Imposta predefinito</translation>
+        <translation>&amp;Imposta predefinito</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -469,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Elimina</translation>
+        <translation>&amp;Elimina</translation>
     </message>
     <message>
         <source>Welcome!
@@ -485,7 +486,7 @@ Se sei nuovo qui, puoi selezionare il pulsante &quot;Aggiungi Microsoft&quot; pe
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Nessun predefinito</translation>
+        <translation>&amp;Nessun predefinito</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -500,7 +501,7 @@ Se sei nuovo qui, puoi selezionare il pulsante &quot;Aggiungi Microsoft&quot; pe
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>Aggiungi Microsoft</translation>
+        <translation>&amp;Aggiungi Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="171"/>
@@ -1666,7 +1667,7 @@ Per rimuovere questo blocco e procedere selezione &quot;Ignora&quot; di seguito.
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="96"/>
         <source>Reflinks are supported on %1</source>
-        <translation>I reflinks sono supportati su 1%</translation>
+        <translation>I reflink sono supportati su %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.cpp" line="98"/>
@@ -2860,7 +2861,7 @@ Sei sicuro?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="163"/>
         <source>Check for &amp;Updates</source>
-        <translation>Controlla Aggiornamenti</translation>
+        <translation>&amp;Controlla Aggiornamenti</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="218"/>
@@ -4124,7 +4125,7 @@ Sei sicuro?</translation>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>Termina</translation>
+        <translation>&amp;Termina</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="106"/>
@@ -4152,7 +4153,7 @@ Sei sicuro?</translation>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="89"/>
         <source>&amp;Launch</source>
-        <translation>Avvia</translation>
+        <translation>&amp;Avvia</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="57"/>
@@ -4477,7 +4478,7 @@ Sei sicuro?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>Installazione Java</translation>
+        <translation>&amp;Installazione Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4497,7 +4498,7 @@ Sei sicuro?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="35"/>
         <source>Auto-&amp;detect Java version</source>
-        <translation>Rileva automaticamente la versione Java</translation>
+        <translation>&amp;Rileva automaticamente la versione Java</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="197"/>
@@ -4880,7 +4881,7 @@ Devi acquistare il gioco prima di giocare la versione completa.</translation>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="438"/>
         <source>&amp;Launch</source>
-        <translation>Avvia</translation>
+        <translation>&amp;Avvia</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="209"/>
@@ -5207,7 +5208,7 @@ Potresti dover correggere le mod perché il gioco sta continuando a registrare s
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Interrompere il log in caso di overflow</translation>
+        <translation>&amp;Interrompere il log in caso di overflow</translation>
     </message>
     <message>
         <source>Download game files during instance creation</source>
@@ -6016,7 +6017,7 @@ Dovrai correggere questo problema manualmente.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="166"/>
         <source>&amp;Edit</source>
-        <translation>Modifica</translation>
+        <translation>&amp;Modifica</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="64"/>
@@ -6031,7 +6032,7 @@ Dovrai correggere questo problema manualmente.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="213"/>
         <source>&amp;Help</source>
-        <translation>Aiuto</translation>
+        <translation>&amp;Aiuto</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="319"/>
@@ -6056,7 +6057,7 @@ Dovrai correggere questo problema manualmente.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>Termina</translation>
+        <translation>&amp;Termina</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="801"/>
@@ -6186,12 +6187,12 @@ Sei sicuro/a?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="272"/>
         <source>&amp;Undo Last Instance Deletion</source>
-        <translation>Annulla l&apos;ultima eliminazione di Istanza</translation>
+        <translation>Annulla l&apos;&amp;ultima eliminazione di Istanza</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
         <source>Add Instanc&amp;e...</source>
-        <translation>Aggiungi istanza...</translation>
+        <translation>&amp;Aggiungi istanza...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="657"/>
@@ -6221,7 +6222,7 @@ Sei sicuro/a?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>Chiudi finestra</translation>
+        <translation>&amp;Chiudi finestra</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
@@ -6406,7 +6407,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
         <source>Cop&amp;y...</source>
-        <translation>Copia...</translation>
+        <translation>&amp;Copia...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="600"/>
@@ -6486,7 +6487,7 @@ Per favore crea una nuova istanza prima di reinstallare questa risorsa.</transla
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="330"/>
         <source>&amp;Manage Accounts...</source>
-        <translation>Gestisci gli account...</translation>
+        <translation>&amp;Gestisci gli account...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="660"/>
@@ -6546,7 +6547,7 @@ Per favore crea una nuova istanza prima di reinstallare questa risorsa.</transla
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>Informazioni su %1</translation>
+        <translation>&amp;Informazioni su %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
@@ -6592,7 +6593,7 @@ Per favore crea una nuova istanza prima di reinstallare questa risorsa.</transla
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="291"/>
         <source>&amp;Update...</source>
-        <translation>Aggiorna...</translation>
+        <translation>&amp;Aggiorna...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="564"/>
@@ -6607,12 +6608,12 @@ Per favore crea una nuova istanza prima di reinstallare questa risorsa.</transla
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="454"/>
         <source>Dele&amp;te</source>
-        <translation>Cancella</translation>
+        <translation>&amp;Cancella</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Setti&amp;ngs...</source>
-        <translation>Impostazioni...</translation>
+        <translation>&amp;Impostazioni...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
@@ -6632,7 +6633,7 @@ Per favore crea una nuova istanza prima di reinstallare questa risorsa.</transla
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
         <source>&amp;Launch</source>
-        <translation>Avvia</translation>
+        <translation>&amp;Avvia</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="528"/>
@@ -6753,7 +6754,7 @@ Per pulire i metadati manualmente, premi Cartelle -&gt; Cartella del launcher, c
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
         <source>F&amp;olders</source>
-        <translation>Cartelle</translation>
+        <translation>&amp;Cartelle</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="727"/>
@@ -6783,7 +6784,7 @@ Per pulire i metadati manualmente, premi Cartelle -&gt; Cartella del launcher, c
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Eliminare gruppo &apos;%1&apos;</translation>
+        <translation>&amp;Elimina gruppo</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>
@@ -7122,7 +7123,7 @@ Assicurarsi anche di fidarsi dell&apos;URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="307"/>
         <source>&amp;Launch</source>
-        <translation>Avvia</translation>
+        <translation>&amp;Avvia</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="330"/>
@@ -7534,7 +7535,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Mostra il tempo trascorso giocando ad un&apos;istanza</translation>
+        <translation>&amp;Mostra il tempo trascorso giocando ad un&apos;istanza</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
@@ -7544,7 +7545,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Registra il tempo trascorso giocando ad un&apos;istanza</translation>
+        <translation>&amp;Registra il tempo trascorso giocando ad un&apos;istanza</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="692"/>
@@ -9926,7 +9927,7 @@ Scegli attentamente il tuo nome:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Password:</translation>
+        <translation>&amp;Password:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9941,12 +9942,12 @@ Scegli attentamente il tuo nome:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Indirizzo e Porta</translation>
+        <translation>&amp;Indirizzo e Porta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Username:</translation>
+        <translation>&amp;Username:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -12199,7 +12200,7 @@ Versione attualmente installata: %1</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Risorse</translation>
+        <translation>&amp;Risorse</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>

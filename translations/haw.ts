@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Paste Service &amp;Type</source>
-        <translation>&apos;Ano Lawelawe Pākī</translation>
+        <translation>&apos;&amp;Ano Lawelawe Pākī</translation>
     </message>
     <message>
         <source>Note: you probably want to change or clear the Base URL after changing the paste service type.</source>

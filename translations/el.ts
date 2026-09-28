@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>Επαληθευτής Microsoft</translation>
+        <translation>Επαληθευτής &amp;Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -46,7 +46,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>meta και διακομιστής δεδομένων</translation>
+        <translation>&amp;meta και διακομιστής δεδομένων</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="346"/>
         <source>&amp;CurseForge</source>
-        <translation>CurseForge</translation>
+        <translation>&amp;CurseForge</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="408"/>
         <source>&amp;Technic</source>
-        <translation>Technic</translation>
+        <translation>&amp;Technic</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="80"/>
@@ -430,7 +430,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="95"/>
         <source>Add &amp;Offline</source>
-        <translation>Προσθήκη λογαριασμού εκτος σύνδεσης</translation>
+        <translation>&amp;Προσθήκη λογαριασμού εκτος σύνδεσης</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="85"/>
@@ -460,7 +460,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>Ορίσετε ως προεπιλογή</translation>
+        <translation>&amp;Ορίσετε ως προεπιλογή</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -470,7 +470,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Καταστρέφω</translation>
+        <translation>&amp;Καταστρέφω</translation>
     </message>
     <message>
         <source>Welcome!
@@ -486,7 +486,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>Καμία προεπιλογή</translation>
+        <translation>&amp;Καμία προεπιλογή</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -2724,7 +2724,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="152"/>
         <source>&amp;Download</source>
-        <translation>%Εγκατάσταση</translation>
+        <translation>%&amp;Εγκατάσταση</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="155"/>
@@ -2785,7 +2785,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="103"/>
         <source>&amp;Remove</source>
-        <translation>%Αφαίρεση</translation>
+        <translation>%&amp;Αφαίρεση</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="133"/>
@@ -3280,7 +3280,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="594"/>
         <source>%1 out of %2 complete</source>
-        <translation>1% από τα 2% ολοκληρωμένο</translation>
+        <translation>%1 από τα %2 ολοκληρωμένο</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="298"/>
@@ -4858,7 +4858,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/minecraft/auth/steps/LauncherLoginStep.cpp" line="71"/>
         <source>Failed to parse the Minecraft access token response.</source>
-        <translation>Αποτυχία ανάγνωσης της απάντησης για το διακριτικό πρόσβασης στο Minecraft: %1.</translation>
+        <translation>Αποτυχία ανάλυσης της απάντησης του διακριτικού πρόσβασης Minecraft.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/LauncherLoginStep.cpp" line="74"/>
@@ -4921,7 +4921,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="321"/>
         <source>&amp;Mods:</source>
-        <translation>Πρόσθετα:</translation>
+        <translation>&amp;Πρόσθετα:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="56"/>
@@ -5108,7 +5108,7 @@ Granting %1 access to it via Flatseal is recommended.</source>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
         <source>I&amp;nstances:</source>
-        <translation>Εγκαταστάσεις:</translation>
+        <translation>&amp;Εγκαταστάσεις:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
@@ -5168,12 +5168,12 @@ Granting %1 access to it via Flatseal is recommended.</source>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="394"/>
         <source>&amp;Icons:</source>
-        <translation>Εικονίδια:</translation>
+        <translation>&amp;Εικονίδια:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
         <source>By &amp;name</source>
-        <translation>Κατά όνομα</translation>
+        <translation>&amp;Κατά όνομα</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
@@ -5514,7 +5514,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="93"/>
         <source>&amp;Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>&amp;Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="113"/>
@@ -8057,7 +8057,7 @@ Please update %1!</source>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="285"/>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="309"/>
         <source>%1 out of %2 complete</source>
-        <translation>1% από 2% ολοκληρωμένο/α</translation>
+        <translation>%1 από %2 ολοκληρωμένο/α</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/modrinth/ModrinthInstanceCreationTask.cpp" line="181"/>
@@ -8394,7 +8394,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="56"/>
         <source>&amp;Name:</source>
-        <translation>Όνομα:</translation>
+        <translation>&amp;Όνομα:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.cpp" line="120"/>
@@ -8404,7 +8404,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="39"/>
         <source>&amp;Group:</source>
-        <translation>Ομάδα:</translation>
+        <translation>&amp;Ομάδα:</translation>
     </message>
 </context>
 <context>
@@ -8552,7 +8552,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="171"/>
         <source>&amp;Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>&amp;Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="181"/>
@@ -9560,7 +9560,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="64"/>
         <source>&amp;None</source>
-        <translation>Κανένα</translation>
+        <translation>&amp;Κανένα</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.h" line="56"/>
@@ -11695,12 +11695,12 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Όνομα</translation>
+        <translation>&amp;Όνομα</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Πόροι</translation>
+        <translation>&amp;Πόροι</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>
@@ -11786,17 +11786,17 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="31"/>
         <source>&amp;Finish</source>
-        <translation>Ολοκλήρωση</translation>
+        <translation>&amp;Ολοκλήρωση</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="29"/>
         <source>&amp;Next &gt;</source>
-        <translation>Επόμενο &gt;</translation>
+        <translation>&amp;Επόμενο &gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>&lt; Προηγούμενο</translation>
+        <translation>&lt; &amp;Προηγούμενο</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>

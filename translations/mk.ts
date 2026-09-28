@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>API клучеви</translation>
+        <translation>&amp;API клучеви</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -1023,7 +1023,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/auth/AuthFlow.cpp" line="145"/>
         <source>Unknown account task state: %1</source>
-        <translation>Непозната состојба на задача на сметката: % 1</translation>
+        <translation>Непозната состојба на задача на сметката: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AuthFlow.cpp" line="123"/>
@@ -2215,7 +2215,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/modplatform/EnsureMetadataTask.cpp" line="165"/>
         <source>Requesting metadata information from %1 for &apos;%2&apos;...</source>
-        <translation>Барање информации за метаподатоци од % 1 за &apos;%2&apos;...</translation>
+        <translation>Барање информации за метаподатоци од %1 за &apos;%2&apos;...</translation>
     </message>
 </context>
 <context>
@@ -11455,7 +11455,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="75"/>
         <source>&amp;Name</source>
-        <translation>Име</translation>
+        <translation>&amp;Име</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="88"/>

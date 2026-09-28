@@ -449,12 +449,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation>Gå opp</translation>
+        <translation>&amp;Gå opp</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation>Gå ned</translation>
+        <translation>&amp;Gå ned</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
@@ -812,7 +812,7 @@ For å slette denne låsfilen og fortsette, velg «Ignorer» nedenfor.</translat
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
-        <translation>Fant gammel data fra %1, men du har allerede eksisterende data for %2. Du må dessverre overføre dataene selv. Vil du bli påminnet om den pågående dataoverføringen neste gang du starter 2%?</translation>
+        <translation>Fant gammel data fra %1, men du har allerede eksisterende data for %2. Du må dessverre overføre dataene selv. Vil du bli påminnet om den pågående dataoverføringen neste gang du starter %2?</translation>
     </message>
 </context>
 <context>
@@ -2388,7 +2388,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="114"/>
         <source>&amp;Options</source>
-        <translation>%Innstillinger</translation>
+        <translation>&amp;Innstillinger</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="135"/>
@@ -4194,7 +4194,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>Test innstillinger</translation>
+        <translation>&amp;Test innstillinger</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4219,7 +4219,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>Minimalt minnebruk:</translation>
+        <translation>&amp;Minimalt minnebruk:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
@@ -4269,7 +4269,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>Maksimalt minnebruk:</translation>
+        <translation>&amp;Maksimalt minnebruk:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4279,7 +4279,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="143"/>
         <source>Java &amp;Executable</source>
-        <translation>Java-kjørefil</translation>
+        <translation>&amp;Java-kjørefil</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="130"/>
@@ -4319,7 +4319,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="82"/>
         <source>Open Java &amp;Downloader</source>
-        <translation>Åpne Java-nedlaster</translation>
+        <translation>&amp;Åpne Java-nedlaster</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="279"/>
@@ -4814,7 +4814,7 @@ Det kan hende at du må fikse modsene dine, siden spillet logger fortsatt til fi
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="501"/>
         <source>Log History &amp;Limit:</source>
-        <translation>Logghistorikkgrense:</translation>
+        <translation>&amp;Logghistorikkgrense:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="616"/>
@@ -4924,7 +4924,7 @@ Det kan hende at du må fikse modsene dine, siden spillet logger fortsatt til fi
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>Sjekk undermapper for blokkerte mods</translation>
+        <translation>&amp;Sjekk undermapper for blokkerte mods</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -5097,8 +5097,8 @@ Det kan hende at du må fikse modsene dine, siden spillet logger fortsatt til fi
 This is known to cause problems. After a restart the launcher might break, because it will no longer have access to that directory.
 
 Granting %1 access to it via Flatseal is recommended.</source>
-        <translation>Du prøver å spesifisere en instansmappe som %1 har fått tilgang til midlertidig via Flatpak.
-Dette kan forårsake problemer. Etter en omstart får ikke %1 tilgang til den mappen lenger.
+        <translation>Du prøver å spesifisere en instansmappe som ble gitt midlertidig tilgang via Flatpak.
+Dette kan forårsake problemer. Etter en omstart får ikke launcheren tilgang til den mappen lenger.
 
 Det anbefales å gi %1 tilgang til mappen via Flatseal.</translation>
     </message>
@@ -5924,7 +5924,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="272"/>
         <source>&amp;Undo Last Instance Deletion</source>
-        <translation>Angre forrige sletting av instanse</translation>
+        <translation>&amp;Angre forrige sletting av instanse</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
@@ -5965,7 +5965,7 @@ Er du sikker?</translation>
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
         <source> and its %n registered shortcut(s)</source>
         <translation>
-            <numerusform> og sin % nregistrerte snarvei</numerusform>
+            <numerusform> og sin %n registrerte snarvei</numerusform>
             <numerusform> og sine %n registrerte snarveier</numerusform>
         </translation>
     </message>
@@ -6457,7 +6457,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="594"/>
         <source>&amp;Rename group</source>
-        <translation>Omdøp gruppe</translation>
+        <translation>&amp;Omdøp gruppe</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="575"/>
@@ -6499,7 +6499,7 @@ Trykk på Folders → View Launcher Root Folder, og etter at launcheren er lukke
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
         <source>F&amp;olders</source>
-        <translation>Mapper</translation>
+        <translation>&amp;Mapper</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="727"/>
@@ -6550,7 +6550,7 @@ Sjekk papirkurven din for å manuelt gjenopprette dem.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Opprett instans</translation>
+        <translation>&amp;Opprett instans</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -6849,7 +6849,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="309"/>
         <source>Launch &amp;Offline</source>
-        <translation>Start %Offline</translation>
+        <translation>Start &amp;Offline</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="1032"/>
@@ -6894,7 +6894,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="311"/>
         <source>Launch &amp;Demo</source>
-        <translation>Start %demo</translation>
+        <translation>Start &amp;demo</translation>
     </message>
 </context>
 <context>
@@ -6979,7 +6979,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>Vis alltid varighet i timer</translation>
+        <translation>&amp;Vis alltid varighet i timer</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -7004,7 +7004,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>Vindusstørrelse:</translation>
+        <translation>&amp;Vindusstørrelse:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7036,7 +7036,7 @@ Det er mest sannsynlig at du må endre banen – se modens nettsted for mer info
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="222"/>
         <source>&amp;Console Window</source>
-        <translation>Konsollvindu</translation>
+        <translation>&amp;Konsollvindu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
@@ -7046,7 +7046,7 @@ Det er mest sannsynlig at du må endre banen – se modens nettsted for mer info
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
         <source>&amp;Performance</source>
-        <translation>Ytelse</translation>
+        <translation>&amp;Ytelse</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="638"/>
@@ -7142,7 +7142,7 @@ Det er mest sannsynlig at du må endre banen – se modens nettsted for mer info
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="325"/>
         <source>Game &amp;Time</source>
-        <translation>Spilltid</translation>
+        <translation>&amp;Spilltid</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="155"/>
@@ -7212,7 +7212,7 @@ Det er mest sannsynlig at du må endre banen – se modens nettsted for mer info
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>Vis tid og spill denne instansen</translation>
+        <translation>&amp;Vis tid og spill denne instansen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7267,12 +7267,12 @@ Det er mest sannsynlig at du må endre banen – se modens nettsted for mer info
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Vis spilltid for instanser</translation>
+        <translation>&amp;Vis spilltid for instanser</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>Spillvindu</translation>
+        <translation>&amp;Spillvindu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="85"/>
@@ -7297,7 +7297,7 @@ Det er mest sannsynlig at du må endre banen – se modens nettsted for mer info
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>Vis total spilletid på tvers av forekomster</translation>
+        <translation>Vis &amp;total spilletid på tvers av forekomster</translation>
     </message>
 </context>
 <context>
@@ -9472,7 +9472,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Passord:</translation>
+        <translation>&amp;Passord:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="74"/>
@@ -9502,7 +9502,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Brukernavn:</translation>
+        <translation>&amp;Brukernavn:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>

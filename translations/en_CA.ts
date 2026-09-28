@@ -4898,7 +4898,7 @@ You need to purchase the game first to play the full version.</translation>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="182"/>
         <source>An error occurred while refreshing &apos;%1&apos;</source>
-        <translation>An error occurred while refreshing &apos;1%&apos;</translation>
+        <translation>An error occurred while refreshing &apos;%1&apos;</translation>
     </message>
     <message>
         <source>In order to play Minecraft, you must have at least one Microsoft account which owns Minecraft logged in. Would you like to open the account manager to add an account now?</source>
@@ -6752,7 +6752,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Delete group &apos;%1&apos;</translation>
+        <translation>&amp;Delete group</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>
@@ -6773,7 +6773,7 @@ Please check your trashbin to manually restore them.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Create instance</translation>
+        <translation>&amp;Create instance</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -8448,8 +8448,8 @@ Please update %1!</translation>
         <source>Request Rate Limited for %n second(s): Retry After %1</source>
         <comment>seconds</comment>
         <translation>
-            <numerusform>Request Rate Limited for %in second:Retry After %1</numerusform>
-            <numerusform>Request Rate Limited for %in seconds: Retry After %1</numerusform>
+            <numerusform>Request Rate Limited for %n second:Retry After %1</numerusform>
+            <numerusform>Request Rate Limited for %n seconds: Retry After %1</numerusform>
         </translation>
     </message>
     <message numerus="yes">

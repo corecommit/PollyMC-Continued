@@ -6,7 +6,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="233"/>
         <source>&amp;Microsoft Authentication</source>
-        <translation>مصادقة Microsoft</translation>
+        <translation>مصادقة &amp;Microsoft</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="227"/>
         <source>&amp;API Keys</source>
-        <translation>مفاتيح واجهة برمجة التطبيقات</translation>
+        <translation>&amp;مفاتيح واجهة برمجة التطبيقات</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
@@ -51,7 +51,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
         <source>Mod&amp;rinth</source>
-        <translation>Modrinth</translation>
+        <translation>&amp;Modrinth</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
@@ -459,7 +459,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="69"/>
         <source>&amp;Set Default</source>
-        <translation>تعيين كافتراضي</translation>
+        <translation>&amp;تعيين كافتراضي</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -469,7 +469,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>إزالة</translation>
+        <translation>&amp;إزالة</translation>
     </message>
     <message>
         <source>Welcome!
@@ -485,7 +485,7 @@ If you&apos;re new here, you can select the &quot;Add Microsoft&quot; button to 
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="77"/>
         <source>&amp;No Default</source>
-        <translation>إزالة الافتراضي</translation>
+        <translation>&amp;إزالة الافتراضي</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="106"/>
@@ -636,7 +636,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="103"/>
         <source>&amp;Icons:</source>
-        <translation>أيقونات:</translation>
+        <translation>&amp;أيقونات:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="218"/>
@@ -674,7 +674,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/Application.cpp" line="2026"/>
         <source>Migration failed! Reason: %1</source>
-        <translation>فشل الترحيل! السبب: ٪1</translation>
+        <translation>فشل الترحيل! السبب: %1</translation>
     </message>
     <message>
         <source>Update succeeded
@@ -712,12 +712,12 @@ for details on the last update attempt.</source>
     <message>
         <location filename="../launcher/Application.cpp" line="1980"/>
         <source>It looks like you used %1 on %2 before. Do you want to migrate your data to the new location of %3?</source>
-        <translation>يبدو أنك استخدمت ٪1 على٪2 من قبل. هل تريد ترحيل البيانات إلى الموقع الجديد ٪3؟</translation>
+        <translation>يبدو أنك استخدمت %1 على %2 من قبل. هل تريد ترحيل بياناتك إلى الموقع الجديد %3؟</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1974"/>
         <source>It looks like you used %1 before. Do you want to migrate your data to the new location of %2?</source>
-        <translation>يبدو أنك استخدمت ٪1 من قبل. هل تريد ترحيل البيانات إلى الموقع الجديد ٪2؟</translation>
+        <translation>يبدو أنك استخدمت %1 من قبل. هل تريد ترحيل بياناتك إلى الموقع الجديد %2؟</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1066"/>
@@ -812,7 +812,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/Application.cpp" line="1970"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
-        <translation>تم العثور على بيانات قديمة من ٪ 1 ولكن لديك بالفعل بيانات موجودة ل ٪ 2. للأسف سوف تحتاج إلى الانتقال بنفسك. هل تريد أن يتم تذكيرك بترحيل البيانات المعلقة في المرة القادمة التي تبدأ فيها ٪2؟</translation>
+        <translation>تم العثور على بيانات قديمة من %1 ولكن لديك بالفعل بيانات موجودة لـ%2. للأسف ستحتاج إلى الترحيل بنفسك. هل تريد أن يُذكّرك بترحيل البيانات المعلّقة في المرة القادمة التي تبدأ فيها %2؟</translation>
     </message>
 </context>
 <context>
@@ -1450,7 +1450,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="249"/>
         <source>Downloading metadata for %1 components</source>
-        <translation>جري تنزيل البيانات الوصفية لالمكونات 1%</translation>
+        <translation>جارٍ تنزيل البيانات الوصفية لـ%1 مكوّن</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="508"/>
@@ -1853,12 +1853,12 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="86"/>
         <source>P&amp;ost-exit Command</source>
-        <translation>أمر ما بعد الخروج</translation>
+        <translation>&amp;أمر ما بعد الخروج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="99"/>
         <source>&amp;Wrapper Command</source>
-        <translation>أمر المجمع</translation>
+        <translation>&amp;أمر المجمع</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="128"/>
@@ -1868,7 +1868,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="29"/>
         <source>Override &amp;Global Settings</source>
-        <translation>تجاوز الإعدادات العالمية</translation>
+        <translation>&amp;تجاوز الإعدادات العالمية</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/CustomCommands.ui" line="54"/>
@@ -2366,7 +2366,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="20"/>
         <source>Override &amp;Global Settings</source>
-        <translation>تجاوز و الإعدادات العامة</translation>
+        <translation>&amp;تجاوز و الإعدادات العامة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
@@ -2458,7 +2458,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="31"/>
         <source>&amp;Name:</source>
-        <translation>الاسم:</translation>
+        <translation>&amp;الاسم:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.cpp" line="131"/>
@@ -2483,7 +2483,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="135"/>
         <source>&amp;Recommended Memory:</source>
-        <translation>الذاكرة الموصى بها:</translation>
+        <translation>&amp;الذاكرة الموصى بها:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.cpp" line="165"/>
@@ -2504,7 +2504,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="61"/>
         <source>&amp;Author:</source>
-        <translation>مؤلف:</translation>
+        <translation>&amp;مؤلف:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="76"/>
@@ -2519,7 +2519,7 @@ This instance cannot be launched because some libraries are missing or have not 
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.ui" line="44"/>
         <source>&amp;Version:</source>
-        <translation>الإصدار:</translation>
+        <translation>&amp;الإصدار:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/ExportPackDialog.cpp" line="166"/>
@@ -2746,7 +2746,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="152"/>
         <source>&amp;Download</source>
-        <translation>تنزيل</translation>
+        <translation>&amp;تنزيل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="155"/>
@@ -2779,10 +2779,10 @@ Are you sure?</source>
 This may be permanent and they will be gone from the folder.
 
 Are you sure?</source>
-        <translation>أنت على وشك إزالة ٪ 1 عناصر.
-قد يكون هذا دائم وستحذف العناصر من الملف
+        <translation>أنت على وشك إزالة %1 عنصرًا.
+قد يكون هذا دائمًا وسيختفي العنصر من المجلد.
 
-هل أنت متأكد؟؟</translation>
+هل أنت متأكد؟</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="92"/>
@@ -3075,7 +3075,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="85"/>
         <source>Failed to find pack version %1</source>
-        <translation>فشل وجود هذي النسخة لهذا الحزمة 1%</translation>
+        <translation>تعذّر العثور على إصدار الحزمة %1</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="375"/>
@@ -4085,7 +4085,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="97"/>
         <source>&amp;Kill</source>
-        <translation>اقتل</translation>
+        <translation>&amp;اقتل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="106"/>
@@ -4113,7 +4113,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="89"/>
         <source>&amp;Launch</source>
-        <translation>شغّل</translation>
+        <translation>&amp;شغّل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/InstanceWindow.cpp" line="57"/>
@@ -4339,7 +4339,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="75"/>
         <source>Test S&amp;ettings</source>
-        <translation>اختبر ال%إعدادات</translation>
+        <translation>&amp;اختبر ال%إعدادات</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.cpp" line="278"/>
@@ -4364,7 +4364,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="322"/>
         <source>M&amp;inimum Memory Usage:</source>
-        <translation>الحد الأدنى لاستخدام الذاكرة:</translation>
+        <translation>&amp;الحد الأدنى لاستخدام الذاكرة:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
@@ -4418,7 +4418,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="312"/>
         <source>Ma&amp;ximum Memory Usage:</source>
-        <translation>الحد الأقصى لاستخدام الذاكرة:</translation>
+        <translation>&amp;الحد الأقصى لاستخدام الذاكرة:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="120"/>
@@ -4438,7 +4438,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="23"/>
         <source>Java Insta&amp;llation</source>
-        <translation>تثبيت الجافا</translation>
+        <translation>&amp;تثبيت الجافا</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="51"/>
@@ -4841,7 +4841,7 @@ You need to purchase the game first to play the full version.</source>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="438"/>
         <source>&amp;Launch</source>
-        <translation>شغّل</translation>
+        <translation>&amp;شغّل</translation>
     </message>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="209"/>
@@ -5090,7 +5090,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="416"/>
         <source>Check &amp;subfolders for blocked mods</source>
-        <translation>ابحث في المجلدات الفرعية على الإضافات المحظورة</translation>
+        <translation>&amp;ابحث في المجلدات الفرعية على الإضافات المحظورة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="284"/>
@@ -5135,7 +5135,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="338"/>
         <source>&amp;Downloads:</source>
-        <translation>التنزيلات :</translation>
+        <translation>&amp;التنزيلات :</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="202"/>
@@ -5164,7 +5164,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>توقف عن التسجيل عند فيض السجل</translation>
+        <translation>&amp;توقف عن التسجيل عند فيض السجل</translation>
     </message>
     <message>
         <source>Download game files during instance creation</source>
@@ -5223,7 +5223,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="394"/>
         <source>&amp;Icons:</source>
-        <translation>الأيقونات:</translation>
+        <translation>&amp;الأيقونات:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
@@ -5233,7 +5233,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="311"/>
         <source>&amp;Skins:</source>
-        <translation>المظاهر:</translation>
+        <translation>&amp;المظاهر:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="171"/>
@@ -5243,7 +5243,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="161"/>
         <source>&amp;Replace toolbar with menubar</source>
-        <translation>استبدال شريط الأدوات بشريط القوائم</translation>
+        <translation>&amp;استبدال شريط الأدوات بشريط القوائم</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -5952,12 +5952,12 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="779"/>
         <source>I&amp;con Theme</source>
-        <translation>سمات الأيقونات</translation>
+        <translation>&amp;سمات الأيقونات</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="166"/>
         <source>&amp;Edit</source>
-        <translation>تعديل</translation>
+        <translation>&amp;تعديل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="64"/>
@@ -5967,12 +5967,12 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="142"/>
         <source>&amp;File</source>
-        <translation>ملف</translation>
+        <translation>&amp;ملف</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="213"/>
         <source>&amp;Help</source>
-        <translation>مساعدة</translation>
+        <translation>&amp;مساعدة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="319"/>
@@ -5997,7 +5997,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="360"/>
         <source>&amp;Kill</source>
-        <translation>اقتل</translation>
+        <translation>&amp;اقتل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="801"/>
@@ -6016,7 +6016,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="175"/>
         <source>&amp;View</source>
-        <translation>عرض</translation>
+        <translation>&amp;عرض</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1532"/>
@@ -6112,7 +6112,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="407"/>
         <source>&amp;Change Group...</source>
-        <translation>تغيير المجموعة...</translation>
+        <translation>&amp;تغيير المجموعة...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1822"/>
@@ -6127,17 +6127,17 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="272"/>
         <source>&amp;Undo Last Instance Deletion</source>
-        <translation>عودة عن آخر عملية حذف نموذج</translation>
+        <translation>&amp;عودة عن آخر عملية حذف نموذج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="280"/>
         <source>Add Instanc&amp;e...</source>
-        <translation>إضافة نموذج...</translation>
+        <translation>&amp;إضافة نموذج...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="657"/>
         <source>&amp;Matrix Space</source>
-        <translation>مساحة ماتريكس</translation>
+        <translation>&amp;مساحة ماتريكس</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="245"/>
@@ -6162,15 +6162,15 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="550"/>
         <source>Close &amp;Window</source>
-        <translation>إغلاق النافذة</translation>
+        <translation>&amp;إغلاق النافذة</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/ui/MainWindow.cpp" line="1530"/>
         <source> and its %n registered shortcut(s)</source>
         <translation>
-            <numerusform> مع عدم وجود اختصارات له</numerusform>
-            <numerusform> واختصاره المسجل</numerusform>
-            <numerusform> واختصارينه المسجلين</numerusform>
+            <numerusform> %n مع الدوائر له</numerusform>
+            <numerusform> واختصاره المسجل %n</numerusform>
+            <numerusform> واختصاريه المسجلين %n</numerusform>
             <numerusform> واختصاراته ال%n المسجلات</numerusform>
             <numerusform> وال%n اختصارا مسجلا له</numerusform>
             <numerusform> وال%n اختصار مسجل له</numerusform>
@@ -6212,7 +6212,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="597"/>
         <source>&amp;Skins</source>
-        <translation>الأزياء</translation>
+        <translation>&amp;الأزياء</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="520"/>
@@ -6351,7 +6351,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468"/>
         <source>Cop&amp;y...</source>
-        <translation>نسخ...</translation>
+        <translation>&amp;نسخ...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="600"/>
@@ -6411,7 +6411,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="482"/>
         <source>E&amp;xport...</source>
-        <translation>تصدير...</translation>
+        <translation>&amp;تصدير...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="741"/>
@@ -6431,7 +6431,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="330"/>
         <source>&amp;Manage Accounts...</source>
-        <translation>إدارة الحسابات...</translation>
+        <translation>&amp;إدارة الحسابات...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="660"/>
@@ -6451,7 +6451,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="768"/>
         <source>&amp;Widget Themes</source>
-        <translation>سمات عناصر الواجهة</translation>
+        <translation>&amp;سمات عناصر الواجهة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1301"/>
@@ -6491,7 +6491,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>عن %1</translation>
+        <translation>&amp;عن %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
@@ -6537,12 +6537,12 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="291"/>
         <source>&amp;Update...</source>
-        <translation>تحديث...</translation>
+        <translation>&amp;تحديث...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="564"/>
         <source>&amp;Instances</source>
-        <translation>النماذج</translation>
+        <translation>&amp;النماذج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="710"/>
@@ -6552,12 +6552,12 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="454"/>
         <source>Dele&amp;te</source>
-        <translation>حذف</translation>
+        <translation>&amp;حذف</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Setti&amp;ngs...</source>
-        <translation>الإعدادات...</translation>
+        <translation>&amp;الإعدادات...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="443"/>
@@ -6577,7 +6577,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="338"/>
         <source>&amp;Launch</source>
-        <translation>شغّل</translation>
+        <translation>&amp;شغّل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="528"/>
@@ -6662,7 +6662,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="575"/>
         <source>Launcher &amp;Root</source>
-        <translation>جزر المشغل</translation>
+        <translation>&amp;جزر المشغل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="383"/>
@@ -6679,7 +6679,7 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="646"/>
         <source>&amp;Discord Guild</source>
-        <translation>نقابة الديسكورد</translation>
+        <translation>&amp;نقابة الديسكورد</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1428"/>
@@ -6693,12 +6693,12 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="693"/>
         <source>&amp;Clear Metadata Cache</source>
-        <translation>مسح تخزين بيانات التعريف المؤقتة</translation>
+        <translation>&amp;مسح تخزين بيانات التعريف المؤقتة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
         <source>F&amp;olders</source>
-        <translation>المجلدات</translation>
+        <translation>&amp;المجلدات</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="727"/>
@@ -6713,12 +6713,12 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="586"/>
         <source>&amp;Central Mods</source>
-        <translation>الإضافات المركزية</translation>
+        <translation>&amp;الإضافات المركزية</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="668"/>
         <source>Sub&amp;reddit</source>
-        <translation>فرعي الريدت</translation>
+        <translation>&amp;فرعي الريدت</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="457"/>
@@ -6728,7 +6728,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>حذف‫ المجموعة</translation>
+        <translation>&amp;حذف‫ المجموعة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>
@@ -6749,7 +6749,7 @@ Please check your trashbin to manually restore them.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>إنشاء نموذج</translation>
+        <translation>&amp;إنشاء نموذج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -6921,10 +6921,10 @@ This can be updated either using a file in %1 format or an URL.
 Do not use a different format than the one mentioned as it may break the instance.
 Make sure you also trust the URL.
 </source>
-        <translation>هذا مودباك محلي.
-هذا يمكن تحديثة إما بإستخدام ملف بتنسيق 1% او عنوان URL.
-لا تستخدم تنسيقاً مختلف عن التنسيق المنشور وإلا فقد يؤدي ذلك إلى تعطيل النسخة .
-تأكد انك أيضاً تثق في عنوان الURL.
+        <translation>هذه حزمة تعديلات محلية.
+يمكن تحديثها إما باستخدام ملف بصيغة %1 أو رابط URL.
+لا تستخدم صيغة غير المذكورة فقد يؤدي ذلك إلى تعطيل المثبّت.
+تأكد أيضًا من أنك تثق بالرابط.
 </translation>
     </message>
     <message>
@@ -7067,7 +7067,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="307"/>
         <source>&amp;Launch</source>
-        <translation>شغّل</translation>
+        <translation>&amp;شغّل</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/MinecraftInstance.cpp" line="330"/>
@@ -7182,7 +7182,7 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="358"/>
         <source>Always show durations in &amp;hours</source>
-        <translation>عرض الوقت في الساعات دائما</translation>
+        <translation>&amp;عرض الوقت في الساعات دائما</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="761"/>
@@ -7202,12 +7202,12 @@ Make sure you also trust the URL.
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="88"/>
         <source>&amp;Record time playing this instance</source>
-        <translation>سجل الوقت المبذول في لعب هذا النموذج</translation>
+        <translation>&amp;سجل الوقت المبذول في لعب هذا النموذج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="179"/>
         <source>&amp;Window Size:</source>
-        <translation>حجم النافذة:</translation>
+        <translation>&amp;حجم النافذة:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="584"/>
@@ -7229,7 +7229,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="666"/>
         <source>&amp;GLFW library path:</source>
-        <translation>مسار مكتبة جي إل إف دابليو:</translation>
+        <translation>&amp;مسار مكتبة جي إل إف دابليو:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="442"/>
@@ -7239,17 +7239,17 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="222"/>
         <source>&amp;Console Window</source>
-        <translation>نافذة الطرفية</translation>
+        <translation>&amp;نافذة الطرفية</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="413"/>
         <source>Enable Auto-&amp;join</source>
-        <translation>تفعيل الانضمام التلقائي</translation>
+        <translation>&amp;تفعيل الانضمام التلقائي</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="736"/>
         <source>&amp;Performance</source>
-        <translation>الأداء</translation>
+        <translation>&amp;الأداء</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="638"/>
@@ -7289,7 +7289,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="29"/>
         <source>Open &amp;Global Settings</source>
-        <translation>افتح الإعدادات العامة</translation>
+        <translation>&amp;افتح الإعدادات العامة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="93"/>
@@ -7304,7 +7304,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="258"/>
         <source>&amp;Global Data Packs</source>
-        <translation>حزم البيانات العامة</translation>
+        <translation>&amp;حزم البيانات العامة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="536"/>
@@ -7335,7 +7335,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="623"/>
         <source>&amp;Legacy Tweaks</source>
-        <translation>تعديلات الإرثية</translation>
+        <translation>&amp;تعديلات الإرثية</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="768"/>
@@ -7345,7 +7345,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="325"/>
         <source>Game &amp;Time</source>
-        <translation>وقت اللعبة</translation>
+        <translation>&amp;وقت اللعبة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="155"/>
@@ -7360,7 +7360,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="368"/>
         <source>Override &amp;Default Account</source>
-        <translation>تجاوز الحساب الافتراضي</translation>
+        <translation>&amp;تجاوز الحساب الافتراضي</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="758"/>
@@ -7370,7 +7370,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="651"/>
         <source>&amp;Native Libraries</source>
-        <translation>المكاتب الأصلية</translation>
+        <translation>&amp;المكاتب الأصلية</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="781"/>
@@ -7420,7 +7420,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="87"/>
         <source>Show time &amp;playing this instance</source>
-        <translation>عرض الوقت المبذول في لعب هذا النموذج</translation>
+        <translation>&amp;عرض الوقت المبذول في لعب هذا النموذج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="529"/>
@@ -7460,7 +7460,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="475"/>
         <source>Override Mod Download &amp;Loaders</source>
-        <translation>تجاوز محملات ومنزلات الإضافات</translation>
+        <translation>&amp;تجاوز محملات ومنزلات الإضافات</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="635"/>
@@ -7475,22 +7475,22 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>عرض الوقت المبذول في لعب النموذج</translation>
+        <translation>&amp;عرض الوقت المبذول في لعب النموذج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
         <source>Game &amp;Window</source>
-        <translation>نافذة اللعبة</translation>
+        <translation>&amp;نافذة اللعبة</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>سجّل الوقت المبذول في لعب النموذج</translation>
+        <translation>&amp;سجّل الوقت المبذول في لعب النموذج</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="692"/>
         <source>&amp;OpenAL library path:</source>
-        <translation>مسار مكتبة أوبن إي إل:</translation>
+        <translation>&amp;مسار مكتبة أوبن إي إل:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="819"/>
@@ -7500,7 +7500,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="351"/>
         <source>Show the &amp;total time played across instances</source>
-        <translation>عرض إجمالي الوقت المبذول في لعب النماذج</translation>
+        <translation>&amp;عرض إجمالي الوقت المبذول في لعب النماذج</translation>
     </message>
 </context>
 <context>
@@ -7759,17 +7759,17 @@ Ignoring them may break the game.</source>
         <source>%n mod(s) will be disabled
 </source>
         <translation>
-            <numerusform>سيتم تعطيل مود n%
+            <numerusform>سيتم تعطيل مود %n
 </numerusform>
-            <numerusform>سيتم تعطيل المود n%
+            <numerusform>سيتم تعطيل المود %n
 </numerusform>
-            <numerusform>سيتم تعطيل المودان n%
+            <numerusform>سيتم تعطيل المودان %n
 </numerusform>
-            <numerusform>سيتم تعطيل المودات n%
+            <numerusform>سيتم تعطيل المودات %n
 </numerusform>
-            <numerusform>سيتم تعطيل المودات n%
+            <numerusform>سيتم تعطيل المودات %n
 </numerusform>
-            <numerusform>سيتم تعطيل المودات n%
+            <numerusform>سيتم تعطيل المودات %n
 </numerusform>
         </translation>
     </message>
@@ -8703,12 +8703,12 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="171"/>
         <source>&amp;Copy</source>
-        <translation>نسخ</translation>
+        <translation>&amp;نسخ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="35"/>
         <source>&amp;Find</source>
-        <translation>اعثر</translation>
+        <translation>&amp;اعثر</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="483"/>
@@ -8819,17 +8819,17 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="114"/>
         <source>Delete &amp;All</source>
-        <translation>احذف الكل</translation>
+        <translation>&amp;احذف الكل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="58"/>
         <source>&amp;Bottom</source>
-        <translation>أسفل</translation>
+        <translation>&amp;أسفل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="104"/>
         <source>&amp;Delete Selected</source>
-        <translation>احذف المختار</translation>
+        <translation>&amp;احذف المختار</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="439"/>
@@ -8840,12 +8840,12 @@ Please update %1!</source>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="191"/>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="477"/>
         <source>&amp;Reload</source>
-        <translation>إعادة التحميل</translation>
+        <translation>&amp;إعادة التحميل</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.ui" line="181"/>
         <source>&amp;Upload</source>
-        <translation>رفع</translation>
+        <translation>&amp;رفع</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/OtherLogsPage.cpp" line="382"/>
@@ -8992,7 +8992,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="47"/>
         <source>&amp;OK</source>
-        <translation>موافق</translation>
+        <translation>&amp;موافق</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="49"/>
@@ -9002,7 +9002,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pagedialog/PageDialog.cpp" line="48"/>
         <source>&amp;Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>&amp;إلغاء</translation>
     </message>
 </context>
 <context>
@@ -9293,7 +9293,7 @@ StdErr: %2</source>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="924"/>
         <source>Updating portable install at %1</source>
-        <translation>جاري تحديث التطبيق المتنقل لذى 1%</translation>
+        <translation>جارٍ تحديث التثبيت المحمول في %1</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="761"/>
@@ -9337,7 +9337,7 @@ StdErr: %2</source>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="966"/>
         <source>Failed to launch &apos;%1&apos; %2</source>
-        <translation>فشل في الإطلاق &apos;1%&apos; %2</translation>
+        <translation>فشل تشغيل &apos;%1&apos; %2</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="316"/>
@@ -9429,7 +9429,7 @@ The updater cannot continue until you fix this problem.</source>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="921"/>
         <source>Updating from %1 to %2</source>
-        <translation>التحديث من %1 إلى 2%</translation>
+        <translation>جارٍ التحديث من %1 إلى %2</translation>
     </message>
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="108"/>
@@ -9533,7 +9533,7 @@ To overwrite this lock and proceed with this update anyway, select &quot;Ignore&
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="1084"/>
         <source>Extracted the following to &quot;%1&quot;:
   %2</source>
-        <translation>تم استخراج إلى &quot;1%&quot;:
+        <translation>تم استخراج ما يلي إلى &quot;%1&quot;:
   %2</translation>
     </message>
     <message>
@@ -9578,7 +9578,7 @@ To overwrite this lock and proceed with this update anyway, select &quot;Ignore&
     <message>
         <location filename="../launcher/updater/prismupdater/PrismUpdater.cpp" line="936"/>
         <source>Process start result: %1</source>
-        <translation>نتج عن عمل التطبيق: 1%</translation>
+        <translation>نتيجة بدء العملية: %1</translation>
     </message>
     <message>
         <source>This installation has a update lock file present at: %1
@@ -9770,7 +9770,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="84"/>
         <source>&amp;HTTP</source>
-        <translation>HTTP</translation>
+        <translation>&amp;HTTP</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="64"/>
@@ -9795,7 +9795,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>كلمة المرور:</translation>
+        <translation>&amp;كلمة المرور:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9805,17 +9805,17 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="74"/>
         <source>&amp;SOCKS5</source>
-        <translation>SOCKS5</translation>
+        <translation>&amp;SOCKS5</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>العنوان والمنفذ</translation>
+        <translation>&amp;العنوان والمنفذ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>اسم المستخدم:</translation>
+        <translation>&amp;اسم المستخدم:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -9825,7 +9825,7 @@ Choose your name carefully:</source>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="54"/>
         <source>Use s&amp;ystem settings</source>
-        <translation>استخدم إعدادات النظام</translation>
+        <translation>&amp;استخدم إعدادات النظام</translation>
     </message>
 </context>
 <context>
@@ -10043,7 +10043,7 @@ Do you wish to proceed?</source>
         <translation>
             <numerusform>قد يرجع النموذج الآتي إلى ملفات في هذا النموذج:
 
-(لا نموذج)
+%1 (لا نموذج)
 
 %2 من الممكن أن ينعطب النموذج الآخر, 
 
@@ -12519,7 +12519,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>حذف المظهر</translation>
+        <translation>&amp;حذف المظهر</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="39"/>

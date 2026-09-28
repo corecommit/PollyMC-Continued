@@ -2733,7 +2733,7 @@ Gjavâ pardabon?</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="163"/>
         <source>Check for &amp;Updates</source>
-        <translation>Controle inzornaments</translation>
+        <translation>&amp;Controle inzornaments</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="218"/>
@@ -6277,7 +6277,7 @@ Please check your trashbin to manually restore them.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="679"/>
         <source>&amp;About %1</source>
-        <translation>Informazions su %1</translation>
+        <translation>&amp;Informazions su %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="208"/>
@@ -6489,7 +6489,7 @@ Par netâ la cache dai metadâts a man, frache Cartelis -&gt; Visualize cartele 
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="693"/>
         <source>&amp;Clear Metadata Cache</source>
-        <translation>%Nete cache metadâts</translation>
+        <translation>&amp;Nete cache metadâts</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="188"/>
@@ -7264,7 +7264,7 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Mostre il timp passât a zuiâ aes istancis</translation>
+        <translation>Mostre il timp &amp;passât a zuiâ aes istancis</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="73"/>
@@ -11627,7 +11627,7 @@ Eliminâ pardabon?</translation>
 You should double-check for personal information.
 
 Are you sure?</source>
-        <translation>Tu stâs par cjariâ in rêt %1 videadis su %1.
+        <translation>Tu stâs par cjariâ in rêt %1 videadis su %2.
 Tu varessis di tornâ a controlâ che no vedin informazions personâls.
 
 Cjariâ pardabon?</translation>
@@ -11789,7 +11789,7 @@ Version instalade in chest moment: %1</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Riso%rsis</translation>
+        <translation>Riso&amp;rsis</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>

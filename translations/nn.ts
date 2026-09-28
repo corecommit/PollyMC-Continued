@@ -46,7 +46,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="103"/>
         <source>Meta&amp;data Server</source>
-        <translation>Metadataserver</translation>
+        <translation>&amp;Metadataserver</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="288"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="50"/>
         <source>Paste Service &amp;Type</source>
-        <translation>Limteneste og type</translation>
+        <translation>Limteneste og &amp;type</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="90"/>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="70"/>
         <source>Base &amp;URL</source>
-        <translation>Grunn-URL</translation>
+        <translation>Grunn-&amp;URL</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="310"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="317"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: you only need to set this to access private data. Read the &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;documentation&lt;/a&gt; for more information.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Merk: Du treng berre fylle ut dette for å få tilgang til private data. Les dokumentasjonen for meir &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;&lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;informasjon.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Merk: Du treng berre fylle ut dette for å få tilgang til private data. Les dokumentasjonen for meir &lt;a href=&quot;https://docs.modrinth.com/api/#authentication&quot;&gt;informasjon&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="173"/>
@@ -454,12 +454,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
         <source>&amp;Refresh</source>
-        <translation>Oppdater</translation>
+        <translation>&amp;Oppdater</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="113"/>
         <source>Remo&amp;ve</source>
-        <translation>Fjern</translation>
+        <translation>&amp;Fjern</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
@@ -521,7 +521,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="90"/>
         <source>&amp;Add Microsoft</source>
-        <translation>Legg til Microsoft-konto</translation>
+        <translation>&amp;Legg til Microsoft-konto</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="90"/>
@@ -1458,7 +1458,7 @@ You may solve this issue by remounting /tmp as &apos;exec&apos; or setting the j
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="93"/>
         <source>&amp;Group</source>
-        <translation>Gruppe</translation>
+        <translation>&amp;Gruppe</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/CopyInstanceDialog.ui" line="118"/>
@@ -2159,7 +2159,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="50"/>
         <source>&amp;Add</source>
-        <translation>Legg til</translation>
+        <translation>&amp;Legg til</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="77"/>
@@ -2179,7 +2179,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/widgets/EnvironmentVariables.ui" line="57"/>
         <source>&amp;Remove</source>
-        <translation>Fjern</translation>
+        <translation>&amp;Fjern</translation>
     </message>
 </context>
 <context>
@@ -2511,7 +2511,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="133"/>
         <source>View &amp;Configs</source>
-        <translation>Opna konfigurasjonar</translation>
+        <translation>&amp;Opna konfigurasjonar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="144"/>
@@ -2581,17 +2581,17 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="114"/>
         <source>&amp;Enable</source>
-        <translation>Slå på</translation>
+        <translation>&amp;Slå på</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="125"/>
         <source>&amp;Disable</source>
-        <translation>Slå av</translation>
+        <translation>&amp;Slå av</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="103"/>
         <source>&amp;Remove</source>
-        <translation>Fjern</translation>
+        <translation>&amp;Fjern</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.cpp" line="133"/>
@@ -2649,7 +2649,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ExternalResourcesPage.ui" line="141"/>
         <source>View &amp;Folder</source>
-        <translation>Opna mappa</translation>
+        <translation>&amp;Opna mappa</translation>
     </message>
 </context>
 <context>
@@ -3597,7 +3597,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="103"/>
         <source>&amp;Refresh</source>
-        <translation>Oppdater</translation>
+        <translation>&amp;Oppdater</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/InstallLoaderDialog.cpp" line="109"/>
@@ -3920,7 +3920,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="204"/>
         <source>&amp;Refresh</source>
-        <translation>Oppdater</translation>
+        <translation>&amp;Oppdater</translation>
     </message>
     <message>
         <location filename="../launcher/ui/java/InstallJavaDialog.cpp" line="221"/>
@@ -4067,7 +4067,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="185"/>
         <source>Memor&amp;y</source>
-        <translation>Minne</translation>
+        <translation>&amp;Minne</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/JavaSettingsWidget.ui" line="14"/>
@@ -4646,7 +4646,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="321"/>
         <source>&amp;Mods:</source>
-        <translation>Moddar:</translation>
+        <translation>&amp;Moddar:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="56"/>
@@ -4761,12 +4761,12 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="536"/>
         <source>&amp;Stop logging when log overflows</source>
-        <translation>Stopp å loggføra når loggen vart for stor</translation>
+        <translation>&amp;Stopp å loggføra når loggen vart for stor</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="79"/>
         <source>&amp;By last launched</source>
-        <translation>Etter sist starta</translation>
+        <translation>&amp;Etter sist starta</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="291"/>
@@ -4791,7 +4791,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="354"/>
         <source>I&amp;nstances:</source>
-        <translation>Førekomstar:</translation>
+        <translation>&amp;Førekomstar:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="407"/>
@@ -4916,7 +4916,7 @@ You may have to fix your mods because the game is still logging to files and lik
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="69"/>
         <source>By &amp;name</source>
-        <translation>Etter namn</translation>
+        <translation>Etter &amp;namn</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="275"/>
@@ -5269,7 +5269,7 @@ Du må løyse dette problemet manuelt.</translation>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="93"/>
         <source>&amp;Copy</source>
-        <translation>Kopier</translation>
+        <translation>&amp;Kopier</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/LogPage.ui" line="113"/>
@@ -6407,7 +6407,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Slett gruppa «%1»</translation>
+        <translation>&amp;Slett gruppa</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>
@@ -6416,7 +6416,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="576"/>
         <source>&amp;Create instance</source>
-        <translation>Legg til førekomst</translation>
+        <translation>&amp;Legg til førekomst</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="539"/>
@@ -7053,12 +7053,12 @@ It is most likely you will need to change the path - please refer to the mod&apo
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="337"/>
         <source>Show time spent &amp;playing instances</source>
-        <translation>Vis tid brukt på å spela førekomstane</translation>
+        <translation>Vis tid brukt &amp;på å spela førekomstane</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.ui" line="344"/>
         <source>&amp;Record time spent playing instances</source>
-        <translation>Ta opp tida som vart brukt på å spele på førekomstane</translation>
+        <translation>&amp;Ta opp tida som vart brukt på å spele på førekomstane</translation>
     </message>
     <message>
         <location filename="../launcher/ui/widgets/MinecraftSettingsWidget.cpp" line="58"/>
@@ -8123,7 +8123,7 @@ Please update %1!</source>
     <message>
         <location filename="../launcher/ui/dialogs/NewInstanceDialog.ui" line="39"/>
         <source>&amp;Group:</source>
-        <translation>Gruppe:</translation>
+        <translation>&amp;Gruppe:</translation>
     </message>
 </context>
 <context>
@@ -9276,12 +9276,12 @@ Skriv inn eit brukarnamn:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="84"/>
         <source>&amp;HTTP</source>
-        <translation>HTTP</translation>
+        <translation>&amp;HTTP</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="64"/>
         <source>&amp;None</source>
-        <translation>Ingen</translation>
+        <translation>&amp;Ingen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.h" line="56"/>
@@ -9301,7 +9301,7 @@ Skriv inn eit brukarnamn:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="173"/>
         <source>&amp;Password:</source>
-        <translation>Passord:</translation>
+        <translation>&amp;Passord:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="51"/>
@@ -9316,17 +9316,17 @@ Skriv inn eit brukarnamn:</translation>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="74"/>
         <source>&amp;SOCKS5</source>
-        <translation>SOCKS5</translation>
+        <translation>&amp;SOCKS5</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="97"/>
         <source>&amp;Address and Port</source>
-        <translation>Adresse og port</translation>
+        <translation>&amp;Adresse og port</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="160"/>
         <source>&amp;Username:</source>
-        <translation>Brukarnamn:</translation>
+        <translation>&amp;Brukarnamn:</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/ProxyPage.ui" line="190"/>
@@ -11414,7 +11414,7 @@ Currently installed version: %1</source>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="101"/>
         <source>Reso&amp;urces</source>
-        <translation>Ressurspakker</translation>
+        <translation>&amp;Ressurspakker</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/instance/ServersPage.ui" line="170"/>
@@ -11490,17 +11490,17 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="32"/>
         <source>&amp;Refresh</source>
-        <translation>Oppdater</translation>
+        <translation>&amp;Oppdater</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="31"/>
         <source>&amp;Finish</source>
-        <translation>Fullfør</translation>
+        <translation>&amp;Fullfør</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="29"/>
         <source>&amp;Next &gt;</source>
-        <translation>Neste &gt;</translation>
+        <translation>&amp;Neste &gt;</translation>
     </message>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="33"/>
@@ -11510,7 +11510,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/setupwizard/SetupWizard.cpp" line="30"/>
         <source>&lt; &amp;Back</source>
-        <translation>&lt; Førre</translation>
+        <translation>&lt; &amp;Førre</translation>
     </message>
 </context>
 <context>
@@ -11949,7 +11949,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="167"/>
         <source>&amp;Delete Skin</source>
-        <translation>Slett skal</translation>
+        <translation>&amp;Slett skal</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="389"/>
@@ -12946,7 +12946,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/VersionSelectDialog.cpp" line="100"/>
         <source>&amp;Refresh</source>
-        <translation>Oppdater</translation>
+        <translation>&amp;Oppdater</translation>
     </message>
 </context>
 <context>
