@@ -5156,7 +5156,7 @@ Granting %1 access to it via Flatseal is recommended.</source>
         <translation>Estàs intentant especificar una carpeta d&apos;instància que va ser concedida temporalment per Flatpak.
 És conegut que això dona problemes. Després de reiniciar el llançador pot trencar-se i ja no tindràs accés al directori.
 
-Es recomana que li donis permisos a PolyMC a través de Flatseal.</translation>
+Es recomana que li donis permisos a %1 a través de Flatseal.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.cpp" line="104"/>
@@ -6005,7 +6005,7 @@ Vols continuar?</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="719"/>
         <source>Install a %1 symlink to /usr/local/bin</source>
-        <translation>Crear un enllaç simbòlic a /usr/local/bin</translation>
+        <translation>Crear un enllaç simbòlic %1 a /usr/local/bin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="91"/>
@@ -6584,7 +6584,7 @@ Per fer-ho manualment, ves a Carpetes -&gt; Veure carpeta arrel del llançador, 
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Eliminar grup &apos;%1&apos;</translation>
+        <translation>&amp;Eliminar grup</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>

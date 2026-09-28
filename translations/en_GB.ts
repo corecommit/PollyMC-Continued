@@ -4898,7 +4898,7 @@ You need to purchase the game first to play the full version.</translation>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="182" />
         <source>An error occurred while refreshing '%1'</source>
-        <translation>An error occurred while refreshing '1%'</translation>
+        <translation>An error occurred while refreshing '%1'</translation>
     </message>
     <message>
         <source>In order to play Minecraft, you must have at least one Microsoft account which owns Minecraft logged in. Would you like to open the account manager to add an account now?</source>
@@ -6370,7 +6370,7 @@ URL:
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1002" />
         <source>The modpack, mod, or resource %1 is blocked for third-parties! Please download it manually.</source>
-        <translation>The modpack, mod, or resource &amp;1 is blocked for third-parties! Please download it manually.</translation>
+        <translation>The modpack, mod, or resource %1 is blocked for third-parties! Please download it manually.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="468" />

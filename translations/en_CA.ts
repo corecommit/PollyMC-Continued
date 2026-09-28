@@ -4898,7 +4898,7 @@ You need to purchase the game first to play the full version.</translation>
     <message>
         <location filename="../launcher/LaunchController.cpp" line="182"/>
         <source>An error occurred while refreshing &apos;%1&apos;</source>
-        <translation>An error occurred while refreshing &apos;1%&apos;</translation>
+        <translation>An error occurred while refreshing &apos;%1&apos;</translation>
     </message>
     <message>
         <source>In order to play Minecraft, you must have at least one Microsoft account which owns Minecraft logged in. Would you like to open the account manager to add an account now?</source>
@@ -6752,7 +6752,7 @@ To clear the metadata cache manually, press Folders -&gt; View Launcher Root Fol
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Delete group &apos;%1&apos;</translation>
+        <translation>&amp;Delete group</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1313"/>

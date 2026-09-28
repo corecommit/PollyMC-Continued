@@ -11476,7 +11476,7 @@ Are you sure?</source>
 This may be permanent and it will be gone from the folder.
 
 Are you sure?</source>
-        <translation>Hakkad kustutama &quot;%1&quot;
+        <translation>Hakkad kustutama valitud ekraanipilti.
 See võib olla püsiv ning see kaob kaustast.
 
 Kas oled kindel?</translation>

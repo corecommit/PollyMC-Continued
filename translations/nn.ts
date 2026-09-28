@@ -6407,7 +6407,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="590"/>
         <source>&amp;Delete group</source>
-        <translation>Slett gruppa «%1»</translation>
+        <translation>&amp;Slett gruppa</translation>
     </message>
     <message>
         <source>It&apos;s a fluffy kitty :3</source>

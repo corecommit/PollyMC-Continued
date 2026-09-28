@@ -3221,8 +3221,7 @@ Are you sure?</source>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="460"/>
         <source>Unable to resolve mod IDs:
 </source>
-        <translation>Не ўдалося вырашыць канфлікт ID модаў: %1
-</translation>
+        <translation>Не ўдалося вырашыць ID модаў:</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/flame/FlameInstanceCreationTask.cpp" line="421"/>
@@ -5983,8 +5982,8 @@ You&apos;ll have to correct this problem manually.</source>
 This may be permanent and will completely delete the instance.
 
 Are you sure?</source>
-        <translation>Вы збіраецеся выдаліць &quot;% 1&quot; % 2.
-Гэта можа быць незваротным і прывядзе да поўнага выдаленні асобніка.
+        <translation>Вы збіраецеся выдаліць &quot;%1&quot;%2.
+Гэта можа быць незваротным і прывядзе да поўнага выдалення асобніка.
 
 Вы ўпэўненыя?</translation>
     </message>
@@ -6153,7 +6152,7 @@ URL:
 %1
 
 URL:
-% 2</translation>
+%2</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1407"/>

@@ -11627,7 +11627,7 @@ Eliminâ pardabon?</translation>
 You should double-check for personal information.
 
 Are you sure?</source>
-        <translation>Tu stâs par cjariâ in rêt %1 videadis su %1.
+        <translation>Tu stâs par cjariâ in rêt %1 videadis su %2.
 Tu varessis di tornâ a controlâ che no vedin informazions personâls.
 
 Cjariâ pardabon?</translation>
