@@ -69,7 +69,6 @@ class SkinBrowserDialog : public QDialog, public SkinProvider {
     void on_searchEdit_returnPressed();
     void on_prevBtn_clicked();
     void on_nextBtn_clicked();
-    void on_siteBtn_clicked();
     void on_useSkinBtn_clicked();
     void on_skinList_currentRowChanged(int row);
 
