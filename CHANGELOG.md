@@ -4,62 +4,38 @@
 
 **Added:**
 
-- A **View skins online** button in the skin manager: it opens a browser for the crafty.gg skin catalog with page navigation, search by player name, tag or style, the player every skin belongs to, and a rotatable 3D preview of the selected skin
-- **Use skin** in that browser downloads the picked skin, adds it to the local skin library and applies it right away — uploaded for Microsoft accounts, stored for the offline skin agent for offline accounts
-- Online skins are cached under `cache/skins`, so opening the browser again never re-downloads textures it already has
-- Discord Rich Presence reports **Looking for skins** while the browser is open instead of the mod browser's wording
-- All crafty.gg requests share one pacing budget (at most 120 per minute, at least 500 ms apart), so browsing, searching and previewing skins never reaches the API rate limit; a rare HTTP 429 is retried after the wait the server asks for instead of failing the page
-- Hindi and Bangla translations completed to 100% — all 1876 Hindi and 2043 Bangla strings that had no translation at all (including the new skin browser, More menu and toolbar entries) now carry text, the empty plural forms are filled, and the placeholder typos that broke the log-length, commit and build-date messages are repaired
+- **Online skin browser** — Browse and search skins from crafty.gg directly in the skin manager.
+- **Use skins instantly** — Pick a skin and it gets downloaded, added to your library, and applied automatically.
+- **Better translations** — Hindi and Bangla are now fully translated, with several broken translation strings fixed.
+- **Skin browsing improvements** — Online skins are cached, so previously viewed textures don't need to be downloaded again.
+- **Discord Rich Presence** — Shows when you're browsing skins and gives more accurate launcher and game status.
 
 **Changed:**
 
-- Startup writes the settings directory in one go instead of once per migrated key, so first run and upgrades no longer hit the disk repeatedly while the window is opening
-- GameMode/MangoHud detection and shared-library probes are deferred until after the first paint (the Microsoft login and modpack-install capability flags are still resolved synchronously for the first-run wizard)
-- Selecting an instance fills in the status bar description after the UI paints instead of parsing component JSON first
-- Instance list sorting and layout now scale with the number of instances instead of re-scanning the whole list per row, so large instance folders reorder noticeably faster
-- Instance rows cache their shaped text, so scrolling and repainting the grid no longer re-runs text layout for every visible label
-- Icon and screenshot caching is capped at 128 MB instead of growing without a practical limit
-- The launcher logo SVG is decoded once and reused instead of on every access
-- Discord Rich Presence cards are branded: the large logo and the in-game badge are loaded from image URLs hosted in this repository (no Rich Presence art upload is needed in the Discord portal) and the second line always names the launcher (`In launcher · PollyMC-Continued`)
-- The main window title is just `PollyMC-Continued <version>` — the git branch/channel is no longer appended, so it reads `9.3.0` instead of `9.3.0-testing`
-- Every other window keeps its own title: the launcher name and version are no longer appended after it (Quick Setup, the offline player name dialog and all other dialogs used to end in `- PollyMC-Continued <version>`)
-- Linux, Windows and `.deb` CI packages hide git metadata like the macOS and Arch packages already did, so their version string has no commit-hash suffix either
-- macOS CI builds run on the macOS 15 runner: Homebrew stopped shipping macOS 14 bottles, which made the job compile `llvm@22` from source (an hour-long build that dies on a patch checksum)
-- The Help button on settings and instance pages opens the Discord server invite in your browser instead of showing a `Will fix later.` placeholder
-- The top toolbar is grouped with separators — `Add instance │ Folders, Settings, Performance presets │ More │ Accounts` — so the spacing between buttons reads evenly instead of only after the first one
-- The toolbar's Help button is now called **More**, and **Check for update** (with its icon) moved into its dropdown instead of being its own toolbar button
-- The More menu (and the Help menu) is ordered by what the entries do: `Check for update`, `View logs`, `Report a Bug` first, then `Wiki`, `More News`, `Bots`, then `Discord`, `Matrix`, `Subreddit`, then the maintenance entries, with `About` last
-- Tooltips now appear in every dropdown, not just Folders and Help — the Accounts menu, the More menu and the Export submenu had tooltip display turned off — and the entries that had no tooltip at all got one (Accounts, Manage Accounts, No Default Account, Undo Last Instance Deletion, Status Bar, Lock Toolbars, Themes and the three export formats)
-- Translations are back in sync with the code: French, Russian, Ukrainian, German and Afrikaans now cover the 57 new strings (the skin browser and the More menu tooltips), all compiling with zero untranslated messages — and five translations that dropped or scrambled a `%1`/`%2` placeholder (so the message printed a literal token at runtime) are repaired
+- **Faster startup** — Reduced unnecessary work while the launcher is opening.
+- **Faster instance list** — Large instance folders now sort and load more efficiently.
+- **Better caching** — Icon and screenshot cache is now limited to 128 MB.
+- **Cleaner window titles** — Window titles now use a simpler launcher and version format.
+- **Improved toolbar** — Related options are now grouped into clearer menus.
+- **Better tooltips** — More launcher menus and settings now have helpful tooltips.
+- **Improved packaging** — Linux, Windows and `.deb` builds now handle version and dependency details more reliably.
 
 **Fixed:**
 
-- Instances no longer appear to vanish after an update: the launcher now detects a data-root flip (portable install turned regular or vice versa, or a differently-located copy overwriting the data root) and offers to move the stranded instances instead of silently starting empty
-- The portable marker (`portable.txt`) is looked up next to the launcher itself rather than in the current working directory, which broke portability when starting from a desktop entry or shortcut
-- Windows upgrades now read the real install location from the registry instead of assuming the default path, and no longer wipe folders containing `portable.txt`, `UserData` or `instances` during uninstall of the old version
-- The uninstaller entry reports the actual version instead of a hardcoded 9.0.0
-- Published `.deb` is installable again — `Recommends` fields were semicolon-separated, which dpkg rejects as an invalid package name (`gamemode;mangohud`)
-- Arch package pulls `cmark` as a runtime dependency instead of relying on it being present, fixing `libcmark` load failures
-- Bot server installs work from read-only locations (e.g. `/usr/bin`): the bundled copy is preferred when writable, and a per-user copy under the data root is created/refreshed otherwise, with legacy `bot-server/bots.json` still read as fallback
-- Instructions note `pacman -U <file>` for downloaded Arch packages instead of running the archive directly
-- GitHub star reminder no longer ignores input during its slide-in: a click in the first 250 ms could leave the card stuck on screen or silently drop the dismissal, and a resize mid-animation left it at the old spot
-- Linux binary tarball now bundles its version-sensitive shared libraries (`libcmark.so.0.30.2`, `libtomlplusplus.so.3`, `libqrencode.so.4`) into `bin/`, so the launcher no longer fails on distros whose cmark has a different SONAME (e.g. `libcmark.so.0.30.2: cannot open shared object file` on openSUSE/Arch)
-- Arch package builds no longer fail with `tar: file changed as we read it` — the source tarball is now written outside the tree being archived (to `/tmp`) and moved into place afterwards
-- Windows builds compile cmark from source instead of relying on a pacman package: MSYS2 dropped `mingw-w64-x86_64-cmark` for the MINGW64 environment (only ucrt64/clang64/clangarm64 remain), which broke the setup step with `target not found`
-- World save ZIPs with level.dat at the archive root are recognized again (dropping the file onto the launcher installs the world into an instance instead of opening the import-modpack dialog; nested ZIPs no longer fail silently)
-- Applying a skin no longer fails with HTTP 401 when the account's 24 hour launcher token has expired: the token is refreshed before the upload instead of only after it
-- Discord Rich Presence now shows a card the moment the launcher opens instead of only after a game launch: the first presence is pushed before the IPC handshake completes (Discord web / arRPC clients previously received nothing at all), the mod and instance-creation browsers now actually publish their `Browsing` state (the state existed but had no callers), closing a browser dialog can no longer clear a running game's status, a failed launch no longer leaves a phantom `Playing` entry, and the playing status shows the real Minecraft version instead of `Loading...`
-- macOS release build stops failing bundle verification with `bundle contains the local source branch name`: the check now ignores compiled Qt/zstd binaries (which contain the branch name by coincidence) and only scans text plus the git refspec, so it still catches a real branch-name leak
-- Searching in the skin browser finds skins again: it asks crafty.gg's own text search (player names, tags and styles) and merges those hits with the matched player's own skins into one scrollable list, instead of jumping to one arbitrary player's skins — so a tag like `boy` shows what crafty.gg has for it and a name still shows all of that player's skins
-- Skin rows show a plain mannequin while their texture downloads instead of an empty square, and pick up the player's name with it, so results look like a normal list right away
-- crafty.gg requests that must wait now reserve their slot before waiting, so a burst of downloads (one page of textures, for example) goes out one every 500 ms instead of all at once after the same delay
-- 210 broken translations across 47 languages repaired — messages that printed a literal `1%`/`% 1` instead of the value, or had a placeholder dropped, duplicated or mangled — and Finnish and Laotian translate again at all: their two plural messages lacked the plural-form markup, which made `lrelease` reject the whole file
-- Translations no longer print junk: 29 menu entries showed a literal `%` where the accelerator belonged (`&Options` rendered as `%Innstillinger`), 8 showed raw `&lt;ACCESS TOKEN&gt;` because the angle brackets were double-escaped, Russian and Laotian printed a literal `` `n` ``/`\n` instead of a line break, one Esperanto message rendered blank, and 1177 menu items that had lost their `&` got it back so `Alt`+letter works again
-- Translations no longer drop content: 42 plural forms lost the `%n` count (the Ukrainian rate-limit and mod dialogs printed only `секунду`/`мод`), 22 rich-text messages had broken markup — unclosed `<a>` links dragged the rest of the sentence into the link, garbled tag attributes and a cut-off Slovenian sentence — and 11 messages lost their trailing line break; the 20 strings still in English in the Czech and Tamil files are translated
+- **Instances no longer disappear after updates** — The launcher can now detect certain data-folder changes and help recover stranded instances.
+- **Portable installs work more reliably** — Portable mode now correctly finds its marker regardless of where the launcher is started from.
+- **Windows upgrades are safer** — Updates no longer risk removing important portable or instance data.
+- **GitHub star reminder** — Fixed animation and resizing issues with the star reminder.
+- **Linux compatibility** — Bundled libraries now prevent launch failures on some distributions.
+- **World imports** — World ZIP files with `level.dat` at the root are recognized correctly again.
+- **Skin applying** — Expired launcher tokens are refreshed before uploading a skin.
+- **Discord Rich Presence** — Fixed several cases where launcher and game status could be missing, outdated or incorrect.
+- **Skin search** — Searching by player, tag or style now returns the expected results.
+- **Translation fixes** — Fixed numerous broken placeholders, formatting issues and missing translated text.
 
 **Removed:**
 
-- Duplicate, unused `installer.nsi` (the Windows installer script in use is `pollymc_installer.nsi`), plus stale `Readme [skip-all]` and `releases.json` files
+- **Unused files** — Removed old installer and release files that were no longer needed.
 
 ## v9.2.7
 
