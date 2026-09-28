@@ -44,7 +44,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QListView>
-#include <QMessageBox>
 #include <QPushButton>
 #include <QSortFilterProxyModel>
 #include <QStackedLayout>
@@ -235,17 +234,17 @@ void PageContainer::showPage(int row)
 
 void PageContainer::help()
 {
-    if (m_currentPage) {
-        QString pageId = m_currentPage->helpPage();
-        if (pageId.isEmpty())
-            return;
-        QString url = BuildConfig.HELP_URL.arg(pageId);
-        if (url.isEmpty() || url == "https://") {
-            QMessageBox::information(this, tr("Help"), tr("Will fix later."));
-            return;
-        }
+    if (!m_currentPage)
+        return;
+    QString url;
+    QString pageId = m_currentPage->helpPage();
+    if (!pageId.isEmpty())
+        url = BuildConfig.HELP_URL.arg(pageId);
+    // this fork has no per-page help, so send the user to the Discord server instead
+    if (url.isEmpty() || url == QLatin1String("https://"))
+        url = BuildConfig.DISCORD_URL;
+    if (!url.isEmpty())
         DesktopServices::openUrl(QUrl(url));
-    }
 }
 
 void PageContainer::currentChanged(const QModelIndex& current)
