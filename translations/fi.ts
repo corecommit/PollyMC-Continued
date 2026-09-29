@@ -673,18 +673,19 @@ Voit lisätä Microsoft-, offline- tai Yggdrasil (authlib-injector) -tilin aloit
 <context>
     <name>Application</name>
     <message>
-        <location filename="../launcher/Application.cpp" line="1174"/>
+        <location filename="../launcher/Application.cpp" line="1179"/>
         <source>Update Succeeded</source>
         <translation>Päivitys onnistui</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1212"/>
+        <location filename="../launcher/Application.cpp" line="1217"/>
         <source>Incompatible system configuration</source>
         <translation>Yhteensopimaton laitekonfiguraatio</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2084"/>
-        <location filename="../launcher/Application.cpp" line="2136"/>
+        <location filename="../launcher/Application.cpp" line="2089"/>
+        <location filename="../launcher/Application.cpp" line="2141"/>
+        <location filename="../launcher/Application.cpp" line="2226"/>
         <source>Migration failed! Reason: %1</source>
         <translation>Siirtyminen epäonnistui! Syy: %1</translation>
     </message>
@@ -717,22 +718,22 @@ Tutki Prism Launcher -päivityslokia sijainnissa:
 saadaksesi tarkempia tietoja viimeisimmästä päivitysyrityksestä.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="710"/>
+        <location filename="../launcher/Application.cpp" line="715"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
         <translation>Tätä lokia ei voida näyttää sillä sen pituus on ylittänyt %1 riviä.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2053"/>
+        <location filename="../launcher/Application.cpp" line="2058"/>
         <source>It looks like you used %1 on %2 before. Do you want to migrate your data to the new location of %3?</source>
         <translation>Näyttää siltä, että olet käyttänyt %1:tä aikaisemmin päivämäärällä %2. Haluatko tuoda tiedot uuteen %3:in sijaintiin?</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2047"/>
+        <location filename="../launcher/Application.cpp" line="2052"/>
         <source>It looks like you used %1 before. Do you want to migrate your data to the new location of %2?</source>
         <translation>Näyttää siltä, että olet käyttänyt %1:tä aikaisemmin. Haluatko tuoda tiedot uuteen %2:in sijaintiin?</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1093"/>
+        <location filename="../launcher/Application.cpp" line="1098"/>
         <source>This installation has a update lock file present at: %1
 
 Timestamp: %2
@@ -759,7 +760,7 @@ lisätietoja viimeisimmästä päivitysyrityksestä.
 Poistaaksesi tämän lukon ja jatkaaksesi valitse &quot;Ohita&quot; alla.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1134"/>
+        <location filename="../launcher/Application.cpp" line="1139"/>
         <source>An update attempt failed
 
 Please ensure your installation is in working order before proceeding.
@@ -774,12 +775,12 @@ Katso PollyMC-Continuedin päivitysloki osoitteesta:
 lisätietoja viimeisimmästä päivitysyrityksestä.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1142"/>
+        <location filename="../launcher/Application.cpp" line="1147"/>
         <source>Update Failed</source>
         <translation>Päivitys epäonnistui</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1166"/>
+        <location filename="../launcher/Application.cpp" line="1171"/>
         <source>Update succeeded
 
 You are now running %1 .
@@ -794,7 +795,7 @@ Katso PollyMC-Continuedin päivitysloki osoitteesta:
 lisätietoja.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1206"/>
+        <location filename="../launcher/Application.cpp" line="1211"/>
         <source>Your /tmp directory is currently mounted with the &apos;noexec&apos; flag enabled.
 Some versions of Minecraft may not launch.
 
@@ -807,17 +808,41 @@ Voit ratkaista tämän ongelman uudelleenliittämällä /tmp:n &apos;exec&apos; 
 </translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2118"/>
+        <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <location filename="../launcher/Application.cpp" line="2188"/>
+        <source>Found %n instance(s) in your existing install at %1.
+Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1110"/>
+        <location filename="../launcher/Application.cpp" line="2195"/>
+        <source>Don&apos;t ask again for this portable folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="2199"/>
+        <source>Yes, copy them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="2200"/>
+        <source>No, start fresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="1115"/>
         <source>Update In Progress</source>
         <translation>Päivitys meneillään</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="928"/>
+        <location filename="../launcher/Application.cpp" line="933"/>
         <source>Settings</source>
         <translation>Asetukset</translation>
     </message>
@@ -848,7 +873,7 @@ saadaksesi tarkempia tietoja viimeisimmästä päivitysyrityksestä.
 Poistaaksesi tämän lukituksen ja jatkaaksesi, valitse alempaa &quot;Sivuuta&quot;.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2043"/>
+        <location filename="../launcher/Application.cpp" line="2048"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
         <translation>Vanhoja tietoja %1:stä löydettiin, mutta sinulla on jo olemassa olevia tietoja %2:ille. Valitettavasti sinun on siirrettävä ne itse. Haluatko että sinua muistutetaan odottavasta tiedonsiirrosta seuraavan kerran, kun käynnistät %2:in?</translation>
     </message>

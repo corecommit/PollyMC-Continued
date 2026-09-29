@@ -673,18 +673,19 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
 <context>
     <name>Application</name>
     <message>
-        <location filename="../launcher/Application.cpp" line="1174"/>
+        <location filename="../launcher/Application.cpp" line="1179"/>
         <source>Update Succeeded</source>
         <translation>更新成功</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1212"/>
+        <location filename="../launcher/Application.cpp" line="1217"/>
         <source>Incompatible system configuration</source>
         <translation>系统配置不兼容</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2084"/>
-        <location filename="../launcher/Application.cpp" line="2136"/>
+        <location filename="../launcher/Application.cpp" line="2089"/>
+        <location filename="../launcher/Application.cpp" line="2141"/>
+        <location filename="../launcher/Application.cpp" line="2226"/>
         <source>Migration failed! Reason: %1</source>
         <translation>迁移失败！原因：%1</translation>
     </message>
@@ -716,22 +717,22 @@ for details on the last update attempt.</source>
 以了解上次更新的详情。</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="710"/>
+        <location filename="../launcher/Application.cpp" line="715"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
         <translation>无法显示此日志，因为日志长度超过了 %1 行。</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2053"/>
+        <location filename="../launcher/Application.cpp" line="2058"/>
         <source>It looks like you used %1 on %2 before. Do you want to migrate your data to the new location of %3?</source>
         <translation>你似乎曾经在 %2 上使用过 %1。是否需要将数据迁移到 %3 的新位置？</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2047"/>
+        <location filename="../launcher/Application.cpp" line="2052"/>
         <source>It looks like you used %1 before. Do you want to migrate your data to the new location of %2?</source>
         <translation>你似乎曾经使用过 %1。是否需要将数据迁移到 %2 的新位置？</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1093"/>
+        <location filename="../launcher/Application.cpp" line="1098"/>
         <source>This installation has a update lock file present at: %1
 
 Timestamp: %2
@@ -758,7 +759,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
 要删除此锁定并继续，请在下面选择&quot;忽略&quot;。</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1134"/>
+        <location filename="../launcher/Application.cpp" line="1139"/>
         <source>An update attempt failed
 
 Please ensure your installation is in working order before proceeding.
@@ -773,12 +774,12 @@ for details on the last update attempt.</source>
 以获取上次更新尝试的详细信息。</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1142"/>
+        <location filename="../launcher/Application.cpp" line="1147"/>
         <source>Update Failed</source>
         <translation>更新失败</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1166"/>
+        <location filename="../launcher/Application.cpp" line="1171"/>
         <source>Update succeeded
 
 You are now running %1 .
@@ -793,7 +794,7 @@ for details.</source>
 以获取详细信息。</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1206"/>
+        <location filename="../launcher/Application.cpp" line="1211"/>
         <source>Your /tmp directory is currently mounted with the &apos;noexec&apos; flag enabled.
 Some versions of Minecraft may not launch.
 
@@ -806,17 +807,40 @@ You may solve this issue by remounting /tmp as &apos;exec&apos; or setting the j
 </translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2118"/>
+        <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <location filename="../launcher/Application.cpp" line="2188"/>
+        <source>Found %n instance(s) in your existing install at %1.
+Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1110"/>
+        <location filename="../launcher/Application.cpp" line="2195"/>
+        <source>Don&apos;t ask again for this portable folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="2199"/>
+        <source>Yes, copy them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="2200"/>
+        <source>No, start fresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="1115"/>
         <source>Update In Progress</source>
         <translation>更新中</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="928"/>
+        <location filename="../launcher/Application.cpp" line="933"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -847,7 +871,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
 点击下面的“忽略”按钮以删除此锁定文件并继续。</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2043"/>
+        <location filename="../launcher/Application.cpp" line="2048"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
         <translation>找到了来自 %1 的旧数据，但 %2 已存在数据。很遗憾，你需要自行迁移数据。是否需要在下次启动 %2 时再次提醒你进行数据迁移？</translation>
     </message>

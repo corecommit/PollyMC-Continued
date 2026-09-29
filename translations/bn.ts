@@ -665,18 +665,19 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
 <context>
     <name>Application</name>
     <message>
-        <location filename="../launcher/Application.cpp" line="1174"/>
+        <location filename="../launcher/Application.cpp" line="1179"/>
         <source>Update Succeeded</source>
         <translation>আপডেট সফল হয়েছে</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1212"/>
+        <location filename="../launcher/Application.cpp" line="1217"/>
         <source>Incompatible system configuration</source>
         <translation>সিস্টেম কনফিগারেশনের সাথে ইনকম্প্যাটিবল</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2084"/>
-        <location filename="../launcher/Application.cpp" line="2136"/>
+        <location filename="../launcher/Application.cpp" line="2089"/>
+        <location filename="../launcher/Application.cpp" line="2141"/>
+        <location filename="../launcher/Application.cpp" line="2226"/>
         <source>Migration failed! Reason: %1</source>
         <translation>মাইগ্রেশন ব্যর্থ হয়েছে! কারণ: %1</translation>
     </message>
@@ -709,22 +710,22 @@ for details on the last update attempt.</source>
 সর্বশেষ আপডেটের চেষ্টা সম্পর্কে বিস্তারিত জানতে।</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="710"/>
+        <location filename="../launcher/Application.cpp" line="715"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
         <translation>লগের দৈর্ঘ্য %1 লাইন অতিক্রম করার কারণে এই লগটি প্রদর্শন করা যাচ্ছে না।</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2053"/>
+        <location filename="../launcher/Application.cpp" line="2058"/>
         <source>It looks like you used %1 on %2 before. Do you want to migrate your data to the new location of %3?</source>
         <translation>মনে হচ্ছে আপনি আগে %2 এ %1 ব্যবহার করেছেন।&#xa0;আপনি কি আপনার ডেটা %3 এর নতুন লোকেশনে স্থানান্তর করতে চান?</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2047"/>
+        <location filename="../launcher/Application.cpp" line="2052"/>
         <source>It looks like you used %1 before. Do you want to migrate your data to the new location of %2?</source>
         <translation>মনে হচ্ছে আপনি আগে %1 ব্যবহার করেছেন।&#xa0;আপনি কি আপনার ডেটা %2 এর নতুন লোকেশনে স্থানান্তর করতে চান?</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1093"/>
+        <location filename="../launcher/Application.cpp" line="1098"/>
         <source>This installation has a update lock file present at: %1
 
 Timestamp: %2
@@ -751,7 +752,7 @@ PollyMC-Continued আপডেটার লগ দেখুন:
 এই লকটি মুছে ফেলতে এবং এগিয়ে যেতে নিচে &quot;Ignore&quot; নির্বাচন করুন।</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1134"/>
+        <location filename="../launcher/Application.cpp" line="1139"/>
         <source>An update attempt failed
 
 Please ensure your installation is in working order before proceeding.
@@ -766,12 +767,12 @@ PollyMC-Continued আপডেটার লগ দেখুন:
 সর্বশেষ আপডেট চেষ্টার বিস্তারিত জানতে।</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1142"/>
+        <location filename="../launcher/Application.cpp" line="1147"/>
         <source>Update Failed</source>
         <translation>আপডেট করা যায়নি</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1166"/>
+        <location filename="../launcher/Application.cpp" line="1171"/>
         <source>Update succeeded
 
 You are now running %1 .
@@ -786,7 +787,7 @@ PollyMC-Continued আপডেটার লগ দেখুন:
 বিস্তারিত জানতে।</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1206"/>
+        <location filename="../launcher/Application.cpp" line="1211"/>
         <source>Your /tmp directory is currently mounted with the &apos;noexec&apos; flag enabled.
 Some versions of Minecraft may not launch.
 
@@ -799,17 +800,41 @@ You may solve this issue by remounting /tmp as &apos;exec&apos; or setting the j
 </translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2118"/>
+        <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
         <translation>%1-এ কিছু ইনস্ট্যান্স পাওয়া গেছে, কিন্তু %2 %3-এ খুঁজছে। আপনি কি সেগুলিকে নতুন অবস্থানে স্থানান্তর করতে চান?</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../launcher/Application.cpp" line="2188"/>
+        <source>Found %n instance(s) in your existing install at %1.
+Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1110"/>
+        <location filename="../launcher/Application.cpp" line="2195"/>
+        <source>Don&apos;t ask again for this portable folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="2199"/>
+        <source>Yes, copy them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="2200"/>
+        <source>No, start fresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/Application.cpp" line="1115"/>
         <source>Update In Progress</source>
         <translation>আপডেট চলছে</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="928"/>
+        <location filename="../launcher/Application.cpp" line="933"/>
         <source>Settings</source>
         <translation>সেটিংস</translation>
     </message>
@@ -840,7 +865,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
 এই লকটি মুছে ফেলতে এবং এগিয়ে যেতে নিচে &quot;ইগনর&quot; সিলেক্ট করুন।</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2043"/>
+        <location filename="../launcher/Application.cpp" line="2048"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
         <translation>%1 থেকে পুরানো ডেটা পাওয়া গেছে, কিন্তু আপনার কাছে %2 এর জন্য ইতিমধ্যেই ডেটা আছে।&#xa0;দুর্ভাগ্যবশত, আপনাকে নিজেই মাইগ্রেট করতে হবে।&#xa0;আপনি কি পরের বার %2 শুরু করার সময় বকেয়া ডেটা মাইগ্রেশনের কথা মনে করিয়ে দিতে চান?</translation>
     </message>
