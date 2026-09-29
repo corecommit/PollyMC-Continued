@@ -54,10 +54,10 @@
    <addaction name="actionFoldersButton"/>
    <addaction name="actionSettings"/>
    <addaction name="actionPerformancePresets"/>
+   <addaction name="separator"/>
    <addaction name="actionHelpButton"/>
-   <addaction name="actionCheckUpdate"/>
-<addaction name="separator"/>
-    <addaction name="actionAccountsButton"/>
+   <addaction name="separator"/>
+   <addaction name="actionAccountsButton"/>
   </widget>
   <widget class="QToolBar" name="newsToolBar">
    <property name="windowTitle">
@@ -207,6 +207,9 @@
     <property name="title">
      <string>&amp;Accounts</string>
     </property>
+    <property name="toolTipsVisible">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QMenu" name="helpMenu">
     <property name="title">
@@ -215,19 +218,21 @@
     <property name="toolTipsVisible">
      <bool>true</bool>
     </property>
-    <addaction name="actionClearMetadata"/>
-    <addaction name="actionReportBug"/>
+    <addaction name="actionCheckUpdate"/>
     <addaction name="actionViewLog"/>
-    <addaction name="actionAddToPATH"/>
+    <addaction name="actionReportBug"/>
     <addaction name="separator"/>
-    <addaction name="actionMATRIX"/>
+    <addaction name="actionOpenWiki"/>
+    <addaction name="actionMoreNews"/>
+    <addaction name="actionBots"/>
+    <addaction name="separator"/>
     <addaction name="actionDISCORD"/>
+    <addaction name="actionMATRIX"/>
     <addaction name="actionREDDIT"/>
     <addaction name="separator"/>
-    <addaction name="actionMoreNews"/>
-    <addaction name="actionCheckUpdate"/>
-    <addaction name="actionOpenWiki"/>
-    <addaction name="actionBots"/>
+    <addaction name="actionClearMetadata"/>
+    <addaction name="actionAddToPATH"/>
+    <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
    <addaction name="fileMenu"/>
@@ -255,6 +260,9 @@
    <property name="text">
     <string>Status Bar</string>
    </property>
+   <property name="toolTip">
+    <string>Show or hide the status bar at the bottom of the window.</string>
+   </property>
   </action>
   <action name="actionLockToolbars">
    <property name="checkable">
@@ -263,6 +271,9 @@
    <property name="text">
     <string>Lock Toolbars</string>
    </property>
+   <property name="toolTip">
+    <string>Stop the toolbars from being dragged around.</string>
+   </property>
   </action>
   <action name="actionUndoTrashInstance">
    <property name="enabled">
@@ -270,6 +281,9 @@
    </property>
    <property name="text">
     <string>&amp;Undo Last Instance Deletion</string>
+   </property>
+   <property name="toolTip">
+    <string>Restore the instance you deleted most recently.</string>
    </property>
   </action>
   <action name="actionAddInstance">
@@ -288,7 +302,7 @@
     <iconset theme="checkupdate"/>
    </property>
    <property name="text">
-    <string>&amp;Update...</string>
+    <string>Check for update</string>
    </property>
    <property name="toolTip">
     <string>Check for new updates for %1.</string>
@@ -328,6 +342,9 @@
    </property>
    <property name="text">
     <string>&amp;Manage Accounts...</string>
+   </property>
+   <property name="toolTip">
+    <string>Add, remove or switch your launcher accounts.</string>
    </property>
   </action>
   <action name="actionLaunchInstance">
@@ -492,6 +509,9 @@
    <property name="text">
      <string>PollyMC-Continued (zip)</string>
    </property>
+   <property name="toolTip">
+    <string>Export the instance as a plain zip you can re-import.</string>
+   </property>
   </action>
   <action name="actionExportInstanceMrPack">
    <property name="icon">
@@ -500,6 +520,9 @@
    <property name="text">
     <string>Modrinth (mrpack)</string>
    </property>
+   <property name="toolTip">
+    <string>Export the instance as a Modrinth pack (.mrpack).</string>
+   </property>
   </action>
   <action name="actionExportInstanceFlamePack">
    <property name="icon">
@@ -507,6 +530,9 @@
    </property>
    <property name="text">
     <string>CurseForge (zip)</string>
+   </property>
+   <property name="toolTip">
+    <string>Export the instance as a CurseForge-style zip.</string>
    </property>
   </action>
   <action name="actionCreateInstanceShortcut">
@@ -527,6 +553,9 @@
    <property name="text">
     <string>No accounts added!</string>
    </property>
+   <property name="toolTip">
+    <string>Create an account to play.</string>
+   </property>
   </action>
   <action name="actionNoDefaultAccount">
    <property name="checkable">
@@ -537,6 +566,9 @@
    </property>
    <property name="text">
     <string>No Default Account</string>
+   </property>
+   <property name="toolTip">
+    <string>Don't pin any account as the default.</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+0</string>
@@ -625,6 +657,9 @@
   <action name="actionChangeTheme">
    <property name="text">
     <string>Themes</string>
+   </property>
+   <property name="toolTip">
+    <string>Switch the launcher's look between light, dark and other themes.</string>
    </property>
   </action>
   <action name="actionReportBug">
@@ -735,7 +770,7 @@
     <iconset theme="help"/>
    </property>
    <property name="text">
-    <string>Help</string>
+    <string>More</string>
    </property>
    <property name="toolTip">
     <string>Get help with %1 or Minecraft.</string>
@@ -747,6 +782,9 @@
    </property>
    <property name="text">
     <string>Accounts</string>
+   </property>
+   <property name="toolTip">
+    <string>Choose which account to play with.</string>
    </property>
   </action>
   <action name="actionOpenWiki">

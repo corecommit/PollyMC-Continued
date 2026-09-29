@@ -103,7 +103,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="buttonsHLayout" stretch="0,0,3,0,0,0,1">
+    <layout class="QHBoxLayout" name="buttonsHLayout" stretch="0,0,3,0,0,0,0,1">
      <item>
       <widget class="QPushButton" name="openDirBtn">
        <property name="text">
@@ -143,6 +143,16 @@
       <widget class="QPushButton" name="fileBtn">
        <property name="text">
         <string>Import File</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="viewOnlineBtn">
+       <property name="text">
+        <string>Browse online skins</string>
+       </property>
+       <property name="toolTip">
+        <string>Browse and use skins published online</string>
        </property>
       </widget>
      </item>

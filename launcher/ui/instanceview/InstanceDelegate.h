@@ -15,8 +15,11 @@
 
 #pragma once
 
-#include <QCache>
+#include <QHash>
 #include <QStyledItemDelegate>
+#include <QTextLayout>
+
+#include <memory>
 
 class ListViewDelegate : public QStyledItemDelegate {
     Q_OBJECT
@@ -38,4 +41,29 @@ class ListViewDelegate : public QStyledItemDelegate {
 
    private slots:
     void editingDone();
+
+   private:
+    // shaping text is the expensive part of painting a row, so results are kept per text and width
+    struct LayoutKey {
+        QString text;
+        int width = 0;
+
+        bool operator==(const LayoutKey& other) const { return width == other.width && text == other.text; }
+        friend size_t qHash(const LayoutKey& key, size_t seed) { return ::qHash(key.text, seed) ^ (size_t(key.width) << 1); }
+    };
+
+    struct LayoutEntry {
+        QFont font;
+        Qt::LayoutDirection direction = Qt::LayoutDirectionAuto;
+        Qt::Alignment alignment;
+        qreal height = 0;
+        qreal widthUsed = 0;
+        std::shared_ptr<QTextLayout> layout;
+    };
+
+    const LayoutEntry& layoutFor(const QString& text, int width, const QFont& font, Qt::LayoutDirection direction,
+                                 Qt::Alignment alignment) const;
+    QSize itemTextSize(const QStyleOptionViewItem& option) const;
+
+    mutable QHash<LayoutKey, LayoutEntry> m_layoutCache;
 };

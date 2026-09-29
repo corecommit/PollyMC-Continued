@@ -224,11 +224,8 @@ Qt::ItemFlags InstanceList::flags(const QModelIndex& index) const
 
 GroupId InstanceList::getInstanceGroup(const InstanceId& id) const
 {
-    auto inst = getInstanceById(id);
-    if (!inst) {
-        return GroupId();
-    }
-    auto iter = m_instanceGroupIndex.find(inst->id());
+    // index lookup only: resolving the instance here made sorting the view quadratic
+    auto iter = m_instanceGroupIndex.find(id);
     if (iter != m_instanceGroupIndex.end()) {
         return *iter;
     }

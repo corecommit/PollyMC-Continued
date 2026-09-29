@@ -68,6 +68,37 @@ static void viewItemTextLayout(QTextLayout& textLayout, int lineWidth, qreal& he
     textLayout.endLayout();
 }
 
+const ListViewDelegate::LayoutEntry& ListViewDelegate::layoutFor(const QString& text,
+                                                                 int width,
+                                                                 const QFont& font,
+                                                                 Qt::LayoutDirection direction,
+                                                                 Qt::Alignment alignment) const
+{
+    const LayoutKey key{ text, width };
+    auto it = m_layoutCache.find(key);
+    if (it != m_layoutCache.end() && it->font == font && it->direction == direction && it->alignment == alignment)
+        return *it;
+
+    if (m_layoutCache.size() >= 4096)
+        m_layoutCache.clear();
+    LayoutEntry& entry = m_layoutCache[key];
+    entry.font = font;
+    entry.direction = direction;
+    entry.alignment = alignment;
+
+    QTextOption textOption;
+    textOption.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
+    textOption.setTextDirection(direction);
+    textOption.setAlignment(alignment);
+    auto layout = std::make_shared<QTextLayout>();
+    layout->setTextOption(textOption);
+    layout->setFont(font);
+    layout->setText(text);
+    viewItemTextLayout(*layout, width, entry.height, entry.widthUsed);
+    entry.layout = std::move(layout);
+    return entry;
+}
+
 ListViewDelegate::ListViewDelegate(QObject* parent) : QStyledItemDelegate(parent) {}
 
 void drawSelectionRect(QPainter* painter, const QStyleOptionViewItem& option, const QRect& rect)
@@ -159,21 +190,12 @@ void drawBadges(QPainter* painter, const QStyleOptionViewItem& option, BaseInsta
     painter->translate(-option.rect.topLeft());
 }
 
-static QSize viewItemTextSize(const QStyleOptionViewItem* option)
+QSize ListViewDelegate::itemTextSize(const QStyleOptionViewItem& option) const
 {
-    QStyle* style = option->widget ? option->widget->style() : QApplication::style();
-    QTextOption textOption;
-    textOption.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
-    QTextLayout textLayout;
-    textLayout.setTextOption(textOption);
-    textLayout.setFont(option->font);
-    textLayout.setText(option->text);
-    const int textMargin = style->pixelMetric(QStyle::PM_FocusFrameHMargin, option, option->widget) + 1;
-    QRect bounds(0, 0, 100 - 2 * textMargin, 600);
-    qreal height = 0, widthUsed = 0;
-    viewItemTextLayout(textLayout, bounds.width(), height, widthUsed);
-    const QSize size(qCeil(widthUsed), qCeil(height));
-    return QSize(size.width() + 2 * textMargin, size.height());
+    QStyle* style = option.widget ? option.widget->style() : QApplication::style();
+    const int textMargin = style->pixelMetric(QStyle::PM_FocusFrameHMargin, &option, option.widget) + 1;
+    const auto& entry = layoutFor(option.text, 100 - 2 * textMargin, option.font, Qt::LayoutDirectionAuto, Qt::AlignLeft);
+    return QSize(qCeil(entry.widthUsed) + 2 * textMargin, qCeil(entry.height));
 }
 
 void ListViewDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
@@ -285,25 +307,14 @@ void ListViewDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
         painter->setPen(opt.palette.color(cg, QPalette::Text));
     }
 
-    // draw the text
-    QTextOption textOption;
-    textOption.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
-    textOption.setTextDirection(opt.direction);
-    textOption.setAlignment(QStyle::visualAlignment(opt.direction, opt.displayAlignment));
-    QTextLayout textLayout;
-    textLayout.setTextOption(textOption);
-    textLayout.setFont(opt.font);
-    textLayout.setText(opt.text);
+    // draw the text (the layout is cached: re-shaping it on every repaint is wasted work)
+    const auto& entry =
+        layoutFor(opt.text, textRect.width(), opt.font, opt.direction, QStyle::visualAlignment(opt.direction, opt.displayAlignment));
 
-    qreal width, height;
-    viewItemTextLayout(textLayout, textRect.width(), height, width);
-
-    const int lineCount = textLayout.lineCount();
-
-    const QRect layoutRect = QStyle::alignedRect(opt.direction, opt.displayAlignment, QSize(textRect.width(), int(height)), textRect);
+    const QRect layoutRect = QStyle::alignedRect(opt.direction, opt.displayAlignment, QSize(textRect.width(), int(entry.height)), textRect);
     const QPointF position = layoutRect.topLeft();
-    for (int i = 0; i < lineCount; ++i) {
-        const QTextLine line = textLayout.lineAt(i);
+    for (int i = 0; i < entry.layout->lineCount(); ++i) {
+        const QTextLine line = entry.layout->lineAt(i);
         line.draw(painter, position);
     }
 
@@ -331,7 +342,7 @@ QSize ListViewDelegate::sizeHint(const QStyleOptionViewItem& option, const QMode
     QStyle* style = opt.widget ? opt.widget->style() : QApplication::style();
     const int textMargin = style->pixelMetric(QStyle::PM_FocusFrameHMargin, &option, opt.widget) + 1;
     int height = 48 + textMargin * 2 + 5;  // TODO: turn constants into variables
-    QSize szz = viewItemTextSize(&opt);
+    QSize szz = itemTextSize(opt);
     height += szz.height();
     // FIXME: maybe the icon items could scale and keep proportions?
     QSize sz(100, height);

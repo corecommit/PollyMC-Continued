@@ -45,6 +45,8 @@
 
 #include "DataMigrationTask.h"
 #include "java/JavaInstallList.h"
+#include "minecraft/MinecraftInstance.h"
+#include "minecraft/PackProfile.h"
 #include "net/PasteUpload.h"
 #include "tasks/Task.h"
 #include "tools/GenericProfiler.h"
@@ -100,6 +102,7 @@
 #include <QStringLiteral>
 #include <QStyleFactory>
 #include <QTranslator>
+#include <QTimer>
 #include <QWindow>
 
 #include "InstanceList.h"
@@ -298,7 +301,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
     setOrganizationName(BuildConfig.LAUNCHER_NAME);
     setOrganizationDomain(BuildConfig.LAUNCHER_DOMAIN);
     setApplicationName(BuildConfig.LAUNCHER_NAME);
-    setApplicationDisplayName(QString("%1 %2").arg(BuildConfig.LAUNCHER_DISPLAYNAME, BuildConfig.printableVersionString()));
+    // no display name is set: Qt would append it to the title of every window
     setApplicationVersion(BuildConfig.printableVersionString() + "\n" + BuildConfig.GIT_COMMIT);
     setDesktopFileName(BuildConfig.LAUNCHER_APPID);
     m_startTime = QDateTime::currentDateTime();
@@ -589,6 +592,14 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
             migrated = handleDataMigration(
                 dataPath, FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "../../multimc"), "MultiMC",
                 "multimc.cfg");
+
+        // the data root flips with portable.txt, so instances can be left behind in either root
+        if (!migrated) {
+            const QString appDataRoot = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+            migrated = handleFlippedDataRoot(dataPath, FS::PathCombine(appDataRoot, ".."));
+        }
+        if (!migrated)
+            migrated = handleFlippedDataRoot(dataPath, m_rootPath);
     }
 
     {
@@ -640,6 +651,9 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
     {
         // Provide a fallback for migration from PolyMC
         m_settings.reset(new INISettingsObject({ BuildConfig.LAUNCHER_CONFIGFILE, "polymc.cfg", "multimc.cfg" }, this));
+
+        // register/migrate without flushing the file on every single change
+        SettingsObject::Lock settingsLock(m_settings.get());
 
         // Theming
         m_settings->registerSetting("IconTheme", QString());
@@ -829,6 +843,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         m_settings->registerSetting("TPDownloadGeometry", "");
         m_settings->registerSetting("ShaderDownloadGeometry", "");
         m_settings->registerSetting("DataPackDownloadGeometry", "");
+        m_settings->registerSetting("SkinBrowserGeometry", "");
 
         // data pack window
         // in future, more pages may be added - so this name is chosen to avoid needing migration
@@ -1056,9 +1071,12 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         }
     });
 
-    updateCapabilities();
-
-    detectLibraries();
+    // MSA/Flame flags are read by the first-run wizard; D-Bus and library probes can wait for the window
+    updateConfiguredCapabilities();
+    QTimer::singleShot(0, this, [this] {
+        updateCapabilities();
+        detectLibraries();
+    });
 
     // check update locks
     {
@@ -1511,7 +1529,10 @@ JavaInstallList* Application::javalist()
 
 QIcon Application::logo()
 {
-    return QIcon(":/" + BuildConfig.LAUNCHER_SVGFILENAME);
+    // decoding the SVG resource is not free, so keep the icon around
+    if (m_logo.isNull())
+        m_logo = QIcon(":/" + BuildConfig.LAUNCHER_SVGFILENAME);
+    return m_logo;
 }
 
 bool Application::openJsonEditor(const QString& filename)
@@ -1561,8 +1582,15 @@ bool Application::launch(BaseInstance* instance,
 
         // Update Discord Rich Presence
         QTimer::singleShot(2000, this, [instance]() {
+            if (!instance->isRunning())
+                return;  // the launch failed in the meantime
+            QString mcVersion;
+            if (auto mc = dynamic_cast<MinecraftInstance*>(instance); mc && mc->getPackProfile())
+                mcVersion = mc->getPackProfile()->getComponentVersion(QStringLiteral("net.minecraft"));
+            if (mcVersion.isEmpty())
+                mcVersion = QStringLiteral("Loading...");
             DiscordRichPresence::instance()->updatePlayingMinecraft(
-                instance->name(), "Loading...", QDateTime::currentSecsSinceEpoch());
+                instance->name(), mcVersion, QDateTime::currentSecsSinceEpoch());
         });
 
         return true;
@@ -1862,13 +1890,18 @@ Meta::Index* Application::metadataIndex()
     return m_metadataIndex.get();
 }
 
-void Application::updateCapabilities()
+void Application::updateConfiguredCapabilities()
 {
     m_capabilities = None;
     if (!getMSAClientID().isEmpty())
         m_capabilities |= SupportsMSA;
     if (!getFlameAPIKey().isEmpty())
         m_capabilities |= SupportsFlame;
+}
+
+void Application::updateCapabilities()
+{
+    updateConfiguredCapabilities();
 
 #ifdef Q_OS_LINUX
     if (gamemode_query_status() >= 0)
@@ -1948,6 +1981,26 @@ QString Application::getUserAgent()
     return BuildConfig.USER_AGENT;
 }
 
+// The files a data migration copies; everything else in the old root is left alone.
+static QList<Filter> migrationFilters(const QString& configFile)
+{
+    using namespace Filters;
+
+    QList<Filter> filters;
+    filters.append(equals(configFile));
+    filters.append(equals(BuildConfig.LAUNCHER_CONFIGFILE));  // it's possible that we already used that directory before
+    filters.append(startsWith("logs/"));
+    filters.append(equals("accounts.json"));
+    filters.append(startsWith("accounts/"));
+    filters.append(startsWith("assets/"));
+    filters.append(startsWith("icons/"));
+    filters.append(startsWith("instances/"));
+    filters.append(startsWith("libraries/"));
+    filters.append(startsWith("mods/"));
+    filters.append(startsWith("themes/"));
+    return filters;
+}
+
 bool Application::handleDataMigration(const QString& currentData,
                                       const QString& oldData,
                                       const QString& name,
@@ -2007,23 +2060,8 @@ bool Application::handleDataMigration(const QString& currentData,
 
     if (!currentExists) {
         // Migrate!
-        using namespace Filters;
-
-        QList<Filter> filters;
-        filters.append(equals(configFile));
-        filters.append(equals(BuildConfig.LAUNCHER_CONFIGFILE));  // it's possible that we already used that directory before
-        filters.append(startsWith("logs/"));
-        filters.append(equals("accounts.json"));
-        filters.append(startsWith("accounts/"));
-        filters.append(startsWith("assets/"));
-        filters.append(startsWith("icons/"));
-        filters.append(startsWith("instances/"));
-        filters.append(startsWith("libraries/"));
-        filters.append(startsWith("mods/"));
-        filters.append(startsWith("themes/"));
-
         ProgressDialog diag;
-        DataMigrationTask task(oldData, currentData, any(std::move(filters)));
+        DataMigrationTask task(oldData, currentData, Filters::any(migrationFilters(configFile)));
         if (diag.execWithTask(&task)) {
             qDebug() << "<> Migration succeeded";
             setDoNotMigrate();
@@ -2035,6 +2073,54 @@ bool Application::handleDataMigration(const QString& currentData,
         qWarning() << "<> Migration was skipped, due to existing data";
     }
     return true;
+}
+
+// Instances can be stranded when the data root flips (portable.txt added/removed or a different launch), so offer them back.
+bool Application::handleFlippedDataRoot(const QString& currentData, const QString& oldData) const
+{
+    const QString curRoot = QDir(currentData).absolutePath();
+    const QString oldRoot = QDir(oldData).absolutePath();
+    if (curRoot.isEmpty() || oldRoot.isEmpty() || curRoot == oldRoot)
+        return false;
+
+    const auto hasInstances = [](const QString& root) {
+        return !QDir(FS::PathCombine(root, "instances")).entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty();
+    };
+
+    // only interesting when the other root holds instances and ours has none
+    if (hasInstances(curRoot) || !hasInstances(oldRoot))
+        return false;
+
+    const QString nomigratePath = FS::PathCombine(curRoot, BuildConfig.LAUNCHER_APP_BINARY_NAME + "_dataroot_nomigrate.txt");
+    if (QFileInfo::exists(nomigratePath))
+        return false;
+
+    auto setDoNotMigrate = [&nomigratePath] {
+        QFile file(nomigratePath);
+        if (!file.open(QIODevice::WriteOnly))
+            qWarning() << "setDoNotMigrate failed; Failed to open file" << file.fileName() << "for writing:" << file.errorString();
+    };
+
+    QString message = tr("Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?")
+                          .arg(oldRoot, BuildConfig.LAUNCHER_DISPLAYNAME, curRoot);
+
+    if (QMessageBox::question(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes)
+        != QMessageBox::Yes) {
+        qDebug() << "<> Data root migration declined for" << oldRoot;
+        setDoNotMigrate();
+        return false;
+    }
+
+    ProgressDialog diag;
+    DataMigrationTask task(oldRoot, curRoot, Filters::any(migrationFilters(BuildConfig.LAUNCHER_CONFIGFILE)));
+    if (diag.execWithTask(&task)) {
+        qDebug() << "<> Data root migration succeeded for" << oldRoot;
+        setDoNotMigrate();
+        return true;
+    }
+
+    QMessageBox::critical(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, tr("Migration failed! Reason: %1").arg(task.failReason()));
+    return false;
 }
 
 void Application::triggerUpdateCheck()

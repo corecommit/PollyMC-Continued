@@ -101,7 +101,8 @@ class PixmapCache final : public QObject {
      */
     bool _markCacheMissByEviciton()
     {
-        static constexpr uint maxCache = static_cast<uint>(std::numeric_limits<int>::max()) / 4;
+        // QPixmapCache is in KB; 128 MB is plenty for the launcher and keeps us off swap on small machines
+        static constexpr uint maxCache = 128 * 1024;
         static constexpr uint step = 10240;
         static constexpr int oneSecond = 1000;
 

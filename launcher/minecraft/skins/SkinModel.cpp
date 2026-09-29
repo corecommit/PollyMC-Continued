@@ -162,6 +162,17 @@ static QImage generatePreviews(QImage texture, bool slim)
 
     return preview;
 }
+
+QImage SkinModel::normalizeTexture(const QImage& texture)
+{
+    return improveSkin(texture);
+}
+
+QImage SkinModel::previewFor(const QImage& texture, bool slim)
+{
+    return generatePreviews(texture, slim);
+}
+
 SkinModel::SkinModel(QString path) : m_path(path), m_texture(getSkin(path)), m_model(Model::CLASSIC)
 {
     m_preview = generatePreviews(m_texture, false);

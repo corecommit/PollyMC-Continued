@@ -162,12 +162,14 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->actionMoreNews->setVisible(false);
 
     setWindowIcon(APPLICATION->logo());
-    setWindowTitle(APPLICATION->applicationDisplayName());
+    // only the main window shows name and version, no branch or channel suffix
+    const auto title = QString("%1 %2").arg(BuildConfig.LAUNCHER_DISPLAYNAME, BuildConfig.versionString());
+    setWindowTitle(title);
 
     // System tray icon — used by "Minimize to Tray"
     if (QSystemTrayIcon::isSystemTrayAvailable()) {
         m_trayIcon = new QSystemTrayIcon(APPLICATION->logo(), this);
-        m_trayIcon->setToolTip(APPLICATION->applicationDisplayName());
+        m_trayIcon->setToolTip(title);
         auto* trayMenu = new QMenu(this);
         auto* showAction = trayMenu->addAction(tr("Show PollyMC"));
         connect(showAction, &QAction::triggered, this, &MainWindow::showFromTray);
@@ -227,14 +229,15 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
         helpMenuButton = dynamic_cast<QToolButton*>(ui->mainToolBar->widgetForAction(ui->actionHelpButton));
         ui->actionHelpButton->setMenu(new QMenu(this));
+        ui->actionHelpButton->menu()->setToolTipsVisible(true);
         ui->actionHelpButton->menu()->addActions(ui->helpMenu->actions());
-        ui->actionHelpButton->menu()->removeAction(ui->actionCheckUpdate);
         helpMenuButton->setPopupMode(QToolButton::InstantPopup);
 
         auto accountMenuButton = dynamic_cast<QToolButton*>(ui->mainToolBar->widgetForAction(ui->actionAccountsButton));
         accountMenuButton->setPopupMode(QToolButton::InstantPopup);
 
         auto exportInstanceMenu = new QMenu(this);
+        exportInstanceMenu->setToolTipsVisible(true);
         exportInstanceMenu->addAction(ui->actionExportInstanceZip);
         exportInstanceMenu->addAction(ui->actionExportInstanceMrPack);
         exportInstanceMenu->addAction(ui->actionExportInstanceFlamePack);
@@ -455,7 +458,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     // GitHub star reminder toast — hidden until maybeShowStarToast() decides
     // it is time to show it.
     m_toast = new ToastNotification(this);
-    connect(m_toast, &ToastNotification::dismissed, this, [this] {
+    connect(m_toast, &ToastNotification::dismissed, this, [] {
         APPLICATION->settings()->set("StarReminderDismissed", true);
     });
 
@@ -477,7 +480,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent* event)
 void MainWindow::retranslateUi()
 {
     if (m_selectedInstance) {
-        m_statusLeft->setText(m_selectedInstance->getStatusbarDescription());
+        updateStatusDescription();
     } else {
         m_statusLeft->setText(tr("No instance selected"));
     }
@@ -573,9 +576,10 @@ void MainWindow::maybeShowStarToast()
         return;
 
     settings->set("StarReminderLastShown", QDate::currentDate().toString(Qt::ISODate));
-    m_toast->showToast(toastPosition(), tr("Enjoying PollyMC-Continued?"),
-                       tr("Give the project a star on GitHub!"), tr("Star on GitHub"),
-                       [this] { DesktopServices::openUrl(QUrl(kStarRepoUrl)); });
+    m_toast->prepareToast(tr("Enjoying PollyMC-Continued?"),
+                          tr("Give the project a star on GitHub!"), tr("Star on GitHub"),
+                          [] { DesktopServices::openUrl(QUrl(kStarRepoUrl)); });
+    m_toast->showToast(toastPosition());
 }
 
 void MainWindow::lockToolbars(bool state)
@@ -702,7 +706,9 @@ void MainWindow::updateThemeMenu()
 
     auto themes = APPLICATION->themeManager()->getValidApplicationThemes();
 
-    QActionGroup* themesGroup = new QActionGroup(this);
+    // keep a single group for the lifetime of the window instead of leaking one per rebuild
+    if (!m_themeGroup)
+        m_themeGroup = new QActionGroup(this);
 
     for (auto* theme : themes) {
         QAction* themeAction = themeMenu->addAction(theme->name());
@@ -711,7 +717,7 @@ void MainWindow::updateThemeMenu()
         if (APPLICATION->settings()->get("ApplicationTheme").toString() == theme->id()) {
             themeAction->setChecked(true);
         }
-        themeAction->setActionGroup(themesGroup);
+        themeAction->setActionGroup(m_themeGroup);
 
         connect(themeAction, &QAction::triggered, [theme]() {
             APPLICATION->themeManager()->setApplicationTheme(theme->id());
@@ -1812,7 +1818,7 @@ void MainWindow::instanceChanged(const QModelIndex& current, [[maybe_unused]] co
         ui->actionKillInstance->setEnabled(m_selectedInstance->isRunning());
         ui->actionExportInstance->setEnabled(m_selectedInstance->canExport());
         renameButton->setText(m_selectedInstance->name());
-        m_statusLeft->setText(m_selectedInstance->getStatusbarDescription());
+        updateStatusDescription();
         updateStatusCenter();
         updateInstanceToolIcon(m_selectedInstance->iconKey());
 
@@ -1893,6 +1899,18 @@ void MainWindow::checkInstancePathForProblems()
     }
 }
 
+void MainWindow::updateStatusDescription()
+{
+    const QString id = m_selectedInstance ? m_selectedInstance->id() : QString();
+    if (m_selectedInstance)
+        m_statusLeft->setText(m_selectedInstance->name());
+    // resolving components parses JSON, so fill in the details once the UI has had a chance to paint
+    QTimer::singleShot(0, this, [this, id] {
+        if (m_selectedInstance && m_selectedInstance->id() == id)
+            m_statusLeft->setText(m_selectedInstance->getStatusbarDescription());
+    });
+}
+
 void MainWindow::updateStatusCenter()
 {
     m_statusCenter->setVisible(APPLICATION->settings()->get("ShowGlobalGameTime").toBool());
@@ -1922,4 +1940,3 @@ void MainWindow::refreshCurrentInstance()
     auto current = view->selectionModel()->currentIndex();
     instanceChanged(current, current);
 }
-       

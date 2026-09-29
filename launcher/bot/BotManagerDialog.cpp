@@ -1,5 +1,8 @@
 #include "BotManagerDialog.h"
 
+#include "Application.h"
+#include "FileSystem.h"
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QSplitter>
@@ -8,6 +11,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QFile>
+#include <QFileInfo>
 #include <QDir>
 #include <QCoreApplication>
 #include <QDateTime>
@@ -63,7 +67,12 @@ BotManagerDialog::BotManagerDialog(QWidget* parent)
     setWindowTitle("Bot Manager");
     resize(960, 600);
 
-    m_configPath = QCoreApplication::applicationDirPath() + "/bots.json";
+    // Read-only install dirs can't store the config, so fall back to the data folder.
+    m_legacyConfigPath = FS::PathCombine(QCoreApplication::applicationDirPath(), "bots.json");
+    const bool canWriteBesideBinary =
+        QFileInfo(QCoreApplication::applicationDirPath()).isWritable() &&
+        (!QFileInfo::exists(m_legacyConfigPath) || QFileInfo(m_legacyConfigPath).isWritable());
+    m_configPath = canWriteBesideBinary ? m_legacyConfigPath : FS::PathCombine(APPLICATION->dataRoot(), "bots.json");
 
     auto* main = new QVBoxLayout(this);
     main->setContentsMargins(0, 0, 0, 0);
@@ -274,7 +283,11 @@ void BotManagerDialog::saveConfigs()
 void BotManagerDialog::loadConfigs()
 {
     m_bots.clear();
-    QFile f(m_configPath);
+    // Old builds kept the config next to the binary.
+    QString path = m_configPath;
+    if (!QFileInfo::exists(path) && QFileInfo::exists(m_legacyConfigPath))
+        path = m_legacyConfigPath;
+    QFile f(path);
     if (!f.open(QIODevice::ReadOnly))
         return;
     auto arr = QJsonDocument::fromJson(f.readAll()).array();

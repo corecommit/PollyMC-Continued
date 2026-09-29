@@ -18,12 +18,15 @@
  */
 
 #include "ResourceDownloadDialog.h"
+#include <QHideEvent>
 #include <QList>
+#include <QShowEvent>
 
 #include <QPushButton>
 #include <algorithm>
 
 #include "Application.h"
+#include "DiscordRichPresence.h"
 #include "ResourceDownloadTask.h"
 
 #include "minecraft/PackProfile.h"
@@ -112,6 +115,18 @@ void ResourceDownloadDialog::reject()
         APPLICATION->settings()->set(geometrySaveKey(), QString::fromUtf8(saveGeometry().toBase64()));
 
     QDialog::reject();
+}
+
+void ResourceDownloadDialog::showEvent(QShowEvent* event)
+{
+    QDialog::showEvent(event);
+    DiscordRichPresence::instance()->updateBrowsing();
+}
+
+void ResourceDownloadDialog::hideEvent(QHideEvent* event)
+{
+    QDialog::hideEvent(event);
+    DiscordRichPresence::instance()->browsingClosed();
 }
 
 // NOTE: We can't have this in the ctor because PageContainer calls a virtual function, and so

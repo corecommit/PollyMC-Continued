@@ -48,6 +48,8 @@ class PageContainer;
 class QDialogButtonBox;
 class ImportPage;
 class FlamePage;
+class QHideEvent;
+class QShowEvent;
 
 class NewInstanceDialog : public QDialog, public BasePageProvider {
     Q_OBJECT
@@ -78,6 +80,10 @@ class NewInstanceDialog : public QDialog, public BasePageProvider {
    public slots:
     void accept() override;
     void reject() override;
+
+   protected:
+    void showEvent(QShowEvent* event) override;
+    void hideEvent(QHideEvent* event) override;
 
    private slots:
     void on_iconButton_clicked();

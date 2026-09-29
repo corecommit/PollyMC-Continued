@@ -47,6 +47,11 @@ class SkinModel {
     void setURL(QString url) { m_url = url; }
     void refresh();
 
+    // fixes legacy textures and alpha so online skins can be shown without saving them first
+    static QImage normalizeTexture(const QImage& texture);
+    // the small front/back icon used in the skin lists
+    static QImage previewFor(const QImage& texture, bool slim);
+
     QJsonObject toJSON() const;
 
    private:

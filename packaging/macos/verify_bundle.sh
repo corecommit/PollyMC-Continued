@@ -193,10 +193,13 @@ for private_path in "${SOURCE_ROOT:-}" "${HOME:-}"; do
 	fi
 done
 
+# stable is the release marker written by Launcher_BUILD_RELEASE, so it can't be told apart from a real branch.
 case ${SOURCE_BRANCH:-} in
-'' | main | master | develop) ;;
+'' | main | master | develop | stable) ;;
 *)
-	if LC_ALL=C grep -R -q -F -- "$SOURCE_BRANCH" "$app"; then
+	# Binaries like QtWidgets/libzstd contain 'testing' by chance; only scan text, plus git refspec in binaries.
+	if LC_ALL=C grep -R --binary-files=without-match -q -F -- "$SOURCE_BRANCH" "$app" ||
+		LC_ALL=C grep -R -a -q -F -- "refs/heads/$SOURCE_BRANCH" "$app"; then
 		fail "bundle contains the local source branch name"
 	fi
 	;;

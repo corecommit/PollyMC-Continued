@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /*
- *  Prism Launcher - Minecraft Launcher
+ *  PollyMC-Continued - Minecraft Launcher
  *  Copyright (C) 2026 PollyMC Continued Contributors
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -85,7 +85,7 @@ public final class Skin {
                 return handler;
             }
         } catch (Exception e) {
-            System.err.println("[PrismLauncher] Could not capture handler from table: " + e.getMessage());
+            System.err.println("[PollyMC-Continued] Could not capture handler from table: " + e.getMessage());
         }
         try {
             URL dummy = new URL("https://localhost");
@@ -93,7 +93,7 @@ public final class Skin {
             handlerField.setAccessible(true);
             return (URLStreamHandler) handlerField.get(dummy);
         } catch (Exception e) {
-            System.err.println("[PrismLauncher] Could not capture default handler: " + e.getMessage());
+            System.err.println("[PollyMC-Continued] Could not capture default handler: " + e.getMessage());
         }
         return null;
     }
@@ -107,7 +107,7 @@ public final class Skin {
                 (Hashtable<String, URLStreamHandler>) handlersField.get(null);
             handlers.remove(protocol);
         } catch (Exception e) {
-            System.err.println("[PrismLauncher] Could not clear cached handler: " + e.getMessage());
+            System.err.println("[PollyMC-Continued] Could not clear cached handler: " + e.getMessage());
         }
     }
 
@@ -229,8 +229,9 @@ public final class Skin {
     private static String[] searchPaths() {
         String[] paths = {
             System.getProperty("pollymc.datadir", ""),
-            System.getProperty("user.home") + "/.local/share/PrismLauncher",
-            System.getProperty("user.home") + "/AppData/Roaming/PrismLauncher"
+            System.getProperty("user.home") + "/.local/share/PollyMC",
+            System.getProperty("user.home") + "/AppData/Roaming/PollyMC",
+            System.getProperty("user.home") + "/Library/Application Support/PollyMC"
         };
         return paths;
     }

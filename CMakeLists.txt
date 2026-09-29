@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25) # Required for features like `CMAKE_MSVC_DEBUG_INFORMATION_FORMAT`
 
-set(Launcher_VERSION "9.1.0" CACHE STRING "Launcher version in MAJOR.MINOR.PATCH format")
+set(Launcher_VERSION "9.3.0" CACHE STRING "Launcher version in MAJOR.MINOR.PATCH format")
 if(Launcher_VERSION STREQUAL "")
     set(Launcher_VERSION "9.0.10" CACHE STRING "Launcher version in MAJOR.MINOR.PATCH format" FORCE)
 endif()
@@ -566,6 +566,7 @@ if(UNIX AND NOT APPLE)
     set(CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
     set(CPACK_STRIP_FILES TRUE)
     set(CPACK_PACKAGE_EXECUTABLES "pollymc" "PollyMC-Continued")
-    set(CPACK_DEBIAN_PACKAGE_RECOMMENDS "gamemode;mangohud")
+    # Debian fields need commas; a ';' makes dpkg reject the package.
+    set(CPACK_DEBIAN_PACKAGE_RECOMMENDS "gamemode, mangohud")
     include(CPack)
 endif()

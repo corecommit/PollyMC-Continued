@@ -31,7 +31,7 @@ chmod +x "${LAUNCHER_DIR}/bin/${LAUNCHER_NAME}"
 
 ARGS=("${LAUNCHER_DIR}/${LAUNCHER_NAME}" "${LAUNCHER_DIR}/bin/${LAUNCHER_NAME}")
 
-if [ -f portable.txt ]; then
+if [ -f "${LAUNCHER_DIR}/portable.txt" ]; then
     ARGS+=("-d" "${LAUNCHER_DIR}")
 fi
 

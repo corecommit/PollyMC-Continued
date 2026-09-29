@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - id: check
+      - id: check 
         shell: bash
         run: |
           set -euo pipefail
@@ -61,9 +61,14 @@ jobs:
           else
                         LATEST_TAG=$(git describe --tags --match "v*" --abbrev=0 2>/dev/null || echo "")
             if [ -z "$LATEST_TAG" ]; then
-              # No tags exist yet in this repo - use commit subjects only.
+              # No tags exist yet in this repo - use commit subjects only, and
+              # take the base version from the top section of CHANGELOG.md
+              # instead of guessing from v0.0.0 (which produced v0.0.1 and a
+              # changelog-check failure on every plain push).
               BUMP_COMMITS=$(git log --format="%s" 2>/dev/null || echo "")
-              LATEST_TAG="v0.0.0"
+              LATEST_TAG=$(sed 's/\r$//' CHANGELOG.md | grep -E '^## v[0-9]+\.[0-9]+\.[0-9]+$' | head -1 || true)
+              LATEST_TAG="${LATEST_TAG#"## "}"
+              LATEST_TAG="${LATEST_TAG:-v0.0.0}"
             else
               # Only commit subjects are considered for versioning.
               BUMP_COMMITS=$(git log "${LATEST_TAG}..HEAD" --format="%s" 2>/dev/null || echo "")
@@ -78,7 +83,7 @@ jobs:
             if printf '%s\n' "$BUMP_COMMITS" | grep -qE '^[^:]+!:|^[^:]+:.*BREAKING CHANGE|BREAKING CHANGE'; then
               MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0
               BUMP="major"
-            elif printf '%s\n' "$BUMP_COMMITS" | grep -qE '^(feat|feature)(\([^)]*\))?:[[:space:]]'; then
+            elif printf '%s\n' "$BUMP_COMMITS" | grep -qiE '^(feat|feature|add|enhance)(\([^)]*\))?:[[:space:]]'; then
               MINOR=$((MINOR + 1)); PATCH=0
               BUMP="minor"
             else
@@ -113,16 +118,20 @@ jobs:
             EXPECTED_TAG="v${{ needs.skip-check.outputs.version }}"
           fi
 
-          HEAD_MSG=$(git log --format="%s %b" HEAD -1)
-          if echo "$HEAD_MSG" | grep -qF '[skip changelog]'; then
-            echo "Skipping changelog check: [skip changelog] found in the latest commit."
-            exit 0
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            COMMITS=$(git log --format="%s %b" "${{ github.event.pull_request.base.sha }}".."${{ github.event.pull_request.head.sha }}")
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            COMMITS=$(git log --format="%s %b" "${{ github.event.before }}".."${{ github.event.after }}" 2>/dev/null || git log --format="%s %b" -1)
+          else
+            COMMITS=$(git log --format="%s %b" -1)
           fi
 
+          if echo "$COMMITS" | grep -qF '[skip changelog]'; then
+            echo "Skipping changelog check: [skip changelog] found in the push/PR range."
+            exit 0
+          fi
+          
           echo "Looking for '## ${EXPECTED_TAG}' in CHANGELOG.md ..."
-          # Use a counted grep, not `grep -q`: -q exits on the first match and
-          # closes the pipe, sed then dies with SIGPIPE and pipefail turns the
-          # whole pipeline into a failure even though the section exists.
           if [ "$(sed 's/\r$//' CHANGELOG.md | grep -Fxc "## ${EXPECTED_TAG}" || true)" -eq 0 ]; then
             echo "::error::CHANGELOG.md has no '## ${EXPECTED_TAG}' section, but the computed release version is ${EXPECTED_TAG}."
             echo "::error::Add a '## ${EXPECTED_TAG}' section (Added/Changed/Fixed/Removed) to CHANGELOG.md, or add '[skip changelog]' to the commit message if this change doesn't need a release note."
@@ -130,7 +139,6 @@ jobs:
           fi
 
           echo "Found matching CHANGELOG.md section for ${EXPECTED_TAG}."
-
   build-windows:
     name: Windows (MinGW)
     needs: [skip-check]
@@ -155,12 +163,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: C:\msys64\var\cache\pacman\pkg
-          # NOTE: hashFiles assumes this workflow file is saved as build.yml.
-          # If it's saved under a different filename, hashFiles returns "" and
-          # this key never changes when the workflow is edited. Verify the
-          # actual path, or hash something more stable like CMakeLists.txt.
-          key: msys2-v1
-          restore-keys: msys2-
+          key: msys2-v2-${{ hashFiles('.github/workflows/build.yml') }}
+          restore-keys: |
+            msys2-v2-
 
       - name: Setup MSYS2
         uses: msys2/setup-msys2@v2
@@ -178,7 +183,6 @@ jobs:
             mingw-w64-x86_64-qt6-websockets
             mingw-w64-x86_64-extra-cmake-modules
             mingw-w64-x86_64-tomlplusplus
-            mingw-w64-x86_64-cmark
             mingw-w64-x86_64-qrencode
             mingw-w64-x86_64-libarchive
             mingw-w64-x86_64-zlib
@@ -214,6 +218,28 @@ jobs:
           restore-keys: |
             ccache-windows-
 
+      - name: Build cmark from source
+        run: |
+          set -euo pipefail
+          # MSYS2 dropped the MINGW64 (MSVCRT) build of cmark -- the
+          # mingw-w64-cmark base package now only ships ucrt64/clang64/
+          # clangarm64 binaries, so 'mingw-w64-x86_64-cmark' failed with
+          # 'target not found'. Compile the pinned release from source and
+          # install it into the standard MINGW64 prefix, where the main
+          # project's find_package(cmark) picks it up (the exported target is
+          # cmark::cmark, matching what the distro package used to provide).
+          curl -fsSL -o /tmp/cmark.tar.gz \
+            "https://github.com/commonmark/cmark/archive/refs/tags/0.31.2.tar.gz"
+          tar -xzf /tmp/cmark.tar.gz -C /tmp
+          cmake -S /tmp/cmark-0.31.2 -B /tmp/cmark-0.31.2/build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=ON \
+            -DBUILD_TESTING=OFF \
+            -DCMAKE_INSTALL_PREFIX=/mingw64
+          cmake --build /tmp/cmark-0.31.2/build
+          cmake --install /tmp/cmark-0.31.2/build
+          ls -la /mingw64/bin/cmark.exe /mingw64/lib/libcmark.dll.a /mingw64/lib/cmake/cmark/
+
       - name: Configure
         run: |
           set -euo pipefail
@@ -225,6 +251,7 @@ jobs:
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_BUILD_RELEASE=ON \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
             -S . -B build
@@ -464,6 +491,7 @@ jobs:
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_BUILD_RELEASE=ON \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
             -S . -B build
@@ -493,6 +521,7 @@ jobs:
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_BUILD_RELEASE=ON \
             -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
             -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
             -DLauncher_UPDATER_GITHUB_REPO="" \
@@ -622,14 +651,46 @@ jobs:
           set -euo pipefail
           VERSION="${{ needs.skip-check.outputs.version }}"
           # Same portable layout as the Windows zip: bot-server + portable.txt
-          # + manifest.txt next to the binary (/tmp/pollymc/bin).
+          # + manifest.txt next to the binary (/tmp/pollymc/bin). The updater
+          # copies the manifest's top-level entries wholesale, so files added
+          # inside bin/ ship and update automatically.
           cp -r bot-server /tmp/pollymc/bin/bot-server
           rm -f /tmp/pollymc/bin/bot-server/.gitignore
           rm -rf /tmp/pollymc/bin/bot-server/node_modules
+
+          # Bundle every non-standard shared library the binary links against
+          # into bin/, next to the binary (Launcher_BINARY_RPATH is $ORIGIN/,
+          # so they are found before system libs). Qt6 itself is deliberately
+          # left to the system, but these three are version-pinned or seldom
+          # preinstalled: cmark's SONAME in particular differs between distros
+          # (0.30.2 on Ubuntu 24.04 vs 0.31.2 on Arch/openSUSE), so unpackaged
+          # the tarball only ran on distros whose cmark matched the build image.
+          # Fail loudly if any lib can't be resolved on the runner.
+          BUNDLE_LIBS="libcmark.so.0.30.2 libtomlplusplus.so.3 libqrencode.so.4"
+          for lib in $BUNDLE_LIBS; do
+            SRC=$(ldconfig -p 2>/dev/null | awk -v n="$lib" '$1==n {print $NF; exit}')
+            if [ -z "$SRC" ]; then
+              echo "::error::Could not resolve $lib on the build runner; install the matching package in the 'Install Dependencies' step."
+              exit 1
+            fi
+            cp -L "$SRC" /tmp/pollymc/bin/
+            echo "DEBUG: bundled $lib <- $SRC"
+          done
+
           cp "$GITHUB_WORKSPACE/program_info/portable.txt" /tmp/pollymc/portable.txt
           find /tmp/pollymc -mindepth 1 -maxdepth 1 -printf '%P\n' | sort > /tmp/pollymc/manifest.txt
           tar -czf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" -C /tmp/pollymc .
           ls -la PollyMC-Continued-*-Linux-x86_64.tar.gz
+
+          # Guard the packaged artifact itself: the bundled libs must sit in
+          # bin/ next to the binary, or the tarball is broken. (tar -t prefixes
+          # every entry with ./ when created with -C dir .)
+          for lib in $BUNDLE_LIBS; do
+            if ! tar -tzf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" | sed 's|^\./||' | grep -qx "bin/$lib"; then
+              echo "::error::$lib missing from packaged tarball (not in bin/)"
+              exit 1
+            fi
+          done
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -639,11 +700,84 @@ jobs:
             PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage
             PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.tar.gz
 
+  linux-tarball-cross-distro:
+    name: Linux tarball (cross-distro smoke test)
+    needs: [skip-check, build-linux]
+    if: needs.skip-check.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: PollyMC-Continued-Linux-AppImage
+
+      - name: Install runtime dependencies
+        run: |
+          set -euo pipefail
+          pacman -Syu --noconfirm --needed
+          pacman -S --noconfirm --needed \
+            qt6-base qt6-networkauth qt6-websockets \
+            libarchive libpng zlib zstd
+          # Sanity check: the container must NOT provide the launcher's expected
+          # cmark SONAME, otherwise this test would pass even without bundling.
+          if ldconfig -p | grep -q 'libcmark.so.0.30.2'; then
+            echo "::error::Arch container unexpectedly has libcmark 0.30.2; the smoke test would be meaningless."
+            exit 1
+          fi
+
+      - name: Extract tarball and check bundle
+        run: |
+          set -euo pipefail
+          TARBALL=$(ls PollyMC-Continued-*-Linux-x86_64.tar.gz | head -n1)
+          if [ -z "$TARBALL" ]; then
+            echo "::error::No Linux tarball artifact found"
+            exit 1
+          fi
+          rm -rf /tmp/pollymc-test && mkdir -p /tmp/pollymc-test
+          tar -xzf "$TARBALL" -C /tmp/pollymc-test
+          cd /tmp/pollymc-test
+
+          # The tarball bundles libcmark.so.0.30.2 in bin/ (RUNPATH=$ORIGIN/).
+          # Arch's system cmark is 0.31.2, so if bundling ever breaks, this
+          # reproduces the user-visible "libcmark.so.0.30.2: cannot open shared
+          # object file" failure exactly.
+          for lib in libcmark.so.0.30.2 libtomlplusplus.so.3 libqrencode.so.4; do
+            if [ ! -f "bin/$lib" ]; then
+              echo "::error::Bundled library $lib missing from bin/ in the extracted tarball"
+              exit 1
+            fi
+          done
+          if ldd bin/pollymc 2>&1 | grep -q "not found"; then
+            echo "::error::Unresolved shared libraries in packaged binary:"
+            ldd bin/pollymc 2>&1 | grep "not found"
+            exit 1
+          fi
+
+      - name: Headless launch smoke test
+        run: |
+          set -euo pipefail
+          cd /tmp/pollymc-test
+          # Start the launcher with the offscreen platform; it must still be
+          # alive after 10s (mirrors the Windows missing-DLL test).
+          QT_QPA_PLATFORM=offscreen ./bin/pollymc >/tmp/pollymc-smoke.log 2>&1 &
+          APP_PID=$!
+          sleep 10
+          if ! kill -0 "$APP_PID" 2>/dev/null; then
+            echo "::error::pollymc exited during startup:"
+            tail -40 /tmp/pollymc-smoke.log
+            exit 1
+          fi
+          echo "pollymc ran for 10s in the cross-distro smoke test"
+          kill "$APP_PID" 2>/dev/null || true
+
   build-macos:
-    name: macOS (Universal)
+    name: macOS (arm64)
     needs: [skip-check]
     if: needs.skip-check.outputs.skip != 'true'
-    runs-on: macos-14
+    runs-on: macos-15
     permissions:
       contents: read
     env:
@@ -726,7 +860,7 @@ jobs:
       - name: Build
         run: |
           ccache -z
-          cmake --build --preset macos_universal --config "$BUILD_TYPE"
+          cmake --build build --config "$BUILD_TYPE"
           echo "=== ccache stats ==="
           ccache -s
           ccache --print-stats
@@ -830,7 +964,13 @@ jobs:
           sed -i "s/sha256sums=.*/sha256sums=('SKIP')/" packaging/arch/PKGBUILD
           tar --exclude-vcs --exclude=build --exclude=.ccache \
             --transform="s|^\./|PollyMC-Continued-${VERSION}/|" \
-            -czf "packaging/arch/pollymc-continued-${VERSION}.tar.gz" .
+            -czf /tmp/pollymc-continued.tar.gz .
+          # Write the source tarball to /tmp and move it afterwards: writing it
+          # directly into packaging/arch/ (a directory inside the tree being
+          # archived) made tar read the file as it was writing it ("tar: ...:
+          # file changed as we read it") and exit 1, failing the job under
+          # set -e.
+          mv "/tmp/pollymc-continued.tar.gz" "packaging/arch/pollymc-continued-${VERSION}.tar.gz"
           cd packaging/arch
           su builder -c "makepkg --noconfirm --force"
           # makepkg names the file after pkgname (lowercase); rename it so the
@@ -863,8 +1003,8 @@ jobs:
 
   release:
     name: Release
-    needs: [skip-check, changelog-check, build-windows, build-linux, build-macos, build-arch]
-    if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
+    needs: [skip-check, changelog-check, build-windows, build-linux, linux-tarball-cross-distro, build-macos, build-arch]
+    if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-linux.result != 'success' || needs.linux-tarball-cross-distro.result == 'success') && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: write

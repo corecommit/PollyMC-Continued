@@ -1,6 +1,11 @@
 #include "BotProcess.h"
+#include "Application.h"
+#include "FileSystem.h"
+
 #include <QCoreApplication>
+#include <QDateTime>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -34,6 +39,20 @@ QString BotProcess::findNodePath() const
 
 QString BotProcess::findBotServerDir() const
 {
+    const QString bundled = locateBundledBotServerDir();
+
+    if (!QDir(bundled).exists())
+        return bundled;
+
+    if (QFileInfo(bundled).isWritable())
+        return bundled;
+
+    // Read-only install (/usr/bot-server, Program Files): npm can't write there, so use a data-dir copy.
+    return userBotServerDir(bundled);
+}
+
+QString BotProcess::locateBundledBotServerDir() const
+{
     QStringList candidates = {
         QCoreApplication::applicationDirPath() + "/bot-server",
         QCoreApplication::applicationDirPath() + "/../bot-server",
@@ -47,6 +66,26 @@ QString BotProcess::findBotServerDir() const
     }
 
     return QCoreApplication::applicationDirPath() + "/bot-server";
+}
+
+QString BotProcess::userBotServerDir(const QString& bundled) const
+{
+    const QString userDir = FS::PathCombine(APPLICATION->dataRoot(), "bot-server");
+    if (!QDir().mkpath(userDir))
+        return bundled;
+
+    for (const char* name : { "index.js", "package.json" }) {
+        const QString src = FS::PathCombine(bundled, name);
+        const QString dst = FS::PathCombine(userDir, name);
+        if (!QFileInfo::exists(src))
+            continue;
+        if (QFileInfo::exists(dst) && QFileInfo(src).lastModified() <= QFileInfo(dst).lastModified())
+            continue;
+        QFile::remove(dst);
+        if (!QFile::copy(src, dst))
+            return bundled;
+    }
+    return userDir;
 }
 
 void BotProcess::start()

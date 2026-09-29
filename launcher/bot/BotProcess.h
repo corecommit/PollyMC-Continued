@@ -40,6 +40,8 @@ private:
     void handleMessage(const QJsonObject& msg);
     QString findNodePath() const;
     QString findBotServerDir() const;
+    QString locateBundledBotServerDir() const;
+    QString userBotServerDir(const QString& bundled) const;
 
     QProcess* m_process = nullptr;
     QProcess* m_installProcess = nullptr;
