@@ -149,7 +149,7 @@
      <item>
       <widget class="QPushButton" name="viewOnlineBtn">
        <property name="text">
-        <string>View skins online</string>
+        <string>Browse online skins</string>
        </property>
        <property name="toolTip">
         <string>Browse and use skins published online</string>
