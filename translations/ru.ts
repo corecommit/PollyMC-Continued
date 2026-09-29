@@ -590,6 +590,11 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
         <translation>Тема:</translation>
     </message>
     <message>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
+        <source>Launcher Font:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cat Opacity</source>
         <translation type="vanished">Непрозрачность котика</translation>
     </message>
@@ -598,17 +603,17 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
         <translation type="vanished">&amp;Набор котиков:</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="216"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="228"/>
         <source>[INFO] A harmless message...</source>
         <translation>[INFO] Безвредное сообщение...</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="189"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="251"/>
         <source>Preview</source>
         <translation>Предварительный просмотр</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="214"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="226"/>
         <source>[ERROR] A spooky error!</source>
         <translation>[ERROR] Зловещая ошибка!</translation>
     </message>
@@ -627,7 +632,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
         <translation type="vanished">Размер котика</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="219"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="231"/>
         <source>[FATAL] A terrifying fatal error!</source>
         <translation>[FATAL] Ужасающая критическая ошибка!</translation>
     </message>
@@ -645,22 +650,22 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
         <translation>&amp;Значки:</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="218"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="230"/>
         <source>[DEBUG] A secret debugging message...</source>
         <translation>[DEBUG] Секретное сообщение для отладки…</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="188"/>
         <source>Console Font:</source>
         <translation>Консольный шрифт:</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="212"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="224"/>
         <source>[ERROR] OOoooOOOoooo! A spooky error!</source>
         <translation>[ERROR] OOoooOOOoooo! Зловещая ошибка!</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="217"/>
+        <location filename="../launcher/ui/widgets/AppearanceWidget.cpp" line="229"/>
         <source>[WARN] A not so spooky warning.</source>
         <translation>[WARN] Не очень зловещее предупреждение.</translation>
     </message>
@@ -668,18 +673,18 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
 <context>
     <name>Application</name>
     <message>
-        <location filename="../launcher/Application.cpp" line="1169"/>
+        <location filename="../launcher/Application.cpp" line="1174"/>
         <source>Update Succeeded</source>
         <translation>Обновление выполнено успешно</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1207"/>
+        <location filename="../launcher/Application.cpp" line="1212"/>
         <source>Incompatible system configuration</source>
         <translation>Несовместимая конфигурация системы</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2070"/>
-        <location filename="../launcher/Application.cpp" line="2122"/>
+        <location filename="../launcher/Application.cpp" line="2084"/>
+        <location filename="../launcher/Application.cpp" line="2136"/>
         <source>Migration failed! Reason: %1</source>
         <translation>Перенос не удался! Причина: %1</translation>
     </message>
@@ -712,22 +717,22 @@ for details on the last update attempt.</source>
 для получения подробной информации о последней попытке обновления.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="705"/>
+        <location filename="../launcher/Application.cpp" line="710"/>
         <source>Cannot display this log since the log length surpassed %1 lines.</source>
         <translation>Не удалось отобразить этот журнал, так его длина превысила %1 строк.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2039"/>
+        <location filename="../launcher/Application.cpp" line="2053"/>
         <source>It looks like you used %1 on %2 before. Do you want to migrate your data to the new location of %3?</source>
         <translation>Похоже, что %1 на %2 уже использовался вами ранее. Хотите перенести свои данные в %3?</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2033"/>
+        <location filename="../launcher/Application.cpp" line="2047"/>
         <source>It looks like you used %1 before. Do you want to migrate your data to the new location of %2?</source>
         <translation>Похоже, что %1 уже использовался вами ранее. Хотите перенести свои данные в %2?</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1088"/>
+        <location filename="../launcher/Application.cpp" line="1093"/>
         <source>This installation has a update lock file present at: %1
 
 Timestamp: %2
@@ -754,7 +759,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
 Чтобы удалить эту блокировку и продолжить, выберите «Игнорировать» ниже.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1129"/>
+        <location filename="../launcher/Application.cpp" line="1134"/>
         <source>An update attempt failed
 
 Please ensure your installation is in working order before proceeding.
@@ -769,12 +774,12 @@ for details on the last update attempt.</source>
 подробнее о последней попытке обновления.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1137"/>
+        <location filename="../launcher/Application.cpp" line="1142"/>
         <source>Update Failed</source>
         <translation>Выполнить обновление не удалось</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1161"/>
+        <location filename="../launcher/Application.cpp" line="1166"/>
         <source>Update succeeded
 
 You are now running %1 .
@@ -788,7 +793,7 @@ for details.</source>
 %2</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1201"/>
+        <location filename="../launcher/Application.cpp" line="1206"/>
         <source>Your /tmp directory is currently mounted with the &apos;noexec&apos; flag enabled.
 Some versions of Minecraft may not launch.
 
@@ -801,17 +806,17 @@ You may solve this issue by remounting /tmp as &apos;exec&apos; or setting the j
 </translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2104"/>
+        <location filename="../launcher/Application.cpp" line="2118"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
         <translation>Сборки найдены в %1, но %2 ищет их в %3. Перенести их в новое расположение?</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="1105"/>
+        <location filename="../launcher/Application.cpp" line="1110"/>
         <source>Update In Progress</source>
         <translation>Идёт обновление</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="923"/>
+        <location filename="../launcher/Application.cpp" line="928"/>
         <source>Settings</source>
         <translation>Параметры</translation>
     </message>
@@ -843,7 +848,7 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
 Чтобы удалить этот файл обновления и продолжить, нажмите «Игнорировать» ниже.</translation>
     </message>
     <message>
-        <location filename="../launcher/Application.cpp" line="2029"/>
+        <location filename="../launcher/Application.cpp" line="2043"/>
         <source>Old data from %1 was found, but you already have existing data for %2. Sadly you will need to migrate yourself. Do you want to be reminded of the pending data migration next time you start %2?</source>
         <translation>Были найдены устаревшие данные от %1, но в наличии уже имеются данные для %2. К сожалению, вам придётся мигрировать вручную. Отправить напоминание при следующем запуске %2 об ожидающемся переносе данных?</translation>
     </message>
@@ -12583,9 +12588,13 @@ Are you sure?</source>
 <context>
     <name>SkinBrowserDialog</name>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>View skins online</source>
-        <translation>Смотреть скины в сети</translation>
+        <translation type="vanished">Смотреть скины в сети</translation>
+    </message>
+    <message>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
+        <source>Browse online skins</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
@@ -12598,48 +12607,57 @@ Are you sure?</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="52"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
+        <source>Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
+        <source>Close this window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
         <source>◀</source>
         <translation>◀</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="55"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="160"/>
         <source>Previous page</source>
         <translation>Предыдущая страница</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="62"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="167"/>
         <source>Page 1</source>
         <translation>Страница 1</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="69"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="174"/>
         <source>▶</source>
         <translation>▶</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="72"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="177"/>
         <source>Next page</source>
         <translation>Следующая страница</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="132"/>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="276"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="105"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="275"/>
         <source>Select a skin</source>
         <translation>Выбрать скин</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="155"/>
         <source>View on crafty.gg</source>
-        <translation>Открыть на crafty.gg</translation>
+        <translation type="vanished">Открыть на crafty.gg</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="178"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="197"/>
         <source>Use skin</source>
         <translation>Использовать скин</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="184"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="203"/>
         <source>Apply this skin to the selected account</source>
         <translation>Применить этот скин к выбранной учётной записи</translation>
     </message>
@@ -12654,18 +12672,18 @@ Are you sure?</source>
         <translation>Каталог скинов</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="144"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="143"/>
         <source>The skin image could not be stored on disk.</source>
         <translation>Не удалось сохранить изображение скина на диск.</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="157"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="156"/>
         <source>Loading…</source>
         <translation>Загрузка…</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="166"/>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="173"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="165"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="172"/>
         <source>Page %1</source>
         <translation>Страница %1</translation>
     </message>
@@ -12690,27 +12708,27 @@ Are you sure?</source>
         <translation>%1 · используется игроками: %2</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="286"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="285"/>
         <source>Unknown player</source>
         <translation>Неизвестный игрок</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="290"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="289"/>
         <source>%1 players</source>
         <translation>Игроков: %1</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="292"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="291"/>
         <source>%1 views</source>
         <translation>Просмотров: %1</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="294"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="293"/>
         <source>%1 upvotes</source>
         <translation>Голосов «за»: %1</translation>
     </message>
     <message>
-        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="297"/>
+        <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="296"/>
         <source>added %1</source>
         <translation>добавлен %1</translation>
     </message>
@@ -12785,8 +12803,12 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
+        <source>Browse online skins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>View skins online</source>
-        <translation>Смотреть скины в сети</translation>
+        <translation type="vanished">Смотреть скины в сети</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="155"/>
