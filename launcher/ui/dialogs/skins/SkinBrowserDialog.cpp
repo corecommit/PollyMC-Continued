@@ -130,6 +130,11 @@ void SkinBrowserDialog::on_nextBtn_clicked()
         loadPage(m_page + 1);
 }
 
+void SkinBrowserDialog::on_closeBtn_clicked()
+{
+    reject();
+}
+
 void SkinBrowserDialog::on_useSkinBtn_clicked()
 {
     if (!m_current || m_current->texture.isNull())
