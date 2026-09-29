@@ -464,7 +464,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
         <source>Add &amp;Authlib-injector</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm &amp;Authlib-injector</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -592,7 +592,7 @@ Bạn có thể thêm tài khoản Microsoft, offline hoặc Yggdrasil (authlib-
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Phông chữ trình khởi chạy:</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -810,30 +810,31 @@ Bạn có thể sửa vấn đề này bằng cách gán lại /tmp với cờ &
     <message>
         <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm thấy phiên bản tại %1, nhưng %2 đang tìm trong %3. Bạn có muốn di chuyển chúng tới vị trí mới không?</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Tìm thấy %n phiên bản trong bản cài đặt hiện tại tại %1.
+Sao chép chúng vào thư mục portable này? Tài khoản, cài đặt và danh sách phiên bản của bạn sẽ được chuyển vào vị trí portable.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Đừng hỏi lại</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>Có, sao chép</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Không, bắt đầu mới</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -1788,22 +1789,22 @@ Kiểm tra tệp log cho việc cập nhật Prism Launcher ở:
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="246"/>
         <source>Browse skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt skin</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="270"/>
         <source>Download player skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Tải skin người chơi</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="385"/>
         <source>Find player</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm người chơi</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="419"/>
         <source>Download skin textures</source>
-        <translation type="unfinished"></translation>
+        <translation>Tải texture skin</translation>
     </message>
 </context>
 <context>
@@ -3808,7 +3809,7 @@ Bạn có chắc không?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
         <source>- PollyMC-Continued, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>- Phiên bản xuất từ PollyMC-Continued, PolyMC hoặc MultiMC (ZIP)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.h" line="55"/>
@@ -6062,22 +6063,22 @@ Bạn phải khắc phục sự cố này bằng cách thủ công.</translation
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="264"/>
         <source>Show or hide the status bar at the bottom of the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiện hoặc ẩn thanh trạng thái ở cuối cửa sổ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="275"/>
         <source>Stop the toolbars from being dragged around.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không cho thanh công cụ bị kéo đi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="286"/>
         <source>Restore the instance you deleted most recently.</source>
-        <translation type="unfinished"></translation>
+        <translation>Khôi phục phiên bản bạn đã xóa gần đây nhất.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Check for update</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra cập nhật</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="333"/>
@@ -6092,7 +6093,7 @@ Bạn phải khắc phục sự cố này bằng cách thủ công.</translation
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="347"/>
         <source>Add, remove or switch your launcher accounts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm, xóa hoặc chuyển tài khoản trình khởi chạy.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="366"/>
@@ -6112,42 +6113,42 @@ Bạn phải khắc phục sự cố này bằng cách thủ công.</translation
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="513"/>
         <source>Export the instance as a plain zip you can re-import.</source>
-        <translation type="unfinished"></translation>
+        <translation>Xuất phiên bản dưới dạng zip thường để nhập lại.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="524"/>
         <source>Export the instance as a Modrinth pack (.mrpack).</source>
-        <translation type="unfinished"></translation>
+        <translation>Xuất phiên bản dưới dạng gói Modrinth (.mrpack).</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="535"/>
         <source>Export the instance as a CurseForge-style zip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Xuất phiên bản dưới dạng zip kiểu CurseForge.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="557"/>
         <source>Create an account to play.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo tài khoản để chơi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="571"/>
         <source>Don&apos;t pin any account as the default.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không ghim tài khoản nào làm mặc định.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="662"/>
         <source>Switch the launcher&apos;s look between light, dark and other themes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chuyển giao diện trình khởi chạy giữa sáng, tối và các chủ đề khác.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="773"/>
         <source>More</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="787"/>
         <source>Choose which account to play with.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn tài khoản để chơi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="839"/>
@@ -6621,17 +6622,17 @@ Hãy tạo một phiên mới trước khi thử cài đặt tài nguyên này m
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="579"/>
         <source>Enjoying PollyMC-Continued?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn có thích PollyMC-Continued không?</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Give the project a star on GitHub!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy tặng dự án một ngôi sao trên GitHub!</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Star on GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>Gắn sao trên GitHub</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1479"/>
@@ -11038,7 +11039,7 @@ Tên mới: %2</translation>
     <message>
         <location filename="../launcher/filelink/FileLink.cpp" line="49"/>
         <source>a batch MKLINK program for windows to be used with pollymc</source>
-        <translation type="unfinished"></translation>
+        <translation>chương trình MKLINK hàng loạt cho windows dùng với pollymc</translation>
     </message>
 </context>
 <context>
@@ -12488,139 +12489,139 @@ Bạn có chắc?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt skin trực tuyến</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
         <source>Search by player, tag or style…</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm theo người chơi, thẻ hoặc kiểu…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="32"/>
         <source>Search</source>
-        <translation type="unfinished">Tìm kiếm</translation>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="105"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="275"/>
         <source>Select a skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">Đóng</translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
         <source>Close this window</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng cửa sổ này</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
         <source>◀</source>
-        <translation type="unfinished"></translation>
+        <translation>◀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="160"/>
         <source>Previous page</source>
-        <translation type="unfinished"></translation>
+        <translation>Trang trước</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="167"/>
         <source>Page 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Trang 1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="174"/>
         <source>▶</source>
-        <translation type="unfinished"></translation>
+        <translation>▶</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="177"/>
         <source>Next page</source>
-        <translation type="unfinished"></translation>
+        <translation>Trang sau</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="197"/>
         <source>Use skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Dùng skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="203"/>
         <source>Apply this skin to the selected account</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng skin này cho tài khoản đã chọn</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="84"/>
         <source>Looking for skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang tìm skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="107"/>
         <source>Skin catalog</source>
-        <translation type="unfinished"></translation>
+        <translation>Danh mục skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="143"/>
         <source>The skin image could not be stored on disk.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể lưu ảnh skin vào đĩa.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="156"/>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang tải…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="165"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="172"/>
         <source>Page %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Trang %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found</source>
-        <translation type="unfinished"></translation>
+        <translation>Không tìm thấy skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không tìm thấy skin cho %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="224"/>
         <source>Unnamed skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin không tên</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="227"/>
         <source>%1 · used by %2 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 · được dùng bởi %2 người chơi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="285"/>
         <source>Unknown player</source>
-        <translation type="unfinished"></translation>
+        <translation>Người chơi không rõ</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="289"/>
         <source>%1 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 người chơi</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="291"/>
         <source>%1 views</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 lượt xem</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="293"/>
         <source>%1 upvotes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 lượt thích</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="296"/>
         <source>added %1</source>
-        <translation type="unfinished"></translation>
+        <translation>đã thêm %1</translation>
     </message>
 </context>
 <context>
@@ -12694,12 +12695,12 @@ Bạn có chắc?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt skin trực tuyến</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="155"/>
         <source>Browse and use skins published online</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt và dùng skin được đăng trực tuyến</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="481"/>
@@ -12757,17 +12758,17 @@ Bạn có chắc?</translation>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>Skin Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhập Skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <source>Could not copy the skin into the skins folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể sao chép skin vào thư mục skin.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>The downloaded image is not a valid skin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ảnh đã tải không phải skin hợp lệ.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="350"/>
@@ -12798,7 +12799,7 @@ Bạn có chắc?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="382"/>
         <source>Could not refresh the account login.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể làm mới đăng nhập tài khoản.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="512"/>
@@ -13388,7 +13389,7 @@ Bạn có muốn tiếp tục?</translation>
     <message>
         <location filename="../launcher/ui/widgets/ToastNotification.cpp" line="113"/>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
 </context>
 <context>

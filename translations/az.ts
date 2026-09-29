@@ -464,7 +464,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
         <source>Add &amp;Authlib-injector</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Authlib-injector əlavə et</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -592,7 +592,7 @@ Başlamaq üçün Microsoft, offline və ya Yggdrasil (authlib-injector) hesabı
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Başladıcının şrifti:</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -807,31 +807,33 @@ Siz bu problemi `/tmp` qovluğunu &apos;exec&apos; olaraq yenidən qoşmaqla və
     <message>
         <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ünvanında profillər tapıldı, amma %2 %3 ünvanına baxır. Onları yeni ünvana köçürmək istəyirsən?</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Mövcud quraşdırmanda %1 ünvanında %n profil tapıldı.
+Onları bu portativ qovluğa kopyalayaq? Hesabların, tənzimləmələrin və profil siyahın portativ ünvana köçürüləcək.</numerusform>
+            <numerusform>Mövcud quraşdırmanda %1 ünvanında %n profil tapıldı.
+Onları bu portativ qovluğa kopyalayaq? Hesabların, tənzimləmələrin və profil siyahın portativ ünvana köçürüləcək.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir daha soruşma</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>Bəli, kopyala</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Xeyr, təzədən başla</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -1775,22 +1777,22 @@ Bu kilidi silmək və davam etmək üçün aşağıdan &quot;Məhəl qoyma&quot;
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="246"/>
         <source>Browse skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Skinlərə bax</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="270"/>
         <source>Download player skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Oyunçu skinlərini endir</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="385"/>
         <source>Find player</source>
-        <translation type="unfinished"></translation>
+        <translation>Oyunçu tap</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="419"/>
         <source>Download skin textures</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin teksturalarını endir</translation>
     </message>
 </context>
 <context>
@@ -3785,7 +3787,7 @@ Bu daimi ola bilər və onlar qovluqdan silinəcəklər.
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
         <source>- PollyMC-Continued, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>- PollyMC-Continued, PolyMC və ya MultiMC-dən ixrac edilmiş profillər (ZIP)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.h" line="55"/>
@@ -6000,22 +6002,22 @@ Bu problemi əllə (manual olaraq) düzəltməli olacaqsınız.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="264"/>
         <source>Show or hide the status bar at the bottom of the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pəncərənin altındakı status panelini göstər və ya gizlət.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="275"/>
         <source>Stop the toolbars from being dragged around.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alətlər panelinin sürüklənməsinin qarşısını al.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="286"/>
         <source>Restore the instance you deleted most recently.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ən son silinmiş profili bərpa et.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Check for update</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniləmələri yoxla</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="333"/>
@@ -6030,7 +6032,7 @@ Bu problemi əllə (manual olaraq) düzəltməli olacaqsınız.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="347"/>
         <source>Add, remove or switch your launcher accounts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Başladıcının hesablarını əlavə et, sil və ya dəyiş.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="366"/>
@@ -6050,42 +6052,42 @@ Bu problemi əllə (manual olaraq) düzəltməli olacaqsınız.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="513"/>
         <source>Export the instance as a plain zip you can re-import.</source>
-        <translation type="unfinished"></translation>
+        <translation>Profili yenidən idxal edilə bilən sadə zip kimi ixrac et.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="524"/>
         <source>Export the instance as a Modrinth pack (.mrpack).</source>
-        <translation type="unfinished"></translation>
+        <translation>Profili Modrinth paketi (.mrpack) kimi ixrac et.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="535"/>
         <source>Export the instance as a CurseForge-style zip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Profili CurseForge üslublu zip kimi ixrac et.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="557"/>
         <source>Create an account to play.</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynamaq üçün hesab yarat.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="571"/>
         <source>Don&apos;t pin any account as the default.</source>
-        <translation type="unfinished"></translation>
+        <translation>Heç bir hesabı standart kimi sancma.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="662"/>
         <source>Switch the launcher&apos;s look between light, dark and other themes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Başladıcının görünüşünü açıq, tünd və digər mövzular arasında dəyiş.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="773"/>
         <source>More</source>
-        <translation type="unfinished"></translation>
+        <translation>Daha çox</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="787"/>
         <source>Choose which account to play with.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hansı hesabla oynayacağını seç.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="839"/>
@@ -6556,17 +6558,17 @@ Lütfən, bu resursu yenidən quraşdırmağa cəhd etməzdən əvvəl yeni prof
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="579"/>
         <source>Enjoying PollyMC-Continued?</source>
-        <translation type="unfinished"></translation>
+        <translation>PollyMC-Continued xoşuna gəlir?</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Give the project a star on GitHub!</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub-da layihəyə ulduz ver!</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Star on GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub-da ulduz</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1479"/>
@@ -10971,7 +10973,7 @@ Yeni ad: %2</translation>
     <message>
         <location filename="../launcher/filelink/FileLink.cpp" line="49"/>
         <source>a batch MKLINK program for windows to be used with pollymc</source>
-        <translation type="unfinished"></translation>
+        <translation>pollymc ilə istifadə üçün windows toplu MKLINK proqramı</translation>
     </message>
 </context>
 <context>
@@ -12417,139 +12419,139 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Onlayn skinlərə bax</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
         <source>Search by player, tag or style…</source>
-        <translation type="unfinished"></translation>
+        <translation>Oyunçu, etiket və ya üsluba görə axtar…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="32"/>
         <source>Search</source>
-        <translation type="unfinished">Axtar</translation>
+        <translation>Axtar</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="105"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="275"/>
         <source>Select a skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin seç</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">Bağlamaq</translation>
+        <translation>Bağla</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
         <source>Close this window</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu pəncərəni bağla</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
         <source>◀</source>
-        <translation type="unfinished"></translation>
+        <translation>◀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="160"/>
         <source>Previous page</source>
-        <translation type="unfinished"></translation>
+        <translation>Əvvəlki səhifə</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="167"/>
         <source>Page 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Səhifə 1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="174"/>
         <source>▶</source>
-        <translation type="unfinished"></translation>
+        <translation>▶</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="177"/>
         <source>Next page</source>
-        <translation type="unfinished"></translation>
+        <translation>Növbəti səhifə</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="197"/>
         <source>Use skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Skindən istifadə et</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="203"/>
         <source>Apply this skin to the selected account</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu skini seçilmiş hesaba tətbiq et</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="84"/>
         <source>Looking for skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin axtarılır</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="107"/>
         <source>Skin catalog</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin kataloqu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="143"/>
         <source>The skin image could not be stored on disk.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin şəkli diskə yazıla bilmədi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="156"/>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüklənir…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="165"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="172"/>
         <source>Page %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Səhifə %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin tapılmadı</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 üçün skin tapılmadı</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="224"/>
         <source>Unnamed skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Adsız skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="227"/>
         <source>%1 · used by %2 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 · %2 oyunçu tərəfindən istifadə olunur</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="285"/>
         <source>Unknown player</source>
-        <translation type="unfinished"></translation>
+        <translation>Naməlum oyunçu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="289"/>
         <source>%1 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 oyunçu</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="291"/>
         <source>%1 views</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 baxış</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="293"/>
         <source>%1 upvotes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 müsbət səs</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="296"/>
         <source>added %1</source>
-        <translation type="unfinished"></translation>
+        <translation>əlavə edildi %1</translation>
     </message>
 </context>
 <context>
@@ -12623,12 +12625,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Onlayn skinlərə bax</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="155"/>
         <source>Browse and use skins published online</source>
-        <translation type="unfinished"></translation>
+        <translation>Onlayn dərc edilmiş skinlərə bax və istifadə et</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="481"/>
@@ -12686,17 +12688,17 @@ Are you sure?</source>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>Skin Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Skini idxal et</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <source>Could not copy the skin into the skins folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin skin qovluğuna kopyalana bilmədi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>The downloaded image is not a valid skin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Endirilmiş şəkil keçərli skin deyil.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="350"/>
@@ -12727,7 +12729,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="382"/>
         <source>Could not refresh the account login.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesab girişi yenilənə bilmədi.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="512"/>
@@ -13313,7 +13315,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/widgets/ToastNotification.cpp" line="113"/>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağla</translation>
     </message>
 </context>
 <context>

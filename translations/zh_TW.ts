@@ -464,7 +464,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
         <source>Add &amp;Authlib-injector</source>
-        <translation type="unfinished"></translation>
+        <translation>新增 &amp;Authlib-injector</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -592,7 +592,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>啟動器字型：</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -810,30 +810,31 @@ You may solve this issue by remounting /tmp as &apos;exec&apos; or setting the j
     <message>
         <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
-        <translation type="unfinished"></translation>
+        <translation>在 %1 中發現了實例，但 %2 正在 %3 中尋找。是否將其遷移到新位置？</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>在現有安裝 %1 中發現了 %n 個實例。
+將其複製到此便攜資料夾中？這會將你的帳戶、設定和實例清單移動到便攜位置。</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>不再詢問</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>是，複製</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>否，全新開始</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -1788,22 +1789,22 @@ To delete this lock and proceed select &quot;Ignore&quot; below.</source>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="246"/>
         <source>Browse skins</source>
-        <translation type="unfinished"></translation>
+        <translation>瀏覽外觀</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="270"/>
         <source>Download player skins</source>
-        <translation type="unfinished"></translation>
+        <translation>下載玩家外觀</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="385"/>
         <source>Find player</source>
-        <translation type="unfinished"></translation>
+        <translation>尋找玩家</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="419"/>
         <source>Download skin textures</source>
-        <translation type="unfinished"></translation>
+        <translation>下載外觀材質</translation>
     </message>
 </context>
 <context>
@@ -3820,7 +3821,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
         <source>- PollyMC-Continued, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>- PollyMC-Continued、PolyMC 或 MultiMC 匯出的實例 (ZIP)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.h" line="55"/>
@@ -6102,22 +6103,22 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="264"/>
         <source>Show or hide the status bar at the bottom of the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示或隱藏視窗底部的狀態列。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="275"/>
         <source>Stop the toolbars from being dragged around.</source>
-        <translation type="unfinished"></translation>
+        <translation>防止工具列被拖曳。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="286"/>
         <source>Restore the instance you deleted most recently.</source>
-        <translation type="unfinished"></translation>
+        <translation>還原最近刪除的實例。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Check for update</source>
-        <translation type="unfinished"></translation>
+        <translation>檢查更新</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="333"/>
@@ -6132,7 +6133,7 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="347"/>
         <source>Add, remove or switch your launcher accounts.</source>
-        <translation type="unfinished"></translation>
+        <translation>新增、移除或切換啟動器帳戶。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="366"/>
@@ -6152,42 +6153,42 @@ You&apos;ll have to correct this problem manually.</source>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="513"/>
         <source>Export the instance as a plain zip you can re-import.</source>
-        <translation type="unfinished"></translation>
+        <translation>將實例匯出為可重新匯入的普通 zip。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="524"/>
         <source>Export the instance as a Modrinth pack (.mrpack).</source>
-        <translation type="unfinished"></translation>
+        <translation>將實例匯出為 Modrinth 包 (.mrpack)。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="535"/>
         <source>Export the instance as a CurseForge-style zip.</source>
-        <translation type="unfinished"></translation>
+        <translation>將實例匯出為 CurseForge 格式的 zip。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="557"/>
         <source>Create an account to play.</source>
-        <translation type="unfinished"></translation>
+        <translation>建立帳戶以開始遊玩。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="571"/>
         <source>Don&apos;t pin any account as the default.</source>
-        <translation type="unfinished"></translation>
+        <translation>不要將任何帳戶設為預設。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="662"/>
         <source>Switch the launcher&apos;s look between light, dark and other themes.</source>
-        <translation type="unfinished"></translation>
+        <translation>在淺色、深色及其他主題之間切換啟動器外觀。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="773"/>
         <source>More</source>
-        <translation type="unfinished"></translation>
+        <translation>更多</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="787"/>
         <source>Choose which account to play with.</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇要使用的帳戶。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="839"/>
@@ -6661,17 +6662,17 @@ Please create a new instance before attempting to install this resource again.</
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="579"/>
         <source>Enjoying PollyMC-Continued?</source>
-        <translation type="unfinished"></translation>
+        <translation>喜歡 PollyMC-Continued 嗎？</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Give the project a star on GitHub!</source>
-        <translation type="unfinished"></translation>
+        <translation>在 GitHub 上給本專案點顆星吧！</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Star on GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>在 GitHub 上點星</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1479"/>
@@ -11105,7 +11106,7 @@ New name: %2</source>
     <message>
         <location filename="../launcher/filelink/FileLink.cpp" line="49"/>
         <source>a batch MKLINK program for windows to be used with pollymc</source>
-        <translation type="unfinished"></translation>
+        <translation>用於 pollymc 的 Windows 批次 MKLINK 程式</translation>
     </message>
 </context>
 <context>
@@ -12563,139 +12564,139 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>線上瀏覽外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
         <source>Search by player, tag or style…</source>
-        <translation type="unfinished"></translation>
+        <translation>按玩家、標籤或風格搜尋…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="32"/>
         <source>Search</source>
-        <translation type="unfinished">搜尋</translation>
+        <translation>搜尋</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="105"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="275"/>
         <source>Select a skin</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇一個外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">關閉</translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
         <source>Close this window</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉此視窗</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
         <source>◀</source>
-        <translation type="unfinished"></translation>
+        <translation>◀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="160"/>
         <source>Previous page</source>
-        <translation type="unfinished"></translation>
+        <translation>上一頁</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="167"/>
         <source>Page 1</source>
-        <translation type="unfinished"></translation>
+        <translation>第 1 頁</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="174"/>
         <source>▶</source>
-        <translation type="unfinished"></translation>
+        <translation>▶</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="177"/>
         <source>Next page</source>
-        <translation type="unfinished"></translation>
+        <translation>下一頁</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="197"/>
         <source>Use skin</source>
-        <translation type="unfinished"></translation>
+        <translation>使用外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="203"/>
         <source>Apply this skin to the selected account</source>
-        <translation type="unfinished"></translation>
+        <translation>將此外觀套用到所選帳戶</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="84"/>
         <source>Looking for skins</source>
-        <translation type="unfinished"></translation>
+        <translation>正在尋找外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="107"/>
         <source>Skin catalog</source>
-        <translation type="unfinished"></translation>
+        <translation>外觀目錄</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="143"/>
         <source>The skin image could not be stored on disk.</source>
-        <translation type="unfinished"></translation>
+        <translation>外觀圖片無法儲存到磁碟。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="156"/>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>載入中…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="165"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="172"/>
         <source>Page %1</source>
-        <translation type="unfinished"></translation>
+        <translation>第 %1 頁</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到 %1 的外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="224"/>
         <source>Unnamed skin</source>
-        <translation type="unfinished"></translation>
+        <translation>未命名外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="227"/>
         <source>%1 · used by %2 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 · %2 名玩家使用</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="285"/>
         <source>Unknown player</source>
-        <translation type="unfinished"></translation>
+        <translation>未知玩家</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="289"/>
         <source>%1 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 名玩家</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="291"/>
         <source>%1 views</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 次瀏覽</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="293"/>
         <source>%1 upvotes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 個讚</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="296"/>
         <source>added %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 新增</translation>
     </message>
 </context>
 <context>
@@ -12769,12 +12770,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>線上瀏覽外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="155"/>
         <source>Browse and use skins published online</source>
-        <translation type="unfinished"></translation>
+        <translation>瀏覽並使用網上發布的外觀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="481"/>
@@ -12832,17 +12833,17 @@ Are you sure?</source>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>Skin Import</source>
-        <translation type="unfinished"></translation>
+        <translation>外觀匯入</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <source>Could not copy the skin into the skins folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>無法將外觀複製到外觀資料夾。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>The downloaded image is not a valid skin.</source>
-        <translation type="unfinished"></translation>
+        <translation>下載的圖片不是有效的外觀。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="350"/>
@@ -12873,7 +12874,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="382"/>
         <source>Could not refresh the account login.</source>
-        <translation type="unfinished"></translation>
+        <translation>無法重新整理帳戶登入。</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="512"/>
@@ -13463,7 +13464,7 @@ Are you sure you want to do this?</source>
     <message>
         <location filename="../launcher/ui/widgets/ToastNotification.cpp" line="113"/>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉</translation>
     </message>
 </context>
 <context>

@@ -464,7 +464,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
         <source>Add &amp;Authlib-injector</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Authlib-injector toevoegen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="105"/>
@@ -592,7 +592,7 @@ U kunt een Microsoft, offline of Yggdrasil (authlib-injector) account toevoegen 
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Launcher-lettertype:</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -810,31 +810,33 @@ Je kan dit oplossen door de map opnieuw te mounten met de &apos;exec&apos; regel
     <message>
         <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
-        <translation type="unfinished"></translation>
+        <translation>Er zijn instanties gevonden in %1, maar %2 zoekt in %3. Wil je ze naar de nieuwe locatie migreren?</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Er is %n instantie gevonden in je bestaande installatie in %1.
+Kopiëren naar deze draagbare map? Je accounts, instellingen en instantielijst worden naar de draagbare locatie verplaatst.</numerusform>
+            <numerusform>Er zijn %n instanties gevonden in je bestaande installatie in %1.
+Kopiëren naar deze draagbare map? Je accounts, instellingen en instantielijst worden naar de draagbare locatie verplaatst.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet opnieuw vragen</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>Ja, kopieer ze</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Nee, opnieuw beginnen</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -1778,22 +1780,22 @@ Om deze lock te verwijderen en door te gaan, druk hieronder op &quot;Negeer&quot
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="246"/>
         <source>Browse skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Skins bekijken</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="270"/>
         <source>Download player skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Spelerskins downloaden</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="385"/>
         <source>Find player</source>
-        <translation type="unfinished"></translation>
+        <translation>Speler zoeken</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="419"/>
         <source>Download skin textures</source>
-        <translation type="unfinished"></translation>
+        <translation>Skintexturen downloaden</translation>
     </message>
 </context>
 <context>
@@ -3787,7 +3789,7 @@ Weet u het zeker?</translation>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.ui" line="63"/>
         <source>- PollyMC-Continued, PolyMC or MultiMC exported instances (ZIP)</source>
-        <translation type="unfinished"></translation>
+        <translation>- Instanties geëxporteerd uit PollyMC-Continued, PolyMC of MultiMC (ZIP)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/modplatform/ImportPage.h" line="55"/>
@@ -6017,22 +6019,22 @@ Je moet dit probleem handmatig oplossen.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="264"/>
         <source>Show or hide the status bar at the bottom of the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>De statusbalk onder aan het venster tonen of verbergen.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="275"/>
         <source>Stop the toolbars from being dragged around.</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkomen dat de werkbalken versleept worden.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="286"/>
         <source>Restore the instance you deleted most recently.</source>
-        <translation type="unfinished"></translation>
+        <translation>De meest recent verwijderde instantie herstellen.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="305"/>
         <source>Check for update</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleren op updates</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="333"/>
@@ -6047,7 +6049,7 @@ Je moet dit probleem handmatig oplossen.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="347"/>
         <source>Add, remove or switch your launcher accounts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je launcheraccounts toevoegen, verwijderen of wisselen.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="366"/>
@@ -6067,42 +6069,42 @@ Je moet dit probleem handmatig oplossen.</translation>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="513"/>
         <source>Export the instance as a plain zip you can re-import.</source>
-        <translation type="unfinished"></translation>
+        <translation>De instantie exporteren als een gewone zip die je opnieuw kunt importeren.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="524"/>
         <source>Export the instance as a Modrinth pack (.mrpack).</source>
-        <translation type="unfinished"></translation>
+        <translation>De instantie exporteren als Modrinth-pakket (.mrpack).</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="535"/>
         <source>Export the instance as a CurseForge-style zip.</source>
-        <translation type="unfinished"></translation>
+        <translation>De instantie exporteren als zip in CurseForge-stijl.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="557"/>
         <source>Create an account to play.</source>
-        <translation type="unfinished"></translation>
+        <translation>Een account aanmaken om te spelen.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="571"/>
         <source>Don&apos;t pin any account as the default.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen account als standaard vastzetten.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="662"/>
         <source>Switch the launcher&apos;s look between light, dark and other themes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het uiterlijk van de launcher wisselen tussen lichte, donkere en andere thema&apos;s.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="773"/>
         <source>More</source>
-        <translation type="unfinished"></translation>
+        <translation>Meer</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="787"/>
         <source>Choose which account to play with.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiezen met welk account je speelt.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.ui" line="839"/>
@@ -6577,17 +6579,17 @@ Maak a.u.b. een nieuwe instantie aan voor deze bron opnieuw proberen te installe
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="579"/>
         <source>Enjoying PollyMC-Continued?</source>
-        <translation type="unfinished"></translation>
+        <translation>Vind je PollyMC-Continued leuk?</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Give the project a star on GitHub!</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef het project een ster op GitHub!</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="580"/>
         <source>Star on GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>Ster op GitHub</translation>
     </message>
     <message>
         <location filename="../launcher/ui/MainWindow.cpp" line="1479"/>
@@ -11009,7 +11011,7 @@ Nieuwe naam: %2</translation>
     <message>
         <location filename="../launcher/filelink/FileLink.cpp" line="49"/>
         <source>a batch MKLINK program for windows to be used with pollymc</source>
-        <translation type="unfinished"></translation>
+        <translation>een batch MKLINK-programma voor windows voor gebruik met pollymc</translation>
     </message>
 </context>
 <context>
@@ -12467,139 +12469,139 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Online skins bekijken</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
         <source>Search by player, tag or style…</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken op speler, tag of stijl…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="32"/>
         <source>Search</source>
-        <translation type="unfinished">Zoeken</translation>
+        <translation>Zoeken</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="105"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="275"/>
         <source>Select a skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Een skin selecteren</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">Sluiten</translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
         <source>Close this window</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit venster sluiten</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
         <source>◀</source>
-        <translation type="unfinished"></translation>
+        <translation>◀</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="160"/>
         <source>Previous page</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorige pagina</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="167"/>
         <source>Page 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina 1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="174"/>
         <source>▶</source>
-        <translation type="unfinished"></translation>
+        <translation>▶</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="177"/>
         <source>Next page</source>
-        <translation type="unfinished"></translation>
+        <translation>Volgende pagina</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="197"/>
         <source>Use skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin gebruiken</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="203"/>
         <source>Apply this skin to the selected account</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze skin toepassen op het geselecteerde account</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="84"/>
         <source>Looking for skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken naar skins</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="107"/>
         <source>Skin catalog</source>
-        <translation type="unfinished"></translation>
+        <translation>Skincatalogus</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="143"/>
         <source>The skin image could not be stored on disk.</source>
-        <translation type="unfinished"></translation>
+        <translation>De skin-afbeelding kon niet op schijf worden opgeslagen.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="156"/>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden…</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="165"/>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="172"/>
         <source>Page %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen skins gevonden</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="180"/>
         <source>No skins found for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen skins gevonden voor %1</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="224"/>
         <source>Unnamed skin</source>
-        <translation type="unfinished"></translation>
+        <translation>Naamloze skin</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="227"/>
         <source>%1 · used by %2 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 · gebruikt door %2 spelers</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="285"/>
         <source>Unknown player</source>
-        <translation type="unfinished"></translation>
+        <translation>Onbekende speler</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="289"/>
         <source>%1 players</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 spelers</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="291"/>
         <source>%1 views</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 weergaven</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="293"/>
         <source>%1 upvotes</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 upvotes</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.cpp" line="296"/>
         <source>added %1</source>
-        <translation type="unfinished"></translation>
+        <translation>toegevoegd %1</translation>
     </message>
 </context>
 <context>
@@ -12673,12 +12675,12 @@ Weet je het zeker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Online skins bekijken</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="155"/>
         <source>Browse and use skins published online</source>
-        <translation type="unfinished"></translation>
+        <translation>Skins bekijken en gebruiken die online zijn gepubliceerd</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="481"/>
@@ -12736,17 +12738,17 @@ Ben je zeker?</translation>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>Skin Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Skin importeren</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="200"/>
         <source>Could not copy the skin into the skins folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>De skin kon niet naar de skinmap worden gekopieerd.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="208"/>
         <source>The downloaded image is not a valid skin.</source>
-        <translation type="unfinished"></translation>
+        <translation>De gedownloade afbeelding is geen geldige skin.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="350"/>
@@ -12777,7 +12779,7 @@ Ben je zeker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="382"/>
         <source>Could not refresh the account login.</source>
-        <translation type="unfinished"></translation>
+        <translation>De accountlogin kon niet worden vernieuwd.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.cpp" line="512"/>
@@ -13367,7 +13369,7 @@ Weet je zeker dat je dit wilt doen?</translation>
     <message>
         <location filename="../launcher/ui/widgets/ToastNotification.cpp" line="113"/>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
 </context>
 <context>

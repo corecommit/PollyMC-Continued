@@ -61,12 +61,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="167"/>
         <source>Legacy FML Libraries Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Ældre FML-biblioteksserver</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="173"/>
         <source>You can set this to another server if you have problems with downloading legacy FML libraries (Minecraft 1.5.2 and earlier).</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan indstille dette til en anden server, hvis du har problemer med at downloade ældre FML-biblioteker (Minecraft 1.5.2 og tidligere).</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="310"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="385"/>
         <source>Enable fallback to Modrinth for blocked mods</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivér tilbagefald til Modrinth for blokerede mods</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/APIPage.ui" line="425"/>
@@ -366,7 +366,7 @@
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="350"/>
         <source>Authlib-Injector</source>
         <comment>Account type</comment>
-        <translation type="unfinished"></translation>
+        <translation>Authlib-Injector</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="353"/>
@@ -382,7 +382,7 @@
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="394"/>
         <source>Type of the account (MSA, Offline, or Authlib-Injector)</source>
-        <translation type="unfinished"></translation>
+        <translation>Typen af kontoen (MSA, Offline eller Authlib-Injector)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AccountList.cpp" line="396"/>
@@ -436,7 +436,7 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="100"/>
         <source>Add &amp;Authlib-injector</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilføj &amp;Authlib-injector</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="108"/>
@@ -461,12 +461,12 @@
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="118"/>
         <source>Move &amp;Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Flyt &amp;op</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.ui" line="123"/>
         <source>Move &amp;Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Flyt &amp;ned</translation>
     </message>
     <message>
         <source>Welcome!
@@ -513,7 +513,7 @@ Hvis du er ny her, kan du vælge &quot;Tilføj Microsoft&quot;-knappen for at ti
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="58"/>
         <source>Welcome!
 You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get started.</source>
-        <translation type="unfinished"></translation>
+        <translation>Velkommen! Du kan tilføje en Microsoft-, offline- eller Yggdrasil-konto (authlib-injector) for at komme i gang.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/AccountListPage.cpp" line="90"/>
@@ -583,7 +583,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Launcher-skrifttype:</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -737,7 +737,18 @@ Check the PollyMC-Continued updater log at:
 for details on the last update attempt.
 
 To delete this lock and proceed select &quot;Ignore&quot; below.</source>
-        <translation type="unfinished"></translation>
+        <translation>Denne installation har en opdateringslåsefil her: %1
+
+Tidsstempel: %2
+Opdaterer fra version %3 til %4
+Målsti: %5
+Datasti: %6
+Det betyder sandsynligvis, at et opdateringsforsøg mislykkedes. Sørg for, at din installation er i orden, før du fortsætter.
+Se PollyMC-Continued-opdateringsloggen her: 
+%7
+for detaljer om sidste opdateringsforsøg.
+
+Vælg &quot;Ignorer&quot; nedenfor for at slette låsen og fortsætte.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1139"/>
@@ -747,7 +758,12 @@ Please ensure your installation is in working order before proceeding.
 Check the PollyMC-Continued updater log at: 
 %1
 for details on the last update attempt.</source>
-        <translation type="unfinished"></translation>
+        <translation>Et opdateringsforsøg mislykkedes
+
+Sørg for, at din installation er i orden, før du fortsætter.
+Se PollyMC-Continued-opdateringsloggen her: 
+%1
+for detaljer om sidste opdateringsforsøg.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1147"/>
@@ -762,7 +778,12 @@ You are now running %1 .
 Check the PollyMC-Continued updater log at: 
 %2
 for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opdatering lykkedes
+
+Du kører nu %1 .
+Se PollyMC-Continued-opdateringsloggen her: 
+%2
+for detaljer.</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1211"/>
@@ -779,31 +800,31 @@ Du kan muligvis løse dette ved at genmontere /tmp som &apos;exec&apos; eller an
     <message>
         <location filename="../launcher/Application.cpp" line="2123"/>
         <source>Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?</source>
-        <translation type="unfinished"></translation>
+        <translation>Der blev fundet instanser i %1, men %2 leder i %3. Vil du migrere dem til den nye placering?</translation>
     </message>
     <message numerus="yes">
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Der blev fundet %n instans i din eksisterende installation i %1. Kopier den til denne portable mappe? Dine konti, indstillinger og instansliste flyttes til den portable placering.</numerusform>
+            <numerusform>Der blev fundet %n instanser i din eksisterende installation i %1. Kopier dem til denne portable mappe? Dine konti, indstillinger og instansliste flyttes til den portable placering.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Spørg ikke igen</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>Ja, kopier dem</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Nej, start forfra</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -1019,7 +1040,7 @@ For at slette denne lås og fortsætte skal du vælge &quot;Ignorer&quot; nedenf
     <message>
         <location filename="../launcher/minecraft/auth/AuthFlow.cpp" line="97"/>
         <source>Preparing to log in...</source>
-        <translation type="unfinished"></translation>
+        <translation>Forbereder login...</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/AuthFlow.cpp" line="130"/>
@@ -1072,47 +1093,47 @@ For at slette denne lås og fortsætte skal du vælge &quot;Ignorer&quot; nedenf
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="14"/>
         <source>Add Yggdrasil (authlib-injector) Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilføj Yggdrasil-konto (authlib-injector)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="23"/>
         <source>Yggdrasil Auth Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Yggdrasil-godkendelsesserver</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="30"/>
         <source>Auth server URL (e.g. https://example.com/api/yggdrasil)</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelsesserver-URL (f.eks. https://example.com/api/yggdrasil)</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="37"/>
         <source>Username / Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Brugernavn / e-mail</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="47"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Adgangskode</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.ui" line="66"/>
         <source>Log in</source>
-        <translation type="unfinished"></translation>
+        <translation>Log ind</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="18"/>
         <source>Logging in...</source>
-        <translation type="unfinished"></translation>
+        <translation>Logger ind...</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="25"/>
         <source>Please fill in all fields.</source>
-        <translation type="unfinished"></translation>
+        <translation>Udfyld venligst alle felter.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/AuthlibInjectorLoginDialog.cpp" line="34"/>
         <source>Server URL must start with http:// or https://</source>
-        <translation type="unfinished"></translation>
+        <translation>Server-URL skal starte med http:// eller https://</translation>
     </message>
 </context>
 <context>
@@ -1120,69 +1141,69 @@ For at slette denne lås og fortsætte skal du vælge &quot;Ignorer&quot; nedenf
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="21"/>
         <source>Authenticating with Yggdrasil auth server</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkender med Yggdrasil-godkendelsesserver</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="28"/>
         <source>No auth server URL set. Remove this account and re-add it with the correct URL.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen godkendelsesserver-URL angivet. Fjern denne konto og tilføj den igen med den korrekte URL.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="117"/>
         <source>Auth request failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelsesanmodning mislykkedes: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="120"/>
         <source>Could not reach auth server: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke nå godkendelsesserver: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="128"/>
         <source>Could not parse auth server response.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke fortolke svar fra godkendelsesserver.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="138"/>
         <source>Auth server error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelsesserverfejl: %1</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="147"/>
         <source>Auth server did not return an access token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelsesserveren returnerede ikke en adgangstoken.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="151"/>
         <source>Auth server did not return a profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelsesserveren returnerede ikke en profil.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="158"/>
         <source>Auth server returned an incomplete profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelsesserveren returnerede en ufuldstændig profil.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="173"/>
         <source>Choose Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg profil</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="174"/>
         <source>Multiple profiles found. Select one:</source>
-        <translation type="unfinished"></translation>
+        <translation>Flere profiler fundet. Vælg én:</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="227"/>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="234"/>
         <source>Authentication successful (no skin data)</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelse lykkedes (ingen skin-data)</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="269"/>
         <location filename="../launcher/minecraft/auth/steps/AuthlibInjectorStep.cpp" line="278"/>
         <source>Authentication successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Godkendelse lykkedes</translation>
     </message>
 </context>
 <context>
@@ -1455,12 +1476,12 @@ For at slette denne lås og fortsætte skal du vælge &quot;Ignorer&quot; nedenf
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="85"/>
         <source>Loading components</source>
-        <translation type="unfinished"></translation>
+        <translation>Indlæser komponenter</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="249"/>
         <source>Downloading metadata for %1 components</source>
-        <translation type="unfinished"></translation>
+        <translation>Downloader metadata for %1 komponenter</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/ComponentUpdateTask.cpp" line="808"/>
@@ -1747,22 +1768,22 @@ For at slette denne lås og fortsætte skal du vælge &quot;Ignorer&quot; nedenf
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="246"/>
         <source>Browse skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemse skins</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="270"/>
         <source>Download player skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Download spillerskins</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="385"/>
         <source>Find player</source>
-        <translation type="unfinished"></translation>
+        <translation>Find spiller</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/skins/CraftySkinAPI.cpp" line="419"/>
         <source>Download skin textures</source>
-        <translation type="unfinished"></translation>
+        <translation>Download skinteksturer</translation>
     </message>
 </context>
 <context>
@@ -2227,7 +2248,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="46"/>
         <source>Not enough RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke nok RAM</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="47"/>
@@ -2237,12 +2258,17 @@ Required: %1 MiB
 Total system RAM: %2 MiB
 
 Continue anyway? This may cause severe slowdowns or crashes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Denne instans er sat til at bruge mere hukommelse, end dit system har installeret.
+
+Krævet: %1 MiB
+Samlet system-RAM: %2 MiB
+
+Fortsæt alligevel? Det kan forårsage alvorlige opbremsninger eller nedbrud.</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="57"/>
         <source>Not enough RAM available to launch this instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke nok RAM tilgængelig til at starte denne instans</translation>
     </message>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureAvailableMemory.cpp" line="69"/>
@@ -2285,7 +2311,7 @@ Continue anyway? This may cause severe slowdowns or crashes.</source>
     <message>
         <location filename="../launcher/minecraft/launch/EnsureOfflineLibraries.cpp" line="33"/>
         <source>This instance cannot be launched because some libraries are missing or have not been downloaded yet. Please try again in online mode with a working Internet connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Denne instans kan ikke startes, fordi nogle biblioteker mangler eller endnu ikke er downloadet. Prøv igen i online-tilstand med en fungerende internetforbindelse</translation>
     </message>
 </context>
 <context>
@@ -3015,7 +3041,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="212"/>
         <source>Blocked files found</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokerede filer fundet</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="213"/>
@@ -3025,7 +3051,7 @@ Er du sikker?</translation>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="235"/>
         <source>Creating the instance...</source>
-        <translation type="unfinished"></translation>
+        <translation>Opretter instansen...</translation>
     </message>
     <message>
         <location filename="../launcher/modplatform/ftb/FTBPackInstallTask.cpp" line="297"/>
@@ -4954,7 +4980,7 @@ Du skal muligvis rette dine mods fordi spillet stadig logger til filer og sandsy
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="463"/>
         <source>Currently this just shows mods which are not marked as compatible with the current Minecraft version.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lige nu viser dette kun mods, der ikke er markeret som kompatible med den aktuelle Minecraft-version.</translation>
     </message>
     <message>
         <location filename="../launcher/ui/pages/global/LauncherPage.ui" line="466"/>

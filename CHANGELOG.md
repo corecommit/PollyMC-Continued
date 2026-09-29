@@ -7,6 +7,13 @@
 - **Portable data migration** — Portable installs now offer to migrate data from an existing system install on first launch.
 - **Launcher font picker** — Settings > Appearance now has a Launcher Font dropdown (same font list as the console font) with live preview across the whole launcher.
 
+**Fixed:**
+
+- **Bots no longer stay online after quit** — The bot server now disconnects all bots and exits when the launcher closes, with a parent-process watchdog as backup.
+- **Bot respawn works** — Uses the vanilla respawn packet instead of a nonexistent API call, and skips when the bot isn't dead.
+- **Bot movement right after join** — Pathfinding is set up at login instead of spawn, and bad coordinates or a missing item count no longer throw.
+- **Clearer bot errors** — Input parse failures and command failures are now reported separately instead of everything showing as invalid JSON.
+
 ## v9.3.0
 
 **Added:**
