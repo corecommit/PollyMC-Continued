@@ -129,9 +129,12 @@
    <item>
     <layout class="QHBoxLayout" name="bottomBar">
      <item>
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Close</set>
+      <widget class="QPushButton" name="closeBtn">
+       <property name="text">
+        <string>Close</string>
+       </property>
+       <property name="toolTip">
+        <string>Close this window</string>
        </property>
       </widget>
      </item>
@@ -208,20 +211,10 @@
  <resources/>
  <connections>
   <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
+   <sender>closeBtn</sender>
+   <signal>clicked()</signal>
    <receiver>SkinBrowserDialog</receiver>
    <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
 </ui>
