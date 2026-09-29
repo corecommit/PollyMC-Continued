@@ -592,7 +592,7 @@ Sie können ein Microsoft-, Offline- oder Yggdrasil-(authlib-injector)-Konto hin
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Launcher-Schriftart:</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -819,25 +819,27 @@ Sie können dieses Problem beheben, indem Sie /tmp als &apos;exec&apos; erneut e
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n Instanz aus deiner bestehenden Installation unter %1 gefunden.
+In diesen portablen Ordner kopieren? Dadurch werden deine Konten, Einstellungen und Instanzliste an den portablen Ort verschoben.</numerusform>
+            <numerusform>%n Instanzen aus deiner bestehenden Installation unter %1 gefunden.
+In diesen portablen Ordner kopieren? Dadurch werden deine Konten, Einstellungen und Instanzliste an den portablen Ort verschoben.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht erneut fragen</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>Ja, kopieren</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Nein, neu beginnen</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -12536,7 +12538,7 @@ Sind Sie sicher?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Skins online durchsuchen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
@@ -12551,12 +12553,12 @@ Sind Sie sicher?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">Schließen</translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
         <source>Close this window</source>
-        <translation type="unfinished"></translation>
+        <translation>Dieses Fenster schließen</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
@@ -12746,7 +12748,7 @@ Sind Sie sicher?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Skins online durchsuchen</translation>
     </message>
     <message>
         <source>View skins online</source>

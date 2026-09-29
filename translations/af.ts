@@ -592,7 +592,7 @@ Jy kan ’n Microsoft-, vanlyn- of Yggdrasil-(authlib-injector) rekening byvoeg 
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lanseerderlettertipe:</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -816,25 +816,27 @@ Jy mag hierdie probleem oplos deur /tmp as &apos;exec&apos; te hermonteer of die
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n instansie in jou bestaande installasie by %1 gevind.
+Kopieer dit na hierdie draagbare vouer? Jou rekeninge, instellings en instansielys sal na die draagbare ligging verskuif word.</numerusform>
+            <numerusform>%n instansies in jou bestaande installasie by %1 gevind.
+Kopieer hulle na hierdie draagbare vouer? Jou rekeninge, instellings en instansielys sal na die draagbare ligging verskuif word.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Moenie weer vra nie</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>Ja, kopieer hulle</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Nee, begin vars</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -12090,7 +12092,7 @@ Is jy seker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Blaai velle aanlyn</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
@@ -12105,12 +12107,12 @@ Is jy seker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">Maak toe</translation>
+        <translation>Maak toe</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
         <source>Close this window</source>
-        <translation type="unfinished"></translation>
+        <translation>Maak hierdie venster toe</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
@@ -12540,7 +12542,7 @@ Is jy seker?</translation>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>Blaai velle aanlyn</translation>
     </message>
     <message>
         <source>View skins online</source>

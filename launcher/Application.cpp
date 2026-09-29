@@ -89,6 +89,7 @@
 #include <mutex>
 
 #include <QAccessible>
+#include <QCheckBox>
 #include <QCommandLineParser>
 #include <QDebug>
 #include <QDir>
@@ -584,6 +585,10 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
     {
         bool migrated = false;
 
+        // portable tarball first: offer system data before anything else claims the decision
+        if (!migrated)
+            migrated = handlePortableMigration(dataPath);
+
         if (!migrated)
             migrated = handleDataMigration(
                 dataPath, FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "../../PolyMC"), "PolyMC",
@@ -697,6 +702,11 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
         m_settings->registerSetting("ConsoleFont", resolvedDefaultMonospace);
         m_settings->registerSetting("ConsoleFontSize", defaultSize);
+
+        QFont systemFont = QApplication::font();
+        m_settings->registerSetting("LauncherFont", systemFont.family());
+        m_settings->registerSetting("LauncherFontSize", systemFont.pointSize() > 0 ? systemFont.pointSize() : 10);
+        applyLauncherFont();
         m_settings->registerSetting("ConsoleMaxLines", 100000);
         m_settings->registerSetting("ConsoleOverflowStop", true);
 
@@ -1707,6 +1717,15 @@ void Application::ShowGlobalSettings(class QWidget* parent, QString open_page)
     }
 }
 
+void Application::applyLauncherFont()
+{
+    QFont font(settings()->get("LauncherFont").toString());
+    int pointSize = settings()->get("LauncherFontSize").toInt();
+    if (pointSize > 0)
+        font.setPointSize(pointSize);
+    setFont(font);
+}
+
 MainWindow* Application::showMainWindow(bool minimized)
 {
     if (m_mainWindow) {
@@ -2116,6 +2135,91 @@ bool Application::handleFlippedDataRoot(const QString& currentData, const QStrin
     if (diag.execWithTask(&task)) {
         qDebug() << "<> Data root migration succeeded for" << oldRoot;
         setDoNotMigrate();
+        return true;
+    }
+
+    QMessageBox::critical(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, tr("Migration failed! Reason: %1").arg(task.failReason()));
+    return false;
+}
+
+// First launch of a portable install: offer to copy data from an existing system install.
+bool Application::handlePortableMigration(const QString& currentData) const
+{
+    const QString portableRoot = QDir(m_rootPath).absolutePath();
+    const QString curRoot = QDir(currentData).absolutePath();
+
+    // (a) portable mode is active via the marker or the resolved portable paths
+    if (!m_portable && !QFile::exists(FS::PathCombine(portableRoot, "portable.txt")))
+        return false;
+
+    // only when the portable folder itself is the data dir
+    const QString userDataRoot = QDir(FS::PathCombine(portableRoot, "UserData")).absolutePath();
+    if (curRoot != portableRoot && curRoot != userDataRoot)
+        return false;
+
+    // never ask twice for the same portable folder
+    const QString declinedPath = FS::PathCombine(curRoot, ".portable_migration_declined");
+    if (QFileInfo::exists(declinedPath)) {
+        qDebug() << "<> Portable migration previously declined for" << curRoot;
+        return false;
+    }
+
+    const auto instanceCountIn = [](const QString& root) {
+        return QDir(FS::PathCombine(root, "instances")).entryList(QDir::Dirs | QDir::NoDotAndDotDot).size();
+    };
+
+    // (b) the portable folder must hold no launcher data yet
+    const bool portableHasData = instanceCountIn(curRoot) > 0 ||
+                                 QFileInfo::exists(FS::PathCombine(curRoot, "accounts.json")) ||
+                                 QFileInfo::exists(FS::PathCombine(curRoot, BuildConfig.LAUNCHER_CONFIGFILE));
+    if (portableHasData)
+        return false;
+
+    // (c) the system path is where the launcher looks with portable mode off
+    QDir systemDir(FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), ".."));
+    const QString systemRoot = systemDir.absolutePath();
+    if (systemRoot == curRoot)
+        return false;
+    const int instanceCount = instanceCountIn(systemRoot);
+    if (instanceCount <= 0)
+        return false;
+
+    const QString message =
+        tr("Found %n instance(s) in your existing install at %1.\nCopy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.", "", instanceCount)
+            .arg(systemRoot);
+
+    if (logModel)
+        logModel->append(MessageLevel::Launcher, QStringLiteral("<> Portable migration prompt shown for ") + systemRoot);
+    qInfo() << "<> Portable migration prompt shown for" << systemRoot;
+
+    QCheckBox dontAskAgain(tr("Don't ask again for this portable folder"));
+    std::unique_ptr<QMessageBox> box(CustomMessageBox::selectable(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, message,
+                                                                  QMessageBox::Question, QMessageBox::Yes | QMessageBox::No,
+                                                                  QMessageBox::Yes, &dontAskAgain));
+    box->button(QMessageBox::Yes)->setText(tr("Yes, copy them"));
+    box->button(QMessageBox::No)->setText(tr("No, start fresh"));
+    const bool accepted = box->exec() == QMessageBox::Yes;
+
+    if (!accepted) {
+        if (logModel)
+            logModel->append(MessageLevel::Launcher, QStringLiteral("<> Portable migration declined for ") + systemRoot);
+        qInfo() << "<> Portable migration declined for" << systemRoot;
+        if (dontAskAgain.isChecked()) {
+            QFile marker(declinedPath);
+            if (!marker.open(QIODevice::WriteOnly))
+                qWarning() << "Failed to write portable migration marker" << declinedPath << ":" << marker.errorString();
+        }
+        return false;
+    }
+
+    if (logModel)
+        logModel->append(MessageLevel::Launcher, QStringLiteral("<> Portable migration accepted for ") + systemRoot);
+    qInfo() << "<> Portable migration accepted for" << systemRoot;
+
+    ProgressDialog diag;
+    DataMigrationTask task(systemRoot, curRoot, Filters::any(migrationFilters(BuildConfig.LAUNCHER_CONFIGFILE)));
+    if (diag.execWithTask(&task)) {
+        qInfo() << "<> Portable migration succeeded for" << systemRoot;
         return true;
     }
 

@@ -87,6 +87,9 @@ void AppearanceWidget::applySettings()
     QString consoleFontFamily = m_ui->consoleFont->currentFont().family();
     settings->set("ConsoleFont", consoleFontFamily);
     settings->set("ConsoleFontSize", m_ui->fontSizeBox->value());
+    settings->set("LauncherFont", m_ui->launcherFont->currentFont().family());
+    settings->set("LauncherFontSize", m_ui->launcherFontSize->value());
+    APPLICATION->applyLauncherFont();
 }
 
 void AppearanceWidget::loadSettings()
@@ -102,6 +105,15 @@ void AppearanceWidget::loadSettings()
         fontSize = 11;
     }
     m_ui->fontSizeBox->setValue(fontSize);
+
+    m_ui->launcherFont->setCurrentFont(QFont(settings->get("LauncherFont").toString()));
+
+    conversionOk = true;
+    int launcherFontSize = settings->get("LauncherFontSize").toInt(&conversionOk);
+    if (!conversionOk || launcherFontSize < m_ui->launcherFontSize->minimum()) {
+        launcherFontSize = QApplication::font().pointSize();
+    }
+    m_ui->launcherFontSize->setValue(launcherFontSize);
 }
 
 void AppearanceWidget::retranslateUi()

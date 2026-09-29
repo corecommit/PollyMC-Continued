@@ -1,12 +1,19 @@
 # Changelog
 
+## v9.3.1
+
+**Added:**
+
+- **Portable data migration** — Portable installs now offer to migrate data from an existing system install on first launch.
+- **Launcher font picker** — Settings > Appearance now has a Launcher Font dropdown (same font list as the console font) with live preview across the whole launcher.
+
 ## v9.3.0
 
 **Added:**
 
 - **Online skin browser** — Browse and search skins from crafty.gg directly in the skin manager.
 - **Use skins instantly** — Pick a skin and it gets downloaded, added to your library, and applied automatically.
-- **Better translations** — Hindi and Bangla are now fully translated, with several broken translation strings fixed.
+- **Better translations** — Hindi, Bengali, French are now fully translated, with several broken translation strings fixed.
 - **Skin browsing improvements** — Online skins are cached, so previously viewed textures don't need to be downloaded again.
 - **Discord Rich Presence** — Shows when you're browsing skins and gives more accurate launcher and game status.
 

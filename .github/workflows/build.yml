@@ -796,11 +796,14 @@ jobs:
           fetch-depth: 0
 
       - name: Install build tools
+        env:
+         HOMEBREW_NO_AUTO_UPDATE: "1"
+         HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: "1"
+         HOMEBREW_NO_INSTALL_CLEANUP: "1"
         run: |
-          set -euo pipefail
-          brew update
-          brew install ninja extra-cmake-modules cmark qrencode libarchive tomlplusplus lz4 xz zstd libpng ccache
-
+         set -euo pipefail
+         brew install ninja extra-cmake-modules cmark qrencode libarchive tomlplusplus lz4 xz zstd libpng ccache
+         
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:

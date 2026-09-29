@@ -588,7 +588,7 @@ You can add a Microsoft, offline, or Yggdrasil (authlib-injector) account to get
     <message>
         <location filename="../launcher/ui/widgets/AppearanceWidget.ui" line="126"/>
         <source>Launcher Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>लॉन्चर लेख:</translation>
     </message>
     <message>
         <source>Cat Opacity</source>
@@ -812,25 +812,27 @@ Minecraft के कुछ versions शुरु होने में अस�
         <location filename="../launcher/Application.cpp" line="2188"/>
         <source>Found %n instance(s) in your existing install at %1.
 Copy them into this portable folder? This will move your accounts, settings, and instance list into the portable location.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>तुम्हारे मौजूदा इंस्टॉल में %1 पर %n इंस्टेंस मिला।
+इसे इस पोर्टेबल फ़ोल्डर में कॉपी करें? इससे तुम्हारे खाते, सेटिंग और इंस्टेंस सूची पोर्टेबल स्थान पर चली जाएगी।</numerusform>
+            <numerusform>तुम्हारे मौजूदा इंस्टॉल में %1 पर %n इंस्टेंस मिले।
+इन्हें इस पोर्टेबल फ़ोल्डर में कॉपी करें? इससे तुम्हारे खाते, सेटिंग और इंस्टेंस सूची पोर्टेबल स्थान पर चली जाएँगी।</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2195"/>
         <source>Don&apos;t ask again for this portable folder</source>
-        <translation type="unfinished"></translation>
+        <translation>इस पोर्टेबल फ़ोल्डर के लिए फिर मत पूछें</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2199"/>
         <source>Yes, copy them</source>
-        <translation type="unfinished"></translation>
+        <translation>हाँ, कॉपी करें</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="2200"/>
         <source>No, start fresh</source>
-        <translation type="unfinished"></translation>
+        <translation>नहीं, नए सिरे से शुरू करें</translation>
     </message>
     <message>
         <location filename="../launcher/Application.cpp" line="1115"/>
@@ -12144,7 +12146,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="14"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>स्किन ऑनलाइन ब्राउज़ करें</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="22"/>
@@ -12159,12 +12161,12 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">बंद करें</translation>
+        <translation>बंद करें</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="137"/>
         <source>Close this window</source>
-        <translation type="unfinished"></translation>
+        <translation>यह विंडो बंद करें</translation>
     </message>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinBrowserDialog.ui" line="157"/>
@@ -12387,7 +12389,7 @@ Are you sure?</source>
     <message>
         <location filename="../launcher/ui/dialogs/skins/SkinManageDialog.ui" line="152"/>
         <source>Browse online skins</source>
-        <translation type="unfinished"></translation>
+        <translation>स्किन ऑनलाइन ब्राउज़ करें</translation>
     </message>
     <message>
         <source>View skins online</source>

@@ -158,6 +158,9 @@ class Application : public QApplication {
 
     void detectLibraries();
 
+    // applies the user-chosen font to the whole launcher
+    void applyLauncherFont();
+
     /*!
      * Finds and returns the full path to a jar file.
      * Returns a null-string if it could not be found.
@@ -231,6 +234,7 @@ class Application : public QApplication {
    private:
     bool handleDataMigration(const QString& currentData, const QString& oldData, const QString& name, const QString& configFile) const;
     bool handleFlippedDataRoot(const QString& currentData, const QString& oldData) const;
+    bool handlePortableMigration(const QString& currentData) const;
     bool createSetupWizard();
     void performMainStartupAction();
 
