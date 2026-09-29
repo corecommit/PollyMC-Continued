@@ -6,7 +6,7 @@
 
 - **Online skin browser** — Browse and search skins from crafty.gg directly in the skin manager.
 - **Use skins instantly** — Pick a skin and it gets downloaded, added to your library, and applied automatically.
-- **Better translations** — Hindi and Bangla are now fully translated, with several broken translation strings fixed.
+- **Better translations** — Hindi, Bengali, French are now fully translated, with several broken translation strings fixed.
 - **Skin browsing improvements** — Online skins are cached, so previously viewed textures don't need to be downloaded again.
 - **Discord Rich Presence** — Shows when you're browsing skins and gives more accurate launcher and game status.
 
