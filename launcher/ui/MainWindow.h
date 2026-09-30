@@ -250,6 +250,7 @@ class MainWindow : public QMainWindow {
 
     void maybeShowStarToast();
     QPoint toastPosition() const;
+    void showCommandPalette();
 
    private:
     Ui::MainWindow* ui;

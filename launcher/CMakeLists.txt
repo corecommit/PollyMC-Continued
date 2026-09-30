@@ -1107,6 +1107,8 @@ SET(LAUNCHER_SOURCES
     ui/dialogs/ResourceUpdateDialog.h
     ui/dialogs/InstallLoaderDialog.cpp
     ui/dialogs/InstallLoaderDialog.h
+    ui/dialogs/CommandPalette.cpp
+    ui/dialogs/CommandPalette.h
     ui/dialogs/ChooseOfflineNameDialog.cpp
     ui/dialogs/ChooseOfflineNameDialog.h
 

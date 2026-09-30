@@ -100,6 +100,7 @@
 #include "ui/ViewLogWindow.h"
 #include "bot/BotManagerDialog.h"
 #include "ui/dialogs/AboutDialog.h"
+#include "ui/dialogs/CommandPalette.h"
 #include "ui/dialogs/CopyInstanceDialog.h"
 #include "ui/dialogs/CreateShortcutDialog.h"
 #include "ui/dialogs/CustomMessageBox.h"
@@ -296,6 +297,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
         // FIXME: This is kinda weird. and bad. We need some kind of managed shutdown.
         auto q = new QShortcut(QKeySequence::Quit, this);
         connect(q, &QShortcut::activated, APPLICATION, &Application::quit);
+
+        auto paletteShortcut = new QShortcut(QKeySequence("Ctrl+Shift+P"), this);
+        connect(paletteShortcut, &QShortcut::activated, this, &MainWindow::showCommandPalette);
     }
 
     // Konami Code
@@ -553,6 +557,32 @@ QPoint MainWindow::toastPosition() const
     const int x = margin;
     const int y = height() - statusBarHeight - m_toast->sizeHint().height() - margin;
     return QPoint(x, qMax(margin, y));
+}
+
+void MainWindow::showCommandPalette()
+{
+    // collect once per open so enablement is always current
+    QList<CommandEntry> entries;
+    QSet<QAction*> seen;
+    auto consider = [&entries, &seen](QAction* action) {
+        if (!action || seen.contains(action) || action->isSeparator() || action->menu())
+            return;
+        if (action->text().isEmpty() && action->objectName().isEmpty())
+            return;
+        if (!action->isVisible())
+            return;
+        seen.insert(action);
+        entries.append(CommandEntry::fromAction(action));
+    };
+    for (QAction* action : menuBar()->findChildren<QAction*>())
+        consider(action);
+    for (auto* toolbar : findChildren<QToolBar*>()) {
+        for (QAction* action : toolbar->actions())
+            consider(action);
+    }
+
+    CommandPalette palette(entries, this);
+    palette.exec();
 }
 
 void MainWindow::maybeShowStarToast()
