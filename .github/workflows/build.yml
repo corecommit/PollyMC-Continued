@@ -1080,3 +1080,67 @@ jobs:
             PollyMC-Continued-*.deb
             PollyMC-Continued-*.pkg.tar.zst
 
+      - name: Update version in README
+        if: success()
+        run: |
+          set -euo pipefail
+
+          TAG="${{ steps.prep.outputs.tag_name }}"
+          VERSION="${TAG#v}"
+
+          # Current version(s) present in README
+          CURRENT=$(grep -oE 'PollyMC-Continued-[0-9]+\.[0-9]+\.[0-9]+' README.md \
+                    | head -1 | sed 's/PollyMC-Continued-//' || true)
+
+          if [ "$CURRENT" = "$VERSION" ]; then
+            echo "README already at ${VERSION}, nothing to do."
+            exit 0
+          fi
+
+          if [ -z "$CURRENT" ]; then
+            echo "::error::No 'PollyMC-Continued-X.Y.Z' pattern found in README.md."
+            echo "::error::The README's artifact filename examples must follow that format."
+            exit 1
+          fi
+
+          # Guard against downgrades (tag push of an older tag)
+          NEWER=$(printf '%s\n%s\n' "$VERSION" "$CURRENT" | sort -V | tail -1)
+          if [ "$NEWER" = "$CURRENT" ] && [ "$VERSION" != "$CURRENT" ]; then
+            echo "::warning::README version ${CURRENT} is newer than tag ${VERSION}; skipping."
+            exit 0
+          fi
+
+          # Rewrite every PollyMC-Continued-<semver>- prefix. The regex only
+          # touches the version segment, not the surrounding filename parts.
+          sed -i -E "s/PollyMC-Continued-[0-9]+\.[0-9]+\.[0-9]+-/PollyMC-Continued-${VERSION}-/g" README.md
+
+          if git diff --quiet -- README.md; then
+            echo "No changes after sed, nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+          git commit -m "Chore: bump README version to ${VERSION} [skip-all]"
+
+          # Tag pushes are detached; push to the default branch.
+          # Branch pushes push back to the same branch.
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            TARGET_BRANCH="${{ github.event.repository.default_branch }}"
+          else
+            TARGET_BRANCH="${{ github.ref_name }}"
+          fi
+
+          for attempt in 1 2 3 4 5; do
+            if git push origin "HEAD:${TARGET_BRANCH}"; then
+              echo "Pushed version update to ${TARGET_BRANCH}."
+              exit 0
+            fi
+            echo "Push rejected, pulling and rebasing (attempt ${attempt}/5)..."
+            git pull --rebase origin "${TARGET_BRANCH}"
+          done
+          echo "::error::Failed to push version update after 5 attempts."
+          exit 1
+
