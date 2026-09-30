@@ -1293,6 +1293,7 @@ qt_wrap_ui(LAUNCHER_UI
     ui/dialogs/skins/SkinManageDialog.ui
     ui/dialogs/skins/SkinBrowserDialog.ui
     ui/dialogs/ChooseOfflineNameDialog.ui
+    bot/BotScriptEditor.ui
 )
 
 qt_wrap_ui(PRISM_UPDATE_UI
