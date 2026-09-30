@@ -43,59 +43,49 @@ function createRunner(bot, script, callbacks) {
   }
 
   function advance() {
-    if (state.stopped || state.finished) return;
-    if (Date.now() - state.startTime > RUNTIME_CAP_MS) {
-      finish('error', 'runtime cap reached');
-      return;
-    }
-    while (state.stack.length > 0) {
-      const frame = top();
-      if (frame.index >= frame.steps.length) {
-        if (state.stack.length === 1) {
-          finish('completed');
-          return;
-        }
-        state.stack.pop();
-        const child = frame;
+    while (!state.stopped && !state.finished) {
+      // Pop all completed frames iteratively.
+      while (state.stack.length > 0 && top().index >= top().steps.length) {
+        if (state.stack.length === 1) { finish('completed'); return; }
+        const child = state.stack.pop();
         child.iter++;
         if (child.times === -1 || child.iter < child.times) {
           child.index = 0;
           state.stack.push(child);
-          continue;
         }
-        continue;
       }
+      if (state.stack.length === 0) { finish('completed'); return; }
+      if (Date.now() - state.startTime > RUNTIME_CAP_MS) {
+        finish('error', 'runtime cap reached');
+        return;
+      }
+      const frame = top();
       const stepIndex = frame.index;
       const step = frame.steps[stepIndex];
       frame.index++;
-      runStep(step, stepIndex);
-      return;
+      if (!runStep(step, stepIndex)) return;  // async, will call advance()
     }
-    finish('completed');
   }
 
   function runStep(step, stepIndex) {
-    if (state.stopped || state.finished) return;
+    if (state.stopped || state.finished) return false;
     if (state.stack.length > MAX_LOOP_DEPTH + 1) {
       fail(stepIndex, 'loop nesting too deep');
-      return;
+      return false;
     }
     try {
       callbacks.onStep(stepIndex, step.type);
       switch (step.type) {
         case 'say':
           bot.chat(step.text);
-          advance();
-          break;
+          return true;
         case 'command': {
           const text = step.text.startsWith('/') ? step.text : '/' + step.text;
           bot.chat(text);
-          advance();
-          break;
+          return true;
         }
         case 'log':
-          advance();
-          break;
+          return true;
         case 'wait': {
           const timer = setTimeout(() => {
             state.cleanups.delete(cleanup);
@@ -103,13 +93,13 @@ function createRunner(bot, script, callbacks) {
           }, step.seconds * 1000);
           const cleanup = () => clearTimeout(timer);
           onCleanup(cleanup);
-          break;
+          return false;
         }
         case 'wait_for_chat': {
           const pattern = step.case_sensitive ? step.pattern : step.pattern.toLowerCase();
           const onChat = (who, message) => {
-            const hay = step.case_sensitive ? message : String(message).toLowerCase();
-            if (hay.includes(pattern)) {
+            const hay = String(message);
+            if (step.case_sensitive ? hay.includes(pattern) : hay.toLowerCase().includes(pattern)) {
               done();
               advance();
             }
@@ -132,7 +122,7 @@ function createRunner(bot, script, callbacks) {
             }, step.timeout_seconds * 1000);
           }
           onCleanup(cleanup);
-          break;
+          return false;
         }
         case 'wait_for_player': {
           if (bot.players[step.player]) {
@@ -157,31 +147,35 @@ function createRunner(bot, script, callbacks) {
             if (timer) clearTimeout(timer);
           };
           bot.on('playerJoined', onJoin);
+          // timeout_seconds == 0 waits forever: only stop/disconnect ends it
           if (step.timeout_seconds > 0) {
             timer = setTimeout(() => {
               done();
               finish('timeout');
             }, step.timeout_seconds * 1000);
-          } else if (step.timeout_seconds === 0) {
-            // wait forever: only stop/disconnect ends this step
           }
           onCleanup(cleanup);
-          break;
+          return false;
         }
         case 'loop': {
           const frame = { steps: step.steps, index: 0, times: step.times, iter: 0 };
           state.stack.push(frame);
-          advance();
-          break;
+          return true;
         }
         default:
           fail(stepIndex, `unknown step type: ${step.type}`);
-          break;
+          return false;
       }
     } catch (e) {
       fail(stepIndex, e && e.message ? e.message : String(e));
+      return false;
     }
   }
+
+  const capTimer = setTimeout(() => {
+    finish('error', 'runtime cap reached');
+  }, RUNTIME_CAP_MS);
+  onCleanup(() => clearTimeout(capTimer));
 
   function onEnd() {
     if (!state.finished) finish('disconnected');
