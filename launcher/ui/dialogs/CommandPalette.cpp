@@ -180,6 +180,10 @@ class CommandPalette::FuzzyFilter : public QSortFilterProxyModel {
     using QSortFilterProxyModel::QSortFilterProxyModel;
     void setQuery(const QString& query) { m_query = query; }
     const QString& query() const { return m_query; }
+    // Public entry for outside code to re-run the row filter after
+    // m_query changes. Qt 6 made the invalidate* methods protected,
+    // so callers must go through a public wrapper.
+    void reapplyFilter() { invalidateRowsFilter(); }
 
    protected:
     bool filterAcceptsRow(int row, const QModelIndex& parent) const override
@@ -262,7 +266,7 @@ CommandPalette::CommandPalette(QList<CommandEntry> entries, QWidget* parent) : Q
     m_list->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_list->installEventFilter(this);
     layout->addWidget(m_list, 1);
-    m_filter->invalidateRowsFilter();
+    m_filter->reapplyFilter();
     m_filter->sort(0);  // curated shortlist before the first keystroke
 
     auto* hint = new QLabel(tr("↑↓ navigate · PgUp/PgDn jump · Enter run · Esc close"), this);
