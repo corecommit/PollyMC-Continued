@@ -1,7 +1,7 @@
 # Changelog
 
 ## v9.3.1
- 
+
 **Added:**
 
 - **Portable data migration** — Portable installs now offer to migrate data from an existing system install on first launch.
