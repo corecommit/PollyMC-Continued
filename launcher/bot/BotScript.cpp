@@ -49,6 +49,58 @@ static bool rejectKeys(const QJsonObject& obj, const QStringList& allowed, QStri
     return true;
 }
 
+bool BotScriptParser::validateStep(const BotScriptStep& s, QString& error)
+{
+    if (!kStepTypes.contains(s.type)) {
+        error = QString("Unknown step type '%1'.").arg(s.type);
+        return false;
+    }
+    if (s.type == "say" || s.type == "log") {
+        if (s.text.isEmpty()) {
+            error = QString("Step '%1' needs non-empty text.").arg(s.type);
+            return false;
+        }
+    } else if (s.type == "command") {
+        if (s.text.isEmpty()) {
+            error = "Step 'command' needs non-empty text.";
+            return false;
+        }
+    } else if (s.type == "wait") {
+        if (s.seconds <= 0 || s.seconds > kMaxWaitSeconds) {
+            error = "Step 'wait' needs seconds between 1 and 86400.";
+            return false;
+        }
+    } else if (s.type == "wait_for_chat") {
+        if (s.pattern.isEmpty()) {
+            error = "Step 'wait_for_chat' needs a non-empty pattern.";
+            return false;
+        }
+        if (s.timeoutSeconds < 0) {
+            error = "Step 'wait_for_chat' needs timeout_seconds >= 0.";
+            return false;
+        }
+    } else if (s.type == "wait_for_player") {
+        if (s.player.isEmpty()) {
+            error = "Step 'wait_for_player' needs a non-empty player.";
+            return false;
+        }
+        if (s.timeoutSeconds < 0) {
+            error = "Step 'wait_for_player' needs timeout_seconds >= 0.";
+            return false;
+        }
+    } else if (s.type == "loop") {
+        if (s.times != -1 && s.times <= 0) {
+            error = "Step 'loop' needs times -1 or > 0.";
+            return false;
+        }
+        if (s.steps.isEmpty()) {
+            error = "Step 'loop' needs a non-empty steps array.";
+            return false;
+        }
+    }
+    return true;
+}
+
 bool BotScriptParser::parseSteps(const QJsonArray& arr, QList<BotScriptStep>& out, QString& error, int depth)
 {
     for (const auto& v : arr) {
@@ -67,51 +119,23 @@ bool BotScriptParser::parseSteps(const QJsonArray& arr, QList<BotScriptStep>& ou
         if (type == "say" || type == "log") {
             if (!rejectKeys(o, { "type", "text" }, error)) return false;
             s.text = o["text"].toString();
-            if (s.text.isEmpty()) {
-                error = QString("Step '%1' needs non-empty text.").arg(type);
-                return false;
-            }
         } else if (type == "command") {
             if (!rejectKeys(o, { "type", "text" }, error)) return false;
             s.text = o["text"].toString();
-            if (s.text.isEmpty()) {
-                error = "Step 'command' needs non-empty text.";
-                return false;
-            }
-            if (!s.text.startsWith('/'))
+            if (!s.text.isEmpty() && !s.text.startsWith('/'))
                 s.text.prepend('/');
         } else if (type == "wait") {
             if (!rejectKeys(o, { "type", "seconds" }, error)) return false;
             s.seconds = o["seconds"].toInt(-1);
-            if (s.seconds <= 0 || s.seconds > kMaxWaitSeconds) {
-                error = "Step 'wait' needs seconds between 1 and 86400.";
-                return false;
-            }
         } else if (type == "wait_for_chat") {
             if (!rejectKeys(o, { "type", "pattern", "case_sensitive", "timeout_seconds" }, error)) return false;
             s.pattern = o["pattern"].toString();
-            if (s.pattern.isEmpty()) {
-                error = "Step 'wait_for_chat' needs a non-empty pattern.";
-                return false;
-            }
             s.caseSensitive = o["case_sensitive"].toBool(false);
             s.timeoutSeconds = o["timeout_seconds"].toInt(0);
-            if (s.timeoutSeconds < 0) {
-                error = "Step 'wait_for_chat' needs timeout_seconds >= 0.";
-                return false;
-            }
         } else if (type == "wait_for_player") {
             if (!rejectKeys(o, { "type", "player", "timeout_seconds" }, error)) return false;
             s.player = o["player"].toString();
-            if (s.player.isEmpty()) {
-                error = "Step 'wait_for_player' needs a non-empty player.";
-                return false;
-            }
             s.timeoutSeconds = o["timeout_seconds"].toInt(0);
-            if (s.timeoutSeconds < 0) {
-                error = "Step 'wait_for_player' needs timeout_seconds >= 0.";
-                return false;
-            }
         } else if (type == "loop") {
             if (!rejectKeys(o, { "type", "times", "steps" }, error)) return false;
             if (depth >= kMaxLoopDepth) {
@@ -119,17 +143,15 @@ bool BotScriptParser::parseSteps(const QJsonArray& arr, QList<BotScriptStep>& ou
                 return false;
             }
             s.times = o["times"].toInt(0);
-            if (s.times != -1 && s.times <= 0) {
-                error = "Step 'loop' needs times -1 or > 0.";
-                return false;
-            }
-            if (!o["steps"].isArray() || o["steps"].toArray().isEmpty()) {
+            if (!o["steps"].isArray()) {
                 error = "Step 'loop' needs a non-empty steps array.";
                 return false;
             }
             if (!parseSteps(o["steps"].toArray(), s.steps, error, depth + 1))
                 return false;
         }
+        if (!validateStep(s, error))
+            return false;
         out.append(s);
     }
     return true;

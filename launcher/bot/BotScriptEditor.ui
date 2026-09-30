@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BotScriptEditor</class>
+ <widget class="QWidget" name="BotScriptEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>540</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <layout class="QHBoxLayout" name="topRow">
+     <item>
+      <widget class="QLabel" name="nameLabel">
+       <property name="text">
+        <string>Script name:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nameEdit"/>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="enabledCheck">
+       <property name="text">
+        <string>Enabled</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QSplitter" name="midSplitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QTreeView" name="stepsTree">
+      <property name="dragEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="dropIndicatorShown">
+       <bool>true</bool>
+      </property>
+      <property name="dragDropMode">
+       <enum>QAbstractItemView::InternalMove</enum>
+      </property>
+     </widget>
+     <widget class="QWidget" name="buttonPanel">
+      <layout class="QVBoxLayout" name="buttonLayout">
+       <item>
+        <widget class="QPushButton" name="addBtn">
+         <property name="text">
+          <string>Add step ▾</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="removeBtn">
+         <property name="text">
+          <string>Remove</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="upBtn">
+         <property name="text">
+          <string>Move up</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="downBtn">
+         <property name="text">
+          <string>Move down</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="buttonStretch">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="propStack">
+     <widget class="QWidget" name="pageEmpty">
+      <layout class="QVBoxLayout" name="emptyLayout">
+       <item>
+        <widget class="QLabel" name="emptyLabel">
+         <property name="text">
+          <string>Select a step to edit its properties.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageText">
+      <layout class="QVBoxLayout" name="textLayout">
+       <item>
+        <widget class="QLabel" name="textLabel">
+         <property name="text">
+          <string>Text:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="textEdit"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="textError">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageWait">
+      <layout class="QVBoxLayout" name="waitLayout">
+       <item>
+        <widget class="QLabel" name="secondsLabel">
+         <property name="text">
+          <string>Seconds (1-86400):</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="secondsSpin">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>86400</number>
+         </property>
+         <property name="value">
+          <number>30</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="waitError">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageChat">
+      <layout class="QVBoxLayout" name="chatLayout">
+       <item>
+        <widget class="QLabel" name="patternLabel">
+         <property name="text">
+          <string>Pattern:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="patternEdit"/>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="caseCheck">
+         <property name="text">
+          <string>Case sensitive</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="timeoutLabel">
+         <property name="text">
+          <string>Timeout seconds (0 = forever):</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="timeoutSpin">
+         <property name="maximum">
+          <number>86400</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="chatError">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pagePlayer">
+      <layout class="QVBoxLayout" name="playerLayout">
+       <item>
+        <widget class="QLabel" name="playerLabel">
+         <property name="text">
+          <string>Player:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="playerEdit"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="timeoutLabel2">
+         <property name="text">
+          <string>Timeout seconds (0 = forever):</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="timeoutSpin2">
+         <property name="maximum">
+          <number>86400</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="playerError">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageLoop">
+      <layout class="QVBoxLayout" name="loopLayout">
+       <item>
+        <widget class="QLabel" name="timesLabel">
+         <property name="text">
+          <string>Times (-1 = forever):</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="timesSpin">
+         <property name="minimum">
+          <number>-1</number>
+         </property>
+         <property name="maximum">
+          <number>1000000</number>
+         </property>
+         <property name="value">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="loopError">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="saveStatusLabel">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="visible">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="bottomRow">
+     <item>
+      <widget class="QPushButton" name="saveBtn">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="revertBtn">
+       <property name="text">
+        <string>Revert</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="bottomStretch">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="runBtn">
+       <property name="text">
+        <string>Run now</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stopBtn">
+       <property name="text">
+        <string>Stop</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

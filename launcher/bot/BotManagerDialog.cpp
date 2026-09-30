@@ -767,29 +767,28 @@ void BotManagerDialog::setBotScript(const QString& botName, const QString& scrip
 
 void BotManagerDialog::onScriptStarted(const QString& username, const QString& name)
 {
-    appendLog(QString("<span style='color:#a78bfa;'>[script] started: %1</span>").arg(name.toHtmlEscaped()));
-    Q_UNUSED(username);
+    appendLog(QString("<span style='color:#a78bfa;'>[script:%1] started: %2</span>").arg(username.toHtmlEscaped(), name.toHtmlEscaped()));
 }
 
 void BotManagerDialog::onScriptStep(const QString& username, int index, const QString& stepType)
 {
-    appendLog(QString("<span style='color:#a78bfa;'>[script] step %1: %2</span>").arg(index).arg(stepType.toHtmlEscaped()));
-    Q_UNUSED(username);
+    appendLog(QString("<span style='color:#a78bfa;'>[script:%1] step %2: %3</span>")
+                  .arg(username.toHtmlEscaped(), QString::number(index), stepType.toHtmlEscaped()));
 }
 
 void BotManagerDialog::onScriptFinished(const QString& username, const QString& reason, const QString& error)
 {
-    QString text = QString("<span style='color:#a78bfa;'>[script] finished: %1</span>").arg(reason.toHtmlEscaped());
+    QString text = QString("<span style='color:#a78bfa;'>[script:%1] finished: %2</span>")
+                       .arg(username.toHtmlEscaped(), reason.toHtmlEscaped());
     if (!error.isEmpty())
         text += " (" + error.toHtmlEscaped() + ")";
     appendLog(text);
-    Q_UNUSED(username);
 }
 
 void BotManagerDialog::onScriptError(const QString& username, int stepIndex, const QString& message)
 {
-    appendLog(QString("<span style='color:#f87171;'>[script] error at step %1: %2</span>").arg(stepIndex).arg(message.toHtmlEscaped()));
-    Q_UNUSED(username);
+    appendLog(QString("<span style='color:#f87171;'>[script:%1] error at step %2: %3</span>")
+                  .arg(username.toHtmlEscaped(), QString::number(stepIndex), message.toHtmlEscaped()));
 }
 
 void BotManagerDialog::onBotChat(const QString& bot, const QString& from, const QString& message)

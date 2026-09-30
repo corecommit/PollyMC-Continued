@@ -33,6 +33,8 @@ class BotScriptParser {
     static QJsonObject serialize(const BotScript& script);
     static QJsonArray serializeSteps(const QList<BotScriptStep>& steps);
     static bool isValidName(const QString& name);
+    // Single-step field rules, shared by parse() and the editor.
+    static bool validateStep(const BotScriptStep& step, QString& error);
 
     static const int kMaxLoopDepth = 5;
     static const int kMaxWaitSeconds = 86400;
