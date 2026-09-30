@@ -31,7 +31,14 @@ chmod +x "${LAUNCHER_DIR}/bin/${LAUNCHER_NAME}"
 
 ARGS=("${LAUNCHER_DIR}/${LAUNCHER_NAME}" "${LAUNCHER_DIR}/bin/${LAUNCHER_NAME}")
 
-if [ -f "${LAUNCHER_DIR}/portable.txt" ]; then
+# Portable installs resolve to this directory on their own, so -d is not needed
+# to get portable behaviour. Passing it unconditionally would outrank both the
+# dataroot.txt pointer and the recovery of instances left in the app data
+# location by an earlier non-portable run, leaving the launcher pointed at an
+# empty directory. Only force this directory when it really holds the data.
+if [ -f "${LAUNCHER_DIR}/portable.txt" ] &&
+   [ ! -f "${LAUNCHER_DIR}/dataroot.txt" ] &&
+   [ -d "${LAUNCHER_DIR}/instances" ]; then
     ARGS+=("-d" "${LAUNCHER_DIR}")
 fi
 

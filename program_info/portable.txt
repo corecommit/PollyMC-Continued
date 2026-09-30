@@ -2,3 +2,32 @@ This file enables the portable mode for the launcher.
 
 If this file is present in the root directory of the launcher, it will store all data here. Otherwise it will store your data in your appdata directory.
 You can safely delete this file, if you don't want the launcher to store your data here.
+
+
+Choosing where the data lives
+-----------------------------
+
+The launcher picks its data directory in this order, and the first one that
+applies wins:
+
+  1. --dir on the command line
+  2. the $POLLYMC_DATA_DIR environment variable
+  3. dataroot.txt in this directory
+  4. a UserData/ directory next to this file
+  5. this directory, if this file is present
+  6. your appdata directory
+
+You can write an absolute path into dataroot.txt yourself to pin the data
+folder for this install, whatever the other rules say. Anything that is not an
+absolute path is ignored.
+
+If this file is present but the directory holds no instances of its own, while
+your appdata directory does hold instances, the launcher uses your appdata
+directory instead of starting out empty, and writes dataroot.txt here so that
+the choice sticks. Nothing is copied and nothing is deleted, so every instance
+and setting comes across exactly as it was. This happens automatically, without
+asking.
+
+To undo the recovery, delete dataroot.txt and create the file named
+pollymc_dataroot_nomigrate.txt here instead; the launcher will then keep using
+this directory and will not look at your appdata directory again.

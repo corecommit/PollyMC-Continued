@@ -868,6 +868,13 @@ jobs:
           # Only the directory name matters: that is all resolveDataRoot looks at.
           seed() { mkdir -p "$1/instances/$2"; }
 
+          # The launcher prefixes every log line with a timestamp and a severity
+          # and quotes the value, so the line looks like:
+          #   '     0.000 Info: Adjusted by                : "..." (unknown:0)'
+          # Matching on '^Adjusted by' finds nothing; it has to be matched
+          # anywhere in the line and unquoted.
+          adjusted_by() { sed -n 's/.*Adjusted by *: *"\(.*\)".*/\1/p' "$1" | head -n1; }
+
           # run <name> <expected "Adjusted by"> <expected dataroot.txt: yes|no> [setup] [assert]
           run() {
             local name="$1" want_by="$2" want_ptr="$3" setup="${4:-:}" extra="${5:-:}"
@@ -878,18 +885,30 @@ jobs:
             clean
             "$setup"
 
+            # Best effort: pre-answer the first-run setup wizard so the launcher
+            # can get past it headless. Nothing here is asserted - if these keys
+            # stop being enough the cases still pass, because the data root is
+            # decided before the wizard is ever shown.
+            mkdir -p "$DATA"
+            printf '[General]\nApplicationTheme=system\nIconTheme=pe_colored\nLanguage=en_US\nLastHostname=%s\nIgnoreJavaWizard=true\nAutomaticJavaDownload=true\n' \
+              "$(uname -n)" > "$DATA/pollymc.cfg"
+
             QT_QPA_PLATFORM=offscreen HOME="$CASE_HOME" "$APP/bin/pollymc" >"$out" 2>&1 &
             pid=$!
 
-            # The data root is picked in the constructor, but "Main window shown"
-            # only arrives if nothing modal got in the way on the way there - and
-            # a modal is exactly what a regression here would produce. Waiting for
-            # that line is what makes a hang a test failure instead of a timeout.
+            # "Adjusted by" is the line to wait for. The data root is decided in
+            # the constructor and logged on every run that gets that far, so a
+            # hang before that is a test failure rather than a timeout.
+            # "Main window shown" is not a usable signal here: on a fresh profile
+            # the launcher shows its first-run setup wizard, which does not block
+            # the event loop, so the main window is simply never reached headless.
+            # Waiting for it would fail every case for a reason that has nothing
+            # to do with the data root.
             local i cand
             for i in $(seq 1 80); do
               for cand in "$DATA/logs/PollyMC-0.log" "$APP/logs/PollyMC-0.log" \
                           "$APP/UserData/logs/PollyMC-0.log"; do
-                if [ -f "$cand" ] && grep -q "Main window shown" "$cand" 2>/dev/null; then
+                if [ -f "$cand" ] && grep -q "Adjusted by" "$cand" 2>/dev/null; then
                   log="$cand"
                 fi
               done
@@ -900,7 +919,7 @@ jobs:
             kill "$pid" 2>/dev/null || true
             wait "$pid" 2>/dev/null || true
 
-            [ -n "$log" ] && got_by=$(sed -n 's/^Adjusted by  *: //p' "$log" | head -n1)
+            [ -n "$log" ] && got_by=$(adjusted_by "$log")
             [ -f "$APP/dataroot.txt" ] && got_ptr=yes
 
             [ "$got_by" = "$want_by" ] || ok=no
@@ -908,7 +927,7 @@ jobs:
             if [ -n "$log" ]; then
               "$extra" "$log" || ok=no
             else
-              echo "  no log reached 'Main window shown' - startup was blocked or failed"
+              echo "  no log reached the data root lines - startup was blocked or failed"
               tail -30 "$out" | sed 's/^/    | /'
               ok=no
             fi
@@ -974,6 +993,142 @@ jobs:
           # 8. UserData/ is part of the app root's own layout, never a data folder
           #    to recover from, even with instances sitting in it.
           run "userdata-never-recovers" "Portable user data path" no userdata
+
+          echo
+          echo "passed: $PASS  failed: $FAIL"
+          [ "$FAIL" -eq 0 ] || exit 1
+
+      - name: Runner script data root cases
+        run: |
+          set -uo pipefail
+          TARBALL=$(ls PollyMC-Continued-*-Linux-x86_64.tar.gz | head -n1)
+          SCRIPT=/tmp/script-app
+          rm -rf "$SCRIPT" && mkdir -p "$SCRIPT"
+          tar -xzf "$TARBALL" -C "$SCRIPT"
+          test -x "$SCRIPT/pollymc" || { echo "::error::tarball has no runner script"; exit 1; }
+
+          WORK=/tmp/script-cases
+          rm -rf "$WORK" && mkdir -p "$WORK"
+          # The runner script refuses to run as root, and this job's container user
+          # is root, so the cases run as nobody - which means the app root and the
+          # per-case HOME have to belong to nobody too, because the script chmods
+          # the binary before exec'ing it. If the job ever runs unprivileged there
+          # is no user to switch away from, so the current one is kept.
+          AS=""
+          if [ "$(id -u)" -eq 0 ]; then
+            AS="runuser -u nobody --"
+          fi
+          own() { [ "$(id -u)" -eq 0 ] && chown -R nobody:nogroup "$@"; return 0; }
+          own "$SCRIPT" "$WORK"
+
+          PASS=0
+          FAIL=0
+          ok()   { PASS=$((PASS + 1)); echo "PASS  $1"; }
+          bad()  { FAIL=$((FAIL + 1)); echo "FAIL  $1"; }
+
+          # Every log line is '<ts> Info: <key> : "<value>" (unknown:0)', so the
+          # value has to be matched anywhere in the line and unquoted.
+          adjusted_by() { sed -n 's/.*Adjusted by *: *"\(.*\)".*/\1/p' "$1" | head -n1; }
+
+          # stage <portable.txt yes|no> <app root has instances yes|no> <dataroot.txt yes|no>
+          stage() {
+            rm -rf "$SCRIPT/instances" "$SCRIPT/dataroot.txt" "$SCRIPT/logs" "$SCRIPT/UserData"
+            if [ "$1" = yes ]; then : > "$SCRIPT/portable.txt"; else rm -f "$SCRIPT/portable.txt"; fi
+            if [ "$2" = yes ]; then mkdir -p "$SCRIPT/instances/mine"; fi
+            if [ "$3" = yes ]; then printf '/tmp/somewhere-else\n' > "$SCRIPT/dataroot.txt"; fi
+            own "$SCRIPT"
+          }
+
+          # The tarball ships portable.txt, so the runner script used to pass -d
+          # unconditionally. --dir is the first step of the data root chain, so
+          # that made both the pointer and the recovery unreachable: the launcher
+          # came up on an empty directory and the reported bug was back for every
+          # tarball user, even though the binary resolved it correctly when run
+          # directly. The cases below pin the script's own decision.
+
+          # 1. End to end, through the script, for the reported bug: the user's
+          #    instances are in the app data dir, the app root is empty, and the
+          #    data must be adopted in place with no dialog.
+          stage yes no no
+          E2E="$WORK/e2e-home"
+          E2E_DATA="$E2E/.local/share/PollyMC"
+          rm -rf "$E2E"
+          mkdir -p "$E2E_DATA/instances/1.21.1"
+          printf '[General]\nApplicationTheme=system\nIconTheme=pe_colored\nLanguage=en_US\nLastHostname=%s\nIgnoreJavaWizard=true\nAutomaticJavaDownload=true\n' \
+            "$(uname -n)" > "$E2E_DATA/pollymc.cfg"
+          own "$E2E"
+          $AS env HOME="$E2E" QT_QPA_PLATFORM=offscreen \
+            "$SCRIPT/pollymc" > "$WORK/e2e.out" 2>&1 &
+          pid=$!
+          log=""
+          # "Adjusted by", not "Main window shown": the first-run setup wizard is
+          # shown on a fresh profile and does not block the event loop, so the main
+          # window is never reached headless. See the step above.
+          for i in $(seq 1 80); do
+            for cand in "$E2E_DATA/logs/PollyMC-0.log" \
+                        "$SCRIPT/logs/PollyMC-0.log" "$SCRIPT/UserData/logs/PollyMC-0.log"; do
+              if [ -f "$cand" ] && grep -q "Adjusted by" "$cand" 2>/dev/null; then log="$cand"; fi
+            done
+            [ -n "$log" ] && break
+            kill -0 "$pid" 2>/dev/null || break
+            sleep 0.5
+          done
+          kill "$pid" 2>/dev/null || true
+          wait "$pid" 2>/dev/null || true
+          # $pid is the runuser wrapper when there is one, and killing the wrapper
+          # can leave the launcher itself running - which would then write into the
+          # app root the next case is about to assert on.
+          pkill -f "${SCRIPT}/bin/pollymc" 2>/dev/null || true
+          sleep 1
+
+          if [ -z "$log" ]; then
+            bad "script-recovery (no log reached the data root lines)"
+            tail -30 "$WORK/e2e.out" | sed 's/^/    | /'
+          elif [ "$(adjusted_by "$log")" != "Recovered data root" ]; then
+            bad "script-recovery (adjusted by: $(adjusted_by "$log"))"
+          elif [ ! -f "$SCRIPT/dataroot.txt" ]; then
+            bad "script-recovery (no dataroot.txt was written)"
+          elif [ ! -d "$E2E_DATA/instances/1.21.1" ]; then
+            bad "script-recovery (the seeded instance is gone - it was moved or deleted)"
+          else
+            ok "script-recovery (adopted in place, pointer written)"
+          fi
+
+          # From here on the binary is replaced by a stub that records the
+          # arguments the script hands it, so the -d decision can be asserted
+          # directly. $ARGV_OUT carries the destination through env.
+          printf '#!/usr/bin/env bash\nprintf "%%s\\n" "$@" > "$ARGV_OUT"\n' > "$SCRIPT/bin/pollymc"
+          chmod 0755 "$SCRIPT/bin/pollymc"
+          own "$SCRIPT"
+
+          # args_case <label> <expect -d: yes|no>
+          args_case() {
+            local label="$1" want="$2" out="$WORK/argv" got=no
+            rm -f "$out"
+            $AS env HOME="$WORK" ARGV_OUT="$out" "$SCRIPT/pollymc" \
+              >/dev/null 2>&1
+            if [ -f "$out" ] && grep -qx -- "-d" "$out"; then got=yes; fi
+            if [ "$got" = "$want" ]; then
+              ok "$label  (-d: $got)"
+            else
+              bad "$label  expected -d:$want  got -d:$got"
+              echo "      argv: $(tr '\n' ' ' < "$out" 2>/dev/null)"
+            fi
+          }
+
+          # 2. A portable install that really holds the data is pointed at it.
+          stage yes yes no
+          args_case "script-keeps-live-portable" yes
+          # 3. The reported bug's shape: nothing in the app root, so the script
+          #    must stay out of the way and let the recovery run.
+          stage yes no no
+          args_case "script-defers-empty-portable" no
+          # 4. An explicit pointer outranks portable.txt, so -d must not appear.
+          stage yes yes yes
+          args_case "script-defers-to-pointer" no
+          # 5. Not a portable install at all.
+          stage no yes no
+          args_case "script-non-portable" no
 
           echo
           echo "passed: $PASS  failed: $FAIL"

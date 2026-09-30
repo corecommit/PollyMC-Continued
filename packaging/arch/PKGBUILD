@@ -49,6 +49,12 @@ sha256sums=('SKIP')
 
 build() {
     cd "${srcdir}/${_pkgname}-${pkgver}"
+    # A stale build/ directory carries a CMakeCache.txt that pins absolute paths
+    # from whatever tree it was configured in. If a bundled library happens to
+    # sit in one of those paths, the link silently picks it up and the package
+    # ends up needing a SONAME the system does not provide - which fails at
+    # runtime, not at build time. Start from nothing every time.
+    rm -rf build
     cmake -B build -G Ninja \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \

@@ -630,6 +630,13 @@ set(PRISMUPDATER_SOURCES
     StringUtils.cpp
     DesktopServices.h
     DesktopServices.cpp
+
+    # Data directory resolution. Also in CORE_SOURCES, for the launcher: this
+    # library is a separate archive and does not pull CORE_SOURCES in, so a
+    # source listed only there is missing here and fails to link.
+    DataRoot.h
+    DataRoot.cpp
+
     Version.h
     Version.cpp
     Markdown.h
