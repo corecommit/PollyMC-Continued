@@ -16,6 +16,7 @@
 #include <QDir>
 #include <QCoreApplication>
 #include <QDateTime>
+#include <QDebug>
 #include <QScrollBar>
 #include <QMessageBox>
 #include <QTabWidget>
@@ -274,7 +275,9 @@ void BotManagerDialog::onDependenciesInstalled(bool ok)
 
 BotManagerDialog::~BotManagerDialog()
 {
-    saveConfigs();
+    QString error;
+    if (!saveConfigs(error))
+        qWarning() << "BotManagerDialog: failed to save bot configs:" << error;
 }
 
 void BotManagerDialog::startBotServer()
@@ -283,7 +286,7 @@ void BotManagerDialog::startBotServer()
     m_bot->start();
 }
 
-void BotManagerDialog::saveConfigs()
+bool BotManagerDialog::saveConfigs(QString& error)
 {
     QJsonArray arr;
     for (const auto& e : m_bots) {
@@ -297,8 +300,15 @@ void BotManagerDialog::saveConfigs()
         arr.append(obj);
     }
     QFile f(m_configPath);
-    if (f.open(QIODevice::WriteOnly))
-        f.write(QJsonDocument(arr).toJson(QJsonDocument::Indented));
+    if (!f.open(QIODevice::WriteOnly)) {
+        error = f.errorString();
+        return false;
+    }
+    if (f.write(QJsonDocument(arr).toJson(QJsonDocument::Indented)) < 0) {
+        error = f.errorString();
+        return false;
+    }
+    return true;
 }
 
 void BotManagerDialog::loadConfigs()
@@ -397,7 +407,10 @@ void BotManagerDialog::onAddBot()
     e.colorIndex = m_bots.size() % 8;
     m_bots.append(e);
     refreshTable();
-    saveConfigs();
+    QString configError;
+    if (!saveConfigs(configError))
+        QMessageBox::warning(this, tr("Bot Manager"),
+                             tr("Could not save bot config to %1: %2").arg(m_configPath, configError));
 
     if (e.config.autoStart)
         connectBot(m_bots.size() - 1);
@@ -413,7 +426,10 @@ void BotManagerDialog::onEditBot()
 
     entry->config = cfg;
     refreshTable();
-    saveConfigs();
+    QString configError;
+    if (!saveConfigs(configError))
+        QMessageBox::warning(this, tr("Bot Manager"),
+                             tr("Could not save bot config to %1: %2").arg(m_configPath, configError));
 }
 
 void BotManagerDialog::onRemoveBot()
@@ -426,7 +442,10 @@ void BotManagerDialog::onRemoveBot()
 
     m_bots.removeAt(row);
     refreshTable();
-    saveConfigs();
+    QString configError;
+    if (!saveConfigs(configError))
+        QMessageBox::warning(this, tr("Bot Manager"),
+                             tr("Could not save bot config to %1: %2").arg(m_configPath, configError));
 }
 
 void BotManagerDialog::onStart()

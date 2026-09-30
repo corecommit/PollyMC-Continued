@@ -11,6 +11,7 @@
 
 #include "BotProcess.h"
 #include "AddBotDialog.h"
+#include "BotScript.h"
 
 class QCompleter;
 
@@ -18,13 +19,20 @@ struct BotEntry {
     BotConfig config;
     bool connected = false;
     int colorIndex = 0;
+    QString scriptName;
 };
+
+class BotScriptEditor;
 
 class BotManagerDialog : public QWidget {
     Q_OBJECT
 public:
     explicit BotManagerDialog(QWidget* parent = nullptr);
     ~BotManagerDialog() override;
+
+    void runScriptFor(const QString& botName, const BotScript& script);
+    void stopScriptFor(const QString& botName);
+    void setBotScript(const QString& botName, const QString& scriptName);
 
 private slots:
     void onAddBot();
@@ -43,14 +51,17 @@ private slots:
     void onBotChat(const QString& bot, const QString& from, const QString& message);
     void onProcessExited(int code);
     void onDependenciesInstalled(bool ok);
+    void onScriptStarted(const QString& username, const QString& name);
+    void onScriptStep(const QString& username, int index, const QString& stepType);
+    void onScriptFinished(const QString& username, const QString& reason, const QString& error);
+    void onScriptError(const QString& username, int stepIndex, const QString& message);
 
 private:
     void startBotServer();
     void ensureBotDependencies();
     void showHelp();
-    void saveConfigs();
-    void loadConfigs();
-    void refreshTable();
+    bool saveConfigs(QString& error);
+    void loadConfigs();    void refreshTable();
     void connectBot(int index);
     void disconnectBot(int index);
     BotEntry* currentBot();
@@ -72,6 +83,7 @@ private:
     QPushButton* m_selectAllBtn;
     QPushButton* m_stopAllBtn;
     QPushButton* m_commandsBtn;
+    BotScriptEditor* m_editor = nullptr;
 
     QString m_configPath;
     QString m_legacyConfigPath;
