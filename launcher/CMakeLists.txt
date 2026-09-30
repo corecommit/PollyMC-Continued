@@ -889,6 +889,11 @@ SET(LAUNCHER_SOURCES
     # Bot manager
     bot/BotProcess.h
     bot/BotProcess.cpp
+    bot/BotScript.h
+    bot/BotScript.cpp
+    bot/BotScriptEditor.h
+    bot/BotScriptEditor.cpp
+    bot/BotScriptEditor.ui
     bot/AddBotDialog.h
     bot/AddBotDialog.cpp
     bot/BotManagerDialog.h

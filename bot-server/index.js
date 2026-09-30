@@ -1,8 +1,10 @@
 const readline = require('readline');
 const mineflayer = require('mineflayer');
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder');
+const { createRunner } = require('./script-runner');
 
 const bots = {};
+const runners = {};
 
 function send(event, data) {
   process.stdout.write(JSON.stringify({ event, ...data }) + '\n');
@@ -37,6 +39,8 @@ function createBot(username, server, port = 25565, version) {
 
   bot.on('end', (reason) => {
     send('log', { text: `${username} disconnected: ${reason}` });
+    // runner sees 'end' too and finishes with 'disconnected' on its own
+    delete runners[username];
     delete bots[username];
   });
 
@@ -46,8 +50,74 @@ function createBot(username, server, port = 25565, version) {
 
   bot.on('kicked', (reason) => {
     send('log', { text: `${username} was kicked: ${reason}` });
+    delete runners[username];
     delete bots[username];
   });
+}
+
+function validScript(script) {
+  if (!script || typeof script !== 'object' || !Array.isArray(script.steps) || script.steps.length === 0) return false;
+  const known = ['say', 'command', 'wait', 'wait_for_chat', 'wait_for_player', 'log', 'loop'];
+  const check = (steps, depth) => {
+    if (depth > 5 || !Array.isArray(steps)) return false;
+    return steps.every(s => s && known.includes(s.type) && (s.type !== 'loop' || check(s.steps, depth + 1)));
+  };
+  return check(script.steps, 0);
+}
+
+function stopRunner(username) {
+  const runner = runners[username];
+  if (!runner) return false;
+  delete runners[username];
+  try {
+    runner.stop();
+  } catch {}
+  return true;
+}
+
+function runScript(username, script) {
+  const bot = getBot(username);
+  if (!bot) return;
+  if (!validScript(script)) {
+    send('error', { text: `${username}: invalid script shape` });
+    return;
+  }
+  if (runners[username]) {
+    delete runners[username];
+    runners[username].stop();
+  }
+  const runner = createRunner(bot, script, {
+    onStep: (index, stepType) => send('script_step', { username, index, step_type: stepType }),
+    onFinished: (reason, error) => {
+      delete runners[username];
+      const ev = { username, reason };
+      if (error) ev.error = error;
+      send('script_finished', ev);
+    },
+    onError: (stepIndex, message) => send('script_error', { username, step_index: stepIndex, message }),
+  });
+  runners[username] = runner;
+  send('script_started', { username, name: script.name || '' });
+  runner.start();
+}
+
+function stopScript(username) {
+  if (!getBot(username)) return;
+  if (!stopRunner(username)) {
+    send('error', { text: `${username}: no script running` });
+  }
+  // the runner's own finish emits script_finished/stopped
+}
+
+function reportScriptStatus(username) {
+  if (!getBot(username)) return;
+  const runner = runners[username];
+  if (!runner) {
+    send('log', { text: `${username}: no script running` });
+    return;
+  }
+  const st = runner.status();
+  send('log', { text: st ? `${username}: script at step ${st.index} (${st.step_type})` : `${username}: script finishing` });
 }
 
 function runCommand(username, cmd) {
@@ -287,6 +357,15 @@ rl.on('line', (line) => {
       case 'players':
         listPlayers(msg.username);
         break;
+      case 'run_script':
+        runScript(msg.username, msg.script);
+        break;
+      case 'stop_script':
+        stopScript(msg.username);
+        break;
+      case 'script_status':
+        reportScriptStatus(msg.username);
+        break;
       case 'quit':
         disconnectBot(msg.username);
         break;
@@ -306,10 +385,12 @@ rl.on('line', (line) => {
 
 // launcher closed stdin: drop every bot and quit, no zombies
 process.stdin.on('end', () => {
+  for (const name of Object.keys(runners)) stopRunner(name);
   disconnectAllBots();
   process.exit(0);
 });
 process.stdin.on('close', () => {
+  for (const name of Object.keys(runners)) stopRunner(name);
   disconnectAllBots();
   process.exit(0);
 });
@@ -319,6 +400,7 @@ setInterval(() => {
   try {
     process.kill(process.ppid, 0);
   } catch {
+    for (const name of Object.keys(runners)) stopRunner(name);
     disconnectAllBots();
     process.exit(0);
   }

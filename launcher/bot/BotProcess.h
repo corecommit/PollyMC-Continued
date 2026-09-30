@@ -25,6 +25,10 @@ signals:
     void botConnected(const QString& username, const QString& server);
     void botChat(const QString& bot, const QString& from, const QString& message);
     void errorMessage(const QString& text);
+    void scriptStarted(const QString& username, const QString& name);
+    void scriptStep(const QString& username, int index, const QString& stepType);
+    void scriptFinished(const QString& username, const QString& reason, const QString& error);
+    void scriptError(const QString& username, int stepIndex, const QString& message);
     void ready();
     void processExited(int code);
     void dependenciesInstalled(bool ok);
