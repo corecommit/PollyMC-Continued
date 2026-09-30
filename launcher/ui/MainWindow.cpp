@@ -572,7 +572,38 @@ void MainWindow::showCommandPalette()
         if (!action->isVisible())
             return;
         seen.insert(action);
-        entries.append(CommandEntry::fromAction(action));
+        CommandEntry entry = CommandEntry::fromAction(action);
+        const QString name = action->objectName();
+        // instance-scoped verbs live under Instance even though the spec
+        // also lists them as examples of plain actions
+        if (name == "actionLaunchInstance" || name == "actionEditInstance" || name == "actionDeleteInstance" ||
+            name == "actionCopyInstance" || name == "actionKillInstance" || name == "actionExportInstanceZip" ||
+            name == "actionExportInstanceMrPack" || name == "actionExportInstanceFlamePack")
+            entry.category = "Instance";
+        else if (name == "actionAddInstance" || name == "actionSettings" || name == "actionAbout" ||
+                 name == "actionCheckUpdate")
+            entry.category = "Action";
+        else if (name.contains("Theme"))
+            entry.category = "Theme";
+        else if (name.contains("Toolbar") || name.contains("StatusBar") || name == "actionLockToolbars")
+            entry.category = "Toolbar";
+        else if (name.contains("Account"))
+            entry.category = "Account";
+        else if (name.contains("DISCORD") || name.contains("MATRIX") || name.contains("REDDIT") ||
+                 name.contains("Wiki") || name.contains("ReportBug") || name.contains("BugTracker"))
+            entry.category = "External";
+        else if (name.contains("Folder"))
+            entry.category = "Folder";
+        if (name == "actionAddInstance" || name == "actionSettings" || name == "actionLaunchInstance")
+            entry.priority = 100;
+        else if (name == "actionEditInstance" || name == "actionDeleteInstance" || name == "actionAbout")
+            entry.priority = 80;
+        else if (name == "actionExportInstanceZip" || name == "actionExportInstanceMrPack" ||
+                 name == "actionExportInstanceFlamePack" || name == "actionViewInstanceFolder" ||
+                 name == "actionViewLogsFolder" || name == "actionViewCentralModsFolder")
+            entry.priority = 60;
+        entry.hideByDefault = entry.category == "Theme" || entry.category == "Toolbar";
+        entries.append(entry);
     };
     for (QAction* action : findChildren<QAction*>())
         consider(action);

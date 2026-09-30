@@ -26,6 +26,8 @@ class QAction;
 class QLineEdit;
 class QListView;
 class QShowEvent;
+class QLabel;
+class ShortcutDelegate;
 
 // One searchable command. v1 fills these from QActions; v2 can add
 // dynamic entries (e.g. per-instance) without touching the palette.
@@ -37,6 +39,10 @@ struct CommandEntry {
     QAction* sourceAction = nullptr;
     int weight = 0;
     bool closeAfterTrigger = true;
+    // UX pass: carried for grouping/ranking, no headers shown yet
+    QString category = QStringLiteral("Other");
+    int priority = 0;
+    bool hideByDefault = false;
 
     // v1 static set adapter. The palette never owns the action.
     static CommandEntry fromAction(QAction* action);
@@ -68,6 +74,8 @@ class CommandPalette : public QDialog {
 
     QLineEdit* m_search = nullptr;
     QListView* m_list = nullptr;
+    QLabel* m_count = nullptr;
+    ShortcutDelegate* m_delegate = nullptr;
     Model* m_model = nullptr;
     FuzzyFilter* m_filter = nullptr;
 };
