@@ -2192,6 +2192,10 @@ bool Application::handlePortableMigration(const QString& currentData) const
         logModel->append(MessageLevel::Launcher, QStringLiteral("<> Portable migration prompt shown for ") + systemRoot);
     qInfo() << "<> Portable migration prompt shown for" << systemRoot;
 
+    // these dialogs are the only windows alive; closing them must not quit the app
+    const bool quitOnClose = qApp->quitOnLastWindowClosed();
+    qApp->setQuitOnLastWindowClosed(false);
+
     QCheckBox dontAskAgain(tr("Don't ask again for this portable folder"));
     std::unique_ptr<QMessageBox> box(CustomMessageBox::selectable(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, message,
                                                                   QMessageBox::Question, QMessageBox::Yes | QMessageBox::No,
@@ -2209,6 +2213,7 @@ bool Application::handlePortableMigration(const QString& currentData) const
             if (!marker.open(QIODevice::WriteOnly))
                 qWarning() << "Failed to write portable migration marker" << declinedPath << ":" << marker.errorString();
         }
+        qApp->setQuitOnLastWindowClosed(quitOnClose);
         return false;
     }
 
@@ -2216,14 +2221,21 @@ bool Application::handlePortableMigration(const QString& currentData) const
         logModel->append(MessageLevel::Launcher, QStringLiteral("<> Portable migration accepted for ") + systemRoot);
     qInfo() << "<> Portable migration accepted for" << systemRoot;
 
+    qDebug() << "MIGRATION: starting";
     ProgressDialog diag;
     DataMigrationTask task(systemRoot, curRoot, Filters::any(migrationFilters(BuildConfig.LAUNCHER_CONFIGFILE)));
-    if (diag.execWithTask(&task)) {
+    const bool result = diag.execWithTask(&task);
+    qDebug() << "MIGRATION: finished, result =" << result;
+    if (result) {
         qInfo() << "<> Portable migration succeeded for" << systemRoot;
+        qDebug() << "STARTUP: continuing into normal launcher startup";
+        qApp->setQuitOnLastWindowClosed(quitOnClose);
         return true;
     }
 
     QMessageBox::critical(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, tr("Migration failed! Reason: %1").arg(task.failReason()));
+    qApp->setQuitOnLastWindowClosed(quitOnClose);
+    QMetaObject::invokeMethod(qApp, []() { exit(1); }, Qt::QueuedConnection);
     return false;
 }
 
