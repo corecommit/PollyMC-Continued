@@ -44,6 +44,7 @@
 #include "BuildConfig.h"
 
 #include "DataMigrationTask.h"
+#include "DataRoot.h"
 #include "java/JavaInstallList.h"
 #include "minecraft/MinecraftInstance.h"
 #include "minecraft/PackProfile.h"
@@ -384,39 +385,31 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
     QString adjustedBy;
     QString dataPath;
     // change folder
-    QString dataDirEnv;
+    QString dataDirEnv = QProcessEnvironment::systemEnvironment().value(QString("%1_DATA_DIR").arg(BuildConfig.LAUNCHER_NAME.toUpper()));
     QString dirParam = parser.value("dir");
-    if (!dirParam.isEmpty()) {
-        // the dir param. it makes multimc data path point to whatever the user specified
-        // on command line
-        adjustedBy = "Command line";
-        dataPath = dirParam;
-    } else if (dataDirEnv = QProcessEnvironment::systemEnvironment().value(QString("%1_DATA_DIR").arg(BuildConfig.LAUNCHER_NAME.toUpper()));
-               !dataDirEnv.isEmpty()) {
-        adjustedBy = "System environment";
-        dataPath = dataDirEnv;
-    } else {
-        QDir foo;
-        if (DesktopServices::isSnap()) {
-            foo = QDir(qEnvironmentVariable("SNAP_USER_COMMON"));
-        } else {
-            foo = QDir(FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), ".."));
-        }
 
-        dataPath = foo.absolutePath();
-        adjustedBy = "Persistent data path";
+    {
+        DataRootInputs inputs;
+        inputs.appRootPath = m_rootPath;
+        inputs.dirParam = dirParam;
+        inputs.dataDirEnv = dataDirEnv;
+        inputs.appDataLocationParent = QDir(FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "..")).absolutePath();
 
-#ifndef Q_OS_MACOS
-        if (auto portableUserData = FS::PathCombine(m_rootPath, "UserData"); QDir(portableUserData).exists()) {
-            dataPath = portableUserData;
-            adjustedBy = "Portable user data path";
-            m_portable = true;
-        } else if (QFile::exists(FS::PathCombine(m_rootPath, "portable.txt"))) {
-            dataPath = m_rootPath;
-            adjustedBy = "Portable data path";
-            m_portable = true;
-        }
-#endif
+        const auto choice = resolveDataRoot(inputs);
+        dataPath = choice.path;
+        adjustedBy = choice.adjustedBy;
+        m_portable = choice.portableInstall;
+        m_dataRootRecovered = choice.recovered;
+    }
+
+    if (m_dataRootRecovered) {
+        // Pin the choice so the next start resolves it directly instead of
+        // re-deriving it. A read-only app root (an AppImage) simply keeps
+        // re-deriving it every time, which lands on the same folder anyway.
+        QFile pointer(FS::PathCombine(m_rootPath, dataRootPointerFile()));
+        if (pointer.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+            pointer.write(dataPath.toUtf8() + "\n");
+        // Whether this stuck is reported later, once the message handler exists.
     }
 
     if (!FS::ensureFolderPathExists(dataPath)) {
@@ -512,8 +505,12 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
                     FS::move(oldName, logBase.arg(i));
         }
 
+        // Same guard as the loop above: on a fresh install none of these files
+        // exist yet, and moving them anyway spams stderr with "Move of ...
+        // failed!" before the log file is even open.
         for (auto i = 4; i > 0; i--)
-            FS::move(logBase.arg(i - 1), logBase.arg(i));
+            if (auto oldName = logBase.arg(i - 1); QFile::exists(oldName))
+                FS::move(oldName, logBase.arg(i));
 
         logFile = std::unique_ptr<QFile>(new QFile(logBase.arg(0)));
         if (!logFile->open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
@@ -584,22 +581,20 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
     {
         bool migrated = false;
 
-        if (!migrated)
-            migrated = handleDataMigration(
-                dataPath, FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "../../PolyMC"), "PolyMC",
-                "polymc.cfg");
-        if (!migrated)
-            migrated = handleDataMigration(
-                dataPath, FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "../../multimc"), "MultiMC",
-                "multimc.cfg");
-
-        // the data root flips with portable.txt, so instances can be left behind in either root
-        if (!migrated) {
-            const QString appDataRoot = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-            migrated = handleFlippedDataRoot(dataPath, FS::PathCombine(appDataRoot, ".."));
+        // Our own data root wins. When it was recovered it already holds every
+        // instance and setting, so the leftover folders of other launchers are
+        // not ours to migrate from - and importing an old polymc.cfg over a live
+        // one would quietly revert the user's settings.
+        if (!m_dataRootRecovered) {
+            if (!migrated)
+                migrated = handleDataMigration(
+                    dataPath, FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "../../PolyMC"), "PolyMC",
+                    "polymc.cfg");
+            if (!migrated)
+                migrated = handleDataMigration(
+                    dataPath, FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "../../multimc"), "MultiMC",
+                    "multimc.cfg");
         }
-        if (!migrated)
-            migrated = handleFlippedDataRoot(dataPath, m_rootPath);
     }
 
     {
@@ -618,6 +613,11 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
             qInfo() << "Adjusted by                :" << adjustedBy;
         } else {
             qInfo() << "Work dir                   :" << QDir::currentPath();
+        }
+        if (m_dataRootRecovered) {
+            qInfo() << "Data root recovered        : this install has no instances of its own, so the data folder it was"
+                    << "using before was picked up again";
+            qInfo() << "Stop recovering            : create" << FS::PathCombine(m_rootPath, dataRootOptOutFile());
         }
         qInfo() << "Binary path                :" << binPath;
         qInfo() << "Application root path      :" << m_rootPath;
@@ -2073,54 +2073,6 @@ bool Application::handleDataMigration(const QString& currentData,
         qWarning() << "<> Migration was skipped, due to existing data";
     }
     return true;
-}
-
-// Instances can be stranded when the data root flips (portable.txt added/removed or a different launch), so offer them back.
-bool Application::handleFlippedDataRoot(const QString& currentData, const QString& oldData) const
-{
-    const QString curRoot = QDir(currentData).absolutePath();
-    const QString oldRoot = QDir(oldData).absolutePath();
-    if (curRoot.isEmpty() || oldRoot.isEmpty() || curRoot == oldRoot)
-        return false;
-
-    const auto hasInstances = [](const QString& root) {
-        return !QDir(FS::PathCombine(root, "instances")).entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty();
-    };
-
-    // only interesting when the other root holds instances and ours has none
-    if (hasInstances(curRoot) || !hasInstances(oldRoot))
-        return false;
-
-    const QString nomigratePath = FS::PathCombine(curRoot, BuildConfig.LAUNCHER_APP_BINARY_NAME + "_dataroot_nomigrate.txt");
-    if (QFileInfo::exists(nomigratePath))
-        return false;
-
-    auto setDoNotMigrate = [&nomigratePath] {
-        QFile file(nomigratePath);
-        if (!file.open(QIODevice::WriteOnly))
-            qWarning() << "setDoNotMigrate failed; Failed to open file" << file.fileName() << "for writing:" << file.errorString();
-    };
-
-    QString message = tr("Instances were found at %1, but %2 is looking in %3. Do you want to migrate them to the new location?")
-                          .arg(oldRoot, BuildConfig.LAUNCHER_DISPLAYNAME, curRoot);
-
-    if (QMessageBox::question(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes)
-        != QMessageBox::Yes) {
-        qDebug() << "<> Data root migration declined for" << oldRoot;
-        setDoNotMigrate();
-        return false;
-    }
-
-    ProgressDialog diag;
-    DataMigrationTask task(oldRoot, curRoot, Filters::any(migrationFilters(BuildConfig.LAUNCHER_CONFIGFILE)));
-    if (diag.execWithTask(&task)) {
-        qDebug() << "<> Data root migration succeeded for" << oldRoot;
-        setDoNotMigrate();
-        return true;
-    }
-
-    QMessageBox::critical(nullptr, BuildConfig.LAUNCHER_DISPLAYNAME, tr("Migration failed! Reason: %1").arg(task.failReason()));
-    return false;
 }
 
 void Application::triggerUpdateCheck()

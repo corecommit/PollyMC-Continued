@@ -1,5 +1,24 @@
 # Changelog
 
+## v9.3.1
+
+**Added:**
+
+- **Data-folder pointer** — Putting an absolute path in `dataroot.txt` in the installation folder pins the data folder for that install. It takes priority over `portable.txt` and `UserData/`, and is still overridden by `--dir` and `POLLYMC_DATA_DIR`.
+
+**Changed:**
+
+- **One data-folder resolver** — The launcher and the built-in updater now decide where your data lives with the same shared code, instead of two separate copies that could disagree. No behavior change for normal installs.
+- **No more data-migration dialog for your own data** — If a portable install has no instances of its own but your usual data folder still has them, the launcher now picks that folder back up on its own instead of asking. Nothing is copied and nothing is overwritten, so every setting and instance comes back exactly as it was. Create `pollymc_dataroot_nomigrate.txt` in the installation folder to keep a portable install on its own folder.
+
+**Fixed:**
+
+- **Portable updates with `--dir` or `POLLYMC_DATA_DIR`** — Pointing a portable install at a custom data folder no longer makes the updater believe it is a non-portable install and download the wrong artifact.
+- **Updater log folder under Snap** — The updater now uses `$SNAP_USER_COMMON` for its log and state, matching what the launcher already did, instead of writing to the XDG data path.
+- **Portable detection is independent of the data folder** — Whether an install is portable is now decided solely by the installation folder, so an explicit data-folder override can no longer change which updates you get.
+- **Stranded instances are no longer hidden by a stale folder** — A leftover data folder from an earlier run could make the launcher migrate a handful of files into a portable install and then stop looking, leaving the rest of your instances and settings unreachable. Recovered data now wins outright and the leftover folders of other launchers are left alone.
+- **No more phantom file errors on startup** — Every launch used to report a handful of failed file copies and moves for log files that were never there in the first place. The log rotation now skips the files that do not exist, and the updater keeps its log history in the data folder instead of the working directory.
+
 ## v9.3.0
 
 **Added:**

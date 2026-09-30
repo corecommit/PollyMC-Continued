@@ -230,7 +230,6 @@ class Application : public QApplication {
 
    private:
     bool handleDataMigration(const QString& currentData, const QString& oldData, const QString& name, const QString& configFile) const;
-    bool handleFlippedDataRoot(const QString& currentData, const QString& oldData) const;
     bool createSetupWizard();
     void performMainStartupAction();
 
@@ -275,6 +274,9 @@ class Application : public QApplication {
     Status m_status = Application::StartingUp;
     Capabilities m_capabilities = None;
     bool m_portable = false;
+    /// Set when the data root was recovered from the app data location, because
+    /// this install has no instances of its own. See resolveDataRoot().
+    bool m_dataRootRecovered = false;
 
 #ifdef Q_OS_MACOS
     Qt::ApplicationState m_prevAppState = Qt::ApplicationInactive;

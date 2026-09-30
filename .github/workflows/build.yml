@@ -420,6 +420,19 @@ jobs:
           cd ..
           ls -la PollyMC-Continued-*-Windows-portable.zip || (echo "ERROR: Zip not found!" && exit 1)
 
+          # Same guard as the Linux tarball: the portable marker, the updater's
+          # deploy list and the Bot Manager all have to actually be in the zip.
+          # 7z writes paths with backslashes, so normalise before matching.
+          "/c/Program Files/7-Zip/7z.exe" l -slt "../PollyMC-Continued-${VERSION}-Windows-portable.zip" \
+            | sed -n 's/^Path = //p' | tr '\\' '/' > /tmp/zipentries.txt
+          for entry in portable.txt manifest.txt pollymc.exe bot-server; do
+            if ! grep -qxF "$entry" /tmp/zipentries.txt; then
+              echo "::error::$entry missing from the portable zip"
+              echo "Top-level entries: $(grep -v / /tmp/zipentries.txt | tr '\n' ' ')"
+              exit 1
+            fi
+          done
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -685,12 +698,27 @@ jobs:
           # Guard the packaged artifact itself: the bundled libs must sit in
           # bin/ next to the binary, or the tarball is broken. (tar -t prefixes
           # every entry with ./ when created with -C dir .)
+          ENTRIES=$(tar -tzf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" | sed 's|^\./||')
           for lib in $BUNDLE_LIBS; do
-            if ! tar -tzf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" | sed 's|^\./||' | grep -qx "bin/$lib"; then
+            if ! echo "$ENTRIES" | grep -qx "bin/$lib"; then
               echo "::error::$lib missing from packaged tarball (not in bin/)"
               exit 1
             fi
           done
+
+          # portable.txt is what makes this a portable install at all: without it
+          # the launcher reads and writes ~/.local/share instead of this folder.
+          # manifest.txt is the list the updater deploys, so an entry missing from
+          # it never reaches an already installed copy. bot-server backs the Bot
+          # Manager. None of these had a check, and all are easy to drop by accident.
+          for entry in portable.txt manifest.txt bin/pollymc bin/bot-server; do
+            if ! echo "$ENTRIES" | grep -qx "$entry"; then
+              echo "::error::$entry missing from packaged tarball"
+              echo "Top-level entries: $(echo "$ENTRIES" | grep -v / | tr '\n' ' ')"
+              exit 1
+            fi
+          done
+          echo "DEBUG: tarball top-level entries: $(echo "$ENTRIES" | grep -v / | tr '\n' ' ')"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -771,7 +799,185 @@ jobs:
             exit 1
           fi
           echo "pollymc ran for 10s in the cross-distro smoke test"
+
+          # A data-folder mistake (wrong root, a copy that half-failed, log files
+          # being moved when they were never there) is reported through the
+          # logger, not through the exit code, so a broken run looks exactly like
+          # a healthy one to the check above. A fresh extract must produce none of
+          # these. See DataRoot.cpp for the resolution being guarded here.
+          FS_ERRORS='Failed to (copy|move|link|remove) file|"(Copy|Move|Deletion) of"'
+          if grep -Eq "$FS_ERRORS" /tmp/pollymc-smoke.log; then
+            echo "::error::Filesystem errors in a clean first run:"
+            grep -E "$FS_ERRORS" /tmp/pollymc-smoke.log
+            kill "$APP_PID" 2>/dev/null || true
+            exit 1
+          fi
           kill "$APP_PID" 2>/dev/null || true
+
+  data-migration-regression:
+    name: Data migration regression
+    needs: [skip-check, build-linux]
+    if: needs.skip-check.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    container: ubuntu:24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: PollyMC-Continued-Linux-AppImage
+
+      - name: Install runtime dependencies
+        run: |
+          set -euo pipefail
+          apt-get update -qq
+          apt-get install -y --no-install-recommends \
+            qt6-base-dev qt6-qpa-plugins libqt6networkauth6 libqt6websockets6 \
+            libarchive13 libpng16-16 zlib1g zstd
+
+      - name: Data root cases
+        run: |
+          set -uo pipefail
+          TARBALL=$(ls PollyMC-Continued-*-Linux-x86_64.tar.gz | head -n1)
+          APP=/tmp/app
+          rm -rf "$APP" && mkdir -p "$APP"
+          tar -xzf "$TARBALL" -C "$APP"
+          chmod +x "$APP/bin/pollymc"
+          test -f "$APP/portable.txt" || { echo "::error::tarball has no portable.txt"; exit 1; }
+
+          WORK=/tmp/cases
+          rm -rf "$WORK" && mkdir -p "$WORK"
+          PASS=0
+          FAIL=0
+          # Set per case, together with CASE_HOME.
+          DATA=""
+
+          # The data root is decided from the app root and the user's data dir
+          # only, so clearing both is enough to isolate a case. Each case gets its
+          # own HOME as well: two runs sharing a data dir make the launcher offer
+          # to migrate its own config on the second one, which is a dialog this
+          # test cannot answer.
+          clean() {
+            rm -rf "$APP/instances" "$APP/logs" "$APP/UserData" \
+                   "$APP/dataroot.txt" "$APP/pollymc_dataroot_nomigrate.txt"
+            : > "$APP/portable.txt"
+            mkdir -p "$DATA"
+          }
+
+          # Only the directory name matters: that is all resolveDataRoot looks at.
+          seed() { mkdir -p "$1/instances/$2"; }
+
+          # run <name> <expected "Adjusted by"> <expected dataroot.txt: yes|no> [setup] [assert]
+          run() {
+            local name="$1" want_by="$2" want_ptr="$3" setup="${4:-:}" extra="${5:-:}"
+            CASE_HOME="$WORK/$name"
+            DATA="$CASE_HOME/.local/share/PollyMC"
+            local out="$WORK/$name.out" log="" pid got_by="" got_ptr=no ok=yes
+
+            clean
+            "$setup"
+
+            QT_QPA_PLATFORM=offscreen HOME="$CASE_HOME" "$APP/bin/pollymc" >"$out" 2>&1 &
+            pid=$!
+
+            # The data root is picked in the constructor, but "Main window shown"
+            # only arrives if nothing modal got in the way on the way there - and
+            # a modal is exactly what a regression here would produce. Waiting for
+            # that line is what makes a hang a test failure instead of a timeout.
+            local i cand
+            for i in $(seq 1 80); do
+              for cand in "$DATA/logs/PollyMC-0.log" "$APP/logs/PollyMC-0.log" \
+                          "$APP/UserData/logs/PollyMC-0.log"; do
+                if [ -f "$cand" ] && grep -q "Main window shown" "$cand" 2>/dev/null; then
+                  log="$cand"
+                fi
+              done
+              [ -n "$log" ] && break
+              kill -0 "$pid" 2>/dev/null || break
+              sleep 0.5
+            done
+            kill "$pid" 2>/dev/null || true
+            wait "$pid" 2>/dev/null || true
+
+            [ -n "$log" ] && got_by=$(sed -n 's/^Adjusted by  *: //p' "$log" | head -n1)
+            [ -f "$APP/dataroot.txt" ] && got_ptr=yes
+
+            [ "$got_by" = "$want_by" ] || ok=no
+            [ "$got_ptr" = "$want_ptr" ] || ok=no
+            if [ -n "$log" ]; then
+              "$extra" "$log" || ok=no
+            else
+              echo "  no log reached 'Main window shown' - startup was blocked or failed"
+              tail -30 "$out" | sed 's/^/    | /'
+              ok=no
+            fi
+
+            if [ "$ok" = yes ]; then
+              PASS=$((PASS + 1))
+              echo "PASS  $name  (adjusted by: $got_by, dataroot.txt: $got_ptr)"
+            else
+              FAIL=$((FAIL + 1))
+              echo "FAIL  $name"
+              echo "      expected  adjusted by: $want_by    dataroot.txt: $want_ptr"
+              echo "      got       adjusted by: ${got_by:-<none>}  dataroot.txt: $got_ptr"
+              [ -f "$APP/dataroot.txt" ] && echo "      pointer content: $(cat "$APP/dataroot.txt")"
+            fi
+          }
+
+          # --- fixtures ---
+          plain()            { rm -f "$APP/portable.txt"; }
+          appdata_instances(){ seed "$DATA" 1.21.1; }
+          live_portable()    { seed "$DATA" 1.21.1; mkdir -p "$APP/instances/mine"; }
+          opt_out()          { seed "$DATA" 1.21.1; : > "$APP/pollymc_dataroot_nomigrate.txt"; }
+          pointer()          { seed "$DATA" 1.21.1; printf '%s\n' "$DATA" > "$APP/dataroot.txt"; }
+          bad_pointer()      { seed "$DATA" 1.21.1; printf 'not a path\n' > "$APP/dataroot.txt"; }
+          userdata()         { seed "$DATA" 1.21.1; mkdir -p "$APP/UserData/instances/old"; }
+
+          # The reported bug: the data must be used where it lies. A copy would
+          # leave the app root with instances of its own and filter most of the
+          # settings out, which is how the real report lost data.
+          in_place() {
+            [ -d "$DATA/instances/1.21.1" ] || { echo "the seeded instance is gone - it was moved or deleted"; return 1; }
+            [ ! -d "$APP/instances" ] || { echo "instances were copied into the app root instead of adopted in place"; return 1; }
+          }
+          kept() {
+            [ -d "$APP/instances/mine" ] || { echo "the portable install lost its own instance"; return 1; }
+          }
+          no_migration() {
+            if grep -Eq 'Migration (succeeded|declined)|Migration failed' "$1"; then
+              echo "a data migration ran even though the data root was already ours:"; return 1
+            fi
+          }
+
+          # --- cases ---
+          # 1. A normal install with nothing to recover from.
+          run "plain-install"        "Persistent data path"  no  plain
+          # 2. The report: portable install with no instances of its own, while the
+          #    data the user actually cares about is still in the app data dir.
+          #    It must be picked up with no dialog, no copy, and no lost settings.
+          run "recover-empty-portable" "Recovered data root"  yes appdata_instances in_place
+          # 3. A portable install that has instances of its own is never robbed of
+          #    them, even when the app data dir also holds some.
+          run "keep-live-portable"    "Portable data path"   no  live_portable kept
+          # 4. Portable with nothing anywhere to recover: stay put, invent nothing.
+          run "portable-nothing"      "Portable data path"   no  :
+          # 5. The opt-out marker is an unconditional veto.
+          run "opt-out-marker"        "Portable data path"   no  opt_out
+          # 6. An explicit pointer outranks portable.txt. The pointer is the input
+          #    here, so its presence afterwards is given - the assertion is that
+          #    "Data root pointer" is what the launcher acted on.
+          run "pointer-wins"          "Data root pointer"    yes pointer
+          # 7. A pointer holding junk is ignored rather than obeyed, and the normal
+          #    resolution - including the recovery - still happens.
+          run "pointer-is-junk"       "Recovered data root"  yes bad_pointer
+          # 8. UserData/ is part of the app root's own layout, never a data folder
+          #    to recover from, even with instances sitting in it.
+          run "userdata-never-recovers" "Portable user data path" no userdata
+
+          echo
+          echo "passed: $PASS  failed: $FAIL"
+          [ "$FAIL" -eq 0 ] || exit 1
 
   build-macos:
     name: macOS (arm64)
@@ -1006,7 +1212,7 @@ jobs:
 
   release:
     name: Release
-    needs: [skip-check, changelog-check, build-windows, build-linux, linux-tarball-cross-distro, build-macos, build-arch]
+    needs: [skip-check, changelog-check, build-windows, build-linux, linux-tarball-cross-distro, data-migration-regression, build-macos, build-arch]
     if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-linux.result != 'success' || needs.linux-tarball-cross-distro.result == 'success') && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:

@@ -22,12 +22,14 @@
 
 #include "PrismUpdater.h"
 #include "BuildConfig.h"
+#include "DataRoot.h"
 #include "ui/dialogs/ProgressDialog.h"
 
 #include <cstdlib>
 #include <iostream>
 
 #include <QDebug>
+#include <QFile>
 
 #include <QAccessible>
 #include <QCommandLineParser>
@@ -135,46 +137,20 @@ PrismUpdaterApp::PrismUpdaterApp(int& argc, char** argv) : QApplication(argc, ar
 
     QString adjustedBy;
     // change folder
+    QString dataDirEnv = QProcessEnvironment::systemEnvironment().value(QString("%1_DATA_DIR").arg(BuildConfig.LAUNCHER_NAME.toUpper()));
     QString dirParam = parser.value("dir");
-    if (!dirParam.isEmpty()) {
-        // the dir param. it makes prism launcher data path point to whatever the user specified
-        // on command line
-        adjustedBy = "Command line";
-        m_dataPath = dirParam;
-#ifndef Q_OS_MACOS
-        if (QDir(FS::PathCombine(m_rootPath, "UserData")).exists()) {
-            m_isPortable = true;
-        }
-        if (QFile::exists(FS::PathCombine(m_rootPath, "portable.txt"))) {
-            m_isPortable = true;
-        }
-#endif
-    } else if (auto dataDirEnv =
-                   QProcessEnvironment::systemEnvironment().value(QString("%1_DATA_DIR").arg(BuildConfig.LAUNCHER_NAME.toUpper()));
-               !dataDirEnv.isEmpty()) {
-        adjustedBy = "System environment";
-        m_dataPath = dataDirEnv;
-#ifndef Q_OS_MACOS
-        if (QFile::exists(FS::PathCombine(m_rootPath, "portable.txt"))) {
-            m_isPortable = true;
-        }
-#endif
-    } else {
-        QDir foo(FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), ".."));
-        m_dataPath = foo.absolutePath();
-        adjustedBy = "Persistent data path";
 
-#ifndef Q_OS_MACOS
-        if (auto portableUserData = FS::PathCombine(m_rootPath, "UserData"); QDir(portableUserData).exists()) {
-            m_dataPath = portableUserData;
-            adjustedBy = "Portable user data path";
-            m_isPortable = true;
-        } else if (QFile::exists(FS::PathCombine(m_rootPath, "portable.txt"))) {
-            m_dataPath = m_rootPath;
-            adjustedBy = "Portable data path";
-            m_isPortable = true;
-        }
-#endif
+    {
+        DataRootInputs inputs;
+        inputs.appRootPath = m_rootPath;
+        inputs.dirParam = dirParam;
+        inputs.dataDirEnv = dataDirEnv;
+        inputs.appDataLocationParent = QDir(FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), "..")).absolutePath();
+
+        const auto choice = resolveDataRoot(inputs);
+        m_dataPath = choice.path;
+        adjustedBy = choice.adjustedBy;
+        m_isPortable = choice.portableInstall;
     }
 
     m_updateLogPath = FS::PathCombine(m_dataPath, "logs", "prism_launcher_update.log");
@@ -184,9 +160,14 @@ PrismUpdaterApp::PrismUpdaterApp(int& argc, char** argv) : QApplication(argc, ar
         static const QString baseLogFile = BuildConfig.LAUNCHER_NAME + "Updater" + (m_checkOnly ? "-CheckOnly" : "") + "-%0.log";
         static const QString logBase = FS::PathCombine(m_dataPath, "logs", baseLogFile);
 
-        if (FS::ensureFolderPathExists("logs")) {  // enough history to track both launches of the updater during a portable install
-            FS::move(logBase.arg(1), logBase.arg(2));
-            FS::move(logBase.arg(0), logBase.arg(1));
+        // The log lives in the data path's logs/, not in a "logs" folder relative
+        // to the working directory, and nothing here should be moved on a fresh
+        // install - moving anyway spams stderr with "Move of ... failed!".
+        if (FS::ensureFolderPathExists(FS::PathCombine(m_dataPath, "logs"))) {  // enough history to track both launches of the updater during a portable install
+            if (QFile::exists(logBase.arg(1)))
+                FS::move(logBase.arg(1), logBase.arg(2));
+            if (QFile::exists(logBase.arg(0)))
+                FS::move(logBase.arg(0), logBase.arg(1));
         }
 
         logFile = std::unique_ptr<QFile>(new QFile(logBase.arg(0)));

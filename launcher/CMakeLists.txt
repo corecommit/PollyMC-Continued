@@ -70,6 +70,10 @@ set(CORE_SOURCES
     FileSystem.h
     FileSystem.cpp
 
+    # Data directory resolution, shared by the launcher and the updater
+    DataRoot.h
+    DataRoot.cpp
+
     Exception.h
 
     # RW lock protected map
