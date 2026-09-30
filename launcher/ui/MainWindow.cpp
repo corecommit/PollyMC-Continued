@@ -574,12 +574,10 @@ void MainWindow::showCommandPalette()
         seen.insert(action);
         entries.append(CommandEntry::fromAction(action));
     };
-    for (QAction* action : menuBar()->findChildren<QAction*>())
+    for (QAction* action : findChildren<QAction*>())
         consider(action);
-    for (auto* toolbar : findChildren<QToolBar*>()) {
-        for (QAction* action : toolbar->actions())
-            consider(action);
-    }
+    // findChildren on the window already covers the toolbars, so no
+    // separate toolbar walk is needed here.
 
     CommandPalette palette(entries, this);
     palette.exec();

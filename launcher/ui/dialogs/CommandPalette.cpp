@@ -115,8 +115,6 @@ class CommandPalette::Model : public QAbstractListModel {
         // enabled state is queried lazily on every paint, never cached
         if (role == Qt::UserRole + 2)
             return e.isEnabled ? e.isEnabled() : true;
-        if (role == Qt::ForegroundRole && e.isEnabled && !e.isEnabled())
-            return QApplication::palette().color(QPalette::Disabled, QPalette::Text);
         return {};
     }
     CommandEntry entryAt(int row) const { return m_entries.value(row); }
@@ -195,14 +193,19 @@ CommandPalette::~CommandPalette() = default;
 
 void CommandPalette::showEvent(QShowEvent* event)
 {
+    placeOverParent();
     QDialog::showEvent(event);
+    m_search->setFocus();
+    selectFirstRow();
+}
+
+void CommandPalette::placeOverParent()
+{
     if (const QWidget* p = parentWidget()) {
         const int w = qMax(minimumWidth(), p->width() * 3 / 5);
         resize(w, 400);
         move(p->mapToGlobal(QPoint((p->width() - w) / 2, qMax(0, (p->height() - 400) / 3))));
     }
-    m_search->setFocus();
-    selectFirstRow();
 }
 
 bool CommandPalette::eventFilter(QObject* obj, QEvent* event)
@@ -223,6 +226,27 @@ bool CommandPalette::eventFilter(QObject* obj, QEvent* event)
                 m_list->setCurrentIndex(m_filter->index(qMax(row - 1, 0), 0));
                 return true;
             }
+            if (key->key() == Qt::Key_Home) {
+                m_list->setCurrentIndex(m_filter->index(0, 0));
+                return true;
+            }
+            if (key->key() == Qt::Key_End) {
+                if (m_filter->rowCount() > 0)
+                    m_list->setCurrentIndex(m_filter->index(m_filter->rowCount() - 1, 0));
+                return true;
+            }
+            if (key->key() == Qt::Key_PageDown) {
+                const int next = qMin(m_list->currentIndex().row() + 10, m_filter->rowCount() - 1);
+                if (m_filter->rowCount() > 0)
+                    m_list->setCurrentIndex(m_filter->index(next, 0));
+                return true;
+            }
+            if (key->key() == Qt::Key_PageUp) {
+                const int prev = qMax(m_list->currentIndex().row() - 10, 0);
+                if (m_filter->rowCount() > 0)
+                    m_list->setCurrentIndex(m_filter->index(prev, 0));
+                return true;
+            }
             if (key->key() == Qt::Key_Return || key->key() == Qt::Key_Enter) {
                 runSelected();
                 return true;
@@ -235,11 +259,7 @@ bool CommandPalette::eventFilter(QObject* obj, QEvent* event)
 void CommandPalette::onQueryChanged(const QString& query)
 {
     m_filter->setQuery(query);
-    m_filter->invalidate();
-    if (query.isEmpty())
-        m_filter->sort(-1);  // back to source order
-    else
-        m_filter->sort(0);
+    m_filter->sort(query.isEmpty() ? -1 : 0);
     selectFirstRow();
 }
 

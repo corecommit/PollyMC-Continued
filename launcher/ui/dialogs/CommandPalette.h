@@ -61,6 +61,7 @@ class CommandPalette : public QDialog {
 
    private:
     void selectFirstRow();
+    void placeOverParent();
 
     class Model;
     class FuzzyFilter;
