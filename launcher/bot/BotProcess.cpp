@@ -30,11 +30,8 @@ BotProcess::~BotProcess()
 
 QString BotProcess::findNodePath() const
 {
-#ifdef Q_OS_WIN
+    // seam for future platform-specific resolution (e.g. bundled Node on Windows)
     return "node";
-#else
-    return "node";
-#endif
 }
 
 QString BotProcess::findBotServerDir() const
@@ -74,7 +71,7 @@ QString BotProcess::userBotServerDir(const QString& bundled) const
     if (!QDir().mkpath(userDir))
         return bundled;
 
-    for (const char* name : { "index.js", "package.json" }) {
+    for (const char* name : { "index.js", "script-runner.js", "package.json" }) {
         const QString src = FS::PathCombine(bundled, name);
         const QString dst = FS::PathCombine(userDir, name);
         if (!QFileInfo::exists(src))
@@ -226,4 +223,12 @@ void BotProcess::handleMessage(const QJsonObject& msg)
         emit botChat(msg["username"].toString(), msg["from"].toString(), msg["message"].toString());
     else if (event == "error")
         emit errorMessage(msg["text"].toString());
+    else if (event == "script_started")
+        emit scriptStarted(msg["username"].toString(), msg["name"].toString());
+    else if (event == "script_step")
+        emit scriptStep(msg["username"].toString(), msg["index"].toInt(), msg["step_type"].toString());
+    else if (event == "script_finished")
+        emit scriptFinished(msg["username"].toString(), msg["reason"].toString(), msg["error"].toString());
+    else if (event == "script_error")
+        emit scriptError(msg["username"].toString(), msg["step_index"].toInt(), msg["message"].toString());
 }

@@ -617,12 +617,20 @@ void BotManagerDialog::onSendCommand()
     } else if (cmd == "/goto") {
         if (bots.isEmpty()) { appendLog("Select a bot first"); return; }
         if (parts.size() < 4) { appendLog("Usage: /goto <x> <y> <z>"); return; }
+        bool okx, oky, okz;
+        double x = parts[1].toDouble(&okx);
+        double y = parts[2].toDouble(&oky);
+        double z = parts[3].toDouble(&okz);
+        if (!okx || !oky || !okz) {
+            appendLog("Usage: /goto <x> <y> <z>");
+            return;
+        }
         for (auto* entry : bots) {
             QJsonObject p;
             p["username"] = entry->config.name;
-            p["x"] = parts[1].toDouble();
-            p["y"] = parts[2].toDouble();
-            p["z"] = parts[3].toDouble();
+            p["x"] = x;
+            p["y"] = y;
+            p["z"] = z;
             m_bot->sendCommand("goto", p);
         }
     } else if (cmd == "/home") {

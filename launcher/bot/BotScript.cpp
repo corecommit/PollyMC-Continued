@@ -2,7 +2,9 @@
 
 #include <QFile>
 #include <QJsonArray>
-#include <QJsonDocument>#include <QRegularExpression>
+#include <QJsonDocument>
+#include <QDebug>
+#include <QRegularExpression>
 #include <QSaveFile>
 #include <QStandardPaths>
 
@@ -270,6 +272,8 @@ void BotScriptStore::load()
         QString error;
         if (BotScriptParser::parse(it.value().toObject(), script, error))
             m_scripts[script.name] = script;
+        else
+            qWarning() << "BotScript: dropping script" << it.key() << "during load:" << error;
     }
     emit changed();
 }

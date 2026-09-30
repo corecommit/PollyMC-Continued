@@ -5,8 +5,9 @@
 
 #include <QList>
 #include <QMap>
-#include <QObject>
+#include <QJsonArray>
 #include <QJsonObject>
+#include <QObject>
 #include <QString>
 
 struct BotScriptStep {
