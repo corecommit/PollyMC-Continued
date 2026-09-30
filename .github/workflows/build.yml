@@ -50,28 +50,20 @@ jobs:
             echo "DEBUG: No [skip release] found."
           fi
 
-          # --- Single source of truth for version number ---
-          # Every downstream job (build-windows, build-linux, build-macos, release)
-          # consumes this output instead of recomputing its own bump, so the
-          # version baked into artifact filenames always matches the release tag.
           if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
             VERSION="${{ github.ref_name }}"
             VERSION="${VERSION#v}"
             echo "DEBUG: Tag push detected, using tag version: ${VERSION}"
           else
-                        LATEST_TAG=$(git describe --tags --match "v*" --abbrev=0 2>/dev/null || echo "")
+            LATEST_TAG=$(git tag --sort=-v:refname --list 'v[0-9]*' | head -1 || echo "")
             if [ -z "$LATEST_TAG" ]; then
-              # No tags exist yet in this repo - use commit subjects only, and
-              # take the base version from the top section of CHANGELOG.md
-              # instead of guessing from v0.0.0 (which produced v0.0.1 and a
-              # changelog-check failure on every plain push).
-              BUMP_COMMITS=$(git log --format="%s" 2>/dev/null || echo "")
+              BUMP_COMMITS=$(git log -1 --format="%s" 2>/dev/null || echo "")
               LATEST_TAG=$(sed 's/\r$//' CHANGELOG.md | grep -E '^## v[0-9]+\.[0-9]+\.[0-9]+$' | head -1 || true)
               LATEST_TAG="${LATEST_TAG#"## "}"
               LATEST_TAG="${LATEST_TAG:-v0.0.0}"
             else
               # Only commit subjects are considered for versioning.
-              BUMP_COMMITS=$(git log "${LATEST_TAG}..HEAD" --format="%s" 2>/dev/null || echo "")
+              BUMP_COMMITS=$(git log -1 --format="%s" 2>/dev/null || echo "")
             fi
 
             VERSION=${LATEST_TAG#v}
