@@ -1,20 +1,45 @@
 # PollyMC-Continued
 
-> **Heads up:** This is a revival of PollyMC — forked from [Prism Launcher](https://github.com/PrismLauncher/PrismLauncher), not from fn2006's original repo. I had to change and tweak everything from scratch.
+> **Heads up:** This is a revival of PollyMC — forked from [Prism Launcher](https://github.com/PrismLauncher/PrismLauncher), not from fn2006's original repo.
 >
 > [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/FsM3JNTN9z)
 
 Lets you play Minecraft **without a Microsoft account** — add offline accounts and launch the full game with no restrictions.
 
 ## Features
-- Offline accounts — no Microsoft login required
-- No demo mode — offline accounts launch the full game
-- Custom skins — save and load skins locally
-- Offline skin agent — Java agent that serves local skins
-- Setup wizard — offers offline account on first launch
-- NSIS installer with upgrade support
+
+- **Offline accounts** — no Microsoft login required; offline accounts launch the full game
+- **Authlib-injector** account support for third-party auth servers
+- **Skins** — local skin library, offline skin agent that serves skins to the game, and an online skin browser (crafty.gg) with search, page navigation, and a rotatable 3D preview
+- **Command palette** — Ctrl+Shift+P opens a searchable list of every launcher action; navigate with arrows, run with Enter
+- **Bot manager** — add Minecraft bots, connect them to a server, control them from a built-in console, and script sequences of actions (chat, commands, waits, loops)
+- **Setup wizard** — offers offline account on first launch
+- **Automatic updater** — GitHub releases on Windows and Linux
+- **NSIS installer** with upgrade support
+- **Package repositories** — apt and pacman, published via GitHub Pages
 
 ## Install
+
+Download the artifact for your platform from the [releases page](https://github.com/corecommit/PollyMC-Continued/releases).
+
+### Windows
+
+- **Installer** — `PollyMC-Continued-9.3.0-Windows-Setup.exe`. Runs the NSIS installer, creates a Start Menu entry, supports upgrade-in-place.
+- **Portable** — `PollyMC-Continued-9.3.0-Windows-portable.zip`. Extract anywhere, run `pollymc.exe`. Data lives next to the binary.
+
+### macOS (arm64)
+
+- **Disk image** — `PollyMC-Continued-9.3.0-macOS-arm64.dmg`. Open, drag `PollyMC.app` to Applications.
+- **ZIP** — same contents, for scripted installs.
+
+Auto-update is not available on macOS yet — download the latest `.dmg` or `.zip` when a new release is out.
+
+### Linux
+
+- **AppImage** — `PollyMC-Continued-9.3.0-Linux-x86_64.AppImage`. `chmod +x` and run.
+- **Portable tarball** — `PollyMC-Continued-9.3.0-Linux-x86_64.tar.gz`. Extract, run `bin/pollymc`. Data lives in the extracted folder.
+- **DEB** — see the apt repository below, or install a downloaded `.deb` with `sudo dpkg -i`.
+- **pacman** — see the Arch repository below, or install a downloaded `.pkg.tar.zst` with `sudo pacman -U`.
 
 ### Debian / Ubuntu (apt)
 
@@ -30,104 +55,3 @@ echo "deb [signed-by=/etc/apt/keyrings/pollymc-continued.asc] https://corecommit
 
 sudo apt update
 sudo apt install pollymc-continued
-```
-
-If the repository is published unsigned (no `APT_SIGNING_KEY` secret configured), drop the `signed-by` option and use `[trusted=yes]` instead:
-
-```bash
-echo "deb [trusted=yes] https://corecommit.github.io/PollyMC-Continued/apt stable main" \
-  | sudo tee /etc/apt/sources.list.d/pollymc-continued.list
-sudo apt update && sudo apt install pollymc-continued
-```
-
-### Arch Linux (pacman)
-
-Add the custom repository to `/etc/pacman.conf` and install with `sudo pacman -S`:
-
-```ini
-[pollymc-continued]
-Server = https://corecommit.github.io/PollyMC-Continued/arch/$arch
-SigLevel = Optional
-```
-
-```bash
-sudo pacman -Syy
-sudo pacman -S pollymc-continued
-```
-
-### Installing a downloaded package file
-
-The `.pkg.tar.zst` asset on the [releases page](https://github.com/corecommit/PollyMC-Continued/releases) is a package archive, **not** a program — running it directly (`./PollyMC-Continued-…pkg.tar.zst`) just makes your shell try to interpret the compressed bytes as a script and fail with a `syntax error`. Install it with `pacman -U` instead:
-
-```bash
-sudo pacman -U ./PollyMC-Continued-*-x86_64.pkg.tar.zst
-```
-
-A `PKGBUILD` is also available in [`packaging/arch/`](packaging/arch/PKGBUILD) — it can be built locally with `makepkg` or submitted to the AUR for `yay -S` / `paru -S` installs.
-
-## Build
-
-### Windows
-```
-cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/c/msys64/mingw64 -S . -B build
-cmake --build build -j4
-cmake --install build --prefix C:/pollymc_build
-makensis pollymc_installer.nsi
-```
-Requires: MSYS2 + MinGW-w64, Qt 6, CMake, Ninja, NSIS.
-
-### Linux
-```
-cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -S . -B build
-cmake --build build -j$(nproc)
-cmake --install build --prefix /tmp/pollymc
-# Package as AppImage (optional)
-./linuxdeploy-x86_64.AppImage --appdir appdir --plugin qt --output appimage
-```
-Requires: Qt 6, CMake, Ninja, extra-cmake-modules, tomlplusplus, cmark, qrencode, libarchive.
-
-### macOS
-```
-brew install cmake ninja qt extra-cmake-modules cmark qrencode libarchive tomlplusplus
-brew install --cask temurin@17
-bash packaging/macos/build-local.sh
-```
-Output in `dist-macos/` — ready-to-run `.app`, ZIP, DMG.
-
-## Commit conventions
-
-The CI auto-creates a release on every push to `main`. Which part of the version bumps depends on commit messages since the last tag:
-
-| Commit contains | Bump | Example |
-|---|---|---|
-| `BREAKING CHANGE` anywhere in the message | `9.0.0` → `10.0.0` | `feat: new API`<br>`BREAKING CHANGE: removes old config format` |
-| Subject starts with `feat`, `feature`, `Add`, `Build`, or `Enhance` (followed by `:`, `(`, or a space) | `9.0.0` → `9.1.0` | `feat: add drag-and-drop modpack import` |
-| Anything else — e.g. `Fix:`, `Docs:`, `Chore:`, or no prefix at all | `9.0.0` → `9.0.1` | `Fix: crash when loading offline skins` |
-
-**Notes:**
-- Only the *highest* applicable bump is used — a `BREAKING CHANGE` always wins over a `feat:`, even in the same push.
-- Matching is case-sensitive: `feat:` / `feature:` must be lowercase, while `Add:` / `Build:` / `Enhance:` must be capitalized as shown.
-- The check looks at every commit since the last tag, not just the most recent one — so one `feat:` commit buried in a batch of `Fix:` commits still triggers a minor bump.
-
-**Example:** if the last release was `9.0.0` and your push includes:
-```
-Fix: correct offline skin cache path
-feat: add custom skin import from URL
-Docs: update build instructions
-```
-The `feat:` commit triggers a **minor** bump → next release is `9.1.0`.
-
-Put `[skip-all]` anywhere in a commit message to skip all builds and release entirely.  
-Put `[skip release]` to skip only the release (builds still run, no tag created).
-
-## Contributors
-
-<a href="https://github.com/corecommit"><img src="https://avatars.githubusercontent.com/corecommit?s=80" width="40" height="40" alt="corecommit"/></a>
-<a href="https://github.com/kiwiaraga2000"><img src="https://avatars.githubusercontent.com/kiwiaraga2000?s=80" width="40" height="40" alt="kiwiaraga2000"/></a>
-<a href="https://github.com/fuis18"><img src="https://avatars.githubusercontent.com/fuis18?s=80" width="40" height="40" alt="fuis18"/></a>
-
-## Credits
-[Prism Launcher](https://github.com/PrismLauncher/PrismLauncher) · [PolyMC](https://github.com/PolyMC/PolyMC) · [MultiMC](https://multimc.org)
-
-## License
-GPL-3.0. See [LICENSE](LICENSE).
