@@ -581,6 +581,8 @@ void BotManagerDialog::onSendCommand()
             p["username"] = entry->config.name;
             m_bot->sendCommand("quit", p);
             entry->connected = false;
+            if (m_editor)
+                m_editor->setConnected(entry->config.name, false);
         }
         refreshTable();
     } else if (cmd == "/list") {

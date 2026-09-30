@@ -82,10 +82,7 @@ function runScript(username, script) {
     send('error', { text: `${username}: invalid script shape` });
     return;
   }
-  if (runners[username]) {
-    delete runners[username];
-    runners[username].stop();
-  }
+  if (runners[username]) stopRunner(username);
   const runner = createRunner(bot, script, {
     onStep: (index, stepType) => send('script_step', { username, index, step_type: stepType }),
     onFinished: (reason, error) => {

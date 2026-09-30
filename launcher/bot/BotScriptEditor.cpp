@@ -6,6 +6,7 @@
 
 #include <QMenu>
 #include <QHash>
+#include <QJsonDocument>
 #include <QMimeData>
 #include <QSignalBlocker>
 #include <QTimer>
@@ -469,10 +470,10 @@ void BotScriptEditor::onMoveStep(int direction)
 
 void BotScriptEditor::onSave()
 {
-    BotScript script = currentScript();
+    BotScript current = currentScript();
     QString error;
     BotScript parsed;
-    if (!BotScriptParser::parse(BotScriptParser::serialize(script), parsed, error)) {
+    if (!BotScriptParser::parse(BotScriptParser::serialize(current), parsed, error)) {
         refreshButtons();
         return;
     }
@@ -491,7 +492,17 @@ void BotScriptEditor::onSave()
     m_saved = true;
     m_assignedScript = parsed.name;
     m_manager->setBotScript(m_botName, parsed.name);
-    rebuildFromScript(parsed);
+
+    // Only rebuild the tree when the parser changed something
+    // (e.g. added a leading '/' to a command step). Otherwise leave
+    // the tree alone so expanded loops and the current selection
+    // survive the save.
+    const QByteArray beforeJson =
+        QJsonDocument(BotScriptParser::serialize(current)).toJson(QJsonDocument::Compact);
+    const QByteArray afterJson =
+        QJsonDocument(BotScriptParser::serialize(parsed)).toJson(QJsonDocument::Compact);
+    if (beforeJson != afterJson)
+        rebuildFromScript(parsed);
 }
 
 void BotScriptEditor::onRevert()

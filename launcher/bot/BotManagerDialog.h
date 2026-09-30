@@ -61,7 +61,8 @@ private:
     void ensureBotDependencies();
     void showHelp();
     bool saveConfigs(QString& error);
-    void loadConfigs();    void refreshTable();
+    void loadConfigs();
+    void refreshTable();
     void connectBot(int index);
     void disconnectBot(int index);
     BotEntry* currentBot();

@@ -128,6 +128,18 @@ class TestBotScript : public QObject {
                                         script, error));
     }
 
+    void rejectOversizeLoop()
+    {
+        BotScript script;
+        QString error;
+        QVERIFY(!BotScriptParser::parse(
+            parseJson(R"({"version":1,"name":"a","steps":[
+                {"type":"loop","times":2000000000,"steps":[{"type":"say","text":"x"}]}
+            ]})"),
+            script, error));
+        QVERIFY(error.contains("100000"));
+    }
+
     void roundTrip()
     {
         const QByteArray raw = R"({"name":"rt","steps":[{"text":"hi","type":"say"},{"steps":[{"seconds":5,"type":"wait"}],"times":3,"type":"loop"}],"version":1})";

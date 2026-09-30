@@ -7,6 +7,7 @@
 - **Portable data migration** — Portable installs now offer to migrate data from an existing system install on first launch.
 - **Launcher font picker** — Settings > Appearance now has a Launcher Font dropdown (same font list as the console font) with live preview across the whole launcher.
 - **Command palette** — Press Ctrl+Shift+P anywhere in the main window to fuzzy-search every launcher action and run it from the keyboard.
+- **Bot scripting** — Attach say/wait/loop scripts to bots from the new Script tab in the Bot Manager, with a built-in step editor and per-bot run control.
 
 **Fixed:**
 

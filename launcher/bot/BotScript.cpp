@@ -95,6 +95,11 @@ bool BotScriptParser::validateStep(const BotScriptStep& s, QString& error)
             error = "Step 'loop' needs times -1 or > 0.";
             return false;
         }
+        if (s.times != -1 && s.times > kMaxLoopTimes) {
+            error = QString("Step 'loop' times cannot exceed %1 (use -1 for forever).")
+                        .arg(kMaxLoopTimes);
+            return false;
+        }
         if (s.steps.isEmpty()) {
             error = "Step 'loop' needs a non-empty steps array.";
             return false;
@@ -250,7 +255,10 @@ bool BotScriptStore::remove(const QString& name, QString& error)
         return false;
     }
     m_scripts.remove(name);
-    saveNow();
+    if (!saveNow()) {
+        error = "Failed to write script store.";
+        return false;
+    }
     emit changed();
     return true;
 }

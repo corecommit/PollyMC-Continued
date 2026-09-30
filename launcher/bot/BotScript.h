@@ -39,6 +39,7 @@ class BotScriptParser {
 
     static const int kMaxLoopDepth = 5;
     static const int kMaxWaitSeconds = 86400;
+    static const int kMaxLoopTimes = 100000;
 
    private:
     static bool parseSteps(const QJsonArray& arr, QList<BotScriptStep>& out, QString& error, int depth);
