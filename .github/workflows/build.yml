@@ -424,7 +424,7 @@ jobs:
     name: Linux
     needs: [skip-check]
     if: needs.skip-check.outputs.skip != 'true'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     env:
@@ -636,7 +636,7 @@ jobs:
           if [ -z "$FILE" ]; then
             echo "ERROR: No AppImage found. Listing directory:"; ls -la; exit 1
           fi
-          mv "$FILE" "PollyMC-Continued-${{ needs.skip-check.outputs.version }}-x86_64.AppImage"
+          mv "$FILE" "PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage"
 
       - name: Create Linux binary tarball
         run: |
@@ -689,7 +689,7 @@ jobs:
         with:
           name: PollyMC-Continued-Linux-AppImage
           path: |
-            PollyMC-Continued-${{ needs.skip-check.outputs.version }}-x86_64.AppImage
+            PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage
             PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.tar.gz
 
   linux-tarball-cross-distro:
@@ -1072,7 +1072,7 @@ jobs:
           files: |
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
-            PollyMC-Continued-*-x86_64.AppImage
+            PollyMC-Continued-*-Linux-x86_64.AppImage
             PollyMC-Continued-*-Linux-x86_64.tar.gz
             PollyMC-Continued-*-macOS-arm64.zip
             PollyMC-Continued-*-macOS-arm64.dmg
