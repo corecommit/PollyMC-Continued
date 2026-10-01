@@ -742,14 +742,18 @@ jobs:
 
           # ONNX Runtime next to the binary (RPATH $ORIGIN finds it there).
           # Same download as above; the guard below enforces it.
+          # cp -d keeps upstream's SONAME symlinks (libonnxruntime.so.1);
+          # cp -L alone only ships the real file (libonnxruntime.so.1.22.0)
+          # and the loader still reports libonnxruntime.so.1 => not found.
           ORT_SO=$(find "$ORT_ROOT/lib" -type f -name 'libonnxruntime.so.*' | head -1)
           if [ -z "$ORT_SO" ]; then
             echo "::error::Could not find libonnxruntime.so under $ORT_ROOT/lib."
             exit 1
           fi
-          cp -L "$ORT_SO" /tmp/pollymc/bin/
+          cp -d "$ORT_ROOT"/lib/libonnxruntime.so* /tmp/pollymc/bin/
           ORT_BASENAME=$(basename "$ORT_SO")
           echo "DEBUG: bundled onnxruntime <- $ORT_SO"
+          ls -la /tmp/pollymc/bin/ | grep onnxruntime
 
           cp "$GITHUB_WORKSPACE/program_info/portable.txt" /tmp/pollymc/portable.txt
           find /tmp/pollymc -mindepth 1 -maxdepth 1 -printf '%P\n' | sort > /tmp/pollymc/manifest.txt
@@ -767,6 +771,10 @@ jobs:
           done
           if ! tar -tzf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" | sed 's|^\./||' | grep -qx "bin/$ORT_BASENAME"; then
             echo "::error::libonnxruntime ($ORT_BASENAME) missing from packaged tarball (not in bin/)"
+            exit 1
+          fi
+          if ! tar -tzf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" | sed 's|^\./||' | grep -qx "bin/libonnxruntime.so.1"; then
+            echo "::error::libonnxruntime SONAME link (libonnxruntime.so.1) missing from packaged tarball (not in bin/)"
             exit 1
           fi
 
@@ -828,6 +836,10 @@ jobs:
               exit 1
             fi
           done
+          if [ ! -e "bin/libonnxruntime.so.1" ]; then
+            echo "::error::Bundled library libonnxruntime.so.1 missing from bin/ in the extracted tarball"
+            exit 1
+          fi
           if ldd bin/pollymc 2>&1 | grep -q "not found"; then
             echo "::error::Unresolved shared libraries in packaged binary:"
             ldd bin/pollymc 2>&1 | grep "not found"
