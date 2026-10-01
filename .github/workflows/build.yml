@@ -607,6 +607,11 @@ jobs:
           fi
           cp -L "$ORT_SO" appdir/usr/lib/
           echo "DEBUG: bundled onnxruntime <- $ORT_SO"
+          # linuxdeploy resolves DT_NEEDED via soname links, so ship the
+          # archive's own symlinks too (cp -d keeps them as links).
+          # This also tracks future SONAME bumps automatically.
+          cp -d "$ORT_ROOT"/lib/libonnxruntime.so* appdir/usr/lib/
+          ls -la appdir/usr/lib/ | grep onnxruntime
 
           # Bundle all Qt image format plugins
           mkdir -p appdir/usr/plugins/imageformats
@@ -683,9 +688,12 @@ jobs:
 
           echo "DEBUG: QMAKE=$QMAKE"
 
+          # Fail loudly if upstream ever drops the unversioned link.
+          test -e appdir/usr/lib/libonnxruntime.so || { echo "::error::appdir is missing libonnxruntime.so"; exit 1; }
           QMAKE="$QMAKE" ./linuxdeploy-x86_64.AppImage \
             --appdir appdir \
             --plugin qt \
+            --library appdir/usr/lib/libonnxruntime.so \
             --output appimage
 
       - name: Rename AppImage

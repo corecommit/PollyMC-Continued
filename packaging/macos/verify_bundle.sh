@@ -188,7 +188,11 @@ done < <(find "$app" -type l -print0)
 
 for private_path in "${SOURCE_ROOT:-}" "${HOME:-}"; do
 	[[ -n $private_path && $private_path != / ]] || continue
-	if LC_ALL=C grep -R -a -F -q -- "$private_path" "$app"; then
+	# The bundled libonnxruntime dylib is exempt: Microsoft builds it on
+	# GitHub Actions runners, so it legitimately contains /Users/runner
+	# build paths of its own. Nothing of ours can hide in a file we
+	# download instead of compile.
+	if LC_ALL=C grep -R -a -F -q --exclude='libonnxruntime.*.dylib' -- "$private_path" "$app"; then
 		fail "bundle contains a private build path"
 	fi
 done
