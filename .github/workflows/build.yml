@@ -290,10 +290,11 @@ jobs:
         run: |
           set -euo pipefail
           # windeployqt will not pick this up on its own; copy explicitly
-          # next to pollymc.exe. MSYS2 installs the DLLs in bin/.
+          # next to pollymc.exe. The official zip keeps the DLLs in lib/
+          # (including onnxruntime_providers_shared.dll, needed at runtime).
           # Runs before Deploy Qt so the DLL dependency scan below
           # also validates it.
-          cp -f "$ORT_ROOT"/bin/onnxruntime*.dll install/
+          cp -f "$ORT_ROOT"/lib/onnxruntime*.dll install/
           ls install/onnxruntime*.dll
 
       - name: Deploy Qt
@@ -557,7 +558,6 @@ jobs:
             -DCMAKE_INSTALL_PREFIX=/usr \
             -Donnxruntime_ROOT="$ORT_ROOT" \
             -DLauncher_BUNDLE_ONNXRUNTIME=ON \
-            -DCMAKE_INSTALL_RPATH=/usr/lib/pollymc-continued \
             -DCMAKE_CXX_FLAGS="-Wno-error" \
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
@@ -907,7 +907,9 @@ jobs:
           echo "ORT header: $ORT_HDR"
           echo "ORT_ROOT=${ORT_ROOT}" >> "$GITHUB_ENV"
           # Exact real dylib for packaging (symlinks resolved, no globs).
-          ORT_DYLIB=$(find "$ORT_ROOT/lib" -type f -name 'libonnxruntime.*.dylib' | head -1)
+          # Exclude *.dSYM bundles: their DWARF files share the dylib
+          # name and install_name_tool cannot process them.
+          ORT_DYLIB=$(find "$ORT_ROOT/lib" -type f -name 'libonnxruntime.*.dylib' -not -path '*.dSYM/*' | head -1)
           test -n "$ORT_DYLIB"
           echo "ORT_DYLIB=${ORT_DYLIB}" >> "$GITHUB_ENV"
 
