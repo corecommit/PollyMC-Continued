@@ -21,7 +21,6 @@ depends=(
     'glibc'
     'libarchive'
     'libpng'
-    'onnxruntime'
     'qrencode'
     'openssl'
     'tomlplusplus'
@@ -50,9 +49,16 @@ sha256sums=('SKIP')
 
 build() {
     cd "${srcdir}/${_pkgname}-${pkgver}"
+    # No Arch repo package for ONNX Runtime: CI drops the official
+    # linux-x64 build at packaging/arch/ort (sibling of this dir, outside
+    # the source tarball). Bundle its .so privately (see package()).
+    ort_dir=$(echo "${startdir}/ort/onnxruntime-linux-x64-"*)
+    [[ -d "$ort_dir" ]] || { echo "ONNX Runtime dir missing: ${startdir}/ort" >&2; return 1; }
     cmake -B build -G Ninja \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
+        -Donnxruntime_ROOT="$ort_dir" \
+        -DCMAKE_INSTALL_RPATH=/usr/lib/pollymc-continued \
         -DCMAKE_CXX_FLAGS="$CXXFLAGS -Wno-error" \
         -DCMAKE_C_FLAGS="$CFLAGS -Wno-error" \
         -DLauncher_BUILD_RELEASE=ON \
@@ -66,4 +72,6 @@ build() {
 package() {
     cd "${srcdir}/${_pkgname}-${pkgver}"
     DESTDIR="${pkgdir}" cmake --install build
+    mkdir -p "${pkgdir}/usr/lib/pollymc-continued"
+    cp -d "${startdir}"/ort/onnxruntime-linux-x64-*/lib/libonnxruntime.so* "${pkgdir}/usr/lib/pollymc-continued/"
 }

@@ -359,15 +359,38 @@ endif()
 find_package(ZLIB REQUIRED)
 
 # ONNX Runtime for the palette's natural-language intent matcher.
-# Official builds ship no CMake config, so fall back to a manual
-# search honoring onnxruntime_ROOT (used by CI's downloaded builds).
+# Official builds ship no CMake config. Layouts differ per platform
+# (flat include/ vs include/onnxruntime/), so search both explicitly
+# and never fall through to unrelated system paths.
 find_package(onnxruntime QUIET)
 if(NOT onnxruntime_FOUND)
-    find_path(onnxruntime_INCLUDE_DIR onnxruntime_cxx_api.h
-        HINTS ${onnxruntime_ROOT} PATH_SUFFIXES include)
-    find_library(onnxruntime_LIBRARY NAMES onnxruntime
-        HINTS ${onnxruntime_ROOT} PATH_SUFFIXES lib)
-    if(onnxruntime_INCLUDE_DIR AND onnxruntime_LIBRARY)
+    find_path(onnxruntime_INCLUDE_DIR NAMES onnxruntime_cxx_api.h
+        HINTS ${onnxruntime_ROOT}/include ${onnxruntime_ROOT}/include/onnxruntime
+        NO_DEFAULT_PATH)
+    if(NOT onnxruntime_INCLUDE_DIR)
+        message(FATAL_ERROR "ONNX Runtime headers not found. Checked ${onnxruntime_ROOT}/include and ${onnxruntime_ROOT}/include/onnxruntime. Install libonnxruntime-dev, 'brew install onnxruntime', or set onnxruntime_ROOT to an official build.")
+    endif()
+    if(WIN32)
+        # Never touch the MSVC import .lib with MinGW: link the DLL
+        # directly instead (GNU ld handles PE DLLs for the plain-C API).
+        find_file(onnxruntime_BINARY NAMES onnxruntime.dll
+            HINTS ${onnxruntime_ROOT} PATH_SUFFIXES bin lib
+            NO_DEFAULT_PATH)
+        if(NOT onnxruntime_BINARY)
+            message(FATAL_ERROR "onnxruntime.dll not found under ${onnxruntime_ROOT}.")
+        endif()
+        add_library(onnxruntime::onnxruntime UNKNOWN IMPORTED)
+        set_target_properties(onnxruntime::onnxruntime PROPERTIES
+            IMPORTED_LOCATION "${onnxruntime_BINARY}"
+            INTERFACE_INCLUDE_DIRECTORIES "${onnxruntime_INCLUDE_DIR}")
+        set(onnxruntime_FOUND TRUE)
+    else()
+        find_library(onnxruntime_LIBRARY NAMES onnxruntime
+            HINTS ${onnxruntime_ROOT} PATH_SUFFIXES lib
+            NO_DEFAULT_PATH)
+        if(NOT onnxruntime_LIBRARY)
+            message(FATAL_ERROR "libonnxruntime not found under ${onnxruntime_ROOT}/lib.")
+        endif()
         add_library(onnxruntime::onnxruntime UNKNOWN IMPORTED)
         set_target_properties(onnxruntime::onnxruntime PROPERTIES
             IMPORTED_LOCATION "${onnxruntime_LIBRARY}"
@@ -505,6 +528,18 @@ elseif(UNIX)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${Launcher_MIMEInfo} DESTINATION ${KDE_INSTALL_MIMEDIR})
 
     install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/launcher/qtlogging.ini" DESTINATION "share/${Launcher_Name}")
+
+    # Distro packages (.deb) have no system onnxruntime to depend on, so
+    # bundle the .so privately. Enabled per-package build with
+    # -DLauncher_BUNDLE_ONNXRUNTIME=ON plus a matching RPATH.
+    option(Launcher_BUNDLE_ONNXRUNTIME "Install libonnxruntime.so into lib/pollymc-continued (distro packages)" OFF)
+    if(Launcher_BUNDLE_ONNXRUNTIME)
+        file(GLOB ORT_BUNDLE_LIBS "${onnxruntime_ROOT}/lib/libonnxruntime.so*")
+        if(NOT ORT_BUNDLE_LIBS)
+            message(FATAL_ERROR "Launcher_BUNDLE_ONNXRUNTIME=ON but no libonnxruntime.so* under ${onnxruntime_ROOT}/lib.")
+        endif()
+        install(FILES ${ORT_BUNDLE_LIBS} DESTINATION "lib/pollymc-continued")
+    endif()
 
     set(PLUGIN_DEST_DIR "plugins")
     set(BUNDLE_DEST_DIR ".")
