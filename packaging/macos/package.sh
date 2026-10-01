@@ -203,13 +203,22 @@ cp "$app/Contents/Resources/PollyMC.icns" "$dmg_root/.VolumeIcon.icns"
 setfile=$(xcrun --find SetFile)
 getfileinfo=$(xcrun --find GetFileInfo)
 
-hdiutil create \
-    -volname "PollyMC-Continued $version" \
-    -srcfolder "$dmg_root" \
-    -format UDRW \
-    -fs APFS \
-    -ov \
-    "$dmg_rw"
+for attempt in 1 2 3; do
+    # hdiutil create flakes occasionally with "Resource busy"
+    # (Spotlight racing the fresh staging dir); retry before failing.
+    if hdiutil create \
+        -volname "PollyMC-Continued $version" \
+        -srcfolder "$dmg_root" \
+        -format UDRW \
+        -fs APFS \
+        -ov \
+        "$dmg_rw"; then
+        break
+    fi
+    echo "hdiutil create failed (attempt $attempt/3), retrying..." >&2
+    sleep 10
+    [[ $attempt -eq 3 ]] && exit 1
+done
 
 cmake -E rm -rf "$dmg_mount"
 cmake -E make_directory "$dmg_mount"

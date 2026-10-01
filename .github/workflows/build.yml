@@ -690,6 +690,10 @@ jobs:
 
           # Fail loudly if upstream ever drops the unversioned link.
           test -e appdir/usr/lib/libonnxruntime.so || { echo "::error::appdir is missing libonnxruntime.so"; exit 1; }
+          # linuxdeploy's initial scan does not search appdir/usr/lib on
+          # its own; point it there so the privately bundled
+          # libonnxruntime resolves like the system libs do.
+          export LD_LIBRARY_PATH="$PWD/appdir/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
           QMAKE="$QMAKE" ./linuxdeploy-x86_64.AppImage \
             --appdir appdir \
             --plugin qt \
