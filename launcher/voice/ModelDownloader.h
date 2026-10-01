@@ -44,8 +44,5 @@ class ModelDownloader : public QObject {
     bool verifyFiles(const QString& dir, QString& reason) const;
 
     NetJob::Ptr m_job;
-
-    // Hosting decision is the maintainer's call; default points at
-    // the planned voice-models release tag.
-    QString m_baseUrl = QStringLiteral("https://github.com/corecommit/PollyMC-Continued/releases/download/voice-models");
+    QString m_baseUrl = QStringLiteral("https://huggingface.co/corecommit/PollyMC-Voice-Models/resolve/main");
 };
