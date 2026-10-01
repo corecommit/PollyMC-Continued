@@ -86,8 +86,7 @@ void ModelDownloader::startDownload(QWidget* parent)
     const QString dir = FS::PathCombine(APPLICATION->dataRoot(), "models");
     QDir().mkpath(dir);
 
-    NetJob::Ptr job{ new NetJob(tr("Language model files"), APPLICATION->network()) };
-    m_job = job;
+    m_job = new NetJob(tr("Language model files"), APPLICATION->network());
     for (const auto& [name, minSize] : kRequiredFiles) {
         Q_UNUSED(minSize);
         const QString fileName = QString::fromLatin1(name);
@@ -103,11 +102,11 @@ void ModelDownloader::startDownload(QWidget* parent)
         } else {
             emit failed(reason);
         }
-        m_job.reset();
     });
+    
     QObject::connect(m_job.get(), &NetJob::failed, this, [this](const QString& reason) {
         emit failed(reason);
-        m_job.reset();
     });
     dialog.execWithTask(m_job.get());
+    m_job.reset();
 }
