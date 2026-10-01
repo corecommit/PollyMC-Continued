@@ -451,14 +451,13 @@ jobs:
             PollyMC-Continued-*-Windows-portable.zip
 
   build-linux:
-    name: Linux
+    name: Linux (.deb + tarball)
     needs: [skip-check]
     if: needs.skip-check.outputs.skip != 'true'
     runs-on: ubuntu-24.04
     permissions:
       contents: read
     env:
-      APPIMAGE_EXTRACT_AND_RUN: "1"
       # Set once at job level so it's visible in every step (including the
       # Build step, where ccache actually does its work) - a per-step
       # `export` doesn't survive to the next step in Actions. Explicit path
@@ -487,8 +486,7 @@ jobs:
             liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
             gamemode-dev \
             patchelf \
-            ccache \
-            breeze
+            ccache
 
       - name: Cache ccache
         uses: actions/cache@v5
@@ -581,133 +579,16 @@ jobs:
           path: build-deb/*.deb
           if-no-files-found: error
 
-      - name: Package
+      - name: Install release layout
         run: |
           set -euo pipefail
+          # Only the tarball is produced here; the AppImage lives in the
+          # separate build-appimage job because it has to be compiled against
+          # an older glibc. The tarball step below fills /tmp/pollymc/bin with
+          # bot-server and the bundled libraries (cmark, toml++, qrencode and
+          # ONNX Runtime) on top of this install, so dropping the appdir tree
+          # loses nothing for the tarball.
           cmake --install build --prefix /tmp/pollymc
-          mkdir -p appdir/usr/bin appdir/usr/lib appdir/usr/share/applications appdir/usr/share/icons/hicolor/256x256/apps
-          cp /tmp/pollymc/bin/pollymc appdir/usr/bin/
-          cp /tmp/pollymc/bin/pollymc_filelink appdir/usr/bin/ 2>/dev/null || true
-          cp -r /tmp/pollymc/share/* appdir/usr/share/ 2>/dev/null || true
-          cp build/program_info/org.pollymc.PollyMC.desktop appdir/usr/share/applications/org.pollymc.PollyMC.desktop
-          cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
-
-          # Bundle critical libraries explicitly
-          cp -L /usr/lib/x86_64-linux-gnu/libssl.so.* appdir/usr/lib/ 2>/dev/null || true
-          cp -L /usr/lib/x86_64-linux-gnu/libcrypto.so.* appdir/usr/lib/ 2>/dev/null || true
-          cp -L /usr/lib/x86_64-linux-gnu/libgamemode.so.* appdir/usr/lib/ 2>/dev/null || true
-          cp -L /usr/lib/x86_64-linux-gnu/libgamemodeauto.so.* appdir/usr/lib/ 2>/dev/null || true
-          # ONNX Runtime for the palette's natural-language mode. Resolved
-          # from the downloaded build (see the Download step); the SONAME
-          # carries the ORT version, so it is never hardcoded.
-          ORT_SO=$(find "$ORT_ROOT/lib" -type f -name 'libonnxruntime.so.*' | head -1)
-          if [ -z "$ORT_SO" ]; then
-            echo "::error::Could not find libonnxruntime.so under $ORT_ROOT/lib."
-            exit 1
-          fi
-          cp -L "$ORT_SO" appdir/usr/lib/
-          echo "DEBUG: bundled onnxruntime <- $ORT_SO"
-          # linuxdeploy resolves DT_NEEDED via soname links, so ship the
-          # archive's own symlinks too (cp -d keeps them as links).
-          # This also tracks future SONAME bumps automatically.
-          cp -d "$ORT_ROOT"/lib/libonnxruntime.so* appdir/usr/lib/
-          ls -la appdir/usr/lib/ | grep onnxruntime
-
-          # Bundle all Qt image format plugins
-          mkdir -p appdir/usr/plugins/imageformats
-          cp -L /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/*.so appdir/usr/plugins/imageformats/ 2>/dev/null || true
-
-          # Bundle the Qt icon engine plugin (libqsvgicon.so) so SVG icons
-          # render in menus/toolbars. Without it, QIcon::fromTheme() SVG
-          # icons silently fail to load. imageformats/libqsvg.so alone is not
-          # enough - it only handles SVG as a raster image.
-          mkdir -p appdir/usr/plugins/iconengines
-          for p in /usr/lib/x86_64-linux-gnu/qt6/plugins/iconengines/*.so /usr/lib/qt6/plugins/iconengines/*.so; do
-            if [ -f "$p" ]; then
-              cp -L "$p" appdir/usr/plugins/iconengines/
-              echo "DEBUG: bundled icon engine plugin: $p"
-            fi
-          done
-
-      - name: Bundle bot-server
-        run: |
-          set -euo pipefail
-          # applicationDirPath() = appdir/usr/bin at runtime inside the AppImage
-          cp -r bot-server appdir/usr/bin/bot-server
-          rm -f appdir/usr/bin/bot-server/.gitignore
-          # node_modules is not bundled; installed on first use from the Bot Manager
-          rm -rf appdir/usr/bin/bot-server/node_modules
-
-      - name: Cache linuxdeploy
-        uses: actions/cache@v5
-        with:
-          path: |
-            linuxdeploy-x86_64.AppImage
-            linuxdeploy-plugin-qt-x86_64.AppImage
-          key: linuxdeploy-continuous-${{ runner.os }}
-          restore-keys: |
-            linuxdeploy-continuous-
-
-      - name: Create AppImage
-        run: |
-          set -ex
-
-          if [ ! -f linuxdeploy-x86_64.AppImage ]; then
-            wget -v "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy-x86_64.AppImage
-          fi
-          if [ ! -f linuxdeploy-plugin-qt-x86_64.AppImage ]; then
-            wget -v "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage" -O linuxdeploy-plugin-qt-x86_64.AppImage
-          fi
-          chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
-
-          cp program_info/org.pollymc.PollyMC_256.png appdir/org.pollymc.PollyMC.png
-          cp build/program_info/org.pollymc.PollyMC.desktop appdir/org.pollymc.PollyMC.desktop
-
-          # Bundle the KDE Breeze widget style (a kstyle plugin, not shipped by
-          # Qt itself). Placing it in appdir/usr/plugins/qt/styles BEFORE
-          # linuxdeploy runs lets linuxdeploy-plugin-qt pick it up and bundle
-          # its dependencies. Ubuntu 24.04 package: "breeze". The Qt6 plugin is
-          # usually named breeze6.so (or breeze.so on older releases).
-          BREEZE_STYLE=""
-          for p in /usr/lib/x86_64-linux-gnu/qt6/plugins/styles/breeze*.so /usr/lib/qt6/plugins/styles/breeze*.so; do
-            if [ -f "$p" ]; then BREEZE_STYLE="$p"; break; fi
-          done
-          if [ -n "$BREEZE_STYLE" ]; then
-            mkdir -p appdir/usr/plugins/qt/styles
-            cp -L "$BREEZE_STYLE" appdir/usr/plugins/qt/styles/
-            echo "DEBUG: bundled Breeze style plugin: $BREEZE_STYLE"
-          else
-            echo "::warning::Breeze Qt6 style plugin not found on runner; only stock Qt styles will be available"
-          fi
-
-          QMAKE=$(command -v qmake6 || command -v qmake)
-          if [ -z "$QMAKE" ]; then
-            echo "::error::qmake not found in PATH"
-            exit 1
-          fi
-
-          echo "DEBUG: QMAKE=$QMAKE"
-
-          # Fail loudly if upstream ever drops the unversioned link.
-          test -e appdir/usr/lib/libonnxruntime.so || { echo "::error::appdir is missing libonnxruntime.so"; exit 1; }
-          # linuxdeploy's initial scan does not search appdir/usr/lib on
-          # its own; point it there so the privately bundled
-          # libonnxruntime resolves like the system libs do.
-          export LD_LIBRARY_PATH="$PWD/appdir/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-          QMAKE="$QMAKE" ./linuxdeploy-x86_64.AppImage \
-            --appdir appdir \
-            --plugin qt \
-            --library appdir/usr/lib/libonnxruntime.so \
-            --output appimage
-
-      - name: Rename AppImage
-        run: |
-          set -euo pipefail
-          FILE=$(ls PollyMC*.AppImage 2>/dev/null | head -n1)
-          if [ -z "$FILE" ]; then
-            echo "ERROR: No AppImage found. Listing directory:"; ls -la; exit 1
-          fi
-          mv "$FILE" "PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage"
 
       - name: Create Linux binary tarball
         run: |
@@ -773,10 +654,449 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: PollyMC-Continued-Linux-AppImage
+          name: PollyMC-Continued-Linux
+          path: PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.tar.gz
+          if-no-files-found: error
+
+  build-appimage:
+    name: Linux AppImage (glibc 2.35)
+    needs: [skip-check]
+    if: needs.skip-check.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    # Deliberately NOT the ubuntu-24.04 runner used by build-linux. An AppImage
+    # built on 24.04 inherits that image's glibc (2.39) through every bundled
+    # object - the launcher binary, AppRun (which linuxdeploy symlinks to it),
+    # libarchive/ICU/Qt pulled from the image - so it only starts on hosts with
+    # glibc >= 2.38. Building on 22.04 pins the floor to glibc 2.35, which runs
+    # on Ubuntu 22.04+, Debian 12+, Fedora 40+ and Arch. Qt itself is not the
+    # limiting factor: the official aqt binaries are built on RHEL 8.10 and
+    # need at most GLIBC_2.28, and so is the official ONNX Runtime build used
+    # below (it asks for GLIBC_2.27).
+    container: ubuntu:22.04
+    permissions:
+      contents: read
+    env:
+      APPIMAGE_EXTRACT_AND_RUN: "1"
+      CCACHE_DIR: ${{ github.workspace }}/.ccache
+      # Raise (never lower) if the bundled Qt ever needs newer symbol versions.
+      APPIMAGE_MAX_GLIBC: "2.35"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        run: |
+          set -euo pipefail
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get update
+          # No qt6-*-dev packages: jammy ships Qt 6.2 and CMakeLists requires
+          # >= 6.4, so Qt comes from aqt instead (see the Install Qt step).
+          # Also absent on jammy and therefore not listed: libtomlplusplus-dev
+          # (installed from headers below), libquazip1-qt6-dev (unused) and
+          # breeze (the Breeze widget style needs a Qt match, see below).
+          # "cmark" itself is not optional either: jammy's libcmark-dev config
+          # file imports the cmark::cmark_exe target from the cmark package.
+          apt-get install -y --no-install-recommends \
+            build-essential cmake ninja-build pkg-config \
+            git curl ca-certificates \
+            extra-cmake-modules libgl-dev libvulkan-dev \
+            default-jdk-headless \
+            libcmark-dev cmark libqrencode-dev libarchive-dev \
+            zlib1g-dev libcurl4-openssl-dev libssl-dev libpng-dev \
+            liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
+            gamemode-dev libgamemode0 \
+            patchelf ccache \
+            file squashfs-tools \
+            libglib2.0-0 libfontconfig1 libfreetype6 libdbus-1-3 \
+            libxkbcommon0 libxkbcommon-x11-0 libegl1 libgl1 \
+            libxcb1 libxcb-cursor0 libxcb-icccm4 libxcb-image0 \
+            libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
+            libxcb-shape0 libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 \
+            libxcb-xkb1 libxcb-glx0 libxcb-shm0 libxcb-util1
+          # The last group is what the Qt binaries themselves need at runtime
+          # (qmake, and every bundled Qt library loaded through ldd by
+          # linuxdeploy). Without it qmake cannot even start on this minimal
+          # image, and linuxdeploy would silently skip those libraries.
+          # default-jdk-headless is needed because libraries/launcher and
+          # libraries/javacheck build two jars with find_package(Java 1.7
+          # REQUIRED COMPONENTS Development); the 24.04 runner has a JDK
+          # preinstalled, this container does not. libvulkan-dev likewise:
+          # HardwareInfo.cpp uses vulkan.h, and without it the configure step
+          # reports "Could NOT find WrapVulkanHeaders" and the build fails.
+          # libgamemode0 is the package that actually ships libgamemode.so
+          # (-lgamemode at link time); gamemode-dev only has the headers and
+          # the auto client. The 24.04 runner has it preinstalled.
+          # file and squashfs-tools are required by appimagetool itself
+          # (it aborts with "file command is missing but required"); the
+          # 24.04 runner has both, this container image does not.
+
+      - name: Install CMake
+        run: |
+          set -euo pipefail
+          # jammy ships CMake 3.22 but CMakeLists.txt requires >= 3.25. Use the
+          # same version as the ubuntu-24.04 runner so both Linux builds stay
+          # comparable; the official Kitware tarball needs nothing from jammy.
+          CMAKE_VERSION=3.28.3
+          curl -fsSL --retry 3 \
+            "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-x86_64.tar.gz" \
+            -o /tmp/cmake.tar.gz
+          mkdir -p /opt/cmake
+          tar -xzf /tmp/cmake.tar.gz -C /opt/cmake --strip-components=1
+          echo "/opt/cmake/bin" >> "$GITHUB_PATH"
+          echo "cmake $(/opt/cmake/bin/cmake --version | head -1)"
+
+      - name: Install tomlplusplus
+        run: |
+          set -euo pipefail
+          # jammy has no libtomlplusplus-dev (it only exists from noble on) and
+          # CMakeLists requires >= 3.2.0, so install the headers here.
+          #
+          # toml++ is a header-only library (upstream declares it as an
+          # INTERFACE target), so there is nothing to compile: the launcher
+          # only needs to #include <toml++/toml.hpp>. Upstream's own CMake
+          # package cannot be used - its tomlplusplusConfig.cmake never sets
+          # tomlplusplus_FOUND, so CMake rejects it and falls back to
+          # pkg_check_modules, which then needs a .pc file that upstream does
+          # not generate either. So write the .pc by hand, exactly like the
+          # Debian/Ubuntu package does but header-only (TOML_HEADER_ONLY=1,
+          # no -ltomlplusplus). CMakeLists.txt:356 consumes this via
+          # PkgConfig::tomlplusplus.
+          TOMLPP_VERSION=3.4.0
+          curl -fsSL -o /tmp/tomlplusplus.tar.gz \
+            "https://github.com/marzer/tomlplusplus/archive/refs/tags/v${TOMLPP_VERSION}.tar.gz"
+          rm -rf "/tmp/tomlplusplus-${TOMLPP_VERSION}"
+          tar -xzf /tmp/tomlplusplus.tar.gz -C /tmp
+          # Single-header variant: toml.hpp plus the impl/ headers it needs.
+          install -d /usr/local/include
+          cp -r "/tmp/tomlplusplus-${TOMLPP_VERSION}/include/toml++" /usr/local/include/
+          install -d /usr/local/lib/pkgconfig
+          cat > /usr/local/lib/pkgconfig/tomlplusplus.pc <<EOF
+          prefix=/usr/local
+          includedir=\${prefix}/include
+
+          Name: tomlplusplus
+          Description: TOML config file parser and serializer for C++
+          URL: https://marzer.github.io/tomlplusplus
+          Version: ${TOMLPP_VERSION}
+          Cflags: -I\${includedir} -DTOML_HEADER_ONLY=1
+          EOF
+          pkg-config --modversion tomlplusplus
+          pkg-config --cflags tomlplusplus
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: 6.8.3
+          # "qtsvg" is not a module name in Qt 6 (aqt rejects it); QtSvg and the
+          # qsvgicon engine plugin ship in the base install, and qtsvg is pulled
+          # in anyway as a dependency of qtimageformats.
+          modules: qtimageformats qtnetworkauth qtwebsockets
+          cache: true
+          # The container needs no distro Qt; only the aqt prefix is used.
+          install-deps: false
+
+      - name: Download ONNX Runtime
+        run: |
+          set -euo pipefail
+          # Pinned version; keep in sync with the Windows/macOS sites. Same
+          # official build build-linux uses, so the AppImage and the .deb ship
+          # the same library. No distro package exists for any platform.
+          ORT_VERSION="1.22.0"
+          curl -fsSL -o /tmp/ort.tgz \
+            "https://github.com/microsoft/onnxruntime/releases/download/v${ORT_VERSION}/onnxruntime-linux-x64-${ORT_VERSION}.tgz"
+          rm -rf /tmp/ort && mkdir -p /tmp/ort
+          tar -xzf /tmp/ort.tgz -C /tmp/ort
+          ORT_ROOT=$(echo /tmp/ort/onnxruntime-linux-x64-*)
+          test -n "$(find "$ORT_ROOT/include" -name onnxruntime_cxx_api.h | head -1)"
+          echo "ORT_ROOT=${ORT_ROOT}" >> "$GITHUB_ENV"
+
+      - name: Cache ccache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          # Separate namespace from build-linux: different compiler and Qt, so
+          # the object files are not interchangeable.
+          key: ccache-linux-appimage-${{ github.run_id }}
+          restore-keys: |
+            ccache-linux-appimage-
+
+      - name: Configure
+        run: |
+          set -euo pipefail
+          echo "QT_ROOT=${QT_ROOT}" >> "$GITHUB_ENV"
+          QMAKE=$(command -v qmake6 || command -v qmake || true)
+          echo "QMAKE=${QMAKE}" >> "$GITHUB_ENV"
+          if [ -z "$QMAKE" ]; then
+            echo "::error::qmake not found in PATH"
+            exit 1
+          fi
+          cmake -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -Donnxruntime_ROOT="$ORT_ROOT" \
+            -DCMAKE_PREFIX_PATH="${QT_ROOT}/lib/cmake" \
+            -DCMAKE_CXX_FLAGS="-Wno-error" \
+            -DCMAKE_C_FLAGS="-Wno-error" \
+            -DCMAKE_C_COMPILER_LAUNCHER=ccache \
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DLauncher_BUILD_RELEASE=ON \
+            -DLauncher_VERSION="${{ needs.skip-check.outputs.version }}" \
+            -DLauncher_BUILD_NUMBER="${{ github.run_number }}" \
+            -S . -B build
+
+      - name: Build
+        run: |
+          set -euo pipefail
+          ccache -z
+          cmake --build build -j$(nproc)
+          echo "=== ccache stats ==="
+          ccache -s
+          ccache --print-stats
+
+      - name: Cache linuxdeploy
+        uses: actions/cache@v5
+        with:
           path: |
-            PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.AppImage
-            PollyMC-Continued-${{ needs.skip-check.outputs.version }}-Linux-x86_64.tar.gz
+            linuxdeploy-x86_64.AppImage
+            linuxdeploy-plugin-qt-x86_64.AppImage
+          key: linuxdeploy-continuous-${{ runner.os }}
+          restore-keys: |
+            linuxdeploy-continuous-
+
+      - name: Create AppImage
+        run: |
+          set -euo pipefail
+          VERSION="${{ needs.skip-check.outputs.version }}"
+
+          # curl instead of wget: the ubuntu:22.04 container image ships no wget.
+          if [ ! -f linuxdeploy-x86_64.AppImage ]; then
+            curl -fsSL --retry 3 "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -o linuxdeploy-x86_64.AppImage
+          fi
+          if [ ! -f linuxdeploy-plugin-qt-x86_64.AppImage ]; then
+            curl -fsSL --retry 3 "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage" -o linuxdeploy-plugin-qt-x86_64.AppImage
+          fi
+          chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
+
+          cmake --install build --prefix /tmp/pollymc
+
+          mkdir -p appdir/usr/bin appdir/usr/lib appdir/usr/share/applications appdir/usr/share/icons/hicolor/256x256/apps
+          cp /tmp/pollymc/bin/pollymc appdir/usr/bin/
+          cp /tmp/pollymc/bin/pollymc_filelink appdir/usr/bin/ 2>/dev/null || true
+          cp -r /tmp/pollymc/share/* appdir/usr/share/ 2>/dev/null || true
+          cp build/program_info/org.pollymc.PollyMC.desktop appdir/usr/share/applications/org.pollymc.PollyMC.desktop
+          cp program_info/org.pollymc.PollyMC_256.png appdir/usr/share/icons/hicolor/256x256/apps/org.pollymc.PollyMC.png
+          cp program_info/org.pollymc.PollyMC_256.png appdir/org.pollymc.PollyMC.png
+          cp build/program_info/org.pollymc.PollyMC.desktop appdir/org.pollymc.PollyMC.desktop
+
+          # applicationDirPath() = appdir/usr/bin at runtime inside the AppImage
+          cp -r bot-server appdir/usr/bin/bot-server
+          rm -f appdir/usr/bin/bot-server/.gitignore
+          # node_modules is not bundled; installed on first use from the Bot Manager
+          rm -rf appdir/usr/bin/bot-server/node_modules
+
+          # Bundle critical libraries explicitly
+          cp -L /usr/lib/x86_64-linux-gnu/libssl.so.* appdir/usr/lib/ 2>/dev/null || true
+          cp -L /usr/lib/x86_64-linux-gnu/libcrypto.so.* appdir/usr/lib/ 2>/dev/null || true
+          cp -L /usr/lib/x86_64-linux-gnu/libgamemode.so.* appdir/usr/lib/ 2>/dev/null || true
+          cp -L /usr/lib/x86_64-linux-gnu/libgamemodeauto.so.* appdir/usr/lib/ 2>/dev/null || true
+          # ONNX Runtime for the palette's natural-language mode. Resolved
+          # from the downloaded build (see the Download step); the SONAME
+          # carries the ORT version, so it is never hardcoded.
+          ORT_SO=$(find "$ORT_ROOT/lib" -type f -name 'libonnxruntime.so.*' | head -1)
+          if [ -z "$ORT_SO" ]; then
+            echo "::error::Could not find libonnxruntime.so under $ORT_ROOT/lib."
+            exit 1
+          fi
+          cp -L "$ORT_SO" appdir/usr/lib/
+          echo "DEBUG: bundled onnxruntime <- $ORT_SO"
+          # linuxdeploy resolves DT_NEEDED via soname links, so ship the
+          # archive's own symlinks too (cp -d keeps them as links).
+          # This also tracks future SONAME bumps automatically.
+          cp -d "$ORT_ROOT"/lib/libonnxruntime.so* appdir/usr/lib/
+          ls -la appdir/usr/lib/ | grep onnxruntime
+
+          # Plugin paths come from the aqt Qt prefix, not the system Qt.
+          mkdir -p appdir/usr/plugins/imageformats
+          cp -L "${QT_ROOT}"/plugins/imageformats/*.so appdir/usr/plugins/imageformats/ 2>/dev/null || true
+          echo "DEBUG: bundled imageformats: $(ls appdir/usr/plugins/imageformats | tr '\n' ' ')"
+
+          # The Qt icon engine plugin (libqsvgicon.so) so SVG icons render in
+          # menus/toolbars; imageformats/libqsvg.so alone only handles SVG as a
+          # raster image.
+          mkdir -p appdir/usr/plugins/iconengines
+          cp -L "${QT_ROOT}"/plugins/iconengines/*.so appdir/usr/plugins/iconengines/ 2>/dev/null || true
+          echo "DEBUG: bundled icon engines: $(ls appdir/usr/plugins/iconengines | tr '\n' ' ')"
+
+          # NOTE: no Breeze widget style here. It is a KDE kstyle plugin, not a
+          # Qt one, and the only distro package for it is built against a
+          # different Qt than the one used here, so Qt refuses to load it and
+          # the AppImage falls back to a stock Qt style. The Breeze icon themes
+          # are unaffected: they are compiled into the launcher binary as Qt
+          # resources.
+          echo "::warning::The Breeze widget style is not bundled (no Qt-matched build available); the AppImage uses a stock Qt style"
+
+          # Fail loudly if upstream ever drops the unversioned link.
+          test -e appdir/usr/lib/libonnxruntime.so || { echo "::error::appdir is missing libonnxruntime.so"; exit 1; }
+
+          # Name the AppImage properly at creation time. linuxdeploy's appimage
+          # output plugin forwards these to appimagetool's APPIMAGETOOL_APP_NAME
+          # and VERSION, which then produce
+          # PollyMC-Continued-<version>-x86_64.AppImage. The AppImage packaging
+          # guidelines explicitly forbid "Linux" in the filename (every AppImage
+          # is for Linux), and appimagetool warns about it.
+          export LINUXDEPLOY_OUTPUT_APP_NAME="PollyMC-Continued"
+          export LINUXDEPLOY_OUTPUT_VERSION="$VERSION"
+          echo "DEBUG: LINUXDEPLOY_OUTPUT_APP_NAME=$LINUXDEPLOY_OUTPUT_APP_NAME LINUXDEPLOY_OUTPUT_VERSION=$LINUXDEPLOY_OUTPUT_VERSION"
+
+          # QMAKE must be passed as an environment variable: that is how
+          # linuxdeploy-plugin-qt finds the Qt tools (qmake, lconvert,
+          # qtpaths, ...). linuxdeploy is a plain executable, so it is run
+          # directly; running it as "$QMAKE" ./linuxdeploy... just makes qmake
+          # try to parse the AppImage as a project file.
+          # LD_LIBRARY_PATH points at the privately bundled libonnxruntime:
+          # linuxdeploy's initial scan does not search appdir/usr/lib on its
+          # own, so without it the bundled copy resolves like a system lib.
+          QMAKE="$QMAKE" LD_LIBRARY_PATH="$PWD/appdir/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+            ./linuxdeploy-x86_64.AppImage \
+            --appdir appdir \
+            --plugin qt \
+            --library appdir/usr/lib/libonnxruntime.so \
+            --output appimage
+
+          # Belt and braces: appimagetool already named it correctly, but never
+          # ship a wrong name (a stale "Linux" suffix would come back silently).
+          FINAL="PollyMC-Continued-${VERSION}-x86_64.AppImage"
+          FILE=$(ls PollyMC*.AppImage 2>/dev/null | head -n1 || true)
+          if [ -z "$FILE" ]; then
+            echo "::error::No AppImage was produced. Directory contents:"
+            ls -la
+            exit 1
+          fi
+          echo "DEBUG: linuxdeploy produced '$FILE'"
+          if [ "$FILE" != "$FINAL" ]; then
+            echo "::warning::Renaming AppImage from '$FILE' to '$FINAL'"
+            mv "$FILE" "$FINAL"
+          fi
+          ls -la "$FINAL"
+
+      - name: Verify glibc floor
+        run: |
+          set -euo pipefail
+          VERSION="${{ needs.skip-check.outputs.version }}"
+          APPIMAGE="PollyMC-Continued-${VERSION}-x86_64.AppImage"
+
+          # AppImage consumers report failures like "libQt6Gui.so.6: version
+          # `GLIBC_2.38' not found" when a bundled object was compiled against
+          # a newer glibc than the host provides. Nothing else in CI ever runs
+          # the AppImage, so nothing used to catch that: assert the floor here
+          # and fail the build if it regresses.
+          rm -rf /tmp/glibc-check
+          # The leading "./" matters: the workspace directory is not on PATH, so
+          # a bare "$APPIMAGE" is reported as "command not found".
+          "./${APPIMAGE}" --appimage-extract >/dev/null
+          mv squashfs-root /tmp/glibc-check
+
+          # readelf ignores non-ELF payloads; its non-zero exit on those must not
+          # abort the step, hence the trailing "|| true" under pipefail.
+          symbol_versions() {
+            find /tmp/glibc-check -type f -exec readelf -V {} + 2>/dev/null \
+              | grep -oE "$1" || true
+          }
+
+          MAX=$(symbol_versions 'GLIBC_[0-9]+\.[0-9]+' | sort -uV | tail -1)
+          echo "Highest glibc version required by the AppImage: ${MAX:-none}"
+          if [ -z "$MAX" ]; then
+            echo "::error::Could not read any GLIBC symbol versions from the AppImage payload"
+            exit 1
+          fi
+          # Fail when the payload needs something newer than the floor.
+          # sort -V puts the smaller of the two first, so "the floor came first
+          # and the two differ" means MAX > FLOOR.
+          MAXV="${MAX#GLIBC_}"
+          if [ "$MAXV" != "$APPIMAGE_MAX_GLIBC" ] \
+             && [ "$(printf '%s\n%s\n' "$APPIMAGE_MAX_GLIBC" "$MAXV" | sort -V | head -1)" = "$APPIMAGE_MAX_GLIBC" ]; then
+            echo "::error::The AppImage requires ${MAX} but the supported floor is GLIBC_${APPIMAGE_MAX_GLIBC}."
+            echo "::error::Something bundled was compiled against a newer glibc: fix the build environment, or raise APPIMAGE_MAX_GLIBC deliberately."
+            exit 1
+          fi
+          echo "glibc floor check passed (GLIBC_${APPIMAGE_MAX_GLIBC} or older required)"
+
+          echo "GLIBCXX versions required (informational):"
+          symbol_versions 'GLIBCXX_[0-9]+\.[0-9]+\.[0-9]+' | sort -uV | tail -3
+
+      - name: Upload AppImage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PollyMC-Continued-AppImage
+          path: PollyMC-Continued-${{ needs.skip-check.outputs.version }}-x86_64.AppImage
+          if-no-files-found: error
+
+  linux-appimage-smoke:
+    name: Linux AppImage (Ubuntu 22.04 smoke test)
+    needs: [skip-check, build-appimage]
+    if: needs.skip-check.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    # Oldest glibc we claim to support: an AppImage that cannot start here
+    # cannot start on any older distro either.
+    container: ubuntu:22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Download AppImage
+        uses: actions/download-artifact@v4
+        with:
+          name: PollyMC-Continued-AppImage
+
+      - name: Run AppImage
+        run: |
+          set -euo pipefail
+          export DEBIAN_FRONTEND=noninteractive
+          APPIMAGE=$(ls PollyMC-Continued-*-x86_64.AppImage 2>/dev/null | head -n1 || true)
+          if [ -z "$APPIMAGE" ]; then
+            echo "::error::No AppImage found in the downloaded artifact:"
+            ls -la
+            exit 1
+          fi
+          echo "Testing ${APPIMAGE}"
+          chmod +x "${APPIMAGE}"
+
+          # Dependencies the AppImage deliberately leaves to the host, plus
+          # xvfb and dbus-x11 to emulate a real desktop session.
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            libgl1 libegl1 libxkbcommon0 libxkbcommon-x11-0 \
+            libfontconfig1 libfreetype6 libdbus-1-3 \
+            libxcb1 libxcb-cursor0 libxcb-icccm4 libxcb-image0 \
+            libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
+            libxcb-shape0 libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 \
+            libxcb-xkb1 libxcb-glx0 libxcb-shm0 libxcb-util1 \
+            xvfb dbus-x11
+
+          # APPIMAGE_EXTRACT_AND_RUN avoids needing FUSE inside the container;
+          # the extracted-and-run path is the same code path the runtime uses.
+          export APPIMAGE_EXTRACT_AND_RUN=1
+          # Run the real xcb platform plugin under Xvfb instead of asking for
+          # QT_QPA_PLATFORM=offscreen: the AppImage bundles libqxcb.so only,
+          # which is the plugin users actually load, and offscreen would hide
+          # missing X libraries. A real desktop also has a session bus, so give
+          # the app one with dbus-run-session rather than relying on D-Bus
+          # X11 autolaunch: without a bus, the bundled libgamemode (1.6.1 from
+          # 22.04) cannot autolaunch one and aborts in gamemode_query_status()
+          # while probing for the GameMode service, which would fail this test
+          # for a reason no user would ever hit. Nothing here may leak a host Qt
+          # install: the point is to load every library from inside the AppImage.
+          xvfb-run -a dbus-run-session -- ./"${APPIMAGE}" >/tmp/appimage-smoke.log 2>&1 &
+          APP_PID=$!
+          sleep 15
+          if ! kill -0 "$APP_PID" 2>/dev/null; then
+            wait "$APP_PID" || true
+            echo "::error::The AppImage exited during startup on Ubuntu 22.04 (glibc 2.35):"
+            tail -40 /tmp/appimage-smoke.log
+            exit 1
+          fi
+          echo "The AppImage ran for 15s on Ubuntu 22.04"
+          kill "$APP_PID" 2>/dev/null || true
 
   linux-tarball-cross-distro:
     name: Linux tarball (cross-distro smoke test)
@@ -790,7 +1110,7 @@ jobs:
       - name: Download Linux artifacts
         uses: actions/download-artifact@v4
         with:
-          name: PollyMC-Continued-Linux-AppImage
+          name: PollyMC-Continued-Linux
 
       - name: Install runtime dependencies
         run: |
@@ -1123,8 +1443,8 @@ jobs:
 
   release:
     name: Release
-    needs: [skip-check, changelog-check, build-windows, build-linux, linux-tarball-cross-distro, build-macos, build-arch]
-    if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-linux.result != 'success' || needs.linux-tarball-cross-distro.result == 'success') && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
+    needs: [skip-check, changelog-check, build-windows, build-linux, linux-tarball-cross-distro, build-appimage, linux-appimage-smoke, build-macos, build-arch]
+    if: always() && needs.skip-check.outputs.skip != 'true' && needs.skip-check.outputs.skip_release != 'true' && needs.changelog-check.result == 'success' && (needs.build-linux.result != 'success' || (needs.linux-tarball-cross-distro.result == 'success' && needs.build-appimage.result == 'success' && needs.linux-appimage-smoke.result == 'success')) && (needs.build-windows.result == 'success' || needs.build-linux.result == 'success' || needs.build-macos.result == 'success') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -1197,7 +1517,7 @@ jobs:
           files: |
             PollyMC-Continued-*-Setup.exe
             PollyMC-Continued-*-Windows-portable.zip
-            PollyMC-Continued-*-Linux-x86_64.AppImage
+            PollyMC-Continued-*-x86_64.AppImage
             PollyMC-Continued-*-Linux-x86_64.tar.gz
             PollyMC-Continued-*-macOS-arm64.zip
             PollyMC-Continued-*-macOS-arm64.dmg
