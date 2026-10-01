@@ -16,6 +16,12 @@
 - **Bot respawn works** — Uses the vanilla respawn packet instead of a nonexistent API call, and skips when the bot isn't dead.
 - **Bot movement right after join** — Pathfinding is set up at login instead of spawn, and bad coordinates or a missing item count no longer throw.
 - **Clearer bot errors** — Input parse failures and command failures are now reported separately instead of everything showing as invalid JSON.
+- **AppImage runs on older Linux distributions** — The AppImage was built on Ubuntu 24.04, so everything bundled into it (the launcher, `AppRun`, Qt, libarchive, ONNX Runtime) needed glibc 2.38 or newer and failed to start on Ubuntu 22.04, Debian 12 and similar systems with errors like ``version `GLIBC_2.38' not found``. It is now built against glibc 2.35 (Qt 6.8.3 from the official Qt installer, everything else from Ubuntu 22.04), and CI both asserts the glibc floor and launches the AppImage inside an Ubuntu 22.04 container so this cannot regress silently.
+- **AppImage file name** — It is now `PollyMC-Continued-<version>-x86_64.AppImage` instead of `...-Linux-x86_64.AppImage`; the AppImage packaging guidelines explicitly ask not to put "Linux" in an AppImage name since every AppImage is for Linux. The name is now applied when the image is created, not patched afterwards.
+
+**Changed:**
+
+- **AppImage widget style** — The AppImage no longer bundles the KDE Breeze widget style, because no distro package provides a build matching the Qt used for the AppImage. Breeze icons are unaffected: they are compiled into the launcher itself. The `.deb`, tarball and Arch packages keep it.
 
 ## v9.3.0
 
