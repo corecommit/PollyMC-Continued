@@ -17,6 +17,8 @@
 
 #include <cmath>
 
+#include <string>
+
 #include <QFile>
 #include <QFileInfo>
 #include <QDir>
@@ -206,7 +208,15 @@ void VoiceIntentMatcher::load(const QString& modelPath, const QString& embedding
                 m_ort = new OrtState();
             m_ort->options.SetIntraOpNumThreads(1);
             m_ort->options.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_ALL);
-            m_ort->session = std::make_unique<Ort::Session>(m_ort->env, m_modelPath.toStdString().c_str(),
+            // ORTCHAR_T is wchar_t on Windows, char elsewhere; there is
+            // no const char* overload, so convert per platform. Named
+            // locals: the pointer must outlive the constructor call.
+#ifdef Q_OS_WIN
+            const std::wstring modelPathNative = m_modelPath.toStdWString();
+#else
+            const std::string modelPathNative = m_modelPath.toStdString();
+#endif
+            m_ort->session = std::make_unique<Ort::Session>(m_ort->env, modelPathNative.c_str(),
                                                             m_ort->options);
             m_sessionReady = true;
             emit loaded();

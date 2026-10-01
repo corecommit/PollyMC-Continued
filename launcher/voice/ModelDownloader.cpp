@@ -86,7 +86,9 @@ void ModelDownloader::startDownload(QWidget* parent)
     const QString dir = FS::PathCombine(APPLICATION->dataRoot(), "models");
     QDir().mkpath(dir);
 
-    m_job = new NetJob(tr("Language model files"), APPLICATION->network());
+    NetJob::Ptr job;
+    job.reset(new NetJob(tr("Language model files"), APPLICATION->network()));
+    m_job = job;
     for (const auto& [name, minSize] : kRequiredFiles) {
         Q_UNUSED(minSize);
         const QString fileName = QString::fromLatin1(name);
