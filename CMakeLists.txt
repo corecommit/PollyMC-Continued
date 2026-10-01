@@ -358,6 +358,27 @@ endif()
 
 find_package(ZLIB REQUIRED)
 
+# ONNX Runtime for the palette's natural-language intent matcher.
+# Official builds ship no CMake config, so fall back to a manual
+# search honoring onnxruntime_ROOT (used by CI's downloaded builds).
+find_package(onnxruntime QUIET)
+if(NOT onnxruntime_FOUND)
+    find_path(onnxruntime_INCLUDE_DIR onnxruntime_cxx_api.h
+        HINTS ${onnxruntime_ROOT} PATH_SUFFIXES include)
+    find_library(onnxruntime_LIBRARY NAMES onnxruntime
+        HINTS ${onnxruntime_ROOT} PATH_SUFFIXES lib)
+    if(onnxruntime_INCLUDE_DIR AND onnxruntime_LIBRARY)
+        add_library(onnxruntime::onnxruntime UNKNOWN IMPORTED)
+        set_target_properties(onnxruntime::onnxruntime PROPERTIES
+            IMPORTED_LOCATION "${onnxruntime_LIBRARY}"
+            INTERFACE_INCLUDE_DIRECTORIES "${onnxruntime_INCLUDE_DIR}")
+        set(onnxruntime_FOUND TRUE)
+    endif()
+endif()
+if(NOT onnxruntime_FOUND)
+    message(FATAL_ERROR "ONNX Runtime not found. Install libonnxruntime-dev, 'brew install onnxruntime', or set onnxruntime_ROOT to an official build.")
+endif()
+
 
 include(ECMQtDeclareLoggingCategory)
 

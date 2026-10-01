@@ -101,6 +101,7 @@
 #include "bot/BotManagerDialog.h"
 #include "ui/dialogs/AboutDialog.h"
 #include "ui/dialogs/CommandPalette.h"
+#include "ui/dialogs/CommandRegistry.h"
 #include "ui/dialogs/CopyInstanceDialog.h"
 #include "ui/dialogs/CreateShortcutDialog.h"
 #include "ui/dialogs/CustomMessageBox.h"
@@ -561,57 +562,16 @@ QPoint MainWindow::toastPosition() const
 
 void MainWindow::showCommandPalette()
 {
-    // collect once per open so enablement is always current
-    QList<CommandEntry> entries;
-    QSet<QAction*> seen;
-    auto consider = [&entries, &seen](QAction* action) {
-        if (!action || seen.contains(action) || action->isSeparator() || action->menu())
-            return;
-        if (action->text().isEmpty() && action->objectName().isEmpty())
-            return;
-        if (!action->isVisible())
-            return;
-        seen.insert(action);
-        CommandEntry entry = CommandEntry::fromAction(action);
-        const QString name = action->objectName();
-        // instance-scoped verbs live under Instance even though the spec
-        // also lists them as examples of plain actions
-        if (name == "actionLaunchInstance" || name == "actionEditInstance" || name == "actionDeleteInstance" ||
-            name == "actionCopyInstance" || name == "actionKillInstance" || name == "actionExportInstanceZip" ||
-            name == "actionExportInstanceMrPack" || name == "actionExportInstanceFlamePack")
-            entry.category = "Instance";
-        else if (name == "actionAddInstance" || name == "actionSettings" || name == "actionAbout" ||
-                 name == "actionCheckUpdate")
-            entry.category = "Action";
-        else if (name.contains("Theme"))
-            entry.category = "Theme";
-        else if (name.contains("Toolbar") || name.contains("StatusBar") || name == "actionLockToolbars")
-            entry.category = "Toolbar";
-        else if (name.contains("Account"))
-            entry.category = "Account";
-        else if (name.contains("DISCORD") || name.contains("MATRIX") || name.contains("REDDIT") ||
-                 name.contains("Wiki") || name.contains("ReportBug") || name.contains("BugTracker"))
-            entry.category = "External";
-        else if (name.contains("Folder"))
-            entry.category = "Folder";
-        if (name == "actionAddInstance" || name == "actionSettings" || name == "actionLaunchInstance")
-            entry.priority = 100;
-        else if (name == "actionEditInstance" || name == "actionDeleteInstance" || name == "actionAbout")
-            entry.priority = 80;
-        else if (name == "actionExportInstanceZip" || name == "actionExportInstanceMrPack" ||
-                 name == "actionExportInstanceFlamePack" || name == "actionViewInstanceFolder" ||
-                 name == "actionViewLogsFolder" || name == "actionViewCentralModsFolder")
-            entry.priority = 60;
-        entry.hideByDefault = entry.category == "Theme" || entry.category == "Toolbar";
-        entries.append(entry);
-    };
-    for (QAction* action : findChildren<QAction*>())
-        consider(action);
-    // findChildren on the window already covers the toolbars, so no
-    // separate toolbar walk is needed here.
-
-    CommandPalette palette(entries, this);
+    // collected fresh per open so enablement is always current
+    CommandPalette palette(CommandRegistry::collect(this), this, this);
     palette.exec();
+}
+
+void MainWindow::triggerInstanceAction(const QString& id, QAction* action)
+{
+    setSelectedInstanceById(id);
+    if (action)
+        action->trigger();
 }
 
 void MainWindow::maybeShowStarToast()

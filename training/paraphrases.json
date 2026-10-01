@@ -1,0 +1,228 @@
+{
+  "actionAbout": [
+    "about PollyMC",
+    "open about PollyMC"
+  ],
+  "actionAccountsButton": [
+    "accounts",
+    "open accounts"
+  ],
+  "actionAddInstance": [
+    "add instance...",
+    "Add Instance",
+    "add instance",
+    "create Instance...",
+    "new Instance..."
+  ],
+  "actionAddToPATH": [
+    "install to path",
+    "open install to path"
+  ],
+  "actionBackupInstance": [
+    "backup instance",
+    "open backup instance"
+  ],
+  "actionBots": [
+    "bots",
+    "open bots"
+  ],
+  "actionChangeInstGroup": [
+    "change group...",
+    "Change Group",
+    "change group",
+    "open change group..."
+  ],
+  "actionChangeInstIcon": [
+    "change icon",
+    "open change icon"
+  ],
+  "actionChangeTheme": [
+    "themes",
+    "open themes"
+  ],
+  "actionCheckUpdate": [
+    "check for update",
+    "open check for update"
+  ],
+  "actionClearMetadata": [
+    "clear metadata cache",
+    "open clear metadata cache"
+  ],
+  "actionCloseWindow": [
+    "close window",
+    "open close window"
+  ],
+  "actionCopyInstance": [
+    "copy...",
+    "Copy",
+    "copy",
+    "open copy..."
+  ],
+  "actionCreateInstanceShortcut": [
+    "create shortcut",
+    "open create shortcut"
+  ],
+  "actionDISCORD": [
+    "discord guild",
+    "open discord guild"
+  ],
+  "actionDeleteInstance": [
+    "delete",
+    "open delete"
+  ],
+  "actionEditInstance": [
+    "edit...",
+    "Edit",
+    "edit",
+    "open edit..."
+  ],
+  "actionExportInstance": [
+    "export...",
+    "Export",
+    "export",
+    "open export..."
+  ],
+  "actionExportInstanceFlamePack": [
+    "curseforge (zip)",
+    "open curseforge (zip)"
+  ],
+  "actionExportInstanceMrPack": [
+    "modrinth (mrpack)",
+    "open modrinth (mrpack)"
+  ],
+  "actionExportInstanceZip": [
+    "pollymc-continued (zip)",
+    "open pollymc-continued (zip)"
+  ],
+  "actionFoldersButton": [
+    "folders",
+    "open folders"
+  ],
+  "actionHelpButton": [
+    "more",
+    "open more"
+  ],
+  "actionKillInstance": [
+    "kill",
+    "open kill"
+  ],
+  "actionLaunchInstance": [
+    "launch",
+    "open launch"
+  ],
+  "actionLockToolbars": [
+    "lock toolbars",
+    "open lock toolbars"
+  ],
+  "actionMATRIX": [
+    "matrix space",
+    "open matrix space"
+  ],
+  "actionManageAccounts": [
+    "manage accounts...",
+    "Manage Accounts",
+    "manage accounts",
+    "open manage accounts..."
+  ],
+  "actionMoreNews": [
+    "more news...",
+    "More News",
+    "more news",
+    "open more news..."
+  ],
+  "actionNoAccountsAdded": [
+    "no accounts added!",
+    "open no accounts added!"
+  ],
+  "actionNoDefaultAccount": [
+    "no default account",
+    "open no default account"
+  ],
+  "actionOpenWiki": [
+    "PollyMC wiki",
+    "open PollyMC wiki"
+  ],
+  "actionPerformancePresets": [
+    "performance presets",
+    "open performance presets"
+  ],
+  "actionQuickLaunch": [
+    "quick launch",
+    "open quick launch"
+  ],
+  "actionREDDIT": [
+    "subreddit",
+    "open subreddit"
+  ],
+  "actionRenameInstance": [
+    "rename",
+    "open rename"
+  ],
+  "actionReportBug": [
+    "report a bug or suggest a feature",
+    "open report a bug or suggest a feature"
+  ],
+  "actionSettings": [
+    "settings...",
+    "Settings",
+    "settings",
+    "open settings..."
+  ],
+  "actionToggleStatusBar": [
+    "status bar",
+    "open status bar"
+  ],
+  "actionUndoTrashInstance": [
+    "undo last instance deletion",
+    "open undo last instance deletion"
+  ],
+  "actionViewCentralModsFolder": [
+    "central mods",
+    "open central mods"
+  ],
+  "actionViewCrashReports": [
+    "crash reports",
+    "open crash reports"
+  ],
+  "actionViewIconThemeFolder": [
+    "icon theme",
+    "open icon theme"
+  ],
+  "actionViewIconsFolder": [
+    "instance icons",
+    "open instance icons"
+  ],
+  "actionViewInstanceFolder": [
+    "instances",
+    "open instances"
+  ],
+  "actionViewJavaFolder": [
+    "java",
+    "open java"
+  ],
+  "actionViewLauncherRootFolder": [
+    "launcher root",
+    "open launcher root"
+  ],
+  "actionViewLog": [
+    "view logs",
+    "show logs",
+    "open logs"
+  ],
+  "actionViewLogsFolder": [
+    "logs",
+    "open logs"
+  ],
+  "actionViewSelectedInstFolder": [
+    "folder",
+    "open folder"
+  ],
+  "actionViewSkinsFolder": [
+    "skins",
+    "open skins"
+  ],
+  "actionViewWidgetThemeFolder": [
+    "widget themes",
+    "open widget themes"
+  ]
+}

@@ -59,6 +59,21 @@ bundle_bot_server() {
 
 bundle_bot_server "$install_dir"
 
+# Bundle ONNX Runtime for the palette's natural-language mode.
+# ONNXRUNTIME_DYLIB points at the downloaded dylib (set by CI); the
+# existing sign loops below cover Frameworks contents automatically.
+if [[ -n ${ONNXRUNTIME_DYLIB:-} ]]; then
+    [[ -f $ONNXRUNTIME_DYLIB ]] || { echo "ONNX Runtime dylib not found: $ONNXRUNTIME_DYLIB" >&2; exit 1; }
+    ort_name=$(basename "$ONNXRUNTIME_DYLIB")
+    cp -f "$ONNXRUNTIME_DYLIB" "$app/Contents/Frameworks/$ort_name"
+    chmod +w "$app/Contents/Frameworks/$ort_name"
+    install_name_tool -id "@rpath/$ort_name" "$app/Contents/Frameworks/$ort_name"
+    ort_linked=$(otool -L "$app_executable" | awk '/libonnxruntime/ {print $1; exit}')
+    if [[ -n $ort_linked ]]; then
+        install_name_tool -change "$ort_linked" "@rpath/$ort_name" "$app_executable"
+    fi
+fi
+
 # Remove build-machine search paths.
 while IFS= read -r -d '' candidate; do
     file "$candidate" | grep -q 'Mach-O' || continue

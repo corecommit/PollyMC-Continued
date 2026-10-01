@@ -17,44 +17,28 @@
 
 #include <QDialog>
 
-#include <QKeySequence>
 #include <QList>
 
-#include <functional>
+#include "CommandRegistry.h"
 
-class QAction;
 class QLineEdit;
 class QListView;
 class QShowEvent;
 class QLabel;
+class QTimer;
 class ShortcutDelegate;
+class VoiceIntentMatcher;
+class ModelDownloader;
+class MainWindow;
 
-// One searchable command. v1 fills these from QActions; v2 can add
-// dynamic entries (e.g. per-instance) without touching the palette.
-struct CommandEntry {
-    QString text;
-    QKeySequence shortcut;
-    std::function<bool()> isEnabled;
-    std::function<void()> trigger;
-    QAction* sourceAction = nullptr;
-    int weight = 0;
-    bool closeAfterTrigger = true;
-    // UX pass: carried for grouping/ranking, no headers shown yet
-    QString category = QStringLiteral("Other");
-    int priority = 0;
-    bool hideByDefault = false;
-
-    // v1 static set adapter. The palette never owns the action.
-    static CommandEntry fromAction(QAction* action);
-};
-
-// VS Code style command palette over a CommandEntry list.
-// The palette owns the entries but never the underlying actions.
+// VS Code style command palette over a CommandDescriptor list.
+// Entries come from CommandRegistry; the palette owns display and
+// filtering only. Actions must outlive the palette.
 class CommandPalette : public QDialog {
     Q_OBJECT
 
    public:
-    explicit CommandPalette(QList<CommandEntry> entries, QWidget* parent);
+    explicit CommandPalette(QList<CommandDescriptor> entries, MainWindow* mainWindow, QWidget* parent);
     ~CommandPalette() override;
 
    protected:
@@ -64,18 +48,34 @@ class CommandPalette : public QDialog {
    private slots:
     void onQueryChanged(const QString& query);
     void runSelected();
+    void runIntentMatcher();
+    void onModelsReady(const QString& modelDir);
+    void onModelsFailed(const QString& reason);
+    void onMatcherReady();
+    void onMatcherFailed(const QString& reason);
 
    private:
     void selectFirstRow();
     void placeOverParent();
+    void setSuggestionRow(const CommandDescriptor& entry);
+    void matchAndSuggest(const QString& query);
 
     class Model;
     class FuzzyFilter;
 
     QLineEdit* m_search = nullptr;
+    QLabel* m_badge = nullptr;
     QListView* m_list = nullptr;
     QLabel* m_count = nullptr;
     ShortcutDelegate* m_delegate = nullptr;
     Model* m_model = nullptr;
     FuzzyFilter* m_filter = nullptr;
+    QTimer* m_debounce = nullptr;
+    bool m_naturalLanguageMode = false;
+    QString m_strippedQuery;
+    VoiceIntentMatcher* m_matcher = nullptr;
+    ModelDownloader* m_downloader = nullptr;
+    MainWindow* m_mainWindow = nullptr;
+    bool m_modelsReady = false;
+    QString m_modelDir;
 };

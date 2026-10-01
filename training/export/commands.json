@@ -1,0 +1,317 @@
+{
+  "commands": [
+    {
+      "category": "Other",
+      "id": "actionAbout",
+      "static": true,
+      "text": "About %1"
+    },
+    {
+      "category": "Other",
+      "id": "actionAccountsButton",
+      "static": true,
+      "text": "Accounts"
+    },
+    {
+      "category": "Other",
+      "id": "actionAddInstance",
+      "static": true,
+      "text": "Add Instance..."
+    },
+    {
+      "category": "Other",
+      "id": "actionAddToPATH",
+      "static": true,
+      "text": "Install to PATH"
+    },
+    {
+      "category": "Other",
+      "id": "actionBackupInstance",
+      "static": true,
+      "text": "Backup Instance"
+    },
+    {
+      "category": "Other",
+      "id": "actionBots",
+      "static": true,
+      "text": "Bots"
+    },
+    {
+      "category": "Other",
+      "id": "actionChangeInstGroup",
+      "static": true,
+      "text": "Change Group..."
+    },
+    {
+      "category": "Other",
+      "id": "actionChangeInstIcon",
+      "static": true,
+      "text": "Change Icon"
+    },
+    {
+      "category": "Other",
+      "id": "actionChangeTheme",
+      "static": true,
+      "text": "Themes"
+    },
+    {
+      "category": "Other",
+      "id": "actionCheckUpdate",
+      "static": true,
+      "text": "Check for update"
+    },
+    {
+      "category": "Other",
+      "id": "actionClearMetadata",
+      "static": true,
+      "text": "Clear Metadata Cache"
+    },
+    {
+      "category": "Other",
+      "id": "actionCloseWindow",
+      "static": true,
+      "text": "Close Window"
+    },
+    {
+      "category": "Other",
+      "id": "actionCopyInstance",
+      "static": true,
+      "text": "Copy..."
+    },
+    {
+      "category": "Other",
+      "id": "actionCreateInstanceShortcut",
+      "static": true,
+      "text": "Create Shortcut"
+    },
+    {
+      "category": "Other",
+      "id": "actionDISCORD",
+      "static": true,
+      "text": "Discord Guild"
+    },
+    {
+      "category": "Other",
+      "id": "actionDeleteInstance",
+      "static": true,
+      "text": "Delete"
+    },
+    {
+      "category": "Other",
+      "id": "actionEditInstance",
+      "static": true,
+      "text": "Edit..."
+    },
+    {
+      "category": "Other",
+      "id": "actionExportInstance",
+      "static": true,
+      "text": "Export..."
+    },
+    {
+      "category": "Other",
+      "id": "actionExportInstanceFlamePack",
+      "static": true,
+      "text": "CurseForge (zip)"
+    },
+    {
+      "category": "Other",
+      "id": "actionExportInstanceMrPack",
+      "static": true,
+      "text": "Modrinth (mrpack)"
+    },
+    {
+      "category": "Other",
+      "id": "actionExportInstanceZip",
+      "static": true,
+      "text": "PollyMC-Continued (zip)"
+    },
+    {
+      "category": "Other",
+      "id": "actionFoldersButton",
+      "static": true,
+      "text": "Folders"
+    },
+    {
+      "category": "Other",
+      "id": "actionHelpButton",
+      "static": true,
+      "text": "More"
+    },
+    {
+      "category": "Other",
+      "id": "actionKillInstance",
+      "static": true,
+      "text": "Kill"
+    },
+    {
+      "category": "Other",
+      "id": "actionLaunchInstance",
+      "static": true,
+      "text": "Launch"
+    },
+    {
+      "category": "Other",
+      "id": "actionLockToolbars",
+      "static": true,
+      "text": "Lock Toolbars"
+    },
+    {
+      "category": "Other",
+      "id": "actionMATRIX",
+      "static": true,
+      "text": "Matrix Space"
+    },
+    {
+      "category": "Other",
+      "id": "actionManageAccounts",
+      "static": true,
+      "text": "Manage Accounts..."
+    },
+    {
+      "category": "Other",
+      "id": "actionMoreNews",
+      "static": true,
+      "text": "More News..."
+    },
+    {
+      "category": "Other",
+      "id": "actionNoAccountsAdded",
+      "static": true,
+      "text": "No accounts added!"
+    },
+    {
+      "category": "Other",
+      "id": "actionNoDefaultAccount",
+      "static": true,
+      "text": "No Default Account"
+    },
+    {
+      "category": "Other",
+      "id": "actionOpenWiki",
+      "static": true,
+      "text": "%1 Wiki"
+    },
+    {
+      "category": "Other",
+      "id": "actionPerformancePresets",
+      "static": true,
+      "text": "Performance Presets"
+    },
+    {
+      "category": "Other",
+      "id": "actionQuickLaunch",
+      "static": true,
+      "text": "Quick Launch"
+    },
+    {
+      "category": "Other",
+      "id": "actionREDDIT",
+      "static": true,
+      "text": "Subreddit"
+    },
+    {
+      "category": "Other",
+      "id": "actionRenameInstance",
+      "static": true,
+      "text": "Rename"
+    },
+    {
+      "category": "Other",
+      "id": "actionReportBug",
+      "static": true,
+      "text": "Report a Bug or Suggest a Feature"
+    },
+    {
+      "category": "Other",
+      "id": "actionSettings",
+      "static": true,
+      "text": "Settings..."
+    },
+    {
+      "category": "Other",
+      "id": "actionToggleStatusBar",
+      "static": true,
+      "text": "Status Bar"
+    },
+    {
+      "category": "Other",
+      "id": "actionUndoTrashInstance",
+      "static": true,
+      "text": "Undo Last Instance Deletion"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewCentralModsFolder",
+      "static": true,
+      "text": "Central Mods"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewCrashReports",
+      "static": true,
+      "text": "Crash Reports"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewIconThemeFolder",
+      "static": true,
+      "text": "Icon Theme"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewIconsFolder",
+      "static": true,
+      "text": "Instance Icons"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewInstanceFolder",
+      "static": true,
+      "text": "Instances"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewJavaFolder",
+      "static": true,
+      "text": "Java"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewLauncherRootFolder",
+      "static": true,
+      "text": "Launcher Root"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewLog",
+      "static": true,
+      "text": "View logs"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewLogsFolder",
+      "static": true,
+      "text": "Logs"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewSelectedInstFolder",
+      "static": true,
+      "text": "Folder"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewSkinsFolder",
+      "static": true,
+      "text": "Skins"
+    },
+    {
+      "category": "Other",
+      "id": "actionViewWidgetThemeFolder",
+      "static": true,
+      "text": "Widget Themes"
+    }
+  ],
+  "version": 1
+}

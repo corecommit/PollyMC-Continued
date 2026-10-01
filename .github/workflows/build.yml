@@ -232,6 +232,18 @@ jobs:
           cmake --install /tmp/cmark-0.31.2/build
           ls -la /mingw64/bin/cmark.exe /mingw64/lib/libcmark.dll.a /mingw64/lib/cmake/cmark/
 
+      - name: Download ONNX Runtime
+        run: |
+          set -euo pipefail
+          # MSYS2 MinGW package (same compiler/CRT as our build). The
+          # official MSVC zip is deliberately NOT used: its import lib
+          # targets a different CRT, and our C++ API usage (exceptions
+          # across the DLL boundary) is not safe with it.
+          pacman -S --noconfirm --needed mingw-w64-x86_64-onnxruntime
+          ORT_PREFIX=/mingw64
+          test -f "$ORT_PREFIX/include/onnxruntime_cxx_api.h"
+          echo "ORT_ROOT=${ORT_PREFIX}" >> "$GITHUB_ENV"
+
       - name: Configure
         run: |
           set -euo pipefail
@@ -239,6 +251,7 @@ jobs:
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=install \
             -DCMAKE_SYSTEM_LIBRARY_PATH=/mingw64/bin \
+            -Donnxruntime_ROOT="$(cygpath -w "$ORT_ROOT")" \
             -DCMAKE_CXX_FLAGS="-Wno-error" \
             -DCMAKE_C_FLAGS="-Wno-error" \
             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
@@ -266,6 +279,16 @@ jobs:
           rm -f install/bot-server/.gitignore
           # node_modules is not bundled; installed on first use from the Bot Manager
           rm -rf install/bot-server/node_modules
+
+      - name: Bundle ONNX Runtime
+        run: |
+          set -euo pipefail
+          # windeployqt will not pick this up on its own; copy explicitly
+          # next to pollymc.exe. MSYS2 installs the DLLs in bin/.
+          # Runs before Deploy Qt so the DLL dependency scan below
+          # also validates it.
+          cp -f "$ORT_ROOT"/bin/onnxruntime*.dll install/
+          ls install/onnxruntime*.dll
 
       - name: Deploy Qt
         run: |
@@ -451,6 +474,7 @@ jobs:
             qt6-image-formats-plugins \
             extra-cmake-modules \
             libtomlplusplus-dev libcmark-dev libqrencode-dev cmark \
+            libonnxruntime-dev \
             libquazip1-qt6-dev libarchive-dev zlib1g-dev \
             libcurl4-openssl-dev libssl-dev libpng-dev \
             liblz4-dev liblzma-dev libbz2-dev libzstd-dev \
@@ -548,6 +572,16 @@ jobs:
           cp -L /usr/lib/x86_64-linux-gnu/libcrypto.so.* appdir/usr/lib/ 2>/dev/null || true
           cp -L /usr/lib/x86_64-linux-gnu/libgamemode.so.* appdir/usr/lib/ 2>/dev/null || true
           cp -L /usr/lib/x86_64-linux-gnu/libgamemodeauto.so.* appdir/usr/lib/ 2>/dev/null || true
+          # ONNX Runtime for the palette's natural-language mode. Resolved
+          # dynamically like the versioned libs above (SONAME carries the
+          # ORT version, which changes per release).
+          ORT_SO=$(ldconfig -p 2>/dev/null | awk '/libonnxruntime\.so\./ {print $NF; exit}')
+          if [ -z "$ORT_SO" ]; then
+            echo "::error::Could not resolve libonnxruntime.so on the build runner; install libonnxruntime-dev."
+            exit 1
+          fi
+          cp -L "$ORT_SO" appdir/usr/lib/
+          echo "DEBUG: bundled onnxruntime <- $ORT_SO"
 
           # Bundle all Qt image format plugins
           mkdir -p appdir/usr/plugins/imageformats
@@ -669,6 +703,17 @@ jobs:
             echo "DEBUG: bundled $lib <- $SRC"
           done
 
+          # ONNX Runtime next to the binary (RPATH $ORIGIN finds it there).
+          # Same dynamic resolution as above; the guard below enforces it.
+          ORT_SO=$(ldconfig -p 2>/dev/null | awk '/libonnxruntime\.so\./ {print $NF; exit}')
+          if [ -z "$ORT_SO" ]; then
+            echo "::error::Could not resolve libonnxruntime.so on the build runner; install libonnxruntime-dev."
+            exit 1
+          fi
+          cp -L "$ORT_SO" /tmp/pollymc/bin/
+          ORT_BASENAME=$(basename "$ORT_SO")
+          echo "DEBUG: bundled onnxruntime <- $ORT_SO"
+
           cp "$GITHUB_WORKSPACE/program_info/portable.txt" /tmp/pollymc/portable.txt
           find /tmp/pollymc -mindepth 1 -maxdepth 1 -printf '%P\n' | sort > /tmp/pollymc/manifest.txt
           tar -czf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" -C /tmp/pollymc .
@@ -683,6 +728,10 @@ jobs:
               exit 1
             fi
           done
+          if ! tar -tzf "PollyMC-Continued-${VERSION}-Linux-x86_64.tar.gz" | sed 's|^\./||' | grep -qx "bin/$ORT_BASENAME"; then
+            echo "::error::libonnxruntime ($ORT_BASENAME) missing from packaged tarball (not in bin/)"
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -818,6 +867,20 @@ jobs:
           restore-keys: |
             ccache-macos-
 
+      - name: Download ONNX Runtime
+        run: |
+          set -euo pipefail
+          # Pinned version; keep in sync with the Windows/Linux sites.
+          ORT_VERSION="1.22.0"
+          curl -fsSL -o "$RUNNER_TEMP/ort.tgz" \
+            "https://github.com/microsoft/onnxruntime/releases/download/v${ORT_VERSION}/onnxruntime-osx-arm64-${ORT_VERSION}.tgz"
+          rm -rf "$RUNNER_TEMP/ort" && mkdir -p "$RUNNER_TEMP/ort"
+          tar -xzf "$RUNNER_TEMP/ort.tgz" -C "$RUNNER_TEMP/ort"
+          ORT_ROOT=$(echo "$RUNNER_TEMP"/ort/onnxruntime-osx-arm64-*)
+          test -f "$ORT_ROOT/lib/"libonnxruntime.*.dylib
+          test -f "$ORT_ROOT/include/onnxruntime_cxx_api.h"
+          echo "ORT_ROOT=${ORT_ROOT}" >> "$GITHUB_ENV"
+
       - name: Configure
         run: |
           set -euo pipefail
@@ -825,6 +888,7 @@ jobs:
           cmake -G Ninja \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=install \
+            -Donnxruntime_ROOT="$ORT_ROOT" \
             -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOSX_DEPLOYMENT_TARGET" \
             -DCMAKE_OSX_ARCHITECTURES="arm64" \
             -DLauncher_BUILD_RELEASE=ON \
@@ -891,6 +955,7 @@ jobs:
           APPLE_NOTARIZE_APPLE_ID: ${{ secrets.APPLE_NOTARIZE_APPLE_ID }}
           APPLE_NOTARIZE_TEAM_ID: ${{ secrets.APPLE_NOTARIZE_TEAM_ID }}
           APPLE_NOTARIZE_PASSWORD: ${{ secrets.APPLE_NOTARIZE_PASSWORD }}
+          ONNXRUNTIME_DYLIB: ${{ env.ORT_ROOT }}/lib/libonnxruntime.dylib
         run: |
           set -euo pipefail
           chmod +x packaging/macos/package.sh
@@ -1144,3 +1209,29 @@ jobs:
           echo "::error::Failed to push version update after 5 attempts."
           exit 1
 
+
+      - name: Regenerate intent embeddings
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Static command list (no build tree in this job); the
+          # command-registry-dump tool covers runtime truth locally.
+          python3 training/gen_commands.py
+          python3 training/generate_paraphrases.py
+          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu sentence-transformers
+          python3 training/build_embeddings.py
+          # Vectors + labels refresh every release. The ~120 MB model file
+          # only changes when the embedder changes, so it is uploaded once
+          # by hand to the voice-models tag instead of every release.
+          for f in training/export/embeddings.json training/export/labels.json; do
+            test -s "$f" || { echo "::error::Missing $f after embedding build."; exit 1; }
+          done
+          if gh release view voice-models >/dev/null 2>&1; then
+            gh release upload voice-models training/export/embeddings.json training/export/labels.json --clobber
+          else
+            gh release create voice-models training/export/embeddings.json training/export/labels.json \
+              --title "Voice intent models" \
+              --notes "Precomputed command embeddings and labels. Model file uploaded separately."
+          fi

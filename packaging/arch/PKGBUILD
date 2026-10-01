@@ -21,6 +21,7 @@ depends=(
     'glibc'
     'libarchive'
     'libpng'
+    'onnxruntime'
     'qrencode'
     'openssl'
     'tomlplusplus'

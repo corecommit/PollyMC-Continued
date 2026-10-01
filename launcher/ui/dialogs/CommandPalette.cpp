@@ -16,7 +16,7 @@
 #include "CommandPalette.h"
 
 #include <QAction>
-#include <QApplication>
+#include <QFile>
 #include <QFont>
 #include <QFontMetrics>
 #include <QKeyEvent>
@@ -32,18 +32,13 @@
 #include <QTimer>
 #include <QVBoxLayout>
 
-CommandEntry CommandEntry::fromAction(QAction* action)
-{
-    CommandEntry entry;
-    entry.text = QString(action->text()).remove('&');
-    if (entry.text.isEmpty())
-        entry.text = action->objectName();
-    entry.shortcut = action->shortcut();
-    entry.sourceAction = action;
-    entry.isEnabled = [action] { return action->isEnabled(); };
-    entry.trigger = [action] { action->trigger(); };
-    return entry;
-}
+#include "Application.h"
+#include "InstanceList.h"
+#include "meta/Index.h"
+#include "meta/VersionList.h"
+#include "ui/MainWindow.h"
+#include "voice/ModelDownloader.h"
+#include "voice/VoiceIntentMatcher.h"
 
 // Score: higher wins. Exact prefix > word boundary > substring > scattered.
 static int fuzzyScore(const QString& needle, const QString& haystack, bool& matched)
@@ -151,13 +146,34 @@ class ShortcutDelegate : public QStyledItemDelegate {
 
 class CommandPalette::Model : public QAbstractListModel {
    public:
-    explicit Model(QList<CommandEntry> entries, QObject* parent = nullptr) : QAbstractListModel(parent), m_entries(std::move(entries)) {}
-    int rowCount(const QModelIndex& parent = QModelIndex()) const override { return parent.isValid() ? 0 : m_entries.size(); }
+    explicit Model(QList<CommandDescriptor> entries, QObject* parent = nullptr) : QAbstractListModel(parent), m_entries(std::move(entries)) {}
+    int rowCount(const QModelIndex& parent = QModelIndex()) const override
+    {
+        if (parent.isValid())
+            return 0;
+        return m_entries.size() + (m_hasSuggestion ? 1 : 0);
+    }
+    void setSuggestion(const CommandDescriptor& entry)
+    {
+        beginResetModel();
+        m_suggestion = entry;
+        m_hasSuggestion = true;
+        endResetModel();
+    }
+    void clearSuggestion()
+    {
+        if (!m_hasSuggestion)
+            return;
+        beginResetModel();
+        m_hasSuggestion = false;
+        endResetModel();
+    }
+    bool hasSuggestion() const { return m_hasSuggestion; }
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override
     {
-        if (!index.isValid() || index.row() < 0 || index.row() >= m_entries.size())
+        if (!index.isValid())
             return {};
-        const auto& e = m_entries.at(index.row());
+        const CommandDescriptor& e = entryAt(index.row());
         if (role == Qt::DisplayRole)
             return e.text;
         if (role == Qt::DecorationRole)
@@ -169,10 +185,18 @@ class CommandPalette::Model : public QAbstractListModel {
             return e.isEnabled ? e.isEnabled() : true;
         return {};
     }
-    const CommandEntry& entryAt(int row) const { return m_entries.at(row); }
+    const CommandDescriptor& entryAt(int row) const
+    {
+        if (m_hasSuggestion)
+            return row == 0 ? m_suggestion : m_entries.at(row - 1);
+        return m_entries.at(row);
+    }
+    const QList<CommandDescriptor>& allEntries() const { return m_entries; }
 
    private:
-    QList<CommandEntry> m_entries;
+    QList<CommandDescriptor> m_entries;
+    CommandDescriptor m_suggestion;
+    bool m_hasSuggestion = false;
 };
 
 class CommandPalette::FuzzyFilter : public QSortFilterProxyModel {
@@ -189,7 +213,10 @@ class CommandPalette::FuzzyFilter : public QSortFilterProxyModel {
     bool filterAcceptsRow(int row, const QModelIndex& parent) const override
     {
         Q_UNUSED(parent);
-        const CommandEntry& e = static_cast<const Model*>(sourceModel())->entryAt(row);
+        const auto* model = static_cast<const Model*>(sourceModel());
+        if (model->hasSuggestion() && row == 0)
+            return true;
+        const CommandDescriptor& e = model->entryAt(row);
         if (e.hideByDefault) {
             // hidden unless the query matches at word boundary or better
             if (m_query.isEmpty())
@@ -207,6 +234,13 @@ class CommandPalette::FuzzyFilter : public QSortFilterProxyModel {
     bool lessThan(const QModelIndex& left, const QModelIndex& right) const override
     {
         const auto* model = static_cast<const Model*>(sourceModel());
+        // synthetic suggestion row always sorts first
+        if (model->hasSuggestion()) {
+            if (left.row() == 0 && right.row() != 0)
+                return true;
+            if (right.row() == 0 && left.row() != 0)
+                return false;
+        }
         if (m_query.isEmpty()) {
             // curated shortlist: prioritized actions first, rest in order
             const int pl = model->entryAt(left.row()).priority;
@@ -231,7 +265,8 @@ class CommandPalette::FuzzyFilter : public QSortFilterProxyModel {
     QString m_query;
 };
 
-CommandPalette::CommandPalette(QList<CommandEntry> entries, QWidget* parent) : QDialog(parent)
+CommandPalette::CommandPalette(QList<CommandDescriptor> entries, MainWindow* mainWindow, QWidget* parent)
+    : QDialog(parent), m_mainWindow(mainWindow)
 {
     setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     setModal(true);
@@ -249,6 +284,10 @@ CommandPalette::CommandPalette(QList<CommandEntry> entries, QWidget* parent) : Q
     m_search->setFont(searchFont);
     m_search->installEventFilter(this);
     layout->addWidget(m_search);
+
+    m_badge = new QLabel(tr("Natural language"), this);
+    m_badge->setVisible(false);
+    layout->addWidget(m_badge);
 
     m_count = new QLabel(this);
     m_count->setAlignment(Qt::AlignRight);
@@ -276,6 +315,10 @@ CommandPalette::CommandPalette(QList<CommandEntry> entries, QWidget* parent) : Q
 
     connect(m_search, &QLineEdit::textChanged, this, &CommandPalette::onQueryChanged);
     connect(m_list, &QListView::activated, this, &CommandPalette::runSelected);
+    m_debounce = new QTimer(this);
+    m_debounce->setSingleShot(true);
+    m_debounce->setInterval(400);
+    connect(m_debounce, &QTimer::timeout, this, &CommandPalette::runIntentMatcher);
 }
 
 CommandPalette::~CommandPalette() = default;
@@ -340,6 +383,10 @@ bool CommandPalette::eventFilter(QObject* obj, QEvent* event)
                 runSelected();
                 return true;
             }
+            if (key->key() == Qt::Key_Tab && m_naturalLanguageMode && m_model->hasSuggestion()) {
+                m_list->setCurrentIndex(m_filter->index(0, 0));
+                return true;
+            }
         }
     }
     return QDialog::eventFilter(obj, event);
@@ -347,13 +394,264 @@ bool CommandPalette::eventFilter(QObject* obj, QEvent* event)
 
 void CommandPalette::onQueryChanged(const QString& query)
 {
-    m_filter->setQuery(query);
-    m_delegate->setQuery(query);
+    m_model->clearSuggestion();
+    // NOTE: '?' is always the mode prefix, even mid-query. A command
+    // whose name genuinely starts with '?' cannot be found this way;
+    // that is accepted (no launcher action does).
+    if (!query.isEmpty() && query.startsWith('?')) {
+        m_naturalLanguageMode = true;
+        m_badge->setVisible(true);
+        m_strippedQuery = query.mid(1);
+        m_filter->setQuery(m_strippedQuery);
+        m_debounce->start();
+    } else {
+        m_naturalLanguageMode = false;
+        m_badge->setVisible(false);
+        m_strippedQuery.clear();
+        m_filter->setQuery(query);
+    }
     m_filter->sort(0);
+    m_delegate->setQuery(m_naturalLanguageMode ? m_strippedQuery : query);
     m_count->setText(tr("%1 of %2").arg(m_filter->rowCount()).arg(m_model->rowCount()));
     m_count->setVisible(!query.isEmpty());
     m_list->viewport()->update();
-    selectFirstRow();
+    if (!m_naturalLanguageMode)
+        selectFirstRow();
+}
+
+void CommandPalette::runIntentMatcher()
+{
+    if (!m_naturalLanguageMode)
+        return;
+    const QString query = m_strippedQuery.trimmed();
+    if (query.isEmpty()) {
+        // bare "?": hint row, matcher stays idle
+        CommandDescriptor hint;
+        hint.text = tr("Type your query...");
+        hint.isEnabled = [] { return false; };
+        setSuggestionRow(hint);
+        return;
+    }
+    if (!m_downloader) {
+        m_downloader = new ModelDownloader(this);
+        connect(m_downloader, &ModelDownloader::ready, this, &CommandPalette::onModelsReady);
+        connect(m_downloader, &ModelDownloader::failed, this, &CommandPalette::onModelsFailed);
+    }
+    if (!m_matcher) {
+        m_matcher = new VoiceIntentMatcher(this);
+        connect(m_matcher, &VoiceIntentMatcher::loaded, this, &CommandPalette::onMatcherReady);
+        connect(m_matcher, &VoiceIntentMatcher::loadFailed, this, &CommandPalette::onMatcherFailed);
+    }
+    if (!m_modelsReady) {
+        CommandDescriptor waiting;
+        waiting.text = tr("Preparing language model...");
+        waiting.isEnabled = [] { return false; };
+        setSuggestionRow(waiting);
+        m_downloader->ensureModelsPresent(this);
+        return;
+    }
+    if (!m_matcher->isLoaded()) {
+        CommandDescriptor waiting;
+        waiting.text = tr("Preparing language model...");
+        waiting.isEnabled = [] { return false; };
+        setSuggestionRow(waiting);
+        m_matcher->load(m_modelDir + "/intent-model-int8.onnx", m_modelDir + "/embeddings.json");
+        return;
+    }
+    matchAndSuggest(query);
+}
+
+void CommandPalette::setSuggestionRow(const CommandDescriptor& entry)
+{
+    m_model->setSuggestion(entry);
+    m_filter->sort(0);
+    m_list->viewport()->update();
+}
+
+namespace {
+// Strip leading action verbs so "launch all the mods" matches the instance.
+QString stripLaunchVerbs(const QString& query)
+{
+    static const QStringList verbs = { "launch", "start", "play", "open" };
+    QString out = query.trimmed();
+    for (const QString& verb : verbs) {
+        if (out.startsWith(verb, Qt::CaseInsensitive) &&
+            (out.length() == verb.length() || out.at(verb.length()).isSpace())) {
+            out = out.mid(verb.length()).trimmed();
+            break;
+        }
+    }
+    return out;
+}
+
+struct InstanceTarget {
+    QString id;
+    QString name;
+    int score = -1;
+    bool found = false;
+};
+
+InstanceTarget fuzzyInstance(const QString& text)
+{
+    InstanceTarget best;
+    auto* list = APPLICATION->instances();
+    for (int i = 0; i < list->count(); i++) {
+        auto* inst = list->at(i);
+        bool matched = false;
+        const int score = fuzzyScore(text, inst->name(), matched);
+        if (matched && score > best.score) {
+            best.id = inst->id();
+            best.name = inst->name();
+            best.score = score;
+            best.found = true;
+        }
+    }
+    return best;
+}
+
+// Minecraft version match, only when the list is already loaded
+// (never triggers a network fetch from the palette).
+QString fuzzyVersion(const QString& text)
+{
+    auto list = APPLICATION->metadataIndex()->get("net.minecraft");
+    if (!list || !list->isLoaded())
+        return {};
+    QString best;
+    int bestScore = -1;
+    for (int i = 0; i < list->count(); i++) {
+        const QString ver = list->at(i)->descriptor();
+        bool matched = false;
+        const int score = fuzzyScore(text, ver, matched);
+        if (matched && score > bestScore) {
+            bestScore = score;
+            best = ver;
+        }
+    }
+    return best;
+}
+}  // namespace
+
+void CommandPalette::onModelsReady(const QString& modelDir)
+{
+    m_modelsReady = true;
+    m_modelDir = modelDir;
+    if (!m_naturalLanguageMode || !m_matcher)
+        return;
+    if (m_matcher->isLoaded())
+        matchAndSuggest(m_strippedQuery.trimmed());
+    else
+        m_matcher->load(m_modelDir + "/intent-model-int8.onnx", m_modelDir + "/embeddings.json");
+}
+
+void CommandPalette::onModelsFailed(const QString& reason)
+{
+    if (!m_naturalLanguageMode)
+        return;
+    CommandDescriptor msg;
+    if (reason == "declined") {
+        msg.text = tr("Model download declined. Natural language search needs a one-time download; type ? again to retry.");
+    } else {
+        msg.text = tr("Language model unavailable (%1).").arg(reason);
+    }
+    msg.isEnabled = [] { return false; };
+    setSuggestionRow(msg);
+}
+
+void CommandPalette::onMatcherReady()
+{
+    if (m_naturalLanguageMode && m_matcher)
+        matchAndSuggest(m_strippedQuery.trimmed());
+}
+
+void CommandPalette::onMatcherFailed(const QString& reason)
+{
+    Q_UNUSED(reason);
+    if (!m_naturalLanguageMode)
+        return;
+    // Corrupt download: drop the model file so the next attempt
+    // re-downloads instead of failing the same way forever.
+    // Embeddings/tokenizer stay; only the ONNX blob is suspect.
+    QFile::remove(m_modelDir + "/intent-model-int8.onnx");
+    m_modelsReady = false;
+    CommandDescriptor msg;
+    msg.text = tr("Language model file was corrupted and removed. Type ? again to re-download.");
+    msg.isEnabled = [] { return false; };
+    setSuggestionRow(msg);
+}
+
+void CommandPalette::matchAndSuggest(const QString& query)
+{
+    if (!m_naturalLanguageMode || !m_matcher || !m_matcher->isLoaded() || query.isEmpty())
+        return;
+    const auto result = m_matcher->match(query);
+    if (!result.matched) {
+        CommandDescriptor empty;
+        empty.text = tr("No matching command found. Try typing without '?' to search by name.");
+        empty.isEnabled = [] { return false; };
+        setSuggestionRow(empty);
+        return;
+    }
+    const CommandDescriptor* action = nullptr;
+    for (const auto& e : m_model->allEntries()) {
+        if (e.id == result.id) {
+            action = &e;
+            break;
+        }
+    }
+    if (!action) {
+        CommandDescriptor empty;
+        empty.text = tr("No matching command found. Try typing without '?' to search by name.");
+        empty.isEnabled = [] { return false; };
+        setSuggestionRow(empty);
+        return;
+    }
+    const int pct = int(result.similarity * 100.0f + 0.5f);
+    if (result.id == "actionLaunchInstance" || result.id == "actionKillInstance" ||
+        result.id == "actionEditInstance" || result.id == "actionDeleteInstance") {
+        const InstanceTarget target = fuzzyInstance(stripLaunchVerbs(query));
+        CommandDescriptor suggestion;
+        if (target.found) {
+            suggestion.text = tr("%1: %2 (%3%)").arg(action->text, target.name).arg(pct);
+            const CommandDescriptor act = *action;
+            const QString instId = target.id;
+            MainWindow* mw = m_mainWindow;
+            suggestion.isEnabled = act.isEnabled;
+            suggestion.trigger = [mw, instId, act] {
+                if (mw)
+                    mw->triggerInstanceAction(instId, act.sourceAction);
+            };
+            setSuggestionRow(suggestion);
+            return;
+        }
+        if (result.id == "actionLaunchInstance") {
+            const QString ver = fuzzyVersion(stripLaunchVerbs(query));
+            if (!ver.isEmpty()) {
+                const CommandDescriptor* addAction = nullptr;
+                for (const auto& e : m_model->allEntries()) {
+                    if (e.id == "actionAddInstance") {
+                        addAction = &e;
+                        break;
+                    }
+                }
+                if (addAction) {
+                    suggestion.text = tr("New instance with %1 (%2%)").arg(ver).arg(pct);
+                    suggestion.isEnabled = addAction->isEnabled;
+                    suggestion.trigger = addAction->trigger;
+                    setSuggestionRow(suggestion);
+                    return;
+                }
+            }
+        }
+        suggestion.text = tr("%1: no matching instance").arg(action->text);
+        suggestion.isEnabled = [] { return false; };
+        setSuggestionRow(suggestion);
+        return;
+    }
+    CommandDescriptor suggestion;
+    suggestion.text = tr("Intent: %1 (%2%)").arg(action->text).arg(pct);
+    suggestion.isEnabled = action->isEnabled;
+    suggestion.trigger = action->trigger;
+    setSuggestionRow(suggestion);
 }
 
 void CommandPalette::selectFirstRow()
@@ -367,7 +665,7 @@ void CommandPalette::runSelected()
     const QModelIndex proxyIndex = m_list->currentIndex();
     if (!proxyIndex.isValid())
         return;
-    const CommandEntry entry = m_model->entryAt(m_filter->mapToSource(proxyIndex).row());
+    const CommandDescriptor entry = m_model->entryAt(m_filter->mapToSource(proxyIndex).row());
     if (entry.isEnabled && !entry.isEnabled())
         return;
     // close first so the action runs without the modal dialog in the way
