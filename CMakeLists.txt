@@ -359,10 +359,20 @@ endif()
 find_package(ZLIB REQUIRED)
 
 # ONNX Runtime for the palette's natural-language intent matcher.
-# Official builds ship no CMake config. Layouts differ per platform
+# NOTE: the official prebuilt zips ship a CMake config, but it hardcodes
+# a lib64/ layout that does not match the archive contents, so whenever
+# onnxruntime_ROOT is given (CI downloads) the config is bypassed and the
+# manual search below is used instead. Layouts differ per platform
 # (flat include/ vs include/onnxruntime/), so search both explicitly
 # and never fall through to unrelated system paths.
-find_package(onnxruntime QUIET)
+if(onnxruntime_ROOT)
+    set(ORT_USE_CONFIG FALSE)
+else()
+    set(ORT_USE_CONFIG TRUE)
+endif()
+if(ORT_USE_CONFIG)
+    find_package(onnxruntime QUIET)
+endif()
 if(NOT onnxruntime_FOUND)
     find_path(onnxruntime_INCLUDE_DIR NAMES onnxruntime_cxx_api.h
         HINTS ${onnxruntime_ROOT}/include ${onnxruntime_ROOT}/include/onnxruntime
