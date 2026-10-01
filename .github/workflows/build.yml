@@ -162,39 +162,40 @@ jobs:
       - name: Setup MSYS2
         uses: msys2/setup-msys2@v2
         with:
-          msystem: MINGW64
+          msystem: UCRT64
           update: true
           install: >-
-            mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-cmake
-            mingw-w64-x86_64-ninja
-            mingw-w64-x86_64-qt6-base
-            mingw-w64-x86_64-qt6-svg
-            mingw-w64-x86_64-qt6-5compat
-            mingw-w64-x86_64-qt6-networkauth
-            mingw-w64-x86_64-qt6-websockets
-            mingw-w64-x86_64-extra-cmake-modules
-            mingw-w64-x86_64-tomlplusplus
-            mingw-w64-x86_64-qrencode
-            mingw-w64-x86_64-libarchive
-            mingw-w64-x86_64-zlib
-            mingw-w64-x86_64-curl
-            mingw-w64-x86_64-openssl
-            mingw-w64-x86_64-libpng
-            mingw-w64-x86_64-lz4
-            mingw-w64-x86_64-xz
-            mingw-w64-x86_64-bzip2
-            mingw-w64-x86_64-zstd
-            mingw-w64-x86_64-brotli
-            mingw-w64-x86_64-nghttp2
-            mingw-w64-x86_64-libssh2
-            mingw-w64-x86_64-expat
-            mingw-w64-x86_64-libiconv
-            mingw-w64-x86_64-libb2
-            mingw-w64-x86_64-libidn2
-            mingw-w64-x86_64-sqlite3
-            mingw-w64-x86_64-nsis
-            mingw-w64-x86_64-ccache
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-cmake
+            mingw-w64-ucrt-x86_64-ninja
+            mingw-w64-ucrt-x86_64-qt6-base
+            mingw-w64-ucrt-x86_64-qt6-svg
+            mingw-w64-ucrt-x86_64-qt6-5compat
+            mingw-w64-ucrt-x86_64-qt6-networkauth
+            mingw-w64-ucrt-x86_64-qt6-websockets
+            mingw-w64-ucrt-x86_64-extra-cmake-modules
+            mingw-w64-ucrt-x86_64-tomlplusplus
+            mingw-w64-ucrt-x86_64-qrencode
+            mingw-w64-ucrt-x86_64-libarchive
+            mingw-w64-ucrt-x86_64-zlib
+            mingw-w64-ucrt-x86_64-curl
+            mingw-w64-ucrt-x86_64-openssl
+            mingw-w64-ucrt-x86_64-libpng
+            mingw-w64-ucrt-x86_64-lz4
+            mingw-w64-ucrt-x86_64-xz
+            mingw-w64-ucrt-x86_64-bzip2
+            mingw-w64-ucrt-x86_64-zstd
+            mingw-w64-ucrt-x86_64-brotli
+            mingw-w64-ucrt-x86_64-nghttp2
+            mingw-w64-ucrt-x86_64-libssh2
+            mingw-w64-ucrt-x86_64-expat
+            mingw-w64-ucrt-x86_64-libiconv
+            mingw-w64-ucrt-x86_64-libb2
+            mingw-w64-ucrt-x86_64-libidn2
+            mingw-w64-ucrt-x86_64-sqlite3
+            mingw-w64-ucrt-x86_64-nsis
+            mingw-w64-ucrt-x86_64-ccache
+            mingw-w64-ucrt-x86_64-onnxruntime
 
       - name: Cache ccache
         uses: actions/cache@v5
@@ -467,6 +468,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
+          sudo add-apt-repository -y universe
           sudo apt-get install -y \
             build-essential cmake ninja-build pkg-config \
             qt6-base-dev qt6-svg-dev qt6-5compat-dev qt6-networkauth-dev \
@@ -881,6 +883,12 @@ jobs:
           test -f "$ORT_ROOT/include/onnxruntime_cxx_api.h"
           echo "ORT_ROOT=${ORT_ROOT}" >> "$GITHUB_ENV"
 
+      - name: Fix ONNX Runtime CMake config (known upstream bug)
+        run: |
+          set -euo pipefail
+          mkdir -p "$ORT_ROOT/include/onnxruntime"
+          ln -sf "$ORT_ROOT/include/"*.h "$ORT_ROOT/include/onnxruntime/"
+
       - name: Configure
         run: |
           set -euo pipefail
@@ -1009,6 +1017,7 @@ jobs:
             libarchive libpng qrencode openssl tomlplusplus zlib zstd \
             lz4 xz bzip2 gamemode mangohud \
             cmark jdk17-openjdk vulkan-headers
+            onnxruntime
 
       - name: Build Arch package
         run: |
