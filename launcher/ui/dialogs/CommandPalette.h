@@ -16,6 +16,7 @@
 #pragma once
 
 #include <QDialog>
+#include <QHideEvent>
 
 #include <QList>
 
@@ -23,6 +24,7 @@
 
 class QLineEdit;
 class QListView;
+class QMouseEvent;
 class QShowEvent;
 class QLabel;
 class QTimer;

@@ -16,13 +16,16 @@
 #include "CommandPalette.h"
 
 #include <QAction>
+#include <QApplication>
 #include <QFile>
 #include <QFont>
 #include <QFontMetrics>
+#include <QHideEvent>
 #include <QKeyEvent>
 #include <QLabel>
 #include <QLineEdit>
 #include <QListView>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPalette>
 #include <QShowEvent>
@@ -329,6 +332,13 @@ void CommandPalette::showEvent(QShowEvent* event)
     QDialog::showEvent(event);
     m_search->setFocus();
     selectFirstRow();
+    qApp->installEventFilter(this);
+}
+
+void CommandPalette::hideEvent(QHideEvent* event)
+{
+    qApp->removeEventFilter(this);
+    QDialog::hideEvent(event);
 }
 
 void CommandPalette::placeOverParent()
@@ -385,6 +395,16 @@ bool CommandPalette::eventFilter(QObject* obj, QEvent* event)
             }
             if (key->key() == Qt::Key_Tab && m_naturalLanguageMode && m_model->hasSuggestion()) {
                 m_list->setCurrentIndex(m_filter->index(0, 0));
+                return true;
+            }
+        }
+    }
+    if (event->type() == QEvent::MouseButtonPress) {
+        const auto* mouseEvent = static_cast<QMouseEvent*>(event);
+        if (mouseEvent->button() == Qt::LeftButton) {
+            QWidget* w = qobject_cast<QWidget*>(obj);
+            if (w && w != this && !isAncestorOf(w)) {
+                reject();
                 return true;
             }
         }
