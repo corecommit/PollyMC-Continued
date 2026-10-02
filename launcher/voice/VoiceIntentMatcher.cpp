@@ -228,40 +228,57 @@ void VoiceIntentMatcher::load(const QString& modelPath, const QString& embedding
 
 std::vector<float> VoiceIntentMatcher::embed(const QString& text) const
 {
-    std::vector<QString> pieces = tokenizeText(text, m_vocab, m_unkId, kMaxLength);
-    std::vector<int64_t> ids;
-    std::vector<int64_t> mask;
-    for (const auto& piece : pieces) {
-        if (piece.isEmpty())
-            continue;
-        auto it = m_vocab.find(piece);
-        ids.push_back(it != m_vocab.end() ? *it : m_unkId);
-        mask.push_back(1);
-    }
-    if (ids.empty())
+    if (!m_ort || !m_ort->session)
         return std::vector<float>(kDim, 0.0f);
 
-    std::vector<int64_t> shape = { 1, (int64_t)ids.size() };
-    Ort::MemoryInfo mem = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
-    std::vector<Ort::Value> inputs;
-    inputs.push_back(Ort::Value::CreateTensor<int64_t>(mem, ids.data(), ids.size(), shape.data(), shape.size()));
-    inputs.push_back(Ort::Value::CreateTensor<int64_t>(mem, mask.data(), mask.size(), shape.data(), shape.size()));
+    try {
+        std::vector<QString> pieces = tokenizeText(text, m_vocab, m_unkId, kMaxLength);
+        std::vector<int64_t> ids;
+        std::vector<int64_t> mask;
+        for (const auto& piece : pieces) {
+            if (piece.isEmpty())
+                continue;
+            auto it = m_vocab.find(piece);
+            ids.push_back(it != m_vocab.end() ? *it : m_unkId);
+            mask.push_back(1);
+        }
+        if (ids.empty())
+            return std::vector<float>(kDim, 0.0f);
 
-    const char* inputNames[] = { "input_ids", "attention_mask" };
-    const char* outputNames[] = { "last_hidden_state" };
-    std::vector<Ort::Value> outputs =
-        m_ort->session->Run(Ort::RunOptions{ nullptr }, inputNames, inputs.data(), 2, outputNames, 1);
+        std::vector<int64_t> shape = { 1, (int64_t)ids.size() };
+        
+        std::vector<int64_t> tokenTypeIds(ids.size(), 0);
 
-    float* data = outputs[0].GetTensorMutableData<float>();
-    const size_t seq = ids.size();
-    std::vector<std::vector<float>> tokenVectors(seq, std::vector<float>(kDim));
-    for (size_t i = 0; i < seq; i++)
-        for (int d = 0; d < kDim; d++)
-            tokenVectors[i][d] = data[i * kDim + d];
-    std::vector<int> intMask(mask.begin(), mask.end());
-    return meanPool(tokenVectors, intMask);
+        Ort::MemoryInfo mem = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+        std::vector<Ort::Value> inputs;
+        inputs.push_back(Ort::Value::CreateTensor<int64_t>(mem, ids.data(), ids.size(), shape.data(), shape.size()));
+        inputs.push_back(Ort::Value::CreateTensor<int64_t>(mem, mask.data(), mask.size(), shape.data(), shape.size()));
+        inputs.push_back(Ort::Value::CreateTensor<int64_t>(mem, tokenTypeIds.data(), tokenTypeIds.size(), shape.data(), shape.size()));
+
+        const char* inputNames[] = { "input_ids", "attention_mask", "token_type_ids" };
+        const char* outputNames[] = { "last_hidden_state" };
+        
+        std::vector<Ort::Value> outputs =
+            m_ort->session->Run(Ort::RunOptions{ nullptr }, inputNames, inputs.data(), 3, outputNames, 1);
+
+        float* data = outputs[0].GetTensorMutableData<float>();
+        const size_t seq = ids.size();
+        std::vector<std::vector<float>> tokenVectors(seq, std::vector<float>(kDim));
+        for (size_t i = 0; i < seq; i++)
+            for (int d = 0; d < kDim; d++)
+                tokenVectors[i][d] = data[i * kDim + d];
+        std::vector<int> intMask(mask.begin(), mask.end());
+        return meanPool(tokenVectors, intMask);
+    }
+    catch (const Ort::Exception& e) {
+        qWarning() << "VoiceIntentMatcher::embed ONNX error:" << e.what();
+        return std::vector<float>(kDim, 0.0f);
+    }
+    catch (...) {
+        qWarning() << "VoiceIntentMatcher::embed failed with unknown exception";
+        return std::vector<float>(kDim, 0.0f);
+    }
 }
-
 VoiceIntentMatcher::Result VoiceIntentMatcher::match(const QString& text) const
 {
     Result result;
