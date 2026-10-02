@@ -25,16 +25,12 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QDebug>
+#include <QStringList>
 #include <QtConcurrentRun>
 
 #include <onnxruntime_cxx_api.h>
 
-// Tokenizer caveat: build time uses the real XLM-R SentencePiece
-// tokenizer (HF tokenizers). This runtime tokenizer is intentionally
-// simplified (lowercase, punctuation split, vocab lookup, ids clipped
-// to 128) so it needs no sentencepiece dependency. Train/serve skew
-// concentrates in rare subwords; the threshold absorbs most of it.
-// If match quality disappoints, this is the first place to look.
 namespace {
 constexpr int kMaxLength = 128;
 constexpr int kDim = 384;
@@ -233,6 +229,29 @@ std::vector<float> VoiceIntentMatcher::embed(const QString& text) const
 
     try {
         std::vector<QString> pieces = tokenizeText(text, m_vocab, m_unkId, kMaxLength);
+
+        // ---- TEMP DEBUG: remove after diagnosis ----
+        {
+            QStringList dbg;
+            int unkCount = 0;
+            for (const auto& p : pieces) {
+                const auto it = m_vocab.find(p);
+                if (it != m_vocab.end()) {
+                    dbg << QString("%1[%2]").arg(p).arg(*it);
+                } else {
+                    dbg << QString("%1[UNK]").arg(p);
+                    unkCount++;
+                }
+            }
+            qDebug().noquote() << QString("TOKENS for \"%1\" -> %2 (vocab=%3, pieces=%4, UNK=%5)")
+                                      .arg(text)
+                                      .arg(dbg.join(' '))
+                                      .arg(m_vocab.size())
+                                      .arg(pieces.size())
+                                      .arg(unkCount);
+        }
+        // ---- END TEMP DEBUG ----
+
         std::vector<int64_t> ids;
         std::vector<int64_t> mask;
         for (const auto& piece : pieces) {
