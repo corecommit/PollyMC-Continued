@@ -15,10 +15,13 @@
 
 #pragma once
 
-// One-time downloader for the intent-model files. Nothing downloads
-// without explicit user consent. Not registered in CMake yet; Part 7
-// owns build integration alongside ONNX Runtime.
+// Downloader for the intent-model files with ETag-based refresh.
+// Large files (onnx/tokenizer) never download without explicit user
+// consent. Small metadata files (embeddings/labels) refresh silently
+// when the server ETag differs. Offline or HEAD failure falls back to
+// whatever local files exist and never blocks the launcher.
 
+#include <QNetworkAccessManager>
 #include <QObject>
 #include <QString>
 
@@ -39,10 +42,32 @@ class ModelDownloader : public QObject {
     void ready(const QString& modelDir);
     void failed(const QString& reason);
 
-   private:
-    void startDownload(QWidget* parent);
+    private:
+    // Full download of the given file names. Only overwrites local
+    // files after the NetJob succeeds; never deletes on failure.
+    // On success merges remoteEtags into .etags.json (best effort).
+    void startDownload(QWidget* parent, const QStringList& files,
+                       const QMap<QString, QString>& remoteEtags);
     bool verifyFiles(const QString& dir, QString& reason) const;
+    // Returns names that are missing/truncated or whose server ETag
+    // differs from .etags.json. Fills remoteEtags with the HEAD
+    // results (empty value = HEAD failed, treat as "no update").
+    // Never marks a present file stale on network failure.
+    QStringList checkForUpdates(const QString& dir, QMap<QString, QString>& remoteEtags);
+    // Synchronous HTTP HEAD via the member manager (never
+    // APPLICATION->network()). Empty on error/timeout.
+    QString fetchRemoteETag(const QString& url);
+    QString etagsPath(const QString& dir) const;
+    QMap<QString, QString> loadETags(const QString& dir) const;
+    void saveETags(const QString& dir, const QMap<QString, QString>& etags) const;
+    static bool isLargeModelFile(const QString& fileName);
 
     NetJob::Ptr m_job;
     QString m_baseUrl = QStringLiteral("https://huggingface.co/corecommit/PollyMC-Voice-Models/resolve/main");
+    // Per-session cache: only one blocking HEAD round per successful
+    // resolution. Set just before emit ready() (fresh check or verified
+    // download), so declined consent or failed downloads retry next time.
+    bool m_checkedThisSession = false;
+    // Member manager reuses the TLS connection across the 4 HEADs.
+    QNetworkAccessManager m_headManager;
 };
