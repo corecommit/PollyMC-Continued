@@ -2,7 +2,7 @@ name: Build PollyMC-Continued
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, testing]
     tags: ["v*"]
   pull_request:
     branches: [main]
@@ -48,6 +48,11 @@ jobs:
           else
             echo "skip_release=false" >> "$GITHUB_OUTPUT"
             echo "DEBUG: No [skip release] found."
+          fi
+
+          if [ "${{ github.ref }}" = 'refs/heads/testing' ]; then
+            echo "skip_release=true" >> "$GITHUB_OUTPUT"
+            echo "DEBUG: testing branch, forcing skip_release=true."
           fi
 
           if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
@@ -103,6 +108,11 @@ jobs:
       - name: Check for matching CHANGELOG.md section
         run: |
           set -euo pipefail
+
+          if [ "${{ github.ref }}" = 'refs/heads/testing' ]; then
+            echo "Skipping changelog check on testing branch."
+            exit 0
+          fi
 
           if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
             EXPECTED_TAG="${{ github.ref_name }}"
