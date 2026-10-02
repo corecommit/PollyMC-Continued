@@ -19,12 +19,12 @@
 #include <QHideEvent>
 
 #include <QList>
+#include <QMouseEvent>
 
 #include "CommandRegistry.h"
 
 class QLineEdit;
 class QListView;
-class QMouseEvent;
 class QShowEvent;
 class QLabel;
 class QTimer;

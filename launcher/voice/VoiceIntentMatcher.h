@@ -47,7 +47,7 @@ class VoiceIntentMatcher : public QObject {
     Result match(const QString& text) const;
 
     bool isLoaded() const;
-    void setThreshold(float threshold);  // default 0.55
+    void setThreshold(float threshold);  // default 0.68
 
     // Pure helpers, exposed for unit tests.
     static std::vector<QString> tokenizeText(const QString& text, const QHash<QString, int>& vocab,
@@ -70,7 +70,7 @@ class VoiceIntentMatcher : public QObject {
     std::vector<float> embed(const QString& text) const;
 
     QString m_modelPath;
-    float m_threshold = 0.55f;
+    float m_threshold = 0.68f;
     bool m_tableLoaded = false;
     bool m_sessionReady = false;
 

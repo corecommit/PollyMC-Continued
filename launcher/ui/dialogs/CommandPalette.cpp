@@ -662,7 +662,8 @@ void CommandPalette::matchAndSuggest(const QString& query)
                 }
             }
         }
-        suggestion.text = tr("%1: no matching instance").arg(action->text);
+        suggestion.text =
+            tr("The phrase doesn't clearly match one command. Try typing without '?' to fuzzy-search by name, or rephrase.");
         suggestion.isEnabled = [] { return false; };
         setSuggestionRow(suggestion);
         return;

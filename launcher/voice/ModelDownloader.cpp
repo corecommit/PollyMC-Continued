@@ -80,10 +80,15 @@ void ModelDownloader::ensureModelsPresent(QWidget* parent)
         QString reason;
         if (verifyFiles(dir, reason)) {
             emit ready(dir);
-        } else {
-            emit failed(reason);
+            return;
         }
-        return;
+        if (!m_consentGiven) {
+            emit failed(reason);
+            return;
+        }
+        // Files went missing mid-session after consent: fall through to
+        // a fresh check; the consent bypass below skips the dialog.
+        m_checkedThisSession = false;
     }
     QMap<QString, QString> remoteEtags;
     const QStringList stale = checkForUpdates(dir, remoteEtags);
@@ -105,6 +110,10 @@ void ModelDownloader::ensureModelsPresent(QWidget* parent)
         startDownload(parent, stale, remoteEtags);
         return;
     }
+    if (m_consentGiven) {
+        startDownload(parent, stale, remoteEtags);
+        return;
+    }
     auto answer = QMessageBox::question(
         parent, tr("Download language model?"),
         tr("Natural language commands need a one-time download of about 130 MB "
@@ -115,6 +124,7 @@ void ModelDownloader::ensureModelsPresent(QWidget* parent)
         emit failed("declined");
         return;
     }
+    m_consentGiven = true;
     startDownload(parent, stale, remoteEtags);
 }
 

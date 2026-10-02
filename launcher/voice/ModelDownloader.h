@@ -70,4 +70,8 @@ class ModelDownloader : public QObject {
     bool m_checkedThisSession = false;
     // Member manager reuses the TLS connection across the 4 HEADs.
     QNetworkAccessManager m_headManager;
+    // Set once the user approves the large download this session, so a
+    // failed verification retries without asking again. Lives and dies
+    // with this downloader (i.e. the palette session).
+    bool m_consentGiven = false;
 };
