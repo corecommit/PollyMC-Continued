@@ -212,8 +212,18 @@ QStringList ModelDownloader::checkForUpdates(const QString& dir, QMap<QString, Q
             Q_UNUSED(minSize);
             const QString fileName = QString::fromLatin1(name);
             const QString etag = fetchRemoteETag(m_baseUrl + "/" + fileName);
-            if (!etag.isEmpty())
+            if (etag.isEmpty())
+                continue;
+            if (isLargeModelFile(fileName)) {
+                // Expensive to re-download; assume local matches server.
                 baseline.insert(fileName, etag);
+            } else {
+                // Cheap metadata; force a one-time refresh so upgraded
+                // installs pick up the new file, then baseline it.
+                baseline.insert(fileName, etag);
+                if (!stale.contains(fileName))
+                    stale.append(fileName);
+            }
         }
         if (!baseline.isEmpty())
             saveETags(dir, baseline);
