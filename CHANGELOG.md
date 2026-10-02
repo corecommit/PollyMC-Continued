@@ -10,7 +10,7 @@
 - **Bot scripting** — Attach say/wait/loop scripts to bots from the new Script tab in the Bot Manager, with a built-in step editor and per-bot run control.
 - **Natural-language command search** — Prefix a palette query with `?` to match commands by meaning instead of name, using a downloadable multilingual model that runs fully offline after a one-time download.
 
-**Fixed:**
+**Fixed:** 
 
 - **Bots no longer stay online after quit** — The bot server now disconnects all bots and exits when the launcher closes, with a parent-process watchdog as backup.
 - **Bot respawn works** — Uses the vanilla respawn packet instead of a nonexistent API call, and skips when the bot isn't dead.
