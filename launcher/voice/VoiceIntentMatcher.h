@@ -48,7 +48,7 @@ class VoiceIntentMatcher : public QObject {
     Result classify(const QString& text) const;
 
     bool isLoaded() const;
-    void setConfidenceThreshold(float t);   // default 0.6f
+    void setConfidenceThreshold(float t);   // default 0.5f
 
     // WordPiece tokenizer for distilbert-base-multilingual-cased,
     // exposed for unit tests. Returns token ids including [CLS]/[SEP],
