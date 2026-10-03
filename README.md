@@ -36,8 +36,8 @@ Auto-update is not available on macOS yet — download the latest `.dmg` or `.zi
 
 ### Linux
 
-- **AppImage** — `PollyMC-Continued-9.3.0-Linux-x86_64.AppImage`. `chmod +x` and run.
-- **Portable tarball** — `PollyMC-Continued-9.3.0-Linux-x86_64.tar.gz`. Extract, run `bin/pollymc`. Data lives in the extracted folder.
+- **AppImage** — `PollyMC-Continued-9.3.0-x86_64.AppImage`. `chmod +x` and run. Self-contained; needs glibc 2.35 or newer (Ubuntu 22.04, Debian 12, Fedora 40+, Arch).
+- **Portable tarball** — `PollyMC-Continued-9.3.0-Linux-x86_64.tar.gz`. Extract, run `bin/pollymc`. Data lives in the extracted folder. Needs glibc 2.39 or newer plus a system Qt 6.4+, because it is built on Ubuntu 24.04.
 - **DEB** — see the apt repository below, or install a downloaded `.deb` with `sudo dpkg -i`.
 - **pacman** — see the Arch repository below, or install a downloaded `.pkg.tar.zst` with `sudo pacman -U`.
 
