@@ -2,7 +2,7 @@ name: Build PollyMC-Continued
 
 on:
   push:
-    branches: [main, develop, testing]
+    branches: ["**"]
     tags: ["v*"]
   pull_request:
     branches: [main]
@@ -42,17 +42,12 @@ jobs:
             echo "DEBUG: No [skip-all] found."
           fi
 
-          if echo "$COMMITS" | grep -qF '[skip release]'; then
+          if [[ "${{ github.ref }}" = "refs/heads/main" ]] || echo "$COMMITS" | grep -qF '[skip release]'; then
             echo "skip_release=true" >> "$GITHUB_OUTPUT"
-            echo "DEBUG: [skip release] found, skipping release only."
+            echo "DEBUG: skip_release=true (non-main branch or [skip release] tag)."
           else
             echo "skip_release=false" >> "$GITHUB_OUTPUT"
-            echo "DEBUG: No [skip release] found."
-          fi
-
-          if [ "${{ github.ref }}" = 'refs/heads/testing' ]; then
-            echo "skip_release=true" >> "$GITHUB_OUTPUT"
-            echo "DEBUG: testing branch, forcing skip_release=true."
+            echo "DEBUG: No [skip release] found and branch is main."
           fi
 
           if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
@@ -109,8 +104,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [ "${{ github.ref }}" = 'refs/heads/testing' ]; then
-            echo "Skipping changelog check on testing branch."
+          if [[ "${{ github.ref }}" != "refs/heads/main" ]]; then
+            echo "Non-main branch: skipping changelog check."
             exit 0
           fi
 
