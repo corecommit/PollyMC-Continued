@@ -138,25 +138,58 @@ jobs:
           echo "=== pacman repo layout ==="
           ls -la
 
-      - name: Clear old translations content
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        run: rm -rf site/translations
-
-      - name: Compile .qm files
+      - name: Build translations into temp dir
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
-          set -e
-          mkdir -p site/translations
-          cp translations/*.ts site/translations/
-          for f in site/translations/*.ts; do
+          set -euo pipefail
+          rm -rf translations-out
+          mkdir -p translations-out
+          cp translations/*.ts translations-out/
+          for f in translations-out/*.ts; do
             key=$(basename "$f" .ts)
-            lrelease -removeidentical "$f" -qm "site/translations/mmc_${key}.qm" || true
+            lrelease -removeidentical "$f" -qm "translations-out/mmc_${key}.qm" || true
           done
-          ls -la site/translations/
+          python3 .github/workflows/make_translation_index.py translations-out/
+          ls -la translations-out/
 
-      - name: Generate index_v2.json
+      - name: Push translations to website repo
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        run: python3 .github/workflows/make_translation_index.py site/translations/
+        env:
+          WEBSITE_PAT: ${{ secrets.WEBSITE_PAT }}
+        run: |
+          set -euo pipefail
+          rm -rf website
+          # NOTE: org transfer hasn't happened yet; update to
+          # PollyMC-Continued/PollyMC-Website after the transfer.
+          git clone --depth 1 \
+            https://x-access-token:${WEBSITE_PAT}@github.com/corecommit/PollyMC-Website.git \
+            website
+          rm -rf website/public/translation
+          mkdir -p website/public/translation
+          cp translations-out/* website/public/translation/
+          cd website
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/translation
+          if git diff --staged --quiet; then
+            echo "No changes to translations"
+            exit 0
+          fi
+          git commit -m "Chore: sync translations [skip ci]"
+          for i in $(seq 1 5); do
+            if git push origin HEAD:main; then
+              echo "Pushed translations to website"
+              exit 0
+            fi
+            echo "Push rejected, rebasing (attempt $i/5)..."
+            git pull --rebase origin main
+          done
+          echo "::error::Failed to push translations after 5 attempts"
+          exit 1
+
+      - name: Clear stale translations from gh-pages
+        if: github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        run: rm -rf site/translations
 
       - name: Rebuild landing page
         run: |
