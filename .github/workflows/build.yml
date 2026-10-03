@@ -42,7 +42,7 @@ jobs:
             echo "DEBUG: No [skip-all] found."
           fi
 
-          if [[ "${{ github.ref }}" = "refs/heads/main" ]] || echo "$COMMITS" | grep -qF '[skip release]'; then
+          if [[ "${{ github.ref }}" != "refs/heads/main" ]] || echo "$COMMITS" | grep -qF '[skip release]'; then
             echo "skip_release=true" >> "$GITHUB_OUTPUT"
             echo "DEBUG: skip_release=true (non-main branch or [skip release] tag)."
           else
