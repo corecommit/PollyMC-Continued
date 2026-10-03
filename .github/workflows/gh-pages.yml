@@ -159,10 +159,8 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf website
-          # NOTE: org transfer hasn't happened yet; update to
-          # PollyMC-Continued/PollyMC-Website after the transfer.
           git clone --depth 1 \
-            https://x-access-token:${WEBSITE_PAT}@github.com/corecommit/PollyMC-Website.git \
+            https://x-access-token:${WEBSITE_PAT}@github.com/PollyMC-Continued/website.git \
             website
           rm -rf website/public/translation
           mkdir -p website/public/translation
