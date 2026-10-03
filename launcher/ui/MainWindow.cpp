@@ -152,7 +152,7 @@ QString profileInUseFilter(const QString& profile, bool used)
     }
 }
 
-const QString kStarRepoUrl = QStringLiteral("https://github.com/corecommit/PollyMC-Continued");
+const QString kStarRepoUrl = QStringLiteral("https://github.com/PollyMC-Continued/launcher");
 }  // namespace
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow)

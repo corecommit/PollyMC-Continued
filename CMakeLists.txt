@@ -200,7 +200,7 @@ set(Launcher_BUILD_NUMBER "0" CACHE STRING "Build number (CI override)")
 set(Launcher_BUILD_PLATFORM "unknown" CACHE STRING "A short string identifying the platform that this build was built for. Only used to display in the about dialog.")
 
 # Github repo URL with releases for updater
-set(Launcher_UPDATER_GITHUB_REPO "https://github.com/corecommit/PollyMC-Continued" CACHE STRING "Base github URL for the updater.")
+set(Launcher_UPDATER_GITHUB_REPO "https://github.com/PollyMC-Continued/launcher" CACHE STRING "Base github URL for the updater.")
 
 # Name to help updater identify valid artifacts
 if(WIN32)
@@ -221,7 +221,7 @@ set(Launcher_IMGUR_CLIENT_ID "5b97b0713fba4a3" CACHE STRING "Client ID you can g
 set(Launcher_BUG_TRACKER_URL "" CACHE STRING "URL for the bug tracker.")
 
 # Translations Platform URL
-set(Launcher_TRANSLATIONS_URL "https://github.com/corecommit/PollyMC-Continued" CACHE STRING "URL for the translations platform.")
+set(Launcher_TRANSLATIONS_URL "https://github.com/PollyMC-Continued/launcher" CACHE STRING "URL for the translations platform.")
 set(Launcher_TRANSLATION_FILES_URL "https://corecommit.github.io/PollyMC-Continued/translations/" CACHE STRING "URL for the translations files.")
 
 # Matrix Space

@@ -20,7 +20,7 @@ Lets you play Minecraft **without a Microsoft account** — add offline accounts
 
 ## Install
 
-Download the artifact for your platform from the [releases page](https://github.com/corecommit/PollyMC-Continued/releases).
+Download the artifact for your platform from the [releases page](https://github.com/PollyMC-Continued/launcher/releases).
 
 ### Windows
 
