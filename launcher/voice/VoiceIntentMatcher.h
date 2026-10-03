@@ -62,7 +62,10 @@ class VoiceIntentMatcher : public QObject {
 
    private:
     QString m_modelPath;
-    float m_confidenceThreshold = 0.6f;
+    // 0.5 is the empirical sweet spot. Correct predictions typically score
+    // 0.7-0.99; uncertain or wrong ones score below 0.5. Lower thresholds
+    // accept too many wrong guesses; higher thresholds reject correct ones.
+    float m_confidenceThreshold = 0.5f;
     bool m_labelsLoaded = false;
     bool m_sessionReady = false;
 
