@@ -138,18 +138,24 @@ jobs:
           echo "=== pacman repo layout ==="
           ls -la
 
-      - name: Build translations into temp dir
+      - name: Build translations
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           set -euo pipefail
-          rm -rf translations-out
-          mkdir -p translations-out
-          cp translations/*.ts translations-out/
-          for f in translations-out/*.ts; do
+          # Compile into site/translations so gh-pages keeps serving the
+          # legacy URL for older launcher builds.
+          rm -rf site/translations
+          mkdir -p site/translations
+          cp translations/*.ts site/translations/
+          for f in site/translations/*.ts; do
             key=$(basename "$f" .ts)
-            lrelease -removeidentical "$f" -qm "translations-out/mmc_${key}.qm" || true
+            lrelease -removeidentical "$f" -qm "site/translations/mmc_${key}.qm" || true
           done
-          python3 .github/workflows/make_translation_index.py translations-out/
+          python3 .github/workflows/make_translation_index.py site/translations/
+          ls -la site/translations/
+          # Mirror the same output for the website push.
+          rm -rf translations-out
+          cp -r site/translations translations-out
           ls -la translations-out/
 
       - name: Push translations to website repo
@@ -184,14 +190,10 @@ jobs:
           done
           echo "::error::Failed to push translations after 5 attempts"
           exit 1
-          
+
       - name: Trigger Vercel redeploy
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
-  
-      - name: Clear stale translations from gh-pages
-        if: github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'workflow_dispatch'
-        run: rm -rf site/translations
 
       - name: Rebuild landing page
         run: |
