@@ -428,8 +428,10 @@ void CommandPalette::onQueryChanged(const QString& query)
         m_naturalLanguageMode = false;
         m_badge->setVisible(false);
         m_strippedQuery.clear();
+        m_debounce->stop();
         m_filter->setQuery(query);
     }
+    m_filter->reapplyFilter();
     m_filter->sort(0);
     m_delegate->setQuery(m_naturalLanguageMode ? m_strippedQuery : query);
     m_count->setText(tr("%1 of %2").arg(m_filter->rowCount()).arg(m_model->rowCount()));
@@ -441,8 +443,10 @@ void CommandPalette::onQueryChanged(const QString& query)
 
 void CommandPalette::runIntentMatcher()
 {
-    if (!m_naturalLanguageMode)
+    if (!m_naturalLanguageMode) {
+        m_debounce->stop();
         return;
+    }
     const QString query = m_strippedQuery.trimmed();
     if (query.isEmpty()) {
         // bare "?": hint row, matcher stays idle
@@ -484,6 +488,7 @@ void CommandPalette::runIntentMatcher()
 void CommandPalette::setSuggestionRow(const CommandDescriptor& entry)
 {
     m_model->setSuggestion(entry);
+    m_filter->reapplyFilter();
     m_filter->sort(0);
     m_list->viewport()->update();
 }
