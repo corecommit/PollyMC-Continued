@@ -197,8 +197,15 @@ QString ModelDownloader::fetchRemoteETag(const QString& url)
     loop.exec();
     timer.stop();
     QString etag;
-    if (reply->error() == QNetworkReply::NoError)
+    if (reply->error() == QNetworkReply::NoError ||
+        reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 302)
+    {
         etag = normalizeETag(QString::fromLatin1(reply->rawHeader("ETag")));
+        if (etag.isEmpty())
+            etag = normalizeETag(QString::fromLatin1(reply->rawHeader("X-Linked-Etag")));
+        if (etag.isEmpty())
+            etag = normalizeETag(QString::fromLatin1(reply->rawHeader("X-Linked-Size")));
+    }
     qDebug() << "ETAG DEBUG for" << url;
     qDebug() << "  status:" << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     qDebug() << "  redirect to:" << reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
