@@ -15,15 +15,16 @@
 
 #pragma once
 
-// Multilingual intent matcher: MiniLM-L12 embeddings + nearest neighbor
-// over the precomputed table. Text in, command id out. Needs ONNX
-// Runtime (wired up in Part 7); this file is not yet in the build.
+// Intent classifier: DistilBERT WordPiece + argmax over command labels.
+// Text in, command id out. Needs ONNX Runtime.
 
 #include <QObject>
 #include <QHash>
 #include <QString>
+#include <QVector>
 
 #include <vector>
+#include <cstdint>
 
 class VoiceIntentMatcher : public QObject {
     Q_OBJECT
@@ -31,52 +32,44 @@ class VoiceIntentMatcher : public QObject {
    public:
     struct Result {
         QString id;
-        float similarity = 0.0f;  // cosine, query and table vectors normalized
-        bool matched = false;     // similarity >= threshold && id != "__no_match__"
+        float confidence = 0.0f;  // softmax prob of winning class
+        bool matched = false;     // confidence >= threshold && id != "__no_match__"
     };
 
     explicit VoiceIntentMatcher(QObject* parent = nullptr);
     ~VoiceIntentMatcher() override;
 
-    // Loads embeddings.json and prepares the ONNX session.
+    // Loads labels.json and prepares the ONNX session.
     // The ONNX model itself loads in a worker thread; loaded() or
-    // loadFailed() fires when done. match() before that returns no_match.
-    void load(const QString& modelPath, const QString& embeddingsPath);
+    // loadFailed() fires when done. classify() before that returns no_match.
+    void load(const QString& modelPath, const QString& labelsPath);
 
-    // Nearest stored vector wins, any language. No language detection.
-    Result match(const QString& text) const;
+    // Argmax over classifier logits. No language detection.
+    Result classify(const QString& text) const;
 
     bool isLoaded() const;
-    void setThreshold(float threshold);  // default 0.68
+    void setConfidenceThreshold(float t);   // default 0.6f
 
-    // Pure helpers, exposed for unit tests.
-    static std::vector<QString> tokenizeText(const QString& text, const QHash<QString, int>& vocab,
-                                             int unkId, int maxLength);
-    static std::vector<float> meanPool(const std::vector<std::vector<float>>& tokenVectors,
-                                       const std::vector<int>& mask);
-    static float cosineSimilarity(const std::vector<float>& a, const std::vector<float>& b);
-    static QString stripParaphraseSuffix(const QString& id);
+    // WordPiece tokenizer for distilbert-base-multilingual-cased,
+    // exposed for unit tests. Returns token ids including [CLS]/[SEP],
+    // truncated to 64 total. Cased: input is never lowercased.
+    static std::vector<int64_t> wordpieceTokenize(const QString& text,
+                                                  const QHash<QString, int>& vocab);
 
    signals:
     void loaded();
     void loadFailed(const QString& reason);
 
    private:
-    struct StoredVector {
-        QString id;  // suffix-stripped command id
-        std::vector<float> vec;
-    };
-
-    std::vector<float> embed(const QString& text) const;
-
     QString m_modelPath;
-    float m_threshold = 0.68f;
-    bool m_tableLoaded = false;
+    float m_confidenceThreshold = 0.6f;
+    bool m_labelsLoaded = false;
     bool m_sessionReady = false;
 
-    QHash<QString, int> m_vocab;
-    int m_unkId = 3;
-    std::vector<StoredVector> m_table;
+    QHash<QString, int> m_vocab;     // WordPiece token -> id
+    QVector<QString> m_labelIds;     // class index -> command id
+    QVector<QString> m_labelTexts;   // class index -> display text
+    int m_numLabels = 0;
 
     struct OrtState;
     OrtState* m_ort = nullptr;

@@ -37,9 +37,8 @@
 namespace {
 // name on disk -> minimum sane size; catches truncation, not bitrot
 const std::pair<const char*, qint64> kRequiredFiles[] = {
-    { "intent-model-int8.onnx", 50LL * 1024 * 1024 },
-    { "tokenizer.json", 100LL * 1024 },
-    { "embeddings.json", 100LL * 1024 },
+    { "intent-classifier-int8.onnx", 50LL * 1024 * 1024 },
+    { "vocab.txt", 100LL * 1024 },
     { "labels.json", 1 },
 };
 
@@ -75,6 +74,9 @@ ModelDownloader::~ModelDownloader()
 void ModelDownloader::ensureModelsPresent(QWidget* parent)
 {
     const QString dir = FS::PathCombine(APPLICATION->dataRoot(), "models");
+    // One-time cleanup of pre-classifier model files (best effort).
+    for (const char* legacy : { "intent-model-int8.onnx", "tokenizer.json", "embeddings.json" })
+        QFile::remove(FS::PathCombine(dir, QString::fromLatin1(legacy)));
     // Cached path: no more blocking HEAD requests this session.
     if (m_checkedThisSession) {
         QString reason;
@@ -117,7 +119,7 @@ void ModelDownloader::ensureModelsPresent(QWidget* parent)
     auto answer = QMessageBox::question(
         parent, tr("Download language model?"),
         tr("Natural language commands need a one-time download of about 130 MB "
-           "(the intent model, tokenizer, and command vectors). It is stored on "
+           "(the intent classifier, vocabulary, and command labels). It is stored on "
             "this device and works offline afterwards. Download now?"),
         QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
     if (answer != QMessageBox::Yes) {
@@ -170,8 +172,7 @@ void ModelDownloader::saveETags(const QString& dir, const QMap<QString, QString>
 
 bool ModelDownloader::isLargeModelFile(const QString& fileName)
 {
-    return fileName == QStringLiteral("intent-model-int8.onnx") ||
-           fileName == QStringLiteral("tokenizer.json");
+    return fileName == QStringLiteral("intent-classifier-int8.onnx");
 }
 
 QString ModelDownloader::fetchRemoteETag(const QString& url)

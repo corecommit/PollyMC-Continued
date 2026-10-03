@@ -475,7 +475,7 @@ void CommandPalette::runIntentMatcher()
         waiting.text = tr("Preparing language model...");
         waiting.isEnabled = [] { return false; };
         setSuggestionRow(waiting);
-        m_matcher->load(m_modelDir + "/intent-model-int8.onnx", m_modelDir + "/embeddings.json");
+        m_matcher->load(m_modelDir + "/intent-classifier-int8.onnx", m_modelDir + "/labels.json");
         return;
     }
     matchAndSuggest(query);
@@ -560,7 +560,7 @@ void CommandPalette::onModelsReady(const QString& modelDir)
     if (m_matcher->isLoaded())
         matchAndSuggest(m_strippedQuery.trimmed());
     else
-        m_matcher->load(m_modelDir + "/intent-model-int8.onnx", m_modelDir + "/embeddings.json");
+        m_matcher->load(m_modelDir + "/intent-classifier-int8.onnx", m_modelDir + "/labels.json");
 }
 
 void CommandPalette::onModelsFailed(const QString& reason)
@@ -590,8 +590,8 @@ void CommandPalette::onMatcherFailed(const QString& reason)
         return;
     // Corrupt download: drop the model file so the next attempt
     // re-downloads instead of failing the same way forever.
-    // Embeddings/tokenizer stay; only the ONNX blob is suspect.
-    QFile::remove(m_modelDir + "/intent-model-int8.onnx");
+    // Vocab/labels stay; only the ONNX blob is suspect.
+    QFile::remove(m_modelDir + "/intent-classifier-int8.onnx");
     m_modelsReady = false;
     CommandDescriptor msg;
     msg.text = tr("Language model file was corrupted and removed. Type ? again to re-download.");
@@ -603,7 +603,7 @@ void CommandPalette::matchAndSuggest(const QString& query)
 {
     if (!m_naturalLanguageMode || !m_matcher || !m_matcher->isLoaded() || query.isEmpty())
         return;
-    const auto result = m_matcher->match(query);
+    const auto result = m_matcher->classify(query);
     if (!result.matched) {
         CommandDescriptor empty;
         empty.text = tr("No matching command found. Try typing without '?' to search by name.");
@@ -625,7 +625,7 @@ void CommandPalette::matchAndSuggest(const QString& query)
         setSuggestionRow(empty);
         return;
     }
-    const int pct = int(result.similarity * 100.0f + 0.5f);
+    const int pct = int(result.confidence * 100.0f + 0.5f);
     if (result.id == "actionLaunchInstance" || result.id == "actionKillInstance" ||
         result.id == "actionEditInstance" || result.id == "actionDeleteInstance") {
         const InstanceTarget target = fuzzyInstance(stripLaunchVerbs(query));

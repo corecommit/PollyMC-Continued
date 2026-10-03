@@ -16,8 +16,8 @@
 #pragma once
 
 // Downloader for the intent-model files with ETag-based refresh.
-// Large files (onnx/tokenizer) never download without explicit user
-// consent. Small metadata files (embeddings/labels) refresh silently
+// Large files (classifier onnx) never download without explicit user
+// consent. Small metadata files (vocab/labels) refresh silently
 // when the server ETag differs. Offline or HEAD failure falls back to
 // whatever local files exist and never blocks the launcher.
 
