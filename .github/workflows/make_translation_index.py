@@ -47,7 +47,8 @@ def main():
             # index should only contain languages we have source stats for
             continue
         qm_path = os.path.join(d, f)
-        sha1 = hashlib.sha1(open(qm_path, "rb").read()).hexdigest()
+        with open(qm_path, "rb") as fh:
+            sha1 = hashlib.sha1(fh.read()).hexdigest()
         size = os.path.getsize(qm_path)
         translated, untranslated, fuzzy = parse_ts(ts)
         languages[key] = {
