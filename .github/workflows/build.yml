@@ -699,6 +699,16 @@ jobs:
       CCACHE_DIR: ${{ github.workspace }}/.ccache
       # Raise (never lower) if the bundled Qt ever needs newer symbol versions.
       APPIMAGE_MAX_GLIBC: "2.35"
+      # Qt for this job. jammy ships 6.2 and CMakeLists requires >= 6.4, so it
+      # comes from the official installer instead. The modules are the Qt
+      # features the build needs that jammy cannot provide: qtimageformats
+      # (JPEG/TIFF/WebP image plugins), qtnetworkauth and qtwebsockets.
+      # QT_CACHE_KEY covers the module list as well, so adding a module can
+      # never silently reuse a cached Qt that lacks it.
+      QT_VERSION: "6.8.3"
+      QT_ARCH: "linux_gcc_64"
+      QT_MODULES: "qtimageformats qtnetworkauth qtwebsockets"
+      QT_CACHE_KEY: "qt-6.8.3-linux_gcc_64-imgfmt-netauth-wsockets"
     steps:
       - uses: actions/checkout@v5
         with:
@@ -803,17 +813,58 @@ jobs:
           pkg-config --modversion tomlplusplus
           pkg-config --cflags tomlplusplus
 
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v4
+      - name: Cache Qt
+        uses: actions/cache@v5
         with:
-          version: 6.8.3
-          # "qtsvg" is not a module name in Qt 6 (aqt rejects it); QtSvg and the
-          # qsvgicon engine plugin ship in the base install, and qtsvg is pulled
-          # in anyway as a dependency of qtimageformats.
-          modules: qtimageformats qtnetworkauth qtwebsockets
-          cache: true
-          # The container needs no distro Qt; only the aqt prefix is used.
-          install-deps: false
+          path: ${{ runner.temp }}/qt
+          key: ${{ env.QT_CACHE_KEY }}
+
+      - name: Install Qt
+        run: |
+          set -euo pipefail
+          # NOT jurplel/install-qt-action: v4 sets Python up through
+          # actions/setup-python at ">=3.14.0", and that CPython build needs
+          # GLIBC_2.38, so it cannot even start inside this container (jammy is
+          # 2.35). The container's own Python 3.10 runs aqtinstall fine, which
+          # is the same tool that action drives.
+          # No -type f: on some Qt layouts bin/qmake is a symlink to qmake6.
+          find_qmake() {
+            find "$RUNNER_TEMP/qt" -maxdepth 4 \
+              \( -name qmake -o -name qmake6 \) 2>/dev/null | head -n1 || true
+          }
+          QMAKE=$(find_qmake)
+          if [ -n "$QMAKE" ]; then
+            echo "Reusing the cached Qt: $QMAKE"
+          else
+            apt-get install -y --no-install-recommends python3 python3-pip
+            # Pinned so a future aqt release cannot silently change what ends
+            # up bundled in the AppImage.
+            python3 -m pip install --no-cache-dir "aqtinstall==3.3.0"
+            mkdir -p "$RUNNER_TEMP/qt"
+            # aqt needs at most GLIBC_2.28: the official Qt 6.8.3 gcc_64 build
+            # is made on RHEL 8.10, so Qt does not raise the glibc floor that
+            # this job exists to pin.
+            python3 -m aqt install-qt linux desktop "$QT_VERSION" "$QT_ARCH" \
+              -m $QT_MODULES \
+              --outputdir "$RUNNER_TEMP/qt"
+            QMAKE=$(find_qmake)
+          fi
+          if [ -z "$QMAKE" ]; then
+            echo "::error::aqt reported success but no qmake was installed under $RUNNER_TEMP/qt"
+            exit 1
+          fi
+          # Do not assume aqt's directory naming; derive the root from qmake so
+          # a layout change becomes a loud failure instead of a broken Qt path.
+          QT_ROOT=$(dirname "$(dirname "$QMAKE")")
+          "$QMAKE" -query QT_VERSION
+          echo "QT_ROOT=${QT_ROOT}" >> "$GITHUB_ENV"
+          echo "${QT_ROOT}/bin" >> "$GITHUB_PATH"
+          # linuxdeploy resolves DT_NEEDED with ldd, so Qt's lib dir must be on
+          # the search path or the scan fails with "Could not find dependency:
+          # libQt6Widgets.so.6". install-qt-action exported this; aqt does not.
+          echo "LD_LIBRARY_PATH=${QT_ROOT}/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" >> "$GITHUB_ENV"
+          echo "QT_PLUGIN_PATH=${QT_ROOT}/plugins" >> "$GITHUB_ENV"
+          echo "QML2_IMPORT_PATH=${QT_ROOT}/qml" >> "$GITHUB_ENV"
 
       - name: Download ONNX Runtime
         run: |
