@@ -184,7 +184,11 @@ jobs:
           done
           echo "::error::Failed to push translations after 5 attempts"
           exit 1
-
+          
+      - name: Trigger Vercel redeploy
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
+  
       - name: Clear stale translations from gh-pages
         if: github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'workflow_dispatch'
         run: rm -rf site/translations
