@@ -46,6 +46,7 @@ class CommandPalette : public QDialog {
    protected:
     void showEvent(QShowEvent* event) override;
     void hideEvent(QHideEvent* event) override;
+    void changeEvent(QEvent* event) override;
     bool eventFilter(QObject* obj, QEvent* event) override;
 
    private slots:
@@ -56,6 +57,8 @@ class CommandPalette : public QDialog {
     void onModelsFailed(const QString& reason);
     void onMatcherReady();
     void onMatcherFailed(const QString& reason);
+    void onModelChecking();
+    void onModelDownloadProgress(qint64 bytesReceived, qint64 bytesTotal);
 
    private:
     void selectFirstRow();

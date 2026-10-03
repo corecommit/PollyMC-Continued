@@ -41,6 +41,8 @@ class ModelDownloader : public QObject {
    signals:
     void ready(const QString& modelDir);
     void failed(const QString& reason);
+    void checking();
+    void downloading(qint64 bytesReceived, qint64 bytesTotal);
 
     private:
     // Full download of the given file names. Only overwrites local

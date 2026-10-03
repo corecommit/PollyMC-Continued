@@ -94,6 +94,7 @@ void ModelDownloader::ensureModelsPresent(QWidget* parent)
         m_checkedThisSession = false;
     }
     QMap<QString, QString> remoteEtags;
+    emit checking();
     const QStringList stale = checkForUpdates(dir, remoteEtags);
     if (stale.isEmpty()) {
         m_checkedThisSession = true;
@@ -283,6 +284,7 @@ void ModelDownloader::startDownload(QWidget* parent, const QStringList& files,
     NetJob::Ptr job;
     job.reset(new NetJob(tr("Language model files"), APPLICATION->network()));
     m_job = job;
+    connect(m_job.get(), &NetJob::progress, this, &ModelDownloader::downloading);
     for (const QString& fileName : files) {
         auto dl = Net::Download::makeFile(QUrl(m_baseUrl + "/" + fileName), FS::PathCombine(dir, fileName));
         m_job->addNetAction(dl);

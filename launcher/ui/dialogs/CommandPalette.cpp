@@ -272,7 +272,8 @@ CommandPalette::CommandPalette(QList<CommandDescriptor> entries, MainWindow* mai
     : QDialog(parent), m_mainWindow(mainWindow)
 {
     setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
-    setModal(true);
+    setModal(false);
+    setWindowModality(Qt::WindowModal);
     setMinimumSize(560, 460);
 
     auto* layout = new QVBoxLayout(this);
@@ -341,6 +342,16 @@ void CommandPalette::hideEvent(QHideEvent* event)
     QDialog::hideEvent(event);
 }
 
+void CommandPalette::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::ActivationChange && !isActiveWindow()) {
+        if (!QApplication::activeModalWidget()) {
+            reject();
+        }
+    }
+    QDialog::changeEvent(event);
+}
+
 void CommandPalette::placeOverParent()
 {
     if (const QWidget* p = parentWidget()) {
@@ -399,16 +410,6 @@ bool CommandPalette::eventFilter(QObject* obj, QEvent* event)
             }
         }
     }
-    if (event->type() == QEvent::MouseButtonPress) {
-        const auto* mouseEvent = static_cast<QMouseEvent*>(event);
-        if (mouseEvent->button() == Qt::LeftButton) {
-            QWidget* w = qobject_cast<QWidget*>(obj);
-            if (w && w != this && !isAncestorOf(w)) {
-                reject();
-                return true;
-            }
-        }
-    }
     return QDialog::eventFilter(obj, event);
 }
 
@@ -460,6 +461,8 @@ void CommandPalette::runIntentMatcher()
         m_downloader = new ModelDownloader(this);
         connect(m_downloader, &ModelDownloader::ready, this, &CommandPalette::onModelsReady);
         connect(m_downloader, &ModelDownloader::failed, this, &CommandPalette::onModelsFailed);
+        connect(m_downloader, &ModelDownloader::checking, this, &CommandPalette::onModelChecking);
+        connect(m_downloader, &ModelDownloader::downloading, this, &CommandPalette::onModelDownloadProgress);
     }
     if (!m_matcher) {
         m_matcher = new VoiceIntentMatcher(this);
@@ -476,7 +479,7 @@ void CommandPalette::runIntentMatcher()
     }
     if (!m_matcher->isLoaded()) {
         CommandDescriptor waiting;
-        waiting.text = tr("Preparing language model...");
+        waiting.text = tr("Loading model…");
         waiting.isEnabled = [] { return false; };
         setSuggestionRow(waiting);
         m_matcher->load(m_modelDir + "/intent-classifier-int8.onnx", m_modelDir + "/labels.json");
@@ -604,6 +607,31 @@ void CommandPalette::onMatcherFailed(const QString& reason)
     setSuggestionRow(msg);
 }
 
+void CommandPalette::onModelChecking()
+{
+    if (!m_naturalLanguageMode)
+        return;
+    CommandDescriptor status;
+    status.text = tr("Checking for model updates…");
+    status.isEnabled = [] { return false; };
+    setSuggestionRow(status);
+}
+
+void CommandPalette::onModelDownloadProgress(qint64 bytesReceived, qint64 bytesTotal)
+{
+    if (!m_naturalLanguageMode)
+        return;
+    CommandDescriptor status;
+    if (bytesTotal > 0 && bytesReceived >= 0 && bytesReceived <= bytesTotal) {
+        const double mbLeft = double(bytesTotal - bytesReceived) / (1024.0 * 1024.0);
+        status.text = tr("Downloading model (%1 MB remaining)…").arg(mbLeft, 0, 'f', 1);
+    } else {
+        status.text = tr("Downloading model…");
+    }
+    status.isEnabled = [] { return false; };
+    setSuggestionRow(status);
+}
+
 void CommandPalette::matchAndSuggest(const QString& query)
 {
     if (!m_naturalLanguageMode || !m_matcher || !m_matcher->isLoaded() || query.isEmpty())
@@ -630,13 +658,12 @@ void CommandPalette::matchAndSuggest(const QString& query)
         setSuggestionRow(empty);
         return;
     }
-    const int pct = int(result.confidence * 100.0f + 0.5f);
     if (result.id == "actionLaunchInstance" || result.id == "actionKillInstance" ||
         result.id == "actionEditInstance" || result.id == "actionDeleteInstance") {
         const InstanceTarget target = fuzzyInstance(stripLaunchVerbs(query));
         CommandDescriptor suggestion;
         if (target.found) {
-            suggestion.text = tr("%1: %2 (%3%)").arg(action->text, target.name).arg(pct);
+            suggestion.text = tr("%1 → %2").arg(action->text, target.name);
             const CommandDescriptor act = *action;
             const QString instId = target.id;
             MainWindow* mw = m_mainWindow;
@@ -659,7 +686,7 @@ void CommandPalette::matchAndSuggest(const QString& query)
                     }
                 }
                 if (addAction) {
-                    suggestion.text = tr("New instance with %1 (%2%)").arg(ver).arg(pct);
+                    suggestion.text = tr("New instance with %1").arg(ver);
                     suggestion.isEnabled = addAction->isEnabled;
                     suggestion.trigger = addAction->trigger;
                     setSuggestionRow(suggestion);
@@ -667,14 +694,13 @@ void CommandPalette::matchAndSuggest(const QString& query)
                 }
             }
         }
-        suggestion.text =
-            tr("The phrase doesn't clearly match one command. Try typing without '?' to fuzzy-search by name, or rephrase.");
+        suggestion.text = tr("%1 → (no matching instance)").arg(action->text);
         suggestion.isEnabled = [] { return false; };
         setSuggestionRow(suggestion);
         return;
     }
     CommandDescriptor suggestion;
-    suggestion.text = tr("Intent: %1 (%2%)").arg(action->text).arg(pct);
+    suggestion.text = action->text;
     suggestion.isEnabled = action->isEnabled;
     suggestion.trigger = action->trigger;
     setSuggestionRow(suggestion);
