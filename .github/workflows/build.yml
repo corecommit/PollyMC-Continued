@@ -1191,7 +1191,7 @@ jobs:
           set -euo pipefail
           pacman -Syu --noconfirm --needed
           pacman -S --noconfirm --needed \
-            qt6-base qt6-networkauth qt6-websockets \
+            qt6-base qt6-networkauth qt6-svg qt6-websockets \
             libarchive libpng zlib zstd
           # Sanity check: the container must NOT provide the launcher's expected
           # cmark SONAME, otherwise this test would pass even without bundling.
