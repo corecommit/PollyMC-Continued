@@ -9,6 +9,15 @@
 - **Command palette** — Press Ctrl+Shift+P anywhere in the main window to fuzzy-search every launcher action and run it from the keyboard.
 - **Bot scripting** — Attach say/wait/loop scripts to bots from the new Script tab in the Bot Manager, with a built-in step editor and per-bot run control.
 - **Natural-language command search** — Prefix a palette query with `?` to match commands by meaning instead of name, using a downloadable multilingual model that runs fully offline after a one-time download.
+- **Startup splash screen** — A splash appears immediately on launch, before
+  heavy initialization, so slow systems and Winlator users get visual feedback
+  instead of a blank delay.
+- **Forced auto-update with opt-out** — New "Update behavior" dropdown in
+  Settings > Launcher: install updates silently (default), ask first, or
+  never check. Silent updates defer automatically if a game is running.
+- **Persistent model consent** — The first-run download prompt for the
+  natural-language model is now remembered. If you accepted once, future
+  model updates download automatically without prompting.
 
 **Fixed:** 
 
@@ -22,7 +31,10 @@
 **Changed:**
 
 - **AppImage widget style** — The AppImage no longer bundles the KDE Breeze widget style, because no distro package provides a build matching the Qt used for the AppImage. Breeze icons are unaffected: they are compiled into the launcher itself. The `.deb`, tarball and Arch packages keep it.
-
+- **Translations moved to pollymc.vercel.app** — Previously hosted on
+  GitHub Pages. The old URL is still served for backward compatibility
+  with older launcher builds.
+  
 ## v9.3.0
 
 **Added:**
