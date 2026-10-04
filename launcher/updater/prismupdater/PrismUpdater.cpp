@@ -109,7 +109,8 @@ PrismUpdaterApp::PrismUpdaterApp(int& argc, char** argv) : QApplication(argc, ar
           { "debug", tr("Log debug to console.") },
           { { "S", "select-ui" }, tr("Select the version to install with a GUI.") },
           { { "D", "allow-downgrade" }, tr("Allow the updater to downgrade to previous versions.") } });
-    parser.addOptions({ { { "silent" }, tr("Run without any UI (for automatic updates). Errors go to stderr and the update log.") } });
+    parser.addOptions({ QCommandLineOption(QStringLiteral("silent"),
+                                           tr("Run without any UI (for automatic updates). Errors go to stderr and the update log.")) });
 
     parser.addHelpOption();
     parser.addVersionOption();
