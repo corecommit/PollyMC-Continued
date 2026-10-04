@@ -99,8 +99,11 @@
 #include <QLibraryInfo>
 #include <QList>
 #include <QNetworkAccessManager>
+#include <QPainter>
 #include <QStringList>
 #include <QStringLiteral>
+#include <QSplashScreen>
+#include <QSvgRenderer>
 #include <QStyleFactory>
 #include <QTranslator>
 #include <QTimer>
@@ -295,6 +298,35 @@ std::tuple<QDateTime, QString, QString, QString, QString> read_lock_File(const Q
 
 Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 {
+    // Skip splash in headless/offscreen environments.
+    const bool headless = QGuiApplication::platformName() == "offscreen"
+                          || qEnvironmentVariableIsSet("POLLYMC_NO_SPLASH");
+    if (!headless) {
+        QSvgRenderer renderer(QStringLiteral(":/branding/splash-logo.svg"));
+        if (renderer.isValid()) {
+            // Splash canvas: 400x260 dark, matching the app's dark theme
+            QPixmap splashPixmap(400, 260);
+            splashPixmap.fill(QColor("#2b2b2b"));
+            QPainter p(&splashPixmap);
+            p.setRenderHint(QPainter::Antialiasing);
+            p.setRenderHint(QPainter::SmoothPixmapTransform);
+            // Wordmark is 144:48 aspect (3:1). Scale to 320x107,
+            // centered horizontally and vertically with a slight
+            // upward bias for visual balance.
+            const QRectF targetRect(
+                (400 - 320) / 2.0,
+                (260 - 107) / 2.0 - 10,
+                320,
+                107
+            );
+            renderer.render(&p, targetRect);
+            p.end();
+            m_splash = new QSplashScreen(splashPixmap, Qt::WindowStaysOnTopHint);
+            m_splash->show();
+            // Paint it once so the user sees it before we block on init.
+            QApplication::processEvents();
+        }
+    }
     if (console::isConsole()) {
         isANSIColorConsole = true;
     }
@@ -1392,6 +1424,11 @@ void Application::performMainStartupAction()
             launch(inst, m_launchOffline ? LaunchMode::Offline : LaunchMode::Normal, targetToJoin, accountToUse, m_offlineName);
 
             if (!m_showMainWindow) {
+                if (m_splash) {
+                    m_splash->close();
+                    m_splash->deleteLater();
+                    m_splash = nullptr;
+                }
                 return;
             }
         }
@@ -1401,6 +1438,11 @@ void Application::performMainStartupAction()
         if (inst) {
             qDebug() << "<> Showing window of instance " << m_instanceIdToShowWindowOf;
             showInstanceWindow(inst);
+            if (m_splash) {
+                m_splash->close();
+                m_splash->deleteLater();
+                m_splash = nullptr;
+            }
             return;
         }
     }
@@ -1408,6 +1450,11 @@ void Application::performMainStartupAction()
         // normal main window
         showMainWindow(false);
         qDebug() << "<> Main window shown.";
+    }
+    if (m_splash) {
+        m_splash->finish(m_mainWindow);
+        m_splash->deleteLater();
+        m_splash = nullptr;
     }
 
     // initialize the updater

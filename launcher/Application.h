@@ -63,6 +63,7 @@ class HttpMetaCache;
 class SettingsObject;
 class InstanceList;
 class AccountList;
+class QSplashScreen;
 class IconList;
 class QNetworkAccessManager;
 class JavaInstallList;
@@ -299,6 +300,9 @@ class Application : public QApplication {
 
     // main window, if any
     MainWindow* m_mainWindow = nullptr;
+
+    // startup splash, shown until the main window takes over
+    QSplashScreen* m_splash = nullptr;
 
     // log window, if any
     ViewLogWindow* m_viewLogWindow = nullptr;
