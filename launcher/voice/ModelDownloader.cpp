@@ -15,7 +15,6 @@
 
 #include "ModelDownloader.h"
 
-#include <QDebug>
 #include <QDir>
 #include <QEventLoop>
 #include <QFile>
@@ -207,12 +206,6 @@ QString ModelDownloader::fetchRemoteETag(const QString& url)
         if (etag.isEmpty())
             etag = normalizeETag(QString::fromLatin1(reply->rawHeader("X-Linked-Size")));
     }
-    qDebug() << "ETAG DEBUG for" << url;
-    qDebug() << "  status:" << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-    qDebug() << "  redirect to:" << reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
-    qDebug() << "  final url:" << reply->url();
-    qDebug() << "  raw ETag:" << QString::fromLatin1(reply->rawHeader("ETag"));
-    qDebug() << "  normalized:" << etag;
     reply->deleteLater();
     return etag;  // empty = offline/timeout/server gave none -> "no update"
 }
@@ -269,9 +262,6 @@ QStringList ModelDownloader::checkForUpdates(const QString& dir, QMap<QString, Q
         if (stored.value(fileName) != etag)
             stale.append(fileName);
     }
-    qDebug() << "STALE FILES:" << stale;
-    qDebug() << "STORED ETAGS:" << stored;
-    qDebug() << "REMOTE ETAGS:" << remoteEtags;
     return stale;
 }
 
