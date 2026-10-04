@@ -79,12 +79,18 @@ class PrismExternalUpdater : public ExternalUpdater {
      */
     void setBetaAllowed(bool allowed) override;
 
+    QString getAutoUpdateMode();  // "Always" | "Ask" | "Never"
+    void setAutoUpdateMode(const QString& mode);
+
     void resetAutoCheckTimer();
     void disconnectTimer();
     void connectTimer();
 
-    void offerUpdate(const QString& version_name, const QString& version_tag, const QString& release_notes);
-    void performUpdate(const QString& version_tag);
+    // Arms a one-shot 5-minute retry after deferring for a running game.
+    void armDeferredRetry();
+    void offerUpdate(const QString& version_name, const QString& version_tag, const QString& release_notes,
+                     bool triggeredByUser = true);
+    void performUpdate(const QString& version_tag, bool silent = false);
 
    public slots:
     void autoCheckTimerFired();

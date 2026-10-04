@@ -35,6 +35,7 @@
 
 #include "StringUtils.h"
 
+#include "Application.h"
 #include "BuildConfig.h"
 
 #include "ui/dialogs/UpdateAvailableDialog.h"
@@ -46,6 +47,10 @@ class PrismExternalUpdater::Private {
     QTimer updateTimer;
     bool allowBeta{};
     bool autoCheck{};
+    QString autoUpdateMode;
+    // True while a 5-minute deferred retry (game was running) is armed.
+    // Cleared when that retry runs; see checkForUpdates().
+    bool deferredForGameRunning = false;
     double updateInterval{};
     QDateTime lastCheck;
     std::unique_ptr<QSettings> settings;
@@ -63,6 +68,9 @@ PrismExternalUpdater::PrismExternalUpdater(QWidget* parent, const QString& appDi
     auto settings_file = priv->dataDir.absoluteFilePath("prismlauncher_update.cfg");
     priv->settings = std::make_unique<QSettings>(settings_file, QSettings::Format::IniFormat);
     priv->allowBeta = priv->settings->value("allow_beta", false).toBool();
+    priv->autoUpdateMode = priv->settings->value("auto_update_mode", "Ask").toString();
+    if (priv->autoUpdateMode != "Always" && priv->autoUpdateMode != "Ask" && priv->autoUpdateMode != "Never")
+        priv->autoUpdateMode = "Ask";
     priv->autoCheck = priv->settings->value("auto_check", true).toBool();
     bool interval_ok = false;
     // default once per day
@@ -106,6 +114,12 @@ void PrismExternalUpdater::checkForUpdates(bool triggeredByUser)
         return;
     }
     priv->checkingUpdates = true;
+
+    // Snapshot the pending-retry flag: a deferred retry arming below must
+    // survive the end-of-check reschedule, while a completed retry must
+    // restore the user's repeating schedule (see tail of this function).
+    const bool wasDeferredRetry = priv->deferredForGameRunning;
+    priv->deferredForGameRunning = false;
 
     QProgressDialog progress(tr("Checking for updates..."), "", 0, 0, priv->parent);
     progress.setCancelButton(nullptr);
@@ -240,7 +254,17 @@ void PrismExternalUpdater::checkForUpdates(bool triggeredByUser)
     priv->lastCheck = QDateTime::currentDateTime();
     priv->settings->setValue("last_check", priv->lastCheck.toString(Qt::ISODate));
     priv->settings->sync();
-    resetAutoCheckTimer();
+    if (priv->deferredForGameRunning) {
+        // This check deferred to the armed 5-minute retry above; leave
+        // that timer alone instead of rescheduling the full interval.
+    } else {
+        resetAutoCheckTimer();
+        if (wasDeferredRetry) {
+            // A deferred retry just completed without re-deferring: undo
+            // the one-shot setup so the user's repeating schedule resumes.
+            priv->updateTimer.setSingleShot(false);
+        }
+    }
     priv->checkingUpdates = false;
 }
 
@@ -282,6 +306,20 @@ void PrismExternalUpdater::setBetaAllowed(bool allowed)
     priv->settings->sync();
 }
 
+QString PrismExternalUpdater::getAutoUpdateMode()
+{
+    return priv->autoUpdateMode;
+}
+
+void PrismExternalUpdater::setAutoUpdateMode(const QString& mode)
+{
+    if (mode != "Always" && mode != "Ask" && mode != "Never")
+        return;
+    priv->autoUpdateMode = mode;
+    priv->settings->setValue("auto_update_mode", mode);
+    priv->settings->sync();
+}
+
 void PrismExternalUpdater::resetAutoCheckTimer()
 {
     if (priv->autoCheck && priv->updateInterval > 0) {
@@ -316,14 +354,45 @@ void PrismExternalUpdater::disconnectTimer()
     disconnect(&priv->updateTimer, &QTimer::timeout, this, &PrismExternalUpdater::autoCheckTimerFired);
 }
 
+void PrismExternalUpdater::armDeferredRetry()
+{
+    priv->deferredForGameRunning = true;
+    // Single-shot: exactly one retry. The flag is consumed at the top of
+    // the next check; a completed retry restores the repeating schedule
+    // at the tail of checkForUpdates().
+    priv->updateTimer.setSingleShot(true);
+    priv->updateTimer.setInterval(5 * 60 * 1000);
+    priv->updateTimer.start();
+}
+
 void PrismExternalUpdater::autoCheckTimerFired()
 {
     qDebug() << "Auto update Timer fired";
+    if (priv->autoUpdateMode == "Never")
+        return;
     checkForUpdates(false);
 }
 
-void PrismExternalUpdater::offerUpdate(const QString& version_name, const QString& version_tag, const QString& release_notes)
+void PrismExternalUpdater::offerUpdate(const QString& version_name, const QString& version_tag,
+                                       const QString& release_notes, bool triggeredByUser)
 {
+    // Silent path: auto check, mode Always. No UI at all (not even the
+    // per-version skip box); defer while a game runs, else install now.
+    if (!triggeredByUser && priv->autoUpdateMode == "Always") {
+        if (!APPLICATION->updatesAreAllowed()) {
+            qDebug() << "Auto-update deferred: a game is running";
+            armDeferredRetry();
+            return;
+        }
+        performUpdate(version_tag, true);
+        return;
+    }
+    // Never auto-prompt mid-game either: defer the dialog the same way.
+    if (!triggeredByUser && !APPLICATION->updatesAreAllowed()) {
+        qDebug() << "Update prompt deferred: a game is running";
+        armDeferredRetry();
+        return;
+    }
     priv->settings->beginGroup("skip");
     auto should_skip = priv->settings->value(version_tag, false).toBool();
     priv->settings->endGroup();
@@ -343,7 +412,7 @@ void PrismExternalUpdater::offerUpdate(const QString& version_name, const QStrin
     qDebug() << "offer dlg result" << result;
     switch (result) {
         case UpdateAvailableDialog::Install: {
-            performUpdate(version_tag);
+            performUpdate(version_tag, false);
             return;
         }
         case UpdateAvailableDialog::Skip: {
@@ -359,7 +428,7 @@ void PrismExternalUpdater::offerUpdate(const QString& version_name, const QStrin
     }
 }
 
-void PrismExternalUpdater::performUpdate(const QString& version_tag)
+void PrismExternalUpdater::performUpdate(const QString& version_tag, bool silent)
 {
     QProcess proc;
     auto exe_name = QStringLiteral("%1_updater").arg(BuildConfig.LAUNCHER_APP_BINARY_NAME);
@@ -376,6 +445,9 @@ void PrismExternalUpdater::performUpdate(const QString& version_tag)
     QStringList args = { "--dir", priv->dataDir.absolutePath(), "--install-version", version_tag };
     if (priv->allowBeta) {
         args.append("--pre-release");
+    }
+    if (silent) {
+        args.append("--silent");
     }
 
     proc.setProgram(priv->appDir.absoluteFilePath(exe_name));

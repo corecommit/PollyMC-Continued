@@ -53,6 +53,7 @@
 #include "ui/themes/ITheme.h"
 #include "ui/themes/ThemeManager.h"
 #include "updater/ExternalUpdater.h"
+#include "updater/PrismExternalUpdater.h"
 
 #include <QApplication>
 #include <QProcess>
@@ -208,6 +209,8 @@ void LauncherPage::applySettings()
     if (APPLICATION->updater()) {
         APPLICATION->updater()->setAutomaticallyChecksForUpdates(ui->autoUpdateCheckBox->isChecked());
         APPLICATION->updater()->setUpdateCheckInterval(ui->updateIntervalSpinBox->value() * 3600);
+        if (auto* prismUpdater = qobject_cast<PrismExternalUpdater*>(APPLICATION->updater()))
+            prismUpdater->setAutoUpdateMode(ui->updateBehaviorComboBox->currentData().toString());
     }
 
     s->set("AutoLaunchLastInstance", ui->autoLaunchCheckBox->isChecked());
@@ -268,6 +271,11 @@ void LauncherPage::loadSettings()
     if (APPLICATION->updater()) {
         ui->autoUpdateCheckBox->setChecked(APPLICATION->updater()->getAutomaticallyChecksForUpdates());
         ui->updateIntervalSpinBox->setValue(APPLICATION->updater()->getUpdateCheckInterval() / 3600);
+        if (auto* prismUpdater = qobject_cast<PrismExternalUpdater*>(APPLICATION->updater())) {
+            const int idx = ui->updateBehaviorComboBox->findData(prismUpdater->getAutoUpdateMode());
+            ui->updateBehaviorComboBox->setCurrentIndex(idx >= 0 ? idx : 1);  // default Ask
+            ui->updateIntervalSpinBox->setEnabled(prismUpdater->getAutoUpdateMode() != "Never");
+        }
     }
 
     ui->autoLaunchCheckBox->setChecked(s->get("AutoLaunchLastInstance").toBool());

@@ -113,6 +113,7 @@ class PrismUpdaterApp : public QApplication {
     bool m_selectUI;
     bool m_allowDowngrade;
     bool m_allowPreRelease;
+    bool m_silent = false;
 
     QString m_updateLogPath;
 

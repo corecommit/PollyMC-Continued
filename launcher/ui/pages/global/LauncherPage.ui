@@ -170,16 +170,58 @@
          <property name="title">
           <string>Updater</string>
          </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0" colspan="2">
-            <widget class="QCheckBox" name="autoUpdateCheckBox">
-             <property name="text">
-              <string>Check for updates automatically</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0" colspan="2">
+             <widget class="QCheckBox" name="autoUpdateCheckBox">
+              <property name="text">
+               <string>Check for updates automatically</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <layout class="QHBoxLayout" name="horizontalLayout_updateBehavior">
+              <item>
+               <widget class="QLabel" name="updateBehaviorLabel">
+                <property name="text">
+                 <string>Update behavior</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="updateBehaviorComboBox">
+                <property name="toolTip">
+                 <string>Always: install updates automatically. Ask: prompt before installing. Never: do not check.</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Install automatically (recommended)</string>
+                 </property>
+                 <property name="userData">
+                  <string>Always</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ask before installing</string>
+                 </property>
+                 <property name="userData">
+                  <string>Ask</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Never check for updates</string>
+                 </property>
+                 <property name="userData">
+                  <string>Never</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
               <spacer name="horizontalSpacer_indent">
                <property name="orientation">
@@ -246,7 +288,7 @@
              </item>
             </layout>
            </item>
-           <item row="2" column="0" colspan="3">
+            <item row="3" column="0" colspan="3">
             <widget class="QLabel" name="updaterNotSupportedNote">
              <property name="text">
               <string>Updates are not available for macOS builds yet: they require a code-signed app and a signed update feed that the project does not currently provide.</string>
@@ -708,6 +750,7 @@
   <tabstop>scrollArea</tabstop>
   <tabstop>preferMenuBarCheckBox</tabstop>
   <tabstop>autoUpdateCheckBox</tabstop>
+  <tabstop>updateBehaviorComboBox</tabstop>
   <tabstop>updateIntervalSpinBox</tabstop>
   <tabstop>instDirTextBox</tabstop>
   <tabstop>instDirBrowseBtn</tabstop>
