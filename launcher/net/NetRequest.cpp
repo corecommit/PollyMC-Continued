@@ -365,7 +365,7 @@ void NetRequest::downloadReadyRead()
         }
         // qDebug() << "Request" << m_url.toString() << "gained" << data.size() << "bytes";
     } else {
-        qCCritical(logCat) << QString("[%1] Downloaded data arrived while not running (state %2)").arg(getUid().toString()).arg(int(m_status));
+        qCCritical(logCat) << QString("[%1] Downloaded data arrived while not running (state %2)").arg(getUid().toString(), m_status);
     }
 }
 
