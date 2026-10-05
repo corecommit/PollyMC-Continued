@@ -18,13 +18,18 @@
 - **Persistent model consent** — The first-run download prompt for the
   natural-language model is now remembered. If you accepted once, future
   model updates download automatically without prompting.
-- **Discord Rich Presence toggle** — Settings > General has a new "Show
-  what you're playing on Discord" checkbox. Turn it off to hide launcher
-  activity from your Discord status; it applies immediately without
-  a restart.
+- **Discord Rich Presence toggle** — Settings > General has a
+  new "Show what you're playing on Discord" checkbox. Discord
+  activity was always shared before; it's on by default, and
+  turning it off now applies immediately without a restart.
 
 **Fixed:** 
 
+- **OAuth response bodies are no longer logged** — A failed
+  Microsoft login used to write the full token-endpoint response
+  into the launcher log, which could expose the access token to
+  anyone the log was shared with. Only the HTTP status is now
+  recorded.
 - **Bots no longer stay online after quit** — The bot server now disconnects all bots and exits when the launcher closes, with a parent-process watchdog as backup.
 - **Bot respawn works** — Uses the vanilla respawn packet instead of a nonexistent API call, and skips when the bot isn't dead.
 - **Bot movement right after join** — Pathfinding is set up at login instead of spawn, and bad coordinates or a missing item count no longer throw.
@@ -38,6 +43,13 @@
 - **Translations moved to pollymc.vercel.app** — Previously hosted on
   GitHub Pages. The old URL is still served for backward compatibility
   with older launcher builds.
+- **Clearer error dialogs** — Launcher error messages now lead
+  with what went wrong and put the technical details behind a
+  "Show Details" expander, instead of dumping paths and version
+  numbers into the main body.
+- **Translation strings updated** — Several launcher dialogs and
+  status messages have new source strings. Existing translations
+  will fall back to English until translators catch up.
   
 ## v9.3.0
 
