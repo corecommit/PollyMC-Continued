@@ -50,13 +50,12 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionAddInstance"/>
-   <addaction name="separator"/>
    <addaction name="actionFoldersButton"/>
+   <addaction name="separator"/>
    <addaction name="actionSettings"/>
    <addaction name="actionPerformancePresets"/>
    <addaction name="separator"/>
    <addaction name="actionHelpButton"/>
-   <addaction name="separator"/>
    <addaction name="actionAccountsButton"/>
   </widget>
   <widget class="QToolBar" name="newsToolBar">

@@ -135,6 +135,12 @@ bool ThemeManager::windows11StyleIsUsable()
     // Cached: queried from drawPrimitive, which runs many times per frame.
 #ifdef Q_OS_WIN
     static const bool usable = QFontDatabase::families().contains("Segoe Fluent Icons", Qt::CaseInsensitive);
+    static const bool logged = []() {
+        qDebug() << "windows11StyleIsUsable:"
+                 << QFontDatabase::families().contains("Segoe Fluent Icons", Qt::CaseInsensitive);
+        return true;
+    }();
+    (void)logged;
     return usable;
 #else
     return true;  // non-Windows: style is not offered anyway
@@ -211,6 +217,12 @@ QList<ITheme*> ThemeManager::getValidApplicationThemes()
     QList<ITheme*> ret;
     ret.reserve(m_themes.size());
     for (auto&& [id, theme] : m_themes) {
+        // Bright/Dark stay registered (CustomTheme uses Dark as its
+        // base, and saved bright/dark ids must keep resolving), but
+        // they are just Fusion + AppearanceMode now, so they are not
+        // offered as separate widget styles.
+        if (id == "bright" || id == "dark")
+            continue;
         ret.append(theme.get());
     }
     return ret;

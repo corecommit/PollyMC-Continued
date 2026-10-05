@@ -18,6 +18,7 @@
 
 #include "HintOverrideProxyStyle.h"
 
+#include <QDebug>
 #include <QStyleFactory>
 
 #include "ui/themes/ThemeManager.h"
@@ -56,6 +57,8 @@ void HintOverrideProxyStyle::drawPrimitive(PrimitiveElement element,
                                            QPainter* painter,
                                            const QWidget* widget) const
 {
+    qDebug() << "PROXY drawPrimitive" << element
+             << "font-usable:" << ThemeManager::windows11StyleIsUsable();
     if (!ThemeManager::windows11StyleIsUsable() && usesFluentGlyph(element)) {
         static QStyle* fallback = QStyleFactory::create("fusion");
         if (fallback) {

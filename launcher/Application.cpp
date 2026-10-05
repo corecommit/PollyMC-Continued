@@ -1026,6 +1026,8 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
     // Themes
     m_themeManager = std::make_unique<ThemeManager>();
+    qDebug() << "Installed style:" << QApplication::style()->metaObject()->className()
+             << "objectName:" << QApplication::style()->objectName();
 #if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
     // Live-follow the OS appearance, but only while the user asked for
     // System mode. Placed here (not in ThemeManager) because
