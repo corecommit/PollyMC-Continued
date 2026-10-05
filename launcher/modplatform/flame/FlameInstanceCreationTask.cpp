@@ -191,7 +191,7 @@ bool FlameCreationTask::updateInstance()
             QJsonParseError parse_error{};
             auto doc = QJsonDocument::fromJson(*raw_response, &parse_error);
             if (parse_error.error != QJsonParseError::NoError) {
-                qWarning() << QString("Could not parse Flame files response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
+                qWarning() << QString("Could not parse Flame files response as JSON at offset %1: %2").arg(parse_error.offset).arg(parse_error.errorString());
                 qWarning() << *raw_response;
                 return;
             }

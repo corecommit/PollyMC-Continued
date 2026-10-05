@@ -165,7 +165,7 @@ void Flame::FileResolvingTask::netJobFinished(QByteArray* response)
         QJsonParseError parse_error{};
         QJsonDocument doc = QJsonDocument::fromJson(*modrinthResponse, &parse_error);
         if (parse_error.error != QJsonParseError::NoError) {
-            qWarning() << QString("Could not parse Modrinth::CurrentVersions response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
+            qWarning() << QString("Could not parse Modrinth::CurrentVersions response as JSON at offset %1: %2").arg(parse_error.offset).arg(parse_error.errorString());
             qWarning() << *modrinthResponse;
 
             getFlameProjects();
@@ -231,7 +231,7 @@ void Flame::FileResolvingTask::getFlameProjects()
         QJsonParseError parse_error{};
         auto doc = QJsonDocument::fromJson(*response, &parse_error);
         if (parse_error.error != QJsonParseError::NoError) {
-            qWarning() << QString("Could not parse Modrinth projects response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
+            qWarning() << QString("Could not parse Modrinth projects response as JSON at offset %1: %2").arg(parse_error.offset).arg(parse_error.errorString());
             qWarning() << *response;
             return;
         }

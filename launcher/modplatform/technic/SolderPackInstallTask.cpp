@@ -89,7 +89,7 @@ void Technic::SolderPackInstallTask::fileListSucceeded(QByteArray* response)
     QJsonParseError parse_error{};
     QJsonDocument doc = QJsonDocument::fromJson(*response, &parse_error);
     if (parse_error.error != QJsonParseError::NoError) {
-        qWarning() << QString("Could not parse Solder response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
+        qWarning() << QString("Could not parse Solder response as JSON at offset %1: %2").arg(parse_error.offset).arg(parse_error.errorString());
         qWarning() << *response;
         return;
     }

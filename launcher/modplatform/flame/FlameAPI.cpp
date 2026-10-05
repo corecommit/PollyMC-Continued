@@ -50,7 +50,7 @@ QString FlameAPI::getModFileChangelog(int modId, int fileId)
         QJsonParseError parse_error{};
         QJsonDocument doc = QJsonDocument::fromJson(*response, &parse_error);
         if (parse_error.error != QJsonParseError::NoError) {
-            qWarning() << QString("Could not parse Flame::FileChangelog response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
+            qWarning() << QString("Could not parse Flame::FileChangelog response as JSON at offset %1: %2").arg(parse_error.offset).arg(parse_error.errorString());
             qWarning() << *response;
 
             netJob->failed(parse_error.errorString());
@@ -82,7 +82,7 @@ QString FlameAPI::getModDescription(int modId)
         QJsonParseError parse_error{};
         QJsonDocument doc = QJsonDocument::fromJson(*response, &parse_error);
         if (parse_error.error != QJsonParseError::NoError) {
-            qWarning() << QString("Could not parse Flame::ModDescription response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
+            qWarning() << QString("Could not parse Flame::ModDescription response as JSON at offset %1: %2").arg(parse_error.offset).arg(parse_error.errorString());
             qWarning() << *response;
 
             netJob->failed(parse_error.errorString());
@@ -191,7 +191,7 @@ QList<ModPlatform::Category> FlameAPI::loadModCategories(const QByteArray& respo
     QJsonParseError parse_error{};
     QJsonDocument doc = QJsonDocument::fromJson(response, &parse_error);
     if (parse_error.error != QJsonParseError::NoError) {
-        qWarning() << QString("Could not parse categories response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
+        qWarning() << QString("Could not parse categories response as JSON at offset %1: %2").arg(parse_error.offset).arg(parse_error.errorString());
         qWarning() << *response;
         return categories;
     }
