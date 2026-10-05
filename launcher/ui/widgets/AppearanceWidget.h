@@ -46,7 +46,12 @@ class AppearanceWidget : public QWidget {
    private:
     void applyIconTheme(int index);
     void applyWidgetTheme(int index);
+    void applyAppearanceMode(int index);
     void loadThemeSettings();
+    // Enables/disables the Appearance dropdown based on whether the
+    // currently selected theme is a Windows-native style, and sets or
+    // clears the explanatory tooltip.
+    void updateAppearanceModeState();
 
     void updateConsolePreview();
 

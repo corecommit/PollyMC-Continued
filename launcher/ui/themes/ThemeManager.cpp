@@ -21,9 +21,11 @@
 #include <QApplication>
 #include <QDir>
 #include <QDirIterator>
+#include <QFontDatabase>
 #include <QIcon>
 #include <QStyle>
 #include <QStyleFactory>
+#include <QStyleHints>
 #include "Exception.h"
 #include "ui/themes/BrightTheme.h"
 #include "ui/themes/CustomTheme.h"
@@ -126,6 +128,17 @@ void ThemeManager::initializeIcons()
     }
 
     themeDebugLog() << "<> Icon themes initialized.";
+}
+
+bool ThemeManager::windows11StyleIsUsable()
+{
+    // Cached: queried from drawPrimitive, which runs many times per frame.
+#ifdef Q_OS_WIN
+    static const bool usable = QFontDatabase::families().contains("Segoe Fluent Icons", Qt::CaseInsensitive);
+    return usable;
+#else
+    return true;  // non-Windows: style is not offered anyway
+#endif
 }
 
 void ThemeManager::initializeWidgets()
@@ -258,8 +271,73 @@ void ThemeManager::applyCurrentlySelectedTheme(bool initial)
     if (applicationTheme == "") {
         applicationTheme = m_defaultStyle;
     }
+    if (!isValidApplicationTheme(applicationTheme)) {
+        // windowsvista (or anything else) missing too, e.g. odd Wine
+        // builds: fall back to Fusion, which is always registered.
+        // Never crashes, never writes settings.
+        themeDebugLog() << "Theme" << applicationTheme << "not available; falling back to Fusion";
+        applicationTheme = "fusion";
+    }
     setApplicationTheme(applicationTheme, initial);
     themeDebugLog() << "<> Application theme set.";
+}
+
+QPalette ThemeManager::paletteFor(const QString& mode)
+{
+    // Dark branch first: "System" on a dark OS must not fall through
+    // to Light when colorScheme() reports Unknown on older Qt.
+    QString resolved = mode;
+    if (resolved == "System") {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+        // Light and Unknown both fall back to Light.
+        resolved = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark ? "Dark" : "Light";
+#else
+        resolved = "Light";
+#endif
+    }
+    if (resolved == "Dark") {
+        // Verbatim copy of DarkTheme::colorScheme() (which now routes
+        // here); fade amounts inlined because they live on that class.
+        QPalette darkPalette;
+        darkPalette.setColor(QPalette::Window, QColor(49, 49, 49));
+        darkPalette.setColor(QPalette::WindowText, Qt::white);
+        darkPalette.setColor(QPalette::Base, QColor(34, 34, 34));
+        darkPalette.setColor(QPalette::AlternateBase, QColor(42, 42, 42));
+        darkPalette.setColor(QPalette::ToolTipBase, Qt::white);
+        darkPalette.setColor(QPalette::ToolTipText, Qt::white);
+        darkPalette.setColor(QPalette::Text, Qt::white);
+        darkPalette.setColor(QPalette::Button, QColor(48, 48, 48));
+        darkPalette.setColor(QPalette::ButtonText, Qt::white);
+        darkPalette.setColor(QPalette::BrightText, Qt::red);
+        darkPalette.setColor(QPalette::Link, QColor(47, 163, 198));
+        darkPalette.setColor(QPalette::Highlight, QColor(150, 219, 89));
+        darkPalette.setColor(QPalette::HighlightedText, Qt::black);
+        darkPalette.setColor(QPalette::PlaceholderText, Qt::darkGray);
+        return ITheme::fadeInactive(darkPalette, 0.5, QColor(49, 49, 49));
+    }
+    // Light branch (also the fallback): verbatim copy of
+    // BrightTheme::colorScheme().
+    QPalette brightPalette;
+    brightPalette.setColor(QPalette::Window, QColor(255, 255, 255));
+    brightPalette.setColor(QPalette::WindowText, QColor(17, 17, 17));
+    brightPalette.setColor(QPalette::Base, QColor(250, 250, 250));
+    brightPalette.setColor(QPalette::AlternateBase, QColor(240, 240, 240));
+    brightPalette.setColor(QPalette::ToolTipBase, QColor(17, 17, 17));
+    brightPalette.setColor(QPalette::ToolTipText, QColor(255, 255, 255));
+    brightPalette.setColor(QPalette::Text, Qt::black);
+    brightPalette.setColor(QPalette::Button, QColor(249, 249, 249));
+    brightPalette.setColor(QPalette::ButtonText, Qt::black);
+    brightPalette.setColor(QPalette::BrightText, Qt::red);
+    brightPalette.setColor(QPalette::Link, QColor(37, 137, 164));
+    brightPalette.setColor(QPalette::Highlight, QColor(137, 207, 84));
+    brightPalette.setColor(QPalette::HighlightedText, Qt::black);
+    return ITheme::fadeInactive(brightPalette, 0.5, QColor(255, 255, 255));
+}
+
+void ThemeManager::applyAppearanceMode(const QString& mode)
+{
+    APPLICATION->settings()->set("AppearanceMode", mode);
+    applyCurrentlySelectedTheme();
 }
 
 void ThemeManager::refresh()

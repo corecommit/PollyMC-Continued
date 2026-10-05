@@ -42,6 +42,11 @@ class SystemTheme : public ITheme {
     virtual ~SystemTheme() {}
     void apply(bool initial) override;
 
+    // Single source of truth for which theme IDs follow the OS and
+    // must not get a palette stamped over them. Backed by the same
+    // S_NATIVE_STYLES list the constructor and apply() use.
+    static bool isNativeStyle(const QString& id);
+
     QString id() override;
     QString name() override;
     QString tooltip() override;

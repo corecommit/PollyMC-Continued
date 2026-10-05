@@ -48,6 +48,17 @@ class ThemeManager {
     void setIconTheme(const QString& name);
     void setApplicationTheme(const QString& name, bool initial = false);
 
+    // Resolves an AppearanceMode ("Light"/"Dark"/"System") to a palette.
+    // "System" snapshots the OS scheme on older Qt, live-followed on 6.5+.
+    static QPalette paletteFor(const QString& mode);
+    // Whether the Windows 11 style can render correctly here: it needs
+    // the "Segoe Fluent Icons" font. Single source of truth, shared
+    // with the proxy style fallback below.
+    static bool windows11StyleIsUsable();
+    // Persists mode, then re-applies the current theme (same path as
+    // applyCurrentlySelectedTheme, not a duplicate).
+    void applyAppearanceMode(const QString& mode);
+
     const LogColors& getLogColors() { return m_logColors; }
 
     void refresh();

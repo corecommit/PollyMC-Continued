@@ -18,9 +18,52 @@
 
 #include "HintOverrideProxyStyle.h"
 
+#include <QStyleFactory>
+
+#include "ui/themes/ThemeManager.h"
+
 HintOverrideProxyStyle::HintOverrideProxyStyle(QStyle* style) : QProxyStyle(style)
 {
     setObjectName(baseStyle()->objectName());
+}
+
+namespace {
+// Primitives QWindows11Style draws with Segoe Fluent Icons glyphs.
+// Without that font they render as .notdef boxes (Win10, Wine,
+// Winlator) — these alone fall back to Fusion rendering.
+bool usesFluentGlyph(QStyle::PrimitiveElement pe)
+{
+    switch (pe) {
+        case QStyle::PE_IndicatorSpinUp:
+        case QStyle::PE_IndicatorSpinDown:
+        case QStyle::PE_IndicatorArrowUp:
+        case QStyle::PE_IndicatorArrowDown:
+        case QStyle::PE_IndicatorArrowLeft:
+        case QStyle::PE_IndicatorArrowRight:
+        case QStyle::PE_IndicatorCheckBox:
+        case QStyle::PE_IndicatorRadioButton:
+        case QStyle::PE_IndicatorBranch:
+        case QStyle::PE_IndicatorItemViewItemCheck:
+            return true;
+        default:
+            return false;
+    }
+}
+}  // namespace
+
+void HintOverrideProxyStyle::drawPrimitive(PrimitiveElement element,
+                                           const QStyleOption* option,
+                                           QPainter* painter,
+                                           const QWidget* widget) const
+{
+    if (!ThemeManager::windows11StyleIsUsable() && usesFluentGlyph(element)) {
+        static QStyle* fallback = QStyleFactory::create("fusion");
+        if (fallback) {
+            fallback->drawPrimitive(element, option, painter, widget);
+            return;
+        }
+    }
+    QProxyStyle::drawPrimitive(element, option, painter, widget);
 }
 
 int HintOverrideProxyStyle::styleHint(QStyle::StyleHint hint,

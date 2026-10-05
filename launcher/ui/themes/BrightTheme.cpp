@@ -36,6 +36,9 @@
 
 #include <QObject>
 
+#include "Application.h"
+#include "ui/themes/ThemeManager.h"
+
 QString BrightTheme::id()
 {
     return "bright";
@@ -48,30 +51,23 @@ QString BrightTheme::name()
 
 QPalette BrightTheme::colorScheme()
 {
-    QPalette brightPalette;
-    brightPalette.setColor(QPalette::Window, QColor(255, 255, 255));
-    brightPalette.setColor(QPalette::WindowText, QColor(17, 17, 17));
-    brightPalette.setColor(QPalette::Base, QColor(250, 250, 250));
-    brightPalette.setColor(QPalette::AlternateBase, QColor(240, 240, 240));
-    brightPalette.setColor(QPalette::ToolTipBase, QColor(17, 17, 17));
-    brightPalette.setColor(QPalette::ToolTipText, QColor(255, 255, 255));
-    brightPalette.setColor(QPalette::Text, Qt::black);
-    brightPalette.setColor(QPalette::Button, QColor(249, 249, 249));
-    brightPalette.setColor(QPalette::ButtonText, Qt::black);
-    brightPalette.setColor(QPalette::BrightText, Qt::red);
-    brightPalette.setColor(QPalette::Link, QColor(37, 137, 164));
-    brightPalette.setColor(QPalette::Highlight, QColor(137, 207, 84));
-    brightPalette.setColor(QPalette::HighlightedText, Qt::black);
-    return fadeInactive(brightPalette, fadeAmount(), fadeColor());
+    // See DarkTheme::colorScheme(): shared helper, follows AppearanceMode.
+    return ThemeManager::paletteFor(APPLICATION->settings()->get("AppearanceMode").toString());
 }
 
 double BrightTheme::fadeAmount()
 {
+    // Post theme-split, the palette comes from
+    // ThemeManager::paletteFor(), which inlines this value.
+    // Changing it here has no effect; edit paletteFor() instead.
     return 0.5;
 }
 
 QColor BrightTheme::fadeColor()
 {
+    // Post theme-split, the palette comes from
+    // ThemeManager::paletteFor(), which inlines this value.
+    // Changing it here has no effect; edit paletteFor() instead.
     return QColor(255, 255, 255);
 }
 

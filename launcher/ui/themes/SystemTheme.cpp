@@ -59,10 +59,16 @@ SystemTheme::SystemTheme(const QString& styleName, const QPalette& defaultPalett
     }
 }
 
+bool SystemTheme::isNativeStyle(const QString& id)
+{
+    return S_NATIVE_STYLES.contains(id);
+}
+
 void SystemTheme::apply(bool initial)
 {
-    // See S_NATIVE_STYLES comment
-    if (initial && S_NATIVE_STYLES.contains(m_themeName)) {
+    // Native styles must never get a palette stamped over them, on any
+    // apply — not just the first. See S_NATIVE_STYLES comment.
+    if (S_NATIVE_STYLES.contains(m_themeName)) {
         QApplication::setStyle(new HintOverrideProxyStyle(QStyleFactory::create(qtTheme())));
         return;
     }

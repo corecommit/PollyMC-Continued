@@ -686,6 +686,23 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         // Theming
         m_settings->registerSetting("IconTheme", QString());
         m_settings->registerSetting("ApplicationTheme", QString());
+        // One-time migration from the pre-split theme model. The
+        // sentinel is registered first so get() on it is always valid;
+        // it is written once and never consulted again.
+        // NOTE: AppearanceMode must be registered BEFORE the mapped
+        // set() calls below — SettingsObject::set() on an unregistered
+        // id is a no-op (logs "Setting doesn't exist").
+        m_settings->registerSetting("AppearanceMigrated", false);
+        m_settings->registerSetting("AppearanceMode", "Light");
+        if (!m_settings->get("AppearanceMigrated").toBool()) {
+            const QString legacyTheme = m_settings->get("ApplicationTheme").toString();
+            if (legacyTheme == "dark")
+                m_settings->set("AppearanceMode", "Dark");
+            else if (legacyTheme == "bright")
+                m_settings->set("AppearanceMode", "Light");
+            // native, custom, or fresh: leave at the default
+            m_settings->set("AppearanceMigrated", true);
+        }
 
         // Remembered state
         m_settings->registerSetting("LastUsedGroupForNewInstance", QString());
@@ -1009,6 +1026,15 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
     // Themes
     m_themeManager = std::make_unique<ThemeManager>();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+    // Live-follow the OS appearance, but only while the user asked for
+    // System mode. Placed here (not in ThemeManager) because
+    // ThemeManager is not a QObject and cannot own the connection.
+    connect(QGuiApplication::styleHints(), &QStyleHints::colorSchemeChanged, this, [this] {
+        if (m_settings->get("AppearanceMode").toString() == "System")
+            m_themeManager->applyCurrentlySelectedTheme();
+    });
+#endif
 
 #ifdef Q_OS_MACOS
     // for macOS: getting directory settings will generate URL security-scoped bookmarks if needed and not present

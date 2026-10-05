@@ -31,4 +31,9 @@ class HintOverrideProxyStyle : public QProxyStyle {
                   const QStyleOption* option = nullptr,
                   const QWidget* widget = nullptr,
                   QStyleHintReturn* returnData = nullptr) const override;
+
+    void drawPrimitive(PrimitiveElement element,
+                       const QStyleOption* option,
+                       QPainter* painter,
+                       const QWidget* widget = nullptr) const override;
 };

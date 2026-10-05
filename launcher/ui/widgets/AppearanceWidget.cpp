@@ -40,6 +40,7 @@
 #include <DesktopServices.h>
 #include "BuildConfig.h"
 #include "ui/themes/ITheme.h"
+#include "ui/themes/SystemTheme.h"
 #include "ui/themes/ThemeManager.h"
 
 #include <Application.h>
@@ -68,6 +69,7 @@ AppearanceWidget::AppearanceWidget(bool themesOnly, QWidget* parent)
 
     connect(m_ui->iconsComboBox, &QComboBox::currentIndexChanged, this, &AppearanceWidget::applyIconTheme);
     connect(m_ui->widgetStyleComboBox, &QComboBox::currentIndexChanged, this, &AppearanceWidget::applyWidgetTheme);
+    connect(m_ui->appearanceModeComboBox, &QComboBox::currentIndexChanged, this, &AppearanceWidget::applyAppearanceMode);
 
     connect(m_ui->iconsFolder, &QPushButton::clicked, this,
             [] { DesktopServices::openPath(APPLICATION->themeManager()->getIconThemesFolder().path()); });
@@ -134,6 +136,7 @@ void AppearanceWidget::applyIconTheme(int index)
 
 void AppearanceWidget::applyWidgetTheme(int index)
 {
+    updateAppearanceModeState();
     auto settings = APPLICATION->settings();
     auto originalAppTheme = settings->get("ApplicationTheme").toString();
     auto newAppTheme = m_ui->widgetStyleComboBox->itemData(index).toString();
@@ -145,12 +148,35 @@ void AppearanceWidget::applyWidgetTheme(int index)
     updateConsolePreview();
 }
 
+void AppearanceWidget::applyAppearanceMode(int index)
+{
+    const QString mode = m_ui->appearanceModeComboBox->itemData(index).toString();
+    if (mode.isEmpty())
+        return;
+    APPLICATION->themeManager()->applyAppearanceMode(mode);
+    updateConsolePreview();
+}
+
+void AppearanceWidget::updateAppearanceModeState()
+{
+    // Native styles follow the OS; the dropdown stays visible but
+    // disabled so the saved value survives a round-trip back to a
+    // non-native theme.
+    const bool native = SystemTheme::isNativeStyle(m_ui->widgetStyleComboBox->currentData().toString());
+    m_ui->appearanceModeComboBox->setEnabled(!native);
+    m_ui->appearanceModeComboBox->setToolTip(
+        native
+            ? tr("Windows-native themes follow your Windows appearance setting. To change light/dark, use Settings > Personalization > Colors in Windows.")
+            : QString());
+}
+
 void AppearanceWidget::loadThemeSettings()
 {
     APPLICATION->themeManager()->refresh();
 
     m_ui->iconsComboBox->blockSignals(true);
     m_ui->widgetStyleComboBox->blockSignals(true);
+    m_ui->appearanceModeComboBox->blockSignals(true);
 
     m_ui->iconsComboBox->clear();
     m_ui->widgetStyleComboBox->clear();
@@ -184,8 +210,18 @@ void AppearanceWidget::loadThemeSettings()
             m_ui->widgetStyleComboBox->setCurrentIndex(i);
     }
 
+    const QString appearanceMode = settings->get("AppearanceMode").toString();
+    m_ui->appearanceModeComboBox->clear();
+    m_ui->appearanceModeComboBox->addItem(tr("Light"), "Light");
+    m_ui->appearanceModeComboBox->addItem(tr("Dark"), "Dark");
+    m_ui->appearanceModeComboBox->addItem(tr("System"), "System");
+    const int modeIndex = m_ui->appearanceModeComboBox->findData(appearanceMode);
+    m_ui->appearanceModeComboBox->setCurrentIndex(modeIndex >= 0 ? modeIndex : 0);  // default Light
+
     m_ui->iconsComboBox->blockSignals(false);
     m_ui->widgetStyleComboBox->blockSignals(false);
+    m_ui->appearanceModeComboBox->blockSignals(false);
+    updateAppearanceModeState();
 }
 
 void AppearanceWidget::updateConsolePreview()

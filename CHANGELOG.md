@@ -22,9 +22,27 @@
   new "Show what you're playing on Discord" checkbox. Discord
   activity was always shared before; it's on by default, and
   turning it off now applies immediately without a restart.
+- **Separate dark/light and widget style** — Settings >
+  Appearance now has an "Appearance" dropdown (Light / Dark /
+  System) independent of the "Theme" dropdown (which picks
+  the widget style). Previously dark and light were baked
+  into each theme; now they apply on top of any non-native
+  theme. Windows-native themes continue to follow your
+  Windows appearance setting and grey out the Appearance
+  dropdown.
 
 **Fixed:** 
 
+- **Windows 11 theme now renders correctly on Windows 10** — The style draws spin arrows, checkboxes, and
+  other indicators with glyphs from Segoe Fluent Icons, which
+  isn't present on Windows 10 or Wine. Those
+  primitives now fall back to Fusion's rendering while the rest
+  of the Windows 11 style is unchanged.
+- **Switching away from a Windows theme and back no longer
+  corrupts its look** — Re-selecting a native Windows style
+  used to stamp a default palette over the native rendering,
+  producing mismatched colors. Native styles are now left
+  untouched on every apply.
 - **OAuth response bodies are no longer logged** — A failed
   Microsoft login used to write the full token-endpoint response
   into the launcher log, which could expose the access token to
