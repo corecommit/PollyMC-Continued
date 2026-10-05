@@ -105,6 +105,7 @@
 #include <QSplashScreen>
 #include <QSvgRenderer>
 #include <QStyleFactory>
+#include <QStyleHints>
 #include <QTranslator>
 #include <QTimer>
 #include <QWindow>
@@ -164,7 +165,6 @@
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
-#include <QStyleHints>
 #endif
 
 #include "console/Console.h"
