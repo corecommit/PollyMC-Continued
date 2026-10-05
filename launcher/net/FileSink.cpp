@@ -50,8 +50,8 @@ Task::State FileSink::init(QNetworkRequest& request)
 
     // create a new save file and open it for writing
     if (!FS::ensureFilePathExists(m_filename)) {
-        qCCritical(taskNetLogC) << "Could not create folder for " + m_filename;
-        m_fail_reason = "Could not create folder";
+        qCCritical(taskNetLogC) << QString("Could not create download folder for %1").arg(m_filename);
+        m_fail_reason = "Could not create the download folder";
         return Task::State::Failed;
     }
 
@@ -66,14 +66,14 @@ Task::State FileSink::init(QNetworkRequest& request)
 
     if (initAllValidators(request))
         return Task::State::Running;
-    m_fail_reason = "Failed to initialize validators";
+    m_fail_reason = "Could not initialize download validators";
     return Task::State::Failed;
 }
 
 Task::State FileSink::write(QByteArray& data)
 {
     if (!writeAllValidators(data) || m_output_file->write(data) != data.size()) {
-        QString error = QString("Failed writing into %1: %2").arg(m_filename);
+        QString error = QString("Could not write downloaded data to %1: %2").arg(m_filename);
         if (m_output_file->error() == QFileDevice::NoError) {
             error = error.arg("Validators failed");
         } else {
@@ -117,13 +117,13 @@ Task::State FileSink::finalize(QNetworkReply& reply)
         // ask validators for data consistency
         // we only do this for actual downloads, not 'your data is still the same' cache hits
         if (!finalizeAllValidators(reply)) {
-            m_fail_reason = "Failed to finalize validators";
+            m_fail_reason = "Could not finalize download validators";
             return Task::State::Failed;
         }
 
         // nothing went wrong...
         if (!m_output_file->commit()) {
-            const auto error = QString("Failed to commit changes to %1: %2").arg(m_filename).arg(m_output_file->errorString());
+            const auto error = QString("Could not save downloaded file %1: %2").arg(m_filename).arg(m_output_file->errorString());
             qCCritical(taskNetLogC) << error;
             m_fail_reason = error;
             m_output_file->cancelWriting();

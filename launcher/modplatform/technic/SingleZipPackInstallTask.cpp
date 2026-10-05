@@ -92,7 +92,7 @@ void Technic::SingleZipPackInstallTask::extractFinished()
 {
     m_packZip.reset();
     if (!m_extractFuture.result()) {
-        emitFailed(tr("Failed to extract modpack"));
+        emitFailed(tr("Could not extract modpack"));
         return;
     }
     QDir extractDir(m_stagingPath);
@@ -128,5 +128,5 @@ void Technic::SingleZipPackInstallTask::extractFinished()
 
 void Technic::SingleZipPackInstallTask::extractAborted()
 {
-    emitFailed(tr("Instance import has been aborted."));
+    emitFailed(tr("Instance import was aborted."));
 }

@@ -190,7 +190,7 @@ void ModrinthPackExportTask::parseApiResponse(QByteArray* response)
             }
         }
     } catch (const Json::JsonException& e) {
-        emitFailed(tr("Failed to parse versions response: %1").arg(e.what()));
+        emitFailed(tr("Could not parse versions response: %1").arg(e.what()));
         return;
     }
     pendingHashes.clear();

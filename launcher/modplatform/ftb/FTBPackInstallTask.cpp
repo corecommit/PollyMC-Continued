@@ -82,7 +82,7 @@ void PackInstallTask::executeTask()
                                    [this](const FTB::VersionInfo& a) { return a.name == m_versionName; });
 
     if (version_it == m_pack.versions.constEnd()) {
-        emitFailed(tr("Failed to find pack version %1").arg(m_versionName));
+        emitFailed(tr("Could not find pack version %1").arg(m_versionName));
         return;
     }
 
@@ -115,7 +115,7 @@ void PackInstallTask::onManifestDownloadSucceeded(QByteArray* responsePtr)
     QJsonParseError parse_error{};
     QJsonDocument doc = QJsonDocument::fromJson(response, &parse_error);
     if (parse_error.error != QJsonParseError::NoError) {
-        qWarning() << "Error while parsing JSON response from FTB at " << parse_error.offset << " reason: " << parse_error.errorString();
+        qWarning() << QString("Could not parse FTB response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
         qWarning() << response;
         return;
     }
@@ -146,7 +146,7 @@ void PackInstallTask::resolveMods()
     for (const auto& file : m_version.files) {
         if (!file.serverOnly && file.url.isEmpty()) {
             if (file.curseforge.file_id <= 0) {
-                emitFailed(tr("Invalid manifest: There's no information available to download the file '%1'!").arg(file.name));
+                emitFailed(tr("Invalid manifest: no download information available for file '%1'.").arg(file.name));
                 return;
             }
 

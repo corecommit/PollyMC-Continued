@@ -164,11 +164,11 @@ void InstanceImportTask::processZipPack()
         return true;
     };
     if (!packZip.parse(detectInstance)) {
-        emitFailed(tr("Unable to open supplied modpack zip file."));
+        emitFailed(tr("Could not open the supplied modpack zip file."));
         return;
     }
     if (m_modpackType == ModpackType::Unknown) {
-        emitFailed(tr("Archive does not contain a recognized modpack type."));
+        emitFailed(tr("The modpack archive does not contain a recognized modpack type."));
         return;
     }
     setStatus(tr("Extracting modpack"));
@@ -246,7 +246,7 @@ void InstanceImportTask::extractFinished()
             processModrinth();
             return;
         case ModpackType::Unknown:
-            emitFailed(tr("Archive does not contain a recognized modpack type."));
+            emitFailed(tr("The modpack archive does not contain a recognized modpack type."));
             return;
     }
 }

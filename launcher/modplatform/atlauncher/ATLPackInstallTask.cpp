@@ -110,8 +110,7 @@ void PackInstallTask::onDownloadSucceeded(QByteArray* responsePtr)
     QJsonParseError parse_error{};
     QJsonDocument doc = QJsonDocument::fromJson(response, &parse_error);
     if (parse_error.error != QJsonParseError::NoError) {
-        qWarning() << "Error while parsing JSON response from ATLauncher at" << parse_error.offset
-                   << "reason:" << parse_error.errorString();
+        qWarning() << QString("Could not parse ATLauncher response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
         qWarning() << response;
         return;
     }
@@ -153,7 +152,7 @@ void PackInstallTask::onDownloadSucceeded(QByteArray* responsePtr)
 
     auto ver = getComponentVersion("net.minecraft", m_version.minecraft);
     if (!ver) {
-        emitFailed(tr("Failed to get local metadata index for '%1' v%2").arg("net.minecraft", m_version.minecraft));
+        emitFailed(tr("Could not get local metadata index for '%1' v%2").arg("net.minecraft", m_version.minecraft));
         return;
     }
     minecraftVersion = ver;
@@ -219,7 +218,7 @@ void PackInstallTask::deleteExistingFiles()
         } else if (base == "config") {
             return FS::PathCombine(minecraftPath, "config");
         } else {
-            qWarning() << "Unrecognised base path" << base;
+            qWarning() << QString("Unrecognized base path: %1").arg(base);
             return minecraftPath;
         }
     };
@@ -328,7 +327,7 @@ QString PackInstallTask::getDirForModType(ModType type, QString raw)
         case ModType::ShaderPack:
             return "shaderpacks";
         case ModType::Millenaire:
-            qWarning() << "Unsupported mod type: " + raw;
+            qWarning() << QString("Unsupported mod type: %1").arg(raw);
             return Q_NULLPTR;
         case ModType::Unknown:
             emitFailed(tr("Unknown mod type: %1").arg(raw));
@@ -343,7 +342,7 @@ QString PackInstallTask::getVersionForLoader(QString uid)
     if (m_version.loader.recommended || m_version.loader.latest || m_version.loader.choose) {
         auto vlist = APPLICATION->metadataIndex()->get(uid);
         if (!vlist) {
-            emitFailed(tr("Failed to get local metadata index for %1").arg(uid));
+            emitFailed(tr("Could not get local metadata index for %1").arg(uid));
             return Q_NULLPTR;
         }
 
@@ -374,7 +373,7 @@ QString PackInstallTask::getVersionForLoader(QString uid)
                 return version->descriptor();
             }
 
-            emitFailed(tr("Failed to find version for %1 loader").arg(m_version.loader.type));
+            emitFailed(tr("Could not find a version for the %1 loader").arg(m_version.loader.type));
             return Q_NULLPTR;
         } else if (m_version.loader.choose) {
             // Fabric Loader doesn't depend on a given Minecraft version.
@@ -387,7 +386,7 @@ QString PackInstallTask::getVersionForLoader(QString uid)
     }
 
     if (m_version.loader.version == Q_NULLPTR || m_version.loader.version.isEmpty()) {
-        emitFailed(tr("No loader version set for modpack!"));
+        emitFailed(tr("No loader version set for modpack."));
         return Q_NULLPTR;
     }
 

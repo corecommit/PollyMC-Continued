@@ -89,7 +89,8 @@ class CustomOAuthOobReplyHandler : public QOAuthOobReplyHandler {
     void networkReplyFinished(QNetworkReply* reply) override
     {
         if (reply->error() != QNetworkReply::NoError) {
-            qWarning() << "OAuth2 request failed:" << reply->readAll();
+            qWarning() << "OAuth token endpoint returned HTTP"
+                       << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         }
 
         QOAuthOobReplyHandler::networkReplyFinished(reply);
@@ -106,7 +107,8 @@ class LoggingOAuthHttpServerReplyHandler final : public QOAuthHttpServerReplyHan
     void networkReplyFinished(QNetworkReply* reply) override
     {
         if (reply->error() != QNetworkReply::NoError) {
-            qWarning() << "OAuth2 request failed:" << reply->readAll();
+            qWarning() << "OAuth token endpoint returned HTTP"
+                       << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         }
 
         QOAuthHttpServerReplyHandler::networkReplyFinished(reply);

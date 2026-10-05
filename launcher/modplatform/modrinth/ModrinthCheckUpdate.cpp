@@ -123,8 +123,7 @@ void ModrinthCheckUpdate::checkVersionsResponse(QByteArray* response, std::optio
     QJsonParseError parse_error{};
     QJsonDocument doc = QJsonDocument::fromJson(*response, &parse_error);
     if (parse_error.error != QJsonParseError::NoError) {
-        qWarning() << "Error while parsing JSON response from ModrinthCheckUpdate at" << parse_error.offset
-                   << "reason:" << parse_error.errorString();
+        qWarning() << QString("Could not parse ModrinthCheckUpdate response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
         qWarning() << *response;
 
         emitFailed(parse_error.errorString());
@@ -166,7 +165,7 @@ void ModrinthCheckUpdate::checkVersionsResponse(QByteArray* response, std::optio
 
             auto project_ver = Modrinth::loadIndexedPackVersion(project_obj, m_hashType, loader_filter);
             if (project_ver.downloadUrl.isEmpty()) {
-                qCritical() << "Modrinth mod without download url!" << project_ver.fileName;
+                qCritical() << QString("Modrinth mod is missing a download URL: %1").arg(project_ver.fileName);
                 ++iter;
                 continue;
             }

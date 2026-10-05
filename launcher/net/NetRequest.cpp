@@ -73,7 +73,7 @@ void NetRequest::executeTask()
     setStatus(tr("Requesting %1").arg(StringUtils::truncateUrlHumanFriendly(m_url, 80)));
 
     if (getState() == Task::State::AbortedByUser) {
-        qCWarning(logCat) << getUid().toString() << "Attempt to start an aborted Request:" << m_url.toString();
+        qCWarning(logCat) << QString("[%1] Request %2 was started after being aborted").arg(getUid().toString(), m_url.toString());
         emit aborted();
         emit finished();
         return;
@@ -167,7 +167,7 @@ void NetRequest::onProgress(qint64 bytesReceived, qint64 bytesTotal)
 void NetRequest::downloadError(QNetworkReply::NetworkError error)
 {
     if (error == QNetworkReply::OperationCanceledError) {
-        qCCritical(logCat) << getUid().toString() << "Aborted" << m_url.toString();
+        qCCritical(logCat) << QString("[%1] Request aborted: %2").arg(getUid().toString(), m_url.toString());
         m_state = State::Failed;
     } else if (replyStatusCode() == 429 /* HTTP Too Many Requests*/ && m_options & Option::AutoRetry) {
         qCDebug(logCat) << getUid().toString() << "Rate Limited!";
@@ -191,9 +191,9 @@ void NetRequest::downloadError(QNetworkReply::NetworkError error)
             }
         }
         // error happened during download.
-        qCCritical(logCat) << getUid().toString() << "Failed" << m_url.toString() << "with error" << error;
+        qCCritical(logCat) << QString("[%1] Download of %2 failed with network error %3").arg(getUid().toString(), m_url.toString()).arg(int(error));
         if (m_reply)
-            qCCritical(logCat) << getUid().toString() << "HTTP status:" << replyStatusCode() << errorString();
+            qCCritical(logCat) << QString("[%1] Request %2 returned HTTP status %3: %4").arg(getUid().toString(), m_url.toString()).arg(replyStatusCode()).arg(errorString());
         if (m_errorResponse.size() > 0)
             qCCritical(logCat) << getUid().toString() << "Response from server:" << m_errorResponse;
         m_state = State::Failed;
@@ -204,8 +204,7 @@ void NetRequest::sslErrors(const QList<QSslError>& errors)
 {
     int i = 1;
     for (auto error : errors) {
-        qCCritical(logCat).nospace() << getUid().toString() << " Request " << m_url.toString() << " SSL Error #" << i << ": "
-                                     << error.errorString();
+        qCCritical(logCat) << QString("[%1] SSL error %2 for request %3: %4").arg(getUid().toString()).arg(i).arg(m_url.toString()).arg(error.errorString());
         auto cert = error.certificate();
         qCCritical(logCat) << getUid().toString() << "Certificate in question:\n" << cert.toText();
         i++;
@@ -250,7 +249,7 @@ auto NetRequest::handleRedirect() -> bool
          */
         redirect = QUrl(redirectStr, QUrl::TolerantMode);
         if (!redirect.isValid()) {
-            qCWarning(logCat) << getUid().toString() << "Failed to parse redirect URL:" << redirectStr;
+            qCWarning(logCat) << QString("[%1] Download redirected to an unparsable URL: %2").arg(getUid().toString(), redirectStr);
             downloadError(QNetworkReply::ProtocolFailure);
             return false;
         }
@@ -273,7 +272,7 @@ void NetRequest::handleAutoRetry(int64_t delay)
         /* 1 minute is too long to wait for retry, fail for now */
         m_state = State::Failed;
         auto retryAfter = QDateTime::currentDateTime().addSecs(delay);
-        emitFailed(tr("Request Rate Limited for %n second(s): Retry After %1", "seconds", delay)
+        emitFailed(tr("Download was rate limited. Server asked to retry after %1 (%n second(s)).", "seconds", delay)
                        .arg(retryAfter.toLocalTime().toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat))));
         return;
     } else {
@@ -362,11 +361,11 @@ void NetRequest::downloadReadyRead()
             m_errorResponse.append(data);
         }
         if (m_state == State::Failed) {
-            qCCritical(logCat) << getUid().toString() << "Failed to process response chunk:" << m_sink->failReason();
+            qCCritical(logCat) << QString("[%1] Could not process downloaded data for %2: %3").arg(getUid().toString(), m_url.toString()).arg(m_sink->failReason());
         }
         // qDebug() << "Request" << m_url.toString() << "gained" << data.size() << "bytes";
     } else {
-        qCCritical(logCat) << getUid().toString() << "Cannot write download data! illegal status" << m_status;
+        qCCritical(logCat) << QString("[%1] Downloaded data arrived while not running (state %2)").arg(getUid().toString()).arg(int(m_status));
     }
 }
 

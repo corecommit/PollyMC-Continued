@@ -454,24 +454,18 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
     if (!FS::ensureFolderPathExists(dataPath)) {
         showFatalErrorMessage(
-            "The launcher data folder could not be created.",
-            QString("The launcher data folder could not be created.\n"
-                    "\n"
-                    "Make sure you have the right permissions to the launcher data folder and any folder needed to access it.\n"
-                    "(%1)\n"
-                    "\n"
-                    "The launcher cannot continue until you fix this problem.")
+            tr("Could not create data folder"),
+            tr("The launcher could not create its data folder at %1.\n"
+               "\n"
+               "Check that you have permission to create folders there. The launcher cannot start until this is fixed.")
                 .arg(dataPath));
         return;
     }
     if (!QDir::setCurrent(dataPath)) {
-        showFatalErrorMessage("The launcher data folder could not be opened.",
-                              QString("The launcher data folder could not be opened.\n"
-                                      "\n"
-                                      "Make sure you have the right permissions to the launcher data folder.\n"
-                                      "(%1)\n"
-                                      "\n"
-                                      "The launcher cannot continue until you fix this problem.")
+        showFatalErrorMessage(tr("Could not open data folder"),
+                              tr("The launcher could not open its data folder at %1.\n"
+                                 "\n"
+                                 "Check that you have permission to open it. The launcher cannot start until this is fixed.")
                                   .arg(dataPath));
         return;
     }
@@ -550,13 +544,10 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
         logFile = std::unique_ptr<QFile>(new QFile(logBase.arg(0)));
         if (!logFile->open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
-            showFatalErrorMessage("The launcher data folder is not writable!",
-                                  QString("The launcher couldn't create a log file - %1.\n"
-                                          "\n"
-                                          "Make sure you have write permissions to the data folder.\n"
-                                          "(%2)\n"
-                                          "\n"
-                                          "The launcher cannot continue until you fix this problem.")
+            showFatalErrorMessage(tr("Data folder is not writable"),
+                                  tr("The launcher could not create a log file: %1.\n"
+                                     "\n"
+                                     "Check that you have write permission for the data folder at %2. The launcher cannot start until this is fixed.")
                                       .arg(logFile->errorString())
                                       .arg(dataPath));
             return;
@@ -1127,27 +1118,18 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         auto update_lock = QFileInfo(FS::PathCombine(m_dataPath, ".prism_launcher_update.lock"));
         if (update_lock.exists()) {
             auto [timestamp, from, to, target, data_path] = read_lock_File(update_lock.absoluteFilePath());
-            auto infoMsg = tr("This installation has a update lock file present at: %1\n"
+            auto infoMsg = tr("A previous update attempt was interrupted, so an update lock file is still present.\n"
                               "\n"
-                              "Timestamp: %2\n"
-                              "Updating from version %3 to %4\n"
-                              "Target install path: %5\n"
-                              "Data Path: %6"
-                              "\n"
-                              "This likely means that a update attempt failed. Please ensure your installation is in working order before "
-                              "proceeding.\n"
-                              "Check the PollyMC-Continued updater log at: \n"
-                              "%7\n"
-                              "for details on the last update attempt.\n"
-                              "\n"
-                              "To delete this lock and proceed select \"Ignore\" below.")
-                               .arg(update_lock.absoluteFilePath())
-                               .arg(timestamp.toString(Qt::ISODate), from, to, target, data_path)
-                               .arg(update_log_path);
-            auto msgBox = QMessageBox(QMessageBox::Warning, tr("Update In Progress"), infoMsg, QMessageBox::Ignore | QMessageBox::Abort);
+                              "Make sure no other launcher update is running. To delete the lock file and continue, select \"Ignore\" below.");
+            auto msgBox = QMessageBox(QMessageBox::Warning, tr("Update interrupted"), infoMsg, QMessageBox::Ignore | QMessageBox::Abort);
             msgBox.setDefaultButton(QMessageBox::Abort);
             msgBox.setModal(true);
-            msgBox.setDetailedText(FS::read(update_log_path));
+            msgBox.setDetailedText(tr(
+                "Lock file: %1\nTimestamp: %2\nUpdating from version %3 to %4\nTarget install path: %5\nData path: %6\nUpdater log: %7")
+                .arg(update_lock.absoluteFilePath())
+                .arg(timestamp.toString(Qt::ISODate), from, to, target, data_path)
+                .arg(update_log_path)
+                + "\n\n" + FS::read(update_log_path));
             msgBox.setMinimumWidth(460);
             msgBox.adjustSize();
             auto res = msgBox.exec();
@@ -1168,18 +1150,15 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
         auto update_fail_marker = QFileInfo(FS::PathCombine(m_dataPath, ".prism_launcher_update.fail"));
         if (update_fail_marker.exists()) {
-            auto infoMsg = tr("An update attempt failed\n"
+            auto infoMsg = tr("The last update attempt failed.\n"
                               "\n"
-                              "Please ensure your installation is in working order before "
-                              "proceeding.\n"
-                              "Check the PollyMC-Continued updater log at: \n"
-                              "%1\n"
-                              "for details on the last update attempt.")
-                               .arg(update_log_path);
-            auto msgBox = QMessageBox(QMessageBox::Warning, tr("Update Failed"), infoMsg, QMessageBox::Ignore | QMessageBox::Abort);
+                              "Make sure the installation works, then select \"Ignore\" to continue starting the launcher.");
+            auto msgBox = QMessageBox(QMessageBox::Warning, tr("Update failed"), infoMsg, QMessageBox::Ignore | QMessageBox::Abort);
             msgBox.setDefaultButton(QMessageBox::Abort);
             msgBox.setModal(true);
-            msgBox.setDetailedText(FS::read(update_log_path));
+            msgBox.setDetailedText(
+                tr("Updater log: %1").arg(update_log_path)
+                + "\n\n" + FS::read(update_log_path));
             msgBox.setMinimumWidth(460);
             msgBox.adjustSize();
             auto res = msgBox.exec();
@@ -1200,15 +1179,11 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
         auto update_success_marker = QFileInfo(FS::PathCombine(m_dataPath, ".prism_launcher_update.success"));
         if (update_success_marker.exists()) {
-            auto infoMsg = tr("Update succeeded\n"
+            auto infoMsg = tr("You are now running %1.\n"
                               "\n"
-                              "You are now running %1 .\n"
-                              "Check the PollyMC-Continued updater log at: \n"
-                              "%2\n"
-                              "for details.")
-                               .arg(BuildConfig.printableVersionString())
-                               .arg(update_log_path);
-            auto msgBox = new QMessageBox(QMessageBox::Information, tr("Update Succeeded"), infoMsg, QMessageBox::Ok);
+                              "See the updater log for details.")
+                               .arg(BuildConfig.printableVersionString());
+            auto msgBox = new QMessageBox(QMessageBox::Information, tr("Update installed"), infoMsg, QMessageBox::Ok);
             msgBox->setDefaultButton(QMessageBox::Ok);
             msgBox->setDetailedText(FS::read(update_log_path));
             msgBox->setAttribute(Qt::WA_DeleteOnClose);

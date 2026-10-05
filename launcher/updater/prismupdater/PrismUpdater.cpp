@@ -909,28 +909,19 @@ void PrismUpdaterApp::performInstall(QFileInfo file)
             logUpdate(tr("Update lock present, aborting silent update."));
             return showFatalErrorMessage(tr("Update Aborted"), tr("A previous update lock file is present."));
         }
-        auto msg = tr("Update already in progress\n");
+        auto msg = tr("Update interrupted");
         auto infoMsg =
-            tr("This installation has a update lock file present at: %1\n"
+            tr("A previous update attempt was interrupted, so an update lock file is still present.\n"
                "\n"
-               "Timestamp: %2\n"
-               "Updating from version %3 to %4\n"
-               "Target install path: %5\n"
-               "Data Path: %6"
-               "\n"
-               "This likely means that a previous update attempt failed. Please ensure your installation is in working order before "
-               "proceeding.\n"
-               "Check the PollyMC-Continued updater log at: \n"
-               "%7\n"
-               "for details on the last update attempt.\n"
-               "\n"
-               "To overwrite this lock and proceed with this update anyway, select \"Ignore\" below.")
-                .arg(update_lock_path)
-                .arg(timestamp.toString(Qt::ISODate), from, to, target, data_path)
-                .arg(m_updateLogPath);
+               "Make sure no other update is running. To delete the lock file and continue anyway, select \"Ignore\" below.");
         QMessageBox msgBox;
         msgBox.setText(msg);
         msgBox.setInformativeText(infoMsg);
+        msgBox.setDetailedText(
+            tr("Lock file: %1\nTimestamp: %2\nUpdating from version %3 to %4\nTarget install path: %5\nData path: %6\nUpdater log: %7")
+                .arg(update_lock_path)
+                .arg(timestamp.toString(Qt::ISODate), from, to, target, data_path)
+                .arg(m_updateLogPath));
         msgBox.setStandardButtons(QMessageBox::Ignore | QMessageBox::Cancel);
         msgBox.setDefaultButton(QMessageBox::Cancel);
         msgBox.setMinimumWidth(460);

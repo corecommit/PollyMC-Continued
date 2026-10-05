@@ -66,8 +66,7 @@ void FlameCheckUpdate::getLatestVersionCallback(Resource* resource, QByteArray* 
     QJsonParseError parse_error{};
     QJsonDocument doc = QJsonDocument::fromJson(*response, &parse_error);
     if (parse_error.error != QJsonParseError::NoError) {
-        qWarning() << "Error while parsing JSON response from latest mod version at" << parse_error.offset
-                   << "reason:" << parse_error.errorString();
+        qWarning() << QString("Could not parse latest-mod-version response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
         qWarning() << *response;
         return;
     }
@@ -84,7 +83,7 @@ void FlameCheckUpdate::getLatestVersionCallback(Resource* resource, QByteArray* 
 
         FlameMod::loadIndexedPackVersions(*pack.get(), arr);
     } catch (Json::JsonException& e) {
-        qCritical() << "Failed to parse response from a version request.";
+        qCritical() << "Could not parse version-request response.";
         qCritical() << e.what();
         qDebug() << doc;
     }
@@ -154,8 +153,7 @@ void FlameCheckUpdate::collectBlockedMods()
         QJsonParseError parse_error{};
         auto doc = QJsonDocument::fromJson(*response, &parse_error);
         if (parse_error.error != QJsonParseError::NoError) {
-            qWarning() << "Error while parsing JSON response from Flame projects task at" << parse_error.offset
-                       << "reason:" << parse_error.errorString();
+            qWarning() << QString("Could not parse Flame projects response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
             qWarning() << *response;
             return;
         }

@@ -217,7 +217,7 @@ void ComponentUpdateTask::loadComponents()
                                              << "Remote loading is being run for" << component->getName();
             connect(loadTask.get(), &Task::succeeded, this, [this, taskIndex]() { remoteLoadSucceeded(taskIndex); });
             connect(loadTask.get(), &Task::failed, this, [this, taskIndex](const QString& error) { remoteLoadFailed(taskIndex, error); });
-            connect(loadTask.get(), &Task::aborted, this, [this, taskIndex]() { remoteLoadFailed(taskIndex, tr("Aborted")); });
+            connect(loadTask.get(), &Task::aborted, this, [this, taskIndex]() { remoteLoadFailed(taskIndex, tr("Metadata download aborted")); });
             RemoteLoadStatus status;
             status.type = loadType;
             status.PackProfileIndex = componentIndex;
@@ -241,7 +241,7 @@ void ComponentUpdateTask::loadComponents()
             break;
         }
         case LoadResult::Failed: {
-            emitFailed(tr("Some component metadata load tasks failed."));
+            emitFailed(tr("Some component metadata downloads failed."));
             return;
         }
     }
@@ -313,8 +313,7 @@ static bool gatherRequirementsFromComponents(const ComponentContainer& input, Re
                     output.erase(componenRequireEx);
                     output.insert(result.outcome);
                 } else {
-                    qCCritical(instanceProfileResolveC) << "Conflicting requirements:" << componentRequire.uid
-                                                        << "versions:" << componentRequire.equalsVersion << ";" << (*found).equalsVersion;
+                    qCCritical(instanceProfileResolveC) << QString("Conflicting requirements for %1: %2 vs %3").arg(componentRequire.uid, componentRequire.equalsVersion, (*found).equalsVersion);
                 }
                 succeeded &= result.ok;
             } else {
@@ -396,7 +395,7 @@ static bool getTrivialComponentChanges(const ComponentIndex& index, const Requir
         } while (false);
         switch (decision) {
             case Decision::Undetermined:
-                qCCritical(instanceProfileResolveC) << "No decision for" << reqStr;
+                qCCritical(instanceProfileResolveC) << QString("Could not decide requirement: %1").arg(reqStr);
                 succeeded = false;
                 break;
             case Decision::Met:
@@ -482,7 +481,7 @@ void ComponentUpdateTask::resolveDependencies(bool checkOnly)
         toRemove.clear();
         if (!gatherRequirementsFromComponents(components, allRequires)) {
             finalizeComponents();
-            emitFailed(tr("Conflicting requirements detected during dependency checking!"));
+            emitFailed(tr("Dependency check found conflicting requirements."));
             return;
         }
         getTrivialRemovals(components, allRequires, toRemove);
@@ -741,7 +740,7 @@ void ComponentUpdateTask::finalizeComponents()
 void ComponentUpdateTask::remoteLoadSucceeded(size_t taskIndex)
 {
     if (static_cast<size_t>(d->remoteLoadStatusList.size()) < taskIndex) {
-        qCWarning(instanceProfileResolveC) << "Got task index outside of results" << taskIndex;
+        qCWarning(instanceProfileResolveC) << QString("Remote load finished for unknown task index %1").arg(taskIndex);
         return;
     }
     auto& taskSlot = d->remoteLoadStatusList[taskIndex];
@@ -749,7 +748,7 @@ void ComponentUpdateTask::remoteLoadSucceeded(size_t taskIndex)
     disconnect(taskSlot.task.get(), &Task::failed, this, nullptr);
     disconnect(taskSlot.task.get(), &Task::aborted, this, nullptr);
     if (taskSlot.finished) {
-        qCWarning(instanceProfileResolveC) << "Got multiple results from remote load task" << taskIndex;
+        qCWarning(instanceProfileResolveC) << QString("Remote load task %1 returned multiple results").arg(taskIndex);
         return;
     }
     qCDebug(instanceProfileResolveC) << "Remote task" << taskIndex << "succeeded";
@@ -768,7 +767,7 @@ void ComponentUpdateTask::remoteLoadSucceeded(size_t taskIndex)
 void ComponentUpdateTask::remoteLoadFailed(size_t taskIndex, const QString& msg)
 {
     if (static_cast<size_t>(d->remoteLoadStatusList.size()) < taskIndex) {
-        qCWarning(instanceProfileResolveC) << "Got task index outside of results" << taskIndex;
+        qCWarning(instanceProfileResolveC) << QString("Remote load finished for unknown task index %1").arg(taskIndex);
         return;
     }
     auto& taskSlot = d->remoteLoadStatusList[taskIndex];
@@ -776,7 +775,7 @@ void ComponentUpdateTask::remoteLoadFailed(size_t taskIndex, const QString& msg)
     disconnect(taskSlot.task.get(), &Task::failed, this, nullptr);
     disconnect(taskSlot.task.get(), &Task::aborted, this, nullptr);
     if (taskSlot.finished) {
-        qCWarning(instanceProfileResolveC) << "Got multiple results from remote load task" << taskIndex;
+        qCWarning(instanceProfileResolveC) << QString("Remote load task %1 returned multiple results").arg(taskIndex);
         return;
     }
     qCDebug(instanceProfileResolveC) << "Remote task" << taskIndex << "failed:" << msg;
@@ -812,6 +811,6 @@ void ComponentUpdateTask::checkIfAllFinished()
         d->remoteLoadStatusList.clear();
 
         auto allErrors = allErrorsList.join("\n");
-        emitFailed(tr("Component metadata update task failed while downloading from remote server:\n%1").arg(allErrors));
+        emitFailed(tr("Component metadata update failed during download:\n%1").arg(allErrors));
     }
 }

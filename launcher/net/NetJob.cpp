@@ -120,7 +120,7 @@ auto NetJob::abort() -> bool
     if (fullyAborted)
         emitAborted();
     else
-        emitFailed(tr("Failed to abort all tasks in the NetJob!"));
+        emitFailed(tr("Could not abort every task in the network job"));
 
     return fullyAborted;
 }

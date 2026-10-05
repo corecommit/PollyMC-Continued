@@ -41,12 +41,13 @@ void InstanceCreationTask::executeTask()
         if (m_abort)
             return;
 
-        qWarning() << "Instance creation failed!";
+        qWarning() << "Could not create instance";
         if (!m_error_message.isEmpty()) {
-            qWarning() << "Reason:" << m_error_message;
-            emitFailed(tr("Error while creating new instance:\n%1").arg(m_error_message));
+            qWarning() << QString("Could not create instance: %1").arg(m_error_message);
+            emitFailed(tr("Could not create instance:\n%1").arg(m_error_message));
         } else {
-            emitFailed(tr("Error while creating new instance."));
+            qWarning() << QString("Could not create instance: unknown error");
+            emitFailed(tr("Could not create instance."));
         }
 
         return;
@@ -69,13 +70,13 @@ void InstanceCreationTask::executeTask()
             qDebug() << "Removing" << path;
 
             if (!QFile::remove(path)) {
-                qCritical() << "Could not remove" << path;
+                qCritical() << QString("Could not remove old conflicting file %1").arg(path);
                 deleteFailed = true;
             }
         }
 
         if (deleteFailed) {
-            emitFailed(tr("Failed to remove old conflicting files."));
+            emitFailed(tr("Could not remove old conflicting files."));
             return;
         }
     }

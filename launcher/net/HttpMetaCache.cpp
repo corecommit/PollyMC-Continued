@@ -113,7 +113,7 @@ auto HttpMetaCache::resolveEntry(QString base, QString resource_path, QString ex
     if (file_last_changed != entry->m_local_changed_timestamp) {
         QFile input(real_path);
         if (!input.open(QIODevice::ReadOnly)) {
-            qWarning() << "Failed to open file" << input.fileName() << "for reading:" << input.errorString();
+            qWarning() << QString("Could not open cache file %1 for reading: %2").arg(input.fileName()).arg(input.errorString());
             return staleEntry(base, resource_path);
         }
         // Hash in chunks instead of readAll(): avoids a full-file memory copy
@@ -138,8 +138,7 @@ auto HttpMetaCache::resolveEntry(QString base, QString resource_path, QString ex
     // Get rid of old entries, to prevent cache problems
     auto current_time = QDateTime::currentSecsSinceEpoch();
     if (entry->isExpired(current_time - (file_last_changed / 1000))) {
-        qCWarning(taskNetLogC) << "[HttpMetaCache]"
-                               << "Removing cache entry because of old age!";
+        qCWarning(taskNetLogC) << QString("Dropping expired cache entry for %1").arg(resource_path);
         selected_base.entry_list.remove(resource_path);
         return staleEntry(base, resource_path);
     }
@@ -152,12 +151,12 @@ auto HttpMetaCache::resolveEntry(QString base, QString resource_path, QString ex
 auto HttpMetaCache::updateEntry(MetaEntryPtr stale_entry) -> bool
 {
     if (!m_entries.contains(stale_entry->m_baseId)) {
-        qCCritical(taskHttpMetaCacheLogC) << "Cannot add entry with unknown base:" << stale_entry->m_baseId.toLocal8Bit();
+        qCCritical(taskHttpMetaCacheLogC) << QString("Cannot cache entry for unknown base %1").arg(stale_entry->m_baseId);
         return false;
     }
 
     if (stale_entry->m_stale) {
-        qCCritical(taskHttpMetaCacheLogC) << "Cannot add stale entry:" << stale_entry->getFullPath().toLocal8Bit();
+        qCCritical(taskHttpMetaCacheLogC) << QString("Cannot cache stale entry: %1").arg(stale_entry->getFullPath());
         return false;
     }
 
@@ -186,7 +185,7 @@ auto HttpMetaCache::evictAll() -> bool
         qCDebug(taskHttpMetaCacheLogC) << "Evicting base" << base;
         for (MetaEntryPtr entry : map.entry_list) {
             if (!evictEntry(entry))
-                qCWarning(taskHttpMetaCacheLogC) << "Unexpected missing cache entry" << entry->m_basePath;
+                qCWarning(taskHttpMetaCacheLogC) << QString("Cache entry disappeared unexpectedly: %1").arg(entry->m_basePath);
         }
         map.entry_list.clear();
         // AND all return codes together so the result is true iff all runs of deletePath() are true
@@ -241,15 +240,13 @@ void HttpMetaCache::Load()
 
     // Fail if the JSON is invalid.
     if (parseError.error != QJsonParseError::NoError) {
-        qCritical() << QString("Failed to parse HttpMetaCache file: %1 at offset %2")
-                           .arg(parseError.errorString(), QString::number(parseError.offset))
-                           .toUtf8();
+        qCritical() << QString("Could not parse metadata cache file %1: %2 at offset %3").arg(m_index_file).arg(parseError.errorString(), QString::number(parseError.offset)).toUtf8();
         return;
     }
 
     // Make sure the root is an object.
     if (!json.isObject()) {
-        qCritical() << "HttpMetaCache root should be an object.";
+        qCritical() << QString("Metadata cache file %1 is not a JSON object; ignoring it.").arg(m_index_file);
         return;
     }
 
@@ -338,6 +335,6 @@ void HttpMetaCache::SaveNow()
     try {
         Json::write(toplevel, m_index_file);
     } catch (const Exception& e) {
-        qCWarning(taskHttpMetaCacheLogC) << "Error writing cache:" << e.what();
+        qCWarning(taskHttpMetaCacheLogC) << QString("Could not write metadata cache: %1").arg(QString::fromUtf8(e.what()));
     }
 }

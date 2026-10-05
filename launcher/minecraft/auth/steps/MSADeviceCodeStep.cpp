@@ -121,7 +121,9 @@ void MSADeviceCodeStep::deviceAuthorizationFinished(QByteArray* response)
         return;
     }
     if (!m_request->wasSuccessful() || m_request->error() != QNetworkReply::NoError) {
-        qWarning() << "Device authorization failed:" << *response;
+        qWarning() << "Device authorization request failed with HTTP"
+                   << m_request->replyStatusCode()
+                   << "(response body redacted)";
         emit finished(AccountTaskState::STATE_FAILED_HARD, tr("Failed to retrieve device authorization"));
         return;
     }

@@ -139,8 +139,7 @@ QList<ModPlatform::Category> ModrinthAPI::loadCategories(const QByteArray& respo
     QJsonParseError parse_error{};
     QJsonDocument doc = QJsonDocument::fromJson(response, &parse_error);
     if (parse_error.error != QJsonParseError::NoError) {
-        qWarning() << "Error while parsing JSON response from categories at" << parse_error.offset
-                   << "reason:" << parse_error.errorString();
+        qWarning() << QString("Could not parse categories response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
         qWarning() << *response;
         return categories;
     }
@@ -157,7 +156,7 @@ QList<ModPlatform::Category> ModrinthAPI::loadCategories(const QByteArray& respo
         }
 
     } catch (Json::JsonException& e) {
-        qCritical() << "Failed to parse response from a version request.";
+        qCritical() << "Could not parse version-request response.";
         qCritical() << e.what();
         qDebug() << doc;
     }

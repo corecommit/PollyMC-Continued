@@ -121,10 +121,10 @@ void Flame::FileResolvingTask::netJobFinished(QByteArray* response)
         doc = Json::requireDocument(*response);
         array = Json::requireArray(doc.object()["data"]);
     } catch (Json::JsonException& e) {
-        qCritical() << "Non-JSON data returned from the CF API";
+        qCritical() << "CurseForge API returned non-JSON data";
         qCritical() << e.cause();
 
-        emitFailed(tr("Invalid data returned from the API."));
+        emitFailed(tr("CurseForge API returned invalid data."));
 
         return;
     }
@@ -165,8 +165,7 @@ void Flame::FileResolvingTask::netJobFinished(QByteArray* response)
         QJsonParseError parse_error{};
         QJsonDocument doc = QJsonDocument::fromJson(*modrinthResponse, &parse_error);
         if (parse_error.error != QJsonParseError::NoError) {
-            qWarning() << "Error while parsing JSON response from Modrinth::CurrentVersions at" << parse_error.offset
-                       << "reason:" << parse_error.errorString();
+            qWarning() << QString("Could not parse Modrinth::CurrentVersions response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
             qWarning() << *modrinthResponse;
 
             getFlameProjects();
@@ -232,8 +231,7 @@ void Flame::FileResolvingTask::getFlameProjects()
         QJsonParseError parse_error{};
         auto doc = QJsonDocument::fromJson(*response, &parse_error);
         if (parse_error.error != QJsonParseError::NoError) {
-            qWarning() << "Error while parsing JSON response from Modrinth projects task at" << parse_error.offset
-                       << "reason:" << parse_error.errorString();
+            qWarning() << QString("Could not parse Modrinth projects response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
             qWarning() << *response;
             return;
         }

@@ -191,8 +191,7 @@ bool FlameCreationTask::updateInstance()
             QJsonParseError parse_error{};
             auto doc = QJsonDocument::fromJson(*raw_response, &parse_error);
             if (parse_error.error != QJsonParseError::NoError) {
-                qWarning() << "Error while parsing JSON response from Flame files task at" << parse_error.offset
-                           << "reason:" << parse_error.errorString();
+                qWarning() << QString("Could not parse Flame files response as JSON at offset %1: %2").arg(parse_error.offset, parse_error.errorString());
                 qWarning() << *raw_response;
                 return;
             }
@@ -226,7 +225,7 @@ bool FlameCreationTask::updateInstance()
                 scheduleToDelete(m_parent, old_minecraft_dir, relative_path, true);
             }
         });
-        connect(job.get(), &Task::failed, this, [](QString reason) { qCritical() << "Failed to get files:" << reason; });
+        connect(job.get(), &Task::failed, this, [](QString reason) { qCritical() << QString("Could not download mod files: %1").arg(reason); });
         connect(job.get(), &Task::finished, &loop, &QEventLoop::quit);
 
         m_processUpdateFileInfoJob = job;

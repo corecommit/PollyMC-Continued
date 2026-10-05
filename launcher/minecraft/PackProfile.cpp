@@ -157,16 +157,16 @@ static bool savePackProfile(const QString& filename, const ComponentContainer& c
     obj.insert("components", orderArray);
     QSaveFile outFile(filename);
     if (!outFile.open(QFile::WriteOnly)) {
-        qCCritical(instanceProfileC) << "Couldn't open" << outFile.fileName() << "for writing:" << outFile.errorString();
+        qCCritical(instanceProfileC) << QString("Could not open %1 for writing: %2").arg(outFile.fileName(), outFile.errorString());
         return false;
     }
     auto data = QJsonDocument(obj).toJson(QJsonDocument::Indented);
     if (outFile.write(data) != data.size()) {
-        qCCritical(instanceProfileC) << "Couldn't write all the data into" << outFile.fileName() << "because:" << outFile.errorString();
+        qCCritical(instanceProfileC) << QString("Could not write all data to %1: %2").arg(outFile.fileName(), outFile.errorString());
         return false;
     }
     if (!outFile.commit()) {
-        qCCritical(instanceProfileC) << "Couldn't save" << outFile.fileName() << "because:" << outFile.errorString();
+        qCCritical(instanceProfileC) << QString("Could not save %1: %2").arg(outFile.fileName(), outFile.errorString());
         return false;
     }
     return true;
@@ -185,7 +185,7 @@ static PackProfile::Result loadPackProfile(PackProfile* parent,
         return PackProfile::Result::Error(message);
     }
     if (!componentsFile.open(QFile::ReadOnly)) {
-        auto message = QObject::tr("Couldn't open %1 for reading: %2").arg(componentsFile.fileName(), componentsFile.errorString());
+        auto message = QObject::tr("Could not open %1 for reading: %2").arg(componentsFile.fileName(), componentsFile.errorString());
         qCCritical(instanceProfileC) << message;
         qCWarning(instanceProfileC) << "Ignoring overridden order";
         return PackProfile::Result::Error(message);
@@ -195,7 +195,7 @@ static PackProfile::Result loadPackProfile(PackProfile* parent,
     QJsonParseError error;
     QJsonDocument doc = QJsonDocument::fromJson(componentsFile.readAll(), &error);
     if (error.error != QJsonParseError::NoError) {
-        auto message = QObject::tr("Couldn't parse %1 as json: %2").arg(componentsFile.fileName(), error.errorString());
+        auto message = QObject::tr("Could not parse %1 as json: %2").arg(componentsFile.fileName(), error.errorString());
         qCCritical(instanceProfileC) << message;
         qCWarning(instanceProfileC) << "Ignoring overridden order";
         return PackProfile::Result::Error(message);
@@ -215,7 +215,7 @@ static PackProfile::Result loadPackProfile(PackProfile* parent,
             container.append(componentFromJsonV1(parent, componentJsonPattern, comp_obj));
         }
     } catch ([[maybe_unused]] const JSONValidationError& err) {
-        auto message = QObject::tr("Couldn't parse %1 : bad file format").arg(componentsFile.fileName());
+        auto message = QObject::tr("Could not parse %1: bad file format").arg(componentsFile.fileName());
         qCCritical(instanceProfileC) << message;
         qCWarning(instanceProfileC) << "error:" << err.what();
         container.clear();
@@ -297,7 +297,7 @@ PackProfile::Result PackProfile::load()
     // load the new component list and swap it with the current one...
     ComponentContainer newComponents;
     if (auto result = loadPackProfile(this, filename, patchesPattern(), newComponents); !result) {
-        qCritical() << d->m_instance->name() << "|" << "Failed to load the component config";
+        qCritical() << QString("Could not load the component config for instance %1").arg(d->m_instance->name());
         return result;
     }
     // FIXME: actually use fine-grained updates, not this...
@@ -361,7 +361,7 @@ void PackProfile::resolve(Net::Mode netmode)
     d->m_updateTask.reset(updateTask);
     connect(updateTask, &ComponentUpdateTask::succeeded, this, &PackProfile::updateSucceeded);
     connect(updateTask, &ComponentUpdateTask::failed, this, &PackProfile::updateFailed);
-    connect(updateTask, &ComponentUpdateTask::aborted, this, [this] { updateFailed(tr("Aborted")); });
+    connect(updateTask, &ComponentUpdateTask::aborted, this, [this] { updateFailed(tr("Component update aborted")); });
     d->m_updateTask->start();
 }
 
@@ -390,11 +390,11 @@ void PackProfile::insertComponent(size_t index, ComponentPtr component)
 {
     auto id = component->getID();
     if (id.isEmpty()) {
-        qCWarning(instanceProfileC) << d->m_instance->name() << "|" << "Attempt to add a component with empty ID!";
+        qCWarning(instanceProfileC) << QString("Instance %1: refusing to add a component with an empty ID").arg(d->m_instance->name());
         return;
     }
     if (d->componentIndex.contains(id)) {
-        qCWarning(instanceProfileC) << d->m_instance->name() << "|" << "Attempt to add a component that is already present!";
+        qCWarning(instanceProfileC) << QString("Instance %1: component is already present, not adding it again").arg(d->m_instance->name());
         return;
     }
     beginInsertRows(QModelIndex(), static_cast<int>(index), static_cast<int>(index));
@@ -409,7 +409,7 @@ void PackProfile::componentDataChanged()
 {
     auto objPtr = qobject_cast<Component*>(sender());
     if (!objPtr) {
-        qCWarning(instanceProfileC) << d->m_instance->name() << "|" << "PackProfile got dataChanged signal from a non-Component!";
+        qCWarning(instanceProfileC) << QString("Instance %1: got a dataChanged signal from a non-component object").arg(d->m_instance->name());
         return;
     }
     if (objPtr->getID() == "net.minecraft") {
@@ -425,20 +425,19 @@ void PackProfile::componentDataChanged()
         }
         index++;
     }
-    qCWarning(instanceProfileC) << d->m_instance->name() << "|"
-                                << "PackProfile got dataChanged signal from a Component which does not belong to it!";
+    qCWarning(instanceProfileC) << QString("Instance %1: got a dataChanged signal from a foreign component").arg(d->m_instance->name());
 }
 
 bool PackProfile::remove(const int index)
 {
     auto patch = getComponent(index);
     if (!patch->isRemovable()) {
-        qCWarning(instanceProfileC) << d->m_instance->name() << "|" << "Patch" << patch->getID() << "is non-removable";
+        qCWarning(instanceProfileC) << QString("Instance %1: patch %2 is non-removable").arg(d->m_instance->name(), patch->getID());
         return false;
     }
 
     if (!removeComponent_internal(patch)) {
-        qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "Patch" << patch->getID() << "could not be removed";
+        qCCritical(instanceProfileC) << QString("Instance %1: could not remove patch %2").arg(d->m_instance->name(), patch->getID());
         return false;
     }
 
@@ -471,7 +470,7 @@ bool PackProfile::customize(int index)
         return false;
     }
     if (!patch->customize()) {
-        qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "Patch" << patch->getID() << "could not be customized";
+        qCCritical(instanceProfileC) << QString("Instance %1: could not customize patch %2").arg(d->m_instance->name(), patch->getID());
         return false;
     }
     invalidateLaunchProfile();
@@ -487,7 +486,7 @@ bool PackProfile::revertToBase(int index)
         return false;
     }
     if (!patch->revert()) {
-        qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "Patch" << patch->getID() << "could not be reverted";
+        qCCritical(instanceProfileC) << QString("Instance %1: could not revert patch %2").arg(d->m_instance->name(), patch->getID());
         return false;
     }
     invalidateLaunchProfile();
@@ -692,8 +691,7 @@ bool PackProfile::installComponents(QStringList selectedFiles)
         const QString target = FS::PathCombine(patchDir, versionFile->uid + ".json");
 
         if (!QFile::copy(source, target)) {
-            qCWarning(instanceProfileC) << d->m_instance->name() << "|" << "Component" << source << "could not be copied to target"
-                                        << target;
+            qCWarning(instanceProfileC) << QString("Instance %1: could not copy component %2 to %3").arg(d->m_instance->name(), source, target);
             result = false;
             continue;
         }
@@ -726,8 +724,7 @@ bool PackProfile::installEmpty(const QString& uid, const QString& name)
     QString patchFileName = FS::PathCombine(patchDir, uid + ".json");
     QFile file(patchFileName);
     if (!file.open(QFile::WriteOnly)) {
-        qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "Error opening" << file.fileName()
-                                     << "for reading:" << file.errorString();
+        qCCritical(instanceProfileC) << QString("Instance %1: could not open %2 for reading: %3").arg(d->m_instance->name(), file.fileName(), file.errorString());
         return false;
     }
     file.write(OneSixVersionFormat::versionFileToJson(f).toJson());
@@ -747,8 +744,7 @@ bool PackProfile::removeComponent_internal(ComponentPtr patch)
     if (fileName.size()) {
         QFile patchFile(fileName);
         if (patchFile.exists() && !patchFile.remove()) {
-            qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "File" << fileName
-                                         << "could not be removed because:" << patchFile.errorString();
+            qCCritical(instanceProfileC) << QString("Instance %1: could not remove file %2: %3").arg(d->m_instance->name(), fileName, patchFile.errorString());
             return false;
         }
     }
@@ -764,8 +760,7 @@ bool PackProfile::removeComponent_internal(ComponentPtr patch)
         if (finfo.exists()) {
             QFile jarModFile(jar[0]);
             if (!jarModFile.remove()) {
-                qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "File" << jar[0]
-                                             << "could not be removed because:" << jarModFile.errorString();
+                qCCritical(instanceProfileC) << QString("Instance %1: could not remove file %2: %3").arg(d->m_instance->name(), jar[0], jarModFile.errorString());
                 return false;
             }
             return true;
@@ -877,8 +872,7 @@ bool PackProfile::installCustomJar_internal(QString filepath)
 
     QFile file(patchFileName);
     if (!file.open(QFile::WriteOnly)) {
-        qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "Error opening" << file.fileName()
-                                     << "for reading:" << file.errorString();
+        qCCritical(instanceProfileC) << QString("Instance %1: could not open %2 for reading: %3").arg(d->m_instance->name(), file.fileName(), file.errorString());
         return false;
     }
     file.write(OneSixVersionFormat::versionFileToJson(f).toJson());
@@ -933,8 +927,7 @@ bool PackProfile::installAgents_internal(QStringList filepaths)
         QFile patchFile(FS::PathCombine(patchDir, targetId + ".json"));
 
         if (!patchFile.open(QFile::WriteOnly)) {
-            qCCritical(instanceProfileC) << d->m_instance->name() << "|" << "Error opening" << patchFile.fileName()
-                                         << "for reading:" << patchFile.errorString();
+            qCCritical(instanceProfileC) << QString("Instance %1: could not open %2 for reading: %3").arg(d->m_instance->name(), patchFile.fileName(), patchFile.errorString());
             return false;
         }
 
@@ -962,7 +955,7 @@ std::shared_ptr<LaunchProfile> PackProfile::getProfile() const
             }
             d->m_profile = profile;
         } catch (const Exception& error) {
-            qCWarning(instanceProfileC) << d->m_instance->name() << "|" << "Couldn't apply profile patches because:" << error.cause();
+            qCWarning(instanceProfileC) << QString("Instance %1: could not apply profile patches: %2").arg(d->m_instance->name(), error.cause());
         }
     }
     return d->m_profile;

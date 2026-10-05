@@ -31,13 +31,13 @@ NetworkJobFailedDialog::NetworkJobFailedDialog(const QString& jobName, const int
     m_ui->setupUi(this);
     m_ui->failLabel->setText(m_ui->failLabel->text().arg(jobName));
     if (failed == requests) {
-        m_ui->requestCountLabel->setText(tr("All %1 requests have failed after %2 attempts").arg(failed).arg(attempts));
+        m_ui->requestCountLabel->setText(tr("All %1 requests failed after %2 attempts").arg(failed).arg(attempts));
     } else if (failed < requests / 2) {
         m_ui->requestCountLabel->setText(
-            tr("Out of %1 requests, %2 have failed after %3 attempts").arg(requests).arg(failed).arg(attempts));
+            tr("Only %2 of %1 requests failed (after %3 attempts)").arg(requests).arg(failed).arg(attempts));
     } else {
         m_ui->requestCountLabel->setText(
-            tr("Out of %1 requests, only %2 succeeded after %3 attempts").arg(requests).arg(requests - failed).arg(attempts));
+            tr("Only %2 of %1 requests succeeded (after %3 attempts)").arg(requests).arg(requests - failed).arg(attempts));
     }
 
     m_ui->detailsTable->header()->setSectionResizeMode(0, QHeaderView::Stretch);
