@@ -38,6 +38,7 @@
 #include <QObject>
 
 #include "Application.h"
+#include "settings/SettingsObject.h"
 #include "ui/themes/ThemeManager.h"
 
 QString DarkTheme::id()
