@@ -819,6 +819,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         m_settings->registerSetting("LastLaunchedInstance", "");
         m_settings->registerSetting("AutoLaunchLastInstance", false);
         m_settings->registerSetting("MinimizeToTray", false);
+        m_settings->registerSetting("DiscordRPEnabled", true);
         m_settings->registerSetting("EnableMangoHud", false);
         m_settings->registerSetting("UseDiscreteGpu", false);
         m_settings->registerSetting("UseZink", false);
@@ -1621,8 +1622,9 @@ bool Application::launch(BaseInstance* instance,
                 mcVersion = mc->getPackProfile()->getComponentVersion(QStringLiteral("net.minecraft"));
             if (mcVersion.isEmpty())
                 mcVersion = QStringLiteral("Loading...");
-            DiscordRichPresence::instance()->updatePlayingMinecraft(
-                instance->name(), mcVersion, QDateTime::currentSecsSinceEpoch());
+            if (APPLICATION->settings()->get("DiscordRPEnabled").toBool())
+                DiscordRichPresence::instance()->updatePlayingMinecraft(
+                    instance->name(), mcVersion, QDateTime::currentSecsSinceEpoch());
         });
 
         return true;
@@ -1707,7 +1709,8 @@ void Application::controllerFinished()
     const bool wasSuccessful = controller->wasSuccessful();
 
     // Update Discord Rich Presence back to idle
-    DiscordRichPresence::instance()->updateIdle();
+    if (APPLICATION->settings()->get("DiscordRPEnabled").toBool())
+        DiscordRichPresence::instance()->updateIdle();
 
     // on success, do...
     if (wasSuccessful && controller->instance()->settings()->get("AutoCloseConsole").toBool()) {
@@ -1782,7 +1785,8 @@ MainWindow* Application::showMainWindow(bool minimized)
         }
 
         // Discord Rich Presence
-        DiscordRichPresence::instance()->init();
+        if (APPLICATION->settings()->get("DiscordRPEnabled").toBool())
+            DiscordRichPresence::instance()->init();
     }
     return m_mainWindow;
 }

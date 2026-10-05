@@ -324,6 +324,16 @@
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QCheckBox" name="discordRPEnabledCheckBox">
+             <property name="toolTip">
+              <string>When enabled, the launcher shares the name of your running instance with Discord Rich Presence. Turning this off hides launcher activity from your Discord status.</string>
+             </property>
+             <property name="text">
+              <string>Show what you're playing on Discord</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>

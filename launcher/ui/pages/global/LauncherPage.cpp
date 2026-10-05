@@ -47,6 +47,7 @@
 
 #include <FileSystem.h>
 #include "Application.h"
+#include "DiscordRichPresence.h"
 #include "BuildConfig.h"
 #include "DesktopServices.h"
 #include "settings/SettingsObject.h"
@@ -201,6 +202,18 @@ void LauncherPage::on_metadataEnableBtn_clicked()
     ui->metadataWarningLabel->setHidden(ui->metadataEnableBtn->isChecked());
 }
 
+void LauncherPage::on_discordRPEnabledCheckBox_stateChanged(int state)
+{
+    const bool enabled = (state == Qt::Checked);
+    APPLICATION->settings()->set("DiscordRPEnabled", enabled);
+    auto* presence = DiscordRichPresence::instance();
+    if (!enabled) {
+        presence->shutdown();
+    } else if (!presence->isIpcConnected() && !presence->isWsActive()) {
+        presence->init();
+    }
+}
+
 void LauncherPage::applySettings()
 {
     auto s = APPLICATION->settings();
@@ -215,6 +228,7 @@ void LauncherPage::applySettings()
 
     s->set("AutoLaunchLastInstance", ui->autoLaunchCheckBox->isChecked());
     s->set("MinimizeToTray", ui->minimizeToTrayCheckBox->isChecked());
+    s->set("DiscordRPEnabled", ui->discordRPEnabledCheckBox->isChecked());
 
     s->set("MenuBarInsteadOfToolBar", ui->preferMenuBarCheckBox->isChecked());
 
@@ -280,6 +294,7 @@ void LauncherPage::loadSettings()
 
     ui->autoLaunchCheckBox->setChecked(s->get("AutoLaunchLastInstance").toBool());
     ui->minimizeToTrayCheckBox->setChecked(s->get("MinimizeToTray").toBool());
+    ui->discordRPEnabledCheckBox->setChecked(s->get("DiscordRPEnabled").toBool());
 
     ui->preferMenuBarCheckBox->setChecked(s->get("MenuBarInsteadOfToolBar").toBool());
 

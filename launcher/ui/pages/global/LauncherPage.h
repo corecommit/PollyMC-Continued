@@ -75,6 +75,7 @@ class LauncherPage : public QWidget, public BasePage {
     void on_javaDirBrowseBtn_clicked();
     void on_skinsDirBrowseBtn_clicked();
     void on_metadataEnableBtn_clicked();
+    void on_discordRPEnabledCheckBox_stateChanged(int state);
 
    private:
     Ui::LauncherPage* ui;

@@ -18,6 +18,10 @@
 - **Persistent model consent** — The first-run download prompt for the
   natural-language model is now remembered. If you accepted once, future
   model updates download automatically without prompting.
+- **Discord Rich Presence toggle** — Settings > General has a new "Show
+  what you're playing on Discord" checkbox. Turn it off to hide launcher
+  activity from your Discord status; it applies immediately without
+  a restart.
 
 **Fixed:** 
 
