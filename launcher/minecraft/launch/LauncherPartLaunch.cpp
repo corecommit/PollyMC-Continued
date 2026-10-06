@@ -42,6 +42,7 @@
 #include "Application.h"
 #include "Commandline.h"
 #include "FileSystem.h"
+#include "java/JavaUtils.h"
 #include "launch/LaunchTask.h"
 #include "minecraft/MinecraftInstance.h"
 #include "minecraft/PackProfile.h"
@@ -100,6 +101,24 @@ void LauncherPartLaunch::executeTask()
     emit logLine("Java arguments:\n  " + m_parent->censorPrivateInfo(allArgs) + "\n", MessageLevel::Launcher);
 
     auto javaPath = FS::ResolveExecutable(instance->settings()->get("JavaPath").toString());
+
+#ifdef Q_OS_WIN
+    // Extend the "Use discrete GPU" toggle to Windows: record a High
+    // performance GPU preference for the exact binary about to be spawned.
+    // Fail-open — a registry failure must never abort the launch. The else
+    // branch matters: it removes stale preferences written for a previous
+    // binary when the user unticks the checkbox or AutoInstallJava switches
+    // the runtime between launches.
+    if (instance->settings()->get("UseDiscreteGpu").toBool()) {
+        if (!WinGpuPreference::setHighPerformance(javaPath))
+            emit logLine(tr("Could not set the Windows GPU preference for this Java installation; launching anyway."),
+                         MessageLevel::Warning);
+    } else {
+        if (!WinGpuPreference::clearPreference(javaPath))
+            emit logLine(tr("Could not clear the Windows GPU preference for this Java installation; launching anyway."),
+                         MessageLevel::Warning);
+    }
+#endif
 
     m_process.setProcessEnvironment(instance->createLaunchEnvironment());
 

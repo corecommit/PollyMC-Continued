@@ -37,6 +37,7 @@
 #include <QFileInfo>
 #include <QProcessEnvironment>
 #include <QRegularExpression>
+#include <QSettings>
 #include <QString>
 #include <QStringList>
 
@@ -610,3 +611,61 @@ QStringList getPrismJavaBundle()
 
     return javas;
 }
+
+namespace WinGpuPreference {
+#ifdef Q_OS_WIN
+// Resolve exePath to the canonical native-separator form so the registry
+// value name matches the path Windows records for the process. Uses the
+// same exec-path canonicalizer the launcher uses elsewhere on Windows
+// (FS::getPathNameInLocal8bit). Both forms are logged to ease diagnosing
+// key mismatches.
+static QString resolveExeKey(const QString& exePath)
+{
+    QString resolved = QFileInfo(exePath).canonicalFilePath();
+    if (resolved.isEmpty())
+        resolved = QFileInfo(exePath).absoluteFilePath();
+    resolved = QDir::toNativeSeparators(resolved);
+    resolved = FS::getPathNameInLocal8bit(resolved);
+    qDebug() << "WinGpuPreference: input" << exePath << "resolved" << resolved;
+    return resolved;
+}
+
+static const char* s_gpuPrefsKey = "HKEY_CURRENT_USER\\Software\\Microsoft\\DirectX\\UserGpuPreferences";
+#endif
+
+bool setHighPerformance(const QString& exePath)
+{
+#ifdef Q_OS_WIN
+    const QString key = resolveExeKey(exePath);
+    QSettings reg(QLatin1String(s_gpuPrefsKey), QSettings::NativeFormat);
+    reg.setValue(key, QStringLiteral("GpuPreference=2;"));
+    reg.sync();
+    if (reg.status() != QSettings::NoError) {
+        qWarning() << "WinGpuPreference: failed to write High performance preference for" << key << "status:" << reg.status();
+        return false;
+    }
+    return true;
+#else
+    Q_UNUSED(exePath);
+    return true;
+#endif
+}
+
+bool clearPreference(const QString& exePath)
+{
+#ifdef Q_OS_WIN
+    const QString key = resolveExeKey(exePath);
+    QSettings reg(QLatin1String(s_gpuPrefsKey), QSettings::NativeFormat);
+    reg.remove(key);
+    reg.sync();
+    if (reg.status() != QSettings::NoError) {
+        qWarning() << "WinGpuPreference: failed to clear GPU preference for" << key << "status:" << reg.status();
+        return false;
+    }
+    return true;
+#else
+    Q_UNUSED(exePath);
+    return true;
+#endif
+}
+}  // namespace WinGpuPreference

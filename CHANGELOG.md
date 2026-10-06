@@ -68,6 +68,13 @@
 - **Translation strings updated** — Several launcher dialogs and
   status messages have new source strings. Existing translations
   will fall back to English until translators catch up.
+- **"Use discrete GPU" now works on Windows** — The toggle
+  previously did nothing on Windows, since the GPU preference
+  logic was Linux-only. Enabling it now writes the same
+  per-application GPU preference that Windows Settings >
+  Display > Graphics uses, for the Java binary the instance
+  actually launches. Note: this is per-binary — it affects
+  every app on the machine using the same javaw.exe.
   
 ## v9.3.0
 

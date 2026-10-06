@@ -29,6 +29,20 @@ QStringList envToStringList(const QProcessEnvironment& env);
 QStringList getMinecraftJavaBundle();
 QStringList getPrismJavaBundle();
 
+namespace WinGpuPreference {
+// Writes "GpuPreference=2;" (High performance) for exePath under
+// HKCU\Software\Microsoft\DirectX\UserGpuPreferences so Windows runs that
+// binary on the high-performance GPU. Returns true on success.
+// No-op returning true on non-Windows platforms. Fail-open: callers must
+// launch anyway when this returns false.
+bool setHighPerformance(const QString& exePath);
+
+// Removes the GPU preference value for exePath, restoring the OS default
+// (never writes "GpuPreference=0;"). Returns true on success.
+// No-op returning true on non-Windows platforms.
+bool clearPreference(const QString& exePath);
+}
+
 class JavaUtils : public QObject {
     Q_OBJECT
    public:

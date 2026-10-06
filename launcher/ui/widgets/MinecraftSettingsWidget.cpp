@@ -240,6 +240,12 @@ void MinecraftSettingsWidget::loadSettings()
     m_ui->enableFeralGamemodeCheck->setChecked(settings->get("EnableFeralGamemode").toBool());
     m_ui->enableMangoHud->setChecked(settings->get("EnableMangoHud").toBool());
     m_ui->useDiscreteGpuCheck->setChecked(settings->get("UseDiscreteGpu").toBool());
+#ifdef Q_OS_WIN
+    // The registry preference is per javaw.exe path and machine-wide for
+    // that binary — say so, instead of the generic Linux wording in the .ui.
+    m_ui->useDiscreteGpuCheck->setToolTip(tr("Sets Windows' GPU preference for this Java installation to High performance. Affects every app "
+                                             "using the same javaw.exe."));
+#endif
     m_ui->useZink->setChecked(settings->get("UseZink").toBool());
 
     if (m_instance != nullptr) {
