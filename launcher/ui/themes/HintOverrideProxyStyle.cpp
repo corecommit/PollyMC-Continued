@@ -50,6 +50,14 @@ bool usesFluentGlyph(QStyle::PrimitiveElement pe)
             return false;
     }
 }
+
+// One lazily-created Fusion style shared by both intercepts below.
+// Function-local static: thread-safe, created once, lives forever.
+QStyle* fluentFallbackStyle()
+{
+    static QStyle* fallback = QStyleFactory::create("fusion");
+    return fallback;
+}
 }  // namespace
 
 void HintOverrideProxyStyle::drawPrimitive(PrimitiveElement element,
@@ -60,13 +68,28 @@ void HintOverrideProxyStyle::drawPrimitive(PrimitiveElement element,
     qDebug() << "PROXY drawPrimitive" << element
              << "font-usable:" << ThemeManager::windows11StyleIsUsable();
     if (!ThemeManager::windows11StyleIsUsable() && usesFluentGlyph(element)) {
-        static QStyle* fallback = QStyleFactory::create("fusion");
-        if (fallback) {
+        if (QStyle* fallback = fluentFallbackStyle()) {
             fallback->drawPrimitive(element, option, painter, widget);
             return;
         }
     }
     QProxyStyle::drawPrimitive(element, option, painter, widget);
+}
+
+void HintOverrideProxyStyle::drawComplexControl(ComplexControl control,
+                                                const QStyleOptionComplex* option,
+                                                QPainter* painter,
+                                                const QWidget* widget) const
+{
+    qDebug() << "PROXY drawComplexControl" << control
+             << "font-usable:" << ThemeManager::windows11StyleIsUsable();
+    if (!ThemeManager::windows11StyleIsUsable() && (control == CC_SpinBox || control == CC_ComboBox)) {
+        if (QStyle* fallback = fluentFallbackStyle()) {
+            fallback->drawComplexControl(control, option, painter, widget);
+            return;
+        }
+    }
+    QProxyStyle::drawComplexControl(control, option, painter, widget);
 }
 
 int HintOverrideProxyStyle::styleHint(QStyle::StyleHint hint,

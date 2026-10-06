@@ -306,7 +306,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         if (renderer.isValid()) {
             // Splash canvas: 400x260 dark, matching the app's dark theme
             QPixmap splashPixmap(400, 260);
-            splashPixmap.fill(QColor("#2b2b2b"));
+            splashPixmap.fill(QColor("#191919"));
             QPainter p(&splashPixmap);
             p.setRenderHint(QPainter::Antialiasing);
             p.setRenderHint(QPainter::SmoothPixmapTransform);
@@ -1026,8 +1026,6 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
 
     // Themes
     m_themeManager = std::make_unique<ThemeManager>();
-    qDebug() << "Installed style:" << QApplication::style()->metaObject()->className()
-             << "objectName:" << QApplication::style()->objectName();
 #if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
     // Live-follow the OS appearance, but only while the user asked for
     // System mode. Placed here (not in ThemeManager) because
@@ -1268,6 +1266,8 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
     }
 
     m_themeManager->applyCurrentlySelectedTheme(true);
+    qDebug() << "Installed style:" << QApplication::style()->metaObject()->className()
+             << "objectName:" << QApplication::style()->objectName();
     performMainStartupAction();
 }
 
