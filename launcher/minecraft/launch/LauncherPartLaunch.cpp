@@ -42,7 +42,6 @@
 #include "Application.h"
 #include "Commandline.h"
 #include "FileSystem.h"
-#include "java/JavaUtils.h"
 #include "launch/LaunchTask.h"
 #include "minecraft/MinecraftInstance.h"
 #include "minecraft/PackProfile.h"
@@ -50,6 +49,11 @@
 #ifdef Q_OS_LINUX
 #include "gamemode_client.h"
 #endif
+
+// NOTE: keep this include last. JavaUtils.h pulls in <windows.h> on Windows,
+// whose OPTIONAL/IN/OUT SAL macros break ModIndex.h's DependencyType enum
+// if they are defined before the project headers above are parsed.
+#include "java/JavaUtils.h"
 
 LauncherPartLaunch::LauncherPartLaunch(LaunchTask* parent)
     : LaunchStep(parent)
