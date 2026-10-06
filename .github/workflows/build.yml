@@ -199,7 +199,6 @@ jobs:
             mingw-w64-ucrt-x86_64-libidn2
             mingw-w64-ucrt-x86_64-sqlite3
             mingw-w64-ucrt-x86_64-nsis
-            mingw-w64-ucrt-x86_64-nsis-nsplugins
             mingw-w64-ucrt-x86_64-ccache
             mingw-w64-ucrt-x86_64-onnxruntime
 
