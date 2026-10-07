@@ -355,12 +355,15 @@ jobs:
           sed "s/PollyMC-Continued-[^ ]*-Setup/PollyMC-Continued-${VERSION}-Windows-Setup/" \
             pollymc_installer.nsi > pollymc_installer_versioned.nsi
 
-          # Show where nsExec lives so the -P flag below can be corrected
+          # Show where nsExec lives so the -X flag below can be corrected
           # if MSYS2 ever changes its NSIS layout.
           find /ucrt64/share/nsis -name 'nsExec.dll' 2>/dev/null || echo "nsExec not found"
 
+          # NOTE: makensis has no -P plugin-dir flag (-P sets process
+          # priority); the plugin dir must be registered with AddPluginDir
+          # via -X. Verified path on the runner: Plugins/unicode.
           makensis \
-            "-P$(cygpath -w /ucrt64/share/nsis/Plugins/x86-unicode)" \
+            "-XAddPluginDir \"$(cygpath -w /ucrt64/share/nsis/Plugins/unicode)\"" \
             "-DBUILD_DIR=${BUILD_DIR_WIN}" \
             "-DVERSION=${VERSION}" \
             "pollymc_installer_versioned.nsi"
