@@ -355,12 +355,12 @@ jobs:
           sed "s/PollyMC-Continued-[^ ]*-Setup/PollyMC-Continued-${VERSION}-Windows-Setup/" \
             pollymc_installer.nsi > pollymc_installer_versioned.nsi
 
-          # makensis.exe is a Windows binary and cannot resolve MSYS2 paths
-          # on its own; point it at its plugin directory explicitly so the
-          # bundled plugins (e.g. nsExec) are found.
-          export NSISDIR="$(cygpath -w /ucrt64/share/nsis)"
+          # Show where nsExec lives so the -P flag below can be corrected
+          # if MSYS2 ever changes its NSIS layout.
+          find /ucrt64/share/nsis -name 'nsExec.dll' 2>/dev/null || echo "nsExec not found"
 
           makensis \
+            "-P$(cygpath -w /ucrt64/share/nsis/Plugins/x86-unicode)" \
             "-DBUILD_DIR=${BUILD_DIR_WIN}" \
             "-DVERSION=${VERSION}" \
             "pollymc_installer_versioned.nsi"
