@@ -355,12 +355,20 @@ jobs:
           sed "s/PollyMC-Continued-[^ ]*-Setup/PollyMC-Continued-${VERSION}-Windows-Setup/" \
             pollymc_installer.nsi > pollymc_installer_versioned.nsi
 
-          # Show where nsExec lives so the -X flag below can be corrected
+          # Register the MSYS2 plugin directory with makensis via a
+          # script directive, not a command-line flag. The MSYS2 build of
+          # makensis does not honor NSISDIR, and -X flags are being
+          # dropped by the shell wrapper; !addplugindir inside the script
+          # is the one mechanism that reliably works.
+          PLUGIN_DIR="$(cygpath -m /ucrt64/share/nsis/Plugins/unicode)"
+          { echo "!addplugindir \"$PLUGIN_DIR\""; cat pollymc_installer_versioned.nsi; } > pollymc_installer_versioned.nsi.tmp
+          mv pollymc_installer_versioned.nsi.tmp pollymc_installer_versioned.nsi
+
+          # Show where nsExec lives so the directive above can be corrected
           # if MSYS2 ever changes its NSIS layout.
           find /ucrt64/share/nsis -name 'nsExec.dll' 2>/dev/null || echo "nsExec not found"
 
           makensis \
-            "-X!addplugindir /ucrt64/share/nsis/Plugins/unicode" \
             "-DBUILD_DIR=${BUILD_DIR_WIN}" \
             "-DVERSION=${VERSION}" \
             "pollymc_installer_versioned.nsi"
