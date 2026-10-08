@@ -359,11 +359,8 @@ jobs:
           # if MSYS2 ever changes its NSIS layout.
           find /ucrt64/share/nsis -name 'nsExec.dll' 2>/dev/null || echo "nsExec not found"
 
-          # NOTE: makensis has no -P plugin-dir flag (-P sets process
-          # priority); the plugin dir must be registered with AddPluginDir
-          # via -X. Verified path on the runner: Plugins/unicode.
           makensis \
-            "-XAddPluginDir \"$(cygpath -w /ucrt64/share/nsis/Plugins/unicode)\"" \
+            "-X!addplugindir /ucrt64/share/nsis/Plugins/unicode" \
             "-DBUILD_DIR=${BUILD_DIR_WIN}" \
             "-DVERSION=${VERSION}" \
             "pollymc_installer_versioned.nsi"
